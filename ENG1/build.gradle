@@ -69,3 +69,18 @@ project(":desktop") {
 
     }
 }
+
+project(":tests"){
+    apply plugin: "Java"
+
+    sourceSets.test.java.srcDirs = ["src/"]
+
+    dependencies {
+        compile project(":core")
+
+        compile "junit:junit:4.+"
+        compile "org.mockito:mockito-all:1.9.+"
+
+        compile "com.badlo"
+    }
+}
