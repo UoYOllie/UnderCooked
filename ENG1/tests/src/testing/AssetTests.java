@@ -10,7 +10,7 @@ import static org.testng.Assert.*;
 public class AssetTests {
     @Test
     public void testChefAssetExists(){
-        assertTrue(Gdx.files.internal("hold down.png").exists(), "This test will only pass if hold down.png");
+        assertTrue(Gdx.files.internal("cooks/hold down.png").exists(), "This test will only pass if hold down.png is present");
     }
 
     @Test
