@@ -14,4 +14,7 @@ public class AssetTests {
     }
 
     @Test
+    public void testing(){
+        assertTrue(true, "1=1");
+    }
 }
