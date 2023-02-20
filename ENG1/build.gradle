@@ -72,31 +72,26 @@ project(":desktop") {
 
 project(":tests") {
     apply plugin: "java"
+
     sourceSets.test.java.srcDirs = ["src/"]
-    test{
-        useJUnitPlatform()
-    }
-    repositories{
-        mavenCentral()
-    }
+
     dependencies {
 
         implementation project(":core")
 
-        implementation "junit:junit:5.+"
+        implementation "junit:junit:4.+"
         implementation "org.mockito:mockito-all:1.9.+"
-        implementation 'org.junit:junit-bom:5.9.2'
+
         implementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
         implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
 
-        testImplementation 'junit:junit:5.+'
+        testImplementation 'junit:junit:4.+'
         testImplementation "org.mockito:mockito-all:1.9.+"
 
         testImplementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
         testImplementation "com.badlogicgames.gdx:gdx:$gdxVersion"
         testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-
+        testImplementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
     }
-
 }
 
