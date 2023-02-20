@@ -1,8 +1,19 @@
-sourceCompatibility = 1.7
+apply plugin: "java"
+
+sourceCompatibility = 1.8
+dependencies {
+    implementation 'org.testng:testng:7.1.0'
+}
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 sourceSets.main.java.srcDirs = [ "src/" ]
-sourceSets.main.resources.srcDirs = ["../assets" ]
+sourceSets.main.resources.srcDirs = ["../assets"]
 project.ext.assetsDir = new File("../assets")
 
-eclipse.project.name = appName + "-tests"
+eclipse.project {
+    name = appName + "-tests"
+}
+
+test{
+    jvmArgs += "--add-opens=java.base/java.lang=ALL-UNNAMED"
+}
