@@ -256,4 +256,36 @@ public class AssetTests {
     public void testFoodTopBunAssetExists(){
         assertTrue(Gdx.files.internal("foods/TopBun.png").exists(),"This test will only pass if TopBun.png exists in the food folder");
     }
+    //These are the tests to do with the sprites.xcfs folder
+    @Test
+    public void testBurgerxcfAssetExists(){
+        assertTrue(Gdx.files.internal("Sprites/xcfs/Burger.xcf").exists(), "This test failed because Burger.xcf doesn't exist");
+    }@Test
+    public void testBurger_BunsxcfAssetExists(){
+        assertTrue(Gdx.files.internal("Sprites/xcfs/Burger_Buns.xcf").exists(), "This test failed because Burger_Buns.xcf doesn't exist");
+    }@Test
+    public void testCutting_StationxcfAssetExists(){
+        assertTrue(Gdx.files.internal("Sprites/xcfs/Cutting_Station.xcf").exists(), "This test failed because Cutting_Station doesn't exist");
+    }@Test
+    public void testFryerxcfAssetExists(){
+        assertTrue(Gdx.files.internal("Sprites/xcfs/Fryer.xcf").exists(), "This test failed because Fryer.xcf doesn't exist");
+    }@Test
+    public void testLettucexcfAssetExists(){
+        assertTrue(Gdx.files.internal("Sprites/xcfs/Lettuce.xcf").exists(), "This test failed because Lettuce.xcf doesn't exist");
+    }@Test
+    public void testMargheritaPizzaxcfAssetExists(){
+        assertTrue(Gdx.files.internal("Sprites/xcfs/MargheritaPizza.xcf").exists(), "This test failed because MargheritaPizza.xcf doesn't exist");
+    }@Test
+    public void testMeatxcfAssetExists(){
+        assertTrue(Gdx.files.internal("Sprites/xcfs/Meat.xcf").exists(), "This test failed because Meat.xcf doesn't exist");
+    }@Test
+    public void testOnionxcfAssetExists(){
+        assertTrue(Gdx.files.internal("Sprites/xcfs/Onion.xcf").exists(), "This test failed because Onion.xcf doesn't exist");
+    }@Test
+    public void testTablexcfAssetExists(){
+        assertTrue(Gdx.files.internal("Sprites/xcfs/Table.xcf").exists(), "This test failed because Tables.xcf doesn't exist");
+    }@Test
+    public void testTomatoxcfAssetExists(){
+        assertTrue(Gdx.files.internal("Sprites/xcfs/Tomato.xcf").exists(), "This test failed because Tomato.xcf doesn't exist");
+    }
 }

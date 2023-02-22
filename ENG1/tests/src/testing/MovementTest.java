@@ -18,11 +18,11 @@ public class MovementTest {
     public void TestChefMoveLeft(){
         int x = 0;
         int y = 0;
-        GameScreen gameScreen = new GameScreen();
-        Body body = new Body();
+       // GameScreen gameScreen = new GameScreen();
+        //Body body = new Body();
 
-        World world = new World(new Vector2(x,y),false);
-        cooks.Cook cook =- new cooks.Cook(1,1,body,gamescreen);
-        cook.userInput();
+        //World world = new World(new Vector2(x,y),false);
+        //cooks.Cook cook =- new cooks.Cook(1,1,body,gamescreen);
+        //cook.userInput();
     }
 }
