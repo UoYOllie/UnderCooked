@@ -65,15 +65,24 @@ public class AssetTests {
     @Test
     public void testAtlasCustomerAssetExists(){
         assertTrue(Gdx.files.internal("atlas/customer.png").exists(),"This test will only pass if customer.png exists in the atlas folder");
+        assertTrue(Gdx.files.internal("atlas/customer.atlas").exists(),"This will only pass if customer.atlas exists");
     }
 
     @Test
     public void testAtlasCookAssetExists(){
         assertTrue(Gdx.files.internal("atlas/cook.png").exists(),"This test will only pass if cook.png exists in the atlas folder");
+        assertTrue(Gdx.files.internal("atlas/cook.atlas").exists(),"This will only pass if customer.atlas exists");
     }
 
     @Test
     public void testAtlasFoodAssetExists(){
         assertTrue(Gdx.files.internal("atlas/food.png").exists(),"This test will only pass if food.png exists in the atlas folder");
+        assertTrue(Gdx.files.internal("atlas/food.atlas").exists(),"This will only pass if food.atlas exists");
+    }
+
+    @Test
+    public void testAtlasStationAssetExists(){
+        assertTrue(Gdx.files.internal("atlas/station.png").exists(),"This test will only pass if station.png exists in the atlas folder");
+        assertTrue(Gdx.files.internal("atlas/station.atlas").exists(),"This will only pass if station.atlas exists");
     }
 }
