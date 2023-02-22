@@ -288,4 +288,16 @@ public class AssetTests {
     public void testTomatoxcfAssetExists(){
         assertTrue(Gdx.files.internal("Sprites/xcfs/Tomato.xcf").exists(), "This test failed because Tomato.xcf doesn't exist");
     }
+
+    // This will test the files in the general asset folder to make sure they exist
+
+    @Test
+    public void testBadLogicAssetExists(){
+        assertTrue(Gdx.files.internal("badlogic.jpg").exists(),"The test will only pass if badlogic.jpg exists in the asset folder");
+    }
+
+    @Test
+    public void testCreditsAssetExists(){
+        assertTrue(Gdx.files.internal("CREDITS.txt").exists(),"The test will only pass if CREDITS.txt exists in the asset folder");
+    }
 }
