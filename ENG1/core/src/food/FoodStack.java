@@ -1,11 +1,12 @@
 package food;
 
 import com.badlogic.gdx.utils.Array;
+import cooks.Player;
 import food.FoodItem.FoodID;
 
 /**
  * A class to create the behaviour of a {@code Stack} for
- * {@link FoodItem}s to be used by the {@link cooks.Cook},
+ * {@link FoodItem}s to be used by the {@link Player},
  * {@link stations.CounterStation} and {@link Recipe}s.
  */
 public class FoodStack {

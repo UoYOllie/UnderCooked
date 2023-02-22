@@ -1,5 +1,6 @@
 package game;
 
+import cooks.Player;
 import customers.Customer;
 
 import com.badlogic.gdx.Gdx;
@@ -15,7 +16,6 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
-import cooks.Cook;
 import cooks.GameEntity;
 import customers.CustomerController;
 import helper.CollisionHelper;
@@ -56,8 +56,8 @@ public class GameScreen extends ScreenAdapter {
     private int yOffset = 320;
 
     //Objects
-    private Array<Cook> cooks;
-    private Cook cook;
+    private Array<Player> cooks;
+    private Player player;
 
     private int cookIndex;
     private CustomerController customerController;
@@ -125,10 +125,10 @@ public class GameScreen extends ScreenAdapter {
         orthogonalTiledMapRenderer.setView(camera);
         batch.setProjectionMatrix(camera.combined);
         shape.setProjectionMatrix(camera.combined);
-        for (Cook thisCook : cooks) {
-            thisCook.getBody().setLinearVelocity(0F,0F);
-            if (thisCook == cook) {
-                thisCook.userInput();
+        for (Player thisPlayer : cooks) {
+            thisPlayer.getBody().setLinearVelocity(0F,0F);
+            if (thisPlayer == player) {
+                thisPlayer.userInput();
             }
         }
         if(Interactions.isJustPressed(InputKey.InputTypes.COOK_SWAP)) {
@@ -203,8 +203,8 @@ public class GameScreen extends ScreenAdapter {
 
         for (GameEntity entity : gameEntities) {
             entity.render(batch);
-            if (entity == cook) {
-                ((Cook) entity).renderControlArrow(batch);
+            if (entity == player) {
+                ((Player) entity).renderControlArrow(batch);
             }
             entity.renderDebug(batch);
         }
@@ -256,28 +256,28 @@ public class GameScreen extends ScreenAdapter {
     }
 
     /**
-     * Sets the currently active {@link #cook} that the game is using.
-     * @param cookIndex The index of {@link #cook} in the {@link #cooks} array.
-     * @return {@link Cook} : The {@link Cook} that the game has swapped to.
+     * Sets the currently active {@link #player} that the game is using.
+     * @param cookIndex The index of {@link #player} in the {@link #cooks} array.
+     * @return {@link Player} : The {@link Player} that the game has swapped to.
      */
-    public Cook setCook(int cookIndex)
+    public Player setCook(int cookIndex)
     {
         if (cookIndex < 0 || cookIndex > cooks.size) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        this.cook = cooks.get(cookIndex);
+        this.player = cooks.get(cookIndex);
         this.cookIndex = cookIndex;
-        return this.cook;
+        return this.player;
     }
 
     /**
-     * Adds a new {@link Cook} to the {@link #cooks} {@link Array} for the game to swap between.
-     * @param newCook The {@link Cook} to be added to the {@link Array}.
+     * Adds a new {@link Player} to the {@link #cooks} {@link Array} for the game to swap between.
+     * @param newPlayer The {@link Player} to be added to the {@link Array}.
      * @return {@code int} : The index of the new cook in the cooks array.
      */
-    public int addCook(Cook newCook) {
-        gameEntities.add(newCook);
-        cooks.add(newCook);
+    public int addCook(Player newPlayer) {
+        gameEntities.add(newPlayer);
+        cooks.add(newPlayer);
         return cooks.size-1;
     }
 
@@ -343,8 +343,8 @@ public class GameScreen extends ScreenAdapter {
     }
 
     /**
-     * Adds a {@link CookInteractable} that a {@link Cook} can interact with to {@link #interactables}.
-     * @param cookInteractable The {@link CookInteractable} object that the {@link Cook}
+     * Adds a {@link CookInteractable} that a {@link Player} can interact with to {@link #interactables}.
+     * @param cookInteractable The {@link CookInteractable} object that the {@link Player}
      *                         should be able to interact with.
      */
     public void addInteractable(CookInteractable cookInteractable) {

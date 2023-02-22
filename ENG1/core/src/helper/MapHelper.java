@@ -13,7 +13,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.Shape;
-import cooks.Cook;
+import cooks.Player;
 import food.FoodItem;
 import game.GameScreen;
 import stations.*;
@@ -81,7 +81,7 @@ public class MapHelper {
 
     /**
      * Creates a Static {@link Body} added to the map that is used
-     * to stop the {@link Cook} from moving through certain places.
+     * to stop the {@link Player} from moving through certain places.
      * @param polygonMapObject
      */
     private void createStaticBody(PolygonMapObject polygonMapObject)
@@ -151,7 +151,7 @@ public class MapHelper {
                 if(rectangleName.equals("CookStart"))
                 {
                     Body body = makeBody(rectangle, false);
-                    int cookInd = gameScreen.addCook(new Cook(rectangle.getWidth(), rectangle.getHeight(), body, gameScreen));
+                    int cookInd = gameScreen.addCook(new Player(rectangle.getWidth(), rectangle.getHeight(), body, gameScreen));
                     gameScreen.setCook(cookInd);
                     continue;
                 }
@@ -159,7 +159,7 @@ public class MapHelper {
                 if(rectangleName.equals("Cook"))
                 {
                     Body body = makeBody(rectangle, false);
-                    gameScreen.addCook(new Cook(rectangle.getWidth(), rectangle.getHeight(), body, gameScreen));
+                    gameScreen.addCook(new Player(rectangle.getWidth(), rectangle.getHeight(), body, gameScreen));
                     continue;
                 }
 
