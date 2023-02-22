@@ -63,6 +63,7 @@ public class AssetTests {
     @Test
     public void testCustomerAssetExists(){
         assertTrue(Gdx.files.internal("customers/Customer.png").exists(),"This test will only pass if Customer.png exists in the customers folder");
+        assertTrue(Gdx.files.internal("customers/customer.tpproj").exists(),"This tests that customer.tpproj exists");
     }
 
     //The following test that all assets in the atlas folder exist
@@ -162,5 +163,97 @@ public class AssetTests {
     @Test
     public void testStationsMap2AssetExists(){
         assertTrue(Gdx.files.internal("Maps/StationsMap2.tmx").exists(),"This will only pass if StationsMap2.tmx exists");
+    }
+
+    //This is the section of tests that deal with the foods asset folder
+
+    @Test
+    public void testFoodBottomBunAssetExists(){
+        assertTrue(Gdx.files.internal("foods/BottomBun.png").exists(),"This test will only pass if BottomBun.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodBurgerAssetExists(){
+        assertTrue(Gdx.files.internal("foods/Burger.png").exists(),"This test will only pass if Burger.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodBurger_bunsAssetExists(){
+        assertTrue(Gdx.files.internal("foods/Burger_Buns.png").exists(),"This test will only pass if Burger_Bun.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodBurger_BunsUpscaledAssetExists(){
+        assertTrue(Gdx.files.internal("foods/Burger_BunsUpscaled.png").exists(),"This test will only pass if Burger_BunsUpscaled.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodFoodsAtlasAssetExists(){
+        assertTrue(Gdx.files.internal("foods/foods atlas.tpproj").exists(),"This test will only pass if foods atlas.tpproj exists in the food folder");
+    }
+
+    @Test
+    public void testFoodLettuceAssetExists(){
+        assertTrue(Gdx.files.internal("foods/Lettuce.png").exists(),"This test will only pass if Lettuce.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodLettuceChopAssetExists(){
+        assertTrue(Gdx.files.internal("foods/LettuceChop.png").exists(),"This test will only pass if LettuceChop.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodLettuceUpscaledAssetExists(){
+        assertTrue(Gdx.files.internal("foods/LettuceUpscaled.png").exists(),"This test will only pass if LettuceUpscaled.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodMargheritaPizaaAssetExists(){
+        assertTrue(Gdx.files.internal("foods/MargheritaPizza.png").exists(),"This test will only pass if MargheritaPizza.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodMeatAssetExists(){
+        assertTrue(Gdx.files.internal("foods/Meat.png").exists(),"This test will only pass if Meat.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodMeatFriedAssetExists(){
+        assertTrue(Gdx.files.internal("foods/MeatFried.png").exists(),"This test will only pass MeatFried.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodOnionAssetExists(){
+        assertTrue(Gdx.files.internal("foods/Onion.png").exists(),"This test will only pass if Onion.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodOnionChopAssetExists(){
+        assertTrue(Gdx.files.internal("foods/OnionChop.png").exists(),"This test will only pass if OnionChop.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodOnionUpscaledAssetExists(){
+        assertTrue(Gdx.files.internal("foods/OnionUpscaled.png").exists(),"This test will only pass if OnionUpscaled.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodTomatoAssetExists(){
+        assertTrue(Gdx.files.internal("foods/Tomato.png").exists(),"This test will only pass if Tomato.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodTomatoChopAssetExists(){
+        assertTrue(Gdx.files.internal("foods/TomatoChop.png").exists(),"This test will only pass if TomatoChop.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodTomatoUpscaeldAssetExists(){
+        assertTrue(Gdx.files.internal("foods/TomatoUpscaled.png").exists(),"This test will only pass if TomatoUpscaled.png exists in the food folder");
+    }
+
+    @Test
+    public void testFoodTopBunAssetExists(){
+        assertTrue(Gdx.files.internal("foods/TopBun.png").exists(),"This test will only pass if TopBun.png exists in the food folder");
     }
 }
