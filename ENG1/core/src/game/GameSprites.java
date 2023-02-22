@@ -2,6 +2,7 @@ package game;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import cooks.Player;
 
 import java.util.HashMap;
 
@@ -15,7 +16,7 @@ public class GameSprites {
      * An enum of the different Sprite IDs for each {@link TextureAtlas}.
      */
     public enum SpriteID {
-        /** The {@link cooks.Cook}'s {@link TextureAtlas}.*/
+        /** The {@link Player}'s {@link TextureAtlas}.*/
         COOK,
         /** The {@link food.FoodItem}'s {@link TextureAtlas}.*/
         FOOD,

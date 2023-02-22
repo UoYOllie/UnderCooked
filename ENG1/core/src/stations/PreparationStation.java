@@ -5,14 +5,14 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import cooks.Cook;
+import cooks.Player;
 import food.FoodItem;
 import game.GameSprites;
 import interactions.InputKey;
 import interactions.Interactions;
 
 /**
- * The {@link PreparationStation} class, where the {@link cooks.Cook}
+ * The {@link PreparationStation} class, where the {@link Player}
  * process {@link FoodItem}s into different {@link FoodItem}s to prepare
  * them to make a {@link food.Recipe}.
  */
@@ -36,7 +36,7 @@ public class PreparationStation extends Station {
      * An update function to be used by the {@link game.GameScreen}
      *
      * <br>It updates the {@link #progress} of the {@link interactions.Interactions.InteractionResult}
-     * until it requires a {@link InputKey.InputTypes#USE} from the {@link Cook}
+     * until it requires a {@link InputKey.InputTypes#USE} from the {@link Player}
      * when the current {@code step} of the {@link interactions.Interactions.InteractionResult}
      * is reached.
      * @param delta The time between frames as a float.
@@ -145,20 +145,20 @@ public class PreparationStation extends Station {
     /**
      * The interact function for the {@link ServingStation}.
      *
-     * <br>This allows the {@link Cook} to put a valid {@link FoodItem} onto the
+     * <br>This allows the {@link Player} to put a valid {@link FoodItem} onto the
      * {@link PreparationStation}, and start a process of changing it from the
      * {@link FoodItem} to the {@link interactions.Interactions.InteractionResult} {@link FoodItem}.
-     * @param cook The cook that interacted with the {@link CookInteractable}.
+     * @param player The cook that interacted with the {@link CookInteractable}.
      * @param inputType The type of {@link InputKey.InputTypes} the player made with
      *                  the {@link CookInteractable}.
      */
     @Override
-    public void interact(Cook cook, InputKey.InputTypes inputType) {
+    public void interact(Player player, InputKey.InputTypes inputType) {
 
         // If the Cook is holding a food item, and they use the "Put down" control...
-        if (cook.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
+        if (player.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
             // Start by getting the possible interaction result
-            Interactions.InteractionResult newInteraction = interactions.Interactions.interaction(cook.foodStack.peekStack(), stationID);
+            Interactions.InteractionResult newInteraction = interactions.Interactions.interaction(player.foodStack.peekStack(), stationID);
             // If it's null, just stop here.
             if (newInteraction == null) {
                 return;
@@ -167,7 +167,7 @@ public class PreparationStation extends Station {
             // Check to make sure the station isn't inUse.
             if (!inUse) {
                 // Set the current interaction, and put this station inUse
-                foodItem = cook.foodStack.popStack();
+                foodItem = player.foodStack.popStack();
                 interaction = newInteraction;
                 stepNum = 0;
                 progress = 0;
@@ -191,11 +191,11 @@ public class PreparationStation extends Station {
                 inUse = false;
                 // If it is done, pick up the result instead of the foodItem
                 if (progress >= 100) {
-                    cook.foodStack.addStack(interaction.getResult());
+                    player.foodStack.addStack(interaction.getResult());
                     return;
                 }
                 // Take the item from the Station, and change it to not being used
-                cook.foodStack.addStack(foodItem);
+                player.foodStack.addStack(foodItem);
                 return; // Return as it the Station is no longer inUse
             }
             // Otherwise, check if the user is trying to use the Station.
@@ -203,7 +203,7 @@ public class PreparationStation extends Station {
                 // If progress >= 100, then take the result of the preparation.
                 if (progress >= 100) {
                     inUse = false;
-                    cook.foodStack.addStack(interaction.getResult());
+                    player.foodStack.addStack(interaction.getResult());
                     return;
                 }
                 // If currently at a step, move to the next step.

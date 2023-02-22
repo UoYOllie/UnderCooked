@@ -82,14 +82,14 @@ We quickly realised how limited our initial UML was surrounding the **gameMaster
 
 - **FoodStack** is responsible for holding a stack of in-game cooking ingredients. The chef class will use this object to hold food items.
 - **FoodItem** contains information about how to render each ingredient.
-- **Recipe** contains each recipe and how each one is made. We learnt that to consrtuct salad and burgers, the cook must hold a certain **FoodStack**. Thus, certain - **FoodStack**s correlate to certain recipes. **Recipe** holds a dict which translates a String recipeName to Array<String> listOfFoodStacks which are all the foodStacks which correlate to recipe recipeName.
+- **Recipe** contains each recipe and how each one is made. We learnt that to consrtuct salad and burgers, the player must hold a certain **FoodStack**. Thus, certain - **FoodStack**s correlate to certain recipes. **Recipe** holds a dict which translates a String recipeName to Array<String> listOfFoodStacks which are all the foodStacks which correlate to recipe recipeName.
 
 ### Addition 3: Cooks
 ![Cooks UML](https://raw.githubusercontent.com/undercooked-team/UnderCooked/main/ENG1/SUBMITTABLES/Architecture/cooks.png)
 
 - **Chef** was renamed to **Cook**.
 - **Collidable** branched into the **GameEntity** class, which was used as a base class for any item that could exist as an object with a physical position in the game-world. We learnt that classes **Cook** and **Customer** can use the same code in **GameEntity**.
-- We made **CookInteractor** because this object is solely responsible for letting a cook interact with other objects. Any other object within the **CookInteractor** Rectangle, is an object that the **Cook** and interact with.
+- We made **CookInteractor** because this object is solely responsible for letting a player interact with other objects. Any other object within the **CookInteractor** Rectangle, is an object that the **Cook** and interact with.
 
 ### Addition 4: Interactions
 ![Interactions UML](https://raw.githubusercontent.com/undercooked-team/UnderCooked/main/ENG1/SUBMITTABLES/Architecture/interactions.png)
@@ -101,8 +101,8 @@ These classes were not present in our initial UML in any form. This class is an 
 ### Addition 5: Stations
 ![Stations UML](https://raw.githubusercontent.com/undercooked-team/UnderCooked/main/ENG1/SUBMITTABLES/Architecture/stations.png)
 
-- **CookInteractable** allowed a station to become interactable with the cook.
-- We quickly realised that we would need more stations to allow the player to have greater ability to manipulate the stack of items that they will hold. For example, if the player accidentally collects 1 too many items, they need to be able to bin the top item (**BinStation**). Or if the player needs to swap items with the other cook, they need to be able to place their FoodStack down (**CounterStation**).
+- **CookInteractable** allowed a station to become interactable with the player.
+- We quickly realised that we would need more stations to allow the player to have greater ability to manipulate the stack of items that they will hold. For example, if the player accidentally collects 1 too many items, they need to be able to bin the top item (**BinStation**). Or if the player needs to swap items with the other player, they need to be able to place their FoodStack down (**CounterStation**).
 
 ### Addition 6: Customers
 ![Customers UML](https://raw.githubusercontent.com/undercooked-team/UnderCooked/main/ENG1/SUBMITTABLES/Architecture/customers.png)

@@ -1,5 +1,6 @@
 package interactions;
 
+import cooks.Player;
 import game.GameScreen;
 import game.ScreenController;
 
@@ -28,7 +29,7 @@ public class InputKey {
         QUIT,
 
         // COOK_INTERACT
-        /** Put down an item onto a {@link stations.Station} in the {@link cooks.Cook}'s hands. */
+        /** Put down an item onto a {@link stations.Station} in the {@link Player}'s hands. */
         PUT_DOWN,
         /** Pick up an item from a {@link stations.Station} or {@link stations.Pantry}. */
         PICK_UP,
@@ -46,7 +47,7 @@ public class InputKey {
         COOK_LEFT,
 
         // COOK_MISC
-        /** Swapping between the {@link cooks.Cook} in the {@link GameScreen}. */
+        /** Swapping between the {@link Player} in the {@link GameScreen}. */
         COOK_SWAP
     }
 

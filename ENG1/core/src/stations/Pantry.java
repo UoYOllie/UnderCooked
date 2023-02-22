@@ -4,13 +4,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
-import cooks.Cook;
+import cooks.Player;
 import food.FoodItem;
 import interactions.InputKey;
 
 /**
  * A {@link Pantry} class used to create Pantries that allow
- * {@link Cook}s to take the {@link FoodItem} that is assigned
+ * {@link Player}s to take the {@link FoodItem} that is assigned
  * to the {@link Pantry}.
  */
 public class Pantry extends CookInteractable {
@@ -27,7 +27,7 @@ public class Pantry extends CookInteractable {
 
     /**
      * Assigns a {@link FoodItem} to the {@link Pantry} that the
-     * {@link Cook} will take from it.
+     * {@link Player} will take from it.
      * @param foodID The {@link FoodItem} to assign to the {@link Pantry}.
      */
     public void setItem(FoodItem.FoodID foodID) {
@@ -35,15 +35,15 @@ public class Pantry extends CookInteractable {
     }
 
     /**
-     * The function that allows a {@link Cook} to interact with the {@link Pantry}.
-     * <br>If the {@link Cook} uses either the {@link InputKey.InputTypes#USE} or
+     * The function that allows a {@link Player} to interact with the {@link Pantry}.
+     * <br>If the {@link Player} uses either the {@link InputKey.InputTypes#USE} or
      * {@link InputKey.InputTypes#PICK_UP}, then they will pick up the
      * {@link FoodItem} from it.
-     * @param cook The cook that interacted with the {@link CookInteractable}.
+     * @param player The cook that interacted with the {@link CookInteractable}.
      * @param inputType The type of {@link InputKey.InputTypes} the player made with
      *                  the {@link CookInteractable}.
      */
-    public void interact(Cook cook, InputKey.InputTypes inputType) {
+    public void interact(Player player, InputKey.InputTypes inputType) {
         // If the input is to pick up:
         if (inputType == InputKey.InputTypes.PICK_UP || inputType == InputKey.InputTypes.USE) {
             // Add the new FoodItem onto the stack.
@@ -52,7 +52,7 @@ public class Pantry extends CookInteractable {
             if (foodID == FoodItem.FoodID.bun) {
                 boolean bottom = true;
                 // Look through the stack, and alternate between top bun or bottom bun.
-                Array<FoodItem.FoodID> foodItems = cook.foodStack.getStack();
+                Array<FoodItem.FoodID> foodItems = player.foodStack.getStack();
                 for (FoodItem.FoodID foodItem : foodItems) {
                     if (foodItem == FoodItem.FoodID.bottomBun) {
                         bottom = false;
@@ -65,7 +65,7 @@ public class Pantry extends CookInteractable {
                 }
                 addedFood = bottom ? FoodItem.FoodID.bottomBun : FoodItem.FoodID.topBun;
             }
-            cook.foodStack.addStack(addedFood);
+            player.foodStack.addStack(addedFood);
         }
     }
 

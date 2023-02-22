@@ -1,7 +1,7 @@
 package stations;
 
 import com.badlogic.gdx.math.Rectangle;
-import cooks.Cook;
+import cooks.Player;
 import cooks.GameEntity;
 import interactions.InputKey;
 
@@ -31,12 +31,12 @@ public abstract class CookInteractable extends GameEntity {
     }
 
     /**
-     * Allows a {@link Cook} to interact with the {@link CookInteractable}.
-     * @param cook The cook that interacted with the {@link CookInteractable}.
+     * Allows a {@link Player} to interact with the {@link CookInteractable}.
+     * @param player The cook that interacted with the {@link CookInteractable}.
      * @param inputType The type of {@link InputKey.InputTypes} the player made with
      *                  the {@link CookInteractable}.
      */
-    public void interact(Cook cook, InputKey.InputTypes inputType) {
+    public void interact(Player player, InputKey.InputTypes inputType) {
         //System.out.println("Interaction at x=" + body.getPosition().x*PPM + ", y=" + body.getPosition().x*PPM);
     }
 

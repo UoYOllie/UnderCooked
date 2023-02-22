@@ -3,7 +3,7 @@ package customers;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.TimeUtils;
+import cooks.Player;
 import food.Recipe;
 import game.GameScreen;
 import game.GameSprites;
@@ -185,7 +185,7 @@ public class CustomerController {
 
     /**
      * Called when a {@link Customer} has been sucessfully served at
-     * a {@link ServingStation} by a {@link cooks.Cook}.
+     * a {@link ServingStation} by a {@link Player}.
      * @param station The {@link ServingStation} that the {@link Customer}
      *                was served at.
      */

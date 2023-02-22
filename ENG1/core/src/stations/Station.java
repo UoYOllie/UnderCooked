@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import cooks.Cook;
+import cooks.Player;
 import game.GameSprites;
 import interactions.InputKey;
 
@@ -24,7 +24,7 @@ public class Station extends CookInteractable {
         counter,
         /** {@link BinStation} that can dispose of {@link food.FoodItem}s.*/
         bin,
-        /** {@link ServingStation} that allows {@link Cook}s to serve {@link customers.Customer}s. */
+        /** {@link ServingStation} that allows {@link Player}s to serve {@link customers.Customer}s. */
         serving,
         /** Default Station that does nothing. */
         none
@@ -58,13 +58,13 @@ public class Station extends CookInteractable {
     }
 
     /**
-     * The function that allows a {@link Cook} to interact with the {@link Station}.
+     * The function that allows a {@link Player} to interact with the {@link Station}.
      * <br>The default {@link Station} does nothing.
-     * @param cook The cook that interacted with the {@link CookInteractable}.
+     * @param player The cook that interacted with the {@link CookInteractable}.
      * @param inputType The type of {@link InputKey.InputTypes} the player made with
      *                  the {@link CookInteractable}.
      */
-    public void interact(Cook cook, InputKey.InputTypes inputType) { }
+    public void interact(Player player, InputKey.InputTypes inputType) { }
 
     /**
      * An update function to be used by the {@link game.GameScreen}
