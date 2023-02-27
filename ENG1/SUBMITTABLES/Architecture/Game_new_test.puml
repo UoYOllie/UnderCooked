@@ -1,0 +1,176 @@
+@startuml
+class game.Boot {
++ {static} Boot INSTANCE
+- OrthographicCamera orthographicCamera
+- Viewport gamePort
+- SpriteBatch spriteBatch
+- ShapeRenderer shapeRenderer
+- ScreenController screenController
++ {static} Boot getInstance()
++ void create()
++ void resize(int,int)
++ SpriteBatch getSpriteBatch()
++ ShapeRenderer getShapeRenderer()
++ ScreenController getScreenController()
+}
+class game.MenuScreen {
+- ScreenController screenController
+- OrthographicCamera camera
+- SpriteBatch batch
+- Viewport viewport
+- Stage stage
+- Sprite backgroundSprite
++ void update(float)
++ void render(float)
+}
+class game.GameSprites {
++ {static} HashMap<SpriteID,TextureAtlas> textureAtlases
+- HashMap<String,Sprite> spriteMap
+- {static} GameSprites INSTANCE
++ {static} GameSprites getInstance()
++ void createResources()
++ String spriteKey(SpriteID,String)
++ Sprite getSprite(SpriteID,String)
++ void dispose()
+}
+enum game.SpriteID {
++  COOK
++  FOOD
++  STATION
++  CUSTOMER
+}
+class game.InstructionScreen {
+- ScreenID prevScreenID
+- OrthographicCamera camera
+- ScreenController screenController
+- FitViewport viewport
+- Stage stage
+- SpriteBatch batch
++ void update(float)
++ void render(float)
++ void setPrevScreenID(ScreenID)
+}
+class game.GameScreen {
+- OrthographicCamera camera
+- int delay
+- long previousSecond
+- int secondsPassed
+- GameHud gameHud
+- InstructionHud instructionHUD
+- SpriteBatch batch
+- ShapeRenderer shape
+- ScreenController screenController
+- World world
+- Box2DDebugRenderer box2DDebugRenderer
+- OrthogonalTiledMapRenderer orthogonalTiledMapRenderer
+- MapHelper mapHelper
+- Array<CookInteractable> interactables
+- CollisionHelper collisionHelper
+- Array<GameEntity> gameEntities
+- DrawQueueComparator drawQueueComparator
+- Array<ServingStation> servingStations
+- int xOffset
+- int yOffset
+- Array<Cook> cooks
+- Cook cook
+- int cookIndex
+- CustomerController customerController
+- int customersToServe
+- void update(float)
+- void cameraUpdate()
++ void render(float)
++ void renderGame(float)
++ World getWorld()
++ Cook setCook(int)
++ int addCook(Cook)
++ void setCustomerHud(int)
++ int getCustomerCount()
++ long getPreviousSecond()
++ void setPreviousSecond(long)
++ long getNextCustomerSecond()
++ void setNextCustomerSecond(long)
++ Array<CookInteractable> getInteractables()
++ void addInteractable(CookInteractable)
++ void addGameEntity(GameEntity)
++ void addServingStation(ServingStation)
++ void reset()
++ void startGame(int)
++ CustomerController getCustomerController()
++ GameHud getGameHud()
++ InstructionHud getInstructionHUD()
+}
+class game.GameScreen.DrawQueueComparator {
++ int compare(GameEntity,GameEntity)
+}
+class game.PauseScreen {
+- ScreenController screenController
+- OrthographicCamera camera
+- SpriteBatch batch
+- Viewport viewport
+- Stage stage
+- GameScreen gameScreen
+- ShapeRenderer shape
++ void update(float)
++ void render(float)
+}
+class game.ScreenController {
+- Boot boot
+- GameScreen gameScreen
+- MenuScreen menuScreen
+- GameOverScreen gameOverScreen
+- CreditsScreen creditsScreen
+- InstructionScreen instructionScreen
+- PauseScreen pauseScreen
+- HashMap<ScreenID,ScreenAdapter> screens
+- long playTimeDiff
+- long customerTimeDiff
++ void setScreen(ScreenID)
++ SpriteBatch getSpriteBatch()
++ ShapeRenderer getShapeRenderer()
++ ScreenAdapter getScreen(ScreenID)
++ void resetGameScreen()
++ void pauseGameScreen()
++ void playGameScreen()
+}
+enum game.ScreenID {
++  MENU
++  GAME
++  PAUSE
++  GAMEOVER
++  INSTRUCTIONS
++  CREDITS
+}
+class game.CreditsScreen {
+- ScreenID prevScreenID
+- OrthographicCamera camera
+- ScreenController screenController
+- FitViewport viewport
+- Stage stage
+- SpriteBatch batch
++ void update(float)
++ void render(float)
++ void setPrevScreenID(ScreenID)
+}
+class game.GameOverScreen {
+- Viewport viewport
+- ScreenController screenController
+- OrthographicCamera camera
+- SpriteBatch batch
+- Stage stage
+- Label timeLabel
++ void update(float)
++ void render(float)
++ void setTime(int,int,int)
+}
+
+
+com.badlogic.gdx.Game <|-- game.Boot
+game.ScreenAdapter <|-- game.MenuScreen
+com.badlogic.gdx.ScreenAdapter <|-- game.InstructionScreen
+com.badlogic.gdx.ScreenAdapter <|-- game.GameScreen
+game.GameScreen +.. game.GameScreen.DrawQueueComparator
+game.Comparator <|.. game.GameScreen.DrawQueueComparator
+com.badlogic.gdx.ScreenAdapter <|-- game.PauseScreen
+com.badlogic.gdx.ScreenAdapter <|-- game.CreditsScreen
+com.badlogic.gdx.ScreenAdapter <|-- game.GameOverScreen
+@enduml
