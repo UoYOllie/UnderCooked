@@ -18,7 +18,7 @@ import interactions.InputKey;
 import interactions.Interactions;
 
 /** A {@link GameEntity} that the player controls to interact with the game. */
-public class Player extends GameEntity {
+public class Cook extends GameEntity {
 
     /** The cook's current sprite. */
     private Sprite sprite;
@@ -48,12 +48,12 @@ public class Player extends GameEntity {
 
     /**
      * Cook Constructor.
-     * @param width Pixel Width of the {@link Player}'s {@link Body}.
-     * @param height Pixel Height of the {@link Player}'s {@link Body}.
-     * @param body The {@link World}.{@link Body} which will become the {@link Player}
-     * @param gameScreen The {@link GameScreen} that creates the {@link Player}.
+     * @param width Pixel Width of the {@link Cook}'s {@link Body}.
+     * @param height Pixel Height of the {@link Cook}'s {@link Body}.
+     * @param body The {@link World}.{@link Body} which will become the {@link Cook}
+     * @param gameScreen The {@link GameScreen} that creates the {@link Cook}.
      */
-    public Player(float width, float height, Body body, GameScreen gameScreen) {
+    public Cook(float width, float height, Body body, GameScreen gameScreen) {
         super(width, height, body);
         this.dir = Facing.DOWN;
         this.speed = 10f;
@@ -129,9 +129,9 @@ public class Player extends GameEntity {
     }
 
     /**
-     * The update function for the {@link Player}, which updates the {@link Player}'s
+     * The update function for the {@link Cook}, which updates the {@link Cook}'s
      * {@link #x} and {@link #y} values, and updates the position of the
-     * {@link Player}'s {@link CookInteractor}.
+     * {@link Cook}'s {@link CookInteractor}.
      * @param delta The time between frames as a float.
      */
     @Override
@@ -142,7 +142,7 @@ public class Player extends GameEntity {
     }
 
     /**
-     * Update the current {@link Sprite} of the {@link Player}.
+     * Update the current {@link Sprite} of the {@link Cook}.
      */
     private void setSprite() {
         // Set up sprite string
@@ -155,8 +155,8 @@ public class Player extends GameEntity {
     }
 
     /**
-     * Render the {@link Player} and their {@link FoodStack}.
-     * @param batch The {@link SpriteBatch} that the {@link Player} will render using.
+     * Render the {@link Cook} and their {@link FoodStack}.
+     * @param batch The {@link SpriteBatch} that the {@link Cook} will render using.
      */
     @Override
     public void render(SpriteBatch batch) {
@@ -209,7 +209,7 @@ public class Player extends GameEntity {
     }
 
     /** Return the X pixel offset from the cook's position that the cook's FoodStack requires for rendering.*/
-    private float foodRelativeX(Player.Facing dir) {
+    private float foodRelativeX(Cook.Facing dir) {
         switch (dir) {
             case RIGHT:
                 return 30F;
@@ -221,7 +221,7 @@ public class Player extends GameEntity {
     }
 
     /** Return the Y pixel offset from the cook's position that the cook's FoodStack requires for rendering.*/
-    private float foodRelativeY(Player.Facing dir) {
+    private float foodRelativeY(Cook.Facing dir) {
         switch (dir) {
             case UP:
                 return -14F;
@@ -236,8 +236,8 @@ public class Player extends GameEntity {
     }
 
     /**
-     * Renders the {@link FoodStack} of the {@link Player} visually.
-     * @param batch The {@link SpriteBatch} that the {@link Player} will render using.
+     * Renders the {@link FoodStack} of the {@link Cook} visually.
+     * @param batch The {@link SpriteBatch} that the {@link Cook} will render using.
      */
     private void renderFood(SpriteBatch batch) {
         // Loop through the items in the food stack.
@@ -306,7 +306,7 @@ public class Player extends GameEntity {
     }
 
     /**
-     * A function to find where the {@link Player} should be
+     * A function to find where the {@link Cook} should be
      * facing depending on the order of inputs, the latest
      * being prioritized, and ignoring any inputs that are
      * input with their opposite.

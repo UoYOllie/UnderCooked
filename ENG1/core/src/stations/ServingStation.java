@@ -2,7 +2,7 @@ package stations;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
-import cooks.Player;
+import cooks.Cook;
 import customers.Customer;
 import customers.CustomerController;
 import food.Recipe;
@@ -10,7 +10,7 @@ import game.GameScreen;
 import interactions.InputKey;
 
 /**
- * The {@link ServingStation} class, where the {@link Player} provide
+ * The {@link ServingStation} class, where the {@link Cook} provide
  * the {@link customers.Customer}s with their orders.
  */
 public class ServingStation extends Station {
@@ -51,23 +51,23 @@ public class ServingStation extends Station {
     /**
      * The interact function for the {@link ServingStation}.
      *
-     * <br>This checks that the {@link Player} has the right {@link food.Recipe}, and then acts
-     * based on if the {@link Player} does or does not.
-     * @param player The cook that interacted with the {@link CookInteractable}.
+     * <br>This checks that the {@link Cook} has the right {@link food.Recipe}, and then acts
+     * based on if the {@link Cook} does or does not.
+     * @param cook The cook that interacted with the {@link CookInteractable}.
      * @param inputType The type of {@link InputKey.InputTypes} the player made with
      *                  the {@link CookInteractable}.
      */
     @Override
-    public void interact(Player player, InputKey.InputTypes inputType) {
+    public void interact(Cook cook, InputKey.InputTypes inputType) {
         // USE to see request, or submit request
         if (inputType == InputKey.InputTypes.USE) {
             // First make sure there is actually a request on this counter.
             if (hasCustomer()) {
                 // If there is a request, then compare the two.
-                if (Recipe.matchesRecipe(player.foodStack,customer.getRequestName())) {
+                if (Recipe.matchesRecipe(cook.foodStack,customer.getRequestName())) {
                     // If it's correct, then the customer will take the food and leave.
                     request = null;
-                    player.foodStack.clearStack();
+                    cook.foodStack.clearStack();
                     if (gameScreen.getGameHud().getCustomer() == this.customer) {
                         gameScreen.getGameHud().setRecipe(null);
                     }

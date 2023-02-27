@@ -41,7 +41,7 @@ public class CookInteractor {
      * @param dir The direction the cook can face
      * @return An X offset in pixels.
      */
-    private float relativeX(Player.Facing dir) {
+    private float relativeX(Cook.Facing dir) {
         switch (dir) {
             case RIGHT:
                 return 38.4F;
@@ -58,7 +58,7 @@ public class CookInteractor {
      * @param dir The direction the cook can face
      * @return An Y offset in pixels.
      */
-    private float relativeY(Player.Facing dir) {
+    private float relativeY(Cook.Facing dir) {
         switch (dir) {
             case UP:
                 return 25.6F;
@@ -79,7 +79,7 @@ public class CookInteractor {
      * @param y New Y position
      * @param dir New direction
      */
-    protected void updatePosition(float x, float y, Player.Facing dir) {
+    protected void updatePosition(float x, float y, Cook.Facing dir) {
         float relX = relativeX(dir);
         float relY = relativeY(dir);
 
@@ -92,13 +92,13 @@ public class CookInteractor {
 
     /**
      * Check for any collisions the CookInteractor has made
-     * @param player The cook
+     * @param cook The cook
      * @param inputType The enum constant of the input made
      */
-    public void checkCollisions(Player player, InputKey.InputTypes inputType) {
-        CookInteractable interactStation = ch.getInteract(player, collision);
+    public void checkCollisions(Cook cook, InputKey.InputTypes inputType) {
+        CookInteractable interactStation = ch.getInteract(cook, collision);
         if (interactStation != null) {
-            interactStation.interact(player, inputType);
+            interactStation.interact(cook, inputType);
 
         }
     }
