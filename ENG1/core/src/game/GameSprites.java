@@ -33,7 +33,7 @@ public class GameSprites {
      */
     public static final HashMap<SpriteID, TextureAtlas> textureAtlases = new HashMap<>();
     static {
-        textureAtlases.put(SpriteID.COOK, new TextureAtlas("atlas/cook.atlas"));
+        textureAtlases.put(SpriteID.COOK, new TextureAtlas("atlas/player.atlas"));
         textureAtlases.put(SpriteID.FOOD, new TextureAtlas("atlas/food.atlas"));
         textureAtlases.put(SpriteID.STATION, new TextureAtlas("atlas/station.atlas"));
         textureAtlases.put(SpriteID.CUSTOMER, new TextureAtlas("atlas/customer.atlas"));

@@ -76,8 +76,8 @@ public class AssetTests {
 
     @Test
     public void testAtlasCookAssetExists(){
-        assertTrue(Gdx.files.internal("atlas/cook.png").exists(),"This test will only pass if cook.png exists in the atlas folder");
-        assertTrue(Gdx.files.internal("atlas/cook.atlas").exists(),"This will only pass if customer.atlas exists");
+        assertTrue(Gdx.files.internal("atlas/player.png").exists(),"This test will only pass if player.png exists in the atlas folder");
+        assertTrue(Gdx.files.internal("atlas/player.atlas").exists(),"This will only pass if customer.atlas exists");
     }
 
     @Test
