@@ -46,7 +46,7 @@ public class MapHelper {
 
     /**
      * Sets up the map by loading the StationsMap tilemap, and then using
-     * the function {@link #parseMapObjects(MapObjects)} to parse and
+     * the function to parse and
      * load it into the game.
      * @return The {@link OrthogonalTiledMapRenderer} used to render the Tilemap.
      */
@@ -106,24 +106,55 @@ public class MapHelper {
      *                 If false, then the {@link Body} is not stationary.
      * @return {@link Body} : The {@link Body} created using {@link BodyHelper}.
      */
-    public static Body makeBody(Rectangle rectangle, boolean isStatic)
+/*    public static Body makeBody(Rectangle rectangle, boolean isStatic)
     {
         //IGNORE CAUSE STUPID
         return BodyHelper.createBody(rectangle.x + rectangle.getWidth() /2, rectangle.y +rectangle.getHeight()/2,rectangle.getWidth(), rectangle.getHeight(),isStatic, INSTANCE.gameScreen.getWorld());
-    }
+    }*/
 
     /**
-     * Loops through all of the {@link MapObjects} and loads them
-     * into the {@link GameScreen}'s {@code world} using the
-     * other {@link MapHelper} functions.
-     * @param mapObjects The {@link MapObjects} of the map.
+     * not the old documentation
+     * i don't understand enough to update this documentation yet
+     * i will soon
      */
     private void parseMapObjects(TiledMap map)
-    //EDIT --
-    //GO THRU COLLISION LAYER AND INTERACT LAYER
-    //CREATE ARRAY LISTS FOR:
-    //          Obsts
-    //          Stations
+    {
+        MapObjects obstacleObjects = map.getLayers().get("Collision Layer").getObjects();
+
+        for (RectangleMapObject rectangleMapObject : obstacleObjects.getByType(RectangleMapObject.class)) {
+
+            Rectangle rectangle = rectangleMapObject.getRectangle();
+            Rectangle newRectangle = new Rectangle(rectangle.x, rectangle.y, rectangle.width*PPM, rectangle.height*PPM);
+
+            mapObstacles.add(newRectangle);
+        }
+
+        MapObjects interactionObjects = map.getLayers().get("Interaction Layer").getObjects();
+
+        for (RectangleMapObject rectangleMapObject : interactionObjects.getByType(RectangleMapObject.class)) {
+
+            Rectangle rectangle = rectangleMapObject.getRectangle();
+            Rectangle newRectangle = new Rectangle(rectangle.x, rectangle.y, rectangle.width*PPM, rectangle.height*PPM);
+            String stationName = rectangleMapObject.getName();
+
+            switch(stationName) {
+                case "BinStation":
+                    mapStations.add(new BinStation(newRectangle));
+                    break;
+                case "CounterStation":
+                    mapStations.add(new CounterStation(newRectangle));
+                    break;
+                case "PreparationStation":
+                    mapStations.add(new PreparationStation(newRectangle));
+                    break;
+                case "ServingStation":
+                    mapStations.add(new ServingStation(newRectangle));
+                    break;
+            }
+        }
+
+
+    }
 //    {
 //        for(MapObject mapObject:mapObjects)
 //        {
@@ -226,9 +257,7 @@ public class MapHelper {
 //            }
 //        }
 //    }
-    {
 
-    }
     /**
      * A dispose function to dispose of information when it is
      * no longer needed.
