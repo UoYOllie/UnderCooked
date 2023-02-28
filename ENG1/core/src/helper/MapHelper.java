@@ -29,17 +29,15 @@ import static helper.Constants.PPM;
 public class MapHelper {
     private GameScreen gameScreen;
     private TiledMap tiledMap;
-
     private ArrayList<Rectangle> mapObstacles;
     private ArrayList<Station> mapStations;
 
 
     /**
-     * The {@link MapHelper} constructor.
-     * It is {@code private} as it is a Singleton.
+     * Constructor for MapHelper.
+     * Initialises arrayLists mapObstacles and mapStations.
      */
     private MapHelper() {
-        //Initalise array lists
         mapObstacles = new ArrayList<>();
         mapStations = new ArrayList<>();
     }
@@ -58,11 +56,11 @@ public class MapHelper {
         return new OrthogonalTiledMapRenderer(tiledMap);
     }
 
-    /**
-     * Creates a Static {@link Body} added to the map that is used
-     * to stop the {@link Cook} from moving through certain places.
-     * @param polygonMapObject
-     */
+//    /**
+//     * Creates a Static {@link Body} added to the map that is used
+//     * to stop the {@link Cook} from moving through certain places.
+//     * @param polygonMapObject
+//     */
 
 //    private void createStaticBody(PolygonMapObject polygonMapObject)
 //    {
@@ -75,14 +73,16 @@ public class MapHelper {
 //        shape.dispose();
 //    }
 
-    /**
-     * Creates a Polygon{@link Shape} using the {@link PolygonMapObject}.
-     * <br>It is used to create the {@link Shape} for the
-     * {@link #createStaticBody(PolygonMapObject)} function for
-     * the {@link Body}'s {@link com.badlogic.gdx.physics.box2d.Fixture}.
-     * @param polygonMapObject
-     * @return
-     */
+
+
+//    /**
+//     * Creates a Polygon{@link Shape} using the {@link PolygonMapObject}.
+//     * <br>It is used to create the {@link Shape} for the
+//     * {@link #createStaticBody(PolygonMapObject)} function for
+//     * the {@link Body}'s {@link com.badlogic.gdx.physics.box2d.Fixture}.
+//     * @param polygonMapObject
+//     * @return
+//     */
 //    private Shape createPolygonShape(PolygonMapObject polygonMapObject)
 //    {
 //        //IGNORE CAUSE STUPID
@@ -99,44 +99,65 @@ public class MapHelper {
 //
 //    }
 
-    /**
-     * Makes a {@link Body} using a {@link Rectangle} as a base.
-     * @param rectangle The {@link Rectangle} for the {@link Body}'s {@link Shape}.
-     * @param isStatic If true, then the {@link Body} is stationary.
-     *                 If false, then the {@link Body} is not stationary.
-     * @return {@link Body} : The {@link Body} created using {@link BodyHelper}.
-     */
-/*    public static Body makeBody(Rectangle rectangle, boolean isStatic)
-    {
-        //IGNORE CAUSE STUPID
-        return BodyHelper.createBody(rectangle.x + rectangle.getWidth() /2, rectangle.y +rectangle.getHeight()/2,rectangle.getWidth(), rectangle.getHeight(),isStatic, INSTANCE.gameScreen.getWorld());
-    }*/
+
+
+//    /**
+//     * Makes a {@link Body} using a {@link Rectangle} as a base.
+//     * @param rectangle The {@link Rectangle} for the {@link Body}'s {@link Shape}.
+//     * @param isStatic If true, then the {@link Body} is stationary.
+//     *                 If false, then the {@link Body} is not stationary.
+//     * @return {@link Body} : The {@link Body} created using {@link BodyHelper}.
+//     */
+//    public static Body makeBody(Rectangle rectangle, boolean isStatic)
+//    {
+//        //IGNORE CAUSE STUPID
+//        return BodyHelper.createBody(rectangle.x + rectangle.getWidth() /2, rectangle.y +rectangle.getHeight()/2,rectangle.getWidth(), rectangle.getHeight(),isStatic, INSTANCE.gameScreen.getWorld());
+//    }
+
+
 
     /**
-     * not the old documentation
-     * i don't understand enough to update this documentation yet
-     * i will soon
+     * Go through the object layers on TiledMap (Collision and Interaction layers)
+     * and add these to the mapObstacles and mapStations ArrayLists.
+     *
+     * @param map - the TiledMap
      */
-    private void parseMapObjects(TiledMap map)
-    {
+    private void parseMapObjects(TiledMap map) {
+
+        // COLLISION OBJECTS
+
+        // Get all objects from the collision layer.
         MapObjects obstacleObjects = map.getLayers().get("Collision Layer").getObjects();
 
-        for (RectangleMapObject rectangleMapObject : obstacleObjects.getByType(RectangleMapObject.class)) {
+        // Go through every object in the collision layer and add to
+        // the mapObstacles ArrayList.
+        for (RectangleMapObject rectangleMapObject :
+                obstacleObjects.getByType(RectangleMapObject.class)) {
 
             Rectangle rectangle = rectangleMapObject.getRectangle();
-            Rectangle newRectangle = new Rectangle(rectangle.x, rectangle.y, rectangle.width*PPM, rectangle.height*PPM);
+            Rectangle newRectangle = new Rectangle(rectangle.x, rectangle.y,
+                                    rectangle.width*PPM, rectangle.height*PPM);
 
             mapObstacles.add(newRectangle);
         }
 
+        // INTERACTION OBJECTS
+
+        // Get all objects from the interaction layer.
         MapObjects interactionObjects = map.getLayers().get("Interaction Layer").getObjects();
 
-        for (RectangleMapObject rectangleMapObject : interactionObjects.getByType(RectangleMapObject.class)) {
+        // Go through every object in the interaction layer and add an instance of the
+        // corresponding station to the mapStations ArrayList.
+        for (RectangleMapObject rectangleMapObject :
+                interactionObjects.getByType(RectangleMapObject.class)) {
 
             Rectangle rectangle = rectangleMapObject.getRectangle();
-            Rectangle newRectangle = new Rectangle(rectangle.x, rectangle.y, rectangle.width*PPM, rectangle.height*PPM);
+            Rectangle newRectangle = new Rectangle(rectangle.x, rectangle.y,
+                                                rectangle.width*PPM,
+                                                rectangle.height*PPM);
             String stationName = rectangleMapObject.getName();
 
+            // Check which instance of Station and add the corresponding object to mapStations.
             switch(stationName) {
                 case "BinStation":
                     mapStations.add(new BinStation(newRectangle));
@@ -152,9 +173,11 @@ public class MapHelper {
                     break;
             }
         }
-
-
     }
+
+
+
+
 //    {
 //        for(MapObject mapObject:mapObjects)
 //        {
@@ -258,14 +281,8 @@ public class MapHelper {
 //        }
 //    }
 
-    /**
-     * A dispose function to dispose of information when it is
-     * no longer needed.
-     */
-
-
+    /** Disposes of loaded tiledMap textures when no longer required. */
     public void dispose() {
-
         tiledMap.dispose();
     }
 
