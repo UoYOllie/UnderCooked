@@ -52,7 +52,7 @@ public class MapHelper {
      */
     public OrthogonalTiledMapRenderer setupMap()
     {
-        //IGNORE CAUSE STUPID
+        //IGNORE
         tiledMap = new TmxMapLoader().load("Maps/StationsMap.tmx"); //<---PUT MAP FILE
         parseMapObjects(tiledMap); //<--keep it for now
         return new OrthogonalTiledMapRenderer(tiledMap);
@@ -66,7 +66,6 @@ public class MapHelper {
 
 //    private void createStaticBody(PolygonMapObject polygonMapObject)
 //    {
-//        //IGNORE CAUSE STUPID
 //        BodyDef bodyDef = new BodyDef();
 //        bodyDef.type = BodyDef.BodyType.StaticBody;
 //        Body body = gameScreen.getWorld().createBody(bodyDef);
@@ -87,7 +86,6 @@ public class MapHelper {
 //     */
 //    private Shape createPolygonShape(PolygonMapObject polygonMapObject)
 //    {
-//        //IGNORE CAUSE STUPID
 //        float[] vertices = polygonMapObject.getPolygon().getTransformedVertices();
 //        Vector2[] worldVertices = new Vector2[vertices.length / 2];
 //        for(int i = 0;i<vertices.length / 2;i++)
@@ -112,7 +110,7 @@ public class MapHelper {
 //     */
 //    public static Body makeBody(Rectangle rectangle, boolean isStatic)
 //    {
-//        //IGNORE CAUSE STUPID
+
 //        return BodyHelper.createBody(rectangle.x + rectangle.getWidth() /2, rectangle.y +rectangle.getHeight()/2,rectangle.getWidth(), rectangle.getHeight(),isStatic, INSTANCE.gameScreen.getWorld());
 //    }
 
@@ -296,6 +294,7 @@ public class MapHelper {
 
 
     public void dispose() {
+
         tiledMap.dispose();
     }
 

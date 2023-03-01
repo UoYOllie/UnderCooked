@@ -32,6 +32,7 @@ public class CollisionHelper {
      * @param gameScreen The desired GameScreen to use CollisionHelper on.
      */
     public void setGameScreen(GameScreen gameScreen) {
+
         this.gameScreen = gameScreen;
     }
 
