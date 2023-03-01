@@ -2,7 +2,7 @@ package helper;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
-import cooks.Player;
+import cooks.Cook;
 import game.GameScreen;
 import stations.CookInteractable;
 
@@ -65,16 +65,16 @@ public class CollisionHelper {
 
     /**
      * Returns the CookInteractable closest to the specified cook
-     * @param player The cook
+     * @param cook The cook
      * @param rectangle The cook's collisionBox
      * @return The closest CookInteractable / Station
      */
-    public CookInteractable getInteract(Player player, Rectangle rectangle) {
+    public CookInteractable getInteract(Cook cook, Rectangle rectangle) {
         Array<CookInteractable> intStations = stationCollisions(rectangle);
         if (intStations.size == 0) {
             return null;
         }
-        Rectangle cookRect = new Rectangle(player.getX(), player.getY(),0,0);
+        Rectangle cookRect = new Rectangle(cook.getX(), cook.getY(),0,0);
         float closestDist = distRectToInteractable(cookRect, intStations.get(0));
         CookInteractable closest = intStations.get(0);
         for (int i = 1 ; i < intStations.size ; i++) {

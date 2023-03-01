@@ -53,7 +53,7 @@
 										"$ref": "AAAAAAGGCfabnqYQBq4="
 									},
 									"name": "Facing",
-									"documentation": "All possible directions the player can be facing.",
+									"documentation": "All possible directions the cook can be facing.",
 									"visibility": "package",
 									"literals": [
 										{
@@ -426,7 +426,7 @@
 									}
 								}
 							],
-							"documentation": "A {@link GameEntity} that the player controls to interact with the game.",
+							"documentation": "A {@link GameEntity} that the cook controls to interact with the game.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -435,7 +435,7 @@
 										"$ref": "AAAAAAGGCfabnqYQBq4="
 									},
 									"name": "sprite",
-									"documentation": "The player's current sprite.",
+									"documentation": "The cook's current sprite.",
 									"visibility": "private"
 								},
 								{
@@ -464,7 +464,7 @@
 										"$ref": "AAAAAAGGCfabnqYQBq4="
 									},
 									"name": "foodStack",
-									"documentation": "The player's stack of things, containing all the items they're holding. Index 0 = Top Item"
+									"documentation": "The cook's stack of things, containing all the items they're holding. Index 0 = Top Item"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -740,7 +740,7 @@
 										"$ref": "AAAAAAGGCfabnqYQBq4="
 									},
 									"name": "foodRelativeX",
-									"documentation": "Return the X pixel offset from the player's position that the player's FoodStack requires for rendering.",
+									"documentation": "Return the X pixel offset from the cook's position that the cook's FoodStack requires for rendering.",
 									"visibility": "private",
 									"parameters": [
 										{
@@ -769,7 +769,7 @@
 										"$ref": "AAAAAAGGCfabnqYQBq4="
 									},
 									"name": "foodRelativeY",
-									"documentation": "Return the Y pixel offset from the player's position that the player's FoodStack requires for rendering.",
+									"documentation": "Return the Y pixel offset from the cook's position that the cook's FoodStack requires for rendering.",
 									"visibility": "private",
 									"parameters": [
 										{
@@ -1107,7 +1107,7 @@
 										"$ref": "AAAAAAGGCfacA6ZD5uQ="
 									},
 									"name": "relativeX",
-									"documentation": "Returns an X offset depending on the player's direction.\nUsed during collision detection between the player and other interactables.\n@param dir The direction the player can face\n@return An X offset in pixels.",
+									"documentation": "Returns an X offset depending on the cook's direction.\nUsed during collision detection between the cook and other interactables.\n@param dir The direction the cook can face\n@return An X offset in pixels.",
 									"visibility": "private",
 									"parameters": [
 										{
@@ -1136,7 +1136,7 @@
 										"$ref": "AAAAAAGGCfacA6ZD5uQ="
 									},
 									"name": "relativeY",
-									"documentation": "Returns an Y offset depending on the player's direction.\nUsed during collision detection between the player and other interactables.\n@param dir The direction the player can face\n@return An Y offset in pixels.",
+									"documentation": "Returns an Y offset depending on the cook's direction.\nUsed during collision detection between the cook and other interactables.\n@param dir The direction the cook can face\n@return An Y offset in pixels.",
 									"visibility": "private",
 									"parameters": [
 										{
@@ -1212,7 +1212,7 @@
 										"$ref": "AAAAAAGGCfacA6ZD5uQ="
 									},
 									"name": "checkCollisions",
-									"documentation": "Check for any collisions the CookInteractor has made\n@param player The player\n@param inputType The enum constant of the input made",
+									"documentation": "Check for any collisions the CookInteractor has made\n@param cook The cook\n@param inputType The enum constant of the input made",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -1220,7 +1220,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGGCfacBaZTuO8="
 											},
-											"name": "player",
+											"name": "cook",
 											"type": {
 												"$ref": "AAAAAAGGCfabnqYQBq4="
 											}
@@ -2465,7 +2465,7 @@
 													"top": 245.5,
 													"width": 326.22509765625,
 													"height": 13,
-													"text": "+checkCollisions(player: Cook, inputType): void",
+													"text": "+checkCollisions(cook: Cook, inputType): void",
 													"horizontalAlignment": 0
 												},
 												{
@@ -3461,7 +3461,7 @@
 									}
 								}
 							],
-							"documentation": "A {@link Customer} has a request that they want\nto be served by the player.",
+							"documentation": "A {@link Customer} has a request that they want\nto be served by the cook.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -5086,7 +5086,7 @@
 									}
 								}
 							],
-							"documentation": "A class to create the behaviour of a {@code Stack} for\n{@link FoodItem}s to be used by the {@link cooks.Player},\n{@link stations.CounterStation} and {@link Recipe}s.",
+							"documentation": "A class to create the behaviour of a {@code Stack} for\n{@link FoodItem}s to be used by the {@link cooks.Cook},\n{@link stations.CounterStation} and {@link Recipe}s.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -5095,7 +5095,7 @@
 										"$ref": "AAAAAAGGCfaeUaa1OMI="
 									},
 									"name": "foodStack",
-									"documentation": "The player's stack of things, containing all the items they're holding. Index 0 = Top Item.\nHas a public getter and setter.",
+									"documentation": "The cook's stack of things, containing all the items they're holding. Index 0 = Top Item.\nHas a public getter and setter.",
 									"visibility": "private"
 								}
 							],
@@ -7454,7 +7454,7 @@
 									}
 								}
 							],
-							"documentation": "The {@link GameOverScreen}, which shows once the player\nhas finished the game. It provides the player with the\noption to {@link InputKey.InputTypes#QUIT} or to {@link InputKey.InputTypes#RESET_GAME}.",
+							"documentation": "The {@link GameOverScreen}, which shows once the cook\nhas finished the game. It provides the cook with the\noption to {@link InputKey.InputTypes#QUIT} or to {@link InputKey.InputTypes#RESET_GAME}.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -7599,7 +7599,7 @@
 										"$ref": "AAAAAAGGCfagYKcOGv8="
 									},
 									"name": "setTime",
-									"documentation": "Sets the {@link #timeLabel} to use the end time\nof the player after finishing the game.\n@param hours Hours taken.\n@param minutes Minutes taken.\n@param seconds Seconds taken.",
+									"documentation": "Sets the {@link #timeLabel} to use the end time\nof the cook after finishing the game.\n@param hours Hours taken.\n@param minutes Minutes taken.\n@param seconds Seconds taken.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -8353,7 +8353,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGGCfahJ6cd3tg="
 									},
-									"name": "player",
+									"name": "cook",
 									"visibility": "private"
 								},
 								{
@@ -8553,7 +8553,7 @@
 										"$ref": "AAAAAAGGCfahJ6cd3tg="
 									},
 									"name": "setCook",
-									"documentation": "Sets the currently active {@link #player} that the game is using.\n@param cookIndex The index of {@link #player} in the {@link #cooks} array.\n@return {@link Cook} : The {@link Cook} that the game has swapped to.",
+									"documentation": "Sets the currently active {@link #cook} that the game is using.\n@param cookIndex The index of {@link #cook} in the {@link #cooks} array.\n@return {@link Cook} : The {@link Cook} that the game has swapped to.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -8581,7 +8581,7 @@
 										"$ref": "AAAAAAGGCfahJ6cd3tg="
 									},
 									"name": "addCook",
-									"documentation": "Adds a new {@link Cook} to the {@link #cooks} {@link Array} for the game to swap between.\n@param newPlayer The {@link Cook} to be added to the {@link Array}.\n@return {@code int} : The index of the new player in the cooks array.",
+									"documentation": "Adds a new {@link Cook} to the {@link #cooks} {@link Array} for the game to swap between.\n@param newCook The {@link Cook} to be added to the {@link Array}.\n@return {@code int} : The index of the new cook in the cooks array.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -8589,7 +8589,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGGCfahK6c286c="
 											},
-											"name": "newPlayer"
+											"name": "newCook"
 										},
 										{
 											"_type": "UMLParameter",
@@ -8983,7 +8983,7 @@
 												"$ref": "AAAAAAGGCfahdadf72Q="
 											},
 											"name": "COOK",
-											"documentation": "The {@link cooks.Player}'s {@link TextureAtlas}."
+											"documentation": "The {@link cooks.Cook}'s {@link TextureAtlas}."
 										},
 										{
 											"_type": "UMLEnumerationLiteral",
@@ -9793,7 +9793,7 @@
 									}
 								}
 							],
-							"documentation": "The {@link MenuScreen}, which provides the player with\na few options of inputs, which do different things.\nOne of which is to change to the {@link GameScreen} and\nplay the game.",
+							"documentation": "The {@link MenuScreen}, which provides the cook with\na few options of inputs, which do different things.\nOne of which is to change to the {@link GameScreen} and\nplay the game.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -10326,7 +10326,7 @@
 												"$ref": "AAAAAAGGCfajBqeVTZg="
 											},
 											"name": "PAUSE",
-											"documentation": "The {@link PauseScreen}, where the game is paused, and the player can\nrest, look at instructions and credits, reset or quit."
+											"documentation": "The {@link PauseScreen}, where the game is paused, and the cook can\nrest, look at instructions and credits, reset or quit."
 										},
 										{
 											"_type": "UMLEnumerationLiteral",
@@ -12420,7 +12420,7 @@
 													"top": 350,
 													"width": 351.6728515625,
 													"height": 13,
-													"text": "-player",
+													"text": "-cook",
 													"horizontalAlignment": 0
 												},
 												{
@@ -12623,7 +12623,7 @@
 													"top": 110,
 													"width": 550.20849609375,
 													"height": 13,
-													"text": "+addCook(newPlayer): int",
+													"text": "+addCook(newCook): int",
 													"horizontalAlignment": 0
 												},
 												{
@@ -18956,7 +18956,7 @@
 										"$ref": "AAAAAAGGCfajlae97AM="
 									},
 									"name": "getInteract",
-									"documentation": "Returns the CookInteractable closest to the specified player\n@param player The player\n@param rectangle The player's collisionBox\n@return The closest CookInteractable / Station",
+									"documentation": "Returns the CookInteractable closest to the specified cook\n@param cook The cook\n@param rectangle The cook's collisionBox\n@return The closest CookInteractable / Station",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -18964,7 +18964,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGGCfajlqfK7fk="
 											},
-											"name": "player"
+											"name": "cook"
 										},
 										{
 											"_type": "UMLParameter",
@@ -20789,7 +20789,7 @@
 													"top": 65,
 													"width": 411.86767578125,
 													"height": 13,
-													"text": "+getInteract(player, rectangle): null",
+													"text": "+getInteract(cook, rectangle): null",
 													"horizontalAlignment": 0
 												}
 											],
@@ -23421,7 +23421,7 @@
 												"$ref": "AAAAAAGGCfalUKgbjfU="
 											},
 											"name": "PUT_DOWN",
-											"documentation": "Put down an item onto a {@link stations.Station} in the {@link cooks.Player}'s hands."
+											"documentation": "Put down an item onto a {@link stations.Station} in the {@link cooks.Cook}'s hands."
 										},
 										{
 											"_type": "UMLEnumerationLiteral",
@@ -23484,7 +23484,7 @@
 												"$ref": "AAAAAAGGCfalUKgbjfU="
 											},
 											"name": "COOK_SWAP",
-											"documentation": "Swapping between the {@link cooks.Player} in the {@link GameScreen}."
+											"documentation": "Swapping between the {@link cooks.Cook} in the {@link GameScreen}."
 										}
 									]
 								},
@@ -23921,7 +23921,7 @@
 									}
 								}
 							],
-							"documentation": "A static class containing all information relating to interactions, including:\n- The player and station interactions.\n- Keys being pressed information.",
+							"documentation": "A static class containing all information relating to interactions, including:\n- The cook and station interactions.\n- Keys being pressed information.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -25057,7 +25057,7 @@
 										"$ref": "AAAAAAGGCfamDqhicEg="
 									},
 									"name": "interact",
-									"documentation": "The interact function for the {@link BinStation}.\nThis takes the top item from the {@link Cook}'s {@link food.FoodStack}\nif they use either the {@link InputKey.InputTypes#USE} or\n{@link InputKey.InputTypes#PUT_DOWN} keys.\n@param player The player that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the player made with\nthe {@link CookInteractable}.",
+									"documentation": "The interact function for the {@link BinStation}.\nThis takes the top item from the {@link Cook}'s {@link food.FoodStack}\nif they use either the {@link InputKey.InputTypes#USE} or\n{@link InputKey.InputTypes#PUT_DOWN} keys.\n@param cook The cook that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the cook made with\nthe {@link CookInteractable}.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -25065,7 +25065,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGGCfamD6hlvog="
 											},
-											"name": "player"
+											"name": "cook"
 										},
 										{
 											"_type": "UMLParameter",
@@ -25213,7 +25213,7 @@
 										"$ref": "AAAAAAGGCfamQahpgnw="
 									},
 									"name": "interact",
-									"documentation": "Allows a {@link Cook} to interact with the {@link CookInteractable}.\n@param player The player that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the player made with\nthe {@link CookInteractable}.",
+									"documentation": "Allows a {@link Cook} to interact with the {@link CookInteractable}.\n@param cook The cook that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the cook made with\nthe {@link CookInteractable}.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -25221,7 +25221,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGGCfamQahu820="
 											},
-											"name": "player"
+											"name": "cook"
 										},
 										{
 											"_type": "UMLParameter",
@@ -25435,7 +25435,7 @@
 									}
 								}
 							],
-							"documentation": "The {@link CounterStation} class, where the {@link cooks.Player}\ncan place down the {@link FoodItem}s that they are holding.",
+							"documentation": "The {@link CounterStation} class, where the {@link cooks.Cook}\ncan place down the {@link FoodItem}s that they are holding.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -25475,7 +25475,7 @@
 										"$ref": "AAAAAAGGCfami6hy65M="
 									},
 									"name": "interact",
-									"documentation": "The function that allows a {@link Cook} to interact with the {@link CounterStation}.\n<br><br>If the {@link Cook} interacts using {@link InputKey.InputTypes#USE},\nthey will swap stacks with the {@link CounterStation}.\n<br><br>If the {@link Cook} interacts using {@link InputKey.InputTypes#PICK_UP},\nthey will take the top {@link FoodItem} of the {@link FoodStack}\nfrom {@link CounterStation} and put it on their own {@link FoodStack}.\n<br><br>If the {@link Cook} interacts using {@link InputKey.InputTypes#PUT_DOWN},\nthey will take the top {@link FoodItem} of their {@link FoodStack}\nput it on the {@link CounterStation}'s {@link FoodStack}.\n@param player The player that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the player made with\nthe {@link CookInteractable}.",
+									"documentation": "The function that allows a {@link Cook} to interact with the {@link CounterStation}.\n<br><br>If the {@link Cook} interacts using {@link InputKey.InputTypes#USE},\nthey will swap stacks with the {@link CounterStation}.\n<br><br>If the {@link Cook} interacts using {@link InputKey.InputTypes#PICK_UP},\nthey will take the top {@link FoodItem} of the {@link FoodStack}\nfrom {@link CounterStation} and put it on their own {@link FoodStack}.\n<br><br>If the {@link Cook} interacts using {@link InputKey.InputTypes#PUT_DOWN},\nthey will take the top {@link FoodItem} of their {@link FoodStack}\nput it on the {@link CounterStation}'s {@link FoodStack}.\n@param cook The cook that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the cook made with\nthe {@link CookInteractable}.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -25483,7 +25483,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGGCfami6h1ocE="
 											},
-											"name": "player"
+											"name": "cook"
 										},
 										{
 											"_type": "UMLParameter",
@@ -25708,7 +25708,7 @@
 										"$ref": "AAAAAAGGCfamvah8InM="
 									},
 									"name": "interact",
-									"documentation": "The function that allows a {@link Cook} to interact with the {@link Pantry}.\n<br>If the {@link Cook} uses either the {@link InputKey.InputTypes#USE} or\n{@link InputKey.InputTypes#PICK_UP}, then they will pick up the\n{@link FoodItem} from it.\n@param player The player that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the player made with\nthe {@link CookInteractable}.",
+									"documentation": "The function that allows a {@link Cook} to interact with the {@link Pantry}.\n<br>If the {@link Cook} uses either the {@link InputKey.InputTypes#USE} or\n{@link InputKey.InputTypes#PICK_UP}, then they will pick up the\n{@link FoodItem} from it.\n@param cook The cook that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the cook made with\nthe {@link CookInteractable}.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -25716,7 +25716,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGGCfamvqiC3yM="
 											},
-											"name": "player"
+											"name": "cook"
 										},
 										{
 											"_type": "UMLParameter",
@@ -26164,7 +26164,7 @@
 									}
 								}
 							],
-							"documentation": "The {@link PreparationStation} class, where the {@link cooks.Player}\nprocess {@link FoodItem}s into different {@link FoodItem}s to prepare\nthem to make a {@link food.Recipe}.",
+							"documentation": "The {@link PreparationStation} class, where the {@link cooks.Cook}\nprocess {@link FoodItem}s into different {@link FoodItem}s to prepare\nthem to make a {@link food.Recipe}.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -26318,7 +26318,7 @@
 										"$ref": "AAAAAAGGCfanQ6iV+m8="
 									},
 									"name": "interact",
-									"documentation": "The interact function for the {@link ServingStation}.\n<br>This allows the {@link Cook} to put a valid {@link FoodItem} onto the\n{@link PreparationStation}, and start a process of changing it from the\n{@link FoodItem} to the {@link interactions.Interactions.InteractionResult} {@link FoodItem}.\n@param player The player that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the player made with\nthe {@link CookInteractable}.",
+									"documentation": "The interact function for the {@link ServingStation}.\n<br>This allows the {@link Cook} to put a valid {@link FoodItem} onto the\n{@link PreparationStation}, and start a process of changing it from the\n{@link FoodItem} to the {@link interactions.Interactions.InteractionResult} {@link FoodItem}.\n@param cook The cook that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the cook made with\nthe {@link CookInteractable}.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -26326,7 +26326,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGGCfanRailChY="
 											},
-											"name": "player"
+											"name": "cook"
 										},
 										{
 											"_type": "UMLParameter",
@@ -26538,7 +26538,7 @@
 									}
 								}
 							],
-							"documentation": "The {@link ServingStation} class, where the {@link cooks.Player} provide\nthe {@link customers.Customer}s with their orders.",
+							"documentation": "The {@link ServingStation} class, where the {@link cooks.Cook} provide\nthe {@link customers.Customer}s with their orders.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -26646,7 +26646,7 @@
 										"$ref": "AAAAAAGGCfanm6ip97g="
 									},
 									"name": "interact",
-									"documentation": "public void setCustomer(Customer customer) {\r\n        this.customer = customer;\r\n    }\nThe interact function for the {@link ServingStation}.\n<br>This checks that the {@link Cook} has the right {@link food.Recipe}, and then acts\nbased on if the {@link Cook} does or does not.\n@param player The player that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the player made with\nthe {@link CookInteractable}.",
+									"documentation": "public void setCustomer(Customer customer) {\r\n        this.customer = customer;\r\n    }\nThe interact function for the {@link ServingStation}.\n<br>This checks that the {@link Cook} has the right {@link food.Recipe}, and then acts\nbased on if the {@link Cook} does or does not.\n@param cook The cook that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the cook made with\nthe {@link CookInteractable}.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -26654,7 +26654,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGGCfannKiu5hc="
 											},
-											"name": "player"
+											"name": "cook"
 										},
 										{
 											"_type": "UMLParameter",
@@ -27143,7 +27143,7 @@
 										"$ref": "AAAAAAGGCfan4KjFWog="
 									},
 									"name": "interact",
-									"documentation": "The function that allows a {@link Cook} to interact with the {@link Station}.\n<br>The default {@link Station} does nothing.\n@param player The player that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the player made with\nthe {@link CookInteractable}.",
+									"documentation": "The function that allows a {@link Cook} to interact with the {@link Station}.\n<br>The default {@link Station} does nothing.\n@param cook The cook that interacted with the {@link CookInteractable}.\n@param inputType The type of {@link InputKey.InputTypes} the cook made with\nthe {@link CookInteractable}.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -27151,7 +27151,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGGCfan4ajSZTA="
 											},
-											"name": "player"
+											"name": "cook"
 										},
 										{
 											"_type": "UMLParameter",
@@ -27463,7 +27463,7 @@
 													"top": 20,
 													"width": 289.40234375,
 													"height": 13,
-													"text": "+interact(player, inputType): void",
+													"text": "+interact(cook, inputType): void",
 													"horizontalAlignment": 0
 												}
 											],
@@ -27701,7 +27701,7 @@
 													"top": 35,
 													"width": 289.40234375,
 													"height": 13,
-													"text": "+interact(player, inputType): void",
+													"text": "+interact(cook, inputType): void",
 													"horizontalAlignment": 0
 												}
 											],
@@ -27922,7 +27922,7 @@
 													"top": 20,
 													"width": 300.97412109375,
 													"height": 13,
-													"text": "+interact(player, inputType): void",
+													"text": "+interact(cook, inputType): void",
 													"horizontalAlignment": 0
 												},
 												{
@@ -28177,7 +28177,7 @@
 													"top": 35,
 													"width": 295.2294921875,
 													"height": 13,
-													"text": "+interact(player, inputType): void",
+													"text": "+interact(cook, inputType): void",
 													"horizontalAlignment": 0
 												},
 												{
@@ -28585,7 +28585,7 @@
 													"top": 65,
 													"width": 321.93408203125,
 													"height": 13,
-													"text": "+interact(player, inputType): void",
+													"text": "+interact(cook, inputType): void",
 													"horizontalAlignment": 0
 												}
 											],
@@ -28908,7 +28908,7 @@
 													"top": 35,
 													"width": 298.80322265625,
 													"height": 13,
-													"text": "+interact(player, inputType): void",
+													"text": "+interact(cook, inputType): void",
 													"horizontalAlignment": 0
 												},
 												{
@@ -29299,7 +29299,7 @@
 													"top": 35,
 													"width": 295.2294921875,
 													"height": 13,
-													"text": "+interact(player, inputType): void",
+													"text": "+interact(cook, inputType): void",
 													"horizontalAlignment": 0
 												},
 												{
@@ -31768,7 +31768,7 @@
 											"top": 65,
 											"width": 336.3623046875,
 											"height": 13,
-											"text": "+checkCollisions(player: Cook, inputType): void",
+											"text": "+checkCollisions(cook: Cook, inputType): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -35997,7 +35997,7 @@
 											"top": 336.5,
 											"width": 351.6728515625,
 											"height": 13,
-											"text": "-player",
+											"text": "-cook",
 											"horizontalAlignment": 0
 										},
 										{
@@ -36202,7 +36202,7 @@
 											"top": 96.5,
 											"width": 550.20849609375,
 											"height": 13,
-											"text": "+addCook(newPlayer): int",
+											"text": "+addCook(newCook): int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -39311,7 +39311,7 @@
 											"top": 65,
 											"width": 411.86767578125,
 											"height": 13,
-											"text": "+getInteract(player, rectangle): null",
+											"text": "+getInteract(cook, rectangle): null",
 											"horizontalAlignment": 0
 										}
 									],
@@ -42939,7 +42939,7 @@
 											"top": 20,
 											"width": 289.40234375,
 											"height": 13,
-											"text": "+interact(player, inputType): void",
+											"text": "+interact(cook, inputType): void",
 											"horizontalAlignment": 0
 										}
 									],
@@ -43181,7 +43181,7 @@
 											"top": 35,
 											"width": 289.40234375,
 											"height": 13,
-											"text": "+interact(player, inputType): void",
+											"text": "+interact(cook, inputType): void",
 											"horizontalAlignment": 0
 										}
 									],
@@ -43403,7 +43403,7 @@
 											"top": 20,
 											"width": 300.97412109375,
 											"height": 13,
-											"text": "+interact(player, inputType): void",
+											"text": "+interact(cook, inputType): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -43659,7 +43659,7 @@
 											"top": 35,
 											"width": 295.2294921875,
 											"height": 13,
-											"text": "+interact(player, inputType): void",
+											"text": "+interact(cook, inputType): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -44068,7 +44068,7 @@
 											"top": 65,
 											"width": 321.93408203125,
 											"height": 13,
-											"text": "+interact(player, inputType): void",
+											"text": "+interact(cook, inputType): void",
 											"horizontalAlignment": 0
 										}
 									],
@@ -44637,7 +44637,7 @@
 											"top": 30.75,
 											"width": 298.80322265625,
 											"height": 13,
-											"text": "+interact(player, inputType): void",
+											"text": "+interact(cook, inputType): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -45032,7 +45032,7 @@
 											"top": 35,
 											"width": 295.2294921875,
 											"height": 13,
-											"text": "+interact(player, inputType): void",
+											"text": "+interact(cook, inputType): void",
 											"horizontalAlignment": 0
 										},
 										{

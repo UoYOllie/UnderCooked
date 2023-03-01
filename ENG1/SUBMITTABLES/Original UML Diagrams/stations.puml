@@ -1,0 +1,87 @@
+@startuml
+class stations.PreparationStation {
+- FoodItem.FoodID foodItem
+- Interactions.InteractionResult interaction
+- float progress
+- int stepNum
+- StationState state
++ void update(float)
++ void render(SpriteBatch)
++ void renderShape(ShapeRenderer)
++ void interact(Cook,InputKey.InputTypes)
+}
+enum stations.StationState {
++  PREPARING
++  NEED_USE
++  FINISHED
+}
+class stations.BinStation {
++ void interact(Cook,InputKey.InputTypes)
+}
+class stations.CounterStation {
+~ FoodStack foodStack
++ void interact(Cook,InputKey.InputTypes)
++ void render(SpriteBatch)
+}
+abstract class stations.CookInteractable {
+# Rectangle interactRect
++ Rectangle getRectangle()
++ void interact(Cook,InputKey.InputTypes)
+}
+class stations.Pantry {
+~ FoodItem.FoodID foodID
++ void setItem(FoodItem.FoodID)
++ void interact(Cook,InputKey.InputTypes)
++ void update(float)
++ void render(SpriteBatch)
++ void renderDebug(SpriteBatch)
++ void renderShape(ShapeRenderer)
++ void renderShapeDebug(ShapeRenderer)
+}
+class stations.ServingStation {
+- String request
+- Customer customer
+- GameScreen gameScreen
+- float customerX
+- CustomerController customerController
++ boolean hasCustomer()
++ void interact(Cook,InputKey.InputTypes)
++ void render(SpriteBatch)
++ void setGameScreen(GameScreen)
++ void setCustomer(Customer)
++ Customer getCustomer()
++ float getCustomerX()
++ float getCustomerY()
++ float getX()
++ float getY()
+}
+class stations.Station {
+~ StationID stationID
+~ boolean inUse
+~ GameSprites gameSprites
++ void setID(StationID)
++ void interact(Cook,InputKey.InputTypes)
++ void update(float)
++ void render(SpriteBatch)
++ void renderDebug(SpriteBatch)
++ void renderShape(ShapeRenderer)
++ void renderShapeDebug(ShapeRenderer)
+}
+enum stations.StationID {
++  fry
++  cut
++  counter
++  bin
++  serving
++  none
+}
+
+
+stations.Station <|-- stations.PreparationStation
+stations.Station <|-- stations.BinStation
+stations.Station <|-- stations.CounterStation
+cooks.GameEntity <|-- stations.CookInteractable
+stations.CookInteractable <|-- stations.Pantry
+stations.Station <|-- stations.ServingStation
+stations.CookInteractable <|-- stations.Station
+@enduml

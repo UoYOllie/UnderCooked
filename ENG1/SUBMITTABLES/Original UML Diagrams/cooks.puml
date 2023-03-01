@@ -1,0 +1,61 @@
+@startuml
+class cooks.Cook {
+- Sprite sprite
+- Sprite controlSprite
+- GameSprites gameSprites
+- CookInteractor cookInteractor
+- Facing dir
++ FoodStack foodStack
+- Array<Facing> inputs
++ void userInput()
++ void update(float)
+- void setSprite()
++ void render(SpriteBatch)
++ void renderControlArrow(SpriteBatch)
++ void renderDebug(SpriteBatch)
++ void renderShape(ShapeRenderer)
++ void renderShapeDebug(ShapeRenderer)
+- float foodRelativeX(Cook.Facing)
+- float foodRelativeY(Cook.Facing)
+- void renderFood(SpriteBatch)
+- Facing opposite(Facing)
+- Facing rotate90c(Facing)
+- void setDir()
+}
+enum cooks.Facing {
++  RIGHT
++  LEFT
++  UP
++  DOWN
++  NONE
+}
+abstract class cooks.GameEntity {
+# float x
+# float velX
+# float speed
+# float width
+# Body body
++ {abstract}void update(float)
++ {abstract}void render(SpriteBatch)
++ {abstract}void renderDebug(SpriteBatch)
++ {abstract}void renderShape(ShapeRenderer)
++ {abstract}void renderShapeDebug(ShapeRenderer)
++ Body getBody()
++ float getX()
++ float getY()
+}
+class cooks.CookInteractor {
+# float x
+# float size
+# Rectangle collision
+# CollisionHelper ch
+- float relativeX(Cook.Facing)
+- float relativeY(Cook.Facing)
+# void updatePosition(float,float,Cook.Facing)
++ void checkCollisions(Cook,InputKey.InputTypes)
++ void renderDebug(ShapeRenderer)
+}
+
+
+cooks.GameEntity <|-- cooks.Cook
+@enduml
