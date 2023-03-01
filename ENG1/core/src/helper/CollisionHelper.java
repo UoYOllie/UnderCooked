@@ -13,18 +13,19 @@ public class CollisionHelper {
 
     /** The GameScreen to do collision-helping on. */
     protected GameScreen gameScreen;
-    /** Contains the singleton instance. */
-    private static CollisionHelper INSTANCE;
 
-    /** Use this to either instantiate or get CollisionHelper instance.
-     * @return The CollisionHelper instance.
-    */
-    public static CollisionHelper getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new CollisionHelper();
-        }
-        return INSTANCE;
-    }
+//    /** Contains the singleton instance. */
+//    private static CollisionHelper INSTANCE;
+//
+//    /** Use this to either instantiate or get CollisionHelper instance.
+//     * @return The CollisionHelper instance.
+//    */
+//    public static CollisionHelper getInstance() {
+//        if (INSTANCE == null) {
+//            INSTANCE = new CollisionHelper();
+//        }
+//        return INSTANCE;
+//    }
 
     /**
      * Set the gameScreen that the CollisionHelper is using.

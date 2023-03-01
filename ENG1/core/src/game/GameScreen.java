@@ -75,7 +75,11 @@ public class GameScreen extends ScreenAdapter {
         this.nextCustomerSecond = -1;
         this.cooks = new Array<>();
         this.interactables = new Array<>();
-        this.collisionHelper = CollisionHelper.getInstance();
+
+        // UPDATE
+        // this.collisionHelper = CollisionHelper.getInstance();
+        this.collisionHelper = new CollisionHelper();
+
         this.collisionHelper.setGameScreen(this);
         this.cookIndex = -1;
         this.camera = camera;
@@ -88,8 +92,12 @@ public class GameScreen extends ScreenAdapter {
 
         this.world = new World(new Vector2(0,0), false);
         this.box2DDebugRenderer = new Box2DDebugRenderer();
-        this.mapHelper = MapHelper.getInstance();
-        this.mapHelper.setGameScreen(this);
+
+        // UPDATED
+        // this.mapHelper = MapHelper.getInstance();
+        this.mapHelper = new MapHelper();
+
+        // this.mapHelper.setGameScreen(this);
         this.orthogonalTiledMapRenderer = mapHelper.setupMap();
         this.gameHud = new GameHud(batch, this);
         this.instructionHUD = new InstructionHud(batch);
@@ -377,8 +385,11 @@ public class GameScreen extends ScreenAdapter {
         mapHelper.dispose();
         customerController.clearServingStations();
         dispose();
-        mapHelper = MapHelper.newInstance();
-        mapHelper.setGameScreen(this);
+        // UPDATE
+        //mapHelper = MapHelper.newInstance();
+        //mapHelper.setGameScreen(this);
+        this.mapHelper = new MapHelper();
+
         world.dispose();
         this.world = new World(new Vector2(0,0), false);
         this.orthogonalTiledMapRenderer = mapHelper.setupMap();

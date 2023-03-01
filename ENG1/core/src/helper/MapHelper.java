@@ -37,16 +37,18 @@ public class MapHelper {
      * Constructor for MapHelper.
      * Initialises arrayLists mapObstacles and mapStations.
      */
-    private MapHelper() {
+    public MapHelper() {
         mapObstacles = new ArrayList<>();
         mapStations = new ArrayList<>();
     }
 
     /**
+     * IN CHARGE OF RENDERING THE MAP
      * Sets up the map by loading the StationsMap tilemap, and then using
      * the function to parse and
      * load it into the game.
      * @return The {@link OrthogonalTiledMapRenderer} used to render the Tilemap.
+     *
      */
     public OrthogonalTiledMapRenderer setupMap()
     {
@@ -117,6 +119,7 @@ public class MapHelper {
 
 
     /**
+     * IN CHARGE OF LINKING OBJECTS IN THE MAP TO THE CODE
      * Go through the object layers on TiledMap (Collision and Interaction layers)
      * and add these to the mapObstacles and mapStations ArrayLists.
      *
