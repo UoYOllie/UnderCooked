@@ -56,7 +56,7 @@ public class AssetTests {
 
     @Test
     public void testPlayerAtlasAssetExists(){
-        assertTrue(Gdx.files.internal("cooks/Player atlas.tpproj").exists(), "This test will only pass if cook atlas.tpproj is present");
+        assertTrue(Gdx.files.internal("cooks/cook atlas.tpproj").exists(), "This test will only pass if cook atlas.tpproj is present");
     }
 
     //The following are tests to do with checking that assets in the customers folder remain
