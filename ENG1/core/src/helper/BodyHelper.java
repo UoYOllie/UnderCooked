@@ -41,6 +41,7 @@ public class BodyHelper {
      * @return Boolean, stating whether the rectangles overlap (true) or not (false).
      */
     public static boolean checkCollision(Rectangle rect1, Rectangle rect2) {
+
         return rect1.overlaps(rect2);
     }
 

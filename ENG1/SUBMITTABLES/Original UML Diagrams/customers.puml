@@ -1,0 +1,30 @@
+@startuml
+class customers.Customer {
++ Vector2 position
++ Sprite sprite
+- String request
++ String randomRecipe()
++ void render(SpriteBatch)
++ float getX()
++ float getY()
++ String getRequestName()
+}
+class customers.CustomerController {
+- Array<Customer> customers
+- {static} Sprite customerSprite
+- {static} Array<ServingStation> servingStations
+- int customersLeft
+- GameScreen gameScreen
++ boolean canAddCustomer()
++ int addCustomer()
++ void removeCustomer(ServingStation)
++ void setCustomersLeft(int)
++ int getCustomersLeft()
++ void setCustomersServed(int)
++ int getCustomersServed()
++ void addServingStation(ServingStation)
++ Array<ServingStation> getServingStations()
++ void customerServed(ServingStation)
++ void clearServingStations()
+}
+@enduml

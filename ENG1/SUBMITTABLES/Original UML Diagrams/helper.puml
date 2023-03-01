@@ -1,0 +1,64 @@
+@startuml
+class helper.GameHud {
+~ Label timeLabel
+~ Label CustomerLabel
+~ Label CustomerScore
+- SpriteBatch batch
+- FoodStack recipe
+- Customer customer
++ void render()
++ void setRecipe(Customer)
++ void updateTime(int)
++ void updateTime(int,int)
++ void updateTime(int,int,int)
++ void setCustomerCount(int)
++ Customer getCustomer()
+}
+class helper.MapHelper {
+- GameScreen gameScreen
+- TiledMap tiledMap
+- ArrayList<Rectangle> mapObstacles
+- ArrayList<Station> mapStations
++ OrthogonalTiledMapRenderer setupMap()
+- void parseMapObjects(TiledMap)
++ void dispose()
+}
+class helper.BodyHelper {
++ {static} Body createBody(float,float,float,float,boolean,World)
++ {static} boolean checkCollision(Rectangle,Rectangle)
+}
+class helper.Hud {
+# Stage stage
+# Viewport viewport
+# Table table
++ void render()
+}
+class helper.CollisionHelper {
+# GameScreen gameScreen
+- {static} CollisionHelper INSTANCE
++ {static} CollisionHelper getInstance()
++ void setGameScreen(GameScreen)
+- float distRectToInteractable(Rectangle,CookInteractable)
++ Array<CookInteractable> stationCollisions(Rectangle)
++ CookInteractable getInteract(Cook,Rectangle)
+}
+class helper.InstructionHud {
+~ Label instructionsLabel
++ void render()
+}
+class helper.Constants {
++ {static} float PPM
++ {static} int V_Width
++ {static} int V_Height
++ {static} Vector2 customerSpawn
++ {static} float RECIPE_X
+}
+class helper.Util {
++ {static} float distancePoints(float,float,float,float)
++ {static} String formatTime(int,int,int)
+}
+
+
+helper.Hud <|-- helper.GameHud
+helper.Hud <|-- helper.InstructionHud
+@enduml

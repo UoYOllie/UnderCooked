@@ -1,0 +1,58 @@
+@startuml
+class interactions.InputKey {
+- int key
+- InputTypes inputType
++ int getKey()
++ InputTypes getType()
+}
+enum interactions.InputTypes {
++  START_GAME
++  RESET_GAME
++  INSTRUCTIONS
++  PAUSE
++  UNPAUSE
++  CREDITS
++  QUIT
++  PUT_DOWN
++  PICK_UP
++  USE
++  COOK_UP
++  COOK_RIGHT
++  COOK_DOWN
++  COOK_LEFT
++  COOK_SWAP
+}
+class interactions.Interactions {
+- {static} HashMap<String,InteractionResult> interactions
+- {static} HashMap<InputID,Array<InputKey>> inputs
++ {static} Array<InputKey.InputTypes> keysPressed
++ {static} Array<InputKey.InputTypes> keysJustPressed
++ {static} Array<InputKey> getInputKeys(InputID)
++ {static} void resetKeys()
++ {static} void updateKeys()
++ {static} Array<String> getKeyStrings(InputKey.InputTypes)
++ {static} String getKeyString(InputKey.InputTypes)
++ {static} String getKeyString(InputKey)
++ {static} boolean isPressed(InputKey.InputTypes)
++ {static} boolean isJustPressed(InputKey.InputTypes)
++ {static} InteractionResult interaction(FoodID,StationID)
+- {static} String InteractionKey(FoodID,StationID)
+}
+class interactions.Interactions.InteractionResult {
+- FoodID result
+- float[] steps
+- float speed
++ FoodID getResult()
++ float[] getSteps()
++ float getSpeed()
+}
+enum interactions.InputID {
++  COOK_INTERACT
++  MENU
++  COOK_MOVEMENT
++  COOK_MISC
+}
+
+
+interactions.Interactions +.. interactions.Interactions.InteractionResult
+@enduml

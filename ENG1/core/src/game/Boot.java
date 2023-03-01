@@ -3,6 +3,8 @@ package game;
 // import com.badlogic.gdx.ApplicationAdapter;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -10,6 +12,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import helper.Constants;
+import interactions.OurInputProcessor;
 
 /** Responsible for starting the game.
  * The singleton used to initialize all game elements.*/
@@ -58,6 +61,20 @@ public class Boot extends Game {
         gamePort = new FitViewport(Constants.V_Width, Constants.V_Height, orthographicCamera);
         this.screenController = new ScreenController(this, orthographicCamera);
         setScreen(new MenuScreen(screenController, orthographicCamera));
+
+        //ADAM AND REBECCA ADDED THIS INPUT PROCESSOR
+        OurInputProcessor GameInputProcessor = new OurInputProcessor();
+        OurInputProcessor MenuInputProcessor = new OurInputProcessor();
+        OurInputProcessor PauseInputProcessor = new OurInputProcessor();
+        OurInputProcessor InstructionPauseInputProcessor = new OurInputProcessor();
+        OurInputProcessor CreditsPauseInputProcessor = new OurInputProcessor();
+        InputMultiplexer multiplexer = new InputMultiplexer();
+        multiplexer.addProcessor(GameInputProcessor);
+        multiplexer.addProcessor(MenuInputProcessor);
+        multiplexer.addProcessor(PauseInputProcessor);
+        multiplexer.addProcessor(InstructionPauseInputProcessor);
+        multiplexer.addProcessor(CreditsPauseInputProcessor);
+        Gdx.input.setInputProcessor(multiplexer);
     }
 
     public void resize(int width, int height)

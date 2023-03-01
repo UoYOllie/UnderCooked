@@ -1,0 +1,43 @@
+@startuml
+class food.Recipe {
+- {static} Array<String> recipeNames
+- {static} HashMap<String,Array<FoodStack>> recipes
+- {static} void generateRecipes(String,Array<Array<FoodID>>)
+- {static} Array<Array<T>> allCombos(T)
+- {static} Array<Array<T>> allCombos(Array<T>,Array<T>,T)
+- {static} Array<Array<T>> allCombosR(Array<T>,Array<T>)
++ {static} boolean matchesRecipe(FoodStack,String)
++ {static} Array<FoodStack> getRecipeCombos(String)
++ {static} String randomRecipe()
++ {static} FoodStack randomRecipeOption(String)
++ {static} FoodStack firstRecipeOption(String)
+}
+class food.FoodStack {
+- Array<FoodID> foodStack
++ FoodID peekStack()
++ FoodID popStack()
++ void addStack(FoodID)
++ Array<FoodID> getStack()
++ void clearStack()
++ void setStack(Array<FoodID>)
++ int size()
++ String toString()
+}
+class food.FoodItem {
++ {static} HashMap<FoodID,Float> foodHeights
+}
+enum food.FoodID {
++  lettuce
++  lettuceChop
++  tomato
++  tomatoChop
++  onion
++  onionChop
++  meat
++  meatCook
++  bun
++  bottomBun
++  topBun
++  none
+}
+@enduml
