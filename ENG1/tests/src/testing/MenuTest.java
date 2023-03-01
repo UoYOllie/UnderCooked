@@ -26,7 +26,7 @@ public class MenuTest {
 
         screenController.setScreen(ScreenController.ScreenID.MENU);
         keysPressed.add(InputKey.InputTypes.START_GAME);
-        assertEquals(InputKey.InputTypes.START_GAME, );
+        assertEquals(screenController.getScreen(ScreenController.ScreenID.GAME), boot.getScreen());
 
     }
 
@@ -35,7 +35,7 @@ public class MenuTest {
         ScreenController screenController = new ScreenController(boot, camera);
         screenController.setScreen(ScreenController.ScreenID.MENU);
         keysPressed.add(InputKey.InputTypes.CREDITS);
-        assertEquals(screenController.getScreen(ScreenController.ScreenID.CREDITS), CreditsScreen.prevScreenID);
+        assertEquals(screenController.getScreen(ScreenController.ScreenID.CREDITS), boot.getScreen());
 
     }
 }

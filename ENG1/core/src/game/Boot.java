@@ -5,6 +5,7 @@ package game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -82,6 +83,10 @@ public class Boot extends Game {
         gamePort.update(width, height);
     }
 
+    @Override
+    public Screen getScreen(){
+        return screen;
+    }
     /**
      * The {@link SpriteBatch} getter
      * @return {@link SpriteBatch} : The {@link SpriteBatch} for the game.
