@@ -134,9 +134,8 @@ public class GameScreen extends ScreenAdapter {
         batch.setProjectionMatrix(camera.combined);
         shape.setProjectionMatrix(camera.combined);
         for (Cook thisCook : cooks) {
-            thisCook.getBody().setLinearVelocity(0F,0F);
             if (thisCook == cook) {
-                thisCook.userInput();
+                thisCook.userInput(mapHelper.getMapObstacles());
             }
         }
         if(Interactions.isJustPressed(InputKey.InputTypes.COOK_SWAP)) {

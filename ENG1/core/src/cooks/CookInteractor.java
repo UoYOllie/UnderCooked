@@ -32,7 +32,7 @@ public class CookInteractor {
         this.x = x;
         this.y = y;
         this.collision = new Rectangle(x,y,size,size);
-        this.ch = CollisionHelper.getInstance();
+        this.ch = new CollisionHelper();
     }
 
     /**

@@ -284,7 +284,17 @@ public class MapHelper {
 //        }
 //    }
 
+    public ArrayList<Rectangle> getMapObstacles() {
+        return mapObstacles;
+    }
+
+    public ArrayList<Station> getMapStations() {
+        return mapStations;
+    }
+
     /** Disposes of loaded tiledMap textures when no longer required. */
+
+
     public void dispose() {
         tiledMap.dispose();
     }

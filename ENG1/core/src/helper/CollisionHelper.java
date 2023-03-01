@@ -44,8 +44,8 @@ public class CollisionHelper {
     private float distRectToInteractable(Rectangle rect, CookInteractable station) {
         return Util.distancePoints(rect.x-rect.getWidth()/2,
                 rect.y-rect.getHeight()/2,
-                station.getBody().getPosition().x*PPM,
-                station.getBody().getPosition().y*PPM);
+                station.getRectangle().x,
+                station.getRectangle().y);
     }
 
     /**

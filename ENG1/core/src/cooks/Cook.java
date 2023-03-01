@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Intersector;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
@@ -16,6 +18,8 @@ import food.FoodStack;
 import food.FoodItem.FoodID;
 import interactions.InputKey;
 import interactions.Interactions;
+
+import java.util.ArrayList;
 
 /** A {@link GameEntity} that the player controls to interact with the game. */
 public class Cook extends GameEntity {
@@ -53,8 +57,8 @@ public class Cook extends GameEntity {
      * @param body The {@link World}.{@link Body} which will become the {@link Cook}
      * @param gameScreen The {@link GameScreen} that creates the {@link Cook}.
      */
-    public Cook(float width, float height, Body body, GameScreen gameScreen) {
-        super(width, height, body);
+    public Cook(float x, float y, float width, float height, GameScreen gameScreen) {
+        super(x, y, width, height);
         this.dir = Facing.DOWN;
         this.speed = 10f;
         // this.gameScreen = gameScreen;
@@ -77,12 +81,12 @@ public class Cook extends GameEntity {
     }
 
     /** Responsible for processing user input information into {@link #inputs}, {@link #velX} and {@link #velY}. */
-    public void userInput() {
+    public void userInput(ArrayList<Rectangle> mapObstacles) {
         velX = 0F;
         velY = 0F;
         if(Interactions.isPressed(InputKey.InputTypes.COOK_RIGHT))
         {
-            velX += 1;
+            velX = 1;
             if (!inputs.contains(Facing.RIGHT, true)) {
                 inputs.add(Facing.RIGHT);
             }
@@ -91,7 +95,7 @@ public class Cook extends GameEntity {
         }
         if(Interactions.isPressed(InputKey.InputTypes.COOK_LEFT))
         {
-            velX += -1;
+            velX = -1;
             if (!inputs.contains(Facing.LEFT, true)) {
                 inputs.add(Facing.LEFT);
             }
@@ -100,7 +104,7 @@ public class Cook extends GameEntity {
         }
         if(Interactions.isPressed(InputKey.InputTypes.COOK_UP))
         {
-            velY += 1;
+            velY = 1;
             if (!inputs.contains(Facing.UP, true)) {
                 inputs.add(Facing.UP);
             }
@@ -109,12 +113,35 @@ public class Cook extends GameEntity {
         }
         if(Interactions.isPressed(InputKey.InputTypes.COOK_DOWN))
         {
-            velY += -1;
+            velY = -1;
             if (!inputs.contains(Facing.DOWN, true)) {
                 inputs.add(Facing.DOWN);
             }
         } else {
             inputs.removeValue(Facing.DOWN,true);
+        }
+
+        Rectangle newPlayerRectangle = new Rectangle(this.x + velX, this.y, this.width, this.height);
+        for (Rectangle obstacle : mapObstacles) {
+            if (Intersector.overlaps(obstacle, newPlayerRectangle)) {
+                if (velX < 0) {
+                    newPlayerRectangle.x = obstacle.x + obstacle.width;
+                } else if (velX > 0) {
+                    newPlayerRectangle.x = obstacle.x - newPlayerRectangle.width;
+                }
+            }
+        }
+
+        newPlayerRectangle.y += velY;
+
+        for (Rectangle obstacle : mapObstacles) {
+            if (Intersector.overlaps(obstacle, newPlayerRectangle)) {
+                if (velY < 0) {
+                    newPlayerRectangle.y = obstacle.y + obstacle.height;
+                } else if (velY > 0) {
+                    newPlayerRectangle.y = obstacle.y - newPlayerRectangle.height;
+                }
+            }
         }
 
         setDir();
@@ -125,7 +152,8 @@ public class Cook extends GameEntity {
             }
         }
 
-        body.setLinearVelocity(velX * speed,velY * speed);
+        // body.setLinearVelocity(velX * speed,velY * speed);
+        this.rectangle = newPlayerRectangle;
     }
 
     /**
@@ -136,8 +164,9 @@ public class Cook extends GameEntity {
      */
     @Override
     public void update(float delta) {
-        x = body.getPosition().x*PPM;
-        y = body.getPosition().y*PPM;
+        //y = body.getPosition().y*PPM;
+        x = rectangle.x;
+        y = rectangle.y;
         this.cookInteractor.updatePosition(x,y,dir);
     }
 
