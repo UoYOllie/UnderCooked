@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="left-up" width="30" height="20" tilewidth="32" tileheight="32" infinite="1" nextlayerid="25" nextobjectid="38">
- <tileset firstgid="1" source="../../assets/map/Tile Images.tsx"/>
- <tileset firstgid="45" source="../../assets/map2/Tile Images.tsx"/>
- <tileset firstgid="268" source="../../Undercooked.tsx"/>
- <tileset firstgid="298" source="../map2/Tile Images.tsx"/>
- <tileset firstgid="521" source="../map/Tile Images.tsx"/>
+ <tileset firstgid="1" source="../OJAssets/map/Tile Images.tsx"/>
+ <tileset firstgid="45" source="../OJAssets/map2/Tile Images.tsx"/>
+ <tileset firstgid="268" source="../OJAssets/MFPack/Undercooked.tsx"/>
+ <tileset firstgid="298" source="../OJAssets/map2/Tile Images.tsx"/>
+ <tileset firstgid="521" source="../OJAssets/map/Tile Images.tsx"/>
  <layer id="2" name="OuterSpace" width="30" height="20" locked="1">
   <data encoding="csv">
    <chunk x="-32" y="-48" width="16" height="16">
