@@ -23,7 +23,7 @@ import interactions.Interactions;
  */
 public class CreditsScreen extends ScreenAdapter {
 
-    private ScreenID prevScreenID = ScreenID.MENU;
+    public static ScreenID prevScreenID;
     private OrthographicCamera camera;
     private ScreenController screenController;
     private FitViewport viewport;
