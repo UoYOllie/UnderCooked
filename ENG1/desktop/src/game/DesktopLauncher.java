@@ -16,6 +16,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setTitle("UnderCooked");
+		config.setWindowIcon("other/icon.png");
 		config.setWindowedMode(Constants.V_Width,Constants.V_Height);
 		new Lwjgl3Application(Boot.getInstance(), config);
 	}
