@@ -41,7 +41,7 @@ public class Cook extends GameEntity {
      */
     private Array<Facing> inputs;
 
-    private float movement_speed = 3;
+    private float movement_speed = 16f;
 
     /** All possible directions the cook can be facing. */
     enum Facing {
@@ -193,7 +193,7 @@ public class Cook extends GameEntity {
     public void render(SpriteBatch batch) {
         setSprite();
         sprite.setPosition(x-width/2-2.5F,y-height/2); // -2.5 for a similar reason to the below one
-        this.sprite.setSize(47.5F,70);
+        this.sprite.setSize(190,320);
 
         // If the cook is looking anywhere but down, draw the food first
         if (dir != Facing.DOWN) {

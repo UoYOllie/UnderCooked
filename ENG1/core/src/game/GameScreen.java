@@ -19,10 +19,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
 import cooks.GameEntity;
 import customers.CustomerController;
-import helper.CollisionHelper;
-import helper.GameHud;
-import helper.InstructionHud;
-import helper.MapHelper;
+import helper.*;
 import interactions.InputKey;
 import interactions.Interactions;
 import stations.CookInteractable;
@@ -103,7 +100,7 @@ public class GameScreen extends ScreenAdapter {
         this.gameHud = new GameHud(batch, this);
         this.instructionHUD = new InstructionHud(batch);
 
-        Cook cooktest = new Cook(1500 * Constants.PPM, Constants.PPM * 1200, 20, 20);
+        Cook cooktest = new Cook(325, 300, 12, 6);
         this.addCook(cooktest);
 
         this.cook = cooktest;
@@ -184,7 +181,7 @@ public class GameScreen extends ScreenAdapter {
     private void cameraUpdate()
     {
         camera.position.set(new Vector3(this.cook.getX(),this.cook.getY(),0));
-        camera.zoom = 1.3f;
+        camera.zoom = 3f;
         camera.update();
     }
 

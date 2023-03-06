@@ -55,7 +55,7 @@ public class MapHelper {
         //IGNORE
         tiledMap = new TmxMapLoader().load("MorgansMap/AWholeNewWorld.tmx"); //<---PUT MAP FILE
         parseMapObjects(tiledMap); //<--keep it for now
-        return new OrthogonalTiledMapRenderer(tiledMap);
+        return new OrthogonalTiledMapRenderer(tiledMap, 8f);
     }
 
 //    /**
@@ -136,10 +136,13 @@ public class MapHelper {
                 obstacleObjects.getByType(RectangleMapObject.class)) {
 
             Rectangle rectangle = rectangleMapObject.getRectangle();
-            Rectangle newRectangle = new Rectangle(rectangle.x, rectangle.y,
-                                    rectangle.width*PPM, rectangle.height*PPM);
+            Rectangle newRectangle = new Rectangle(rectangle.x * 1f, rectangle.y * 1f,
+                                    rectangle.width * 28f, rectangle.height*28f);
 
             mapObstacles.add(newRectangle);
+            System.out.println(newRectangle.x);
+            System.out.println(newRectangle.y);
+            System.out.println(":)");
         }
 
         // INTERACTION OBJECTS
