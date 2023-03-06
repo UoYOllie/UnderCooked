@@ -22,8 +22,6 @@ public class MenuTest {
     public void testStartGame() {
         OrthographicCamera camera = new OrthographicCamera();
         ScreenController screenController = new ScreenController(boot, camera);
-        MenuScreen menuScreen = new MenuScreen(screenController, camera);
-
         screenController.setScreen(ScreenController.ScreenID.MENU);
         keysPressed.add(InputKey.InputTypes.START_GAME);
         assertEquals(screenController.getScreen(ScreenController.ScreenID.GAME), boot.getScreen());
