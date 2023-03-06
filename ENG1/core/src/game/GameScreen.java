@@ -19,10 +19,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
 import cooks.GameEntity;
 import customers.CustomerController;
-import helper.CollisionHelper;
-import helper.GameHud;
-import helper.InstructionHud;
-import helper.MapHelper;
+import helper.*;
 import interactions.InputKey;
 import interactions.Interactions;
 import stations.CookInteractable;
@@ -53,8 +50,8 @@ public class GameScreen extends ScreenAdapter {
     private Array<GameEntity> gameEntities;
     private DrawQueueComparator drawQueueComparator;
     private Array<ServingStation> servingStations;
-    private int xOffset = 480;
-    private int yOffset = 320;
+    private float xOffset = 1500;
+    private float yOffset = 1200;
 
     //Objects
     private Array<Cook> cooks;
@@ -184,6 +181,7 @@ public class GameScreen extends ScreenAdapter {
     private void cameraUpdate()
     {
         camera.position.set(new Vector3(0 + xOffset,0+yOffset,0));
+        camera.zoom = 0.623f;
         camera.update();
     }
 
