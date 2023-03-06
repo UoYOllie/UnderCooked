@@ -15,21 +15,20 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(GdxTestRunner.class)
 public class MenuTest {
-    private Boot boot;
+    private Boot boot = Boot.getInstance();
 
     // main menu
     @Test
     public void testStartGame() {
         OrthographicCamera camera = new OrthographicCamera();
         ScreenController screenController = new ScreenController(boot, camera);
-        MenuScreen menuScreen = new MenuScreen(screenController, camera);
-
         screenController.setScreen(ScreenController.ScreenID.MENU);
         keysPressed.add(InputKey.InputTypes.START_GAME);
         assertEquals(screenController.getScreen(ScreenController.ScreenID.GAME), boot.getScreen());
 
     }
 
+    @Test
     public void testCreditsMenu() {
         OrthographicCamera camera = new OrthographicCamera();
         ScreenController screenController = new ScreenController(boot, camera);
