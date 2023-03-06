@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(GdxTestRunner.class)
 public class MenuTest {
-    private Boot boot;
+    private Boot boot = Boot.getInstance();
 
     // main menu
     @Test
@@ -30,6 +30,7 @@ public class MenuTest {
 
     }
 
+    @Test
     public void testCreditsMenu() {
         OrthographicCamera camera = new OrthographicCamera();
         ScreenController screenController = new ScreenController(boot, camera);
