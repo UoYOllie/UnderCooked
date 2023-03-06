@@ -103,7 +103,7 @@ public class GameScreen extends ScreenAdapter {
         this.gameHud = new GameHud(batch, this);
         this.instructionHUD = new InstructionHud(batch);
 
-        Cook cooktest = new Cook(0, 0, 20, 20);
+        Cook cooktest = new Cook(1500, 1200, 20, 20);
         this.addCook(cooktest);
 
         this.cook = cooktest;
