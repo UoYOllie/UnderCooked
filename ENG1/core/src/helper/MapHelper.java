@@ -53,7 +53,7 @@ public class MapHelper {
     public OrthogonalTiledMapRenderer setupMap()
     {
         //IGNORE
-        tiledMap = new TmxMapLoader().load("Maps/OuterCooked.tmx"); //<---PUT MAP FILE
+        tiledMap = new TmxMapLoader().load("MorgansMap/AWholeNewWorld.tmx"); //<---PUT MAP FILE
         parseMapObjects(tiledMap); //<--keep it for now
         return new OrthogonalTiledMapRenderer(tiledMap);
     }
