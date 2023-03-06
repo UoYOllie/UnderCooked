@@ -57,7 +57,7 @@ public class Cook extends GameEntity {
      * @param body The {@link World}.{@link Body} which will become the {@link Cook}
      * @param gameScreen The {@link GameScreen} that creates the {@link Cook}.
      */
-    public Cook(float x, float y, float width, float height, GameScreen gameScreen) {
+    public Cook(float x, float y, float width, float height) {
         super(x, y, width, height);
         this.dir = Facing.DOWN;
         this.speed = 10f;

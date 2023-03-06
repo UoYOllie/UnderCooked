@@ -1,5 +1,6 @@
 package game;
 
+import com.badlogic.gdx.Input;
 import cooks.Cook;
 import customers.Customer;
 
@@ -102,6 +103,12 @@ public class GameScreen extends ScreenAdapter {
         this.gameHud = new GameHud(batch, this);
         this.instructionHUD = new InstructionHud(batch);
 
+        Cook cooktest = new Cook(0, 0, 20, 20);
+        this.addCook(cooktest);
+
+        this.cook = cooktest;
+
+
     }
 
     /**
@@ -127,7 +134,11 @@ public class GameScreen extends ScreenAdapter {
                 }
             }
         }
-
+        if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
+            System.out.println(this.cook.getX());
+            System.out.println(this.cook.getY());
+            System.out.println("///////////////");
+        }
         gameHud.updateTime(hoursPassed, minutesPassed, secondsPassed);
         cameraUpdate();
         orthogonalTiledMapRenderer.setView(camera);
@@ -141,6 +152,7 @@ public class GameScreen extends ScreenAdapter {
         if(Interactions.isJustPressed(InputKey.InputTypes.COOK_SWAP)) {
             setCook((cookIndex + 1) % cooks.size);
         }
+        this.cook.update(Gdx.graphics.getDeltaTime());
 
         // Spawning code to spawn a customer after an amount of time.
         /*if(TimeUtils.millis() >= nextCustomerSecond)
