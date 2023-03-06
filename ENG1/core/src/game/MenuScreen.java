@@ -35,6 +35,10 @@ public class MenuScreen extends ScreenAdapter {
     private Stage stage;
     private Sprite backgroundSprite;
 
+
+
+
+
     /**
      * The constructor for the {@link MenuScreen}.
      * @param screenController The {@link ScreenController} of the {@link ScreenAdapter}.
