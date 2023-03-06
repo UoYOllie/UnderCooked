@@ -41,6 +41,8 @@ public class Cook extends GameEntity {
      */
     private Array<Facing> inputs;
 
+    private float movement_speed = 3;
+
     /** All possible directions the cook can be facing. */
     enum Facing {
         RIGHT,
@@ -86,7 +88,7 @@ public class Cook extends GameEntity {
         velY = 0F;
         if(Interactions.isPressed(InputKey.InputTypes.COOK_RIGHT))
         {
-            velX = 1;
+            velX = movement_speed;
             if (!inputs.contains(Facing.RIGHT, true)) {
                 inputs.add(Facing.RIGHT);
             }
@@ -95,7 +97,7 @@ public class Cook extends GameEntity {
         }
         if(Interactions.isPressed(InputKey.InputTypes.COOK_LEFT))
         {
-            velX = -1;
+            velX = -movement_speed;
             if (!inputs.contains(Facing.LEFT, true)) {
                 inputs.add(Facing.LEFT);
             }
@@ -104,7 +106,7 @@ public class Cook extends GameEntity {
         }
         if(Interactions.isPressed(InputKey.InputTypes.COOK_UP))
         {
-            velY = 1;
+            velY = movement_speed;
             if (!inputs.contains(Facing.UP, true)) {
                 inputs.add(Facing.UP);
             }
@@ -113,7 +115,7 @@ public class Cook extends GameEntity {
         }
         if(Interactions.isPressed(InputKey.InputTypes.COOK_DOWN))
         {
-            velY = -1;
+            velY = -movement_speed;
             if (!inputs.contains(Facing.DOWN, true)) {
                 inputs.add(Facing.DOWN);
             }
