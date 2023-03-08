@@ -90,10 +90,10 @@ public class MovementTest {
         GameScreen gameScreentest = new GameScreen(screenController,camera);
         Cook cook = new Cook(1500, 1200, 20, 20);
         gameScreentest.addCook(cook);
-        keysPressed.add(InputKey.InputTypes.COOK_UP);
-        keysPressed.add(InputKey.InputTypes.COOK_LEFT);
-        assertTrue(cook.getX()==1499);
-        assertTrue(cook.getY()==1201);
+        keysPressed.add(InputKey.InputTypes.COOK_DOWN);
+        keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
+        assertTrue(cook.getX()==1501);
+        assertTrue(cook.getY()==1199);
     }
 
     public void TestChefMoveDown(){
