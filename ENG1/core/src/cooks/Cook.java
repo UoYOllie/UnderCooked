@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 /** A {@link GameEntity} that the player controls to interact with the game. */
 public class Cook extends GameEntity {
 
+
     /** The cook's current sprite. */
     private Sprite sprite;
     /** The control arrow sprite. */
@@ -41,7 +43,7 @@ public class Cook extends GameEntity {
      */
     private Array<Facing> inputs;
 
-    private float movement_speed = 16f;
+    private float movement_speed = 1f;
 
     /** All possible directions the cook can be facing. */
     enum Facing {
@@ -193,7 +195,7 @@ public class Cook extends GameEntity {
     public void render(SpriteBatch batch) {
         setSprite();
         sprite.setPosition(x-width/2-2.5F,y-height/2); // -2.5 for a similar reason to the below one
-        this.sprite.setSize(190,320);
+        this.sprite.setSize(9,16);
 
         // If the cook is looking anywhere but down, draw the food first
         if (dir != Facing.DOWN) {
@@ -206,7 +208,7 @@ public class Cook extends GameEntity {
     }
 
     public void renderControlArrow(SpriteBatch batch) {
-        controlSprite.setSize(32,22F);
+        controlSprite.setSize(8,5F);
         controlSprite.setPosition(x-controlSprite.getWidth()/2,
                 y-controlSprite.getHeight()/4 + sprite.getHeight());
         controlSprite.draw(batch);

@@ -1,6 +1,7 @@
 package game;
 
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.maps.MapObjects;
 import cooks.Cook;
 import customers.Customer;
 
@@ -26,6 +27,8 @@ import stations.CookInteractable;
 import stations.ServingStation;
 
 import java.util.Comparator;
+
+import static helper.Constants.PPM;
 
 /** A {@link ScreenAdapter} containing certain elements of the game. */
 public class GameScreen extends ScreenAdapter {
@@ -100,7 +103,8 @@ public class GameScreen extends ScreenAdapter {
         this.gameHud = new GameHud(batch, this);
         this.instructionHUD = new InstructionHud(batch);
 
-        Cook cooktest = new Cook(325, 300, 12, 6);
+
+        Cook cooktest = new Cook(2041*8f, 2814*8f, 2, 1); //width will need adjusting when sprites updated
         this.addCook(cooktest);
 
         this.cook = cooktest;
@@ -181,7 +185,7 @@ public class GameScreen extends ScreenAdapter {
     private void cameraUpdate()
     {
         camera.position.set(new Vector3(this.cook.getX(),this.cook.getY(),0));
-        camera.zoom = 3f;
+        camera.zoom = 1/5f;
         camera.update();
     }
 

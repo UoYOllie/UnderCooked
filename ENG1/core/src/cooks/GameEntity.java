@@ -43,8 +43,8 @@ public abstract class GameEntity {
     public GameEntity(float x, float y, float width, float height)
     {
         //this.y = body.getPosition().y * PPM; UPDATE TO:
-        this.x = x * PPM;
-        this.y = y * PPM;
+        this.x = x * 1/8f;
+        this.y = y * 1/8f;
 
         this.rectangle = new Rectangle(this.x, this.y, width, height);
 
