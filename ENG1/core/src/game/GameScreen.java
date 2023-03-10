@@ -92,7 +92,7 @@ public class GameScreen extends ScreenAdapter {
         this.customerController = new CustomerController(this);
 
         this.world = new World(new Vector2(0,0), false);
-        this.box2DDebugRenderer = new Box2DDebugRenderer();
+        //this.box2DDebugRenderer = new Box2DDebugRenderer();
 
         // UPDATED
         // this.mapHelper = MapHelper.getInstance();
