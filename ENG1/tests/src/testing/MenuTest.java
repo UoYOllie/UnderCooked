@@ -1,6 +1,7 @@
 package testing;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -20,6 +21,7 @@ public class MenuTest {
     // main menu
     @Test
     public void testStartGame() {
+        Gdx.gl20 = Gdx.gl;
         OrthographicCamera camera = new OrthographicCamera();
         ScreenController screenController = new ScreenController(boot, camera);
         screenController.setScreen(ScreenController.ScreenID.MENU);
@@ -30,6 +32,7 @@ public class MenuTest {
 
     @Test
     public void testCreditsMenu() {
+        Gdx.gl20 = Gdx.gl;
         OrthographicCamera camera = new OrthographicCamera();
         ScreenController screenController = new ScreenController(boot, camera);
         screenController.setScreen(ScreenController.ScreenID.MENU);

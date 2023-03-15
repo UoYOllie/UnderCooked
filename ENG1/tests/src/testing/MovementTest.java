@@ -3,6 +3,7 @@ package testing;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import cooks.Cook;
@@ -14,6 +15,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 
+import java.util.ArrayList;
+
 import static interactions.Interactions.keysPressed;
 import static org.testng.Assert.*;
 
@@ -23,14 +26,18 @@ public class MovementTest {
     private Boot boot = Boot.getInstance();
     @Test
     public void TestChefMoveLeft(){
-        OrthographicCamera camera = new OrthographicCamera();
-        ScreenController screenController = new ScreenController(boot, camera);
-        screenController.setScreen(ScreenController.ScreenID.GAME);
-        GameScreen gameScreentest = new GameScreen(screenController,camera);
+        //OrthographicCamera camera = new OrthographicCamera();
+        //ScreenController screenController = new ScreenController(boot, camera);
+        //screenController.setScreen(ScreenController.ScreenID.GAME);
+        //GameScreen gameScreentest = new GameScreen(screenController,camera);
         Cook cook = new Cook(1500, 1200, 20, 20);
-        gameScreentest.addCook(cook);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        //gameScreentest.addCook(cook)
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
-        assertTrue(cook.getX()==1499);
+        cook.userInput(testList);
+        System.out.print(cook.getX());
+        float final_move = (1500 * 1/8f) - 1;
+        assertTrue(cook.getX()==final_move);
     }
 
     public void TestChefMoveUp(){

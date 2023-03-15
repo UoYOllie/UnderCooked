@@ -158,6 +158,8 @@ public class Cook extends GameEntity {
 
         // body.setLinearVelocity(velX * speed,velY * speed);
         this.rectangle = newPlayerRectangle;
+        this.x = rectangle.x;
+        this.y = rectangle.y;
     }
 
     /**

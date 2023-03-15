@@ -14,7 +14,7 @@ import stations.Station.StationID;
  */
 public class Interactions {
     /** A HashMap containing how each FoodItem's FoodID, via a station of StationID, can convert to another foodID.*/
-    private static final HashMap<String, InteractionResult> interactions = new HashMap<>();
+    public static final HashMap<String, InteractionResult> interactions = new HashMap<>();
     static {
         interactions.put(InteractionKey(FoodID.lettuce, StationID.cut), new InteractionResult(FoodID.lettuceChop,new float[] {25,50,75},-1));
         interactions.put(InteractionKey(FoodID.tomato, StationID.cut), new InteractionResult(FoodID.tomatoChop,new float[] {25,50,75},-1));

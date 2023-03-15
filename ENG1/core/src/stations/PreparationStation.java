@@ -20,9 +20,9 @@ public class PreparationStation extends Station {
 
     private FoodItem.FoodID foodItem;
     private Interactions.InteractionResult interaction;
-    private float progress;
+    public float progress;
     private int stepNum;
-    private StationState state;
+    public StationState state;
 
     /**
      * The constructor for the {@link PreparationStation}.
@@ -101,7 +101,7 @@ public class PreparationStation extends Station {
         }
     }
 
-    private enum StationState {
+    public enum StationState {
         PREPARING,
         NEED_USE,
         FINISHED
