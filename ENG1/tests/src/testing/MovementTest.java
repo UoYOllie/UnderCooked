@@ -26,13 +26,8 @@ public class MovementTest {
     private Boot boot = Boot.getInstance();
     @Test
     public void TestChefMoveLeft(){
-        //OrthographicCamera camera = new OrthographicCamera();
-        //ScreenController screenController = new ScreenController(boot, camera);
-        //screenController.setScreen(ScreenController.ScreenID.GAME);
-        //GameScreen gameScreentest = new GameScreen(screenController,camera);
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
-        //gameScreentest.addCook(cook)
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         cook.userInput(testList);
         System.out.print(cook.getX());
@@ -40,89 +35,86 @@ public class MovementTest {
         assertTrue(cook.getX()==final_move);
     }
 
+    @Test
     public void TestChefMoveUp(){
-        OrthographicCamera camera = new OrthographicCamera();
-        ScreenController screenController = new ScreenController(boot, camera);
-        screenController.setScreen(ScreenController.ScreenID.GAME);
-        GameScreen gameScreentest = new GameScreen(screenController,camera);
         Cook cook = new Cook(1500, 1200, 20, 20);
-        gameScreentest.addCook(cook);
+        ArrayList<Rectangle> testList = new ArrayList<>();
         keysPressed.add(InputKey.InputTypes.COOK_UP);
-        assertTrue(cook.getY()==1201);
+        cook.userInput(testList);
+        float final_move = (1200 * 1/8f) + 1;
+        assertTrue(cook.getY()==final_move);
     }
 
+    @Test
     public void TestChefMoveUpLeft(){
-        OrthographicCamera camera = new OrthographicCamera();
-        ScreenController screenController = new ScreenController(boot, camera);
-        screenController.setScreen(ScreenController.ScreenID.GAME);
-        GameScreen gameScreentest = new GameScreen(screenController,camera);
         Cook cook = new Cook(1500, 1200, 20, 20);
-        gameScreentest.addCook(cook);
-        keysPressed.add(InputKey.InputTypes.COOK_UP);
+        ArrayList<Rectangle> testList = new ArrayList<>();
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
-        assertTrue(cook.getX()==1499);
-        assertTrue(cook.getY()==1201);
+        keysPressed.add(InputKey.InputTypes.COOK_UP);
+        cook.userInput(testList);
+        float final_move = (1500 * 1/8f) - 1;
+        assertTrue(cook.getX()==final_move);
+        final_move = (1200 * 1/8f) + 1;
+        assertTrue(cook.getY()==final_move);
     }
 
+    @Test
     public void TestChefMoveUpRight(){
-        OrthographicCamera camera = new OrthographicCamera();
-        ScreenController screenController = new ScreenController(boot, camera);
-        screenController.setScreen(ScreenController.ScreenID.GAME);
-        GameScreen gameScreentest = new GameScreen(screenController,camera);
         Cook cook = new Cook(1500, 1200, 20, 20);
-        gameScreentest.addCook(cook);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         keysPressed.add(InputKey.InputTypes.COOK_UP);
-        keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
-        assertTrue(cook.getX()==1501);
-        assertTrue(cook.getY()==1201);
+        cook.userInput(testList);
+        float final_move = (1500 * 1/8f) + 1;
+        assertTrue(cook.getX()==final_move);
+        final_move = (1200 * 1/8f) + 1;
+        assertTrue(cook.getY()==final_move);
     }
 
+    @Test
     public void TestChefMoveDownLeft(){
-        OrthographicCamera camera = new OrthographicCamera();
-        ScreenController screenController = new ScreenController(boot, camera);
-        screenController.setScreen(ScreenController.ScreenID.GAME);
-        GameScreen gameScreentest = new GameScreen(screenController,camera);
         Cook cook = new Cook(1500, 1200, 20, 20);
-        gameScreentest.addCook(cook);
-        keysPressed.add(InputKey.InputTypes.COOK_DOWN);
+        ArrayList<Rectangle> testList = new ArrayList<>();
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
-        assertTrue(cook.getX()==1499);
-        assertTrue(cook.getY()==1199);
+        keysPressed.add(InputKey.InputTypes.COOK_DOWN);
+        cook.userInput(testList);
+        float final_move = (1500 * 1/8f) - 1;
+        assertTrue(cook.getX()==final_move);
+        final_move = (1200 * 1/8f) - 1;
+        assertTrue(cook.getY()==final_move);
     }
 
+    @Test
     public void TestChefMoveDownRight(){
-        OrthographicCamera camera = new OrthographicCamera();
-        ScreenController screenController = new ScreenController(boot, camera);
-        screenController.setScreen(ScreenController.ScreenID.GAME);
-        GameScreen gameScreentest = new GameScreen(screenController,camera);
         Cook cook = new Cook(1500, 1200, 20, 20);
-        gameScreentest.addCook(cook);
-        keysPressed.add(InputKey.InputTypes.COOK_DOWN);
+        ArrayList<Rectangle> testList = new ArrayList<>();
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
-        assertTrue(cook.getX()==1501);
-        assertTrue(cook.getY()==1199);
+        keysPressed.add(InputKey.InputTypes.COOK_DOWN);
+        cook.userInput(testList);
+        float final_move = (1500 * 1/8f) + 1;
+        assertTrue(cook.getX()==final_move);
+        final_move = (1200 * 1/8f) - 1;
+        assertTrue(cook.getY()==final_move);
     }
 
+    @Test
     public void TestChefMoveDown(){
-        OrthographicCamera camera = new OrthographicCamera();
-        ScreenController screenController = new ScreenController(boot, camera);
-        screenController.setScreen(ScreenController.ScreenID.GAME);
-        GameScreen gameScreentest = new GameScreen(screenController,camera);
         Cook cook = new Cook(1500, 1200, 20, 20);
-        gameScreentest.addCook(cook);
+        ArrayList<Rectangle> testList = new ArrayList<>();
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
-        assertTrue(cook.getY()==1199);
+        cook.userInput(testList);
+        float final_move = (1200 * 1/8f) - 1;
+        assertTrue(cook.getY()==final_move);
     }
 
+    @Test
     public void TestChefMoveRight(){
-        OrthographicCamera camera = new OrthographicCamera();
-        ScreenController screenController = new ScreenController(boot, camera);
-        screenController.setScreen(ScreenController.ScreenID.GAME);
-        GameScreen gameScreentest = new GameScreen(screenController,camera);
         Cook cook = new Cook(1500, 1200, 20, 20);
-        gameScreentest.addCook(cook);
+        ArrayList<Rectangle> testList = new ArrayList<>();
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
-        assertTrue(cook.getX()==1501);
+        cook.userInput(testList);
+        float final_move = (1500 * 1/8f) + 1;
+        assertTrue(cook.getX()==final_move);
     }
 
     //TEST SWITCH CHEFS
