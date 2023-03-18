@@ -117,5 +117,20 @@ public class MovementTest {
         assertTrue(cook.getX()==final_move);
     }
 
-    //TEST SWITCH CHEFS
+    @Test
+    public void TestChefSwitch(){
+        Gdx.gl20 = Gdx.gl;
+        OrthographicCamera camera = new OrthographicCamera();
+        ScreenController screenController = new ScreenController(boot,camera);
+        Cook cook = new Cook(1500,1200,20,20);
+        Cook cook2 = new Cook(1400,1200,20,20);
+        screenController.setScreen(ScreenController.ScreenID.GAME);
+        GameScreen gameScreen = new GameScreen(screenController,camera);
+        gameScreen.addCook(cook);
+        gameScreen.addCook(cook2);
+        gameScreen.setCook(0);
+        keysPressed.add(InputKey.InputTypes.COOK_SWAP);
+        gameScreen.update(0);
+        assertTrue(gameScreen.cooks.pop() == cook2);
+    }
 }

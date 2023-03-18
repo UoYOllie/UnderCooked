@@ -57,7 +57,7 @@ public class GameScreen extends ScreenAdapter {
     private float yOffset = 1200;
 
     //Objects
-    private Array<Cook> cooks;
+    public Array<Cook> cooks;
     private Cook cook;
 
     private int cookIndex;
@@ -116,7 +116,7 @@ public class GameScreen extends ScreenAdapter {
      * Update the game's values, {@link GameEntity}s and so on.
      * @param delta The time between frames as a float.
      */
-    private void update(float delta)
+    public void update(float delta)
     {
 
         // First thing, update all inputs
