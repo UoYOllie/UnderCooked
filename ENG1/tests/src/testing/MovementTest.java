@@ -62,6 +62,7 @@ public class MovementTest {
     public void TestChefMoveUpRight(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         cook.userInput(testList);
@@ -88,6 +89,7 @@ public class MovementTest {
     public void TestChefMoveDownRight(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         cook.userInput(testList);
