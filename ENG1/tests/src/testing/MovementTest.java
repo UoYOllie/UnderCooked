@@ -28,6 +28,7 @@ public class MovementTest {
     public void TestChefMoveLeft(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         cook.userInput(testList);
         System.out.print(cook.getX());
@@ -39,6 +40,7 @@ public class MovementTest {
     public void TestChefMoveUp(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         cook.userInput(testList);
         float final_move = (1200 * 1/8f) + 1;
@@ -49,6 +51,7 @@ public class MovementTest {
     public void TestChefMoveUpLeft(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         cook.userInput(testList);
@@ -76,6 +79,7 @@ public class MovementTest {
     public void TestChefMoveDownLeft(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         cook.userInput(testList);
@@ -103,6 +107,7 @@ public class MovementTest {
     public void TestChefMoveDown(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         cook.userInput(testList);
         float final_move = (1200 * 1/8f) - 1;
@@ -113,6 +118,7 @@ public class MovementTest {
     public void TestChefMoveRight(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         cook.userInput(testList);
         float final_move = (1500 * 1/8f) + 1;
@@ -131,6 +137,7 @@ public class MovementTest {
         gameScreen.addCook(cook);
         gameScreen.addCook(cook2);
         gameScreen.setCook(0);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_SWAP);
         gameScreen.update(0);
         assertTrue(gameScreen.cooks.pop() == cook2);
