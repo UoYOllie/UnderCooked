@@ -22,7 +22,7 @@ public class Customer {
     public Sprite sprite;
     /** The name of the {@link Recipe} that the {@link Customer}
      * is requesting. */
-    private String request;
+    public String request;
 
     /**
      * The constructor for the {@link Customer}.
