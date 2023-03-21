@@ -23,6 +23,7 @@ public class CollisionTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f) - 20,1200 * 1/8f,20,20);
         testList.add(rectangle);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         cook.userInput(testList);
         float final_move = (1500 * 1/8f);
@@ -35,6 +36,7 @@ public class CollisionTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f) + 20,1200 * 1/8f,20,20);
         testList.add(rectangle);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         cook.userInput(testList);
         float final_move = (1500 * 1/8f);
@@ -47,6 +49,7 @@ public class CollisionTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f) + 20,20,20);
         testList.add(rectangle);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         cook.userInput(testList);
         float final_move = (1200 * 1/8f);
@@ -59,6 +62,7 @@ public class CollisionTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f) - 20,20,20);
         testList.add(rectangle);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         cook.userInput(testList);
         float final_move = (1200 * 1/8f);
@@ -73,6 +77,7 @@ public class CollisionTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f) - 20,(1200 * 1/8f),20,20);
         testList.add(rectangle);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         cook.userInput(testList);
@@ -88,6 +93,7 @@ public class CollisionTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f) - 20,(1200 * 1/8f),20,20);
         testList.add(rectangle);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         cook.userInput(testList);
@@ -103,6 +109,7 @@ public class CollisionTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f) + 21,(1200 * 1/8f),20,20);
         testList.add(rectangle);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         cook.userInput(testList);
@@ -118,6 +125,7 @@ public class CollisionTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f) + 21,(1200 * 1/8f),20,20);
         testList.add(rectangle);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         cook.userInput(testList);
@@ -133,6 +141,7 @@ public class CollisionTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f) + 21,20,20);
         testList.add(rectangle);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         cook.userInput(testList);
@@ -148,6 +157,7 @@ public class CollisionTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f) + 21,20,20);
         testList.add(rectangle);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         cook.userInput(testList);
@@ -163,6 +173,7 @@ public class CollisionTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f) - 21,20,20);
         testList.add(rectangle);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         cook.userInput(testList);
@@ -177,6 +188,7 @@ public class CollisionTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f) - 21,20,20);
         testList.add(rectangle);
+        keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         cook.userInput(testList);
