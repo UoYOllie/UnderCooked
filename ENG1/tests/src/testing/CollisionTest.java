@@ -27,7 +27,7 @@ public class CollisionTest {
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         cook.userInput(testList);
         float final_move = (1500 * 1/8f);
-        assertTrue(cook.getX()==final_move);
+        assertTrue(cook.getX()==final_move,"Error: moving left into a collidable object does not work");
     }
 
     @Test
@@ -40,7 +40,7 @@ public class CollisionTest {
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         cook.userInput(testList);
         float final_move = (1500 * 1/8f);
-        assertTrue(cook.getX()==final_move);
+        assertTrue(cook.getX()==final_move,"Error: moving right into a collidable object does not work");
     }
 
     @Test
@@ -53,7 +53,7 @@ public class CollisionTest {
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         cook.userInput(testList);
         float final_move = (1200 * 1/8f);
-        assertTrue(cook.getY()==final_move);
+        assertTrue(cook.getY()==final_move,"Error: moving up into a collidable object does not work properly");
     }
 
     @Test
@@ -66,7 +66,7 @@ public class CollisionTest {
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         cook.userInput(testList);
         float final_move = (1200 * 1/8f);
-        assertTrue(cook.getY()==final_move);
+        assertTrue(cook.getY()==final_move,"Error: moving down into a collidable object does not work properly");
     }
 
 
@@ -83,8 +83,8 @@ public class CollisionTest {
         cook.userInput(testList);
         float final_move = (1500 * 1/8f);
         float final_move2 = (1200 * 1/8f) + 1;
-        assertTrue(cook.getX()==final_move);
-        assertTrue(cook.getY()==final_move2);
+        assertTrue(cook.getX()==final_move,"Error: moving left into a collidable object does not work properly");
+        assertTrue(cook.getY()==final_move2,"Error: movement up while up against a wall of the left isn't working");
     }
 
     @Test
@@ -99,8 +99,8 @@ public class CollisionTest {
         cook.userInput(testList);
         float final_move = (1500 * 1/8f);
         float final_move2 = (1200 * 1/8f) - 1;
-        assertTrue(cook.getX()==final_move);
-        assertTrue(cook.getY()==final_move2);
+        assertTrue(cook.getX()==final_move,"Error: moving left into a collidable object does not work properly");
+        assertTrue(cook.getY()==final_move2,"Error: moving down while up against a collidable wall on the left isn't working");
     }
 
     @Test
@@ -115,8 +115,8 @@ public class CollisionTest {
         cook.userInput(testList);
         float final_move = (1500 * 1/8f) + 1;
         float final_move2 = (1200 * 1/8f) + 1;
-        assertTrue(cook.getX()==final_move);
-        assertTrue(cook.getY()==final_move2);
+        assertTrue(cook.getX()==final_move,"Error: moving right into a collidable object does not work properly");
+        assertTrue(cook.getY()==final_move2,"Error: moving up while against a collidable wall on the right isn't working");
     }
 
     @Test
@@ -131,8 +131,8 @@ public class CollisionTest {
         cook.userInput(testList);
         float final_move = (1500 * 1/8f) + 1;
         float final_move2 = (1200 * 1/8f) - 1;
-        assertTrue(cook.getX()==final_move);
-        assertTrue(cook.getY()==final_move2);
+        assertTrue(cook.getX()==final_move,"Error: moving right into a collidable object does not work properly");
+        assertTrue(cook.getY()==final_move2,"Error: Moving down while up against a collidable wall on the right isn't working");
     }
 
     @Test
@@ -147,8 +147,8 @@ public class CollisionTest {
         cook.userInput(testList);
         float final_move = (1500 * 1/8f) + 1;
         float final_move2 = (1200 * 1/8f) + 1;
-        assertTrue(cook.getX()==final_move);
-        assertTrue(cook.getY()==final_move2);
+        assertTrue(cook.getX()==final_move,"Error: moving up into a collidable object does not work properly");
+        assertTrue(cook.getY()==final_move2,"Error: Moving right while against a collidable wall above the player isn't working");
     }
 
     @Test
@@ -163,8 +163,8 @@ public class CollisionTest {
         cook.userInput(testList);
         float final_move = (1500 * 1/8f) - 1;
         float final_move2 = (1200 * 1/8f) + 1;
-        assertTrue(cook.getX()==final_move);
-        assertTrue(cook.getY()==final_move2);
+        assertTrue(cook.getX()==final_move,"Error: moving up into a collidable object does not work properly");
+        assertTrue(cook.getY()==final_move2,"Error: Moving left whilst against a wall above the player isn't working");
     }
 
     @Test
@@ -179,8 +179,8 @@ public class CollisionTest {
         cook.userInput(testList);
         float final_move = (1500 * 1/8f) + 1;
         float final_move2 = (1200 * 1/8f) - 1;
-        assertTrue(cook.getX()==final_move);
-        assertTrue(cook.getY()==final_move2);
+        assertTrue(cook.getX()==final_move,"Error: moving down into a collidable object does not work properly");
+        assertTrue(cook.getY()==final_move2,"Error: moving right whilst against a wall below the player isn't working");
     }
 
     public void TestChefMoveSlideDownLeft(){
@@ -194,7 +194,7 @@ public class CollisionTest {
         cook.userInput(testList);
         float final_move = (1500 * 1/8f) - 1;
         float final_move2 = (1200 * 1/8f) - 1;
-        assertTrue(cook.getX()==final_move);
-        assertTrue(cook.getY()==final_move2);
+        assertTrue(cook.getX()==final_move,"Error, moving down into a collidable object does not work properly");
+        assertTrue(cook.getY()==final_move2,"Error, moving left whilst against a wall below the player isn't working");
     }
 }
