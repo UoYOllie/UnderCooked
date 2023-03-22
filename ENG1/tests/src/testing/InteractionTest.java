@@ -32,7 +32,7 @@ public class InteractionTest {
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.lettuce);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
-        assertTrue(cook.foodStack.size() == 0);
+        assertTrue(cook.foodStack.size() == 0,"Error: cannot put items of preparation stations");
     }
 
     @Test
@@ -46,7 +46,7 @@ public class InteractionTest {
         cook.foodStack.addStack(FoodItem.FoodID.lettuce);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuce);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuce,"Error: cannot pick up items from a station");
     }
 
     @Test
@@ -61,7 +61,7 @@ public class InteractionTest {
         cook.foodStack.addStack(FoodItem.FoodID.tomato);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
-        assertTrue(cook.foodStack.size() == 1);
+        assertTrue(cook.foodStack.size() == 1, "Error: Preparation stations can now hold " + cook.foodStack.size() + " items (if zero, that is max. Greater than 1 means at least 0) instead of the previous 1.");
     }
 
     @Test
@@ -76,7 +76,7 @@ public class InteractionTest {
         cook.foodStack.addStack(FoodItem.FoodID.tomato);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         testStation.interact(cook,InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomato);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomato,"Error: picking up an item from a station no longer puts it at the top of the stack");
     }
 
     @Test
@@ -94,7 +94,7 @@ public class InteractionTest {
             testStation.update(1);
         }
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop, "Error:The process of chopping lettuce no longer results in chopped lettuce at the end. PreperationStation is therefore broken");
     }
 
     @Test
@@ -112,7 +112,7 @@ public class InteractionTest {
             testStation.update(1);
         }
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomatoChop);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomatoChop, "Error:The process of cutting tomatoes no longer results in chopped tomatoes at the end. PreperationStation is therefore broken");
     }
 
     @Test
@@ -130,7 +130,7 @@ public class InteractionTest {
             testStation.update(1);
         }
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onionChop);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onionChop,"Error:The process of chopping no longer results in chopped onions at the end. PreperationStation is therefore broken");
     }
 
     @Test
@@ -148,7 +148,7 @@ public class InteractionTest {
             testStation.update(1);
         }
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook,"Error:The process of cooking meat no longer results in cooked meat at the end. PreperationStation is therefore broken");
     }
 
     @Test
@@ -161,10 +161,10 @@ public class InteractionTest {
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.meat);
         testStation.interact(cook, InputKey.InputTypes.USE);
-        assertTrue(cook.foodStack.size() == 0);
+        assertTrue(cook.foodStack.size() == 0,"Error:Using a bin using the USE input type does not work");
         cook.foodStack.addStack(FoodItem.FoodID.meat);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
-        assertTrue(cook.foodStack.size() == 0);
+        assertTrue(cook.foodStack.size() == 0,"Error:Using a bin using the PUT_DOWN input type does not work");
     }
 
     @Test
@@ -181,10 +181,10 @@ public class InteractionTest {
         for (int x = 0; x < 3; x++){
             testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         }
-        assertTrue(testStation.foodStack.popStack() == FoodItem.FoodID.meat);
-        assertTrue(testStation.foodStack.popStack() == FoodItem.FoodID.lettuce);
-        assertTrue(testStation.foodStack.popStack()== FoodItem.FoodID.onionChop);
-        assertTrue(cook.foodStack.size() == 0);
+        assertTrue(testStation.foodStack.popStack() == FoodItem.FoodID.meat, "Error: counter cannot hold multiple items, or stack on counter is no longer working");
+        assertTrue(testStation.foodStack.popStack() == FoodItem.FoodID.lettuce,"Error: counter cannot hold multiple items, or stack on counter is no longer working");
+        assertTrue(testStation.foodStack.popStack()== FoodItem.FoodID.onionChop,"Error: counter cannot hold multiple items, or stack on counter is no longer working");
+        assertTrue(cook.foodStack.size() == 0,"Error: popping an item from a counter does not remove it from the counter");
     }
 
     @Test
@@ -196,7 +196,7 @@ public class InteractionTest {
         testList.add(testPantry.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuce);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuce, "Picking up lettuce from a lettuce pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
     }
 
     @Test
@@ -208,7 +208,7 @@ public class InteractionTest {
         testList.add(testPantry.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomato);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomato,"Picking up a tomato from a tomato pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
     }
 
 
@@ -221,7 +221,7 @@ public class InteractionTest {
         testList.add(testPantry.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onion);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onion,"Picking up an onion from a onion pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
     }
 
     @Test
@@ -233,7 +233,7 @@ public class InteractionTest {
         testList.add(testPantry.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meat);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meat, "Picking up meat from a meat pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
     }
 
     @Test
@@ -245,7 +245,7 @@ public class InteractionTest {
         testList.add(testPantry.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.bottomBun);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.bottomBun, "Picking up a bun while no bottom bun is your stack should make it a bottom bun. It currently does not");
     }
 
     @Test
@@ -258,7 +258,7 @@ public class InteractionTest {
         Cook cook = new Cook(1500, 1200, 20, 20);
         testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
         testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.topBun);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.topBun, "If a bun is already in the player stack, picking up another bun should give a topBun. It currently does not");
     }
 
     @Test
