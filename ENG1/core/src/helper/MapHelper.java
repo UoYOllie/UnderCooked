@@ -140,11 +140,11 @@ public class MapHelper {
                                     rectangle.width * 1/8f, rectangle.height*1/8f);
 
             mapObstacles.add(newRectangle);
-            System.out.println(newRectangle.x);
-            System.out.println(newRectangle.y);
-            System.out.println(newRectangle.width);
-            System.out.println(newRectangle.height);
-            System.out.println(":)");
+//            System.out.println(newRectangle.x);
+//            System.out.println(newRectangle.y);
+//            System.out.println(newRectangle.width);
+//            System.out.println(newRectangle.height);
+//            System.out.println(":)");
         }
 
         // INTERACTION OBJECTS
@@ -158,10 +158,16 @@ public class MapHelper {
                 interactionObjects.getByType(RectangleMapObject.class)) {
 
             Rectangle rectangle = rectangleMapObject.getRectangle();
-            Rectangle newRectangle = new Rectangle(rectangle.x, rectangle.y,
-                                                rectangle.width*PPM,
-                                                rectangle.height*PPM);
+            Rectangle newRectangle = new Rectangle(rectangle.x*1/8f, ((rectangle.y) * 1/8f),
+                    rectangle.width * 1/8f, rectangle.height*1/8f);
             String stationName = rectangleMapObject.getName();
+            System.out.println(rectangleMapObject.getName());
+
+            System.out.println(newRectangle.x);
+            System.out.println(newRectangle.y);
+            System.out.println(newRectangle.width);
+            System.out.println(newRectangle.height);
+            System.out.println(":)");
 
             // Check which instance of Station and add the corresponding object to mapStations.
             switch(stationName) {
@@ -177,6 +183,24 @@ public class MapHelper {
                 case "ServingStation":
                     mapStations.add(new ServingStation(newRectangle));
                     break;
+                case "SpeedPowerup":
+                    mapStations.add(new SpeedPowerup(newRectangle));
+                    break;
+//                case "":
+//                    mapStations.add(new (newRectangle));
+//                    break;
+//                case "":
+//                    mapStations.add(new (newRectangle));
+//                    break;
+//                case "":
+//                    mapStations.add(new (newRectangle));
+//                    break;
+//                case "":
+//                    mapStations.add(new (newRectangle));
+//                    break;
+//                case "":
+//                    mapStations.add(new (newRectangle));
+//                    break;
             }
         }
     }

@@ -14,6 +14,8 @@ public class CollisionHelper {
     /** The GameScreen to do collision-helping on. */
     protected GameScreen gameScreen;
 
+
+
 //    /** Contains the singleton instance. */
 //    private static CollisionHelper INSTANCE;
 //
@@ -32,8 +34,9 @@ public class CollisionHelper {
      * @param gameScreen The desired GameScreen to use CollisionHelper on.
      */
     public void setGameScreen(GameScreen gameScreen) {
-
+        System.out.println("Initalising Gamescreen");
         this.gameScreen = gameScreen;
+        System.out.println(this.gameScreen);
     }
 
     /**
@@ -56,8 +59,17 @@ public class CollisionHelper {
      */
     public Array<CookInteractable> stationCollisions(Rectangle collision) {
         Array<CookInteractable> output = new Array<>();
+        System.out.println(this.gameScreen);
         for (CookInteractable cookInteractable : gameScreen.getInteractables()) {
+            System.out.println(cookInteractable);
             if (collision.overlaps(cookInteractable.getRectangle())) {
+                System.out.println("overlapping");
+                System.out.println("---------------------");
+                System.out.println(cookInteractable.getX());
+                System.out.println(cookInteractable.getY());
+                System.out.println(cookInteractable.getWidth());
+                System.out.println(cookInteractable.getHeight());
+                System.out.println("---------------------");
                 output.add(cookInteractable);
 
             }
@@ -73,10 +85,11 @@ public class CollisionHelper {
      */
     public CookInteractable getInteract(Cook cook, Rectangle rectangle) {
         Array<CookInteractable> intStations = stationCollisions(rectangle);
+        System.out.println(intStations);
         if (intStations.size == 0) {
             return null;
         }
-        Rectangle cookRect = new Rectangle(cook.getX(), cook.getY(),0,0);
+        Rectangle cookRect = new Rectangle(cook.getX(), cook.getY(), 3.34f,4);
         float closestDist = distRectToInteractable(cookRect, intStations.get(0));
         CookInteractable closest = intStations.get(0);
         for (int i = 1 ; i < intStations.size ; i++) {

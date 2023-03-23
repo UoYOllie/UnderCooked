@@ -1,5 +1,7 @@
 package game;
 
+import Shop.Gold;
+import Shop.ShopItem;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.maps.MapObjects;
 import cooks.Cook;
@@ -25,7 +27,9 @@ import interactions.InputKey;
 import interactions.Interactions;
 import stations.CookInteractable;
 import stations.ServingStation;
+import stations.Station;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 
 import static helper.Constants.PPM;
@@ -57,6 +61,7 @@ public class GameScreen extends ScreenAdapter {
     private float yOffset = 1200;
 
     //Objects
+    public Array<Cook> unusedcooks;
     public Array<Cook> cooks;
     private Cook cook;
 
@@ -75,7 +80,9 @@ public class GameScreen extends ScreenAdapter {
         this.lastCustomerSecond = -1;
         this.nextCustomerSecond = -1;
         this.cooks = new Array<>();
+        this.unusedcooks = new Array<>();
         this.interactables = new Array<>();
+        this.gold = new Gold();
 
         // UPDATE
         // this.collisionHelper = CollisionHelper.getInstance();
@@ -102,12 +109,19 @@ public class GameScreen extends ScreenAdapter {
         this.orthogonalTiledMapRenderer = mapHelper.setupMap();
         this.gameHud = new GameHud(batch, this);
         this.instructionHUD = new InstructionHud(batch);
+        addInteractable(this.mapHelper.getMapStations());
 
 
-        Cook cooktest = new Cook(2041*8f, 2814*8f, 2, 1); //width will need adjusting when sprites updated
-        this.addCook(cooktest);
+        Cook GlibbertOrange = new Cook(2041*8f, 2814*8f, 3.34f, 1,this); //width will need adjusting when sprites updated
+        this.addCook(GlibbertOrange);
+        Cook GlibbertBlue = new Cook(2045*8f, 2814*8f, 3.34f, 1,this); //width will need adjusting when sprites updated
+        this.addCook(GlibbertBlue);
+        Cook GlibbertGreen = new Cook(2049*8f, 2814*8f, 3.34f, 1,this); //width will need adjusting when sprites updated
+        this.addCook(GlibbertGreen);
+        Cook cooktest2 = new Cook(2030*8f, 2850*8f, 3.34f, 1,this); //width will need adjusting when sprites updated
+        this.addSpareCook(cooktest2);
 
-        this.cook = cooktest;
+        this.cook = GlibbertOrange;
 
 
     }
@@ -185,7 +199,7 @@ public class GameScreen extends ScreenAdapter {
     private void cameraUpdate()
     {
         camera.position.set(new Vector3(this.cook.getX(),this.cook.getY(),0));
-        camera.zoom = 1/5f;
+        camera.zoom = 1/10f;
         camera.update();
     }
 
@@ -301,6 +315,17 @@ public class GameScreen extends ScreenAdapter {
         cooks.add(newCook);
         return cooks.size-1;
     }
+    public int addSpareCook(Cook newCook) {
+        gameEntities.add(newCook);
+        unusedcooks.add(newCook);
+        return cooks.size-1;
+    }
+
+    public void SpareToNotSpare(Cook newCook)
+    {
+        cooks.add(newCook);
+    }
+
 
     /**
      * Updates the {@link GameHud} with the correct number of {@link Customer}s.
@@ -364,12 +389,13 @@ public class GameScreen extends ScreenAdapter {
     }
 
     /**
-     * Adds a {@link CookInteractable} that a {@link Cook} can interact with to {@link #interactables}.
-     * @param cookInteractable The {@link CookInteractable} object that the {@link Cook}
+     * Adds a {@link CookInteractable} that a {@link Cook} can interact with to {@link #interactables}
      *                         should be able to interact with.
      */
-    public void addInteractable(CookInteractable cookInteractable) {
-        interactables.add(cookInteractable);
+    public void addInteractable(ArrayList<Station> stations) {
+        for (Station s : stations) {
+            interactables.add(s);
+        }
     }
 
     /**
@@ -452,4 +478,26 @@ public class GameScreen extends ScreenAdapter {
     public InstructionHud getInstructionHUD() {
         return instructionHUD;
     }
+
+    public CollisionHelper getCollisionHelper() {
+        return collisionHelper;
+    }
+
+    //-------------------------------------
+    //Morgan's Shop Section
+    //-------------------------------------
+    public Gold gold;
+
+    //These are all the powerups:
+    ShopItem Powerup_Speed = new ShopItem("Speed",30); //increase current chef's movement seed
+    ShopItem Powerup_Teacup = new ShopItem("Teacup",40);//give user a cup of tea, place onto stack
+    ShopItem Powerup_ChefBluggusMode = new ShopItem("Bluggus",80); //Transforms chef to bluggus to have bonus stack.
+    ShopItem Powerup_4 = new ShopItem("-",30);
+    ShopItem Powerup_5 = new ShopItem("-",30);
+
+
+
+    //-------------------------------------
 }
+
+

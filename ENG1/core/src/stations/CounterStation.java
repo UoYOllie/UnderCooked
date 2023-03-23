@@ -47,6 +47,11 @@ public class CounterStation extends Station {
      */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
+        System.out.println("Im interacting with a counter");
+        System.out.println(rectangle.getX());
+        System.out.println(rectangle.getY());
+        System.out.println(rectangle.getWidth());
+        System.out.println(rectangle.getHeight());
         // If Cook is using the put down input, put down the item in the top of their stack
         if (cook.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
             // Take it from the cook, and add it to this counter's stack.

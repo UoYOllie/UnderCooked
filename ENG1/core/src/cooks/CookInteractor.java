@@ -3,6 +3,7 @@ package cooks;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import game.GameScreen;
 import helper.CollisionHelper;
 import interactions.InputKey;
 import stations.CookInteractable;
@@ -21,18 +22,28 @@ public class CookInteractor {
     /** The Collision Helper Singleton. */
     protected CollisionHelper ch;
 
+    private GameScreen gameScreen;
+
     /**
      * CookInteractor Constructor.
      * @param x The {@link #x} coordinate of the {@link CookInteractor}.
      * @param y The {@link #y} coordinate of the {@link CookInteractor}.
      * @param size The size of CookInteractor's {@link GameEntity}.
      */
-    public CookInteractor(float x, float y, float size) {
+    public CookInteractor(float x, float y, float size, GameScreen g) {
+        System.out.println("---------------------");
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println(size);
+        System.out.println("---------------------");
         this.size = size;
         this.x = x;
         this.y = y;
-        this.collision = new Rectangle(x,y,size,size);
-        this.ch = new CollisionHelper();
+        this.collision = new Rectangle(x* 1/8f,y* 1/8f,3.34f,4);
+        System.out.println("Collision rectangle loading:");
+        System.out.println(this.collision);
+        this.ch = g.getCollisionHelper();
+        this.gameScreen = g;
     }
 
     /**
@@ -97,8 +108,11 @@ public class CookInteractor {
      */
     public void checkCollisions(Cook cook, InputKey.InputTypes inputType) {
         CookInteractable interactStation = ch.getInteract(cook, collision);
+        System.out.println(interactStation);
         if (interactStation != null) {
+            System.out.println("Station found");
             interactStation.interact(cook, inputType);
+            System.out.println("interacting");
 
         }
     }

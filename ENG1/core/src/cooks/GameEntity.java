@@ -126,6 +126,12 @@ public abstract class GameEntity {
         return x;
     }
 
+    public float getWidth(){return this.width;}
+
+    public float getHeight() {
+        return height;
+    }
+
     /**
      * A getter to get the {@link GameEntity}'s {@link #y} coordinate.
      * @return {@code float} : The {@link GameEntity}'s {@link #y}.
