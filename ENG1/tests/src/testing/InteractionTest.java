@@ -23,6 +23,7 @@ import static org.testng.Assert.*;
 public class InteractionTest {
 
     @Test
+    // Relates to the FR_PUT_FOOD_DOWN requirement
     public void TestPutDownItem(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -36,6 +37,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_GET_FOOD requirement
     public void TestPickUpItem(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -50,6 +52,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_PUT_FOOD_DOWN requirement
     public void TestStackOnPreparationStation(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -65,6 +68,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_GET_FOOD requirement
     public void TestPlayerItemStack(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -80,6 +84,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestPreparationStationCutLettuce(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -98,6 +103,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestPreparationStationCutTomato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -116,6 +122,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestPreparationStationCutOnion(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -134,6 +141,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestPreparationStationCookMeat(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -152,6 +160,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestBinStationGetsRidOfItem(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         BinStation testStation = new BinStation(rectangle);
@@ -168,6 +177,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_COUNTER requirement
     public void TestCounterCanHoldMultiple(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         CounterStation testStation = new CounterStation(rectangle);
@@ -188,6 +198,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_GET_FOOD requirement
     public void PantryTestLettuce(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -200,6 +211,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_GET_FOOD requirement
     public void PantryTestTomato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -213,6 +225,7 @@ public class InteractionTest {
 
 
     @Test
+    // Relates to the FR_GET_FOOD requirement
     public void PantryTestOnion(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -225,6 +238,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_GET_FOOD requirement
     public void PantryTestMeat(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -237,6 +251,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_GET_FOOD requirement
     public void PantryTestbottomBun(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -249,6 +264,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_GET_FOOD requirement
     public void PantryTestTopBun(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -262,6 +278,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_GET_FOOD requirement
     public void PantryTestTopBunThenBottom(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -275,6 +292,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_GET_FOOD requirement
     public void TestUsePantryandLettuceChop(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -287,6 +305,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_DISH_SERVE requirement
     public void TestServingStationGetAndSetCustomer(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -301,6 +320,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_DISH_SERVE requirement
     public void TestServingStationServeCustomerOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -322,12 +342,14 @@ public class InteractionTest {
     }
 
     @Test
+    // TODO: add reference to requirement
     public void TestGetInputKey(){
         InputKey test = new InputKey(InputKey.InputTypes.INSTRUCTIONS, Input.Keys.I);
         assertTrue(test.getKey() == Input.Keys.I, "The getKey function is broken/returns wrong key");
     }
 
     @Test
+    // TODO: add reference to requirement
     public void TestGetInputType(){
         InputKey test = new InputKey(InputKey.InputTypes.INSTRUCTIONS, Input.Keys.I);
         assertTrue(test.getType() == InputKey.InputTypes.INSTRUCTIONS,"The getType function is broken/returns wrong type");

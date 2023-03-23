@@ -18,6 +18,7 @@ public class CollisionTest {
 
     private Boot boot = Boot.getInstance();
     @Test
+    // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveLeftCollision(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -31,6 +32,7 @@ public class CollisionTest {
     }
 
     @Test
+    // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveRightCollision(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -44,6 +46,7 @@ public class CollisionTest {
     }
 
     @Test
+    // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveUpCollision(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -57,6 +60,7 @@ public class CollisionTest {
     }
 
     @Test
+    // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveDownCollision(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -72,6 +76,7 @@ public class CollisionTest {
 
 
     @Test
+    // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideLeftUp(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -88,6 +93,7 @@ public class CollisionTest {
     }
 
     @Test
+    // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideLeftDown(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -104,6 +110,7 @@ public class CollisionTest {
     }
 
     @Test
+    // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideRightUp(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -120,6 +127,7 @@ public class CollisionTest {
     }
 
     @Test
+    // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideRightDown(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -136,6 +144,7 @@ public class CollisionTest {
     }
 
     @Test
+    // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideUpRight(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -152,6 +161,7 @@ public class CollisionTest {
     }
 
     @Test
+    // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideUpLeft(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -168,6 +178,7 @@ public class CollisionTest {
     }
 
     @Test
+    // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideDownRight(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -183,6 +194,8 @@ public class CollisionTest {
         assertTrue(cook.getY()==final_move2,"Error: moving right whilst against a wall below the player isn't working");
     }
 
+    @Test
+    // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideDownLeft(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
