@@ -10,6 +10,7 @@ import static org.testng.Assert.*;
 public class AssetTests {
 
     // The following are tests to do with checking that the assets in the cooks folder still remain
+    // They all relate to the UR_GRAPHIC requirement
     @Test
     public void testChefHoldDownAssetExists(){
         assertTrue(Gdx.files.internal("cooks/hold down.png").exists(), "This test will only pass if hold down.png is present");
