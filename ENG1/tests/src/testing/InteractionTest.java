@@ -84,7 +84,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION requirement
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestPreparationStationCutLettuce(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -103,7 +103,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION requirement
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestPreparationStationCutTomato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -122,7 +122,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION requirement
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestPreparationStationCutOnion(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -141,7 +141,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION requirement
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestPreparationStationCookMeat(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -160,7 +160,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION requirement
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestBinStationGetsRidOfItem(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         BinStation testStation = new BinStation(rectangle);
