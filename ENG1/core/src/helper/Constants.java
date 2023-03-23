@@ -22,7 +22,7 @@ public class Constants {
 
     //New Constants
     public static final float CookWidth = 3.34f;
-    public static final float CookHeight = 4f;
+    public static final float CookHeight = 1f;
     public static final float UnitScale = 1/8f;
 
 }
