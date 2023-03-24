@@ -22,6 +22,7 @@ import static org.testng.Assert.*;
 @RunWith(GdxTestRunner.class)
 public class InteractionTest {
 
+
     @Test
     // Relates to the FR_PUT_FOOD_DOWN requirement
     public void TestPutDownItem(){
@@ -324,6 +325,7 @@ public class InteractionTest {
     public void TestServingStationServeCustomerOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
+        testStation.testFlag = 1;
         testStation.setID(Station.StationID.serving);
         Sprite sprite = new Sprite();
         Customer customer = new Customer(sprite);

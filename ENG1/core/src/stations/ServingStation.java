@@ -1,12 +1,15 @@
 package stations;
 
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
 import customers.Customer;
 import customers.CustomerController;
 import food.Recipe;
+import game.Boot;
 import game.GameScreen;
+import game.ScreenController;
 import interactions.InputKey;
 
 /**
@@ -20,6 +23,11 @@ public class ServingStation extends Station {
     private GameScreen gameScreen;
     private float customerX, customerY;
     private CustomerController customerController;
+    private OrthographicCamera orthographicCamera;
+    private Boot boot;
+    private ScreenController screenController;
+
+    public int testFlag = 0;
 
     /**
      * The constructor for the {@link ServingStation}.
@@ -33,6 +41,26 @@ public class ServingStation extends Station {
         // The below x and y can be changed wherever needed.
         this.customerX = rectangle.x + 32;
         this.customerY = rectangle.y + 96;
+    }
+
+    private OrthographicCamera getOrthographicCamera(){
+        if (orthographicCamera == null) { return orthographicCamera = new OrthographicCamera();}
+        return null;
+    }
+
+    private Boot getBoot(){
+        if (boot == null) { return boot = new Boot();}
+        return null;
+    }
+
+    private ScreenController getScreenController(){
+        if (screenController == null) { return screenController = new ScreenController(getBoot(),getOrthographicCamera());}
+        return null;
+    }
+
+    private GameScreen getGameScreen(){
+        if (gameScreen == null) { return gameScreen = new GameScreen(getScreenController(),getOrthographicCamera());}
+        return null;
     }
 
     /**
@@ -68,17 +96,19 @@ public class ServingStation extends Station {
                     // If it's correct, then the customer will take the food and leave.
                     request = null;
                     cook.foodStack.clearStack();
-                    if (gameScreen.getGameHud().getCustomer() == this.customer) {
+                    if ((gameScreen.getGameHud().getCustomer() == this.customer) && testFlag != 1) {
                         gameScreen.getGameHud().setRecipe(null);
                     }
                     customerController.customerServed(this);
                 } else {
                     // If not, then display the customer's request.
-                    gameScreen.getGameHud().setRecipe(customer);
+                    if (testFlag != 1) {
+                        gameScreen.getGameHud().setRecipe(customer);
+                    }
                 }
             }
         } else {
-            if (hasCustomer()) {
+            if (hasCustomer() && testFlag != 1) {
                 // Display the customer's request.
                 gameScreen.getGameHud().setRecipe(customer);
             }
