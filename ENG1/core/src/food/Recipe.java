@@ -16,7 +16,7 @@ import food.FoodItem.FoodID;
 public class Recipe {
     private static Array<String> recipeNames = new Array<>();
 	/** A HashMap containing how each FoodItem's FoodID, via a station of StationID, can convert to another foodID.*/
-	private static final HashMap<String, Array<FoodStack>> recipes = new HashMap<>();
+	public static final HashMap<String, Array<FoodStack>> recipes = new HashMap<>();
 		static {
 			generateRecipes("Onion Tomato Salad", allCombos(FoodID.onionChop, FoodID.tomatoChop));
 			generateRecipes("Lettuce Tomato Salad", allCombos(FoodID.lettuceChop, FoodID.tomatoChop));

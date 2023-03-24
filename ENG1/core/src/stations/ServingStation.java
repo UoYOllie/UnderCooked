@@ -19,7 +19,7 @@ import interactions.InputKey;
 public class ServingStation extends Station {
 
     private String request;
-    private Customer customer;
+    public Customer customer;
     private GameScreen gameScreen;
     private float customerX, customerY;
     public CustomerController customerController;

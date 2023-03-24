@@ -332,17 +332,21 @@ public class InteractionTest {
         Sprite sprite = new Sprite();
         Customer customer = new Customer(sprite);
         CustomerController customerController = new CustomerController();
+        customerController.testFlag = 1;
+        customerController.customers.add(customer);
         customer.request = "Onion Tomato Salad";
         testStation.customerController = customerController;
         testStation.setCustomer(customer);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
+        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
         testStation.interact(cook, InputKey.InputTypes.USE);
-        assertTrue(Recipe.matchesRecipe(cook.foodStack,customer.getRequestName()));
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
+        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
+        testStation.testFlag = 0;
+        customerController.testFlag = 0;
         //assertFalse(testStation.hasCustomer());
     }
 
