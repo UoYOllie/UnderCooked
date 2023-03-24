@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testing.CollisionTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2023-03-24T15:10:20" hostname="DESKTOP-06RIULD" time="0.291">
+  <properties/>
+  <testcase name="TestChefMoveSlideLeftDown" classname="testing.CollisionTest" time="0.105"/>
+  <testcase name="TestChefMoveSlideUpLeft" classname="testing.CollisionTest" time="0.0"/>
+  <testcase name="TestChefMoveUpCollision" classname="testing.CollisionTest" time="0.001"/>
+  <testcase name="TestChefMoveSlideUpRight" classname="testing.CollisionTest" time="0.0"/>
+  <testcase name="TestChefMoveSlideRightUp" classname="testing.CollisionTest" time="0.0"/>
+  <testcase name="TestChefMoveSlideDownRight" classname="testing.CollisionTest" time="0.0"/>
+  <testcase name="TestChefMoveRightCollision" classname="testing.CollisionTest" time="0.0"/>
+  <testcase name="TestChefMoveLeftCollision" classname="testing.CollisionTest" time="0.001"/>
+  <testcase name="TestChefMoveDownCollision" classname="testing.CollisionTest" time="0.001"/>
+  <testcase name="TestChefMoveSlideRightDown" classname="testing.CollisionTest" time="0.0"/>
+  <testcase name="TestChefMoveSlideDownLeft" classname="testing.CollisionTest" time="0.0"/>
+  <testcase name="TestChefMoveSlideLeftUp" classname="testing.CollisionTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

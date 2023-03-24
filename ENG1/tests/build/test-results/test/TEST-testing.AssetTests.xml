@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testing.AssetTests" tests="59" skipped="0" failures="0" errors="0" timestamp="2023-03-24T15:10:19" hostname="DESKTOP-06RIULD" time="1.067">
+  <properties/>
+  <testcase name="testFoodBurger_bunsAssetExists" classname="testing.AssetTests" time="0.008"/>
+  <testcase name="testFoodBottomBunAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testStationsMapPngAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testOnionxcfAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testBadLogicAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testStationsXcfAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testCuttingStationAssetExists" classname="testing.AssetTests" time="0.002"/>
+  <testcase name="testTablexcfAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testFoodLettuceChopAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testChefNormalRightAssetExists" classname="testing.AssetTests" time="0.002"/>
+  <testcase name="testFoodTomatoAssetExists" classname="testing.AssetTests" time="0.002"/>
+  <testcase name="FryerAssetExists" classname="testing.AssetTests" time="0.002"/>
+  <testcase name="testStationsMap1AssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testStationsMapTmxAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testStationsMap2AssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testFoodMeatFriedAssetExists" classname="testing.AssetTests" time="0.005"/>
+  <testcase name="testCustomerAssetExists" classname="testing.AssetTests" time="0.003"/>
+  <testcase name="testChefHoldLeftAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testCutting_StationxcfAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testFoodOnionUpscaledAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testTableAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testStationsPngAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testBurger_BunsxcfAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testFoodOnionChopAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testMargheritaPizzaxcfAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testBinAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testFoodLettuceUpscaledAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testAtlasFoodAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testChefNormalUpAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testStationsTpprojAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testAtlasStationAssetExists" classname="testing.AssetTests" time="0.003"/>
+  <testcase name="testStartMenuBackgroundAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testTomatoxcfAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testFryerxcfAssetExists" classname="testing.AssetTests" time="0.002"/>
+  <testcase name="testAtlasCustomerAssetExists" classname="testing.AssetTests" time="0.002"/>
+  <testcase name="testChefNormalDownAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testFoodOnionAssetExists" classname="testing.AssetTests" time="0.003"/>
+  <testcase name="testFoodLettuceAssetExists" classname="testing.AssetTests" time="0.002"/>
+  <testcase name="testFoodTomatoChopAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testMeatxcfAssetExists" classname="testing.AssetTests" time="0.002"/>
+  <testcase name="testBurgerxcfAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testAtlasCookAssetExists" classname="testing.AssetTests" time="0.002"/>
+  <testcase name="testFoodTopBunAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testFoodTomatoUpscaeldAssetExists" classname="testing.AssetTests" time="0.003"/>
+  <testcase name="testFoodFoodsAtlasAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testFoodMargheritaPizaaAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testChefHoldUpAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testLettucexcfAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testPlayerAtlasAssetExists" classname="testing.AssetTests" time="0.0"/>
+  <testcase name="testTableWithChairsAssetExists" classname="testing.AssetTests" time="0.0"/>
+  <testcase name="testChefNormalLeftAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testFoodBurgerAssetExists" classname="testing.AssetTests" time="0.002"/>
+  <testcase name="testChefHoldRightAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testChefControlAssetExists" classname="testing.AssetTests" time="0.0"/>
+  <testcase name="testChefHoldDownAssetExists" classname="testing.AssetTests" time="0.0"/>
+  <testcase name="testCreditsAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testStationsTsxAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testFoodMeatAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <testcase name="testFoodBurger_BunsUpscaledAssetExists" classname="testing.AssetTests" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

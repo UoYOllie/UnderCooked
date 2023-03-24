@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testing.InteractionTest" tests="22" skipped="0" failures="1" errors="0" timestamp="2023-03-24T15:10:21" hostname="DESKTOP-06RIULD" time="0.351">
+  <properties/>
+  <testcase name="PantryTestOnion" classname="testing.InteractionTest" time="0.005"/>
+  <testcase name="TestServingStationGetAndSetCustomer" classname="testing.InteractionTest" time="0.005"/>
+  <testcase name="PantryTestTopBunThenBottom" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="PantryTestLettuce" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="PantryTestbottomBun" classname="testing.InteractionTest" time="0.002"/>
+  <testcase name="TestPutDownItem" classname="testing.InteractionTest" time="0.003"/>
+  <testcase name="TestPreparationStationCutTomato" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="TestPreparationStationCookMeat" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="TestUsePantryandLettuceChop" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestPickUpItem" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestGetInputKey" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="TestPreparationStationCutLettuce" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="TestPreparationStationCutOnion" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestCounterCanHoldMultiple" classname="testing.InteractionTest" time="0.004"/>
+  <testcase name="PantryTestTomato" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="PantryTestTopBun" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="PantryTestMeat" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestStackOnPreparationStation" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="TestPlayerItemStack" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerOnionTomatoSalad" classname="testing.InteractionTest" time="0.004">
+    <failure message="java.lang.AssertionError: expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at testing.InteractionTest.TestServingStationServeCustomerOnionTomatoSalad(InteractionTest.java:344)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <testcase name="TestBinStationGetsRidOfItem" classname="testing.InteractionTest" time="0.003"/>
+  <testcase name="TestGetInputType" classname="testing.InteractionTest" time="0.0"/>
+  <system-out><![CDATA[peek
+peek
+peek
+peek
+peek
+peek
+peek
+peek
+peek
+peek
+peek
+peek
+peek
+peek
+peek
+peek
+Im interacting with a counter
+187.5
+150.0
+20.0
+20.0
+Im interacting with a counter
+187.5
+150.0
+20.0
+20.0
+Im interacting with a counter
+187.5
+150.0
+20.0
+20.0
+peek
+peek
+peek
+peek
+peek
+peek
+peek
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

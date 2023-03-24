@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testing.MenuTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2023-03-24T15:10:21" hostname="DESKTOP-06RIULD" time="6.14">
+  <properties/>
+  <testcase name="testStartGame" classname="testing.MenuTest" time="3.749">
+    <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
+	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
+	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
+	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:81)
+	at com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer.&lt;init&gt;(BatchTiledMapRenderer.java:102)
+	at com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer.&lt;init&gt;(OrthogonalTiledMapRenderer.java:59)
+	at helper.MapHelper.setupMap(MapHelper.java:58)
+	at game.GameScreen.&lt;init&gt;(GameScreen.java:109)
+	at game.ScreenController.&lt;init&gt;(ScreenController.java:36)
+	at testing.MenuTest.testStartGame(MenuTest.java:26)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <testcase name="testCreditsMenu" classname="testing.MenuTest" time="2.36">
+    <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
+	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
+	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
+	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:81)
+	at com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer.&lt;init&gt;(BatchTiledMapRenderer.java:102)
+	at com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer.&lt;init&gt;(OrthogonalTiledMapRenderer.java:59)
+	at helper.MapHelper.setupMap(MapHelper.java:58)
+	at game.GameScreen.&lt;init&gt;(GameScreen.java:109)
+	at game.ScreenController.&lt;init&gt;(ScreenController.java:36)
+	at testing.MenuTest.testCreditsMenu(MenuTest.java:37)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <system-out><![CDATA[Initalising Gamescreen
+game.GameScreen@5aa8cfdf
+SpeedPowerup
+2067.85
+2818.1587
+8.34525
+4.94755
+:)
+ServingStation
+2079.8374
+2817.9194
+8.34525
+5.2455873
+:)
+ServingStation
+2091.9375
+2817.8005
+8.226037
+5.00715
+:)
+ServingStation
+2103.925
+2817.5625
+8.106825
+5.3052
+:)
+ServingStation
+2115.9624
+2817.5027
+8.106825
+5.185975
+:)
+PreparationStation
+2040.025
+2798.0603
+4.008525
+5.37225
+:)
+BinStation
+2048.0874
+2798.0603
+3.88455
+5.37225
+:)
+PreparationStation
+2044.0
+2786.6133
+4.1325
+7.1492376
+:)
+PreparationStation
+2035.9625
+2787.9592
+4.2242
+4.0807877
+:)
+PreparationStation
+2032.0125
+2797.9778
+3.925875
+5.330925
+:)
+PreparationStation
+2027.925
+2797.9778
+4.091175
+5.4549
+:)
+PreparationStation
+2024.0
+2798.887
+3.925875
+4.54575
+:)
+CounterStation
+2018.7
+2792.1094
+6.4880376
+3.6366
+:)
+CounterStation
+2018.7
+2788.0188
+6.5293627
+4.091175
+:)
+CounterStation
+2032.375
+2787.971
+3.49025
+4.1290874
+:)
+CounterStation
+2040.15
+2787.9285
+3.88455
+4.0988626
+:)
+CounterStation
+2048.175
+2786.5723
+3.925875
+7.1079125
+:)
+CounterStation
+2018.7
+2795.6562
+5.9951377
+4.1126
+:)
+CounterStation
+2014.0375
+2798.7263
+6.0530624
+5.30005
+:)
+CounterStation
+2036.0375
+2798.5645
+3.98325
+4.81695
+:)
+CounterStation
+2044.05
+2798.657
+4.0295625
+4.678
+:)
+Pantry
+1996.0
+2784.0
+4.0
+4.0
+:)
+PreparationStation
+2004.1
+2808.0142
+4.2242
+4.0807877
+:)
+Initalising Gamescreen
+game.GameScreen@42645a9e
+SpeedPowerup
+2067.85
+2818.1587
+8.34525
+4.94755
+:)
+ServingStation
+2079.8374
+2817.9194
+8.34525
+5.2455873
+:)
+ServingStation
+2091.9375
+2817.8005
+8.226037
+5.00715
+:)
+ServingStation
+2103.925
+2817.5625
+8.106825
+5.3052
+:)
+ServingStation
+2115.9624
+2817.5027
+8.106825
+5.185975
+:)
+PreparationStation
+2040.025
+2798.0603
+4.008525
+5.37225
+:)
+BinStation
+2048.0874
+2798.0603
+3.88455
+5.37225
+:)
+PreparationStation
+2044.0
+2786.6133
+4.1325
+7.1492376
+:)
+PreparationStation
+2035.9625
+2787.9592
+4.2242
+4.0807877
+:)
+PreparationStation
+2032.0125
+2797.9778
+3.925875
+5.330925
+:)
+PreparationStation
+2027.925
+2797.9778
+4.091175
+5.4549
+:)
+PreparationStation
+2024.0
+2798.887
+3.925875
+4.54575
+:)
+CounterStation
+2018.7
+2792.1094
+6.4880376
+3.6366
+:)
+CounterStation
+2018.7
+2788.0188
+6.5293627
+4.091175
+:)
+CounterStation
+2032.375
+2787.971
+3.49025
+4.1290874
+:)
+CounterStation
+2040.15
+2787.9285
+3.88455
+4.0988626
+:)
+CounterStation
+2048.175
+2786.5723
+3.925875
+7.1079125
+:)
+CounterStation
+2018.7
+2795.6562
+5.9951377
+4.1126
+:)
+CounterStation
+2014.0375
+2798.7263
+6.0530624
+5.30005
+:)
+CounterStation
+2036.0375
+2798.5645
+3.98325
+4.81695
+:)
+CounterStation
+2044.05
+2798.657
+4.0295625
+4.678
+:)
+Pantry
+1996.0
+2784.0
+4.0
+4.0
+:)
+PreparationStation
+2004.1
+2808.0142
+4.2242
+4.0807877
+:)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
