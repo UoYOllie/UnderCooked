@@ -42,7 +42,7 @@ public class CookInteractor {
         this.collision = new Rectangle(x* 1/8f,y* 1/8f,3.34f,4);
         System.out.println("Collision rectangle loading:");
         System.out.println(this.collision);
-        this.ch = g.getCollisionHelper();
+        //this.ch = g.getCollisionHelper();
         this.gameScreen = g;
     }
 

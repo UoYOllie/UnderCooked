@@ -54,7 +54,7 @@ public class GameScreen extends ScreenAdapter {
     private MapHelper mapHelper;
     private Array<CookInteractable> interactables;
     private CollisionHelper collisionHelper;
-    private Array<GameEntity> gameEntities;
+    private ArrayList<GameEntity> gameEntities;
     private DrawQueueComparator drawQueueComparator;
     private Array<ServingStation> servingStations;
     private float xOffset = 1500;
@@ -94,7 +94,7 @@ public class GameScreen extends ScreenAdapter {
         this.screenController = screenController;
         this.batch = screenController.getSpriteBatch();
         this.shape = screenController.getShapeRenderer();
-        this.gameEntities = new Array<>();
+        this.gameEntities = new ArrayList<>();
         this.drawQueueComparator = new DrawQueueComparator();
         this.customerController = new CustomerController(this);
 
@@ -112,16 +112,17 @@ public class GameScreen extends ScreenAdapter {
         addInteractable(this.mapHelper.getMapStations());
 
 
-        Cook GlibbertOrange = new Cook(2041*8f, 2814*8f, 3.34f, 1,this); //width will need adjusting when sprites updated
+        Cook GlibbertOrange = new Cook(2041*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
         this.addCook(GlibbertOrange);
-        Cook GlibbertBlue = new Cook(2045*8f, 2814*8f, 3.34f, 1,this); //width will need adjusting when sprites updated
+        Cook GlibbertBlue = new Cook(2045*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
         this.addCook(GlibbertBlue);
-        Cook GlibbertGreen = new Cook(2049*8f, 2814*8f, 3.34f, 1,this); //width will need adjusting when sprites updated
+        Cook GlibbertGreen = new Cook(2049*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
         this.addCook(GlibbertGreen);
-        Cook cooktest2 = new Cook(2030*8f, 2850*8f, 3.34f, 1,this); //width will need adjusting when sprites updated
+        Cook cooktest2 = new Cook(2030*8f, 2850*8f, 3.34f, 1); //width will need adjusting when sprites updated
         this.addSpareCook(cooktest2);
 
         this.cook = GlibbertOrange;
+        this.gameEntities.addAll(mapHelper.getMapStations());
 
 
     }
@@ -162,6 +163,7 @@ public class GameScreen extends ScreenAdapter {
         for (Cook thisCook : cooks) {
             if (thisCook == cook) {
                 thisCook.userInput(mapHelper.getMapObstacles());
+                thisCook.userInteract(mapHelper.getMapStations());
             }
         }
         if(Interactions.isJustPressed(InputKey.InputTypes.COOK_SWAP)) {

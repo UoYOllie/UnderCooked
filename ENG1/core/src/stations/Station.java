@@ -84,8 +84,8 @@ public class Station extends CookInteractable {
     public void render(SpriteBatch batch) {
         // Render the station's item on top, when inUse is false.
         if (!inUse) {
-            Sprite stationSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.STATION,String.valueOf(stationID));
-            batch.draw(stationSprite,x-35F/2,y-10F,35F,35F);
+            //Sprite stationSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.STATION,String.valueOf(stationID));
+            //batch.draw(stationSprite,x-35F/2,y-10F,35F,35F);
         }
     }
 

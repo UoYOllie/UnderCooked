@@ -167,7 +167,7 @@ public class MapHelper {
             System.out.println(newRectangle.y);
             System.out.println(newRectangle.width);
             System.out.println(newRectangle.height);
-            System.out.println(":)");
+            System.out.println(":)"); // :)
 
             // Check which instance of Station and add the corresponding object to mapStations.
             switch(stationName) {
@@ -178,7 +178,9 @@ public class MapHelper {
                     mapStations.add(new CounterStation(newRectangle));
                     break;
                 case "PreparationStation":
-                    mapStations.add(new PreparationStation(newRectangle));
+                    PreparationStation prepStation = new PreparationStation(newRectangle);
+                    prepStation.setID(Station.StationID.cut);
+                    mapStations.add(prepStation);
                     break;
                 case "ServingStation":
                     mapStations.add(new ServingStation(newRectangle));
@@ -186,21 +188,12 @@ public class MapHelper {
                 case "SpeedPowerup":
                     mapStations.add(new SpeedPowerup(newRectangle));
                     break;
-//                case "":
-//                    mapStations.add(new (newRectangle));
-//                    break;
-//                case "":
-//                    mapStations.add(new (newRectangle));
-//                    break;
-//                case "":
-//                    mapStations.add(new (newRectangle));
-//                    break;
-//                case "":
-//                    mapStations.add(new (newRectangle));
-//                    break;
-//                case "":
-//                    mapStations.add(new (newRectangle));
-//                    break;
+                case "Pantry":
+                    Pantry pantry = new Pantry(newRectangle);
+                    pantry.setItem(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food"))); // lmao hashmap is sus
+                    mapStations.add(pantry);
+                    break;
+
             }
         }
     }
