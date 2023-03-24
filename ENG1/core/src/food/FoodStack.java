@@ -68,7 +68,9 @@ public class FoodStack {
     * @param newFood The item to add to the top of the foodStack.
     */
     public void addStack(FoodID newFood) {
-        foodStack.insert(0, newFood);
+        if(this.size()<=2) {
+            foodStack.insert(0, newFood);
+        }
     }
     /**
     * foodStack getter
