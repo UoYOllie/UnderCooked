@@ -2,6 +2,7 @@ package helper;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Intersector;
 import cooks.Cook;
 import game.GameScreen;
 import stations.CookInteractable;
@@ -11,8 +12,10 @@ import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
 import game.GameScreen;
 import stations.CookInteractable;
+import stations.Station;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 import static helper.Constants.CookHeight;
 import static helper.Constants.CookWidth;
@@ -22,9 +25,12 @@ public class NewCollisionHelper {
     protected GameScreen gameScreen;
     private Rectangle CookRectangle;
 
-    public NewCollisionHelper(GameScreen gameScreen, Cook cook){
+    private ArrayList<Station> mapStations;
+
+    public NewCollisionHelper(GameScreen gameScreen, Cook cook,ArrayList<Station> mapStations){
         setGameScreen(gameScreen);
         CookRectangle = new Rectangle(cook.getX(),cook.getY(),CookWidth,CookHeight);
+        this.mapStations = mapStations;
     }
 
     public void setGameScreen(GameScreen gameScreen) {
@@ -34,10 +40,10 @@ public class NewCollisionHelper {
     }
 
     //Array<CookInteractable>
-    public CookInteractable NearbyStation() {
+    public CookInteractable NearbyStation(Rectangle cookInteractor) {
         Array<CookInteractable> found = new Array<>();
-        for (CookInteractable object : gameScreen.getInteractables()) {
-            if (CookRectangle.overlaps(object.getRectangle())) {
+        for(Station object : mapStations){
+            if (Intersector.overlaps(object.getRectangle(), cookInteractor)){
                 System.out.println("Cook Overlaps: " + object);
                 found.add(object);
             }

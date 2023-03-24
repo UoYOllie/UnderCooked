@@ -118,8 +118,15 @@ public class GameScreen extends ScreenAdapter {
         this.addCook(GlibbertBlue);
         Cook GlibbertGreen = new Cook(2049*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
         this.addCook(GlibbertGreen);
-        Cook cooktest2 = new Cook(2030*8f, 2850*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        this.addSpareCook(cooktest2);
+
+        Cook Buy1 = new Cook((2031.1f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        this.addSpareCook(Buy1);
+        Cook Buy2 = new Cook((2031.1f+12f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        this.addSpareCook(Buy2);
+        Cook Buy3 = new Cook((2031.1f-92f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        this.addSpareCook(Buy3);
+        Cook Buy4 = new Cook((2031.1f-104f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        this.addSpareCook(Buy4);
 
         this.cook = GlibbertOrange;
         this.gameEntities.addAll(mapHelper.getMapStations());
