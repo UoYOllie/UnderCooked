@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.MovementTest" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-03-24T15:10:27" hostname="DESKTOP-06RIULD" time="2.728">
+<testsuite name="testing.MovementTest" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-03-24T16:33:39" hostname="AB-ASUS-1" time="2.186">
   <properties/>
-  <testcase name="TestChefMoveRight" classname="testing.MovementTest" time="0.0"/>
+  <testcase name="TestChefMoveRight" classname="testing.MovementTest" time="0.004"/>
   <testcase name="TestChefMoveRightUp" classname="testing.MovementTest" time="0.0"/>
   <testcase name="TestChefMoveLeftUp" classname="testing.MovementTest" time="0.0"/>
   <testcase name="TestChefMoveUpLeft" classname="testing.MovementTest" time="0.0"/>
   <testcase name="TestChefMoveUp" classname="testing.MovementTest" time="0.001"/>
-  <testcase name="TestChefSwitch" classname="testing.MovementTest" time="2.525">
+  <testcase name="TestChefSwitch" classname="testing.MovementTest" time="1.983">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -34,15 +34,15 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <testcase name="TestChefMoveDown" classname="testing.MovementTest" time="0.0"/>
+  <testcase name="TestChefMoveDown" classname="testing.MovementTest" time="0.002"/>
   <testcase name="TestChefMoveLeft" classname="testing.MovementTest" time="0.0"/>
   <testcase name="TestChefMoveDownLeft" classname="testing.MovementTest" time="0.0"/>
-  <testcase name="TestChefMoveDownRight" classname="testing.MovementTest" time="0.001"/>
-  <testcase name="TestChefMoveLeftDown" classname="testing.MovementTest" time="0.0"/>
+  <testcase name="TestChefMoveDownRight" classname="testing.MovementTest" time="0.0"/>
+  <testcase name="TestChefMoveLeftDown" classname="testing.MovementTest" time="0.001"/>
   <testcase name="TestChefMoveUpRight" classname="testing.MovementTest" time="0.0"/>
-  <testcase name="TestChefMoveRightDown" classname="testing.MovementTest" time="0.0"/>
+  <testcase name="TestChefMoveRightDown" classname="testing.MovementTest" time="0.001"/>
   <system-out><![CDATA[Initalising Gamescreen
-game.GameScreen@674cbe9e
+game.GameScreen@2dc00ba5
 SpeedPowerup
 2067.85
 2818.1587
