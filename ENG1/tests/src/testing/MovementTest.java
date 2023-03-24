@@ -45,7 +45,7 @@ public class MovementTest {
         keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         cook.userInput(testList);
-        float final_move = (1200 * 1 / 8f) + 1;
+        float final_move = (1200 * 1 / 8f) + cook.movement_speed;
         assertTrue(cook.getY() == final_move, "Error: moving up does not work properly");
     }
     @Test
@@ -57,9 +57,9 @@ public class MovementTest {
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         cook.userInput(testList);
-        float final_move = (1500 * 1/8f) - 1;
+        float final_move = (1500 * 1/8f) - cook.movement_speed;
         assertTrue(cook.getX()==final_move,"Error:Moving up then left has cause the x coordinate of the player to be wrong");
-        final_move = (1200 * 1/8f) + 1;
+        final_move = (1200 * 1/8f) + cook.movement_speed;
         assertTrue(cook.getY()==final_move,"Error:Moving up then left has cause the y coordinate of the player to be wrong");
     }
 
@@ -72,9 +72,9 @@ public class MovementTest {
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         cook.userInput(testList);
-        float final_move = (1500 * 1/8f) + 1;
+        float final_move = (1500 * 1/8f) + cook.movement_speed;
         assertTrue(cook.getX()==final_move,"Error:Moving up then right has cause the x coordinate of the player to be wrong");
-        final_move = (1200 * 1/8f) + 1;
+        final_move = (1200 * 1/8f) + cook.movement_speed;
         assertTrue(cook.getY()==final_move,"Error:Moving up then left has cause the y coordinate of the player to be wrong");
     }
 
@@ -87,9 +87,9 @@ public class MovementTest {
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         cook.userInput(testList);
-        float final_move = (1500 * 1/8f) - 1;
+        float final_move = (1500 * 1/8f) - cook.movement_speed;
         assertTrue(cook.getX()==final_move,"Error:Moving down then left has cause the x coordinate of the player to be wrong");
-        final_move = (1200 * 1/8f) - 1;
+        final_move = (1200 * 1/8f) - cook.movement_speed;
         assertTrue(cook.getY()==final_move,"Error:Moving up then left has cause the y coordinate of the player to be wrong");
     }
 
@@ -102,9 +102,9 @@ public class MovementTest {
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         cook.userInput(testList);
-        float final_move = (1500 * 1/8f) + 1;
+        float final_move = (1500 * 1/8f) + cook.movement_speed;
         assertTrue(cook.getX()==final_move,"Error:Moving down then right has cause the x coordinate of the player to be wrong");
-        final_move = (1200 * 1/8f) - 1;
+        final_move = (1200 * 1/8f) - cook.movement_speed;
         assertTrue(cook.getY()==final_move,"Error:Moving down then right has cause the y coordinate of the player to be wrong");
     }
 
@@ -117,9 +117,9 @@ public class MovementTest {
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         cook.userInput(testList);
-        float final_move = (1500 * 1/8f) + 1;
+        float final_move = (1500 * 1/8f) + cook.movement_speed;
         assertTrue(cook.getX()==final_move,"Error:Moving right then up has cause the x coordinate of the player to be wrong");
-        final_move = (1200 * 1/8f) + 1;
+        final_move = (1200 * 1/8f) + cook.movement_speed;
         assertTrue(cook.getY()==final_move,"Error:Moving right then up has cause the y coordinate of the player to be wrong");
     }
 
@@ -132,9 +132,9 @@ public class MovementTest {
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         cook.userInput(testList);
-        float final_move = (1500 * 1/8f) + 1;
+        float final_move = (1500 * 1/8f) + cook.movement_speed;
         assertTrue(cook.getX()==final_move,"Error:Moving right then down has cause the x coordinate of the player to be wrong");
-        final_move = (1200 * 1/8f) - 1;
+        final_move = (1200 * 1/8f) - cook.movement_speed;
         assertTrue(cook.getY()==final_move,"Error:Moving right then down has cause the y coordinate of the player to be wrong");
     }
 
@@ -147,9 +147,9 @@ public class MovementTest {
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         keysPressed.add(InputKey.InputTypes.COOK_UP);
         cook.userInput(testList);
-        float final_move = (1500 * 1/8f) - 1;
+        float final_move = (1500 * 1/8f) - cook.movement_speed;
         assertTrue(cook.getX()==final_move,"Error:Moving left then up has cause the x coordinate of the player to be wrong");
-        final_move = (1200 * 1/8f) + 1;
+        final_move = (1200 * 1/8f) + cook.movement_speed;
         assertTrue(cook.getY()==final_move,"Error:Moving left then up has cause the y coordinate of the player to be wrong");
     }
 
@@ -162,9 +162,9 @@ public class MovementTest {
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         cook.userInput(testList);
-        float final_move = (1500 * 1/8f) - 1;
+        float final_move = (1500 * 1/8f) - cook.movement_speed;
         assertTrue(cook.getX()==final_move,"Error:Moving left then down has cause the x coordinate of the player to be wrong");
-        final_move = (1200 * 1/8f) - 1;
+        final_move = (1200 * 1/8f) - cook.movement_speed;
         assertTrue(cook.getY()==final_move,"Error:Moving left then down has cause the y coordinate of the player to be wrong");
     }
 
@@ -176,7 +176,7 @@ public class MovementTest {
         keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_DOWN);
         cook.userInput(testList);
-        float final_move = (1200 * 1/8f) - 1;
+        float final_move = (1200 * 1/8f) - cook.movement_speed;
         assertTrue(cook.getY()==final_move,("Error: moving down does not work properly"));
     }
 
@@ -188,7 +188,7 @@ public class MovementTest {
         keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_RIGHT);
         cook.userInput(testList);
-        float final_move = (1500 * 1/8f) + 1;
+        float final_move = (1500 * 1/8f) + cook.movement_speed;
         assertTrue(cook.getX()==final_move,("Error: moving right does not work properly"));
     }
 
