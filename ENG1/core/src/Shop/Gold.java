@@ -2,7 +2,7 @@ package Shop;
 
 public class Gold {
 
-    private int Balance;
+    public int Balance;
 
     public Gold(){
         Balance = 0;

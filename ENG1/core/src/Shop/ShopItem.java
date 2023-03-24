@@ -2,8 +2,8 @@ package Shop;
 
 public class ShopItem{
     public String name;
-    private Boolean inuse;
-    private int cost;
+    public Boolean inuse;
+    public int cost;
 
     public ShopItem(String n,int cost)
     {

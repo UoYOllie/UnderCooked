@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.MenuTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2023-03-24T15:10:21" hostname="DESKTOP-06RIULD" time="6.14">
+<testsuite name="testing.MenuTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2023-03-24T16:33:35" hostname="AB-ASUS-1" time="4.559">
   <properties/>
-  <testcase name="testStartGame" classname="testing.MenuTest" time="3.749">
+  <testcase name="testStartGame" classname="testing.MenuTest" time="2.196">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -29,7 +29,7 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <testcase name="testCreditsMenu" classname="testing.MenuTest" time="2.36">
+  <testcase name="testCreditsMenu" classname="testing.MenuTest" time="2.345">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -58,7 +58,7 @@
 </failure>
   </testcase>
   <system-out><![CDATA[Initalising Gamescreen
-game.GameScreen@5aa8cfdf
+game.GameScreen@75ae1fc8
 SpeedPowerup
 2067.85
 2818.1587
@@ -198,7 +198,7 @@ PreparationStation
 4.0807877
 :)
 Initalising Gamescreen
-game.GameScreen@42645a9e
+game.GameScreen@7bb0eaab
 SpeedPowerup
 2067.85
 2818.1587
