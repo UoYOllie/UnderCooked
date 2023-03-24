@@ -5,8 +5,10 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import cooks.Cook;
 import customers.Customer;
+import customers.CustomerController;
 import food.FoodItem;
 import food.FoodStack;
+import food.Recipe;
 import interactions.InputKey;
 import interactions.Interactions;
 import org.junit.Test;
@@ -322,23 +324,24 @@ public class InteractionTest {
 
     @Test
     // Relates to the FR_DISH_SERVE requirement
-    public void TestServingStationServeCustomerOnionBurger(){
+    public void TestServingStationServeCustomerOnionTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
         testStation.testFlag = 1;
         testStation.setID(Station.StationID.serving);
         Sprite sprite = new Sprite();
         Customer customer = new Customer(sprite);
-        customer.request = ("Onion Burger");
+        CustomerController customerController = new CustomerController();
+        customer.request = "Onion Tomato Salad";
+        testStation.customerController = customerController;
         testStation.setCustomer(customer);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.topBun);
-        cook.foodStack.addStack(FoodItem.FoodID.bottomBun);
-        cook.foodStack.addStack(FoodItem.FoodID.meatCook);
+        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         testStation.interact(cook, InputKey.InputTypes.USE);
+        assertTrue(Recipe.matchesRecipe(cook.foodStack,customer.getRequestName()));
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
         //assertFalse(testStation.hasCustomer());
     }

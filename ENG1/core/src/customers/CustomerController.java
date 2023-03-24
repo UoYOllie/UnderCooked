@@ -31,6 +31,8 @@ public class CustomerController {
     /** The {@link game.GameScreen} to send the {@link #customersServed} to. */
     private GameScreen gameScreen;
 
+    public int testFlag = 0;
+
     /**
      * Constructor for the {@link CustomerController}.
      * <br>It sets up the array that the {@link Customer}s
@@ -46,6 +48,15 @@ public class CustomerController {
         this.customerSprite.setSize(42.5F,70);
         this.servingStations = new Array<>();
         this.gameScreen = gameScreen;
+    }
+
+    public CustomerController() {
+        this.customers = new Array<>();
+        this.customersLeft = 0;
+        this.customersServed = 0;
+        this.customerSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER,"0");
+        this.customerSprite.setSize(42.5F,70);
+        this.servingStations = new Array<>();
     }
 
     /**
@@ -196,8 +207,9 @@ public class CustomerController {
         }
         removeCustomer(station);
         customersServed++;
-        gameScreen.setCustomerHud(customersServed);
-
+        if (testFlag != 1) {
+            gameScreen.setCustomerHud(customersServed);
+        }
         // If there are any customers left, spawn a new one.
         if (customersLeft > 0) {
             addCustomer();

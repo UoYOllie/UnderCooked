@@ -22,7 +22,7 @@ public class ServingStation extends Station {
     private Customer customer;
     private GameScreen gameScreen;
     private float customerX, customerY;
-    private CustomerController customerController;
+    public CustomerController customerController;
     private OrthographicCamera orthographicCamera;
     private Boot boot;
     private ScreenController screenController;
@@ -96,7 +96,7 @@ public class ServingStation extends Station {
                     // If it's correct, then the customer will take the food and leave.
                     request = null;
                     cook.foodStack.clearStack();
-                    if ((gameScreen.getGameHud().getCustomer() == this.customer) && testFlag != 1) {
+                    if (testFlag != 1 && (gameScreen.getGameHud().getCustomer() == this.customer)) {
                         gameScreen.getGameHud().setRecipe(null);
                     }
                     customerController.customerServed(this);
