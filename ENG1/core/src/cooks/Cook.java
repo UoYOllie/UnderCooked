@@ -47,7 +47,7 @@ public class Cook extends GameEntity {
 
     private GameScreen gameScreen;
 
-    private float movement_speed = 0.6765f;
+    public float movement_speed = 0.6765f;
 
     //-------------------------------------
     //Morgan's Shop Section

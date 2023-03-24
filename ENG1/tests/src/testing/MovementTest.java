@@ -33,7 +33,7 @@ public class MovementTest {
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         cook.userInput(testList);
         System.out.print(cook.getX());
-        float final_move = (1500 * 1/8f) - 1;
+        float final_move = (1500 * 1/8f) - cook.movement_speed;
         assertTrue(cook.getX()==final_move,"Error: moving left does not work properly");
     }
 
