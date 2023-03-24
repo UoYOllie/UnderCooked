@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 public class Constants {
 
     /** Pixels Per Metre. */
-    public static final float PPM = 32.0f;
+    public static final float PPM = 32.0f; //old
     /** The ViewPort / Window Width. */
     public static final int V_Width = 960;
     /** The ViewPort / Window Height. */
@@ -19,4 +19,10 @@ public class Constants {
     public static final Vector2 customerSpawn= new Vector2(425,470);
     /** The location that the {@link food.Recipe} being checked is rendered. */
     public static final float RECIPE_X = 928F, RECIPE_Y = 608F;
+
+    //New Constants
+    public static final float CookWidth = 3.34f;
+    public static final float CookHeight = 1f;
+    public static final float UnitScale = 1/8f;
+
 }

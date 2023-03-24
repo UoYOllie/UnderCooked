@@ -17,8 +17,10 @@ import static helper.Constants.PPM;
 
 import food.FoodStack;
 import food.FoodItem.FoodID;
+import helper.NewCollisionHelper;
 import interactions.InputKey;
 import interactions.Interactions;
+import stations.CookInteractable;
 
 import java.util.ArrayList;
 
@@ -43,7 +45,19 @@ public class Cook extends GameEntity {
      */
     private Array<Facing> inputs;
 
-    private float movement_speed = 1f;
+    private GameScreen gameScreen;
+
+    private float movement_speed = 0.6765f;
+
+    //-------------------------------------
+    //Morgan's Shop Section
+    //-------------------------------------
+
+    //-------------------------------------
+
+    public void setSpeed(){
+        this.movement_speed = this.movement_speed + 0.2f;
+    }
 
     /** All possible directions the cook can be facing. */
     enum Facing {
@@ -61,7 +75,7 @@ public class Cook extends GameEntity {
      * @param body The {@link World}.{@link Body} which will become the {@link Cook}
      * @param gameScreen The {@link GameScreen} that creates the {@link Cook}.
      */
-    public Cook(float x, float y, float width, float height) {
+    public Cook(float x, float y, float width, float height, GameScreen g) {
         super(x, y, width, height);
         this.dir = Facing.DOWN;
         this.speed = 10f;
@@ -81,7 +95,8 @@ public class Cook extends GameEntity {
 
         float cookInteractorSize = 32;
 
-        this.cookInteractor = new CookInteractor(x,y,cookInteractorSize);
+        this.gameScreen = g;
+        this.cookInteractor = new CookInteractor(x,y,cookInteractorSize,gameScreen);
     }
 
     /** Responsible for processing user input information into {@link #inputs}, {@link #velX} and {@link #velY}. */
@@ -152,7 +167,12 @@ public class Cook extends GameEntity {
 
         for (InputKey inputKey : Interactions.getInputKeys(Interactions.InputID.COOK_INTERACT)) {
             if (Gdx.input.isKeyJustPressed(inputKey.getKey())) {
-                cookInteractor.checkCollisions(this, inputKey.getType());
+//                cookInteractor.checkCollisions(this, inputKey.getType());  //THIS IS THE FOR OLD COLLISION HELPER
+                NewCollisionHelper Finder = new NewCollisionHelper(gameScreen,this);
+                CookInteractable foundfromfinder = Finder.NearbyStation();
+                if(foundfromfinder!=null) {
+                    foundfromfinder.interact(this, inputKey.getType()); //NEEDS UPDATING THE INTERACT
+                }
             }
         }
 
@@ -196,8 +216,8 @@ public class Cook extends GameEntity {
     @Override
     public void render(SpriteBatch batch) {
         setSprite();
-        sprite.setPosition(x-width/2-2.5F,y-height/2); // -2.5 for a similar reason to the below one
-        this.sprite.setSize(9,16);
+        sprite.setPosition(x-width/8-0.5f,y-height/8); // -2.5 for a similar reason to the below one
+        this.sprite.setSize(5,8);
 
         // If the cook is looking anywhere but down, draw the food first
         if (dir != Facing.DOWN) {
@@ -210,9 +230,9 @@ public class Cook extends GameEntity {
     }
 
     public void renderControlArrow(SpriteBatch batch) {
-        controlSprite.setSize(8,5F);
-        controlSprite.setPosition(x-controlSprite.getWidth()/2,
-                y-controlSprite.getHeight()/4 + sprite.getHeight());
+        controlSprite.setSize(3,1.5f);
+        controlSprite.setPosition((x-controlSprite.getWidth()/8+0.66f),
+                y-controlSprite.getHeight()/8 + sprite.getHeight()+1);
         controlSprite.draw(batch);
     }
 

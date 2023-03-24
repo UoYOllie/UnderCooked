@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
+import game.GameScreen;
 import game.GameSprites;
 import interactions.InputKey;
 
@@ -33,6 +34,7 @@ public class Station extends CookInteractable {
     StationID stationID;
     boolean inUse;
     GameSprites gameSprites;
+    public Cook CurrentCook;
 
     /**
      * The constructor for the {@link Station}.
