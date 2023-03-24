@@ -45,6 +45,7 @@ public class FoodStack {
     * @return The item at the top of the foodStack OR `null` if there's no items in it.
     */
     public FoodID peekStack() {
+        System.out.println("peek");
         try {
             return foodStack.get(0);
         } catch (IndexOutOfBoundsException e) {
