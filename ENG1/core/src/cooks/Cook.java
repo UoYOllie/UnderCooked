@@ -99,6 +99,29 @@ public class Cook extends GameEntity {
         this.cookInteractor = new CookInteractor(x,y,cookInteractorSize,gameScreen);
     }
 
+    public Cook(float x, float y, float width, float height) {
+        super(x, y, width, height);
+        this.dir = Facing.DOWN;
+        this.speed = 10f;
+        // this.gameScreen = gameScreen;
+        this.gameSprites = GameSprites.getInstance();
+        this.controlSprite = gameSprites.getSprite(GameSprites.SpriteID.COOK,"control");
+
+        // Initialize FoodStack
+        this.foodStack = new FoodStack();
+
+        // Input array, with the order of inputs the user has in what direction.
+        // The oldest button pressed is the one used. Pressing the opposite key removes them.
+        this.inputs = new Array<>();
+
+        // Set the sprite
+        this.setSprite();
+
+        float cookInteractorSize = 32;
+
+        this.cookInteractor = new CookInteractor(x,y,cookInteractorSize);
+    }
+
     /** Responsible for processing user input information into {@link #inputs}, {@link #velX} and {@link #velY}. */
     public void userInput(ArrayList<Rectangle> mapObstacles) {
         velX = 0F;

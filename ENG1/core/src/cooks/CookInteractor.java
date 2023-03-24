@@ -46,6 +46,14 @@ public class CookInteractor {
         this.gameScreen = g;
     }
 
+    public CookInteractor(float x, float y, float size) {
+        this.size = size;
+        this.x = x;
+        this.y = y;
+        this.collision = new Rectangle(x,y,size,size);
+        this.ch = new CollisionHelper();
+    }
+
     /**
      * Returns an X offset depending on the cook's direction.
      * Used during collision detection between the cook and other interactables.
