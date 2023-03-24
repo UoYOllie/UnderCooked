@@ -13,7 +13,7 @@ import interactions.InputKey;
  * {@link Cook}s to take the {@link FoodItem} that is assigned
  * to the {@link Pantry}.
  */
-public class Pantry extends CookInteractable {
+public class Pantry extends Station {
 
     FoodItem.FoodID foodID;
 

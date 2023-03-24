@@ -17,10 +17,12 @@ import static helper.Constants.PPM;
 
 import food.FoodStack;
 import food.FoodItem.FoodID;
+import helper.Constants;
 import helper.NewCollisionHelper;
 import interactions.InputKey;
 import interactions.Interactions;
 import stations.CookInteractable;
+import stations.Station;
 
 import java.util.ArrayList;
 
@@ -33,7 +35,7 @@ public class Cook extends GameEntity {
     /** The control arrow sprite. */
     private Sprite controlSprite;
     private GameSprites gameSprites;
-    private CookInteractor cookInteractor;
+    //private CookInteractor cookInteractor;
     // private GameScreen gameScreen;
     /** The direction this cook is facing. */
     private Facing dir;
@@ -47,7 +49,16 @@ public class Cook extends GameEntity {
 
     private GameScreen gameScreen;
 
-    public float movement_speed = 0.6765f;
+    /**
+     * Rectangle for cook's interaction area.
+     * We use this area to determine if the chef is capable of interacting with objects in the world
+     *
+     * Note: Rectangles are actually OP, I love them so much. Rectangles will handle anything from collisions to making
+     * sure your hands are in the right place, we should use them more :)))
+     */
+    private Rectangle cookInteractor;
+
+    private float movement_speed = 0.6765f;
 
     //-------------------------------------
     //Morgan's Shop Section
@@ -55,6 +66,13 @@ public class Cook extends GameEntity {
 
     //-------------------------------------
 
+
+    /**
+     * Sets the speed for the player chef ???
+     * There are question marks there because interestingly, that is *not* what this does.
+     *
+     * No Params (????)
+     */
     public void setSpeed(){
         this.movement_speed = this.movement_speed + 0.2f;
     }
@@ -70,12 +88,12 @@ public class Cook extends GameEntity {
 
     /**
      * Cook Constructor.
-     * @param width Pixel Width of the {@link Cook}'s {@link Body}.
-     * @param height Pixel Height of the {@link Cook}'s {@link Body}.
-     * @param body The {@link World}.{@link Body} which will become the {@link Cook}
-     * @param gameScreen The {@link GameScreen} that creates the {@link Cook}.
+     * @param x : X value that the Cook will spawn at.
+     * @param y : Y Value that the Cook will spawn at
+     * @param width : Width of the player's hitbox.
+     * @param height : Height of the player's hitbox (Not the height of the player sprite).
      */
-    public Cook(float x, float y, float width, float height, GameScreen g) {
+    public Cook(float x, float y, float width, float height) {
         super(x, y, width, height);
         this.dir = Facing.DOWN;
         this.speed = 10f;
@@ -93,13 +111,15 @@ public class Cook extends GameEntity {
         // Set the sprite
         this.setSprite();
 
-        float cookInteractorSize = 32;
+        // Defines the bounds for interaction box, using 1/8f as the unit-scale because its not a const rn.
+        cookInteractor = new Rectangle(x - 1/8f, y - 1/8f, width + 2/8f, height + 2/8f);
 
-        this.gameScreen = g;
-        this.cookInteractor = new CookInteractor(x,y,cookInteractorSize,gameScreen);
+
+        //this.gameScreen = g; no
+        //this.cookInteractor = new CookInteractor(x,y,cookInteractorSize,gameScreen);
     }
 
-    public Cook(float x, float y, float width, float height) {
+    /*public Cook(float x, float y, float width, float height) {
         super(x, y, width, height);
         this.dir = Facing.DOWN;
         this.speed = 10f;
@@ -120,7 +140,7 @@ public class Cook extends GameEntity {
         float cookInteractorSize = 32;
 
         this.cookInteractor = new CookInteractor(x,y,cookInteractorSize);
-    }
+    }*/
 
     /** Responsible for processing user input information into {@link #inputs}, {@link #velX} and {@link #velY}. */
     public void userInput(ArrayList<Rectangle> mapObstacles) {
@@ -188,21 +208,28 @@ public class Cook extends GameEntity {
 
         setDir();
 
-        for (InputKey inputKey : Interactions.getInputKeys(Interactions.InputID.COOK_INTERACT)) {
-            if (Gdx.input.isKeyJustPressed(inputKey.getKey())) {
-//                cookInteractor.checkCollisions(this, inputKey.getType());  //THIS IS THE FOR OLD COLLISION HELPER
-                NewCollisionHelper Finder = new NewCollisionHelper(gameScreen,this);
-                CookInteractable foundfromfinder = Finder.NearbyStation();
-                if(foundfromfinder!=null) {
-                    foundfromfinder.interact(this, inputKey.getType()); //NEEDS UPDATING THE INTERACT
-                }
-            }
-        }
+
 
         // body.setLinearVelocity(velX * speed,velY * speed);
         this.rectangle = newPlayerRectangle;
         this.x = rectangle.x;
         this.y = rectangle.y;
+    }
+
+    public void userInteract(ArrayList<Station> mapStations){
+
+        for (InputKey inputKey : Interactions.getInputKeys(Interactions.InputID.COOK_INTERACT)) {
+            if (Gdx.input.isKeyJustPressed(inputKey.getKey())) {
+                System.out.println(mapStations.toString());
+//                cookInteractor.checkCollisions(this, inputKey.getType());  //THIS IS THE FOR OLD COLLISION HELPER
+                for(Station station : mapStations){
+                    if (Intersector.overlaps(station.getRectangle(), cookInteractor)){
+                        station.interact(this, inputKey.getType());
+                    }
+                }
+            }
+        }
+
     }
 
     /**
@@ -216,7 +243,10 @@ public class Cook extends GameEntity {
         //y = body.getPosition().y*PPM;
         x = rectangle.x;
         y = rectangle.y;
-        this.cookInteractor.updatePosition(x,y,dir);
+
+        // Updates Interaction box (again change 1/8f to a const)
+        this.cookInteractor.x = x - 1/8f;
+        this.cookInteractor.y = y - 1/8f;
     }
 
     /**
@@ -283,18 +313,18 @@ public class Cook extends GameEntity {
      */
     @Override
     public void renderShapeDebug(ShapeRenderer shape) {
-        cookInteractor.renderDebug(shape);
+        return;
     }
 
     /** Return the X pixel offset from the cook's position that the cook's FoodStack requires for rendering.*/
     private float foodRelativeX(Cook.Facing dir) {
         switch (dir) {
             case RIGHT:
-                return 30F;
+                return 38F * Constants.UnitScale;
             case LEFT:
-                return -30F;
+                return -13F * Constants.UnitScale;
             default:
-                return 0F;
+                return 13F * Constants.UnitScale;
         }
     }
 
@@ -302,14 +332,14 @@ public class Cook extends GameEntity {
     private float foodRelativeY(Cook.Facing dir) {
         switch (dir) {
             case UP:
-                return -14F;
+                return -14F * Constants.UnitScale;
             case DOWN:
-                return -25F;
+                return -25F * Constants.UnitScale;
             case LEFT:
             case RIGHT:
-                return -24F;
+                return -24F * Constants.UnitScale;
             default:
-                return 0F;
+                return 0F * Constants.UnitScale;
         }
     }
 
@@ -325,7 +355,7 @@ public class Cook extends GameEntity {
         float xOffset = foodRelativeX(dir), yOffset = foodRelativeY(dir);
         // Get offset based on direction.
 
-        float drawX = x, drawY = y + 27F;
+        float drawX = x, drawY = y - 12 * Constants.UnitScale;
         /*if (foodStack.size() > 0) {
             foodStack.popStack();
         }*/
@@ -336,8 +366,8 @@ public class Cook extends GameEntity {
                 drawY += 5F;
                 continue;
             }
-            foodSprite.setScale(2F);
-            foodSprite.setPosition(drawX-foodSprite.getWidth()/2+xOffset,drawY+foodSprite.getHeight()/2F+yOffset);
+            foodSprite.setScale(2 * Constants.UnitScale);
+            foodSprite.setPosition(drawX-foodSprite.getWidth()/2+xOffset,drawY+yOffset);
             foodSprite.draw(batch);
             drawY += drawInc;
         }
