@@ -139,5 +139,13 @@ public abstract class GameEntity {
     public float getY() {
         return y;
     }
+
+    /**
+     * A getter to get this Game Entity's rectangle.
+     * @return {@code Rectangle} : The {@link GameEntity}'s {@link #rectangle}
+     */
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
 }
 

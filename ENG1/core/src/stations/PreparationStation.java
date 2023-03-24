@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
 import food.FoodItem;
 import game.GameSprites;
+import helper.Constants;
 import interactions.InputKey;
 import interactions.Interactions;
 
@@ -95,7 +96,7 @@ public class PreparationStation extends Station {
             } else {
                 renderItem = gameSprites.getSprite(GameSprites.SpriteID.FOOD,interaction.getResult().toString());
             }
-            renderItem.setScale(2F);
+            renderItem.setScale(2F * Constants.UnitScale);
             renderItem.setPosition(x-renderItem.getWidth()/2,y);
             renderItem.draw(batch);
         }
