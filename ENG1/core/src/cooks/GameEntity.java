@@ -14,9 +14,9 @@ public abstract class GameEntity {
     /** X and Y position coordinates.*/
     public float x,y;
     /** X and Y velocity of this GameEntity.*/
-    protected float velX,velY;
+    public float velX,velY;
     /** Speed of this GameEntity. */
-    protected float speed;
+    public float speed;
     /** The width and height in pixels of this GameEntity.*/
     public  float width,height;
     /** The body of this GameEntity. */
@@ -129,7 +129,7 @@ public abstract class GameEntity {
     public float getWidth(){return this.width;}
 
     public float getHeight() {
-        return height;
+        return this.height;
     }
 
     /**
