@@ -9,8 +9,8 @@ import static org.testng.Assert.*;
 @RunWith(GdxTestRunner.class)
 public class AssetTests {
 
-    // The following are tests to do with checking that the assets in the cooks folder still remain
     // They all relate to the UR_GRAPHIC requirement
+    // The following are tests to do with checking that the assets in the cooks folder still remain
     @Test
     public void testChefHoldDownAssetExists(){
         assertTrue(Gdx.files.internal("cooks/hold down.png").exists(), "This test will only pass if hold down.png is present");
@@ -53,6 +53,11 @@ public class AssetTests {
     @Test
     public void testChefNormalUpAssetExists(){
         assertTrue(Gdx.files.internal("cooks/normal up.png").exists(), "This test will only pass if normal up.png is present");
+    }
+
+    @Test
+    public void testChefTestDummyAssetExists(){
+        assertTrue(Gdx.files.internal("cooks/testdummy.png").exists(),"This test will only pass if testdummy.png exists");
     }
 
     @Test
@@ -301,4 +306,11 @@ public class AssetTests {
     public void testCreditsAssetExists(){
         assertTrue(Gdx.files.internal("CREDITS.txt").exists(),"The test will only pass if CREDITS.txt exists in the asset folder");
     }
+
+    // This will test the files in the other folder to make sure they exist
+    @Test
+    public void testIconExists(){
+        assertTrue(Gdx.files.internal("other/icon.png").exists(),"The test will only pass if icon.png exists in the asset folder");
+    }
+
 }
