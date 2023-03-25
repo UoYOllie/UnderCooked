@@ -313,4 +313,10 @@ public class AssetTests {
         assertTrue(Gdx.files.internal("other/icon.png").exists(),"The test will only pass if icon.png exists in the asset folder");
     }
 
+    @Test
+    public void testcookingoggAssetExists(){
+        assertTrue(Gdx.files.internal("OJAssets/audio/cooking.ogg").exists(), "The test will only pass if cooking.ogg exists in the file");
+    }
+
+
 }

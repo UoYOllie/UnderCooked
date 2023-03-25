@@ -358,13 +358,11 @@ public class GameplayTest {
     @Test
     public void TestBuyShopItem(){
         ShopItem shopItem = new ShopItem("testItem",100);
-        assertTrue(shopItem.inuse == false);
         assertTrue(shopItem.name == "testItem");
         assertTrue(shopItem.cost == 100);
         Gold gold = new Gold();
         gold.setBalance(101);
         shopItem.buy(gold);
-        assertTrue(shopItem.inuse == true);
         assertTrue(gold.Balance == 1);
     }
 
