@@ -45,11 +45,6 @@ public class Recipe {
 				bottomBunArray,
 				FoodID.meatCook, FoodID.tomatoChop)
 			);
-			generateRecipes("Lettuce Burger", allCombos(
-				topBunArray,
-				bottomBunArray,
-				FoodID.meatCook, FoodID.lettuceChop)
-			);
 			generateRecipes("Lettuce Tomato Burger", allCombos(
 				topBunArray,
 				bottomBunArray,

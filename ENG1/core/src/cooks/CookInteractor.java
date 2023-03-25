@@ -14,11 +14,11 @@ import stations.CookInteractable;
 public class CookInteractor {
 
     /** The X and Y Coordinates of this {@link CookInteractor}. */
-    protected float x,y;
+    public float x,y;
     /** The size of this {@link CookInteractor}. */
-    protected float size;
+    public float size;
     /** The rectangle responsible for collision in {@link CookInteractor}. */
-    protected Rectangle collision;
+    public Rectangle collision;
     /** The Collision Helper Singleton. */
     protected CollisionHelper ch;
 
@@ -60,7 +60,7 @@ public class CookInteractor {
      * @param dir The direction the cook can face
      * @return An X offset in pixels.
      */
-    private float relativeX(Cook.Facing dir) {
+    public float relativeX(Cook.Facing dir) {
         switch (dir) {
             case RIGHT:
                 return 38.4F;
@@ -77,7 +77,7 @@ public class CookInteractor {
      * @param dir The direction the cook can face
      * @return An Y offset in pixels.
      */
-    private float relativeY(Cook.Facing dir) {
+    public float relativeY(Cook.Facing dir) {
         switch (dir) {
             case UP:
                 return 25.6F;
@@ -98,7 +98,7 @@ public class CookInteractor {
      * @param y New Y position
      * @param dir New direction
      */
-    protected void updatePosition(float x, float y, Cook.Facing dir) {
+    public void updatePosition(float x, float y, Cook.Facing dir) {
         float relX = relativeX(dir);
         float relY = relativeY(dir);
 
