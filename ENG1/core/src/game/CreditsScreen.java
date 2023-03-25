@@ -80,6 +80,7 @@ public class CreditsScreen extends ScreenAdapter {
         stage.addActor(table);
     }
 
+
     /**
      * Check for user input every frame and act on specified inputs.
      * @param delta The time between frames as a float.

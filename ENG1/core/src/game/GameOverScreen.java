@@ -76,6 +76,7 @@ public class GameOverScreen extends ScreenAdapter {
 
     }
 
+
     /**
      * Check for user input every frame and act on specified inputs.
      * @param delta The time between frames as a float.

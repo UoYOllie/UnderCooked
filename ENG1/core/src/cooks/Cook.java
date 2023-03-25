@@ -38,7 +38,7 @@ public class Cook extends GameEntity {
     //private CookInteractor cookInteractor;
     // private GameScreen gameScreen;
     /** The direction this cook is facing. */
-    private Facing dir;
+    public Facing dir;
     /** The cook's stack of things, containing all the items they're holding. Index 0 = Top Item */
     public FoodStack foodStack;
     /** The WASD/movement inputs currently being made.
@@ -78,7 +78,7 @@ public class Cook extends GameEntity {
     }
 
     /** All possible directions the cook can be facing. */
-    enum Facing {
+    public enum Facing {
         RIGHT,
         LEFT,
         UP,

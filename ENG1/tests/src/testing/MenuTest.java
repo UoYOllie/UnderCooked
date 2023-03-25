@@ -27,7 +27,6 @@ public class MenuTest {
         screenController.setScreen(ScreenController.ScreenID.MENU);
         keysPressed.add(InputKey.InputTypes.START_GAME);
         assertEquals(screenController.getScreen(ScreenController.ScreenID.GAME), boot.getScreen());
-
     }
 
     @Test
