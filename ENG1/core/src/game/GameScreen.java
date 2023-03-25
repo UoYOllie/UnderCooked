@@ -4,6 +4,7 @@ import Shop.Gold;
 import Shop.ShopItem;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.maps.MapObjects;
+import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
 import customers.Customer;
 
@@ -51,7 +52,7 @@ public class GameScreen extends ScreenAdapter {
     private Box2DDebugRenderer box2DDebugRenderer;
 
     private OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
-    private MapHelper mapHelper;
+    public MapHelper mapHelper;
     private Array<CookInteractable> interactables;
     private CollisionHelper collisionHelper;
     private ArrayList<GameEntity> gameEntities;
@@ -60,10 +61,12 @@ public class GameScreen extends ScreenAdapter {
     private float xOffset = 1500;
     private float yOffset = 1200;
 
+    public Gold gold;
+
     //Objects
     public Array<Cook> unusedcooks;
     public Array<Cook> cooks;
-    private Cook cook;
+    public Cook cook;
 
     private int cookIndex;
     private CustomerController customerController;
@@ -83,6 +86,7 @@ public class GameScreen extends ScreenAdapter {
         this.unusedcooks = new Array<>();
         this.interactables = new Array<>();
         this.gold = new Gold();
+        this.gold.setBalance(1000); //for testing purposes ONLY
 
         // UPDATE
         // this.collisionHelper = CollisionHelper.getInstance();
@@ -103,7 +107,7 @@ public class GameScreen extends ScreenAdapter {
 
         // UPDATED
         // this.mapHelper = MapHelper.getInstance();
-        this.mapHelper = new MapHelper();
+        this.mapHelper = new MapHelper(this);
 
         // this.mapHelper.setGameScreen(this);
         this.orthogonalTiledMapRenderer = mapHelper.setupMap();
@@ -128,7 +132,7 @@ public class GameScreen extends ScreenAdapter {
         Cook Buy4 = new Cook((2031.1f-104f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
         this.addSpareCook(Buy4);
 
-        this.cook = GlibbertOrange;
+        this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
 
 
@@ -330,9 +334,16 @@ public class GameScreen extends ScreenAdapter {
         return cooks.size-1;
     }
 
-    public void SpareToNotSpare(Cook newCook)
+    public void SpareToNotSpare(int n)
     {
-        cooks.add(newCook);
+        int index = n-1;
+        Cook newcook = unusedcooks.get(index);
+        Rectangle newPlayerRectangle = new Rectangle(newcook.x, newcook.y-10, newcook.width, newcook.height);
+        newcook.rectangle = newPlayerRectangle;
+        newcook.x = newcook.rectangle.x;
+        newcook.y = newcook.rectangle.y;
+        cooks.add(newcook);
+
     }
 
 
@@ -436,7 +447,7 @@ public class GameScreen extends ScreenAdapter {
         // UPDATE
         //mapHelper = MapHelper.newInstance();
         //mapHelper.setGameScreen(this);
-        this.mapHelper = new MapHelper();
+        this.mapHelper = new MapHelper(this);
 
         world.dispose();
         this.world = new World(new Vector2(0,0), false);
@@ -495,14 +506,17 @@ public class GameScreen extends ScreenAdapter {
     //-------------------------------------
     //Morgan's Shop Section
     //-------------------------------------
-    public Gold gold;
+    //public Gold gold;
 
     //These are all the powerups:
-    ShopItem Powerup_Speed = new ShopItem("Speed",30); //increase current chef's movement seed
-    ShopItem Powerup_Teacup = new ShopItem("Teacup",40);//give user a cup of tea, place onto stack
-    ShopItem Powerup_ChefBluggusMode = new ShopItem("Bluggus",80); //Transforms chef to bluggus to have bonus stack.
-    ShopItem Powerup_4 = new ShopItem("-",30);
-    ShopItem Powerup_5 = new ShopItem("-",30);
+    public ShopItem Powerup_Speed = new ShopItem("Speed",30); //increase current chef's movement seed
+    public ShopItem Powerup_Teacup = new ShopItem("Teacup",40);//give user a cup of tea, place onto stack
+    public ShopItem Powerup_ChefBluggusMode = new ShopItem("Bluggus",80); //Transforms chef to bluggus to have bonus stack.
+    public ShopItem Powerup_4 = new ShopItem("-",30);
+    public ShopItem Powerup_5 = new ShopItem("-",30);
+    public ShopItem BuyablePeople = new ShopItem("NewChef",25);
+
+    public ShopItem BuyableStation = new ShopItem("Station",10);
 
 
 

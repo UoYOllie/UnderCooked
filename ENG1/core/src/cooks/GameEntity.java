@@ -12,18 +12,18 @@ import static helper.Constants.PPM;
 public abstract class GameEntity {
 
     /** X and Y position coordinates.*/
-    protected float x,y;
+    public float x,y;
     /** X and Y velocity of this GameEntity.*/
     protected float velX,velY;
     /** Speed of this GameEntity. */
     protected float speed;
     /** The width and height in pixels of this GameEntity.*/
-    protected  float width,height;
+    public  float width,height;
     /** The body of this GameEntity. */
     // protected Body body;
 
     //UPDATE;
-    protected Rectangle rectangle;
+    public Rectangle rectangle;
 
 
     /**
@@ -147,5 +147,7 @@ public abstract class GameEntity {
     public Rectangle getRectangle() {
         return rectangle;
     }
+
+    public void setY(float x){this.y = x;}
 }
 

@@ -30,16 +30,17 @@ public class MapHelper {
     private GameScreen gameScreen;
     private TiledMap tiledMap;
     private ArrayList<Rectangle> mapObstacles;
-    private ArrayList<Station> mapStations;
+    public ArrayList<Station> mapStations;
 
 
     /**
      * Constructor for MapHelper.
      * Initialises arrayLists mapObstacles and mapStations.
      */
-    public MapHelper() {
+    public MapHelper(GameScreen g) {
         mapObstacles = new ArrayList<>();
         mapStations = new ArrayList<>();
+        this.gameScreen = g;
     }
 
     /**
@@ -170,6 +171,7 @@ public class MapHelper {
             System.out.println(":)"); // :)
 
             // Check which instance of Station and add the corresponding object to mapStations.
+
             switch(stationName) {
                 case "BinStation":
                     mapStations.add(new BinStation(newRectangle));
@@ -178,21 +180,45 @@ public class MapHelper {
                     mapStations.add(new CounterStation(newRectangle));
                     break;
                 case "PreparationStation":
+                    String t = rectangleMapObject.getProperties().get("type").toString();
                     PreparationStation prepStation = new PreparationStation(newRectangle);
-                    prepStation.setID(Station.StationID.cut);
+                    switch(t) {
+                        case "cut":
+                            prepStation.setID(Station.StationID.cut);
+                            break;
+                        case "fry":
+                            prepStation.setID(Station.StationID.fry);
+                            break;
+                        case "bake":
+                            prepStation.setID(Station.StationID.bake);
+                            break;
+                        case "assembly":
+                            prepStation.setID(Station.StationID.assembly);
+                            break;
+                    }
                     mapStations.add(prepStation);
                     break;
                 case "ServingStation":
                     mapStations.add(new ServingStation(newRectangle));
                     break;
                 case "SpeedPowerup":
-                    mapStations.add(new SpeedPowerup(newRectangle));
+                    mapStations.add(new SpeedPowerup(newRectangle,gameScreen));
+                    break;
+                case "Shop":
+                    mapStations.add(new ShopCounter(newRectangle));
+                    break;
+                case "VAT":
+                    mapStations.add(new VAT(newRectangle,(rectangleMapObject.getProperties().get("Person")).toString(),gameScreen));
                     break;
                 case "Pantry":
                     Pantry pantry = new Pantry(newRectangle);
                     pantry.setItem(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food"))); // lmao hashmap is sus
                     mapStations.add(pantry);
                     break;
+                case "Locked":
+                    mapStations.add(new Locked(newRectangle,gameScreen,rectangleMapObject.getProperties().get("type").toString()));
+                    break;
+
 
             }
         }

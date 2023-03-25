@@ -12,6 +12,7 @@ import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
 import game.GameScreen;
 import stations.CookInteractable;
+import stations.Locked;
 import stations.Station;
 
 import java.awt.*;
@@ -45,7 +46,9 @@ public class NewCollisionHelper {
         for(Station object : mapStations){
             if (Intersector.overlaps(object.getRectangle(), cookInteractor)){
                 System.out.println("Cook Overlaps: " + object);
-                found.add(object);
+                if(object.Enabled) {
+                    found.add(object);
+                }
             }
         }
 

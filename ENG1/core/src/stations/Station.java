@@ -16,6 +16,7 @@ import interactions.InputKey;
 public class Station extends CookInteractable {
 
     /** IDs of all the different possible types of stations.*/
+    public Boolean Enabled = true;
     public enum StationID {
         /** Frying Station, uses {@link PreparationStation}. */
         fry,
@@ -27,6 +28,8 @@ public class Station extends CookInteractable {
         bin,
         /** {@link ServingStation} that allows {@link Cook}s to serve {@link customers.Customer}s. */
         serving,
+        bake,
+        assembly,
         /** Default Station that does nothing. */
         none
     }

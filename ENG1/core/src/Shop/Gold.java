@@ -5,7 +5,7 @@ public class Gold {
     public int Balance;
 
     public Gold(){
-        Balance = 0;
+        setBalance(0);
     }
     
     public void setBalance(int x){

@@ -73,9 +73,6 @@ public class Cook extends GameEntity {
      *
      * No Params (????)
      */
-    public void setSpeed(){
-        this.movement_speed = this.movement_speed + 0.2f;
-    }
 
     /** All possible directions the cook can be facing. */
     enum Facing {
@@ -229,6 +226,7 @@ public class Cook extends GameEntity {
 //                }
                 NewCollisionHelper checker = new NewCollisionHelper(gameScreen,this,mapStations);
                 CookInteractable station = checker.NearbyStation(cookInteractor);
+                System.out.println(station);
                 if(station!=null) {
                     station.interact(this, inputKey.getType());
                 }
