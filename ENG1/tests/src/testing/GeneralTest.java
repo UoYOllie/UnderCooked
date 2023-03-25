@@ -4,9 +4,12 @@ import Shop.Gold;
 import Shop.ShopItem;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
 import cooks.CookInteractor;
+import cooks.GameEntity;
 import customers.Customer;
 import customers.CustomerController;
 import food.FoodItem;
@@ -76,5 +79,165 @@ public class GeneralTest {
         cook.foodStack.addStack(FoodItem.FoodID.meat);
         cookInteractor.checkCollisions(cook, InputKey.InputTypes.USE);
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook);
+    }
+
+    @Test
+    public void testGameEntityGetWidth(){
+        GameEntity gameEntity = new GameEntity(20,21,22,23){
+
+            @Override
+            public void update(float delta) {
+
+            }
+
+            @Override
+            public void render(SpriteBatch batch) {
+
+            }
+
+            @Override
+            public void renderDebug(SpriteBatch batch) {
+
+            }
+
+            @Override
+            public void renderShape(ShapeRenderer shape) {
+
+            }
+
+            @Override
+            public void renderShapeDebug(ShapeRenderer shape) {
+
+            }
+        };
+        assertTrue(gameEntity.getWidth() == gameEntity.width);
+    }
+
+    @Test
+    public void testGameEntityGetHeight(){
+        GameEntity gameEntity = new GameEntity(20,21,22,23){
+
+            @Override
+            public void update(float delta) {
+
+            }
+
+            @Override
+            public void render(SpriteBatch batch) {
+
+            }
+
+            @Override
+            public void renderDebug(SpriteBatch batch) {
+
+            }
+
+            @Override
+            public void renderShape(ShapeRenderer shape) {
+
+            }
+
+            @Override
+            public void renderShapeDebug(ShapeRenderer shape) {
+
+            }
+        };
+        assertTrue(gameEntity.getHeight() == gameEntity.height);
+    }
+
+    @Test
+    public void testGameEntityGetX(){
+        GameEntity gameEntity = new GameEntity(20,21,22,23){
+
+            @Override
+            public void update(float delta) {
+
+            }
+
+            @Override
+            public void render(SpriteBatch batch) {
+
+            }
+
+            @Override
+            public void renderDebug(SpriteBatch batch) {
+
+            }
+
+            @Override
+            public void renderShape(ShapeRenderer shape) {
+
+            }
+
+            @Override
+            public void renderShapeDebug(ShapeRenderer shape) {
+
+            }
+        };
+        assertTrue(gameEntity.x == gameEntity.x);
+    }
+
+    @Test
+    public void testGameEntityGetY(){
+        GameEntity gameEntity = new GameEntity(20,21,22,23){
+
+            @Override
+            public void update(float delta) {
+
+            }
+
+            @Override
+            public void render(SpriteBatch batch) {
+
+            }
+
+            @Override
+            public void renderDebug(SpriteBatch batch) {
+
+            }
+
+            @Override
+            public void renderShape(ShapeRenderer shape) {
+
+            }
+
+            @Override
+            public void renderShapeDebug(ShapeRenderer shape) {
+
+            }
+        };
+        assertTrue(gameEntity.y == gameEntity.y);
+    }
+
+    @Test
+    public void testGameEntityGetRectangle(){
+        GameEntity gameEntity = new GameEntity(20,21,22,23){
+
+            @Override
+            public void update(float delta) {
+
+            }
+
+            @Override
+            public void render(SpriteBatch batch) {
+
+            }
+
+            @Override
+            public void renderDebug(SpriteBatch batch) {
+
+            }
+
+            @Override
+            public void renderShape(ShapeRenderer shape) {
+
+            }
+
+            @Override
+            public void renderShapeDebug(ShapeRenderer shape) {
+
+            }
+        };
+        assertTrue(gameEntity.getRectangle() == gameEntity.rectangle);
     }
 }
