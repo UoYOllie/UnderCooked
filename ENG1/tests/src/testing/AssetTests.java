@@ -372,6 +372,72 @@ public class AssetTests {
     assertTrue(Gdx.files.internal("OJAssets/indicators/cutting/cutting.png").exists(), "The test failed because cutting.png doesn't exist");
     }
 
+    @Test
+    public void testGearAtlasAssetExists() {
+        assertTrue(Gdx.files.internal("OJAssets/indicators/gear/gear.atlas").exists(), "The test failed because gear.atlas doesn't exist in the gear folder");
+    }
+
+    @Test
+    public void testGearPngAssetExists() {
+        assertTrue(Gdx.files.internal("OJAssets/indicators/gear/gear.png").exists(), "The test failed because gear.png doesn't exist in the gear folder");
+    }
+
+    @Test
+    public void testMeatAtlasAssetExists() {
+        assertTrue(Gdx.files.internal("OJAssets/indicators/patty forming/meat.atlas").exists(), "The test failed because meat.atlas doesn't exist in the patty forming folder");
+    }
+
+    @Test
+    public void testMeatPngAssetExists() {
+        assertTrue(Gdx.files.internal("OJAssets/indicators/patty forming/meat.png").exists(), "The test failed because meat.png doesn't exist in the patty forming folder");
+    }
+
+    //These tests test whether the assets in MorgansMap exist
+
+    @Test
+    public void testCounterBLTopPngAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/Counters/counter_BL_top.png").exists(), "The test failed because counter_BL_top.png doesn't exist in the counters folder");
+    }
+
+    @Test
+    public void testCounterBRTopPngAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/Counters/counter_BR_top.png").exists(), "The test failed because counter_BR_top.png doesn't exist in the counters folder");
+    }
+
+    @Test
+    public void testCounterCentrePngAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/Counters/counter_centre.png").exists(), "The test failed because counter_centre.png doesn't exist in the counters folder");
+    }
+
+    @Test
+    public void testCounterLeftAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/Counters/counter_left.png").exists(), "The test failed because counter_left.png doesn't exist in the counters folder");
+    }
+
+    @Test
+    public void testCounterRightAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/Counters/counter_right.png").exists(), "The test failed because counter_right.png doesn't exist in the counters folder");
+    }
+
+    @Test
+    public void testCounterSideLeftAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/Counters/counter_side_left.png").exists(), "The test failed because counter_side_left.png doesn't exist in the counters folder");
+    }
+
+    @Test
+    public void testCounterSideRightAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/Counters/counter_side_right.png").exists(), "The test failed because counter_side_right.png doesn't exist in the counters folder");
+    }
+
+    @Test
+    public void testCounterTLBottomAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/Counters/counter_TL_bottom.png").exists(), "The test failed because counter_TL_bottom.png doesn't exist in the counters folder");
+    }
+
+    @Test
+    public void testCounterTLTopAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/Counters/counter_TL_top.png").exists(), "The test failed because counter_TL_top.png doesn't exist in the counters folder");
+    }
 }
 
 
