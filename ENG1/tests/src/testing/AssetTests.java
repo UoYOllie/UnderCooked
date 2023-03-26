@@ -314,51 +314,60 @@ public class AssetTests {
     }
 
 // The following will test the files in the OJ assets folder to make sure they exist
-    }@Test
-    public void testcookingoggAssetExists(){
-        assertTrue(Gdx.files.internal("OJAssets/audio/cooking.ogg").exists(),"The test failed because cooking.ogg doesn't exist");
+    @Test
+    public void testcookingoggAssetExists() {
+        assertTrue(Gdx.files.internal("OJAssets/audio/cooking.ogg").exists(), "The test failed because cooking.ogg doesn't exist");
+    }
 
-    }@Test
-    public void testfailurewavAssetExists(){
+    @Test
+    public void testfailurewavAssetExists() {
         assertTrue(Gdx.files.internal("OJAssets/audio/failure.wav").exists(), "The test failed because failure.wav doesn't exist");
+    }
 
-    }@Test
-    public void testpick_upwavAssetExists(){
+    @Test
+    public void testpick_upwavAssetExists() {
         assertTrue(Gdx.files.internal("OJAssets/audio/pick_up.wav").exists(), "The test failed because pick_up.wav doesn't exist");
+    }
 
-    }@Test
-    public void testput_downwavAssetExists(){
+    @Test
+    public void testput_downwavAssetExists() {
         assertTrue(Gdx.files.internal("OJAssets/audio/put_down.wav").exists(), "The test failed because put_down.wav doesn't exist");
+    }
 
-    }@Test
-    public void testsuccesswavAssetExists(){
+    @Test
+    public void testsuccesswavAssetExists() {
         assertTrue(Gdx.files.internal("OJAssets/audio/success.wav").exists(), "The test failed because success.wav doesn't exist");
+    }
 
-    }@Test
-    public void testprogress_bubble_1AssetExists(){
+    @Test
+    public void testprogress_bubble_1AssetExists() {
         assertTrue(Gdx.files.internal("OJAssets/bubbles/progress_bubble_1.png").exists(), "The test failed because progressbubble1.png doesn't exist");
+    }
 
-    }@Test
-    public void testsimple_bubbleAssetExists(){
+    @Test
+    public void testsimple_bubbleAssetExists() {
         assertTrue(Gdx.files.internal("OJAssets/bubbles/simple_bubble.png").exists(), "The test failed because simplebubble.png doesn't exist");
+    }
 
-    }@Test
-    public void testsimple_bubble_with_itemAssetExists(){
+    @Test
+    public void testsimple_bubble_with_itemAssetExists() {
         assertTrue(Gdx.files.internal("OJAssets/bubbles/simple_bubble_with_item.png").exists(), "The test failed because simplebubblewithitem.png doesn't exist");
-
-    }@Test
-    public void testblugguspackAssetExists(){
+    }
+    @Test
+    public void testblugguspackAssetExists() {
         assertTrue(Gdx.files.internal("OJAssets/characters/bluggus.pack").exists(), "The test failed because bluggus.pack doesn't exist");
-
-    }@Test
+    }
+    @Test
     public void testblugguspngAssetExists(){
         assertTrue(Gdx.files.internal("OJAssets/characters/bluggus.png").exists(), "The test failed because bluggus.png doesn't exist");
     }
-    @Test
-    public void testcuttingatlasAssetExists(){
-        assertTrue(Gdx.files.internal("OJAssets/indicators/cutting/cutting.atlas").exists(), "The test failed because cutting.atlas doesn't exist");
 
-    }@Test
+    @Test
+    public void testcuttingatlasAssetExists() {
+        assertTrue(Gdx.files.internal("OJAssets/indicators/cutting/cutting.atlas").exists(), "The test failed because cutting.atlas doesn't exist");
+    }
+
+    @Test
     public void testcuttingpngAssetExists() {
     assertTrue(Gdx.files.internal("OJAssets/indicators/cutting/cutting.png").exists(), "The test failed because cutting.png doesn't exist");
     }
