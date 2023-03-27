@@ -546,6 +546,34 @@ public class AssetTests {
 
     }
 
+    @Test
+    public void testMarbleEndAssetExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/marble-end.png").exists(), "The test failed because marble-end.png doesn't exist in the folder");
+
+    }
+
+    @Test
+    public void testMarblesideAssetExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/marbleside.png").exists(), "The test failed because marbleside.png doesn't exist in the map folder");
+
+    }
+
+    @Test
+    public void testMarbleSideAltAssetExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/marblesidealt.png").exists(), "The test failed because marblesidealt.png doesn't ");
+    }
+
+    @Test
+    public void testNewBrickTestAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/newbricktest.png").exists(), "The test failed because newbricktest.png doesn't exist in the map folder");
+
+    }
+
+    @Test
+    public void testNewBrickTopAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/newbricktop.png").exists(), "The test failed because newbricktop.png doesn't exist in the map folder");
+    }
+
 
 }
 
