@@ -14,6 +14,7 @@ import customers.Customer;
 import customers.CustomerController;
 import food.FoodItem;
 import food.Recipe;
+import helper.Util;
 import interactions.InputKey;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -239,5 +240,16 @@ public class GeneralTest {
             }
         };
         assertTrue(gameEntity.getRectangle() == gameEntity.rectangle);
+    }
+
+    @Test
+    public void testUtilClass(){
+        String finalString = Util.formatTime(0,10,1);
+        assertEquals(finalString, "10:01");
+        finalString = Util.formatTime(10,65,65);
+        assertEquals(finalString,"10:65:65");
+        float finalNum = Util.distancePoints(1,1,3,3);
+        float testAgainst = (float) Math.sqrt(8);
+        assertEquals(finalNum,testAgainst);
     }
 }

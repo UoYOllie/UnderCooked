@@ -35,7 +35,7 @@ public class Station extends CookInteractable {
     }
 
     StationID stationID;
-    boolean inUse;
+    public boolean inUse;
     GameSprites gameSprites;
     public Cook CurrentCook;
 

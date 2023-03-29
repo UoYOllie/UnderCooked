@@ -164,6 +164,40 @@ public class InteractionTest {
 
     @Test
     // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    public void TestPreparationStationSetsStatetoFinished(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation testStation = new PreparationStation(rectangle);
+        testStation.setID(Station.StationID.fry);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testStation.getRectangle());
+        testStation.progress = 100;
+        testStation.inUse = true;
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.meat);
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.update(1);
+        assertEquals(testStation.state, PreparationStation.StationState.FINISHED);
+    }
+
+    @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    public void TestPreparationStationAddsResultBackWhenFinishedUse(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation testStation = new PreparationStation(rectangle);
+        testStation.setID(Station.StationID.fry);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.meat);
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.progress = 100;
+        testStation.inUse = true;
+        testStation.interact(cook, InputKey.InputTypes.USE);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook);
+    }
+
+    @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestBinStationGetsRidOfItem(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         BinStation testStation = new BinStation(rectangle);
