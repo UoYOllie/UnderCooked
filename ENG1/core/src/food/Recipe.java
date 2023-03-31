@@ -15,13 +15,18 @@ import food.FoodItem.FoodID;
  */
 public class Recipe {
     private static Array<String> recipeNames = new Array<>();
+
+
 	/** A HashMap containing how each FoodItem's FoodID, via a station of StationID, can convert to another foodID.*/
 	public static final HashMap<String, Array<FoodStack>> recipes = new HashMap<>();
+
 		static {
 			generateRecipes("Onion Tomato Salad", allCombos(FoodID.onionChop, FoodID.tomatoChop));
 			generateRecipes("Lettuce Tomato Salad", allCombos(FoodID.lettuceChop, FoodID.tomatoChop));
 			generateRecipes("Lettuce Onion Salad", allCombos(FoodID.lettuceChop, FoodID.onionChop));
-			Array<FoodStack> plainBurger = new Array<>();
+
+            // from Laura!! this is the only thing i like D:
+            Array<FoodStack> plainBurger = new Array<>();
 			plainBurger.add(new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.bottomBun));
 			recipes.put("Plain Burger", plainBurger);
 
@@ -113,7 +118,7 @@ public class Recipe {
 				}
 			);
 			*/
-	}
+	    }
 
 	/**
 	 * Creates an entry in {@link #recipes} of recipeName:(listOfFoodStacks as a string)
@@ -206,10 +211,11 @@ public class Recipe {
         return false;
     }
 
-    public static Array<FoodStack> getRecipeCombos(String recipeName) {
-        Array<FoodStack> recipeCombos = recipes.get(recipeName);
-        return recipeCombos;
-    }
+    // removed because 0 usages
+//    public static Array<FoodStack> getRecipeCombos(String recipeName) {
+//        Array<FoodStack> recipeCombos = recipes.get(recipeName);
+//        return recipeCombos;
+//    }
 
     public static String randomRecipe() {
          Random random = new Random();

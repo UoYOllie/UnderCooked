@@ -87,6 +87,7 @@ public class ServingStation extends Station {
      */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
+
         // USE to see request, or submit request
         if (inputType == InputKey.InputTypes.USE) {
             // First make sure there is actually a request on this counter.
