@@ -440,6 +440,175 @@ public class AssetTests {
     }
 
     @Test
+    public void testBinPNGAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/Extras/bin.png").exists(), "The test failed because bin.png doesn't exist in the Extras folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testCookingTopPNGAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/Extras/CookingTop.png").exists(), "The test failed because CookingTop.png doesn't exist in the Extras folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testBeamAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/Beam.png").exists(), "The test failed because Beam.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testBottomVATAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/BottomVAT.png").exists(), "The test failed because BottomVAT.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testCurvyMetalAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/CurvyMetal.png").exists(), "The test failed because CurvyMetal.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testCurvyMetalFlippedAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/CurvyMetalflipped.png").exists(), "The test failed because CurvyMetalflipped.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testDinosaurAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/Dinosaur.png").exists(), "The test failed because Dinosaur.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testDomeAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/Dome.png").exists(), "The test failed because Dome.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testDomeCounterAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/DomeCounter.png").exists(), "The test failed because DomeCounter.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testDomeCounterInvAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/DomeCounterInv.png").exists(), "The test failed because DomeCounterInv.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testEmptyVATAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/EmptyVAT.png").exists(), "The test failed because EmptyVAT.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testEmptyVATxcfAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/EmptyVAT.xcf").exists(), "The test failed because EmptyVAT.xcf doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testLarchAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/Larch.png").exists(), "The test failed because Larch.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testMetalBlockAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/MetalBlock.png").exists(), "The test failed because MetalBlock.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testMetalBlockxcfAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/MetalBlock.xcf").exists(), "The test failed because MetalBlock.xcf doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testMetalBlock2AssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/MetalBlock2.png").exists(), "The test failed because MetalBlock2.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testMetalBlock2flippedAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/MetalBlock2flipped.png").exists(), "The test failed because MetalBlock2flipped.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testMetalBlockflippedAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/MetalBlockflipped.png").exists(), "The test failed because MetalBlockflipped.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testMetalSlope2AssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/MetalSlope2.png").exists(), "The test failed because MetalSlope2.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testMetalSlope2flippedExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/MetalSlope2flipped.png").exists(), "The test failed because MetalSlope2flipped.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testOuterCookedAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/OuterCooked.tmx").exists(), "The test failed because OuterCooked.tmx doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testPurpadurpleAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/Purpadurple.png").exists(), "The test failed because Purpadurple.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testRarchAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/Rarch.png").exists(), "The test failed because Rarch.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testServingStationAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/ServingStation.png").exists(), "The test failed because ServingStation.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testShopAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/Shop.png").exists(), "The test failed because Shop.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testSignDiningAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/SignDining.png").exists(), "The test failed because SignDining.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testSignFridgeAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/SignFridge.png").exists(), "The test failed because SignFridge.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testSignPantryAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/SignPantry.png").exists(), "The test failed because SignPantry.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testSpaceMEGAtileAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/SpaceMEGAtile.png").exists(), "The test failed because SpaceMEGAtile.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testStarsAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/Stars.png").exists(), "The test failed because Stars.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testTileFloorMFAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/TileFloorMF.png").exists(), "The test failed because TileFloorMF.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testTopVATAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/TopVAT.png").exists(), "The test failed because TopVAT.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testWindowStarshipAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/Window-Starship.png").exists(), "The test failed because Window-Starship.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+
+    @Test
+    public void testWindowStarshipWithBluggyAssetExists() {
+        assertTrue(Gdx.files.internal("MorgansMap/Tiles/MFPack/Window-Starship-withbluggy.png").exists(), "The test failed because Window-Starship-withbluggy.png doesn't exist in the MFPack folder of Tiles in MorgansMap");
+    }
+    @Test
     public void testAssemblerpngAssetExists(){
         assertTrue(Gdx.files.internal("OJAssets/map/Assembler.png").exists(), "The test failed because assembler.png doesn't exist in the map folder");
 
@@ -573,6 +742,132 @@ public class AssetTests {
     public void testNewBrickTopAssetsExists(){
         assertTrue(Gdx.files.internal("OJAssets/map/newbricktop.png").exists(), "The test failed because newbricktop.png doesn't exist in the map folder");
     }
+
+    @Test
+    public void testNewCounterTestAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/newcountertest.png").exists(), "The test failed because newcountertest.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testOvenLOWERpAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/OvenLower.png").exists(), "The test failed because OvenLower.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testOvenTopAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/OvenTop.png").exists(), "The test failed because OvenTop.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testPathementTestAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/Pathement Test.png").exists(), "The test failed because Pathement Test.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testRoadMiddleAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/road middle.png").exists(), "The test failed because road middle.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testRoadChunkAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/roadchunk.png").exists(), "The test failed because roadchunk.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testTileImagesAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/Tile Images.tsx").exists(), "The test failed because Tile Images.tsx doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testTileTestAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/tile test.png").exists(), "The test failed because tile test.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testTileTesAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/tile_tes.png").exists(), "The test failed because tile_tes.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testTileTest3AssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/tile_test3.png").exists(), "The test failed because tile_test3.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testTileTestBlueAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/tile_test_blue.png").exists(), "The test failed because tile_test_blue.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testVoidAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/void.png").exists(), "The test failed because void.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testVoidCappedAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/void_capped.png").exists(), "The test failed because void_capped.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testWallAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/wall.png").exists(), "The test failed because wall.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testWallBottomAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/wall_bottom.png").exists(), "The test failed because wall_bottom.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testWallSideAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/wall_side.png").exists(), "The test failed because wall_side.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testWallPartAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/wallPart.png").exists(), "The test failed because wallPart.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testWallTopAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/wallTop.png").exists(), "The test failed because wallTop.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testWindowedbottomAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/windowedbottom.png").exists(), "The test failed because windowedbottom.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testWindowedtopAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/windowedtop.png").exists(), "The test failed because windowedtop.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testWMDDispenserAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/WMD dispenser.png").exists(), "The test failed because WMD dispenser.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testWoodFloorAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/WoodFloor.png").exists(), "The test failed because WoodFloor.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testWoodFloor2AssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/WoodFloor2.png").exists(), "The test failed because WoodFloor2.png doesn't exist in the map folder");
+    }
+
+    @Test
+    public void testWoodFloorNewAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map/WoodFloorNew.png").exists(), "The test failed because WoodFloorNew.png doesn't exist in the map folder");
+    }
+
+
+
+
+
+
 
 
 }
