@@ -25,7 +25,6 @@ public class Recipe {
 			generateRecipes("Lettuce Tomato Salad", allCombos(FoodID.lettuceChop, FoodID.tomatoChop));
 			generateRecipes("Lettuce Onion Salad", allCombos(FoodID.lettuceChop, FoodID.onionChop));
 
-            // from Laura!! this is the only thing i like D:
             Array<FoodStack> plainBurger = new Array<>();
 			plainBurger.add(new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.bottomBun));
 			recipes.put("Plain Burger", plainBurger);

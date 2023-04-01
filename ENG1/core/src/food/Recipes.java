@@ -15,11 +15,17 @@ import food.FoodItem.FoodID;
  */
 public class Recipes {
 
+    /** */
     private static Array<String> recipeNames = new Array<>();
+    /** */
     public static final HashMap<String, FoodStack> recipes = new HashMap<>();
 
+    /**
+     * Recipe combinations - I want to automate this, but it's lower priority
+     * could do randomly generated boolean arrays for toppings
+     * then create recipes on an "as needed" basis rather than a big "recipe book" of them?? D:
+     */
     static {
-        // Recipe combinations - i want to automate this but it's lower priority as long as it currently works
 
         // BURGERS
         generateRecipe("Plain Burger", new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.bottomBun));
@@ -38,14 +44,18 @@ public class Recipes {
         generateRecipe("Tomato Onion Salad", new FoodStack(FoodID.lettuceChop, FoodID.tomatoChop, FoodID.onionChop));
     }
 
+    /** */
     private static void generateRecipe(String recipeName, FoodStack validFoodStack) {
         recipes.put(recipeName, validFoodStack);
         recipeNames.add(recipeName);
     }
 
+    /** */
     public static boolean containsFood(Array<FoodID> myList, FoodID element) {
 
         for(FoodID foodID : myList) {
+
+            // do i need to override 'equals' for FoodItem?? will find out
             if (foodID.equals(element)) {
                 return true;
             }
@@ -53,6 +63,7 @@ public class Recipes {
         return false;
     }
 
+    /** */
     public static boolean matchesRecipe(FoodStack foodStack, String recipeName) {
 
         Array<FoodID> validFoodStackArray = recipes.get(recipeName).getStack();
@@ -69,8 +80,10 @@ public class Recipes {
         return true;
     }
 
-    // the getRecipeOption seems to only apply for the multiple recipes thing that i got rid of
-    // it'll probably have repercussions later but leaving it for now
+    /**
+     * the getRecipeOption seems to only apply for the multiple recipes thing that i got rid of
+     * it'll probably have repercussions later but leaving it for now
+     */
     public static String randomRecipe() {
         Random random = new Random();
         return recipeNames.get(random.nextInt(recipeNames.size));
