@@ -22,6 +22,11 @@ public class SpeedPowerup extends Station {
         this.item = gameScreen.Powerup_Speed;
     }
 
+    public SpeedPowerup(Rectangle rectangle){
+        super(rectangle);
+        this.item = new ShopItem("Speed",30);
+    }
+
     public Cook setSpeed(Cook cook){
         cook.movement_speed = cook.movement_speed + 0.42f;
         return cook;
