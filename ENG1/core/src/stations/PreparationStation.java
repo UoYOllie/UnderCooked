@@ -98,7 +98,8 @@ public class PreparationStation extends Station {
                 renderItem = gameSprites.getSprite(GameSprites.SpriteID.FOOD,interaction.getResult().toString());
             }
             renderItem.setScale(2F * Constants.UnitScale);
-            renderItem.setPosition((x-renderItem.getWidth()/2)*Constants.UnitScale,y*Constants.UnitScale);
+			System.out.println(renderItem.getWidth());
+            renderItem.setPosition(x - 1/3f * renderItem.getWidth(),y - 4/15f * renderItem.getHeight());
             renderItem.draw(batch);
         }
     }

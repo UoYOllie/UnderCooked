@@ -16,4 +16,10 @@ public class Gold {
         return this.Balance;
     }
 
+	public static Gold gold;
+
+	public static Gold getInstance(){
+		return gold;
+	}
+
 }

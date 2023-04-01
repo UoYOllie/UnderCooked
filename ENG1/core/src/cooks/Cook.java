@@ -109,7 +109,7 @@ public class Cook extends GameEntity {
         this.setSprite();
 
         // Defines the bounds for interaction box, using 1/8f as the unit-scale because its not a const rn.
-        cookInteractor = new Rectangle(x - 1/8f, y - 1/8f, width + 2/8f, height + 2/8f);
+        cookInteractor = new Rectangle(x - 4 * Constants.UnitScale, y - 4 * Constants.UnitScale, width + 1f, height + 1f);
 
 
         //this.gameScreen = g; no

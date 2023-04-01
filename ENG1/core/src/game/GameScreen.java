@@ -144,6 +144,10 @@ public class GameScreen extends ScreenAdapter {
      */
     public void update(float delta)
     {
+		if (Gdx.input.isKeyPressed(Input.Keys.L)){
+			System.out.println(this.cook.getX());
+			System.out.println(this.cook.getY());
+		}
 
         // First thing, update all inputs
         Interactions.updateKeys();
