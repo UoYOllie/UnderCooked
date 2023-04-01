@@ -6,25 +6,23 @@ import com.badlogic.gdx.utils.Array;
 
 import food.FoodItem.FoodID;
 
-/** Contains all the Recipes.
+/**
+ * Contains all the Recipes for burgers, salads, jacket potatoes, and pizzas.
  *
- * NEW CLASS CREATED BY LAURA
- * I don't want to completely destroy the game by refactoring Recipe.java off the bat
- * so testing things here first.
+ * Each recipe is represented by a FoodStack. A FoodStack is valid if it contains the
+ * same elements (in any order) as the recipe FoodStack.
  *
+ * Contains a Helper method for generating a customer's random method.
  */
 public class Recipes {
 
-    /** */
+    /** An array containing the names of all valid recipes, used for generating random recipes easily. */
     private static Array<String> recipeNames = new Array<>();
-    /** */
+
+    /** A HashMap mapping the name of each recipe to its valid FoodStack. */
     public static final HashMap<String, FoodStack> recipes = new HashMap<>();
 
-    /**
-     * Recipe combinations - I want to automate this, but it's lower priority
-     * could do randomly generated boolean arrays for toppings
-     * then create recipes on an "as needed" basis rather than a big "recipe book" of them?? D:
-     */
+    /** Generate recipes for each valid combination. */
     static {
 
         // BURGERS
@@ -44,18 +42,29 @@ public class Recipes {
         generateRecipe("Tomato Onion Salad", new FoodStack(FoodID.lettuceChop, FoodID.tomatoChop, FoodID.onionChop));
     }
 
-    /** */
+    /**
+     * Puts each corresponding recipeName and FoodStack into the recipes HashMap.
+     *
+     * @param recipeName The name of recipe, comprised of its type and toppings (eg. "Lettuce Burger").
+     * @param validFoodStack The FoodStack containing the elements needed for the recipe.
+     * */
     private static void generateRecipe(String recipeName, FoodStack validFoodStack) {
         recipes.put(recipeName, validFoodStack);
         recipeNames.add(recipeName);
     }
 
-    /** */
+    /**
+     * Helper method to check whether an array of food items contains a particular item.
+     *
+     * @param myList An array of FoodIDs to check.
+     * @param element The FoodID being searched for.
+     *
+     * @returns Boolean
+     */
     public static boolean containsFood(Array<FoodID> myList, FoodID element) {
 
         for(FoodID foodID : myList) {
 
-            // do i need to override 'equals' for FoodItem?? will find out
             if (foodID.equals(element)) {
                 return true;
             }
@@ -63,7 +72,14 @@ public class Recipes {
         return false;
     }
 
-    /** */
+    /**
+     * Checks if an input FoodStack matches the desired recipe.
+     *
+     * @param foodStack The input foodStack to be checked.
+     * @param recipeName The name of the target recipe.
+     *
+     * @returns Boolean
+     */
     public static boolean matchesRecipe(FoodStack foodStack, String recipeName) {
 
         Array<FoodID> validFoodStackArray = recipes.get(recipeName).getStack();
@@ -80,10 +96,7 @@ public class Recipes {
         return true;
     }
 
-    /**
-     * the getRecipeOption seems to only apply for the multiple recipes thing that i got rid of
-     * it'll probably have repercussions later but leaving it for now
-     */
+    /** Helper method to choose a random recipe for the customer to order. */
     public static String randomRecipe() {
         Random random = new Random();
         return recipeNames.get(random.nextInt(recipeNames.size));
