@@ -890,7 +890,8 @@ public class AssetTests {
 
     @Test
     public void testCounterBLTopAssestsExists(){
-        assertTrue(Gdx.files.internal("OJAssets/map2/Counters/counter_BL_top.png").exists(), "The test failed because counter_bl_top doesn't exist in the map2 folder");}
+        assertTrue(Gdx.files.internal("OJAssets/map2/Counters/counter_BL_top.png").exists(), "The test failed because counter_bl_top doesn't exist in the map2 folder");
+    }
 }
 
 
