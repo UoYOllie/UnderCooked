@@ -12,7 +12,9 @@ import food.FoodItem.FoodID;
  * Each recipe is represented by a FoodStack. A FoodStack is valid if it contains the
  * same elements (in any order) as the recipe FoodStack.
  *
- * Contains a Helper method for generating a customer's random method.
+ * Also contains a Helper method for generating a customer's random recipe.
+ *
+ * @requirements FR_SERVE_CHECK
  */
 public class Recipes {
 
@@ -64,7 +66,6 @@ public class Recipes {
     public static boolean containsFood(Array<FoodID> myList, FoodID element) {
 
         for(FoodID foodID : myList) {
-
             if (foodID.equals(element)) {
                 return true;
             }
