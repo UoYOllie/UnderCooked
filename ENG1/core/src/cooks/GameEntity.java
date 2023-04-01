@@ -73,6 +73,8 @@ public abstract class GameEntity {
      */
     public GameEntity(Rectangle rectangle) {
         this.rectangle = rectangle;
+		this.x = rectangle.x;
+		this.y = rectangle.y;
     }
 
     /**
