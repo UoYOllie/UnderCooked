@@ -121,14 +121,14 @@ public class PreparationStation extends Station {
     public void renderShape(ShapeRenderer shape) {
         // Render the progress bar when inUse
         if (inUse) {
-            float rectX = x - interactRect.getWidth() / 3,
-                  rectY = y + 40,
-                  rectWidth = 40,
-                  rectHeight = 10;
+            float rectX = x,
+                  rectY = y + 40 * Constants.UnitScale,
+                  rectWidth = 48 * Constants.UnitScale,
+                  rectHeight = 10 * Constants.UnitScale;
             // Black bar behind
             shape.rect(rectX, rectY, rectWidth, rectHeight, Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK);
             // Now the progress bar.
-            float progressWidth = rectWidth-4;
+            float progressWidth = rectWidth-4 * Constants.UnitScale;
             Color progressColor = Color.SKY;
             // If preparation is done, show as green.
             switch (state) {
@@ -141,7 +141,7 @@ public class PreparationStation extends Station {
                 default:
                     break;
             }
-            shape.rect(rectX+2,rectY+2,progress/100*progressWidth,rectHeight-4,progressColor,progressColor,progressColor,progressColor);
+            shape.rect(rectX+ 2 * Constants.UnitScale,rectY + 2 * Constants.UnitScale,progress/100 * progressWidth,rectHeight - 4 * Constants.UnitScale,progressColor,progressColor,progressColor,progressColor);
         }
     }
 

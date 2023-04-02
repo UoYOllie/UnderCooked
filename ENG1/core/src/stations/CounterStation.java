@@ -8,6 +8,7 @@ import cooks.Cook;
 import food.FoodItem;
 import food.FoodStack;
 import game.GameSprites;
+import helper.Constants;
 import interactions.InputKey;
 
 /**
@@ -98,11 +99,12 @@ public class CounterStation extends Station {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(foodList.get(i)));
             Float drawInc = FoodItem.foodHeights.get(foodList.get(i));
             if (drawInc == null) {
-                drawY += 5F;
+                drawY += 5F * Constants.UnitScale;
                 continue;
             }
-            foodSprite.setScale(2F);
-            foodSprite.setPosition(drawX-foodSprite.getWidth()/2+xOffset,drawY+foodSprite.getHeight()/2F+yOffset);
+            foodSprite.setScale(2F * Constants.UnitScale);
+            foodSprite.setPosition(drawX-foodSprite.getWidth()/3 + xOffset * Constants.UnitScale,drawY - foodSprite.getHeight() * 4/15f +yOffset* Constants.UnitScale);
+			// setPosition(x - 1/3f * renderItem.getWidth(),y - 4/15f * renderItem.getHeight()
             foodSprite.draw(batch);
             drawY += drawInc;
         }
