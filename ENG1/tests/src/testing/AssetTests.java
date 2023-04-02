@@ -1028,6 +1028,106 @@ public class AssetTests {
         assertTrue(Gdx.files.internal("OJAssets/map2/Stations/Dispensers/dispenser_top.png").exists(), "The test failed because dispenser_top.png doesn't exist in the map2 folder");
     }
 
+    @Test
+    public void testBunDispenserAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Stations/Dispensers/bun_dispenser.png").exists(), "The test failed because bun_dispenser.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testLettuceDispenserAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Stations/Dispensers/lettuce_dispenser.png").exists(), "The test failed because lettuce_dispenser.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testMeatAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Stations/Dispensers/meat.png").exists(), "The test failed because meat.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testMeatDispenserAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Stations/Dispensers/meat_dispenser.png").exists(), "The test failed because meat_dispenser.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testOnionDispenserAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Stations/Dispensers/onion_dispenser.png").exists(), "The test failed because onion_dispenser.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testTomatoDispenserAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Stations/Dispensers/tomato_dispenser.png").exists(), "The test failed because tomato_dispenser.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testBottomLowerAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Walls/bottom_lower.png").exists(), "The test failed because bottom_lower.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testBottomLowerWindowAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Walls/bottom_lower_window.png").exists(), "The test failed because bottom_lower_window.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testBottomUpperAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Walls/bottom_upper.png").exists(), "The test failed because bottom_upper.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testBottomUpperWindowAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Walls/bottom_upper_window.png").exists(), "The test failed because bottom_upper_window.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testPlainBricksAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Walls/plain_bricks.png").exists(), "The test failed because plain_bricks.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testBubbleAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Walls/bubble.png").exists(), "The test failed because bubble.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testLevel1AssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Walls/Level1.tmx").exists(), "The test failed because Level1.tmx doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testTileAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/map2/Walls/tile.png").exists(), "The test failed because tile.png doesn't exist in the map2 folder");
+    }
+
+    @Test
+    public void testExitSelectedAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/menu_assets/exit_selected.png").exists(), "The test failed because exit_selected.png doesn't exist in the menu_assets folder");
+    }
+
+    @Test
+    public void testExitUnselectedassetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/menu_assets/exit_unselected.png").exists(), "The test failed because exit_unselected.png doesn't exist in the menu_assets folder");
+    }
+
+    @Test
+    public void testFinaltimeAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/menu_assets/finaltime.png").exists(), "The test failed because finaltime.png doesn't exist in the menu_assets folder");
+    }
+
+    @Test
+    public void testHowtoplayAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/menu_assets/how_to_play.png").exists(), "The test failed because how_to_play.png doesn't exist in the menu_assets folder");
+    }
+
+    @Test
+    public void testHowtoplaySelectedAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/menu_assets/howtoplay_selected.png").exists(), "The test failed because howtoplay_selected.png doesn't exist in the menu_assets folder");
+    }
+
+    @Test
+    public void testHowtoplayUnselectedAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/menu_assets/howtoplay_unselected.png").exists(), "The test failed because howtoplay_unselected.png doesn't exist in the menu_assets folder");
+    }
+
 
 }
 
