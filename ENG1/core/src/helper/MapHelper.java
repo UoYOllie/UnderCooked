@@ -198,6 +198,9 @@ public class MapHelper {
                     }
                     mapStations.add(prepStation);
                     break;
+                case "AssemblyStation":
+                    mapStations.add(new AssemblyStation(newRectangle));
+                    break;
                 case "ServingStation":
                     mapStations.add(new ServingStation(newRectangle));
                     break;

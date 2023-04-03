@@ -14,6 +14,7 @@ public class FoodStack {
      * Has a public getter and setter.
     */
     private Array<FoodID> foodStack;
+    private Boolean merged;
 
     /**
      * FoodStack Constructor. Can accept multiple FoodID parameters to
@@ -71,12 +72,26 @@ public class FoodStack {
             foodStack.insert(0, newFood);
         }
     }
+
+    // temporary method for laura to test out station stuff
+    public void addStackUnlimited(FoodID newFood) {
+            foodStack.insert(0, newFood);
+    }
+
     /**
     * foodStack getter
     * @return foodStack
     */
     public Array<FoodID> getStack() {
         return foodStack;
+    }
+
+    public void mergeStack() {
+        merged = true;
+    }
+
+    public boolean getMergeStatus() {
+        return merged;
     }
 
     /**

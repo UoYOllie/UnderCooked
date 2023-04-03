@@ -95,6 +95,17 @@ public class Recipe {
         return true;
     }
 
+    public static boolean assembleRecipe(FoodStack foodStack) {
+
+        for (String recipeName : recipeNames) {
+            if (matchesRecipe(foodStack, recipeName)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /** Helper method to choose a random recipe for the customer to order. */
     public static String randomRecipe() {
          Random random = new Random();
