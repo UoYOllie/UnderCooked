@@ -59,7 +59,7 @@ public class Recipe {
      * @param myList An array of FoodIDs to check.
      * @param element The FoodID being searched for.
      *
-     * @returns Boolean
+     * @return Boolean
      */
     public static boolean containsFood(Array<FoodID> myList, FoodID element) {
 
@@ -77,7 +77,7 @@ public class Recipe {
      * @param foodStack The input foodStack to be checked.
      * @param recipeName The name of the target recipe.
      *
-     * @returns Boolean
+     * @return Boolean
      */
     public static boolean matchesRecipe(FoodStack foodStack, String recipeName) {
 
