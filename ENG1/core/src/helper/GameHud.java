@@ -101,7 +101,7 @@ public class GameHud extends Hud {
             this.recipe = null;
             return;
         }
-        this.recipe = Recipe.randomRecipeOption(customer.getRequestName());
+        this.recipe = Recipe.getRecipe(customer.getRequestName());
     }
 
     /**

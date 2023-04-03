@@ -116,7 +116,7 @@ public class Interactions {
 //                new InputKey(InputKey.InputTypes.COOK_RIGHT,Input.Keys.RIGHT)
         }));
 
-        //EDITTED
+        //EDITED
         inputs.put(InputID.COOK_INTERACT, new Array<>(new InputKey[]{
                 new InputKey(InputKey.InputTypes.USE, Input.Keys.SPACE),
                 new InputKey(InputKey.InputTypes.PICK_UP, Input.Keys.UP),

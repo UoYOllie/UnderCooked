@@ -22,13 +22,17 @@ public class Station extends CookInteractable {
         fry,
         /** Cutting Station, uses {@link PreparationStation}. */
         cut,
+        /** Baking Station, uses {@link PreparationStation}. */
+        bake,
+
+        // from laura - is this necessary under the new map system? no usages
         /** {@link CounterStation} that can hold {@link food.FoodItem}s. */
         counter,
         /** {@link BinStation} that can dispose of {@link food.FoodItem}s.*/
         bin,
+
         /** {@link ServingStation} that allows {@link Cook}s to serve {@link customers.Customer}s. */
         serving,
-        bake,
         assembly,
         /** Default Station that does nothing. */
         none

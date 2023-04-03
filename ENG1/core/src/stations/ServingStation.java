@@ -15,6 +15,12 @@ import interactions.InputKey;
 /**
  * The {@link ServingStation} class, where the {@link Cook} provide
  * the {@link customers.Customer}s with their orders.
+ *
+ *
+ * FROM LAURA - sorting the serving logic looks like a nightmare. i also need to understand everything customer related.
+ * PLAN OF ACTION: i will make an assembly station and make sure i can assemble items.
+ * after that i can worry about serving
+ *
  */
 public class ServingStation extends Station {
 
@@ -23,9 +29,9 @@ public class ServingStation extends Station {
     private GameScreen gameScreen;
     private float customerX, customerY;
     public CustomerController customerController;
-    private OrthographicCamera orthographicCamera;
-    private Boot boot;
-    private ScreenController screenController;
+//    private OrthographicCamera orthographicCamera;
+//    private Boot boot;
+//    private ScreenController screenController;
 
     public int testFlag = 0;
 
@@ -43,25 +49,25 @@ public class ServingStation extends Station {
         this.customerY = rectangle.y + 96;
     }
 
-    private OrthographicCamera getOrthographicCamera(){
-        if (orthographicCamera == null) { return orthographicCamera = new OrthographicCamera();}
-        return null;
-    }
-
-    private Boot getBoot(){
-        if (boot == null) { return boot = new Boot();}
-        return null;
-    }
-
-    private ScreenController getScreenController(){
-        if (screenController == null) { return screenController = new ScreenController(getBoot(),getOrthographicCamera());}
-        return null;
-    }
-
-    private GameScreen getGameScreen(){
-        if (gameScreen == null) { return gameScreen = new GameScreen(getScreenController(),getOrthographicCamera());}
-        return null;
-    }
+//    private OrthographicCamera getOrthographicCamera(){
+//        if (orthographicCamera == null) { return orthographicCamera = new OrthographicCamera();}
+//        return null;
+//    }
+//
+//    private Boot getBoot(){
+//        if (boot == null) { return boot = new Boot();}
+//        return null;
+//    }
+//
+//    private ScreenController getScreenController(){
+//        if (screenController == null) { return screenController = new ScreenController(getBoot(),getOrthographicCamera());}
+//        return null;
+//    }
+//
+//    private GameScreen getGameScreen(){
+//        if (gameScreen == null) { return gameScreen = new GameScreen(getScreenController(),getOrthographicCamera());}
+//        return null;
+//    }
 
     /**
      * Returns whether the {@link ServingStation} does

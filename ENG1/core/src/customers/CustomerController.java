@@ -120,7 +120,7 @@ public class CustomerController {
         gameScreen.getGameHud().setRecipe(newCustomer);
 
         customersLeft--;
-        return Recipe.firstRecipeOption(newCustomer.getRequestName()).size();
+        return Recipe.getRecipe(newCustomer.getRequestName()).size();
     }
 
     /**
