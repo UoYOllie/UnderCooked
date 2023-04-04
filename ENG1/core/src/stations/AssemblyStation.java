@@ -10,7 +10,6 @@ import food.FoodStack;
 import game.GameSprites;
 import helper.Constants;
 import interactions.InputKey;
-import interactions.Interactions;
 
 public class AssemblyStation extends Station {
 
@@ -32,21 +31,15 @@ public class AssemblyStation extends Station {
         }
 
         if (stationFoodStack.size() > 0 && inputType == InputKey.InputTypes.PICK_UP) {
-            if (stationFoodStack.getMergeStatus()) {
-                FoodStack tempStack = stationFoodStack;
-                // If the above doesn't apply, then just swap the stacks.
-                stationFoodStack = cook.foodStack;
-                cook.foodStack = tempStack;
-            } else {
-                cook.foodStack.addStackUnlimited(stationFoodStack.popStack());
-            }
+            cook.foodStack.addStackUnlimited(stationFoodStack.popStack());
             return;
         }
 
         if (inputType == InputKey.InputTypes.USE) {
-              if (food.Recipe.assembleRecipe(stationFoodStack)) {
+              if (food.Recipe.validRecipe(stationFoodStack)) {
                   System.out.println("that is a valid recipe!");
-                  stationFoodStack.mergeStack();
+              } else {
+                  System.out.println("that is not a valid recipe!!!");
               }
 
         }

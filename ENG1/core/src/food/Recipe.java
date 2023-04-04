@@ -95,16 +95,46 @@ public class Recipe {
         return true;
     }
 
-    public static boolean assembleRecipe(FoodStack foodStack) {
+    // bunch of kinda dodgy methods testing out some ideas
+
+    public static boolean validRecipe(FoodStack foodStack) {
 
         for (String recipeName : recipeNames) {
             if (matchesRecipe(foodStack, recipeName)) {
                 return true;
             }
         }
-
         return false;
     }
+
+
+//    public static String whichRecipe(FoodStack foodStack) {
+//
+//        for (String recipeName : recipeNames) {
+//            if (matchesRecipe(foodStack, recipeName)) {
+//                return recipeName;
+//            }
+//        }
+//
+//        return null;
+//    }
+//
+//    public static FoodStack orderStack(FoodStack inputStack) {
+//
+//        if (whichRecipe(inputStack) != null) {
+//            return recipes.get(whichRecipe(inputStack));
+//        }
+//
+//        else {
+//            return null;
+//        }
+//
+//    }
+
+
+
+
+
 
     /** Helper method to choose a random recipe for the customer to order. */
     public static String randomRecipe() {
