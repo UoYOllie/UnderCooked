@@ -24,7 +24,6 @@ public class GameSprites {
         STATION,
         /** The {@link customers.Customer}'s {@link TextureAtlas}.*/
         CUSTOMER
-
     }
 
     /**
@@ -80,6 +79,7 @@ public class GameSprites {
             }
         }
     }
+    // in theory, could manually assign names & textures to each sprite
 
     /**
      * A function to convert a {@link SpriteID} and {@link Sprite} name

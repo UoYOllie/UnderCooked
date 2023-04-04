@@ -108,28 +108,28 @@ public class Recipe {
     }
 
 
-//    public static String whichRecipe(FoodStack foodStack) {
-//
-//        for (String recipeName : recipeNames) {
-//            if (matchesRecipe(foodStack, recipeName)) {
-//                return recipeName;
-//            }
-//        }
-//
-//        return null;
-//    }
-//
-//    public static FoodStack orderStack(FoodStack inputStack) {
-//
-//        if (whichRecipe(inputStack) != null) {
-//            return recipes.get(whichRecipe(inputStack));
-//        }
-//
-//        else {
-//            return null;
-//        }
-//
-//    }
+    public static String whichRecipe(FoodStack foodStack) {
+
+        for (String recipeName : recipeNames) {
+            if (matchesRecipe(foodStack, recipeName)) {
+                return recipeName;
+            }
+        }
+
+        return null;
+    }
+
+    public static FoodStack orderStack(FoodStack inputStack) {
+
+        if (whichRecipe(inputStack) != null) {
+            return recipes.get(whichRecipe(inputStack));
+        }
+
+        else {
+            return null;
+        }
+
+    }
 
 
 
