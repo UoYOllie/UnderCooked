@@ -33,10 +33,35 @@ public class AssemblyStation extends Station {
             return;
         }
 
-        if (stationFoodStack.size() > 0 && inputType == InputKey.InputTypes.PICK_UP) {
-            cook.foodStack.addStackUnlimited(stationFoodStack.popStack());
-            return;
+        if (inputType == InputKey.InputTypes.PICK_UP) {
+            if (stationFoodStack.size() > 0) {
+                cook.foodStack.addStack(stationFoodStack.popStack());
+                return;
+            } else if (stationDishStack.size() > 0) {
+                cook.dishStack.setStack(stationDishStack.getStackCopy());
+                stationDishStack.clearStack();
+                System.out.println("this is the cook's DishStack:");
+                System.out.println(cook.dishStack.getStack());
+                System.out.println("this is the station's DishStack:");
+                System.out.println(stationDishStack.getStack());
+                return;
+            } else {
+                return;
+            }
         }
+
+//        if (stationFoodStack.size() > 0 && inputType == InputKey.InputTypes.PICK_UP) {
+//            cook.foodStack.addStackUnlimited(stationFoodStack.popStack());
+//            return;
+//        } else if (stationDishStack.size() > 0 && inputType == InputKey.InputTypes.PICK_UP) {
+//            cook.dishStack.setStack(stationDishStack.getStackCopy());
+//            stationDishStack.clearStack();
+//            System.out.println("this is the station's DishStack:");
+//            System.out.println(cook.dishStack.getStack());
+//            System.out.println("this is the cook's DishStack:");
+//            System.out.println(stationDishStack.getStack());
+//            return;
+//        }
 
         if (inputType == InputKey.InputTypes.USE) {
               if (food.Recipe.validRecipe(stationFoodStack)) {
@@ -44,6 +69,10 @@ public class AssemblyStation extends Station {
                   stationFoodStack = Recipe.orderStack(stationFoodStack);
                   stationDishStack.setStack(stationFoodStack.getStackCopy());
                   stationFoodStack.clearStack();
+                  System.out.println("this is the station's FoodStack:");
+                  System.out.println(stationFoodStack.getStack());
+                  System.out.println("this is the station's DishStack:");
+                  System.out.println(stationDishStack.getStack());
               } else {
                   System.out.println("that is not a valid recipe!!!");
               }

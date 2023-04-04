@@ -19,14 +19,30 @@ public class DishStack {
 
     /** Getter for Array<FoodID> of the entire stack.*/
     public Array<FoodID> getStack() {
-        return dishStack;
+        return this.dishStack;
     }
 
     /** Setter for Array<FoodID> of the entire stack.*/
-    public void setStack(Array<FoodID> inputStack) { dishStack = inputStack;}
+    public void setStack(Array<FoodID> inputStack) { this.dishStack = inputStack;}
+
+    public int size() {
+        return dishStack.size;
+    }
 
     public void clearStack() {
         dishStack.clear();
+    }
+
+    public Array<FoodID> getStackCopy() {
+
+        Array<FoodID> newFoodStack = new Array<>();
+
+        for (FoodID item : this.dishStack) {
+            newFoodStack.add(item);
+        }
+
+        return newFoodStack;
+
     }
 
 }
