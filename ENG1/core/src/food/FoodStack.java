@@ -111,4 +111,16 @@ public class FoodStack {
     public String toString() {
         return foodStack.toString();
     }
+
+    public Array<FoodID> getStackCopy() {
+
+        Array<FoodID> newFoodStack = new Array<>();
+
+        for (FoodID item : this.foodStack) {
+            newFoodStack.add(item);
+        }
+
+        return newFoodStack;
+
+    }
 }
