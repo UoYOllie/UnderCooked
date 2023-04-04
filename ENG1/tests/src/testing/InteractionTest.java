@@ -342,6 +342,78 @@ public class InteractionTest {
     }
 
     @Test
+    public void TestFailCaseChoppingChoppedItem(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.cut);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop);
+    }
+
+    @Test
+    public void TestFailCaseChoppingCookedItem(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.cut);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.meatCook);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook);
+    }
+
+    @Test
+    public void TestFailCaseFryingCookedItem(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.fry);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.meatCook);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook);
+    }
+
+    @Test
+    public void TestFailCaseFryingChoppedItem(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.fry);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop);
+    }
+
+    @Test
     // Relates to the FR_DISH_SERVE requirement
     public void TestServingStationGetAndSetCustomer(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);

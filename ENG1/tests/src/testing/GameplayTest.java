@@ -137,6 +137,35 @@ public class GameplayTest {
 
     @Test
     // Relates to the FR_DISH_SERVE requirement
+    public void TestServingStationServeWrongOrder(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        ServingStation testStation = new ServingStation(rectangle);
+        testStation.testFlag = 1;
+        testStation.setID(Station.StationID.serving);
+        Sprite sprite = new Sprite();
+        Customer customer = new Customer(sprite);
+        CustomerController customerController = new CustomerController();
+        customerController.testFlag = 1;
+        customerController.customers.add(customer);
+        customer.request = "Onion Burger";
+        testStation.customerController = customerController;
+        testStation.setCustomer(customer);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.bottomBun);
+        cook.foodStack.addStack(FoodItem.FoodID.meatCook);
+        cook.foodStack.addStack(FoodItem.FoodID.topBun);
+        assertFalse(Recipe.matchesRecipe(cook.foodStack,customer.getRequestName()),"Error: Recipe is saying it is equal to completely different recipe");
+        testStation.interact(cook, InputKey.InputTypes.USE);
+        assertFalse(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
+        assertTrue(testStation.customer != null, "Error: The serving station is getting rid of customers even if a wrong order is sent");
+        testStation.testFlag = 0;
+        customerController.testFlag = 0;
+    }
+
+    @Test
+    // Relates to the FR_DISH_SERVE requirement
     public void TestServingStationServeCustomerLettuceBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
