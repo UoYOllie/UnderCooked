@@ -9,7 +9,7 @@ import static org.testng.Assert.*;
 @RunWith(GdxTestRunner.class)
 public class AssetTests {
 
-    // They all relate to the UR_GRAPHIC requirement
+    // They all relate to the UR_GRAPHICS requirement
     // The following are tests to do with checking that the assets in the cooks folder still remain
     @Test
     public void testChefHoldDownAssetExists() {

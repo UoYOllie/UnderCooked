@@ -433,6 +433,7 @@ public class GameplayTest {
         assertTrue(testStation.getX() == testStation.rectangle.x + 32,"GetX no longer returns the x position of the serving station when no customers are assigned");
     }
 
+    // Relates to the FR_SERVE requirement
     @Test
     public void TestServingStationGetYWithoutCustomer(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -444,6 +445,7 @@ public class GameplayTest {
         assertTrue(testStation.getY() == testStation.rectangle.y + 96,"GetY no longer returns the y position of the serving station when no customers are assigned");
     }
 
+    //Relates to the FR_SPEND_MONEY and FR_EARN_MONEY requirements
     @Test
     public void TestGoldSetandGetBalance(){
         Gold gold = new Gold();
@@ -451,6 +453,7 @@ public class GameplayTest {
         assertTrue(gold.Balance == 36);
     }
 
+    // Relates to the FR_SPEND MONEY requirement
     @Test
     public void TestBuyShopItem(){
         ShopItem shopItem = new ShopItem("testItem",100);
@@ -462,6 +465,7 @@ public class GameplayTest {
         assertTrue(gold.Balance == 1);
     }
 
+    // Relates to the FR_POWER_UPS requirements
     @Test
     public void TestSpeedPowerUp(){
         Cook cook = new Cook(1500,1200,20,20);
@@ -477,6 +481,7 @@ public class GameplayTest {
         assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + 0.42f));
     }
 
+    // Relates to the FR_POWER_UPS requirements
     @Test
     public void TestMultipleSpeedPowerUps(){
         Cook cook = new Cook(1500,1200,20,20);
