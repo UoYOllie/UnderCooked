@@ -1377,8 +1377,70 @@ public class AssetTests {
         assertTrue(Gdx.files.internal("other/Icon.png").exists(), "The test failed because Icon.png doesn't exist in the textures folder");
     }
 
+    //These are the tests for the files in the general OJAssets file
+    @Test
+    public void testDinosaurxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Dinosaur.xcf").exists(), "The test failed because Dinosaur.xcf does not exist in the general OJAssets file");
+    }
+    @Test
+    public void testDomexcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Dome.xcf").exists(), "The test failed because Dome.xcf does not exist in the general OJAssets file");
+    }
 
+    @Test
+    public void testMetalxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Metal.xcf").exists(), "The test failed because Metal.xcf does not exist in the general OJAssets file");
+    }
 
+    @Test
+    public void testNettingxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Netting.xcf").exists(), "The test failed because Netting.xcf does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testOuterCookedAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/OuterCooked.tmx").exists(), "The test failed because OuterCooked.tmx does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testShopxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Shop.xcf").exists(), "The test failed because Shop.xcf does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testSpaceMEGAtileAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/SpaceMegatile.png").exists(), "The test failed because SpaceMEGAtile.png does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testStarspngAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Stars.png").exists(), "The test failed because Stars.png does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testStarsxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Stars.xcf").exists(), "The test failed because Stars.xcf does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testULTRAMEGASPACEMAPAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/ULTRAMEGASPACEMAP.png").exists(), "The test failed because ULTRAMEGASPACEMAP.png does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testWindowStarshippngAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Window-Starship.png").exists(), "The test failed because Window-Starship.png does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testWindowStarshipxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Window-Starship.xcf").exists(), "The test failed because Window-Starship.xcf does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testWindowStarshipWithBluggypngAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Window-Starship-withbluggy.png").exists(), "The test failed because Window-Starship-withbluggy.png does not exist in the general OJAssets file");
+    }
 }
 
 
