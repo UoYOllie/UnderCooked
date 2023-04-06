@@ -1,0 +1,153 @@
+
+food_placeholders.png
+size: 150, 30
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+bun
+  rotate: false
+  xy: 0, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+topBun
+  rotate: false
+  xy: 0, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bottomBun
+  rotate: false
+  xy: 0, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+lettuceChop
+  rotate: false
+  xy: 18, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tomatoChop
+  rotate: false
+  xy: 36, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+onionChop
+  rotate: false
+  xy: 54, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+meatCook
+  rotate: false
+  xy: 72, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+potatoCook
+  rotate: false
+  xy: 90, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bakedBeans
+  rotate: false
+  xy: 108, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+pepperoni
+  rotate: false
+  xy: 126, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+doughCook
+  rotate: false
+  xy: 144, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+plate
+  rotate: false
+  xy: 0, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+lettuce
+  rotate: false
+  xy: 18, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tomato
+  rotate: false
+  xy: 36, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+onion
+  rotate: false
+  xy: 54, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+meat
+  rotate: false
+  xy: 72, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+potato
+  rotate: false
+  xy: 90, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+cheese
+  rotate: false
+  xy: 108, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+coleslaw
+  rotate: false
+  xy: 126, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+dough
+  rotate: false
+  xy: 144, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tomatoSauce
+  rotate: false
+  xy: 162, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
