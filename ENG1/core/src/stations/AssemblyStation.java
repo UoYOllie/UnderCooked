@@ -50,18 +50,6 @@ public class AssemblyStation extends Station {
             }
         }
 
-//        if (stationFoodStack.size() > 0 && inputType == InputKey.InputTypes.PICK_UP) {
-//            cook.foodStack.addStackUnlimited(stationFoodStack.popStack());
-//            return;
-//        } else if (stationDishStack.size() > 0 && inputType == InputKey.InputTypes.PICK_UP) {
-//            cook.dishStack.setStack(stationDishStack.getStackCopy());
-//            stationDishStack.clearStack();
-//            System.out.println("this is the station's DishStack:");
-//            System.out.println(cook.dishStack.getStack());
-//            System.out.println("this is the cook's DishStack:");
-//            System.out.println(stationDishStack.getStack());
-//            return;
-//        }
 
         if (inputType == InputKey.InputTypes.USE) {
               if (food.Recipe.validRecipe(stationFoodStack)) {
@@ -89,7 +77,7 @@ public class AssemblyStation extends Station {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(foodList.get(i)));
             Float drawInc = FoodItem.foodHeights.get(foodList.get(i));
             if (drawInc == null) {
-                drawY += 5F * Constants.UnitScale;
+                drawY += 2F * Constants.UnitScale;
                 continue;
             }
             foodSprite.setScale(2F * Constants.UnitScale);
