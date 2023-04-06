@@ -19,7 +19,7 @@ public class DishStack {
 
     /** Getter for Array<FoodID> of the entire stack.*/
     public Array<FoodID> getStack() {
-        return this.dishStack;
+        return dishStack;
     }
 
     /** Setter for Array<FoodID> of the entire stack.*/

@@ -25,6 +25,7 @@ public class Recipe {
 	public static final HashMap<String, FoodStack> recipes = new HashMap<>();
 
     static {
+
         // BURGERS
         generateRecipe("Plain Burger", new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.bottomBun));
         generateRecipe("Lettuce Burger", new FoodStack(FoodID.topBun, FoodID.lettuceChop, FoodID.meatCook, FoodID.bottomBun));
@@ -40,6 +41,22 @@ public class Recipe {
         generateRecipe("Tomato Salad", new FoodStack(FoodID.lettuceChop, FoodID.tomatoChop));
         generateRecipe("Onion Salad", new FoodStack(FoodID.lettuceChop, FoodID.onionChop));
         generateRecipe("Tomato Onion Salad", new FoodStack(FoodID.lettuceChop, FoodID.tomatoChop, FoodID.onionChop));
+
+        // JACKET POTATOES
+        generateRecipe("Plain Potato", new FoodStack(FoodID.potatoCook));
+        generateRecipe("Beans Potato", new FoodStack(FoodID.bakedBeans, FoodID.potatoCook));
+        generateRecipe("Coleslaw Potato", new FoodStack(FoodID.coleslaw, FoodID.potatoCook));
+        generateRecipe("Cheese Potato", new FoodStack(FoodID.cheese, FoodID.potatoCook));
+        generateRecipe("Beans Cheese Potato", new FoodStack(FoodID.cheese, FoodID.bakedBeans, FoodID.potatoCook));
+        generateRecipe("Beans Coleslaw Potato", new FoodStack(FoodID.coleslaw, FoodID.bakedBeans, FoodID.potatoCook));
+        generateRecipe("Coleslaw Cheese Potato", new FoodStack(FoodID.cheese, FoodID.coleslaw, FoodID.potatoCook));
+        generateRecipe("Beans Coleslaw Cheese Potato", new FoodStack(FoodID.cheese, FoodID.coleslaw, FoodID.bakedBeans, FoodID.potatoCook));
+
+        // PIZZA - i'll add some more interesting combos later down the line
+        generateRecipe("Plain Pizza", new FoodStack(FoodID.cheese, FoodID.tomatoSauce, FoodID.doughCook));
+        generateRecipe("Pepperoni Pizza", new FoodStack(FoodID.cheese, FoodID.pepperoni, FoodID.tomatoSauce, FoodID.doughCook));
+        generateRecipe("Onion Pizza", new FoodStack(FoodID.cheese, FoodID.onionChop, FoodID.tomatoSauce, FoodID.doughCook));
+
     }
 
     /**

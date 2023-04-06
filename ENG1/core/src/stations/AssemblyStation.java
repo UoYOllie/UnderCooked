@@ -55,6 +55,9 @@ public class AssemblyStation extends Station {
               if (food.Recipe.validRecipe(stationFoodStack)) {
                   System.out.println("this is a valid recipe!");
                   stationFoodStack = Recipe.orderStack(stationFoodStack);
+                  Array<FoodID> newDishStack = new Array<>();
+                  newDishStack.add(FoodID.plate);
+                  // why don't we make dish stack constructor have plate in it automatically ??
                   stationDishStack.setStack(stationFoodStack.getStackCopy());
                   stationFoodStack.clearStack();
                   System.out.println("this is the station's FoodStack:");
@@ -77,7 +80,7 @@ public class AssemblyStation extends Station {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(foodList.get(i)));
             Float drawInc = FoodItem.foodHeights.get(foodList.get(i));
             if (drawInc == null) {
-                drawY += 2F * Constants.UnitScale;
+                drawY += 5F * Constants.UnitScale;
                 continue;
             }
             foodSprite.setScale(2F * Constants.UnitScale);
@@ -96,13 +99,14 @@ public class AssemblyStation extends Station {
 
         for (int i = dishList.size-1 ; i >= 0 ; i--) {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(dishList.get(i)));
-            Float drawInc = FoodItem.foodHeights.get(dishList.get(i));
+            Float drawInc = FoodItem.foodHeights.get(dishList.get(i)) * 0.5F;
             if (drawInc == null) {
                 drawY += 5F * Constants.UnitScale;
                 continue;
             }
             foodSprite.setScale(2F * Constants.UnitScale);
-            foodSprite.setPosition(drawX-foodSprite.getWidth()/3 + xOffset * Constants.UnitScale,drawY - foodSprite.getHeight() * 4/15f +yOffset* Constants.UnitScale);
+            foodSprite.setPosition(drawX-foodSprite.getWidth()/3 + xOffset * Constants.UnitScale,
+                    drawY - foodSprite.getHeight() * 4/15f +yOffset* Constants.UnitScale);
             foodSprite.draw(batch);
             drawY += drawInc;
         }
