@@ -23,7 +23,10 @@ public class DishStack {
     }
 
     /** Setter for Array<FoodID> of the entire stack.*/
-    public void setStack(Array<FoodID> inputStack) { this.dishStack = inputStack;}
+    public void setStack(Array<FoodID> inputStack) {
+        this.dishStack = inputStack;
+        this.dishStack.add(FoodID.plate);
+    }
 
     public int size() {
         return dishStack.size;

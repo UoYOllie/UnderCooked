@@ -55,9 +55,6 @@ public class AssemblyStation extends Station {
               if (food.Recipe.validRecipe(stationFoodStack)) {
                   System.out.println("this is a valid recipe!");
                   stationFoodStack = Recipe.orderStack(stationFoodStack);
-                  Array<FoodID> newDishStack = new Array<>();
-                  newDishStack.add(FoodID.plate);
-                  // why don't we make dish stack constructor have plate in it automatically ??
                   stationDishStack.setStack(stationFoodStack.getStackCopy());
                   stationFoodStack.clearStack();
                   System.out.println("this is the station's FoodStack:");
