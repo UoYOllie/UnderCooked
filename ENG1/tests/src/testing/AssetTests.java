@@ -9,7 +9,7 @@ import static org.testng.Assert.*;
 @RunWith(GdxTestRunner.class)
 public class AssetTests {
 
-    // They all relate to the UR_GRAPHIC requirement
+    // They all relate to the UR_GRAPHICS requirement
     // The following are tests to do with checking that the assets in the cooks folder still remain
     @Test
     public void testChefHoldDownAssetExists() {
@@ -1128,7 +1128,319 @@ public class AssetTests {
         assertTrue(Gdx.files.internal("OJAssets/menu_assets/howtoplay_unselected.png").exists(), "The test failed because howtoplay_unselected.png doesn't exist in the menu_assets folder");
     }
 
+    @Test
+    public void testMocktitleAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/menu_assets/mocktitle.png").exists(), "The test failed because mocktitle.png doesn't exist in the menu_assets folder");
+    }
 
+    @Test
+    public void testPlaySelectedAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/menu_assets/play_selected.png").exists(), "The test failed because play_selected.png doesn't exist in the menu_assets folder");
+    }
+
+    @Test
+    public void testPlayUnselectedAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/menu_assets/play_unselected.png").exists(), "The test failed because play_unselected.png doesn't exist in the menu_assets folder");
+    }
+
+    @Test
+    public void testTabSpaceAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/menu_assets/tab space.png").exists(), "The test failed because tab space.png doesn't exist in the menu_assets folder");
+    }
+
+    @Test
+    public void testUpdownAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/menu_assets/updown.png").exists(), "The test failed because updown.png doesn't exist in the menu_assets folder");
+    }
+
+    @Test
+    public void testWsadAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/menu_assets/wsad.png").exists(), "The test failed because wsad.png doesn't exist in the menu_assets folder");
+    }
+
+    //These tests are to test if the files in the MFPack and pack textures folder exists.
+
+    @Test
+    public void testBottomVATAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/BottomVAT.png").exists(), "The test failed because BottomVAT.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testBeamAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/Beam.png").exists(), "The test failed because Beam.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testCurvyMetalAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/CurvyMetal.png").exists(), "The test failed because CurvyMetal.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testCurvyMetalFlippedAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/CurvyMetalflipped.png").exists(), "The test failed because CurvyMetalflipped.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testChefAtlasAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/pack textures/chef.atlas").exists(), "The test failed because chef.atlas doesn't exist in the pack textures folder");
+    }
+
+    @Test
+    public void testChefPackassetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/pack textures/chef.pack").exists(), "The test failed because chef.pack doesn't exist in the pack textures folder");
+    }
+
+    @Test
+    public void testChefAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/pack textures/chef.png").exists(), "The test failed because chef.png doesn't exist in the pack textures folder");
+    }
+
+    @Test
+    public void testChef2AtlasAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/pack textures/chef2.atlas").exists(), "The test failed because chef2.atlas doesn't exist in the pack textures folder");
+    }
+
+    @Test
+    public void testChef2AssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/pack textures/chef2.png").exists(), "The test failed because chef2.png doesn't exist in the pack textures folder");
+    }
+
+    @Test
+    public void testChef3AssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/pack textures/chef3.png").exists(), "The test failed because chef3.png doesn't exist in the pack textures folder");
+    }
+
+    @Test
+    public void testDinosaurAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/Dinosaur.png").exists(), "The test failed because Dinosaur.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testDomeAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/Dome.png").exists(), "The test failed because Dome.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testDomeCounterAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/DomeCounter.png").exists(), "The test failed because DomeCounter.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testDomeCounterInvAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/DomeCounterInv.png").exists(), "The test failed because DomeCounterInv.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testEmptyVATAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/EmptyVAT.png").exists(), "The test failed because EmptyVAT.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testEmptyVATxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/EmptyVAT.xcf").exists(), "The test failed because EmptyVAT.xcf doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testLarchAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/Larch.png").exists(), "The test failed because Larch.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testMetalBlockAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/MetalBlock.png").exists(), "The test failed because MetalBlock.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testMetalBlockxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/MetalBlock.xcf").exists(), "The test failed because MetalBlock.xcf doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testMetalBlock2AssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/MetalBlock2.png").exists(), "The test failed because MetalBlock2.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testMetalBlock2flippedAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/MetalBlock2flipped.png").exists(), "The test failed because MetalBlock2flipped.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testMetalBlockflippedAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/MetalBlockflipped.png").exists(), "The test failed because MetalBlockflipped.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testMetalSlope2AssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/MetalSlope2.png").exists(), "The test failed because MetalSlope2.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testMetalSlope2flippedAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/MetalSlope2flipped.png").exists(), "The test failed because MetalSlope2flipped.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testOuterCookedtmxAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/OuterCooked.tmx").exists(), "The test failed because OuterCooked.tmx doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testPurpadurpleAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/Purpadurple.png").exists(), "The test failed because Purpadurple.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testRarchAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/Rarch.png").exists(), "The test failed because Rarch.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testServingStationAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/ServingStation.png").exists(), "The test failed because ServingStation.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testShopAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/Shop.png").exists(), "The test failed because Shop.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testSignDiningAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/SignDining.png").exists(), "The test failed because SignDining.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testSignFridgeAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/SignFridge.png").exists(), "The test failed because SignFridge.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testSignPantryAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/SignPantry.png").exists(), "The test failed because SignPantry.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testSpaceMEGATileAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/SpaceMEGATile.png").exists(), "The test failed because SpaceMEGATile.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testStarsAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/Stars.png").exists(), "The test failed because Stars.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testTileFloorMFAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/TileFloorMF.png").exists(), "The test failed because TileFloorMF.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testTopVATAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/TopVAT.png").exists(), "The test failed because TopVAT.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testUndercookedtsxAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/Undercooked.tsx").exists(), "The test failed because Undercooked.tsx doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testWindowStarshipAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/Window-Starship.png").exists(), "The test failed because Window-Starship.png doesn't exist in the MFPack folder");
+    }
+
+    @Test
+    public void testWindowStarshipWithBluggyAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/MFPack/Window-Starship-withbluggy.png").exists(), "The test failed because Window-Starship-withbluggy.png doesn't exist in the MFPack folder");
+    }
+
+    //These tests are to test if some files in the textures folder exists.
+
+    @Test
+    public void testBoxAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/textures/Box.png").exists(), "The test failed because Box.png doesn't exist in the textures folder");
+    }
+
+    @Test
+    public void testBoxAltAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/textures/Box_Alt.png").exists(), "The test failed because Box_Alt.png doesn't exist in the textures folder");
+    }
+
+    @Test
+    public void testGlibbertAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/textures/Glibbert.png").exists(), "The test failed because Glibbert.png doesn't exist in the textures folder");
+    }
+
+    @Test
+    public void testIconAssetsExists(){
+        assertTrue(Gdx.files.internal("other/Icon.png").exists(), "The test failed because Icon.png doesn't exist in the textures folder");
+    }
+
+    //These are the tests for the files in the general OJAssets file
+    @Test
+    public void testDinosaurxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Dinosaur.xcf").exists(), "The test failed because Dinosaur.xcf does not exist in the general OJAssets file");
+    }
+    @Test
+    public void testDomexcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Dome.xcf").exists(), "The test failed because Dome.xcf does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testMetalxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Metal.xcf").exists(), "The test failed because Metal.xcf does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testNettingxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Netting.xcf").exists(), "The test failed because Netting.xcf does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testOuterCookedAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/OuterCooked.tmx").exists(), "The test failed because OuterCooked.tmx does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testShopxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Shop.xcf").exists(), "The test failed because Shop.xcf does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testSpaceMEGAtileAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/SpaceMegatile.png").exists(), "The test failed because SpaceMEGAtile.png does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testStarspngAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Stars.png").exists(), "The test failed because Stars.png does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testStarsxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Stars.xcf").exists(), "The test failed because Stars.xcf does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testULTRAMEGASPACEMAPAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/ULTRAMEGASPACEMAP.png").exists(), "The test failed because ULTRAMEGASPACEMAP.png does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testWindowStarshippngAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Window-Starship.png").exists(), "The test failed because Window-Starship.png does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testWindowStarshipxcfAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Window-Starship.xcf").exists(), "The test failed because Window-Starship.xcf does not exist in the general OJAssets file");
+    }
+
+    @Test
+    public void testWindowStarshipWithBluggypngAssetsExists(){
+        assertTrue(Gdx.files.internal("OJAssets/Window-Starship-withbluggy.png").exists(), "The test failed because Window-Starship-withbluggy.png does not exist in the general OJAssets file");
+    }
 }
 
 

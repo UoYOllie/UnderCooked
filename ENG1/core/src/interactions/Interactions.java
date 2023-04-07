@@ -16,10 +16,19 @@ public class Interactions {
     /** A HashMap containing how each FoodItem's FoodID, via a station of StationID, can convert to another foodID.*/
     public static final HashMap<String, InteractionResult> interactions = new HashMap<>();
     static {
-        interactions.put(InteractionKey(FoodID.lettuce, StationID.cut), new InteractionResult(FoodID.lettuceChop,new float[] {25,50,75},-1));
-        interactions.put(InteractionKey(FoodID.tomato, StationID.cut), new InteractionResult(FoodID.tomatoChop,new float[] {25,50,75},-1));
-        interactions.put(InteractionKey(FoodID.onion, StationID.cut), new InteractionResult(FoodID.onionChop,new float[] {25,50,75},-1));
+        // old interactions with spamming space
+        //interactions.put(InteractionKey(FoodID.lettuce, StationID.cut), new InteractionResult(FoodID.lettuceChop,new float[] {25,50,75},-1));
+        //interactions.put(InteractionKey(FoodID.tomato, StationID.cut), new InteractionResult(FoodID.tomatoChop,new float[] {25,50,75},-1));
+        //interactions.put(InteractionKey(FoodID.onion, StationID.cut), new InteractionResult(FoodID.onionChop,new float[] {25,50,75},-1));
+
+        // new interactions on a timer !!!
+        interactions.put(InteractionKey(FoodID.lettuce, StationID.cut), new InteractionResult(FoodID.lettuceChop,new float[] {50},13F));
+        interactions.put(InteractionKey(FoodID.tomato, StationID.cut), new InteractionResult(FoodID.tomatoChop,new float[] {50},13F));
+        interactions.put(InteractionKey(FoodID.onion, StationID.cut), new InteractionResult(FoodID.onionChop,new float[] {50},13F));
         interactions.put(InteractionKey(FoodID.meat, StationID.fry), new InteractionResult(FoodID.meatCook,new float[] {50},13F));
+        interactions.put(InteractionKey(FoodID.potato, StationID.bake), new InteractionResult(FoodID.potatoCook,new float[] {50},13F));
+        interactions.put(InteractionKey(FoodID.dough, StationID.bake), new InteractionResult(FoodID.doughCook,new float[] {50},13F));
+        interactions.put(InteractionKey(FoodID.tomatoChop, StationID.fry), new InteractionResult(FoodID.tomatoSauce,new float[] {50},13F));
     }
 
     /**

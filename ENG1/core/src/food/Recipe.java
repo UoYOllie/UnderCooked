@@ -25,21 +25,38 @@ public class Recipe {
 	public static final HashMap<String, FoodStack> recipes = new HashMap<>();
 
     static {
+
         // BURGERS
         generateRecipe("Plain Burger", new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.bottomBun));
-        generateRecipe("Lettuce Burger", new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.lettuceChop, FoodID.bottomBun));
-        generateRecipe("Onion Burger", new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.onionChop, FoodID.bottomBun));
-        generateRecipe("Tomato Burger", new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.tomatoChop, FoodID.bottomBun));
-        generateRecipe("Lettuce Tomato Burger", new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.lettuceChop, FoodID.tomatoChop, FoodID.bottomBun));
-        generateRecipe("Lettuce Onion Burger", new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.lettuceChop, FoodID.onionChop, FoodID.bottomBun));
-        generateRecipe("Tomato Onion Burger", new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.tomatoChop, FoodID.onionChop, FoodID.bottomBun));
-        generateRecipe("Lettuce Tomato Onion Burger", new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.lettuceChop, FoodID.tomatoChop, FoodID.onionChop, FoodID.bottomBun));
+        generateRecipe("Lettuce Burger", new FoodStack(FoodID.topBun, FoodID.lettuceChop, FoodID.meatCook, FoodID.bottomBun));
+        generateRecipe("Onion Burger", new FoodStack(FoodID.topBun, FoodID.onionChop, FoodID.meatCook, FoodID.bottomBun));
+        generateRecipe("Tomato Burger", new FoodStack(FoodID.topBun, FoodID.tomatoChop, FoodID.meatCook, FoodID.bottomBun));
+        generateRecipe("Lettuce Tomato Burger", new FoodStack(FoodID.topBun, FoodID.tomatoChop, FoodID.lettuceChop, FoodID.meatCook, FoodID.bottomBun));
+        generateRecipe("Lettuce Onion Burger", new FoodStack(FoodID.topBun, FoodID.onionChop, FoodID.lettuceChop, FoodID.meatCook, FoodID.bottomBun));
+        generateRecipe("Tomato Onion Burger", new FoodStack(FoodID.topBun, FoodID.onionChop, FoodID.tomatoChop, FoodID.meatCook, FoodID.bottomBun));
+        generateRecipe("Lettuce Tomato Onion Burger", new FoodStack(FoodID.topBun, FoodID.onionChop, FoodID.tomatoChop, FoodID.lettuceChop, FoodID.meatCook, FoodID.bottomBun));
 
         // SALADS
         generateRecipe("Plain Salad", new FoodStack(FoodID.lettuceChop));
         generateRecipe("Tomato Salad", new FoodStack(FoodID.lettuceChop, FoodID.tomatoChop));
         generateRecipe("Onion Salad", new FoodStack(FoodID.lettuceChop, FoodID.onionChop));
         generateRecipe("Tomato Onion Salad", new FoodStack(FoodID.lettuceChop, FoodID.tomatoChop, FoodID.onionChop));
+
+        // JACKET POTATOES
+        generateRecipe("Plain Potato", new FoodStack(FoodID.potatoCook));
+        generateRecipe("Beans Potato", new FoodStack(FoodID.bakedBeans, FoodID.potatoCook));
+        generateRecipe("Coleslaw Potato", new FoodStack(FoodID.coleslaw, FoodID.potatoCook));
+        generateRecipe("Cheese Potato", new FoodStack(FoodID.cheese, FoodID.potatoCook));
+        generateRecipe("Beans Cheese Potato", new FoodStack(FoodID.cheese, FoodID.bakedBeans, FoodID.potatoCook));
+        generateRecipe("Beans Coleslaw Potato", new FoodStack(FoodID.coleslaw, FoodID.bakedBeans, FoodID.potatoCook));
+        generateRecipe("Coleslaw Cheese Potato", new FoodStack(FoodID.cheese, FoodID.coleslaw, FoodID.potatoCook));
+        generateRecipe("Beans Coleslaw Cheese Potato", new FoodStack(FoodID.cheese, FoodID.coleslaw, FoodID.bakedBeans, FoodID.potatoCook));
+
+        // PIZZA - i'll add some more interesting combos later down the line
+        generateRecipe("Plain Pizza", new FoodStack(FoodID.cheese, FoodID.tomatoSauce, FoodID.doughCook));
+        generateRecipe("Pepperoni Pizza", new FoodStack(FoodID.cheese, FoodID.pepperoni, FoodID.tomatoSauce, FoodID.doughCook));
+        generateRecipe("Onion Pizza", new FoodStack(FoodID.cheese, FoodID.onionChop, FoodID.tomatoSauce, FoodID.doughCook));
+
     }
 
     /**
@@ -108,32 +125,28 @@ public class Recipe {
     }
 
 
-//    public static String whichRecipe(FoodStack foodStack) {
-//
-//        for (String recipeName : recipeNames) {
-//            if (matchesRecipe(foodStack, recipeName)) {
-//                return recipeName;
-//            }
-//        }
-//
-//        return null;
-//    }
-//
-//    public static FoodStack orderStack(FoodStack inputStack) {
-//
-//        if (whichRecipe(inputStack) != null) {
-//            return recipes.get(whichRecipe(inputStack));
-//        }
-//
-//        else {
-//            return null;
-//        }
-//
-//    }
+    public static String whichRecipe(FoodStack foodStack) {
 
+        for (String recipeName : recipeNames) {
+            if (matchesRecipe(foodStack, recipeName)) {
+                return recipeName;
+            }
+        }
 
+        return null;
+    }
 
+    public static FoodStack orderStack(FoodStack inputStack) {
 
+        if (whichRecipe(inputStack) != null) {
+            return recipes.get(whichRecipe(inputStack));
+        }
+
+        else {
+            return null;
+        }
+
+    }
 
 
     /** Helper method to choose a random recipe for the customer to order. */

@@ -39,6 +39,16 @@ public class FoodItem {
         bottomBun,
         /** Top Bun -&gt; Highest bun on {@link FoodStack} is {@link #bottomBun} */
         topBun,
+        plate,
+        potato,
+        potatoCook,
+        bakedBeans,
+        cheese,
+        coleslaw,
+        pepperoni,
+        dough,
+        doughCook,
+        tomatoSauce,
         /** Default */
         none
     }
@@ -47,6 +57,7 @@ public class FoodItem {
     public static final HashMap<FoodID, Float> foodHeights = new HashMap<>();
 
     static {
+        foodHeights.put(FoodID.plate, 12F * Constants.UnitScale);
         foodHeights.put(FoodID.lettuce, 20F * Constants.UnitScale);
         foodHeights.put(FoodID.lettuceChop, 4F * Constants.UnitScale);
         foodHeights.put(FoodID.tomato, 20F * Constants.UnitScale);
@@ -58,10 +69,20 @@ public class FoodItem {
         foodHeights.put(FoodID.bun, 20F * Constants.UnitScale);
         foodHeights.put(FoodID.bottomBun, 10F * Constants.UnitScale);
         foodHeights.put(FoodID.topBun, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.potato, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.potatoCook, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.bakedBeans, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.cheese, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.coleslaw, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.pepperoni, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.dough, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.doughCook, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.tomatoSauce, 12F * Constants.UnitScale);
     }
 
     public static final HashMap<String, FoodID> foods = new HashMap<>(); // why are they called foods not items :(
     static {
+        foods.put("plate", FoodID.plate);
         foods.put("lettuce", FoodID.lettuce);
         foods.put("lettuceChop", FoodID.lettuceChop);
         foods.put("tomato", FoodID.tomato);
@@ -73,6 +94,15 @@ public class FoodItem {
         foods.put("bun", FoodID.bun);
         foods.put("topBun", FoodID.topBun);
         foods.put("bottomBun", FoodID.bottomBun);
+        foods.put("potato", FoodID.potato);
+        foods.put("potatoCook", FoodID.potatoCook);
+        foods.put("bakedBeans", FoodID.bakedBeans);
+        foods.put("cheese", FoodID.cheese);
+        foods.put("coleslaw", FoodID.coleslaw);
+        foods.put("pepperoni", FoodID.pepperoni);
+        foods.put("dough", FoodID.dough);
+        foods.put("doughCook", FoodID.doughCook);
+        foods.put("tomatoSauce", FoodID.tomatoSauce);
     }
 }
 

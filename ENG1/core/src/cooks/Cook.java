@@ -16,6 +16,7 @@ import game.GameSprites;
 import static helper.Constants.PPM;
 
 import food.FoodStack;
+import food.DishStack;
 import food.FoodItem.FoodID;
 import helper.Constants;
 import helper.NewCollisionHelper;
@@ -41,6 +42,8 @@ public class Cook extends GameEntity {
     public Facing dir;
     /** The cook's stack of things, containing all the items they're holding. Index 0 = Top Item */
     public FoodStack foodStack;
+    public DishStack dishStack;
+
     /** The WASD/movement inputs currently being made.
      * Note that if S and D are being input at the same time, then
      * inputs = { Facing.RIGHT, Facing.DOWN }
@@ -100,6 +103,7 @@ public class Cook extends GameEntity {
 
         // Initialize FoodStack
         this.foodStack = new FoodStack();
+        this.dishStack = new DishStack();
 
         // Input array, with the order of inputs the user has in what direction.
         // The oldest button pressed is the one used. Pressing the opposite key removes them.
@@ -366,6 +370,31 @@ public class Cook extends GameEntity {
         for (int i = foodList.size-1 ; i >= 0 ; i--) {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(foodList.get(i)));
             Float drawInc = FoodItem.foodHeights.get(foodList.get(i));
+            if (drawInc == null) {
+                drawY += 5F;
+                continue;
+            }
+            foodSprite.setScale(2 * Constants.UnitScale);
+            foodSprite.setPosition(drawX-foodSprite.getWidth()/2+xOffset,drawY+yOffset);
+            foodSprite.draw(batch);
+            drawY += drawInc;
+        }
+
+        // render DishStack, why doesn't this work :((
+
+        Array<FoodID> dishList = foodStack.getStack();
+        xOffset = foodRelativeX(dir);
+        yOffset = foodRelativeY(dir);
+        // Get offset based on direction.
+
+        drawX = x;
+        drawY = y - 12 * Constants.UnitScale;
+        /*if (foodStack.size() > 0) {
+            foodStack.popStack();
+        }*/
+        for (int i = dishList.size-1 ; i >= 0 ; i--) {
+            Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(dishList.get(i)));
+            Float drawInc = FoodItem.foodHeights.get(dishList.get(i));
             if (drawInc == null) {
                 drawY += 5F;
                 continue;

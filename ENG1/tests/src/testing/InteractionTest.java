@@ -286,6 +286,28 @@ public class InteractionTest {
         testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meat, "Picking up meat from a meat pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
     }
+    @Test
+    public void PantryTestPotato(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        Pantry testPantry = new Pantry(rectangle);
+        testPantry.setItem(FoodItem.FoodID.potato);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testPantry.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.potato, "Picking up a potato from a meat pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
+    }
+    @Test
+    public void PantryTestDough(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        Pantry testPantry = new Pantry(rectangle);
+        testPantry.setItem(FoodItem.FoodID.dough);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testPantry.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.dough, "Picking up a potato from a meat pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
+    }
 
     @Test
     // Relates to the FR_GET_FOOD requirement
@@ -342,6 +364,298 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    public void TestBakingStationPotatoToBakedPotato(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.bake);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.potato);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        while (preparationStation.progress < 100){
+            preparationStation.interact(cook, InputKey.InputTypes.USE);
+            preparationStation.update(1);
+        }
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.potatoCook, "Error:The process of baking potatoes no longer results in chopped tomatoes at the end. PreperationStation is therefore broken");
+    }
+
+    @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    public void TestBakingStationDoughtoDoughCook(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.bake);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.dough);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        while (preparationStation.progress < 100){
+            preparationStation.interact(cook, InputKey.InputTypes.USE);
+            preparationStation.update(1);
+        }
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.doughCook, "Error:The process of baking dough no longer results in chopped tomatoes at the end. PreperationStation is therefore broken");
+    }
+
+
+    @Test
+    public void TestFailCaseChoppingChoppedItem(){
+        //This tests whether the player is able to chop chopped items (not meant to be able to)
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.cut);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop);
+
+        cook.foodStack.clearStack();
+        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomatoChop);
+
+        cook.foodStack.clearStack();
+        cook.foodStack.addStack(FoodItem.FoodID.onionChop);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onionChop);
+    }
+
+    @Test
+    public void TestFailCaseChoppingBakedItem(){
+        //This tests whether the player is able to chop baked items other than the ones we want them to be able to chop
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.cut);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.doughCook);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.doughCook);
+
+        cook.foodStack.clearStack();
+        cook.foodStack.addStack(FoodItem.FoodID.potatoCook);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.potatoCook);
+    }
+
+    @Test
+    public void TestFailCaseChoppingFriedItem(){
+        // This checks whether the player is able to chop fried items that we don't want them to be able to
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.cut);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.meatCook);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook);
+
+    }
+
+    @Test
+    public void TestFailCaseFryingFriedItem(){
+        //This checks if the player is able to fry fried items that we don't intend them to
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.fry);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.meatCook);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook);
+    }
+
+    @Test
+    public void TestFailCaseFryingChoppedItem(){
+        //This test will check whether chopped items we don't want the player to be able to fry are fry-able
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.fry);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(0);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop);
+
+        cook.foodStack.clearStack();
+        cook.foodStack.addStack(FoodItem.FoodID.onionChop);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(0);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onionChop);
+    }
+
+    @Test
+    public void TestFailCaseFryingBakedItem(){
+        //This test makes sure the player isn't able to fry baked items that we don't intend them to fry
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.fry);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.potatoCook);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.potatoCook);
+
+        cook.foodStack.clearStack();
+        cook.foodStack.addStack(FoodItem.FoodID.doughCook);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.doughCook);
+    }
+
+    @Test
+    public void TestFailCaseBakingBakedItem(){
+        //This test makes sure that players can't bake items twice, that they aren't supposed to be able to.
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.bake);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.potatoCook);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.potatoCook);
+
+        cook.foodStack.clearStack();
+        cook.foodStack.addStack(FoodItem.FoodID.doughCook);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.doughCook);
+    }
+
+    @Test
+    public void TestFailCaseBakingChoppedItem(){
+        //This test makes sure the player isn't able to bake chopped items, unless its intended
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.bake);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop);
+
+        cook.foodStack.clearStack();
+        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomatoChop);
+
+        cook.foodStack.clearStack();
+        cook.foodStack.addStack(FoodItem.FoodID.onionChop);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onionChop);
+    }
+
+    @Test
+    public void TestFailCaseBakingFriedItem(){
+        //This test makes sure the player isn't able to bake fried items, unless its intended
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.setID(Station.StationID.bake);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(preparationStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.meatCook);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(1);
+        assertFalse(preparationStation.progress > 0);
+        assertFalse(preparationStation.inUse);
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook);
+
+    }
+
+    @Test
     // Relates to the FR_DISH_SERVE requirement
     public void TestServingStationGetAndSetCustomer(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -356,6 +670,20 @@ public class InteractionTest {
         assertTrue(testStation.getCustomer() == customer,"The get/set customer function for servingStation is broken");
     }
 
+    @Test
+    public void TestHoldItems(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        Pantry testPantry = new Pantry(rectangle);
+        testPantry.setItem(FoodItem.FoodID.lettuce);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testPantry.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
+        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
+        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
+        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.size() == 3, "The chef is able to hold more than 3 items at once");
+    }
 
     @Test
     // TODO: add reference to requirement
