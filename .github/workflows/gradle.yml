@@ -28,7 +28,7 @@ jobs:
       uses: gradle/gradle-build-action@v2.3.3
       with:
         arguments: build jacocoTestReport
-        build-root-directory: ENG1/.gradle
+        build-root-directory: ENG1/gradle
 
     - name: Upload JaCoCo coverage report as a workflow artefact.
       uses: actions/upload-artifact@v3.1.1
