@@ -55,7 +55,7 @@ public class AssemblyStation extends Station {
               if (food.Recipe.validRecipe(stationFoodStack)) {
                   System.out.println("this is a valid recipe!");
                   stationFoodStack = Recipe.orderStack(stationFoodStack);
-                  stationDishStack.setStack(stationFoodStack.getStackCopy());
+                  stationDishStack.setStackPlate(stationFoodStack.getStackCopy());
                   stationFoodStack.clearStack();
                   System.out.println("this is the station's FoodStack:");
                   System.out.println(stationFoodStack.getStack());

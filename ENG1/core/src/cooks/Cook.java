@@ -240,6 +240,17 @@ public class Cook extends GameEntity {
 
     }
 
+
+    public boolean getBlocked() {
+        if (this.dishStack.size() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
     /**
      * The update function for the {@link Cook}, which updates the {@link Cook}'s
      * {@link #x} and {@link #y} values, and updates the position of the
@@ -382,7 +393,7 @@ public class Cook extends GameEntity {
 
         // render DishStack, why doesn't this work :((
 
-        Array<FoodID> dishList = foodStack.getStack();
+        Array<FoodID> dishList = dishStack.getStack();
         xOffset = foodRelativeX(dir);
         yOffset = foodRelativeY(dir);
         // Get offset based on direction.
@@ -394,7 +405,7 @@ public class Cook extends GameEntity {
         }*/
         for (int i = dishList.size-1 ; i >= 0 ; i--) {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(dishList.get(i)));
-            Float drawInc = FoodItem.foodHeights.get(dishList.get(i));
+            Float drawInc = FoodItem.foodHeights.get(dishList.get(i)) * 0.5F;
             if (drawInc == null) {
                 drawY += 5F;
                 continue;

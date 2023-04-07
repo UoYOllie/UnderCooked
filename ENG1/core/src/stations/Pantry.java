@@ -44,6 +44,11 @@ public class Pantry extends Station {
      *                  the {@link CookInteractable}.
      */
     public void interact(Cook cook, InputKey.InputTypes inputType) {
+
+        if (cook.getBlocked() == true) {
+            return;
+        }
+
         // If the input is to pick up:
         if (inputType == InputKey.InputTypes.PICK_UP || inputType == InputKey.InputTypes.USE) {
             // Add the new FoodItem onto the stack.

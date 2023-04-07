@@ -157,6 +157,10 @@ public class PreparationStation extends Station {
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
 
+        if (cook.getBlocked() == true) {
+            return;
+        }
+
         // If the Cook is holding a food item, and they use the "Put down" control...
         if (cook.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
             // Start by getting the possible interaction result
