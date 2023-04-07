@@ -1,5 +1,19 @@
 import os
 
+"""
+IMPORTANT THINGS TO NOTE:
+
+- "assets.txt" will be completely overwritten whenever this script is run.
+- This program formats directories with a "/" as a seperator - This may not work on all operating systems.
+- This program assumes any file without a file extension (or without a "." in its name) is a folder - This may not always be true.
+
+
+- The script currently searches for the following extensions (If you add more, please update this list):
+    - .png
+    - .atlas
+
+"""
+
 def find_png(directory):
 
     list_of_pngs = []
@@ -34,3 +48,4 @@ for asset in output_list: # Writes list of assets to 'assets.txt'
     output.write(asset + "\n")
 
 output.close()
+print("\nassets.txt generated, file closed")
