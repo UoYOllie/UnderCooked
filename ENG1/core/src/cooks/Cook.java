@@ -275,7 +275,7 @@ public class Cook extends GameEntity {
         // Set up sprite string
         String spriteName = "";
         // If holding something, add "h" to the start of the sprite name.
-        if (foodStack.size() > 0) {
+        if (foodStack.size() > 0 || dishStack.size() >0) {
             spriteName += "h";
         }
         sprite = gameSprites.getSprite(GameSprites.SpriteID.COOK, spriteName + dir);

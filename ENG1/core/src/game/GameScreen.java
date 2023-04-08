@@ -187,7 +187,7 @@ public class GameScreen extends ScreenAdapter {
         this.cook.update(Gdx.graphics.getDeltaTime());
 
         // Spawning code to spawn a customer after an amount of time.
-        /*if(TimeUtils.millis() >= nextCustomerSecond)
+        if(TimeUtils.millis() >= nextCustomerSecond)
         {
             int recipeComplexity = customerController.addCustomer();
             if (recipeComplexity == -1) {
@@ -198,7 +198,8 @@ public class GameScreen extends ScreenAdapter {
                 lastCustomerSecond = TimeUtils.millis();
                 nextCustomerSecond += 1000 * Math.floor(9 + 5.4F * Math.log(recipeComplexity - 0.7));
             }
-        }*/
+            System.out.println("i just spawned a customer!");
+        }
 
         if(Interactions.isJustPressed(InputKey.InputTypes.PAUSE))
         {
@@ -216,7 +217,7 @@ public class GameScreen extends ScreenAdapter {
     private void cameraUpdate()
     {
         camera.position.set(new Vector3(this.cook.getX(),this.cook.getY(),0));
-        camera.zoom = 1/10f;
+        camera.zoom = 1/20f;
         camera.update();
     }
 

@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
 import customers.Customer;
 import customers.CustomerController;
+import food.DishStack;
 import food.Recipe;
 import game.Boot;
 import game.GameScreen;
@@ -34,6 +35,8 @@ public class ServingStation extends Station {
 //    private ScreenController screenController;
 
     public int testFlag = 0;
+    private DishStack servedDishStack;
+    private DishStack targetDishStack;
 
     /**
      * The constructor for the {@link ServingStation}.
@@ -47,6 +50,8 @@ public class ServingStation extends Station {
         // The below x and y can be changed wherever needed.
         this.customerX = rectangle.x + 32;
         this.customerY = rectangle.y + 96;
+        servedDishStack = new DishStack();
+        targetDishStack = new DishStack();
     }
 
 //    private OrthographicCamera getOrthographicCamera(){
@@ -82,43 +87,58 @@ public class ServingStation extends Station {
         this.customer = customer;
     }*/
 
-    /**
-     * The interact function for the {@link ServingStation}.
-     *
-     * <br>This checks that the {@link Cook} has the right {@link food.Recipe}, and then acts
-     * based on if the {@link Cook} does or does not.
-     * @param cook The cook that interacted with the {@link CookInteractable}.
-     * @param inputType The type of {@link InputKey.InputTypes} the player made with
-     *                  the {@link CookInteractable}.
-     */
+//    /**
+//     * The interact function for the {@link ServingStation}.
+//     *
+//     * <br>This checks that the {@link Cook} has the right {@link food.Recipe}, and then acts
+//     * based on if the {@link Cook} does or does not.
+//     * @param cook The cook that interacted with the {@link CookInteractable}.
+//     * @param inputType The type of {@link InputKey.InputTypes} the player made with
+//     *                  the {@link CookInteractable}.
+//     */
+//    @Override
+//    public void interact(Cook cook, InputKey.InputTypes inputType) {
+//
+//        // USE to see request, or submit request
+//        if (inputType == InputKey.InputTypes.USE) {
+//            // First make sure there is actually a request on this counter.
+//            if (hasCustomer()) {
+//                // If there is a request, then compare the two.
+//                if (Recipe.matchesRecipe(cook.foodStack,customer.getRequestName())) {
+//                    // If it's correct, then the customer will take the food and leave.
+//                    request = null;
+//                    cook.foodStack.clearStack();
+//                    if (testFlag != 1 && (gameScreen.getGameHud().getCustomer() == this.customer)) {
+//                        gameScreen.getGameHud().setRecipe(null);
+//                    }
+//                    customerController.customerServed(this);
+//                } else {
+//                    // If not, then display the customer's request.
+//                    if (testFlag != 1) {
+//                        gameScreen.getGameHud().setRecipe(customer);
+//                    }
+//                }
+//            }
+//        } else {
+//            if (hasCustomer() && testFlag != 1) {
+//                // Display the customer's request.
+//                gameScreen.getGameHud().setRecipe(customer);
+//            }
+//        }
+//    }
+
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
 
-        // USE to see request, or submit request
-        if (inputType == InputKey.InputTypes.USE) {
-            // First make sure there is actually a request on this counter.
-            if (hasCustomer()) {
-                // If there is a request, then compare the two.
-                if (Recipe.matchesRecipe(cook.foodStack,customer.getRequestName())) {
-                    // If it's correct, then the customer will take the food and leave.
-                    request = null;
-                    cook.foodStack.clearStack();
-                    if (testFlag != 1 && (gameScreen.getGameHud().getCustomer() == this.customer)) {
-                        gameScreen.getGameHud().setRecipe(null);
-                    }
-                    customerController.customerServed(this);
-                } else {
-                    // If not, then display the customer's request.
-                    if (testFlag != 1) {
-                        gameScreen.getGameHud().setRecipe(customer);
-                    }
-                }
-            }
-        } else {
-            if (hasCustomer() && testFlag != 1) {
-                // Display the customer's request.
-                gameScreen.getGameHud().setRecipe(customer);
-            }
+        if (cook.dishStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
+            this.servedDishStack.setStack(cook.dishStack.getStackCopy());
+            cook.dishStack.clearStack();
+            return;
+        }
+
+        if (servedDishStack.size() > 0 && inputType == InputKey.InputTypes.PICK_UP) {
+            cook.dishStack.setStack(this.servedDishStack.getStackCopy());
+            this.servedDishStack.clearStack();
         }
     }
 
@@ -139,10 +159,10 @@ public class ServingStation extends Station {
      * {@link ServingStation} when interacted with.
      * @param gameScreen The {@link GameScreen} to set it to.
      */
-    public void setGameScreen(GameScreen gameScreen) {
-        this.gameScreen = gameScreen;
-        this.customerController = gameScreen.getCustomerController();
-    }
+//    public void setGameScreen(GameScreen gameScreen) {
+//        this.gameScreen = gameScreen;
+//        this.customerController = gameScreen.getCustomerController();
+//    }
 
     /**
      * Set the {@link #customer} of the {@link ServingStation} to
