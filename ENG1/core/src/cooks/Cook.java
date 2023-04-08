@@ -317,23 +317,23 @@ public class Cook extends GameEntity {
 
     }
 
-    /**
-     * Rendering using the {@link ShapeRenderer}. Unused.
-     * @param shape The {@link ShapeRenderer} used to draw.
-     */
-    @Override
-    public void renderShape(ShapeRenderer shape) {
+//    /**
+//     * Rendering using the {@link ShapeRenderer}. Unused.
+//     * @param shape The {@link ShapeRenderer} used to draw.
+//     */
+//    @Override
+//    public void renderShape(ShapeRenderer shape) {
+//
+//    }
 
-    }
-
-    /**
-     * Debug rendering using the {@link ShapeRenderer}. Unused.
-     * @param shape The {@link ShapeRenderer} used to draw.
-     */
-    @Override
-    public void renderShapeDebug(ShapeRenderer shape) {
-        return;
-    }
+//    /**
+//     * Debug rendering using the {@link ShapeRenderer}. Unused.
+//     * @param shape The {@link ShapeRenderer} used to draw.
+//     */
+//    @Override
+//    public void renderShapeDebug(ShapeRenderer shape) {
+//        return;
+//    }
 
     /** Return the X pixel offset from the cook's position that the cook's FoodStack requires for rendering.*/
     private float foodRelativeX(Cook.Facing dir) {

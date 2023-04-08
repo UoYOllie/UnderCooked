@@ -109,40 +109,40 @@ public class PreparationStation extends Station {
         FINISHED
     }
 
-    /**
-     * The function used to render the {@link PreparationStation}.
-     *
-     * <br>It draws the {@link #progress} bar of the
-     * {@link interactions.Interactions.InteractionResult}.
-     * @param shape The {@link ShapeRenderer} used to render.
-     */
-    @Override
-    public void renderShape(ShapeRenderer shape) {
-        // Render the progress bar when inUse
-        if (inUse) {
-            float rectX = x,
-                  rectY = y + 40 * Constants.UnitScale,
-                  rectWidth = 48 * Constants.UnitScale,
-                  rectHeight = 10 * Constants.UnitScale;
-            // Black bar behind
-            shape.rect(rectX, rectY, rectWidth, rectHeight, Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK);
-            // Now the progress bar.
-            float progressWidth = rectWidth-4 * Constants.UnitScale;
-            Color progressColor = Color.SKY;
-            // If preparation is done, show as green.
-            switch (state) {
-                case NEED_USE:
-                    progressColor = Color.YELLOW;
-                    break;
-                case FINISHED:
-                    progressColor = Color.GREEN;
-                    break;
-                default:
-                    break;
-            }
-            shape.rect(rectX+ 2 * Constants.UnitScale,rectY + 2 * Constants.UnitScale,progress/100 * progressWidth,rectHeight - 4 * Constants.UnitScale,progressColor,progressColor,progressColor,progressColor);
-        }
-    }
+//    /**
+//     * The function used to render the {@link PreparationStation}.
+//     *
+//     * <br>It draws the {@link #progress} bar of the
+//     * {@link interactions.Interactions.InteractionResult}.
+//     * @param shape The {@link ShapeRenderer} used to render.
+//     */
+//    @Override
+//    public void renderShape(ShapeRenderer shape) {
+//        // Render the progress bar when inUse
+//        if (inUse) {
+//            float rectX = x,
+//                  rectY = y + 40 * Constants.UnitScale,
+//                  rectWidth = 48 * Constants.UnitScale,
+//                  rectHeight = 10 * Constants.UnitScale;
+//            // Black bar behind
+//            shape.rect(rectX, rectY, rectWidth, rectHeight, Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK);
+//            // Now the progress bar.
+//            float progressWidth = rectWidth-4 * Constants.UnitScale;
+//            Color progressColor = Color.SKY;
+//            // If preparation is done, show as green.
+//            switch (state) {
+//                case NEED_USE:
+//                    progressColor = Color.YELLOW;
+//                    break;
+//                case FINISHED:
+//                    progressColor = Color.GREEN;
+//                    break;
+//                default:
+//                    break;
+//            }
+//            shape.rect(rectX+ 2 * Constants.UnitScale,rectY + 2 * Constants.UnitScale,progress/100 * progressWidth,rectHeight - 4 * Constants.UnitScale,progressColor,progressColor,progressColor,progressColor);
+//        }
+//    }
 
     /**
      * The interact function for the {@link ServingStation}.

@@ -52,6 +52,7 @@ public class AssemblyStation extends Station {
 
 
         if (inputType == InputKey.InputTypes.USE) {
+            System.out.println(stationFoodStack.getStack());
               if (food.Recipe.validRecipe(stationFoodStack)) {
                   System.out.println("this is a valid recipe!");
                   stationFoodStack = Recipe.orderStack(stationFoodStack);

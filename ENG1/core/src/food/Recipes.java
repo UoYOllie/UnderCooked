@@ -26,13 +26,13 @@ public class Recipes {
         generateRecipes("Lettuce Onion Salad", allCombos(FoodID.lettuceChop, FoodID.onionChop));
 
         Array<FoodStack> plainBurger = new Array<>();
-        plainBurger.add(new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.bottomBun));
+        plainBurger.add(new FoodStack(FoodID.bun, FoodID.meatCook, FoodID.bun));
         recipes.put("Plain Burger", plainBurger);
 
         Array<FoodID> topBunArray = new Array<FoodID>();
-        topBunArray.add(FoodID.topBun);
+        topBunArray.add(FoodID.bun);
         Array<FoodID> bottomBunArray = new Array<FoodID>();
-        bottomBunArray.add(FoodID.bottomBun);
+        bottomBunArray.add(FoodID.bun);
 
         generateRecipes("Lettuce Burger", allCombos(
                 topBunArray,

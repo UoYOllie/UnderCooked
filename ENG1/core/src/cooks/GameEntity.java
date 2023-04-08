@@ -98,18 +98,18 @@ public abstract class GameEntity {
     public abstract void renderDebug(SpriteBatch batch);
 
 
-    /**
-     * The render function, used to render the {@link GameEntity}.
-     * @param shape The {@link ShapeRenderer} used to render.
-     */
-    public abstract void renderShape(ShapeRenderer shape);
+//    /**
+//     * The render function, used to render the {@link GameEntity}.
+//     * @param shape The {@link ShapeRenderer} used to render.
+//     */
+//    public abstract void renderShape(ShapeRenderer shape);
 
-    /**
-     * The debug render function, used to render the {@link GameEntity}'s
-     * debug visuals.
-     * @param shape The {@link ShapeRenderer} used to render.
-     */
-    public abstract void renderShapeDebug(ShapeRenderer shape);
+//    /**
+//     * The debug render function, used to render the {@link GameEntity}'s
+//     * debug visuals.
+//     * @param shape The {@link ShapeRenderer} used to render.
+//     */
+//    public abstract void renderShapeDebug(ShapeRenderer shape);
 
 //    /**
 //     * A getter to get the {@link GameEntity}'s {@link Body}.
