@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.9" tiledversion="1.9.2" name="MFTiles" tilewidth="32" tileheight="32" tilecount="104" columns="0">
+<tileset version="1.9" tiledversion="1.9.2" name="MFTiles" tilewidth="32" tileheight="32" tilecount="106" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image width="32" height="32" source="Tiles/Assembler.png"/>
@@ -312,5 +312,11 @@
  </tile>
  <tile id="109">
   <image width="16" height="16" source="Tiles/potato_placeholder.png"/>
+ </tile>
+ <tile id="114">
+  <image width="32" height="32" source="Tiles/assembly_big.png"/>
+ </tile>
+ <tile id="115">
+  <image width="32" height="32" source="Tiles/assembly_small.png"/>
  </tile>
 </tileset>
