@@ -264,17 +264,16 @@ public class GameScreen extends ScreenAdapter {
 
         batch.end();
 
-        // pretty sure this is completely unused - from laura <3
-        //shape.begin(ShapeRenderer.ShapeType.Filled);
+        shape.begin(ShapeRenderer.ShapeType.Filled);
 
-//        for (GameEntity entity : gameEntities) {
-//            entity.renderShape(shape);
-//            // entity.renderShapeDebug(shape);
-//        }
+        for (GameEntity entity : gameEntities) {
+            entity.renderShape(shape);
+            // entity.renderShapeDebug(shape);
+        }
 
-        //shape.end();
+        shape.end();
         //box2DDebugRenderer.render(world, camera.combined.scl(PPM));
-        
+
         gameHud.render();
         instructionHUD.render();
 

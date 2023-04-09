@@ -104,12 +104,12 @@ public class Station extends CookInteractable {
     @Override
     public void renderDebug(SpriteBatch batch) { }
 
-//    /**
-//     * The function used to render the {@link Station}.
-//     * @param shape The {@link ShapeRenderer} used to render.
-//     */
-//    @Override
-//    public void renderShape(ShapeRenderer shape) { }
+    /**
+     * The function used to render the {@link Station}.
+     * @param shape The {@link ShapeRenderer} used to render.
+     */
+    @Override
+    public void renderShape(ShapeRenderer shape) { }
 
 //    /**
 //     * The function used to render the {@link Station}'s

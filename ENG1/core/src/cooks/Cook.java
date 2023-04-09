@@ -317,14 +317,14 @@ public class Cook extends GameEntity {
 
     }
 
-//    /**
-//     * Rendering using the {@link ShapeRenderer}. Unused.
-//     * @param shape The {@link ShapeRenderer} used to draw.
-//     */
-//    @Override
-//    public void renderShape(ShapeRenderer shape) {
-//
-//    }
+    /**
+     * Rendering using the {@link ShapeRenderer}. Unused.
+     * @param shape The {@link ShapeRenderer} used to draw.
+     */
+    @Override
+    public void renderShape(ShapeRenderer shape) {
+
+    }
 
 //    /**
 //     * Debug rendering using the {@link ShapeRenderer}. Unused.
