@@ -29,8 +29,7 @@ public class Customer {
      * <br>Randomly picks out a {@link Recipe} as a request.
      * @param sprite The {@link Sprite} of the {@link Customer}.
      */
-    public Customer(Sprite sprite)
-    {
+    public Customer(Sprite sprite) {
         this.sprite = sprite;
         this.position = Constants.customerSpawn;
         this.request = Recipe.randomRecipe();

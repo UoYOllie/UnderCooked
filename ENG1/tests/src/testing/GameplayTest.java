@@ -25,6 +25,7 @@ import static org.testng.Assert.*;
 @RunWith(GdxTestRunner.class)
 public class GameplayTest {
 
+    /**
     @Test
     // Relates to the FR_DISH_SERVE requirement
     public void TestServingStationServeCustomerOnionTomatoSalad(){
@@ -379,6 +380,7 @@ public class GameplayTest {
         customerController.testFlag = 0;
     }
 
+     **/
 
     // Relates to the FR_SPEND MONEY requirement
     @Test

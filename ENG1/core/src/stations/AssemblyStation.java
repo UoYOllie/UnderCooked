@@ -16,8 +16,8 @@ import interactions.InputKey;
 
 public class AssemblyStation extends Station {
 
-    public FoodStack stationFoodStack;
-    public DishStack stationDishStack;
+    private FoodStack stationFoodStack;
+    private DishStack stationDishStack;
 
     public AssemblyStation(Rectangle rectangle) {
         super(rectangle);
@@ -52,10 +52,11 @@ public class AssemblyStation extends Station {
 
 
         if (inputType == InputKey.InputTypes.USE) {
+            System.out.println(stationFoodStack.getStack());
               if (food.Recipe.validRecipe(stationFoodStack)) {
                   System.out.println("this is a valid recipe!");
                   stationFoodStack = Recipe.orderStack(stationFoodStack);
-                  stationDishStack.setStack(stationFoodStack.getStackCopy());
+                  stationDishStack.setStackPlate(stationFoodStack.getStackCopy());
                   stationFoodStack.clearStack();
                   System.out.println("this is the station's FoodStack:");
                   System.out.println(stationFoodStack.getStack());
@@ -71,19 +72,21 @@ public class AssemblyStation extends Station {
     public void render(SpriteBatch batch) {
         Array<FoodItem.FoodID> foodList = stationFoodStack.getStack();
         float xOffset = 0F, yOffset = 0F;
-        float drawX = x, drawY = y;
+        float drawX = x-1.1f, drawY = y;
 
         for (int i = foodList.size-1 ; i >= 0 ; i--) {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(foodList.get(i)));
-            Float drawInc = FoodItem.foodHeights.get(foodList.get(i));
-            if (drawInc == null) {
-                drawY += 5F * Constants.UnitScale;
-                continue;
-            }
-            foodSprite.setScale(2F * Constants.UnitScale);
-            foodSprite.setPosition(drawX-foodSprite.getWidth()/3 + xOffset * Constants.UnitScale,drawY - foodSprite.getHeight() * 4/15f +yOffset* Constants.UnitScale);
+//            Float drawInc = FoodItem.foodHeights.get(foodList.get(i));
+//            if (drawInc == null) {
+//                drawY += 5F * Constants.UnitScale;
+//                continue;
+//            }
+            foodSprite.setScale(0.6f*Constants.UnitScale);
+
+            foodSprite.setPosition(drawX-foodSprite.getWidth()/3 + xOffset * Constants.UnitScale,drawY - foodSprite.getHeight() * 0.354f);
             foodSprite.draw(batch);
-            drawY += drawInc;
+            //drawY += drawInc;
+            xOffset += 16f;
         }
 
 
@@ -96,14 +99,16 @@ public class AssemblyStation extends Station {
 
         for (int i = dishList.size-1 ; i >= 0 ; i--) {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(dishList.get(i)));
-            Float drawInc = FoodItem.foodHeights.get(dishList.get(i)) * 0.5F;
+            Float drawInc = FoodItem.foodHeights.get(dishList.get(i)) * 0.25F;
             if (drawInc == null) {
                 drawY += 5F * Constants.UnitScale;
                 continue;
             }
-            foodSprite.setScale(2F * Constants.UnitScale);
-            foodSprite.setPosition(drawX-foodSprite.getWidth()/3 + xOffset * Constants.UnitScale,
-                    drawY - foodSprite.getHeight() * 4/15f +yOffset* Constants.UnitScale);
+            // change size of rendered food here:
+            foodSprite.setScale(Constants.UnitScale);
+
+            foodSprite.setPosition(drawX-foodSprite.getWidth()/3 + (xOffset + 95.2f) * Constants.UnitScale,
+                    drawY - foodSprite.getHeight() * 0.33f +yOffset* Constants.UnitScale);
             foodSprite.draw(batch);
             drawY += drawInc;
         }

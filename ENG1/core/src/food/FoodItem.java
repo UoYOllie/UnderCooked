@@ -33,12 +33,12 @@ public class FoodItem {
          * with type {@link stations.Station.StationID#fry} */
         meatCook,
         /** Bun — Used only to specify that the {@link stations.Pantry} gives
-         * either a {@link #bottomBun} or {@link #topBun}. */
+         * either a  or. */
         bun,
         /** Bottom Bun -&gt; Highest bun on {@link FoodStack} is {@code null} or {@link #topBun} */
-        bottomBun,
-        /** Top Bun -&gt; Highest bun on {@link FoodStack} is {@link #bottomBun} */
-        topBun,
+        //bottomBun,
+        /** Top Bun -&gt; Highest bun on {@link FoodStack} is*/
+        //topBun,
         plate,
         potato,
         potatoCook,
@@ -67,8 +67,8 @@ public class FoodItem {
         foodHeights.put(FoodID.meat, 8F * Constants.UnitScale);
         foodHeights.put(FoodID.meatCook, 8F * Constants.UnitScale);
         foodHeights.put(FoodID.bun, 20F * Constants.UnitScale);
-        foodHeights.put(FoodID.bottomBun, 10F * Constants.UnitScale);
-        foodHeights.put(FoodID.topBun, 12F * Constants.UnitScale);
+        //foodHeights.put(FoodID.bottomBun, 10F * Constants.UnitScale);
+        //foodHeights.put(FoodID.topBun, 12F * Constants.UnitScale);
         foodHeights.put(FoodID.potato, 12F * Constants.UnitScale);
         foodHeights.put(FoodID.potatoCook, 12F * Constants.UnitScale);
         foodHeights.put(FoodID.bakedBeans, 12F * Constants.UnitScale);
@@ -92,8 +92,8 @@ public class FoodItem {
         foods.put("meat", FoodID.meat);
         foods.put("meatCook", FoodID.meatCook);
         foods.put("bun", FoodID.bun);
-        foods.put("topBun", FoodID.topBun);
-        foods.put("bottomBun", FoodID.bottomBun);
+        //foods.put("topBun", FoodID.topBun);
+        //foods.put("bottomBun", FoodID.bottomBun);
         foods.put("potato", FoodID.potato);
         foods.put("potatoCook", FoodID.potatoCook);
         foods.put("bakedBeans", FoodID.bakedBeans);

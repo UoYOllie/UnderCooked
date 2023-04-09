@@ -27,14 +27,14 @@ public class Recipe {
     static {
 
         // BURGERS
-        generateRecipe("Plain Burger", new FoodStack(FoodID.topBun, FoodID.meatCook, FoodID.bottomBun));
-        generateRecipe("Lettuce Burger", new FoodStack(FoodID.topBun, FoodID.lettuceChop, FoodID.meatCook, FoodID.bottomBun));
-        generateRecipe("Onion Burger", new FoodStack(FoodID.topBun, FoodID.onionChop, FoodID.meatCook, FoodID.bottomBun));
-        generateRecipe("Tomato Burger", new FoodStack(FoodID.topBun, FoodID.tomatoChop, FoodID.meatCook, FoodID.bottomBun));
-        generateRecipe("Lettuce Tomato Burger", new FoodStack(FoodID.topBun, FoodID.tomatoChop, FoodID.lettuceChop, FoodID.meatCook, FoodID.bottomBun));
-        generateRecipe("Lettuce Onion Burger", new FoodStack(FoodID.topBun, FoodID.onionChop, FoodID.lettuceChop, FoodID.meatCook, FoodID.bottomBun));
-        generateRecipe("Tomato Onion Burger", new FoodStack(FoodID.topBun, FoodID.onionChop, FoodID.tomatoChop, FoodID.meatCook, FoodID.bottomBun));
-        generateRecipe("Lettuce Tomato Onion Burger", new FoodStack(FoodID.topBun, FoodID.onionChop, FoodID.tomatoChop, FoodID.lettuceChop, FoodID.meatCook, FoodID.bottomBun));
+        generateRecipe("Plain Burger", new FoodStack(FoodID.bun, FoodID.meatCook, FoodID.bun));
+        generateRecipe("Lettuce Burger", new FoodStack(FoodID.bun, FoodID.lettuceChop, FoodID.meatCook, FoodID.bun));
+        generateRecipe("Onion Burger", new FoodStack(FoodID.bun, FoodID.onionChop, FoodID.meatCook, FoodID.bun));
+        generateRecipe("Tomato Burger", new FoodStack(FoodID.bun, FoodID.tomatoChop, FoodID.meatCook, FoodID.bun));
+        generateRecipe("Lettuce Tomato Burger", new FoodStack(FoodID.bun, FoodID.tomatoChop, FoodID.lettuceChop, FoodID.meatCook, FoodID.bun));
+        generateRecipe("Lettuce Onion Burger", new FoodStack(FoodID.bun, FoodID.onionChop, FoodID.lettuceChop, FoodID.meatCook, FoodID.bun));
+        generateRecipe("Tomato Onion Burger", new FoodStack(FoodID.bun, FoodID.onionChop, FoodID.tomatoChop, FoodID.meatCook, FoodID.bun));
+        generateRecipe("Lettuce Tomato Onion Burger", new FoodStack(FoodID.bun, FoodID.onionChop, FoodID.tomatoChop, FoodID.lettuceChop, FoodID.meatCook, FoodID.bun));
 
         // SALADS
         generateRecipe("Plain Salad", new FoodStack(FoodID.lettuceChop));

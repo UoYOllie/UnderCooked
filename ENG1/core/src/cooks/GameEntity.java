@@ -81,6 +81,7 @@ public abstract class GameEntity {
      * The update function, used to update the {@link GameEntity}.
      * @param delta The time between frames as a float.
      */
+    // from laura: could this be moved to cook ?? it's not being used by any other children.
     public abstract void update(float delta);
 
 
@@ -104,12 +105,12 @@ public abstract class GameEntity {
      */
     public abstract void renderShape(ShapeRenderer shape);
 
-    /**
-     * The debug render function, used to render the {@link GameEntity}'s
-     * debug visuals.
-     * @param shape The {@link ShapeRenderer} used to render.
-     */
-    public abstract void renderShapeDebug(ShapeRenderer shape);
+//    /**
+//     * The debug render function, used to render the {@link GameEntity}'s
+//     * debug visuals.
+//     * @param shape The {@link ShapeRenderer} used to render.
+//     */
+//    public abstract void renderShapeDebug(ShapeRenderer shape);
 
 //    /**
 //     * A getter to get the {@link GameEntity}'s {@link Body}.

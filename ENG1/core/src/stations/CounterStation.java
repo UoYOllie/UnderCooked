@@ -53,6 +53,11 @@ public class CounterStation extends Station {
         System.out.println(rectangle.getY());
         System.out.println(rectangle.getWidth());
         System.out.println(rectangle.getHeight());
+
+        if (cook.getBlocked() == true) {
+            return;
+        }
+
         // If Cook is using the put down input, put down the item in the top of their stack
         if (cook.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
             // Take it from the cook, and add it to this counter's stack.

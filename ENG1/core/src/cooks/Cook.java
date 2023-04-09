@@ -240,6 +240,17 @@ public class Cook extends GameEntity {
 
     }
 
+
+    public boolean getBlocked() {
+        if (this.dishStack.size() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
     /**
      * The update function for the {@link Cook}, which updates the {@link Cook}'s
      * {@link #x} and {@link #y} values, and updates the position of the
@@ -264,7 +275,7 @@ public class Cook extends GameEntity {
         // Set up sprite string
         String spriteName = "";
         // If holding something, add "h" to the start of the sprite name.
-        if (foodStack.size() > 0) {
+        if (foodStack.size() > 0 || dishStack.size() >0) {
             spriteName += "h";
         }
         sprite = gameSprites.getSprite(GameSprites.SpriteID.COOK, spriteName + dir);
@@ -315,14 +326,14 @@ public class Cook extends GameEntity {
 
     }
 
-    /**
-     * Debug rendering using the {@link ShapeRenderer}. Unused.
-     * @param shape The {@link ShapeRenderer} used to draw.
-     */
-    @Override
-    public void renderShapeDebug(ShapeRenderer shape) {
-        return;
-    }
+//    /**
+//     * Debug rendering using the {@link ShapeRenderer}. Unused.
+//     * @param shape The {@link ShapeRenderer} used to draw.
+//     */
+//    @Override
+//    public void renderShapeDebug(ShapeRenderer shape) {
+//        return;
+//    }
 
     /** Return the X pixel offset from the cook's position that the cook's FoodStack requires for rendering.*/
     private float foodRelativeX(Cook.Facing dir) {
@@ -382,7 +393,7 @@ public class Cook extends GameEntity {
 
         // render DishStack, why doesn't this work :((
 
-        Array<FoodID> dishList = foodStack.getStack();
+        Array<FoodID> dishList = dishStack.getStack();
         xOffset = foodRelativeX(dir);
         yOffset = foodRelativeY(dir);
         // Get offset based on direction.
@@ -394,7 +405,7 @@ public class Cook extends GameEntity {
         }*/
         for (int i = dishList.size-1 ; i >= 0 ; i--) {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(dishList.get(i)));
-            Float drawInc = FoodItem.foodHeights.get(dishList.get(i));
+            Float drawInc = FoodItem.foodHeights.get(dishList.get(i)) * 0.5F;
             if (drawInc == null) {
                 drawY += 5F;
                 continue;

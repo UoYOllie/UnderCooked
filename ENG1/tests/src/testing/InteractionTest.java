@@ -3,6 +3,7 @@ package testing;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
 import customers.Customer;
 import customers.CustomerController;
@@ -98,7 +99,6 @@ public class InteractionTest {
         cook.foodStack.addStack(FoodItem.FoodID.lettuce);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         while (testStation.progress < 100){
-            testStation.interact(cook, InputKey.InputTypes.USE);
             testStation.update(1);
         }
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
@@ -117,7 +117,6 @@ public class InteractionTest {
         cook.foodStack.addStack(FoodItem.FoodID.tomato);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         while (testStation.progress < 100){
-            testStation.interact(cook, InputKey.InputTypes.USE);
             testStation.update(1);
         }
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
@@ -136,7 +135,6 @@ public class InteractionTest {
         cook.foodStack.addStack(FoodItem.FoodID.onion);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         while (testStation.progress < 100){
-            testStation.interact(cook, InputKey.InputTypes.USE);
             testStation.update(1);
         }
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
@@ -155,7 +153,6 @@ public class InteractionTest {
         cook.foodStack.addStack(FoodItem.FoodID.meat);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         while (testStation.progress < 100){
-            testStation.interact(cook, InputKey.InputTypes.USE);
             testStation.update(1);
         }
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
@@ -311,7 +308,7 @@ public class InteractionTest {
 
     @Test
     // Relates to the FR_GET_FOOD requirement
-    public void PantryTestbottomBun(){
+    public void PantryTestBun(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.bun);
@@ -319,36 +316,9 @@ public class InteractionTest {
         testList.add(testPantry.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.bottomBun, "Picking up a bun while no bottom bun is your stack should make it a bottom bun. It currently does not");
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.bun, "Picking up a bun while no bottom bun is your stack should make it a bottom bun. It currently does not");
     }
 
-    @Test
-    // Relates to the FR_GET_FOOD requirement
-    public void PantryTestTopBun(){
-        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        Pantry testPantry = new Pantry(rectangle);
-        testPantry.setItem(FoodItem.FoodID.bun);
-        ArrayList<Rectangle> testList = new ArrayList<>();
-        testList.add(testPantry.getRectangle());
-        Cook cook = new Cook(1500, 1200, 20, 20);
-        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.topBun, "If a bun is already in the player stack, picking up another bun should give a topBun. It currently does not");
-    }
-
-    @Test
-    // Relates to the FR_GET_FOOD requirement
-    public void PantryTestTopBunThenBottom(){
-        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        Pantry testPantry = new Pantry(rectangle);
-        testPantry.setItem(FoodItem.FoodID.bun);
-        ArrayList<Rectangle> testList = new ArrayList<>();
-        testList.add(testPantry.getRectangle());
-        Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.topBun);
-        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.bottomBun,"If the stack has a top bun, and you pick up a bun from the pantry, it should be a bottom bun. This isn't currently the case");
-    }
 
     @Test
     // Relates to the FR_GET_FOOD requirement
@@ -375,7 +345,6 @@ public class InteractionTest {
         cook.foodStack.addStack(FoodItem.FoodID.potato);
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         while (preparationStation.progress < 100){
-            preparationStation.interact(cook, InputKey.InputTypes.USE);
             preparationStation.update(1);
         }
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
@@ -394,11 +363,28 @@ public class InteractionTest {
         cook.foodStack.addStack(FoodItem.FoodID.dough);
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         while (preparationStation.progress < 100){
-            preparationStation.interact(cook, InputKey.InputTypes.USE);
             preparationStation.update(1);
         }
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.doughCook, "Error:The process of baking dough no longer results in chopped tomatoes at the end. PreperationStation is therefore broken");
+    }
+
+    @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    public void TestAssemblyStationMakePlainSalad(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        AssemblyStation assemblyStation = new AssemblyStation(rectangle);
+        testList.add(assemblyStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.USE);
+        assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        Array<FoodItem.FoodID> foodID = new Array<>();
+        foodID.add(FoodItem.FoodID.lettuceChop);
+        foodID.add(FoodItem.FoodID.plate);
+        assertTrue(cook.dishStack.getStack().equals(foodID), "Error:The process of baking dough no longer results in chopped tomatoes at the end. PreperationStation is therefore broken");
     }
 
 

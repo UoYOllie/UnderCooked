@@ -204,6 +204,8 @@ public class MapHelper {
                 case "ServingStation":
                     mapStations.add(new ServingStation(newRectangle));
                     break;
+                case "ServingStationNew":
+                    mapStations.add(new ServingStationNew(newRectangle));
                 case "SpeedPowerup":
                     mapStations.add(new SpeedPowerup(newRectangle,gameScreen));
                     break;
