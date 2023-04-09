@@ -384,7 +384,7 @@ public class InteractionTest {
         Array<FoodItem.FoodID> foodID = new Array<>();
         foodID.add(FoodItem.FoodID.lettuceChop);
         foodID.add(FoodItem.FoodID.plate);
-        assertTrue(cook.dishStack.getStack() == foodID, "Error:The process of baking dough no longer results in chopped tomatoes at the end. PreperationStation is therefore broken");
+        assertTrue(cook.dishStack.getStack().equals(foodID), "Error:The process of baking dough no longer results in chopped tomatoes at the end. PreperationStation is therefore broken");
     }
 
 
