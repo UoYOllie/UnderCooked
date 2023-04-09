@@ -96,9 +96,9 @@ public class PreparationStation extends Station {
             } else {
                 renderItem = gameSprites.getSprite(GameSprites.SpriteID.FOOD,interaction.getResult().toString());
             }
-            renderItem.setScale(2F * Constants.UnitScale);
+            renderItem.setScale(Constants.UnitScale);
 			System.out.println(renderItem.getWidth());
-            renderItem.setPosition(x - 1/3f * renderItem.getWidth(),y - 4/15f * renderItem.getHeight());
+            renderItem.setPosition(x - 1/3f * renderItem.getWidth(),y - 0.354f * renderItem.getHeight());
             renderItem.draw(batch);
         }
     }
@@ -189,6 +189,7 @@ public class PreparationStation extends Station {
                 }
             }
         }
+
         // The other two inputs require the station being inUse.
         else if (inUse) {
             // If the user instead uses the "Pick Up" option, check if the station is inUse
