@@ -30,13 +30,12 @@ public class BinStation extends Station {
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
 
-        if (cook.getBlocked() == true) {
-            return;
-        }
-
-        // Only bin if user inputs USE or PUT_DOWN
-        if (inputType == InputKey.InputTypes.USE || inputType == InputKey.InputTypes.PUT_DOWN) {
-            cook.foodStack.popStack();
+        if (inputType == InputKey.InputTypes.PUT_DOWN) {
+            if (cook.foodStack.size() > 0 && cook.dishStack.empty()) {
+                cook.foodStack.popStack();
+            } else if (cook.dishStack.size() > 0 && cook.foodStack.empty()) {
+                cook.dishStack.clearStack();
+            }
         }
     }
 }
