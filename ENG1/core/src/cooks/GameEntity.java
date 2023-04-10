@@ -91,12 +91,12 @@ public abstract class GameEntity {
      */
     public abstract void render(SpriteBatch batch);
 
-    /**
-     * The debug render function, used to render the {@link GameEntity}'s
-     * debug visuals.
-     * @param batch The {@link SpriteBatch} used to render.
-     */
-    public abstract void renderDebug(SpriteBatch batch);
+//    /**
+//     * The debug render function, used to render the {@link GameEntity}'s
+//     * debug visuals.
+//     * @param batch The {@link SpriteBatch} used to render.
+//     */
+//    public abstract void renderDebug(SpriteBatch batch);
 
 
     /**

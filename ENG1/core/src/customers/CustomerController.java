@@ -7,6 +7,7 @@ import cooks.Cook;
 import food.Recipe;
 import game.GameScreen;
 import game.GameSprites;
+import helper.Constants;
 import stations.ServingStation;
 
 import java.util.Random;
@@ -111,8 +112,8 @@ public class CustomerController {
         ServingStation chosenStation = emptyStations.get(random.nextInt(emptyStations.size));
 
         Customer newCustomer = new Customer(customerSprite,
-                new Vector2(chosenStation.getCustomerX(),
-                        chosenStation.getCustomerY()));
+                new Vector2(chosenStation.getCustomerX()*Constants.UnitScale,
+                        chosenStation.getCustomerY()*Constants.UnitScale));
         customers.add(newCustomer);
         newCustomer.randomRecipe();
         chosenStation.setCustomer(newCustomer);

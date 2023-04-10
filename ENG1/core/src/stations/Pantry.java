@@ -50,12 +50,12 @@ public class Pantry extends Station {
         }
     }
 
-    /**
-     * Unused method to update the pantry.
-     * @param delta The time between frames.
-     */
-    @Override
-    public void update(float delta) { }
+//    /**
+//     * Unused method to update the pantry.
+//     * @param delta The time between frames.
+//     */
+//    @Override
+//    public void update(float delta) { }
 
     /**
      * Unused method to render items onto the Pantry.
@@ -64,12 +64,12 @@ public class Pantry extends Station {
     @Override
     public void render(SpriteBatch batch) { }
 
-    /**
-     * Unused method to render items onto the Pantry's debug visuals.
-     * @param batch The SpriteBatch to render.
-     */
-    @Override
-    public void renderDebug(SpriteBatch batch) { }
+//    /**
+//     * Unused method to render items onto the Pantry's debug visuals.
+//     * @param batch The SpriteBatch to render.
+//     */
+//    @Override
+//    public void renderDebug(SpriteBatch batch) { }
 
 //    /**
 //     * Unused method to render the Pantry.

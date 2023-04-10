@@ -42,7 +42,7 @@ public class AssemblyStation extends Station {
     }
 
     /***
-     * Helper method to test if both the cook's DishStack and the station's DishStack
+     * A helper method to test if both the cook's DishStack and the station's DishStack
      * are empty. Used in the interact method to check interactions are valid.
 
      * @param cook The cook currently interacting with the AssemblyStation.
@@ -52,7 +52,7 @@ public class AssemblyStation extends Station {
         return cook.dishStack.size() == 0 && stationDishStack.size() == 0;
     }
 
-    /** Method to control interactions between a cook and the AssemblyStation.
+    /** The method to control interactions between a cook and the AssemblyStation.
 
      * PUT_DOWN puts the cook's FoodItem down onto the AssemblyStation.
      * PICK_UP picks up a FoodItem or DishStack depending on what is on the AssemblyStation.

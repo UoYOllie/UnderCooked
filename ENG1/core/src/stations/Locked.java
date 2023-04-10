@@ -49,9 +49,6 @@ public class Locked extends Station{
                 case "bake":
                     prepStation.setID(Station.StationID.bake);
                     break;
-                case "assembly":
-                    prepStation.setID(Station.StationID.assembly);
-                    break;
             }
             gameScreen.mapHelper.mapStations.add(prepStation);
             this.Enabled = false;

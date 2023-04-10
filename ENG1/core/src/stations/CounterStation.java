@@ -37,23 +37,6 @@ public class CounterStation extends Station {
         return cook.dishStack.size() == 0 && stationDishStack.size() == 0;
     }
 
-    /**
-     * The function that allows a {@link Cook} to interact with the {@link CounterStation}.
-     *
-     * <br><br>If the {@link Cook} interacts using {@link InputKey.InputTypes#USE},
-     * they will swap stacks with the {@link CounterStation}.
-     *
-     * <br><br>If the {@link Cook} interacts using {@link InputKey.InputTypes#PICK_UP},
-     * they will take the top {@link FoodItem} of the {@link FoodStack}
-     * from {@link CounterStation} and put it on their own {@link FoodStack}.
-     *
-     * <br><br>If the {@link Cook} interacts using {@link InputKey.InputTypes#PUT_DOWN},
-     * they will take the top {@link FoodItem} of their {@link FoodStack}
-     * put it on the {@link CounterStation}'s {@link FoodStack}.
-     * @param cook The cook that interacted with the {@link CookInteractable}.
-     * @param inputType The type of {@link InputKey.InputTypes} the player made with
-     *                  the {@link CookInteractable}.
-     */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
         System.out.println("Im interacting with a counter");

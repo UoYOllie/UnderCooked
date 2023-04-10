@@ -10,42 +10,33 @@ import game.GameSprites;
 import interactions.InputKey;
 
 /**
- * The default {@link stations} class used as
- * a Parent for other {@link stations}.
+ * The default Station class used as a parent for other stations.
  * */
 public class Station extends CookInteractable {
 
-    /** IDs of all the different possible types of stations.*/
+    /** Indicates whether the station is currently locked or usable. */
     public Boolean Enabled = true;
+
+    /** IDs of all types of PreparationStation. */
     public enum StationID {
-        /** Frying Station, uses {@link PreparationStation}. */
+        /** Frying Station. */
         fry,
-        /** Cutting Station, uses {@link PreparationStation}. */
+        /** Cutting Station. */
         cut,
-        /** Baking Station, uses {@link PreparationStation}. */
+        /** Baking Station. */
         bake,
-
-        // from laura - is this necessary under the new map system? no usages
-        /** {@link CounterStation} that can hold {@link food.FoodItem}s. */
-        counter,
-        /** {@link BinStation} that can dispose of {@link food.FoodItem}s.*/
-        bin,
-
-        /** {@link ServingStation} that allows {@link Cook}s to serve {@link customers.Customer}s. */
-        serving,
-        assembly,
-        /** Default Station that does nothing. */
-        none
+        /** Assembly Station. */
+        assembly;
     }
 
     StationID stationID;
     public boolean inUse;
     GameSprites gameSprites;
-    public Cook CurrentCook;
+    //public Cook CurrentCook;
 
     /**
-     * The constructor for the {@link Station}.
-     * @param rectangle The collision and interaction area of the {@link Station}.
+     * Constructor for Station.
+     * @param rectangle The station's interaction rectangle.
      */
     public Station(Rectangle rectangle) {
         super(rectangle);
@@ -54,62 +45,51 @@ public class Station extends CookInteractable {
     }
 
     /**
-     * Sets the {@link #stationID} of the {@link Station} to a
-     * {@link StationID}.
-     *
-     * <br>This is not used by all Stations, but is useful if you want
-     * something like that {@link PreparationStation} to function.
-     * @param stationID The {@link StationID} for the {@link Station}
-     *                  to be set to.
+     * Sets the stationID of the station.
+     * This is only used by PreparationStation.
      */
     public void setID(StationID stationID) {
         this.stationID = stationID;
     }
 
-    /**
-     * The function that allows a {@link Cook} to interact with the {@link Station}.
-     * <br>The default {@link Station} does nothing.
-     * @param cook The cook that interacted with the {@link CookInteractable}.
-     * @param inputType The type of {@link InputKey.InputTypes} the player made with
-     *                  the {@link CookInteractable}.
+    /** The method to control interactions between a cook and the AssemblyStation.
+     *
+     * @param cook The cook currently interacting with the AssemblyStation.
+     * @param inputType The input received from the cook currently interacting.
      */
     public void interact(Cook cook, InputKey.InputTypes inputType) { }
 
     /**
-     * An update function to be used by the {@link game.GameScreen}
-     * if a {@link Station} needs it.
+     * An update function used by the GameScreen if the Station needs updating.
+     * This is only used by PreparationStation.
      * @param delta The time between frames as a float.
      */
     @Override
     public void update(float delta) { }
 
     /**
-     * The function used to render the {@link Station}.
-     * @param batch The {@link SpriteBatch} used to render.
+     * The function used to render items onto the Station.
+     * @param batch the SpriteBatch to be rendered.
      */
     @Override
-    public void render(SpriteBatch batch) {
-        // Render the station's item on top, when inUse is false.
-        if (!inUse) {
-            //Sprite stationSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.STATION,String.valueOf(stationID));
-            //batch.draw(stationSprite,x-35F/2,y-10F,35F,35F);
-        }
-    }
+    public void render(SpriteBatch batch) { }
 
     /**
-     * The function used to render the {@link Station}'s
-     * debug visuals.
-     * @param batch The {@link SpriteBatch} used to render.
-     */
-    @Override
-    public void renderDebug(SpriteBatch batch) { }
-
-    /**
-     * The function used to render the {@link Station}.
-     * @param shape The {@link ShapeRenderer} used to render.
+     * The function used to render the progress bars.
+     * It is only used by the PreparationStation.
+     * @param shape The ShapeRenderer used to render.
      */
     @Override
     public void renderShape(ShapeRenderer shape) { }
+
+//    /**
+//     * The function used to render the {@link Station}'s
+//     * debug visuals.
+//     * @param batch The {@link SpriteBatch} used to render.
+//     */
+//    @Override
+//    public void renderDebug(SpriteBatch batch) { }
+
 
 //    /**
 //     * The function used to render the {@link Station}'s

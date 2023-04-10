@@ -84,6 +84,7 @@ public class GameScreen extends ScreenAdapter {
         this.nextCustomerSecond = -1;
         this.cooks = new Array<>();
         this.unusedcooks = new Array<>();
+
         this.interactables = new Array<>();
         this.gold = new Gold();
         this.gold.setBalance(1000); //for testing purposes ONLY
@@ -134,7 +135,6 @@ public class GameScreen extends ScreenAdapter {
 
         this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
-
 
     }
 
@@ -259,7 +259,7 @@ public class GameScreen extends ScreenAdapter {
             if (entity == cook) {
                 ((Cook) entity).renderControlArrow(batch);
             }
-            entity.renderDebug(batch);
+            //entity.renderDebug(batch);
         }
 
         batch.end();

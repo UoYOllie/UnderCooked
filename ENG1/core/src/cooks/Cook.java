@@ -308,14 +308,14 @@ public class Cook extends GameEntity {
         controlSprite.draw(batch);
     }
 
-    /**
-     * Debug rendering using the {@link SpriteBatch}. Unused.
-     * @param batch The {@link SpriteBatch} used to render.
-     */
-    @Override
-    public void renderDebug(SpriteBatch batch) {
-
-    }
+//    /**
+//     * Debug rendering using the {@link SpriteBatch}. Unused.
+//     * @param batch The {@link SpriteBatch} used to render.
+//     */
+//    @Override
+//    public void renderDebug(SpriteBatch batch) {
+//
+//    }
 
     /**
      * Rendering using the {@link ShapeRenderer}. Unused.

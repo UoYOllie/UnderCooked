@@ -11,23 +11,23 @@ import game.GameScreen;
 import helper.Constants;
 
 /**
- * A {@link Customer} has a request that they want
- * to be served by the player.
+ * A Customer requests a dish to be served to them by the cook.
  */
 public class Customer {
 
     /** The position of the Customer. */
     public Vector2 position;
-    /** The {@link Sprite} of the {@link Customer}. */
+
+    /** The Sprite of the Customer. */
     public Sprite sprite;
-    /** The name of the {@link Recipe} that the {@link Customer}
-     * is requesting. */
+
+    /** The name of the recipe being requested. */
     public String request;
 
     /**
-     * The constructor for the {@link Customer}.
-     * <br>Randomly picks out a {@link Recipe} as a request.
-     * @param sprite The {@link Sprite} of the {@link Customer}.
+     * The constructor for the Customer.
+     * Randomly picks a recipe for the Customer to request.
+     * @param sprite The Sprite of the customer.
      */
     public Customer(Sprite sprite) {
         this.sprite = sprite;
