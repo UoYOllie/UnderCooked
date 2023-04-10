@@ -90,21 +90,12 @@ public class AssemblyStation extends Station {
                 break;
 
             case USE:
-                System.out.println("this is the station's FoodStack before interacting:");
-                System.out.println(stationFoodStack.getStack());
-                System.out.println("this is the station's DishStack before interacting:");
-                System.out.println(stationDishStack.getStack());
                 // If the recipe is valid, assemble the station's FoodStack into the station's DishStack.
                 if (allDishStacksEmpty(cook) && food.Recipe.orderStack(stationFoodStack) != null) {
-                    System.out.println("i am going to try and assemble the recipe");
                     stationFoodStack = Recipe.orderStack(stationFoodStack);
                     assert stationFoodStack != null; // Picks up NullPointerException if stationFoodStack is null.
                     stationDishStack.setStackPlate(stationFoodStack.getStackCopy());
                     stationFoodStack.clearStack();
-                    System.out.println("this is the station's FoodStack after interacting:");
-                    System.out.println(stationFoodStack.getStack());
-                    System.out.println("this is the station's DishStack after interacting:");
-                    System.out.println(stationDishStack.getStack());
                 }
                 break;
         }
@@ -157,5 +148,4 @@ public class AssemblyStation extends Station {
             drawY += FoodItem.foodHeights.get(dishList.get(i)) * 0.25F;
         }
     }
-
 }
