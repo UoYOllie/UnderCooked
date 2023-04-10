@@ -192,9 +192,9 @@ public class MapHelper {
                         case "bake":
                             prepStation.setID(Station.StationID.bake);
                             break;
-                        case "assembly":
-                            prepStation.setID(Station.StationID.assembly);
-                            break;
+//                        case "assembly":
+//                            prepStation.setID(Station.StationID.assembly);
+//                            break;
                     }
                     mapStations.add(prepStation);
                     break;

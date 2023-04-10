@@ -5,8 +5,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
+import food.DishStack;
 import food.FoodItem;
 import food.FoodStack;
+import food.Recipe;
 import game.GameSprites;
 import helper.Constants;
 import interactions.InputKey;
@@ -17,7 +19,8 @@ import interactions.InputKey;
  */
 public class CounterStation extends Station {
 
-    public FoodStack foodStack;
+    public FoodStack stationFoodStack;
+    public DishStack stationDishStack;
 
     /**
      * The constructor for the {@link CounterStation}. It sets up the
@@ -26,7 +29,12 @@ public class CounterStation extends Station {
      */
     public CounterStation(Rectangle rectangle) {
         super(rectangle);
-        foodStack = new FoodStack();
+        stationFoodStack = new FoodStack();
+        stationDishStack = new DishStack();
+    }
+
+    private boolean allDishStacksEmpty(Cook cook) {
+        return cook.dishStack.size() == 0 && stationDishStack.size() == 0;
     }
 
     /**
@@ -54,29 +62,57 @@ public class CounterStation extends Station {
         System.out.println(rectangle.getWidth());
         System.out.println(rectangle.getHeight());
 
-        if (cook.getBlocked() == true) {
-            return;
+        switch (inputType) {
+
+            case PUT_DOWN:
+                // Put down a FoodItem from the cook's FoodStack to the station's FoodStack.
+                if (!cook.foodStack.empty() && stationFoodStack.size() < 1
+                        && allDishStacksEmpty(cook)) {
+                    stationFoodStack.addStackLimited(cook.foodStack.popStack(), 1);
+                }
+                // Put the cook's DishStack down onto the station's DishStack.
+                if (cook.foodStack.empty() && stationFoodStack.empty()
+                        && !cook.dishStack.empty() && stationDishStack.empty()) {
+                    stationDishStack.setStack(cook.dishStack.getStackCopy());
+                    cook.dishStack.clearStack();
+                }
+                break;
+
+            case PICK_UP:
+                // Pick up a FoodItem from the station's FoodStack to the cook's FoodStack.
+                if (cook.foodStack.size() < 3 && !stationFoodStack.empty()
+                        && allDishStacksEmpty(cook)) {
+                    cook.foodStack.addStack(stationFoodStack.popStack());
+                }
+                // Pick up the station's entire DishStack onto the cook's entire DishStack.
+                if (cook.foodStack.empty() && stationFoodStack.empty()
+                        && cook.dishStack.empty () && !stationDishStack.empty()) {
+                    cook.dishStack.setStack(stationDishStack.getStackCopy());
+                    stationDishStack.clearStack();
+                }
+                break;
+
         }
 
-        // If Cook is using the put down input, put down the item in the top of their stack
-        if (cook.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
-            // Take it from the cook, and add it to this counter's stack.
-            foodStack.addStack(cook.foodStack.popStack());
-            return;
-        }
-        // If Cook is using the pick up input, pick up the item on the top of this stack
-        if (foodStack.size() > 0 && inputType == InputKey.InputTypes.PICK_UP) {
-            // Take it from the cook, and add it to this counter's stack.
-            cook.foodStack.addStack(foodStack.popStack());
-            return;
-        }
-        // Otherwise swap the items on the use input
-        if (inputType == InputKey.InputTypes.USE) {
-            FoodStack tempStack = foodStack;
-            // If the above doesn't apply, then just swap the stacks.
-            foodStack = cook.foodStack;
-            cook.foodStack = tempStack;
-        }
+//        // If Cook is using the put down input, put down the item in the top of their stack
+//        if (cook.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
+//            // Take it from the cook, and add it to this counter's stack.
+//            foodStack.addStack(cook.foodStack.popStack());
+//            return;
+//        }
+//        // If Cook is using the pick up input, pick up the item on the top of this stack
+//        if (foodStack.size() > 0 && inputType == InputKey.InputTypes.PICK_UP) {
+//            // Take it from the cook, and add it to this counter's stack.
+//            cook.foodStack.addStack(foodStack.popStack());
+//            return;
+//        }
+//        // Otherwise swap the items on the use input
+//        if (inputType == InputKey.InputTypes.USE) {
+//            FoodStack tempStack = foodStack;
+//            // If the above doesn't apply, then just swap the stacks.
+//            foodStack = cook.foodStack;
+//            cook.foodStack = tempStack;
+//        }
     }
 
     /**
@@ -92,14 +128,11 @@ public class CounterStation extends Station {
         // Loop through the items in the food stack.
         // It is done from the end of the stack to the start because the stack's top is
         // at 0, and the bottom at the end.
-        Array<FoodItem.FoodID> foodList = foodStack.getStack();
+        Array<FoodItem.FoodID> foodList = stationFoodStack.getStack();
         float xOffset = 0F, yOffset = 0F;
         // Get offset based on direction.
 
         float drawX = x, drawY = y;
-        /*if (foodStack.size() > 0) {
-            foodStack.popStack();
-        }*/
         for (int i = foodList.size-1 ; i >= 0 ; i--) {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(foodList.get(i)));
             Float drawInc = FoodItem.foodHeights.get(foodList.get(i));
@@ -107,11 +140,29 @@ public class CounterStation extends Station {
                 drawY += 5F * Constants.UnitScale;
                 continue;
             }
-            foodSprite.setScale(2F * Constants.UnitScale);
-            foodSprite.setPosition(drawX-foodSprite.getWidth()/3 + xOffset * Constants.UnitScale,drawY - foodSprite.getHeight() * 4/15f +yOffset* Constants.UnitScale);
-			// setPosition(x - 1/3f * renderItem.getWidth(),y - 4/15f * renderItem.getHeight()
+            foodSprite.setScale(Constants.UnitScale);
+            foodSprite.setPosition(drawX-foodSprite.getWidth()/3 + xOffset * Constants.UnitScale,drawY - foodSprite.getHeight() * 0.33f +yOffset* Constants.UnitScale);
             foodSprite.draw(batch);
             drawY += drawInc;
+        }
+
+        // Render the DishStack onto the CounterStation.
+        Array<FoodItem.FoodID> dishList = stationDishStack.getStack();
+        xOffset = 0F;
+        drawX = x;
+        drawY = y;
+
+        // Draw each FoodItem in dishList.
+        for (int i = dishList.size-1 ; i >= 0 ; i--) {
+
+            Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(dishList.get(i)));
+            foodSprite.setScale(Constants.UnitScale);
+            foodSprite.setPosition(drawX-foodSprite.getWidth()/3 + xOffset * Constants.UnitScale,
+                    drawY - foodSprite.getHeight() * 0.33f +yOffset* Constants.UnitScale);
+            foodSprite.draw(batch);
+
+            // Render the next item slightly above the current item (as a stack).
+            drawY += FoodItem.foodHeights.get(dishList.get(i)) * 0.25F;
         }
     }
 }

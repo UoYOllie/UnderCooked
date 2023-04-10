@@ -16,12 +16,12 @@ import helper.Constants;
 import interactions.InputKey;
 
 /** Station to assemble items into dishes.
- *
+
  * Up to six FoodItems can be picked up and put down on the station.
  * If the AssemblyStation's FoodStack makes up a valid recipe when interacted with,
  * they are turned into an assembled DishStack which can be picked up by cooks.
- *
- * @requirements
+
+ * @requirements FR_ASSEMBLE
  * */
 public class AssemblyStation extends Station {
 
@@ -33,7 +33,7 @@ public class AssemblyStation extends Station {
 
     /** Constructor for AssemblyStation.
      * Initialises interaction Rectangle and empty FoodStack and DishStack.
-     *
+
      * @param rectangle The station's interaction rectangle. */
     public AssemblyStation(Rectangle rectangle) {
         super(rectangle);
@@ -44,7 +44,7 @@ public class AssemblyStation extends Station {
     /***
      * Helper method to test if both the cook's DishStack and the station's DishStack
      * are empty. Used in the interact method to check interactions are valid.
-     *
+
      * @param cook The cook currently interacting with the AssemblyStation.
      * @return true if both DishStacks are empty, false otherwise.
      */
@@ -57,7 +57,7 @@ public class AssemblyStation extends Station {
      * PUT_DOWN puts the cook's FoodItem down onto the AssemblyStation.
      * PICK_UP picks up a FoodItem or DishStack depending on what is on the AssemblyStation.
      * USE assembles the AssemblyStation's FoodStack into a DishStack when the recipe is valid.
-     *
+
      * @param cook The cook currently interacting with the AssemblyStation.
      * @param inputType The input received from the cook currently interacting.
      */
@@ -74,6 +74,7 @@ public class AssemblyStation extends Station {
                 }
                 break;
 
+
             case PICK_UP:
                 // Pick up a FoodItem from the station's FoodStack to the cook's FoodStack.
                 if (cook.foodStack.size() < 3 && !stationFoodStack.empty()
@@ -89,23 +90,33 @@ public class AssemblyStation extends Station {
                 break;
 
             case USE:
+                System.out.println("this is the station's FoodStack before interacting:");
+                System.out.println(stationFoodStack.getStack());
+                System.out.println("this is the station's DishStack before interacting:");
+                System.out.println(stationDishStack.getStack());
                 // If the recipe is valid, assemble the station's FoodStack into the station's DishStack.
                 if (allDishStacksEmpty(cook) && food.Recipe.orderStack(stationFoodStack) != null) {
+                    System.out.println("i am going to try and assemble the recipe");
                     stationFoodStack = Recipe.orderStack(stationFoodStack);
                     assert stationFoodStack != null; // Picks up NullPointerException if stationFoodStack is null.
                     stationDishStack.setStackPlate(stationFoodStack.getStackCopy());
                     stationFoodStack.clearStack();
+                    System.out.println("this is the station's FoodStack after interacting:");
+                    System.out.println(stationFoodStack.getStack());
+                    System.out.println("this is the station's DishStack after interacting:");
+                    System.out.println(stationDishStack.getStack());
                 }
                 break;
         }
     }
 
     /** Method to render items onto the AssemblyStation.
-     *
+
      * Renders each FoodItem of the FoodStack into its own box on the AssemblyStation, and the final DishStack
      * into the big box on the end.
-     *
-     * @param batch the SpriteBatch to be rendered.*/
+
+     * @param batch the SpriteBatch to be rendered.
+     */
     @Override
     public void render(SpriteBatch batch) {
 

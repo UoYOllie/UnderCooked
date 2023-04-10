@@ -41,7 +41,6 @@ public class ServingStationNew extends Station {
         }
     }
 
-
     @Override
     public void render(SpriteBatch batch) {
         Array<FoodItem.FoodID> dishList = servedDishStack.getStack();

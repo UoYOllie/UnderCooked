@@ -198,7 +198,7 @@ public class GameScreen extends ScreenAdapter {
                 lastCustomerSecond = TimeUtils.millis();
                 nextCustomerSecond += 1000 * Math.floor(9 + 5.4F * Math.log(recipeComplexity - 0.7));
             }
-            System.out.println("i just spawned a customer!");
+            //System.out.println("i just spawned a customer!");
         }
 
         if(Interactions.isJustPressed(InputKey.InputTypes.PAUSE))
