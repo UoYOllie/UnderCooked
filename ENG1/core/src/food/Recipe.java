@@ -38,9 +38,9 @@ public class Recipe {
 
         // SALADS
         generateRecipe("Plain Salad", new FoodStack(FoodID.lettuceChop));
-        generateRecipe("Tomato Salad", new FoodStack(FoodID.lettuceChop, FoodID.tomatoChop));
-        generateRecipe("Onion Salad", new FoodStack(FoodID.lettuceChop, FoodID.onionChop));
-        generateRecipe("Tomato Onion Salad", new FoodStack(FoodID.lettuceChop, FoodID.tomatoChop, FoodID.onionChop));
+        generateRecipe("Tomato Salad", new FoodStack(FoodID.tomatoChop, FoodID.lettuceChop));
+        generateRecipe("Onion Salad", new FoodStack(FoodID.onionChop, FoodID.lettuceChop));
+        generateRecipe("Tomato Onion Salad", new FoodStack(FoodID.onionChop, FoodID.tomatoChop, FoodID.lettuceChop));
 
         // JACKET POTATOES
         generateRecipe("Plain Potato", new FoodStack(FoodID.potatoCook));
@@ -110,18 +110,6 @@ public class Recipe {
             }
         }
         return true;
-    }
-
-    // bunch of kinda dodgy methods testing out some ideas
-
-    public static boolean validRecipe(FoodStack foodStack) {
-
-        for (String recipeName : recipeNames) {
-            if (matchesRecipe(foodStack, recipeName)) {
-                return true;
-            }
-        }
-        return false;
     }
 
 
