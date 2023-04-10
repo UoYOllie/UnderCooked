@@ -52,4 +52,12 @@ public class DishStack {
 
     }
 
+    public boolean empty() {
+        if (this.dishStack.size > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }

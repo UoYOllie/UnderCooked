@@ -67,14 +67,24 @@ public class FoodStack {
     * @param newFood The item to add to the top of the foodStack.
     */
     public void addStack(FoodID newFood) {
-        if(this.size()<=2) {
+        if(this.size()<3) {
             foodStack.insert(0, newFood);
         }
     }
 
     // temporary method for laura to test out station stuff
-    public void addStackUnlimited(FoodID newFood) {
-        foodStack.insert(0, newFood);
+    public void addStackLimited(FoodID newFood, int limit) {
+        if(this.size()<limit) {
+            foodStack.insert(0, newFood);
+        }
+    }
+
+    public boolean empty() {
+        if (this.foodStack.size > 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**

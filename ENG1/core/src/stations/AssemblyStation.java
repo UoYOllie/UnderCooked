@@ -25,46 +25,56 @@ public class AssemblyStation extends Station {
         stationDishStack = new DishStack();
     }
 
+    private boolean cookHolding(Cook cook) {
+        if (cook.dishStack.size() == 0
+            && cook.foodStack.size() == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
 
-        if (cook.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
-            stationFoodStack.addStackUnlimited(cook.foodStack.popStack());
-            return;
+        if (inputType == InputKey.InputTypes.PUT_DOWN) {
+
+            // Put down a FoodItem from the cook's FoodStack to the station's FoodStack.
+            if (!cook.foodStack.empty() && cook.dishStack.empty()
+                    && stationFoodStack.size() < 6 && stationDishStack.empty()) {
+                stationFoodStack.addStackLimited(cook.foodStack.popStack(), 6);
+                return;
+            }
         }
 
         if (inputType == InputKey.InputTypes.PICK_UP) {
-            if (stationFoodStack.size() > 0) {
+
+            // Pick up a FoodItem from the station's FoodStack to the cook's FoodStack.
+            if (cook.foodStack.size() < 3 && cook.dishStack.empty()
+                    && !stationFoodStack.empty() && stationDishStack.empty()) {
                 cook.foodStack.addStack(stationFoodStack.popStack());
                 return;
-            } else if (stationDishStack.size() > 0) {
+            }
+
+            // Pick up the station's entire DishStack onto the cook's entire DishStack.
+            if (cook.foodStack.empty() && cook.dishStack.empty()
+                    && stationFoodStack.empty () && !stationDishStack.empty()) {
                 cook.dishStack.setStack(stationDishStack.getStackCopy());
                 stationDishStack.clearStack();
-                System.out.println("this is the cook's DishStack:");
-                System.out.println(cook.dishStack.getStack());
-                System.out.println("this is the station's DishStack:");
-                System.out.println(stationDishStack.getStack());
-                return;
-            } else {
                 return;
             }
         }
 
 
         if (inputType == InputKey.InputTypes.USE) {
-            System.out.println(stationFoodStack.getStack());
-              if (food.Recipe.validRecipe(stationFoodStack)) {
-                  System.out.println("this is a valid recipe!");
-                  stationFoodStack = Recipe.orderStack(stationFoodStack);
-                  stationDishStack.setStackPlate(stationFoodStack.getStackCopy());
-                  stationFoodStack.clearStack();
-                  System.out.println("this is the station's FoodStack:");
-                  System.out.println(stationFoodStack.getStack());
-                  System.out.println("this is the station's DishStack:");
-                  System.out.println(stationDishStack.getStack());
-              } else {
-                  System.out.println("that is not a valid recipe!!!");
-              }
+
+            // If the recipe is valid, assemble the station's FoodStack into the station's DishStack.
+            if (cook.dishStack.empty() && stationDishStack.empty()
+                    && food.Recipe.validRecipe(stationFoodStack)){
+                stationFoodStack = Recipe.orderStack(stationFoodStack);
+                stationDishStack.setStackPlate(stationFoodStack.getStackCopy());
+                stationFoodStack.clearStack();
+            }
         }
     }
 
@@ -76,16 +86,9 @@ public class AssemblyStation extends Station {
 
         for (int i = foodList.size-1 ; i >= 0 ; i--) {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(foodList.get(i)));
-//            Float drawInc = FoodItem.foodHeights.get(foodList.get(i));
-//            if (drawInc == null) {
-//                drawY += 5F * Constants.UnitScale;
-//                continue;
-//            }
             foodSprite.setScale(0.6f*Constants.UnitScale);
-
             foodSprite.setPosition(drawX-foodSprite.getWidth()/3 + xOffset * Constants.UnitScale,drawY - foodSprite.getHeight() * 0.354f);
             foodSprite.draw(batch);
-            //drawY += drawInc;
             xOffset += 16f;
         }
 
