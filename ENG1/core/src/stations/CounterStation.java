@@ -141,7 +141,7 @@ public class CounterStation extends Station {
                 continue;
             }
             foodSprite.setScale(Constants.UnitScale);
-            foodSprite.setPosition(drawX-foodSprite.getWidth()/3 + xOffset * Constants.UnitScale,drawY - foodSprite.getHeight() * 0.33f +yOffset* Constants.UnitScale);
+            foodSprite.setPosition(x - 1/3f * foodSprite.getWidth(),y - 0.354f * foodSprite.getHeight());
             foodSprite.draw(batch);
             drawY += drawInc;
         }
