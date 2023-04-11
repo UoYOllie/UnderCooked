@@ -259,7 +259,6 @@ public class GeneralTest {
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
         testStation.testFlag = 1;
-        testStation.setID(Station.StationID.serving);
         Sprite sprite = new Sprite();
         Customer customer = new Customer(sprite);
         CustomerController customerController = new CustomerController();
@@ -277,7 +276,6 @@ public class GeneralTest {
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
         testStation.testFlag = 1;
-        testStation.setID(Station.StationID.serving);
         Sprite sprite = new Sprite();
         Customer customer = new Customer(sprite);
         CustomerController customerController = new CustomerController();
@@ -295,7 +293,6 @@ public class GeneralTest {
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
         testStation.testFlag = 1;
-        testStation.setID(Station.StationID.serving);
         Sprite sprite = new Sprite();
         Customer customer = new Customer(sprite);
         CustomerController customerController = new CustomerController();
@@ -313,7 +310,6 @@ public class GeneralTest {
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
         testStation.testFlag = 1;
-        testStation.setID(Station.StationID.serving);
         Sprite sprite = new Sprite();
         Customer customer = new Customer(sprite);
         CustomerController customerController = new CustomerController();
@@ -331,7 +327,6 @@ public class GeneralTest {
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
         testStation.testFlag = 1;
-        testStation.setID(Station.StationID.serving);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
         assertTrue(testStation.getX() == testStation.rectangle.x + 32,"GetX no longer returns the x position of the serving station when no customers are assigned");
@@ -343,7 +338,6 @@ public class GeneralTest {
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
         testStation.testFlag = 1;
-        testStation.setID(Station.StationID.serving);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
         assertTrue(testStation.getY() == testStation.rectangle.y + 96,"GetY no longer returns the y position of the serving station when no customers are assigned");

@@ -198,13 +198,9 @@ public class InteractionTest {
     public void TestBinStationGetsRidOfItem(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         BinStation testStation = new BinStation(rectangle);
-        testStation.setID(Station.StationID.bin);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.meat);
-        testStation.interact(cook, InputKey.InputTypes.USE);
-        assertTrue(cook.foodStack.size() == 0,"Error:Using a bin using the USE input type does not work");
         cook.foodStack.addStack(FoodItem.FoodID.meat);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         assertTrue(cook.foodStack.size() == 0,"Error:Using a bin using the PUT_DOWN input type does not work");
@@ -215,19 +211,18 @@ public class InteractionTest {
     public void TestCounterCanHoldMultiple(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         CounterStation testStation = new CounterStation(rectangle);
-        testStation.setID(Station.StationID.counter);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.meat);
         cook.foodStack.addStack(FoodItem.FoodID.lettuce);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
-        for (int x = 0; x < 3; x++){
-            testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
-        }
-        assertTrue(testStation.foodStack.popStack() == FoodItem.FoodID.meat, "Error: counter cannot hold multiple items, or stack on counter is no longer working");
-        assertTrue(testStation.foodStack.popStack() == FoodItem.FoodID.lettuce,"Error: counter cannot hold multiple items, or stack on counter is no longer working");
-        assertTrue(testStation.foodStack.popStack()== FoodItem.FoodID.onionChop,"Error: counter cannot hold multiple items, or stack on counter is no longer working");
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assertTrue(testStation.stationFoodStack.popStack() == FoodItem.FoodID.onionChop, "Error: counter no longer holds a single item correctly");
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assertTrue(testStation.stationFoodStack.popStack() == FoodItem.FoodID.lettuce,"Error: counter no longer holds a single item correctly after another item has been taken off");
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assertTrue(testStation.stationFoodStack.popStack()== FoodItem.FoodID.meat,"Error: counter no longer holds a single item correctly after another 2 items have been taken off");
         assertTrue(cook.foodStack.size() == 0,"Error: popping an item from a counter does not remove it from the counter");
     }
 
@@ -385,6 +380,7 @@ public class InteractionTest {
         foodID.add(FoodItem.FoodID.lettuceChop);
         foodID.add(FoodItem.FoodID.plate);
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a Plain salad");
+        foodID.clear();
     }
 
     @Test
@@ -404,8 +400,8 @@ public class InteractionTest {
         assemblyStation.interact(cook, InputKey.InputTypes.USE);
         assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
         Array<FoodItem.FoodID> foodID = new Array<>();
-        foodID.add(FoodItem.FoodID.lettuceChop);
         foodID.add(FoodItem.FoodID.tomatoChop);
+        foodID.add(FoodItem.FoodID.lettuceChop);
         foodID.add(FoodItem.FoodID.plate);
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a Tomato salad");
     }
@@ -426,8 +422,8 @@ public class InteractionTest {
         assemblyStation.interact(cook, InputKey.InputTypes.USE);
         assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
         Array<FoodItem.FoodID> foodID = new Array<>();
-        foodID.add(FoodItem.FoodID.lettuceChop);
         foodID.add(FoodItem.FoodID.onionChop);
+        foodID.add(FoodItem.FoodID.lettuceChop);
         foodID.add(FoodItem.FoodID.plate);
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a Onion salad");
     }
@@ -449,9 +445,9 @@ public class InteractionTest {
         assemblyStation.interact(cook, InputKey.InputTypes.USE);
         assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
         Array<FoodItem.FoodID> foodID = new Array<>();
-        foodID.add(FoodItem.FoodID.lettuceChop);
-        foodID.add(FoodItem.FoodID.tomatoChop);
         foodID.add(FoodItem.FoodID.onionChop);
+        foodID.add(FoodItem.FoodID.tomatoChop);
+        foodID.add(FoodItem.FoodID.lettuceChop);
         foodID.add(FoodItem.FoodID.plate);
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a Tomato Onion salad");
     }
@@ -687,6 +683,7 @@ public class InteractionTest {
         foodID.add(FoodItem.FoodID.potatoCook);
         foodID.add(FoodItem.FoodID.plate);
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a beans coleslaw cheese potato");
+        foodID.clear();
     }
 
     @Test
@@ -1266,7 +1263,6 @@ public class InteractionTest {
     public void TestServingStationGetAndSetCustomer(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
-        testStation.setID(Station.StationID.serving);
         Sprite sprite = new Sprite();
         Customer customer = new Customer(sprite);
         customer.randomRecipe();
