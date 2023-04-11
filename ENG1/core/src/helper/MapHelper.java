@@ -1,27 +1,17 @@
 package helper;
 
-import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
-import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.badlogic.gdx.physics.box2d.Shape;
-import cooks.Cook;
+import com.badlogic.gdx.utils.Array;
 import food.FoodItem;
 import game.GameScreen;
 import stations.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-import static helper.Constants.PPM;
 
 /** The {@link MapHelper} class helps by setting up the map
  * of the game, and providing the {@link OrthogonalTiledMapRenderer}
@@ -31,6 +21,7 @@ public class MapHelper {
     private TiledMap tiledMap;
     private ArrayList<Rectangle> mapObstacles;
     public ArrayList<Station> mapStations;
+    public ArrayList<Station> servingStationNewList;
 
 
     /**
@@ -40,6 +31,7 @@ public class MapHelper {
     public MapHelper(GameScreen g) {
         mapObstacles = new ArrayList<>();
         mapStations = new ArrayList<>();
+        servingStationNewList = new ArrayList<>();
         this.gameScreen = g;
     }
 
@@ -206,6 +198,7 @@ public class MapHelper {
                     break;
                 case "ServingStationNew":
                     mapStations.add(new ServingStationNew(newRectangle));
+                    servingStationNewList.add(new ServingStationNew(newRectangle));
                 case "SpeedPowerup":
                     mapStations.add(new SpeedPowerup(newRectangle,gameScreen));
                     break;

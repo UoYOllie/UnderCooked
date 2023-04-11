@@ -35,7 +35,7 @@ public class GameSprites {
         textureAtlases.put(SpriteID.COOK, new TextureAtlas("atlas/player.atlas"));
         textureAtlases.put(SpriteID.FOOD, new TextureAtlas("atlas/food_new.atlas"));
         textureAtlases.put(SpriteID.STATION, new TextureAtlas("atlas/station.atlas"));
-        textureAtlases.put(SpriteID.CUSTOMER, new TextureAtlas("atlas/customer.atlas"));
+        textureAtlases.put(SpriteID.CUSTOMER, new TextureAtlas("atlas/customer_bluggus.atlas"));
     }
 
     /**

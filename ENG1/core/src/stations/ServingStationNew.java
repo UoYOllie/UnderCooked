@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
 import cooks.Cook;
+import cooks.CustomerNew;
 import food.FoodItem;
 import food.DishStack;
 import game.GameSprites;
@@ -16,10 +17,20 @@ import interactions.InputKey;
 public class ServingStationNew extends Station {
 
     private DishStack servedDishStack;
+    public CustomerNew customer;
 
     public ServingStationNew(Rectangle rectangle) {
         super(rectangle);
         servedDishStack = new DishStack();
+        customer = null;
+    }
+
+    public boolean hasCustomer() {
+        return customer == null;
+    }
+
+    public CustomerNew getCustomer() {
+        return customer;
     }
 
     @Override

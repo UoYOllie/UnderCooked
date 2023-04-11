@@ -29,6 +29,7 @@ import interactions.InputKey;
 import interactions.Interactions;
 import stations.CookInteractable;
 import stations.ServingStation;
+import stations.ServingStationNew;
 import stations.Station;
 
 import java.util.ArrayList;
@@ -58,7 +59,7 @@ public class GameScreen extends ScreenAdapter {
     private CollisionHelper collisionHelper;
     private ArrayList<GameEntity> gameEntities;
     private DrawQueueComparator drawQueueComparator;
-    private Array<ServingStation> servingStations;
+    //private Array<ServingStation> servingStations;
     private float xOffset = 1500;
     private float yOffset = 1200;
 
@@ -143,18 +144,17 @@ public class GameScreen extends ScreenAdapter {
 //        this.gameEntities.add(customerTest);
 
         this.customerTestList = new Array<>();
-        CustomerNew customerTest1 = new CustomerNew(1995.975f*8f,2855.9087f*8f,3.34f, 1);
+        //CustomerNew customerTest1 = new CustomerNew(2012.0625f, 2855.9087f, 3.34f, 1);
+        CustomerNew customerTest1 = new CustomerNew(1941.5f, 2800.0505f, 3.34f, 1);
         System.out.println("customer test spawned");
         System.out.println(customerTest1.getX());
         System.out.println(customerTest1.getY());
         System.out.println(customerTest1.getWidth());
-        //this.gameEntities.add(customerTest);
         this.addCustomerNew(customerTest1);
         this.customerTest = customerTestList.get(0);
 
         this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
-
     }
 
     /**
