@@ -26,7 +26,10 @@ public class Station extends CookInteractable {
         /** Baking Station. */
         bake,
         /** Assembly Station. */
-        assembly;
+        assembly,
+        serving,
+        counter,
+        bin;
     }
 
     StationID stationID;
