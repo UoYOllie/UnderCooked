@@ -8,6 +8,7 @@ import cooks.GameEntity;
 import food.FoodStack;
 import food.Recipe;
 import game.GameScreen;
+import game.GameSprites;
 import helper.Constants;
 
 /**
@@ -23,6 +24,12 @@ public class Customer {
 
     /** The name of the recipe being requested. */
     public String request;
+
+    public Customer() {
+        this.sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "DOWN");
+        this.position = Constants.customerSpawn;
+        this.request = Recipe.randomRecipe();
+    }
 
     /**
      * The constructor for the Customer.

@@ -6,6 +6,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
+import cooks.CustomerNew;
 import customers.Customer;
 
 import com.badlogic.gdx.Gdx;
@@ -71,6 +72,8 @@ public class GameScreen extends ScreenAdapter {
     private int cookIndex;
     private CustomerController customerController;
     private int customersToServe;
+    public CustomerNew customerTest;
+    public Array<CustomerNew> customerTestList;
 
     /**
      * The constructor for the {@link GameScreen}.
@@ -132,6 +135,22 @@ public class GameScreen extends ScreenAdapter {
         this.addSpareCook(Buy3);
         Cook Buy4 = new Cook((2031.1f-104f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
         this.addSpareCook(Buy4);
+
+//        CustomerNew customerTest = new CustomerNew(1995.975f*8f,2855.9087f*8f,3.34f, 1);
+//        System.out.println("customer test spawned");
+//        System.out.println(customerTest.getX());
+//        System.out.println(customerTest.getY());
+//        this.gameEntities.add(customerTest);
+
+        this.customerTestList = new Array<>();
+        CustomerNew customerTest1 = new CustomerNew(1995.975f*8f,2855.9087f*8f,3.34f, 1);
+        System.out.println("customer test spawned");
+        System.out.println(customerTest1.getX());
+        System.out.println(customerTest1.getY());
+        System.out.println(customerTest1.getWidth());
+        //this.gameEntities.add(customerTest);
+        this.addCustomerNew(customerTest1);
+        this.customerTest = customerTestList.get(0);
 
         this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
@@ -198,7 +217,7 @@ public class GameScreen extends ScreenAdapter {
                 lastCustomerSecond = TimeUtils.millis();
                 nextCustomerSecond += 1000 * Math.floor(9 + 5.4F * Math.log(recipeComplexity - 0.7));
             }
-            //System.out.println("i just spawned a customer!");
+            //System.out.println("i just spawned a customer");
         }
 
         if(Interactions.isJustPressed(InputKey.InputTypes.PAUSE))
@@ -323,6 +342,12 @@ public class GameScreen extends ScreenAdapter {
         this.cook = cooks.get(cookIndex);
         this.cookIndex = cookIndex;
         return this.cook;
+    }
+
+    public int addCustomerNew(CustomerNew newCustomer) {
+        gameEntities.add(newCustomer);
+        customerTestList.add(newCustomer);
+        return customerTestList.size-1;
     }
 
     /**

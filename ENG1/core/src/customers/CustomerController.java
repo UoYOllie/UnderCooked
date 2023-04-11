@@ -3,6 +3,7 @@ package customers;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.TimeUtils;
 import cooks.Cook;
 import food.Recipe;
 import game.GameScreen;
@@ -115,6 +116,11 @@ public class CustomerController {
                 new Vector2(chosenStation.getCustomerX()*Constants.UnitScale,
                         chosenStation.getCustomerY()*Constants.UnitScale));
         customers.add(newCustomer);
+
+        System.out.println("i spawned a customer at");
+        System.out.println(newCustomer.getX());
+        System.out.println(newCustomer.getY());
+
         newCustomer.randomRecipe();
         chosenStation.setCustomer(newCustomer);
         // Show the Customer's recipe
@@ -221,11 +227,11 @@ public class CustomerController {
         // If there is no more customers on the stations, and
         // the time for the next customer to arrive is above 2 seconds,
         // lower the time until the next customer to 2.
-        /*if (customers.size == 0) {
+        if (customers.size == 0) {
             if (TimeUtils.timeSinceMillis(gameScreen.getNextCustomerSecond()) > 2000) {
                 gameScreen.setNextCustomerSecond(TimeUtils.millis() + 2000);
             }
-        }*/
+        }
     }
 
     /**
