@@ -48,7 +48,7 @@ public class Cook extends GameEntity {
      * Note that if S and D are being input at the same time, then
      * inputs = { Facing.RIGHT, Facing.DOWN }
      */
-    private Array<Facing> inputs;
+    public Array<Facing> inputs;
 
     private GameScreen gameScreen;
 
@@ -59,7 +59,7 @@ public class Cook extends GameEntity {
      * Note: Rectangles are actually OP, I love them so much. Rectangles will handle anything from collisions to making
      * sure your hands are in the right place, we should use them more :)))
      */
-    private Rectangle cookInteractor;
+    public Rectangle cookInteractor;
 
     public float movement_speed = 0.6765f;
 
@@ -337,7 +337,7 @@ public class Cook extends GameEntity {
 //    }
 
     /** Return the X pixel offset from the cook's position that the cook's FoodStack requires for rendering.*/
-    private float foodRelativeX(Cook.Facing dir) {
+    public float foodRelativeX(Cook.Facing dir) {
         switch (dir) {
             case RIGHT:
                 return 38F * Constants.UnitScale;
@@ -349,7 +349,7 @@ public class Cook extends GameEntity {
     }
 
     /** Return the Y pixel offset from the cook's position that the cook's FoodStack requires for rendering.*/
-    private float foodRelativeY(Cook.Facing dir) {
+    public float foodRelativeY(Cook.Facing dir) {
         switch (dir) {
             case UP:
                 return -14F * Constants.UnitScale;
@@ -423,7 +423,7 @@ public class Cook extends GameEntity {
      * @param direction The input direction you want an opposite for.
      * @return The opposite direction to the input.
      */
-    private Facing opposite(Facing direction) {
+    public Facing opposite(Facing direction) {
         switch(direction) {
             case UP:
                 return Facing.DOWN;
@@ -443,7 +443,7 @@ public class Cook extends GameEntity {
      * @param direction The input direction you want a 90c rotation for.
      * @return The 90c rotation direction to the input.
      */
-    private Facing rotate90c(Facing direction) {
+    public Facing rotate90c(Facing direction) {
         switch(direction) {
             case UP:
                 return Facing.RIGHT;
