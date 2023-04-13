@@ -207,6 +207,39 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    public void TestBinStationWorksWithEmptyStack(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        BinStation testStation = new BinStation(rectangle);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.clearStack();
+        cook.dishStack.clearStack();
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assertTrue(cook.foodStack.size() == 0,"Error:Using a bin with an empty dishStack and foodStack does not result in an empty food stack");
+        assertTrue(cook.dishStack.size() == 0,"Error:Using a bin with an empty dishStack and foodStack does not result in an empty dish stack");
+    }
+
+    @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    public void TestBinStationWorksWithEmptyFoodStackButHaveADishStack(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        BinStation testStation = new BinStation(rectangle);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.clearStack();
+        Array<FoodItem.FoodID> foodID = new Array<>();
+        foodID.add(FoodItem.FoodID.lettuceChop);
+        foodID.add(FoodItem.FoodID.plate);
+        cook.dishStack.setStack(foodID);
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assertTrue(cook.foodStack.size() == 0,"Error:Using a bin with an empty dishStack and foodStack does not result in an empty food stack");
+        assertTrue(cook.dishStack.size() == 0,"Error:Using a bin with an empty dishStack and foodStack does not result in an empty dish stack");
+    }
+
+    @Test
     // Relates to the FR_COUNTER requirement
     public void TestCounterCanHoldMultiple(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);

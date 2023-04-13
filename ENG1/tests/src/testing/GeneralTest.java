@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
 import cooks.CookInteractor;
 import cooks.GameEntity;
@@ -25,6 +26,7 @@ import stations.Station;
 
 import java.util.ArrayList;
 
+import static Shop.Gold.gold;
 import static org.testng.Assert.*;
 
 @RunWith(GdxTestRunner.class)
@@ -349,5 +351,46 @@ public class GeneralTest {
         Gold gold = new Gold();
         gold.setBalance(36);
         assertTrue(gold.Balance == 36);
+    }
+
+    @Test
+    public void TestGoldGetInstance(){
+        assertTrue(Gold.getInstance()  == gold );
+    }
+
+    //The following tests ensure the robustness of the FoodStack class by testing utility functions and ensuring the fail cases work
+    @Test
+    public void TestFoodStackPeekStackCatchIndexOutOfBounds(){
+        Cook cook = new Cook(1,1,1,1);
+        assertTrue(cook.foodStack.peekStack() == null,"Error: IndexOutOfBounds is not working on foodStacks peekStack");
+    }
+
+    @Test
+    public void TestFoodStackPopStackCatchIndexOutOfBounds(){
+        Cook cook = new Cook(1,1,1,1);
+        assertTrue(cook.foodStack.popStack() == null,"Error: IndexOutOfBounds is not working on foodStacks popStack");
+    }
+
+    @Test
+    public void TestFoodStackSetStack(){
+        Cook cook = new Cook(1,1,1,1);
+        Array<FoodItem.FoodID> foodID = new Array<>();
+        foodID.add(FoodItem.FoodID.lettuceChop);
+        foodID.add(FoodItem.FoodID.plate);
+        cook.foodStack.setStack(foodID);
+        assertTrue(cook.foodStack.popStack() == FoodItem.FoodID.lettuceChop, "Error: FoodStacks setStack is not setting the stack properly");
+        assertTrue(cook.foodStack.popStack() == FoodItem.FoodID.plate,"Error: FoodStacks setStack is not setting the stack properly");
+        assertTrue(cook.foodStack.size() == 0, "Error: FoodStacks setStack is not setting the stack properly");
+    }
+
+    @Test
+    public void TestFoodStackToString(){
+        Cook cook = new Cook(1,1,1,1);
+        Array<FoodItem.FoodID> foodID = new Array<>();
+        foodID.add(FoodItem.FoodID.lettuceChop);
+        foodID.add(FoodItem.FoodID.plate);
+        cook.foodStack.setStack(foodID);
+        String FoodString = cook.foodStack.toString();
+        assertEquals(FoodString,"[lettuceChop, plate]","Error; FoodStack's toString no longer returns the correct string");
     }
 }
