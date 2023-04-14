@@ -14,6 +14,7 @@ import food.Recipe;
 import game.GameScreen;
 import game.GameSprites;
 import helper.Constants;
+import helper.CustomerCollisionHelper;
 import helper.NewCollisionHelper;
 import interactions.InputKey;
 import interactions.Interactions;
@@ -55,6 +56,15 @@ public class CustomerNew extends GameEntity {
 
     }
 
+    public void userInteract(ArrayList<Station> mapStations) {
+        CustomerCollisionHelper checker = new CustomerCollisionHelper(gameScreen,this, mapStations);
+        CookInteractable station = checker.NearbyStation(customerInteractor);
+        System.out.println(station);
+        if(station!=null) {
+            System.out.println("customer is interacting with station");
+        }
+    }
+
     @Override
     public void update(float delta) {
         //y = body.getPosition().y*PPM;
@@ -62,8 +72,8 @@ public class CustomerNew extends GameEntity {
         y = rectangle.y;
 
         // Updates Interaction box (again change 1/8f to a const)
-        this.customerInteractor.x = x - 1/8f;
-        this.customerInteractor.y = y - 1/8f;
+        this.customerInteractor.x = x - 1 / 8f;
+        this.customerInteractor.y = y - 1 / 8f;
     }
 
     /**

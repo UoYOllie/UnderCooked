@@ -6,6 +6,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
+import cooks.CustomerControllerNew;
 import cooks.CustomerNew;
 import customers.Customer;
 
@@ -72,6 +73,7 @@ public class GameScreen extends ScreenAdapter {
 
     private int cookIndex;
     private CustomerController customerController;
+    private CustomerControllerNew customerControllerNew;
     private int customersToServe;
     public CustomerNew customerTest;
     public Array<CustomerNew> customerTestList;
@@ -113,6 +115,8 @@ public class GameScreen extends ScreenAdapter {
         // UPDATED
         // this.mapHelper = MapHelper.getInstance();
         this.mapHelper = new MapHelper(this);
+        this.customerControllerNew = new CustomerControllerNew(this.mapHelper);
+
 
         // this.mapHelper.setGameScreen(this);
         this.orthogonalTiledMapRenderer = mapHelper.setupMap();
@@ -144,14 +148,16 @@ public class GameScreen extends ScreenAdapter {
 //        this.gameEntities.add(customerTest);
 
         this.customerTestList = new Array<>();
-        //CustomerNew customerTest1 = new CustomerNew(2012.0625f, 2855.9087f, 3.34f, 1);
-        CustomerNew customerTest1 = new CustomerNew(1941.5f, 2800.0505f, 3.34f, 1);
-        System.out.println("customer test spawned");
-        System.out.println(customerTest1.getX());
-        System.out.println(customerTest1.getY());
-        System.out.println(customerTest1.getWidth());
-        this.addCustomerNew(customerTest1);
-        this.customerTest = customerTestList.get(0);
+//        //CustomerNew customerTest1 = new CustomerNew(2012.0625f, 2855.9087f, 3.34f, 1);
+//        CustomerNew customerTest1 = new CustomerNew(1941.5f, 2800.0505f, 3.34f, 1);
+//        System.out.println("customer test spawned");
+//        System.out.println(customerTest1.getX());
+//        System.out.println(customerTest1.getY());
+//        System.out.println(customerTest1.getWidth());
+//        this.addCustomerNew(customerTest1);
+//        this.customerTest = customerTestList.get(0);
+
+        this.addCustomersNew(customerControllerNew.getCustomers());
 
         this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
@@ -348,6 +354,16 @@ public class GameScreen extends ScreenAdapter {
         gameEntities.add(newCustomer);
         customerTestList.add(newCustomer);
         return customerTestList.size-1;
+    }
+
+    public void addCustomersNew(Array<CustomerNew> customers) {
+
+        for (CustomerNew customer : customers) {
+            gameEntities.add(customer);
+            customerTestList.add(customer);
+            System.out.println("spawning customer");
+        }
+        //return customerTestList.size-1;
     }
 
     /**

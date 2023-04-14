@@ -76,26 +76,6 @@ public class CounterStation extends Station {
                 break;
 
         }
-
-//        // If Cook is using the put down input, put down the item in the top of their stack
-//        if (cook.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
-//            // Take it from the cook, and add it to this counter's stack.
-//            foodStack.addStack(cook.foodStack.popStack());
-//            return;
-//        }
-//        // If Cook is using the pick up input, pick up the item on the top of this stack
-//        if (foodStack.size() > 0 && inputType == InputKey.InputTypes.PICK_UP) {
-//            // Take it from the cook, and add it to this counter's stack.
-//            cook.foodStack.addStack(foodStack.popStack());
-//            return;
-//        }
-//        // Otherwise swap the items on the use input
-//        if (inputType == InputKey.InputTypes.USE) {
-//            FoodStack tempStack = foodStack;
-//            // If the above doesn't apply, then just swap the stacks.
-//            foodStack = cook.foodStack;
-//            cook.foodStack = tempStack;
-//        }
     }
 
     /**
@@ -107,15 +87,12 @@ public class CounterStation extends Station {
      */
     @Override
     public void render(SpriteBatch batch) {
-        // Render using the same method as the Cook does.
-        // Loop through the items in the food stack.
-        // It is done from the end of the stack to the start because the stack's top is
-        // at 0, and the bottom at the end.
+
+        // render the FoodStack onto the CounterStation
         Array<FoodItem.FoodID> foodList = stationFoodStack.getStack();
         float xOffset = 0F, yOffset = 0F;
-        // Get offset based on direction.
-
         float drawX = x, drawY = y;
+
         for (int i = foodList.size-1 ; i >= 0 ; i--) {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(foodList.get(i)));
             Float drawInc = FoodItem.foodHeights.get(foodList.get(i));
