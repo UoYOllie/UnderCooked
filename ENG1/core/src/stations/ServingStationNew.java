@@ -17,21 +17,21 @@ import interactions.InputKey;
 public class ServingStationNew extends Station {
 
     private DishStack servedDishStack;
-    public CustomerNew customer;
+    //public CustomerNew customer;
 
     public ServingStationNew(Rectangle rectangle) {
         super(rectangle);
         servedDishStack = new DishStack();
-        customer = null;
+        //customer = null;
     }
 
-    public boolean hasCustomer() {
-        return customer == null;
-    }
+    //public boolean hasCustomer() {
+        //return customer == null;
+   // }
 
-    public CustomerNew getCustomer() {
-        return customer;
-    }
+    //public CustomerNew getCustomer() {
+        //return customer;
+    //}
 
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
@@ -51,6 +51,34 @@ public class ServingStationNew extends Station {
                 break;
         }
     }
+
+    @Override
+    public void customerInteract(CustomerNew customer) {
+        System.out.println("i will take the dish!");
+        if (!servedDishStack.empty() && customer.dishStack.empty()) {
+            customer.dishStack.setStack(servedDishStack.getStackCopy());
+            servedDishStack.clearStack();
+            System.out.println("the customer's dishstack:");
+            System.out.println(customer.dishStack.getStack());
+            System.out.println("the station's dishstack:");
+            System.out.println(servedDishStack.getStack());
+        }
+    }
+
+//    @Override
+//    public void customerInteract(CustomerNew customer, InputKey.InputTypes inputType) {
+//
+//        switch (inputType) {
+//            case USE:
+//                System.out.println("customer is interacting with the serving station");
+//                if (!servedDishStack.empty() && customer.dishStack.empty()) {
+//                    System.out.println("i will take the dish!");
+//                    customer.dishStack.setStack(servedDishStack.getStackCopy());
+//                    this.servedDishStack.clearStack();
+//                }
+//                break;
+//        }
+//    }
 
     @Override
     public void render(SpriteBatch batch) {

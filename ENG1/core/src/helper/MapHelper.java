@@ -21,7 +21,7 @@ public class MapHelper {
     private TiledMap tiledMap;
     private ArrayList<Rectangle> mapObstacles;
     public ArrayList<Station> mapStations;
-    private Array<Station> servingStationNewList;
+    private ArrayList<Station> servingStationNewList;
 
 
     /**
@@ -31,7 +31,7 @@ public class MapHelper {
     public MapHelper(GameScreen g) {
         mapObstacles = new ArrayList<>();
         mapStations = new ArrayList<>();
-        servingStationNewList = new Array<>();
+        servingStationNewList = new ArrayList<>();
         this.gameScreen = g;
     }
 
@@ -336,7 +336,9 @@ public class MapHelper {
         return mapStations;
     }
 
-    public Array<Station> getServingStationNewList() { return servingStationNewList;}
+    //public Array<Station> getServingStationNewList() { return servingStationNewList;}
+
+    public ArrayList<Station> getServingStationNewList() {return servingStationNewList;}
 
     /** Disposes of loaded tiledMap textures when no longer required. */
 

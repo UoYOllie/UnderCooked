@@ -35,9 +35,9 @@ public class NewCollisionHelper {
     }
 
     public void setGameScreen(GameScreen gameScreen) {
-        System.out.println("Initalising Gamescreen");
+        //System.out.println("Initalising Gamescreen");
         this.gameScreen = gameScreen;
-        System.out.println(this.gameScreen);
+        //System.out.println(this.gameScreen);
     }
 
     //Array<CookInteractable>
@@ -53,7 +53,7 @@ public class NewCollisionHelper {
         }
 
         //
-        System.out.println(found);
+        //System.out.println(found);
         CookInteractable closest = null;
         if(found.size>1) {
             float closestDist = distRectToInteractable(this.CookRectangle, found.get(0));

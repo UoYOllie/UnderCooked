@@ -53,16 +53,36 @@ public class CustomerNew extends GameEntity {
                                                 width + 1f, height + 1f);
         this.request = Recipe.randomRecipe();
         this.dishStack = new DishStack();
-
     }
 
-    public void userInteract(ArrayList<Station> mapStations) {
+    public void customerInteract(ArrayList<Station> mapStations) {
         CustomerCollisionHelper checker = new CustomerCollisionHelper(gameScreen,this, mapStations);
         CookInteractable station = checker.NearbyStation(customerInteractor);
         System.out.println(station);
         if(station!=null) {
-            System.out.println("customer is interacting with station");
+            System.out.println("customer is interacting with serving station");
+            station.customerInteract(this);
         }
+
+//        for (InputKey inputKey : Interactions.getInputKeys(Interactions.InputID.COOK_INTERACT)) {
+//            if (Gdx.input.isKeyJustPressed(inputKey.getKey())) {
+//                System.out.println(mapStations.toString());
+////                cookInteractor.checkCollisions(this, inputKey.getType());  //THIS IS THE FOR OLD COLLISION HELPER
+////                for(Station station : mapStations){
+////                    if (Intersector.overlaps(station.getRectangle(), cookInteractor)){
+////                        station.interact(this, inputKey.getType());
+////                    }
+////                }
+//                CustomerCollisionHelper checker = new CustomerCollisionHelper(gameScreen,this,mapStations);
+//                CookInteractable station = checker.NearbyStation(customerInteractor);
+//                System.out.println(station);
+//                if(station!=null) {
+//                    System.out.println("customer is interacting with serving station");
+//                    station.customerInteract(this, inputKey.getType());
+//                }
+//
+//            }
+//        }
     }
 
     @Override

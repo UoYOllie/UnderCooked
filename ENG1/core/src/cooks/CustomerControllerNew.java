@@ -14,12 +14,13 @@ import stations.ServingStation;
 import stations.ServingStationNew;
 import stations.Station;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class CustomerControllerNew {
 
     //private MapHelper mapHelper;
-    private Array<Station> servingStations;
+    private ArrayList<Station> servingStations;
     private Array<CustomerNew> customers;
     private GameScreen gameScreen;
 
@@ -30,7 +31,7 @@ public class CustomerControllerNew {
         this.customers = makeCustomers();
     }
 
-    public Array<Station> getServingStations(MapHelper mapHelper) {
+    public ArrayList<Station> getServingStations(MapHelper mapHelper) {
         return mapHelper.getServingStationNewList();
     }
 
