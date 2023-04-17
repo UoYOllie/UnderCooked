@@ -29,7 +29,6 @@ public class CustomerControllerNew {
         this.customers = makeCustomers();
     }
 
-
     public Array<Station> getServingStations(MapHelper mapHelper) {
         return mapHelper.getServingStationNewList();
     }

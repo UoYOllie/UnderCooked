@@ -90,14 +90,11 @@ public class AssemblyStation extends Station {
                 break;
 
             case USE:
-                // If the recipe is valid, assemble the station's FoodStack into the station's DishStack.
-                if (allDishStacksEmpty(cook) && food.Recipe.orderStack(stationFoodStack) != null) {
-                    stationFoodStack = Recipe.orderStack(stationFoodStack);
-                    assert stationFoodStack != null; // Picks up NullPointerException if stationFoodStack is null.
-                    stationDishStack.setStackPlate(stationFoodStack.getStackCopy());
+                if (allDishStacksEmpty(cook) && food.Recipe.validRecipe(stationFoodStack) != null) {
+                    FoodStack tempStack = Recipe.validRecipe(stationFoodStack);
+                    stationDishStack.setStackPlate(tempStack.getStackCopy());
                     stationFoodStack.clearStack();
                 }
-                break;
         }
     }
 

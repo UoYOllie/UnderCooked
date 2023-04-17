@@ -89,12 +89,12 @@ public class Recipe {
     }
 
     /**
-     * Checks if an input FoodStack matches the desired recipe.
+     * Helper method to check if an input FoodStack matches the desired recipe.
      *
      * @param foodStack The input foodStack to be checked.
      * @param recipeName The name of the target recipe.
      *
-     * @return Boolean
+     * @return true if the inputFoodStack matches the target recipe, false otherwise.
      */
     public static boolean matchesRecipe(FoodStack foodStack, String recipeName) {
 
@@ -104,38 +104,30 @@ public class Recipe {
         if (validFoodStackArray.size != inputFoodStackArray.size) {
             return false;
         }
-        for (FoodID validItem : validFoodStackArray) {
-            if (!containsFood(inputFoodStackArray, validItem)) {
+
+        for (int i=0; i < validFoodStackArray.size; i++) {
+            if (!containsFood(inputFoodStackArray, validFoodStackArray.get(i))) {
                 return false;
             }
         }
         return true;
     }
 
-
-    public static String whichRecipe(FoodStack foodStack) {
+    /**
+     * Method to check whether a FoodStack is a valid recipe.
+     * COULD PROBABLY COMBINE matchesRecipe AND validRecipe IF TIME ALLOWS.
+     *
+     * @return The ordered FoodStack of the recipe if it is valid, null otherwise. */
+    public static FoodStack validRecipe(FoodStack inputFoodStack) {
 
         for (String recipeName : recipeNames) {
-            if (matchesRecipe(foodStack, recipeName)) {
-                return recipeName;
+            if (matchesRecipe(inputFoodStack, recipeName)) {
+                return recipes.get(recipeName);
             }
         }
 
         return null;
     }
-
-    public static FoodStack orderStack(FoodStack inputStack) {
-
-        if (whichRecipe(inputStack) != null) {
-            return recipes.get(whichRecipe(inputStack));
-        }
-
-        else {
-            return null;
-        }
-
-    }
-
 
     /** Helper method to choose a random recipe for the customer to order. */
     public static String randomRecipe() {
