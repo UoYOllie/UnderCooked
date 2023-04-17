@@ -37,6 +37,7 @@ public class GameplayTest {
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
         assertTrue(testStation.getCustomer() == customer,"Error: ServingStation can no longer have a customer assigned to them ");
+        assertFalse(testStation.hasCustomer(),"Error: ServingStation can no longer have a customer assigned to them ");
     }
 
 
