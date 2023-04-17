@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
+import cooks.CustomerNew;
 import customers.Customer;
 import customers.CustomerController;
 import food.FoodItem;
@@ -14,6 +15,7 @@ import interactions.InputKey;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import stations.ServingStation;
+import stations.ServingStationNew;
 import stations.SpeedPowerup;
 import stations.Station;
 
@@ -24,6 +26,20 @@ import static org.testng.Assert.*;
 
 @RunWith(GdxTestRunner.class)
 public class GameplayTest {
+
+    @Test
+    public void TestServingStationCanHaveCustomer(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        ServingStationNew testStation = new ServingStationNew(rectangle);
+        CustomerNew customer = new CustomerNew(1,1,1,1);
+        customer.request = "Onion Tomato Salad";
+        testStation.customer = customer;
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testStation.getRectangle());
+        assertTrue(testStation.getCustomer() == customer,"Error: ServingStation can no longer have a customer assigned to them ");
+        assertFalse(testStation.hasCustomer(),"Error: ServingStation can no longer have a customer assigned to them ");
+    }
+
 
     /**
     @Test
