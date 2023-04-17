@@ -56,6 +56,7 @@ public class GameScreen extends ScreenAdapter {
 
     private OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
     public MapHelper mapHelper;
+    //public Array<Station> servingStationNewList;
     private Array<CookInteractable> interactables;
     private CollisionHelper collisionHelper;
     private ArrayList<GameEntity> gameEntities;
@@ -115,7 +116,9 @@ public class GameScreen extends ScreenAdapter {
         // UPDATED
         // this.mapHelper = MapHelper.getInstance();
         this.mapHelper = new MapHelper(this);
-        this.customerControllerNew = new CustomerControllerNew(this.mapHelper);
+        //this.customerControllerNew = new CustomerControllerNew(this);
+        //this.servingStationNewList = this.mapHelper.getServingStationNewList();
+        //System.out.println(servingStationNewList);
 
 
         // this.mapHelper.setGameScreen(this);
@@ -123,6 +126,7 @@ public class GameScreen extends ScreenAdapter {
         this.gameHud = new GameHud(batch, this);
         this.instructionHUD = new InstructionHud(batch);
         addInteractable(this.mapHelper.getMapStations());
+        this.customerControllerNew = new CustomerControllerNew(this);
 
 
         Cook GlibbertOrange = new Cook(2041*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
@@ -158,6 +162,7 @@ public class GameScreen extends ScreenAdapter {
 //        this.customerTest = customerTestList.get(0);
 
         this.addCustomersNew(customerControllerNew.getCustomers());
+        //System.out.println(servingStationNewList);
 
         this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
@@ -362,6 +367,8 @@ public class GameScreen extends ScreenAdapter {
             gameEntities.add(customer);
             customerTestList.add(customer);
             System.out.println("spawning customer");
+            System.out.println(customer.getX());
+            System.out.println(customer.getY());
         }
         //return customerTestList.size-1;
     }

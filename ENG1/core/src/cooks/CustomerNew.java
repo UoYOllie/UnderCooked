@@ -89,6 +89,7 @@ public class CustomerNew extends GameEntity {
 
         sprite.draw(batch);
         renderFood(batch);
+        //System.out.println("rendering a customer!");
     }
 
     /**

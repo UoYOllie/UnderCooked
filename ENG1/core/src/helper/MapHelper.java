@@ -154,13 +154,13 @@ public class MapHelper {
             Rectangle newRectangle = new Rectangle(rectangle.x*1/8f, ((rectangle.y) * 1/8f),
                     rectangle.width * 1/8f, rectangle.height*1/8f);
             String stationName = rectangleMapObject.getName();
-            System.out.println(rectangleMapObject.getName());
+            //System.out.println(rectangleMapObject.getName());
 
-            System.out.println(newRectangle.x);
-            System.out.println(newRectangle.y);
-            System.out.println(newRectangle.width);
-            System.out.println(newRectangle.height);
-            System.out.println(":)"); // :)
+//            System.out.println(newRectangle.x);
+//            System.out.println(newRectangle.y);
+//            System.out.println(newRectangle.width);
+//            System.out.println(newRectangle.height);
+//            System.out.println(":)"); // :)
 
             // Check which instance of Station and add the corresponding object to mapStations.
 
