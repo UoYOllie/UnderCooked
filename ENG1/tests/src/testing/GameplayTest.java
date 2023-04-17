@@ -25,6 +25,26 @@ import static org.testng.Assert.*;
 @RunWith(GdxTestRunner.class)
 public class GameplayTest {
 
+    @Test
+    public void TestServingStationCanHaveCustomer(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        ServingStation testStation = new ServingStation(rectangle);
+        testStation.testFlag = 1;
+        testStation.setID(Station.StationID.serving);
+        Sprite sprite = new Sprite();
+        Customer customer = new Customer(sprite);
+        CustomerController customerController = new CustomerController();
+        customerController.testFlag = 1;
+        customerController.customers.add(customer);
+        customer.request = "Onion Tomato Salad";
+        testStation.customerController = customerController;
+        testStation.setCustomer(customer);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testStation.getRectangle());
+        assertTrue(testStation.hasCustomer(),"Error: ServingStation can no longer have a customer assigned to them ");
+    }
+
+
     /**
     @Test
     // Relates to the FR_DISH_SERVE requirement

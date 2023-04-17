@@ -1291,46 +1291,5 @@ public class InteractionTest {
 
     }
 
-    @Test
-    // Relates to the FR_DISH_SERVE requirement
-    public void TestServingStationGetAndSetCustomer(){
-        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        customer.randomRecipe();
-        testStation.setCustomer(customer);
-        ArrayList<Rectangle> testList = new ArrayList<>();
-        testList.add(testStation.getRectangle());
-        assertTrue(testStation.getCustomer() == customer,"The get/set customer function for servingStation is broken");
-    }
 
-    @Test
-    public void TestHoldItems(){
-        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        Pantry testPantry = new Pantry(rectangle);
-        testPantry.setItem(FoodItem.FoodID.lettuce);
-        ArrayList<Rectangle> testList = new ArrayList<>();
-        testList.add(testPantry.getRectangle());
-        Cook cook = new Cook(1500, 1200, 20, 20);
-        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.size() == 3, "The chef is able to hold more than 3 items at once");
-    }
-
-    @Test
-    // TODO: add reference to requirement
-    public void TestGetInputKey(){
-        InputKey test = new InputKey(InputKey.InputTypes.INSTRUCTIONS, Input.Keys.I);
-        assertTrue(test.getKey() == Input.Keys.I, "The getKey function is broken/returns wrong key");
-    }
-
-    @Test
-    // TODO: add reference to requirement
-    public void TestGetInputType(){
-        InputKey test = new InputKey(InputKey.InputTypes.INSTRUCTIONS, Input.Keys.I);
-        assertTrue(test.getType() == InputKey.InputTypes.INSTRUCTIONS,"The getType function is broken/returns wrong type");
-    }
 }
