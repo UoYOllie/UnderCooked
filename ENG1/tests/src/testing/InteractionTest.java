@@ -312,6 +312,7 @@ public class InteractionTest {
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meat, "Picking up meat from a meat pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
     }
     @Test
+    // Relates to the FR_GET_FOOD requirement
     public void PantryTestPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -320,9 +321,10 @@ public class InteractionTest {
         testList.add(testPantry.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.potato, "Picking up a potato from a meat pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.potato, "Picking up a potato from a potato pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
     }
     @Test
+    // Relates to the FR_GET_FOOD requirement
     public void PantryTestDough(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -331,7 +333,7 @@ public class InteractionTest {
         testList.add(testPantry.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.dough, "Picking up a potato from a meat pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.dough, "Picking up a dough from a dough pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
     }
 
     @Test
@@ -485,6 +487,7 @@ public class InteractionTest {
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a Tomato Onion salad");
     }
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationMakePlainPizza(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -508,6 +511,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationMakePepperoniPizza(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -536,6 +540,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationMakeOnionPizza(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -560,9 +565,10 @@ public class InteractionTest {
         foodID.add(FoodItem.FoodID.tomatoSauce);
         foodID.add(FoodItem.FoodID.doughCook);
         foodID.add(FoodItem.FoodID.plate);
-        assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a Pepperoni pizza");
+        assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make an onion pizza");
     }
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationMakePlainPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -582,6 +588,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationMakeBeansPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -603,6 +610,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationMakeColeslawPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -624,6 +632,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationMakeCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -645,6 +654,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationMakeCheeseBeansPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -668,6 +678,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationMakeBeansColeslawPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -691,6 +702,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationMakeBeansColeslawCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -720,6 +732,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationPlainBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -743,6 +756,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationLettuceBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -772,6 +786,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -801,6 +816,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -830,6 +846,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationLettuceTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -862,6 +879,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationLettuceOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -894,6 +912,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -926,6 +945,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationLettuceTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -960,6 +980,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationTestMultipleRecipes(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -996,7 +1017,7 @@ public class InteractionTest {
 
     @Test
     // Relates to the FR_USE_STATION and FR_INTERACTION requirements
-    public void TestAssemblyStationholdsFood(){
+    public void TestAssemblyStationHoldsFood(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -1010,7 +1031,7 @@ public class InteractionTest {
 
     @Test
     // Relates to the FR_USE_STATION and FR_INTERACTION requirements
-    public void TestAssemblyStationholdsNothing(){
+    public void TestAssemblyStationHoldsNothing(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -1039,8 +1060,9 @@ public class InteractionTest {
         assertTrue(cook.foodStack.size() == 2 && cook.dishStack.size() == 0, "Error:The Assembly does not return the right food stack when given the wrong recipe, that is then picked up by the player");
     }
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestFailCaseChoppingChoppedItem(){
-        //This tests whether the player is able to chop chopped items (not meant to be able to)
+        //This tests whether the player is able to chop already chopped items (not meant to be able to)
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation preparationStation = new PreparationStation(rectangle);
         preparationStation.setID(Station.StationID.cut);
@@ -1051,33 +1073,34 @@ public class InteractionTest {
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(1);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with an already chopped lettuce results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to be used with an already chopped lettuce");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop, "Error: Trying to chop an already chopped lettuce results in a different food item being returned");
 
         cook.foodStack.clearStack();
         cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(1);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with an already chopped tomato results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to be used with an already chopped tomato");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomatoChop);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomatoChop, "Error: Trying to chop an already chopped tomato results in a different food item being returned");
 
         cook.foodStack.clearStack();
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(1);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with an already chopped onion results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to be used with an already chopped onion");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onionChop);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onionChop, "Error: Trying to chop an already chopped onion results in a different food item being returned");
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestFailCaseChoppingBakedItem(){
         //This tests whether the player is able to chop baked items other than the ones we want them to be able to chop
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -1107,6 +1130,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestFailCaseChoppingFriedItem(){
         // This checks whether the player is able to chop fried items that we don't want them to be able to
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -1127,6 +1151,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestFailCaseFryingFriedItem(){
         //This checks if the player is able to fry fried items that we don't intend them to
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -1146,6 +1171,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestFailCaseFryingChoppedItem(){
         //This test will check whether chopped items we don't want the player to be able to fry are fry-able
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -1175,6 +1201,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestFailCaseFryingBakedItem(){
         //This test makes sure the player isn't able to fry baked items that we don't intend them to fry
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -1204,6 +1231,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestFailCaseBakingBakedItem(){
         //This test makes sure that players can't bake items twice, that they aren't supposed to be able to.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -1233,6 +1261,7 @@ public class InteractionTest {
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestFailCaseBakingChoppedItem(){
         //This test makes sure the player isn't able to bake chopped items, unless its intended
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
