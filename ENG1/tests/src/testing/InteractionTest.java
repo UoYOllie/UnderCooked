@@ -1183,20 +1183,30 @@ public class InteractionTest {
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(0);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with a chopped lettuce results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to \"fry\" an already chopped lettuce");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop, "Error: Trying to fry a chopped lettuce results in a different food item being returned");
+
+        cook.foodStack.clearStack();
+        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        preparationStation.interact(cook, InputKey.InputTypes.USE);
+        preparationStation.update(0);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with a chopped tomato results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to \"fry\" an already chopped tomato");
+        preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomatoChop, "Error: Trying to fry a chopped tomato results in a different food item being returned");
 
         cook.foodStack.clearStack();
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(0);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with a chopped onion results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to \"fry\" an already chopped onion");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onionChop);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onionChop, "Error: Trying to fry a chopped onion results in a different food item being returned");
     }
 
     @Test
@@ -1213,20 +1223,20 @@ public class InteractionTest {
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(1);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with a cooked potato results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to \"fry\" an already cooked potato");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.potatoCook);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.doughCook, "Error: Trying to fry an already cooked potato results in a different food item being returned");
 
         cook.foodStack.clearStack();
         cook.foodStack.addStack(FoodItem.FoodID.doughCook);
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(1);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with cooked dough results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to \"fry\" already cooked dough");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.doughCook);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.doughCook, "Error: Trying to fry cooked dough results in a different food item being returned");
     }
 
     @Test
@@ -1243,20 +1253,20 @@ public class InteractionTest {
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(1);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with a cooked potato results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to \"bake\" an already cooked potato");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.potatoCook);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.doughCook, "Error: Trying to bake a cooked potato results in a different food item being returned");
 
         cook.foodStack.clearStack();
         cook.foodStack.addStack(FoodItem.FoodID.doughCook);
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(1);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with cooked dough results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to \"bake\" already cooked dough");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.doughCook);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.doughCook, "Error: Trying to bake cooked dough results in a different food item being returned");
     }
 
     @Test
@@ -1273,33 +1283,34 @@ public class InteractionTest {
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(1);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with a chopped lettuce results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to \"bake\" already chopped lettuce");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop, "Error: Trying to bake an already chopped lettuce results in a different food item being returned");
 
         cook.foodStack.clearStack();
         cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(1);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with a chopped tomato results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to \"bake\" already chopped tomato");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomatoChop);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop, "Error: Trying to bake an already chopped tomato results in a different food item being returned");
 
         cook.foodStack.clearStack();
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(1);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with a chopped onion results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to \"bake\" already chopped onion");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onionChop);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop, "Error: Trying to bake an already chopped onion results in a different food item being returned");
     }
 
     @Test
+    // Relates to the FR_USE_STATION requirement
     public void TestFailCaseBakingFriedItem(){
         //This test makes sure the player isn't able to bake fried items, unless its intended
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -1312,11 +1323,10 @@ public class InteractionTest {
         preparationStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         preparationStation.interact(cook, InputKey.InputTypes.USE);
         preparationStation.update(1);
-        assertFalse(preparationStation.progress > 0);
-        assertFalse(preparationStation.inUse);
+        assertFalse(preparationStation.progress > 0, "Error: Using a preparation station with cooked meat results in its progress value changing");
+        assertFalse(preparationStation.inUse, "Error: Preparation station is able to \"bake\" already cooked meat");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook);
-
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop, "Error: Trying to bake already cooked meat results in a different food item being returned");
     }
 
 
