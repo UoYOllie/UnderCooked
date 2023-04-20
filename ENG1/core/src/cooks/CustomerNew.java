@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
@@ -53,16 +54,30 @@ public class CustomerNew extends GameEntity {
                                                 width + 1f, height + 1f);
         this.request = Recipe.randomRecipe();
         this.dishStack = new DishStack();
+
+        this.x = this.position.x;
+        this.y = this.position.y;
+
+
     }
 
     public void customerInteract(ArrayList<Station> mapStations) {
         CustomerCollisionHelper checker = new CustomerCollisionHelper(gameScreen,this, mapStations);
         CookInteractable station = checker.NearbyStation(customerInteractor);
-        System.out.println(station);
-        if(station!=null) {
-            System.out.println("customer is near the serving station");
-            station.customerInteract(this);
+
+
+
+        for (Station station1 : mapStations) {
+            if (Intersector.overlaps(this.customerInteractor, station1.rectangle)){
+                System.out.println("we gonna be interacting bois :)");
+                station = station1;
+                station.customerInteract(this);
+
+                break;
+            }
         }
+
+        //System.out.println("G" + station);
 
 //        for (InputKey inputKey : Interactions.getInputKeys(Interactions.InputID.COOK_INTERACT)) {
 //            if (Gdx.input.isKeyJustPressed(inputKey.getKey())) {
@@ -82,8 +97,8 @@ public class CustomerNew extends GameEntity {
     @Override
     public void update(float delta) {
         //y = body.getPosition().y*PPM;
-        x = rectangle.x;
-        y = rectangle.y;
+        //x = rectangle.x;
+        //y = rectangle.y;
 
         // Updates Interaction box (again change 1/8f to a const)
         this.customerInteractor.x = x - 1 / 8f;
