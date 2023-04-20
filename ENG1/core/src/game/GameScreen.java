@@ -25,6 +25,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
 import cooks.GameEntity;
 import customers.CustomerController;
+import customers.RepPoints;
 import helper.*;
 import interactions.InputKey;
 import interactions.Interactions;
@@ -66,6 +67,7 @@ public class GameScreen extends ScreenAdapter {
     private float yOffset = 1200;
 
     public Gold gold;
+    public RepPoints Reputation;
 
     //Objects
     public Array<Cook> unusedcooks;
@@ -95,6 +97,7 @@ public class GameScreen extends ScreenAdapter {
         this.interactables = new Array<>();
         this.gold = new Gold();
         this.gold.setBalance(1000); //for testing purposes ONLY
+        this.Reputation = new RepPoints();
 
         // UPDATE
         // this.collisionHelper = CollisionHelper.getInstance();
@@ -577,10 +580,10 @@ public class GameScreen extends ScreenAdapter {
 
     //These are all the powerups:
     public ShopItem Powerup_Speed = new ShopItem("Speed",30); //increase current chef's movement seed
-    public ShopItem Powerup_Teacup = new ShopItem("Teacup",40);//give user a cup of tea, place onto stack
+    public ShopItem Powerup_Items = new ShopItem("PowerItem",50);//give user a cup of tea, place onto stack
     public ShopItem Powerup_ChefBluggusMode = new ShopItem("Bluggus",80); //Transforms chef to bluggus to have bonus stack.
     public ShopItem Powerup_4 = new ShopItem("-",30);
-    public ShopItem Powerup_5 = new ShopItem("-",30);
+//    public ShopItem Powerup_5 = new ShopItem("-",30);
     public ShopItem BuyablePeople = new ShopItem("NewChef",25);
 
     public ShopItem BuyableStation = new ShopItem("Station",10);

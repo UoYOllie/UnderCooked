@@ -11,6 +11,9 @@ public class Gold {
     public void setBalance(int x){
         this.Balance = x;
     }
+    public void addBalance(int x){
+        this.Balance = this.Balance+x;
+    }
 
     public int getBalance(){
         return this.Balance;

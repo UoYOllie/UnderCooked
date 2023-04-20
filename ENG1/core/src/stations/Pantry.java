@@ -47,6 +47,7 @@ public class Pantry extends Station {
 
         // Take an item from the pantry if the input is to pick up.
         if (inputType == InputKey.InputTypes.PICK_UP || inputType == InputKey.InputTypes.USE) {
+            System.out.println(foodDispensed);
             cook.foodStack.addStack(foodDispensed);
         }
     }

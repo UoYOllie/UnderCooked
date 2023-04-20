@@ -217,7 +217,15 @@ public class MapHelper {
                 case "Pantry":
                     Pantry pantry = new Pantry(newRectangle);
                     pantry.setItem(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food"))); // lmao hashmap is sus
-                    mapStations.add(pantry);
+                    System.out.println("Setting to " + rectangleMapObject.getProperties().get("Food"));
+                    System.out.println(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food")));
+                case "poweritem":
+                    PowerupPantry powerpantry = new PowerupPantry(newRectangle,gameScreen);
+                    powerpantry.setItem(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food"))); // lmao hashmap is sus
+                    System.out.println("Setting to " + rectangleMapObject.getProperties().get("Food"));
+                    System.out.println(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food")));
+
+                    mapStations.add(powerpantry);
                     break;
                 case "Locked":
                     mapStations.add(new Locked(newRectangle,gameScreen,rectangleMapObject.getProperties().get("type").toString()));

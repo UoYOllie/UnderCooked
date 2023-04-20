@@ -66,21 +66,21 @@ public class ServingStationNew extends Station {
 
     @Override
     public void customerInteract(CustomerNew customer) {
-        System.out.println("i am inside laura's method");
+        //System.out.println("i am inside laura's method");
         this.customer = customer;
-        System.out.println("serving station dishStack");
-        System.out.println(servedDishStack.getStack());
+        //System.out.println("serving station dishStack");
+        //System.out.println(servedDishStack.getStack());
         if (!servedDishStack.empty()) {
-            System.out.println("i am inside the if statement yay");
-            System.out.println("i will take the dish!");
+            //System.out.println("i am inside the if statement yay");
+            //System.out.println("i will take the dish!");
             customer.dishStack.setStack(servedDishStack.getStackCopy());
             servedDishStack.clearStack();
-            System.out.println("the customer's dishstack:");
-            System.out.println(customer.dishStack.getStack());
-            System.out.println("the station's dishstack:");
-            System.out.println(servedDishStack.getStack());
-        } else {
-            System.out.println("i will not take the dish!");
+            //System.out.println("the customer's dishstack:");
+//            System.out.println(customer.dishStack.getStack());
+//            System.out.println("the station's dishstack:");
+//            System.out.println(servedDishStack.getStack());
+//        } else {
+////            System.out.println("i will not take the dish!");
         }
 
     }

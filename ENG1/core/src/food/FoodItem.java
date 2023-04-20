@@ -49,6 +49,8 @@ public class FoodItem {
         dough,
         doughCook,
         tomatoSauce,
+        menu,
+        teacup,
         /** Default */
         none
     }
@@ -78,6 +80,8 @@ public class FoodItem {
         foodHeights.put(FoodID.dough, 12F * Constants.UnitScale);
         foodHeights.put(FoodID.doughCook, 12F * Constants.UnitScale);
         foodHeights.put(FoodID.tomatoSauce, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.menu, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.teacup, 12F * Constants.UnitScale);
     }
 
     public static final HashMap<String, FoodID> foods = new HashMap<>(); // why are they called foods not items :(
@@ -103,6 +107,8 @@ public class FoodItem {
         foods.put("dough", FoodID.dough);
         foods.put("doughCook", FoodID.doughCook);
         foods.put("tomatoSauce", FoodID.tomatoSauce);
+        foods.put("menu", FoodID.menu);
+        foods.put("teacup", FoodID.teacup);
     }
 }
 

@@ -38,6 +38,7 @@ public class CustomerControllerNew {
 
             if (allCustomers.size < 5) {
                 CustomerNew customer = new CustomerNew(station.getX(), station.getY(), 3.34f, 1);
+                customer.setGameScreen(this.gameScreen);
                 allCustomers.add(customer);
             }
         }

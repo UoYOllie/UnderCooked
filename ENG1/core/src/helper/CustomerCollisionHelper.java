@@ -46,7 +46,7 @@ public class CustomerCollisionHelper {
         Array<CookInteractable> found = new Array<>();
         for(Station object : mapStations){
             if (Intersector.overlaps(object.getRectangle(), customerInteractor)){
-                System.out.println("Customer Overlaps: " + object);
+                //System.out.println("Customer Overlaps: " + object);
                 if(object.Enabled) {
                     found.add(object);
                 }

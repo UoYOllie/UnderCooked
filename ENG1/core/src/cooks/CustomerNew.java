@@ -1,5 +1,6 @@
 package cooks;
 
+import Shop.MindControl;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -23,6 +24,7 @@ import stations.CookInteractable;
 import stations.Station;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * A Customer requests a dish to be served to them by the cook.
@@ -37,6 +39,7 @@ public class CustomerNew extends GameEntity {
 
     /** The name of the recipe being requested. */
     public String request;
+    private float waittime;
 
     public DishStack dishStack;
 
@@ -55,10 +58,54 @@ public class CustomerNew extends GameEntity {
         this.request = Recipe.randomRecipe();
         this.dishStack = new DishStack();
 
+        //Waittime in seconds
+        Random rd = new Random();
+        this.waittime = 150 + rd.nextFloat()*150;
+        //
+
         this.x = this.position.x;
         this.y = this.position.y;
 
 
+    }
+
+    public void setGameScreen(GameScreen g)
+    {
+        this.gameScreen = g;
+    }
+
+    public void Hypnotise() //Change their mind powerup
+    {
+        String temp = Recipe.randomRecipe();
+        if(this.request != temp)
+        {
+            this.request = temp;
+        }
+        else {
+            Hypnotise();
+        }
+    }
+
+    public void HangOnYourFoodIsComing() //Makes them wait longer
+    {
+        this.waittime = 300;
+    }
+
+    private void StormOut()
+    {
+        this.gameScreen.Reputation.Negative();
+        Leave();
+    }
+    private void Success() //Gets their dish, this is called
+    {
+        this.gameScreen.Reputation.Positive();
+        this.gameScreen.gold.addBalance(50);
+        Leave();
+    }
+
+    private void Leave() //This function will be called when a customer leaves
+    {
+        System.out.println("Im leaving, bye");
     }
 
     public void customerInteract(ArrayList<Station> mapStations) {
@@ -67,7 +114,7 @@ public class CustomerNew extends GameEntity {
 
         for (Station station1 : mapStations) {
             if (Intersector.overlaps(this.customerInteractor, station1.rectangle)){
-                System.out.println("we gonna be interacting bois :)");
+                //System.out.println("we gonna be interacting bois :)");
                 station = station1;
                 station.customerInteract(this);
 
