@@ -35,6 +35,12 @@ public class MapHelper {
         this.gameScreen = g;
     }
 
+    public MapHelper(ArrayList<Rectangle> obstacles,ArrayList<Station> stations,ArrayList<Station> servingStationNew) {
+        mapObstacles = obstacles;
+        mapStations = stations;
+        servingStationNewList = servingStationNew;
+    }
+
     /**
      * IN CHARGE OF RENDERING THE MAP
      * Sets up the map by loading the StationsMap tilemap, and then using

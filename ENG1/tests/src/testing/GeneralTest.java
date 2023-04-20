@@ -16,6 +16,7 @@ import customers.Customer;
 import customers.CustomerController;
 import food.FoodItem;
 import food.Recipe;
+import helper.MapHelper;
 import helper.Util;
 import interactions.InputKey;
 import org.junit.Test;
@@ -513,5 +514,34 @@ public class GeneralTest {
     public void TestGetInputType(){
         InputKey test = new InputKey(InputKey.InputTypes.INSTRUCTIONS, Input.Keys.I);
         assertTrue(test.getType() == InputKey.InputTypes.INSTRUCTIONS,"The getType function is broken/returns wrong type");
+    }
+
+    //The following tests exercise the utility functions in the MapHelper class
+
+    @Test
+    public void testsgetMapObstacles(){
+        PreparationStation preparationStation = new PreparationStation(new Rectangle(1,2,3,4));
+        ArrayList<Rectangle> finalList = new ArrayList<>();
+        finalList.add(preparationStation.getRectangle());
+        MapHelper helper = new MapHelper(finalList,new ArrayList<Station>(),new ArrayList<Station>());
+        assertEquals(helper.getMapObstacles(), finalList , "Error: The MapHelper utility function getMapObstacles does not return the right list");
+    }
+
+    @Test
+    public void testsgetMapStations(){
+        PreparationStation preparationStation = new PreparationStation(new Rectangle(1,2,3,4));
+        ArrayList<Station> finalList = new ArrayList<>();
+        finalList.add(preparationStation);
+        MapHelper helper = new MapHelper(new ArrayList<Rectangle>(),finalList,new ArrayList<Station>());
+        assertEquals(helper.getMapStations(), finalList , "Error: The MapHelper utility function getMapStations does not return the right list");
+    }
+
+    @Test
+    public void testsgetServingStationNewList(){
+        ServingStationNew servingStationNew = new ServingStationNew(new Rectangle(1,2,3,4));
+        ArrayList<Station> finalList = new ArrayList<>();
+        finalList.add(servingStationNew);
+        MapHelper helper = new MapHelper(new ArrayList<Rectangle>(),new ArrayList<Station>(),finalList);
+        assertEquals(helper.getServingStationNewList(), finalList , "Error: The MapHelper utility function getServingStationsNew does not return the right list");
     }
 }
