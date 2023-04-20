@@ -60,19 +60,13 @@ public class CustomerNew extends GameEntity {
         CookInteractable station = checker.NearbyStation(customerInteractor);
         System.out.println(station);
         if(station!=null) {
-            System.out.println("customer is interacting with serving station");
+            System.out.println("customer is near the serving station");
             station.customerInteract(this);
         }
 
 //        for (InputKey inputKey : Interactions.getInputKeys(Interactions.InputID.COOK_INTERACT)) {
 //            if (Gdx.input.isKeyJustPressed(inputKey.getKey())) {
-//                System.out.println(mapStations.toString());
-////                cookInteractor.checkCollisions(this, inputKey.getType());  //THIS IS THE FOR OLD COLLISION HELPER
-////                for(Station station : mapStations){
-////                    if (Intersector.overlaps(station.getRectangle(), cookInteractor)){
-////                        station.interact(this, inputKey.getType());
-////                    }
-////                }
+//                //System.out.println(mapStations.toString());
 //                CustomerCollisionHelper checker = new CustomerCollisionHelper(gameScreen,this,mapStations);
 //                CookInteractable station = checker.NearbyStation(customerInteractor);
 //                System.out.println(station);

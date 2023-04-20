@@ -214,7 +214,7 @@ public class GameScreen extends ScreenAdapter {
         }
         // laura
         for (CustomerNew customer : customerTestList) {
-            customer.customerInteract(mapHelper.getMapStations());
+            customer.customerInteract(mapHelper.getServingStationNewList());
             //System.out.println("updating the customer!");
         }
 
