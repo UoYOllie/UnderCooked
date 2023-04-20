@@ -65,8 +65,6 @@ public class CustomerNew extends GameEntity {
         CustomerCollisionHelper checker = new CustomerCollisionHelper(gameScreen,this, mapStations);
         CookInteractable station = checker.NearbyStation(customerInteractor);
 
-
-
         for (Station station1 : mapStations) {
             if (Intersector.overlaps(this.customerInteractor, station1.rectangle)){
                 System.out.println("we gonna be interacting bois :)");

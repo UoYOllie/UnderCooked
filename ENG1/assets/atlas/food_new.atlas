@@ -151,3 +151,17 @@ tomatoSauce
   orig: 16, 16
   offset: 0, 0
   index: -1
+teacup
+  rotate: false
+  xy: 180, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+menu
+  rotate: false
+  xy: 180, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
