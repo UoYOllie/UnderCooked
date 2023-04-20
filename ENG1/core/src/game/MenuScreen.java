@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -33,7 +34,7 @@ public class MenuScreen extends ScreenAdapter {
 
     private Viewport viewport;
     private Stage stage;
-    private Sprite backgroundSprite;
+    private Texture backgroundSprite;
 
 
 
@@ -50,15 +51,16 @@ public class MenuScreen extends ScreenAdapter {
         this.batch = screenController.getSpriteBatch();
 
         viewport = new FitViewport(Constants.V_Width, Constants.V_Height, camera);
+        camera.zoom = 1/20f;
         stage = new Stage(viewport, batch);
-        this.backgroundSprite = new Sprite(new Texture("Maps/StartMenuBackground.png"));
+        this.backgroundSprite = new Texture("menu/space-bg.png");
 
         Label.LabelStyle font = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
         Table table = new Table();
         table.center();
         table.setFillParent(true);
 
-        Label welcomeLabel = new Label("UNDERCOOKED", font);
+        Image welcomeLabel = new Image(new Texture("menu/title.png"));
         table.add(welcomeLabel).expandX();
         table.row();
 
@@ -77,7 +79,7 @@ public class MenuScreen extends ScreenAdapter {
         Label quitLabel = new Label(String.format("PRESS %s TO QUIT",Interactions.getKeyString(InputKey.InputTypes.QUIT).toUpperCase()), font);
         table.add(quitLabel).expandX();
 
-        welcomeLabel.setFontScale(4);
+
         stage.addActor(table);
 
     }
@@ -122,7 +124,8 @@ public class MenuScreen extends ScreenAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
-        backgroundSprite.draw(batch);
+
+        batch.draw(this.backgroundSprite, 0, 0, Constants.V_Width, Constants.V_Height);
         batch.end();
         stage.draw();
         this.update(delta);

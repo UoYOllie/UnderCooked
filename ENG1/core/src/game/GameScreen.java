@@ -103,6 +103,7 @@ public class GameScreen extends ScreenAdapter {
         this.collisionHelper.setGameScreen(this);
         this.cookIndex = -1;
         this.camera = camera;
+        this.camera.zoom = 1/20f;
         this.screenController = screenController;
         this.batch = screenController.getSpriteBatch();
         this.shape = screenController.getShapeRenderer();
@@ -195,10 +196,14 @@ public class GameScreen extends ScreenAdapter {
                 }
             }
         }
-        if(Gdx.input.isKeyJustPressed(Input.Keys.Z)){
-            System.out.println(this.cook.getX());
-            System.out.println(this.cook.getY());
-            System.out.println("///////////////");
+        if(Gdx.input.isKeyPressed(Input.Keys.EQUALS)){
+            if (camera.zoom >= 1/20f){
+                camera.zoom -= 1/100f;
+            }
+        } else if (Gdx.input.isKeyPressed(Input.Keys.MINUS)){
+            if (camera.zoom <= 0.5f) {
+                camera.zoom += 1/100f;
+            }
         }
         gameHud.updateTime(hoursPassed, minutesPassed, secondsPassed);
         cameraUpdate();
@@ -254,7 +259,7 @@ public class GameScreen extends ScreenAdapter {
     private void cameraUpdate()
     {
         camera.position.set(new Vector3(this.cook.getX(),this.cook.getY(),0));
-        camera.zoom = 1/20f;
+
         camera.update();
     }
 
