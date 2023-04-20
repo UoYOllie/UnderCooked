@@ -51,7 +51,7 @@ public class MenuScreen extends ScreenAdapter {
         this.batch = screenController.getSpriteBatch();
 
         viewport = new FitViewport(Constants.V_Width, Constants.V_Height, camera);
-        camera.zoom = 1/20f;
+
         stage = new Stage(viewport, batch);
         this.backgroundSprite = new Texture("menu/space-bg.png");
 
@@ -120,6 +120,7 @@ public class MenuScreen extends ScreenAdapter {
      */
     @Override
     public void render(float delta) {
+        camera.zoom = 1f;
         Gdx.gl.glClearColor(0,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
