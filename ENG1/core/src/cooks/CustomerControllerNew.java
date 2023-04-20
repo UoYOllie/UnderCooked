@@ -28,29 +28,21 @@ public class CustomerControllerNew {
         //this.mapHelper = mapHelper;
         this.gameScreen = gameScreen;
         this.servingStations = gameScreen.mapHelper.getServingStationNewList();
-        this.customers = makeCustomers();
+        this.customers = spawnCustomers();
     }
 
-    public ArrayList<Station> getServingStations(MapHelper mapHelper) {
-        return mapHelper.getServingStationNewList();
-    }
+    private Array<CustomerNew> spawnCustomers() {
 
-    private Array<CustomerNew> makeCustomers() {
         Array<CustomerNew> allCustomers = new Array<>();
-        System.out.println("these are the serving stations");
+
         for (Station station : servingStations) {
-            CustomerNew customer = new CustomerNew(station.getX(), station.getY(), 3.34f, 1);
-            allCustomers.add(customer);
+
+            if (allCustomers.size < 5) {
+                CustomerNew customer = new CustomerNew(station.getX(), station.getY(), 3.34f, 1);
+                allCustomers.add(customer);
+            }
         }
-        return allCustomers;
-    }
 
-    private Array<CustomerNew> makeCustomersTest() {
-        Array<CustomerNew> allCustomers = new Array<>();
-        //CustomerNew customer = new CustomerNew(1995.975f,2855.9087f,3.34f, 1);
-
-        CustomerNew customerTest1 = new CustomerNew(1941.5f, 2800.0505f, 3.34f, 1);
-        allCustomers.add(customerTest1);
         return allCustomers;
     }
 

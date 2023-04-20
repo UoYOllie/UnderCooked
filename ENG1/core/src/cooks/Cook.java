@@ -221,7 +221,7 @@ public class Cook extends GameEntity {
 
         for (InputKey inputKey : Interactions.getInputKeys(Interactions.InputID.COOK_INTERACT)) {
             if (Gdx.input.isKeyJustPressed(inputKey.getKey())) {
-                System.out.println(mapStations.toString());
+                //System.out.println(mapStations.toString());
 //                cookInteractor.checkCollisions(this, inputKey.getType());  //THIS IS THE FOR OLD COLLISION HELPER
 //                for(Station station : mapStations){
 //                    if (Intersector.overlaps(station.getRectangle(), cookInteractor)){
@@ -233,6 +233,7 @@ public class Cook extends GameEntity {
                 System.out.println(station);
                 if(station!=null) {
                     station.interact(this, inputKey.getType());
+                    //System.out.println("cook is interacting with a station!");
                 }
 
             }
