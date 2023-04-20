@@ -25,7 +25,6 @@ public class CustomerControllerNew {
     private GameScreen gameScreen;
 
     public CustomerControllerNew(GameScreen gameScreen) {
-        //this.mapHelper = mapHelper;
         this.gameScreen = gameScreen;
         this.servingStations = gameScreen.mapHelper.getServingStationNewList();
         this.customers = spawnCustomers();
