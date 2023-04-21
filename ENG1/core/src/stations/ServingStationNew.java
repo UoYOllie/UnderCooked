@@ -9,9 +9,13 @@ import cooks.Cook;
 import cooks.CustomerNew;
 import food.FoodItem;
 import food.DishStack;
+import food.FoodStack;
+import food.Recipe;
 import game.GameSprites;
 import helper.Constants;
 import interactions.InputKey;
+
+import static food.Recipe.*;
 
 
 public class ServingStationNew extends Station {
@@ -54,9 +58,13 @@ public class ServingStationNew extends Station {
     @Override
     public void customerInteract(CustomerNew customer) {
         this.customer = customer;
-        if (!servedDishStack.empty()) {
+        System.out.println("customer is requesting a " + customer.request);
+        Array<FoodItem.FoodID> plateless = servedDishStack.getStackCopy();
+        if (plateless.size > 0) { plateless.removeIndex(plateless.size-1); }
+        if (matchesRecipeArray(plateless, customer.request)) {
             customer.dishStack.setStack(servedDishStack.getStackCopy());
             servedDishStack.clearStack();
+            customer.Success();
         }
     }
 

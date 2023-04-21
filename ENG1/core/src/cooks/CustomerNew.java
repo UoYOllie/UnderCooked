@@ -102,7 +102,7 @@ public class CustomerNew extends GameEntity {
         this.gameScreen.Reputation.Negative();
         Leave();
     }
-    private void Success() //Gets their dish, this is called
+    public void Success() //Gets their dish, this is called
     {
         this.gameScreen.Reputation.Positive();
         this.gameScreen.gold.addBalance(50);

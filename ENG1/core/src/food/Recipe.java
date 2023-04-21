@@ -113,6 +113,23 @@ public class Recipe {
         return true;
     }
 
+    public static boolean matchesRecipeArray(Array<FoodID> inputFoodStackArray, String recipeName) {
+
+        Array<FoodID> validFoodStackArray = recipes.get(recipeName).getStack();
+        //Array<FoodID> inputFoodStackArray = foodStack.getStack();
+
+        if (validFoodStackArray.size != inputFoodStackArray.size) {
+            return false;
+        }
+
+        for (int i=0; i < validFoodStackArray.size; i++) {
+            if (!containsFood(inputFoodStackArray, validFoodStackArray.get(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
      * Method to check whether a FoodStack is a valid recipe.
      * COULD PROBABLY COMBINE matchesRecipe AND validRecipe IF TIME ALLOWS.
@@ -128,6 +145,7 @@ public class Recipe {
 
         return null;
     }
+
 
     /** Helper method to choose a random recipe for the customer to order. */
     public static String randomRecipe() {
