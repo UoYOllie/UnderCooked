@@ -269,6 +269,11 @@ public class GameScreen extends ScreenAdapter {
         for (GameEntity entity : gameEntities) {
             entity.update(delta);
         }
+
+        //Checking Reputation
+        if(this.Reputation.getPoints() == 0){
+            screenController.setScreen(ScreenController.ScreenID.GAMEOVER);
+        }
     }
 
     /**

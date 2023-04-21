@@ -20,4 +20,8 @@ public class RepPoints {
             this.Points = 5;
         }
     }
+
+    public int getPoints(){
+        return this.Points;
+    }
 }
