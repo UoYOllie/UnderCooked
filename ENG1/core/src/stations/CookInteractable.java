@@ -43,7 +43,7 @@ public abstract class CookInteractable extends GameEntity {
     }
 
     public void customerInteract(CustomerNew customer) {
-        System.out.println("customer is interacting with:");
+        //System.out.println("customer is interacting with:");
     }
 
 
