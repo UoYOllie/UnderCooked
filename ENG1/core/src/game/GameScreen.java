@@ -251,6 +251,7 @@ public class GameScreen extends ScreenAdapter {
 
         if(Interactions.isJustPressed(InputKey.InputTypes.PAUSE))
         {
+            System.out.println("Im Pausing");
             screenController.pauseGameScreen();
         }
         world.step(1/60f,6,2);
