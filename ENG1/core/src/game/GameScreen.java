@@ -191,6 +191,15 @@ public class GameScreen extends ScreenAdapter {
 
         long diffInMillis = TimeUtils.timeSinceMillis(previousSecond)-(freeze*1000);
         if (diffInMillis >= 1000) {
+            for(CustomerNew customer:customerTestList) //Dealing with leaving
+            {
+                customer.DecreasePatience();
+                if((customer.waittime<=0)&&(customer.Stillhere ==true))
+                {
+                    System.out.println(customer + " is now leaving");
+                    customer.StormOut(); //When customer wants to leave
+                }
+            }
             previousSecond += 1000;
             secondsPassed += 1;
             if (secondsPassed >= 60) {
@@ -251,6 +260,7 @@ public class GameScreen extends ScreenAdapter {
 
         if(Interactions.isJustPressed(InputKey.InputTypes.PAUSE))
         {
+            System.out.println("Im Pausing");
             screenController.pauseGameScreen();
         }
         world.step(1/60f,6,2);

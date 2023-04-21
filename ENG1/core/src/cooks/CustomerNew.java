@@ -39,7 +39,9 @@ public class CustomerNew extends GameEntity {
 
     /** The name of the recipe being requested. */
     public String request;
-    private float waittime;
+
+    public boolean Stillhere;
+    public float waittime;
 
     public DishStack dishStack;
 
@@ -61,6 +63,7 @@ public class CustomerNew extends GameEntity {
         //Waittime in seconds
         Random rd = new Random();
         this.waittime = 150 + rd.nextFloat()*150;
+        this.Stillhere = true;
         //
 
         this.x = this.position.x;
@@ -90,8 +93,11 @@ public class CustomerNew extends GameEntity {
     {
         this.waittime = 300;
     }
+    public void DecreasePatience(){
+        this.waittime = waittime-1f;
+    }
 
-    private void StormOut()
+    public void StormOut()
     {
         this.gameScreen.Reputation.Negative();
         Leave();
@@ -105,7 +111,10 @@ public class CustomerNew extends GameEntity {
 
     private void Leave() //This function will be called when a customer leaves
     {
+        this.Stillhere = false;
         System.out.println("Im leaving, bye");
+        //Implement walk off
+        //implement removement from array
     }
 
     public void customerInteract(ArrayList<Station> mapStations) {

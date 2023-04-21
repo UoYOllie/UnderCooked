@@ -42,7 +42,6 @@ public class PauseScreen extends ScreenAdapter {
     public PauseScreen(ScreenController screenController, OrthographicCamera orthographicCamera) {
         this.screenController = screenController;
         this.camera = orthographicCamera;
-
         this.batch = screenController.getSpriteBatch();
         this.gameScreen = ((GameScreen) screenController.getScreen(ScreenID.GAME));
         this.shape = screenController.getShapeRenderer();
