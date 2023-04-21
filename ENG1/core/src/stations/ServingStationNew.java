@@ -40,6 +40,9 @@ public class ServingStationNew extends Station {
                 if (!cook.dishStack.empty() && servedDishStack.empty()) {
                     this.servedDishStack.setStack(cook.dishStack.getStackCopy());
                     cook.dishStack.clearStack();
+                    System.out.println("this is the serving station with food");
+                    System.out.println(this);
+                    //System.out.println(servedDishStack.getStack());
                 }
                 break;
             case PICK_UP:
@@ -48,28 +51,20 @@ public class ServingStationNew extends Station {
                     servedDishStack.clearStack();
                 }
                 break;
-//            case USE:
-//                System.out.println("i am using the serving station");
-//                System.out.println("customer");
-//                System.out.println("^^^^^^^");
-//                if (!servedDishStack.empty() && this.customer!=null) {
-//                    System.out.println("i will take the dish!");
-//                    this.customer.dishStack.setStack(servedDishStack.getStackCopy());
-//                    servedDishStack.clearStack();
-//                    System.out.println("the customer's dishstack:");
-//                    System.out.println("AAA" + customer.dishStack.getStack());
-//                    System.out.println("the station's dishstack:");
-//                    System.out.println("BBB" + servedDishStack.getStack());
-//                }
         }
     }
 
     @Override
     public void customerInteract(CustomerNew customer) {
-        //System.out.println("i am inside laura's method");
+        System.out.println("customer is interacting with");
+        System.out.println(this);
         this.customer = customer;
         //System.out.println("serving station dishStack");
-        //System.out.println(servedDishStack.getStack());
+        //System.out.println(this.servedDishStack.getStack());
+        //System.out.println("customer: " + customer.getX() + ", " + customer.getY() + " width: " + customer.getWidth() + " height: " + customer.getHeight());
+        //System.out.println("customer interactor: " + customer.customerInteractor.getX() + ", " + customer.customerInteractor.getY() + " width: " + customer.customerInteractor.getWidth() + " height: " + customer.customerInteractor.getHeight());
+        //System.out.println("station: " + this.getX() + ", " + this.getY()  + " width: " + this.getWidth() + " height: " + this.getHeight());
+        //System.out.println("station interactor: " + this.interactRect.getX() + ", " + this.interactRect.getY() + " width: " + this.interactRect.getWidth() + " height: " + this.interactRect.getHeight());
         if (!servedDishStack.empty()) {
             //System.out.println("i am inside the if statement yay");
             //System.out.println("i will take the dish!");
@@ -106,6 +101,11 @@ public class ServingStationNew extends Station {
         Array<FoodItem.FoodID> dishList = servedDishStack.getStack();
         float xOffset = 0F, yOffset = 0F;
         float drawX = x, drawY = y;
+
+        if (!servedDishStack.empty()) {
+            //System.out.println("rendering non-empty serving station dishStack:");
+            //System.out.println(servedDishStack.getStack());
+        }
 
         // Draw each FoodItem in DishList.
         for (int i = dishList.size-1 ; i >= 0 ; i--) {

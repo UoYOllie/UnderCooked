@@ -1,6 +1,6 @@
 package cooks;
 
-import Shop.MindControl;
+//import Shop.MindControl;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -45,7 +45,7 @@ public class CustomerNew extends GameEntity {
 
     public DishStack dishStack;
 
-    private Rectangle customerInteractor;
+    public Rectangle customerInteractor;
 
     private GameScreen gameScreen;
 
@@ -126,7 +126,6 @@ public class CustomerNew extends GameEntity {
                 //System.out.println("we gonna be interacting bois :)");
                 station = station1;
                 station.customerInteract(this);
-
                 break;
             }
         }

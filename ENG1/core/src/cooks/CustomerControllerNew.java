@@ -37,7 +37,7 @@ public class CustomerControllerNew {
         for (Station station : servingStations) {
 
             if (allCustomers.size < 5) {
-                CustomerNew customer = new CustomerNew(station.getX(), station.getY(), 3.34f, 1);
+                CustomerNew customer = new CustomerNew(station.getX()-1.3f, station.getY()+4f, 3.34f, 1);
                 customer.setGameScreen(this.gameScreen);
                 allCustomers.add(customer);
             }
