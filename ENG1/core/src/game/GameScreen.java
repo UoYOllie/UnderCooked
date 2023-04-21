@@ -229,13 +229,11 @@ public class GameScreen extends ScreenAdapter {
             if (thisCook == cook) {
                 thisCook.userInput(mapHelper.getMapObstacles());
                 thisCook.userInteract(mapHelper.getMapStations());
-                //System.out.println("updating the cook!");
             }
         }
         // laura
         for (CustomerNew customer : customerTestList) {
-            customer.customerInteract(mapHelper.getServingStationNewList());
-            //System.out.println("updating the customer!");
+            customer.customerInteract(mapHelper.getMapStations());
         }
 
         if(Interactions.isJustPressed(InputKey.InputTypes.COOK_SWAP)) {

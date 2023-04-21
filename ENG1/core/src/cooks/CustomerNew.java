@@ -118,41 +118,15 @@ public class CustomerNew extends GameEntity {
     }
 
     public void customerInteract(ArrayList<Station> mapStations) {
-        CustomerCollisionHelper checker = new CustomerCollisionHelper(gameScreen,this, mapStations);
-        CookInteractable station = checker.NearbyStation(customerInteractor);
-
-        for (Station station1 : mapStations) {
-            if (Intersector.overlaps(this.customerInteractor, station1.rectangle)){
-                //System.out.println("we gonna be interacting bois :)");
-                station = station1;
-                station.customerInteract(this);
-                break;
+        for (Station currentStation : mapStations) {
+            if (Intersector.overlaps(this.customerInteractor, currentStation.rectangle)){
+                currentStation.customerInteract(this);
             }
         }
-
-        //System.out.println("G" + station);
-
-//        for (InputKey inputKey : Interactions.getInputKeys(Interactions.InputID.COOK_INTERACT)) {
-//            if (Gdx.input.isKeyJustPressed(inputKey.getKey())) {
-//                //System.out.println(mapStations.toString());
-//                CustomerCollisionHelper checker = new CustomerCollisionHelper(gameScreen,this,mapStations);
-//                CookInteractable station = checker.NearbyStation(customerInteractor);
-//                System.out.println(station);
-//                if(station!=null) {
-//                    System.out.println("customer is interacting with serving station");
-//                    station.customerInteract(this, inputKey.getType());
-//                }
-//
-//            }
-//        }
     }
 
     @Override
     public void update(float delta) {
-        //y = body.getPosition().y*PPM;
-        //x = rectangle.x;
-        //y = rectangle.y;
-
         // Updates Interaction box (again change 1/8f to a const)
         this.customerInteractor.x = x - 1 / 8f;
         this.customerInteractor.y = y - 1 / 8f;
@@ -171,7 +145,6 @@ public class CustomerNew extends GameEntity {
 
         sprite.draw(batch);
         renderFood(batch);
-        //System.out.println("rendering a customer!");
     }
 
     /**
@@ -182,23 +155,16 @@ public class CustomerNew extends GameEntity {
 
         Array<FoodItem.FoodID> dishList = dishStack.getStack();
         float xOffset = 0F, yOffset = 0F;
-        float drawX = x, drawY = y - 12 * Constants.UnitScale;
-        // Get offset based on direction.
+        float drawX = x, drawY = y;
 
-        drawX = x;
-        drawY = y - 12 * Constants.UnitScale;
-
+        // Draw each FoodItem in DishList.
         for (int i = dishList.size-1 ; i >= 0 ; i--) {
             Sprite foodSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.FOOD, String.valueOf(dishList.get(i)));
-            Float drawInc = FoodItem.foodHeights.get(dishList.get(i)) * 0.5F;
-            if (drawInc == null) {
-                drawY += 5F;
-                continue;
-            }
-            foodSprite.setScale(2 * Constants.UnitScale);
-            foodSprite.setPosition(drawX-foodSprite.getWidth()/2+xOffset,drawY+yOffset);
+            foodSprite.setScale(0.8f*Constants.UnitScale);
+            foodSprite.setPosition((drawX - foodSprite.getWidth() / 3 + xOffset - 3.5f * Constants.UnitScale) - 1.15f,
+                    (drawY - foodSprite.getHeight() * 0.33f + yOffset * Constants.UnitScale) - 4.3f);
             foodSprite.draw(batch);
-            drawY += drawInc;
+            drawY += FoodItem.foodHeights.get(dishList.get(i)) * 0.18F;
         }
     }
 
@@ -225,11 +191,6 @@ public class CustomerNew extends GameEntity {
     public String getRequestName() {
         return request;
     }
-
-
-//    private void setSprite() {
-//        sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.COOK, "UP");
-//    }
 
 
     // unused abstract methods
