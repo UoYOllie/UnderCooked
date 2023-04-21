@@ -381,22 +381,12 @@ public class GameScreen extends ScreenAdapter {
         return this.cook;
     }
 
-    public int addCustomerNew(CustomerNew newCustomer) {
-        gameEntities.add(newCustomer);
-        customerTestList.add(newCustomer);
-        return customerTestList.size-1;
-    }
-
     public void addCustomersNew(Array<CustomerNew> customers) {
 
         for (CustomerNew customer : customers) {
             gameEntities.add(customer);
             customerTestList.add(customer);
-            System.out.println("spawning customer");
-            System.out.println(customer.getX());
-            System.out.println(customer.getY());
         }
-        //return customerTestList.size-1;
     }
 
     /**
