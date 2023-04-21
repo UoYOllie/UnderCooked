@@ -60,7 +60,9 @@ public class ServingStationNew extends Station {
         this.customer = customer;
         System.out.println("customer is requesting a " + customer.request);
         Array<FoodItem.FoodID> plateless = servedDishStack.getStackCopy();
+
         if (plateless.size > 0) { plateless.removeIndex(plateless.size-1); }
+
         if (matchesRecipeArray(plateless, customer.request)) {
             customer.dishStack.setStack(servedDishStack.getStackCopy());
             servedDishStack.clearStack();
