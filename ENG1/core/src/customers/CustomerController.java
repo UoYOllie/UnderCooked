@@ -214,9 +214,9 @@ public class CustomerController {
         }
         removeCustomer(station);
         customersServed++;
-        if (testFlag != 1) {
-            gameScreen.setCustomerHud(customersServed);
-        }
+//        if (testFlag != 1) {
+//            gameScreen.setCustomerHud(customersServed);
+//        }
         // If there are any customers left, spawn a new one.
         if (customersLeft > 0) {
             addCustomer();

@@ -77,9 +77,9 @@ public class GameScreen extends ScreenAdapter {
     private int cookIndex;
     private CustomerController customerController;
     private CustomerControllerNew customerControllerNew;
-    private int customersToServe;
+    //private int customersToServe;
     public CustomerNew customerTest;
-    public Array<CustomerNew> customerTestList;
+    public Array<CustomerNew> customersToServe;
 
     private int freeze;
     private boolean EnableAutoZoom;
@@ -156,24 +156,8 @@ public class GameScreen extends ScreenAdapter {
         Cook Buy4 = new Cook((2031.1f-104f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
         this.addSpareCook(Buy4);
 
-//        CustomerNew customerTest = new CustomerNew(1995.975f*8f,2855.9087f*8f,3.34f, 1);
-//        System.out.println("customer test spawned");
-//        System.out.println(customerTest.getX());
-//        System.out.println(customerTest.getY());
-//        this.gameEntities.add(customerTest);
-
-        this.customerTestList = new Array<>();
-//        //CustomerNew customerTest1 = new CustomerNew(2012.0625f, 2855.9087f, 3.34f, 1);
-//        CustomerNew customerTest1 = new CustomerNew(1941.5f, 2800.0505f, 3.34f, 1);
-//        System.out.println("customer test spawned");
-//        System.out.println(customerTest1.getX());
-//        System.out.println(customerTest1.getY());
-//        System.out.println(customerTest1.getWidth());
-//        this.addCustomerNew(customerTest1);
-//        this.customerTest = customerTestList.get(0);
-
-        this.addCustomersNew(customerControllerNew.getCustomers());
-        //System.out.println(servingStationNewList);
+        this.customersToServe = new Array<>();
+        //this.addCustomersNew(customerControllerNew.getCustomers());
 
         this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
@@ -211,7 +195,7 @@ public class GameScreen extends ScreenAdapter {
             else if(ZoomSecondCounter>0) {
                 ZoomSecondCounter = ZoomSecondCounter-1f;
             }
-            for(CustomerNew customer:customerTestList) //Dealing with leaving
+            for(CustomerNew customer:customersToServe) //Dealing with leaving
             {
                 customer.DecreasePatience();
                 if((customer.waittime<=0)&&(customer.Stillhere ==true))
@@ -252,7 +236,7 @@ public class GameScreen extends ScreenAdapter {
             }
         }
         // laura
-        for (CustomerNew customer : customerTestList) {
+        for (CustomerNew customer : customersToServe) {
             customer.customerInteract(mapHelper.getMapStations());
         }
 
@@ -309,11 +293,11 @@ public class GameScreen extends ScreenAdapter {
 
         renderGame(delta);
 
-        if(customersToServe <= customerController.getCustomersServed())
-        {
-            screenController.setScreen((ScreenController.ScreenID.GAMEOVER));
-            ((GameOverScreen) screenController.getScreen(ScreenController.ScreenID.GAMEOVER)).setTime(hoursPassed,minutesPassed,secondsPassed);
-        }
+//        if(customersToServe <= customerController.getCustomersServed())
+//        {
+//            screenController.setScreen((ScreenController.ScreenID.GAMEOVER));
+//            ((GameOverScreen) screenController.getScreen(ScreenController.ScreenID.GAMEOVER)).setTime(hoursPassed,minutesPassed,secondsPassed);
+//        }
     }
 
     /**
@@ -405,7 +389,7 @@ public class GameScreen extends ScreenAdapter {
 
         for (CustomerNew customer : customers) {
             gameEntities.add(customer);
-            customerTestList.add(customer);
+            customersToServe.add(customer);
         }
     }
 
@@ -443,9 +427,9 @@ public class GameScreen extends ScreenAdapter {
      * @param customerCount The {@code int} number to set the number of
      *                      {@link Customer}s to.
      */
-    public void setCustomerHud(int customerCount) {
-        gameHud.setCustomerCount(customersToServe - customerCount);
-    }
+    //public void setCustomerHud(int customerCount) {
+        //gameHud.setCustomerCount(customersToServe - customerCount);
+    //}
 
     /**
      * Returns the number of customers remaining before the game is finished.
@@ -560,12 +544,13 @@ public class GameScreen extends ScreenAdapter {
         lastCustomerSecond = TimeUtils.millis();
         nextCustomerSecond = TimeUtils.millis()+2000;
 
-        gameHud.setRecipe(null);
-        customersToServe = customers;
+        //gameHud.setRecipe(null);
+        //customersToServe = customers;
+        this.addCustomersNew(customerControllerNew.getCustomers());
         customerController.setCustomersLeft(customers);
         customerController.setCustomersServed(0);
         customerController.addCustomer();
-        setCustomerHud(customers);
+        //setCustomerHud(customers);
         gameHud.setCustomerCount(customers);
     }
 

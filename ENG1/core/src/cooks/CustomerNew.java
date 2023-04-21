@@ -115,6 +115,7 @@ public class CustomerNew extends GameEntity {
         System.out.println("Im leaving, bye");
         //Implement walk off
         //implement removement from array
+        // from laura to morgan : i might make these move from a 'customersToServe' to 'servedCustomers' array
     }
 
     public void customerInteract(ArrayList<Station> mapStations) {
