@@ -58,7 +58,7 @@ public class ServingStationNew extends Station {
     @Override
     public void customerInteract(CustomerNew customer) {
         this.customer = customer;
-        System.out.println("customer is requesting a " + customer.request);
+        //System.out.println("customer is requesting a " + customer.request);
         Array<FoodItem.FoodID> plateless = servedDishStack.getStackCopy();
 
         if (plateless.size > 0) { plateless.removeIndex(plateless.size-1); }

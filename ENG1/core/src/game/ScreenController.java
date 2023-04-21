@@ -34,10 +34,10 @@ public class ScreenController {
     public ScreenController(Boot boot, OrthographicCamera camera) {
         this.boot = boot;
         this.gameScreen = new GameScreen(this,camera);
-        this.menuScreen = new MenuScreen(this,camera);
-        this.gameOverScreen = new GameOverScreen(this,camera);
-        this.instructionScreen = new InstructionScreen(this,camera);
-        this.creditsScreen = new CreditsScreen(this,camera);
+        this.menuScreen = new MenuScreen(this,new OrthographicCamera());
+        this.gameOverScreen = new GameOverScreen(this,new OrthographicCamera());
+        this.instructionScreen = new InstructionScreen(this,new OrthographicCamera());
+        this.creditsScreen = new CreditsScreen(this,new OrthographicCamera());
 
         this.screens = new HashMap<>();
         this.screens.put(ScreenID.MENU,menuScreen);
@@ -46,7 +46,7 @@ public class ScreenController {
         this.screens.put(ScreenID.INSTRUCTIONS,instructionScreen);
         this.screens.put(ScreenID.CREDITS,creditsScreen);
 
-        this.pauseScreen = new PauseScreen(this,camera);
+        this.pauseScreen = new PauseScreen(this,new OrthographicCamera());
         this.screens.put(ScreenID.PAUSE,pauseScreen);
     }
 
