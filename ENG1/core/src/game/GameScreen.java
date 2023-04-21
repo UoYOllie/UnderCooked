@@ -82,6 +82,8 @@ public class GameScreen extends ScreenAdapter {
     public Array<CustomerNew> customerTestList;
 
     private int freeze;
+    private boolean EnableAutoZoom;
+    private float ZoomSecondCounter;
 
     /**
      * The constructor for the {@link GameScreen}.
@@ -101,6 +103,8 @@ public class GameScreen extends ScreenAdapter {
         this.gold.setBalance(1000); //for testing purposes ONLY
         this.Reputation = new RepPoints();
         this.freeze = 0;
+        this.EnableAutoZoom = true;
+        this.ZoomSecondCounter = 2f;
 
         // UPDATE
         // this.collisionHelper = CollisionHelper.getInstance();
@@ -190,7 +194,23 @@ public class GameScreen extends ScreenAdapter {
         Interactions.updateKeys();
 
         long diffInMillis = TimeUtils.timeSinceMillis(previousSecond)-(freeze*1000);
+        if(EnableAutoZoom) {
+            if (camera.zoom >= 1 / 10f) {
+                camera.zoom -= 1 / 100f;
+            }
+            else {
+                this.EnableAutoZoom = false;
+            }
+        }
+
         if (diffInMillis >= 1000) {
+            if(ZoomSecondCounter==0) {
+                this.EnableAutoZoom = false;
+                ZoomSecondCounter = ZoomSecondCounter-1f;
+            }
+            else if(ZoomSecondCounter>0) {
+                ZoomSecondCounter = ZoomSecondCounter-1f;
+            }
             for(CustomerNew customer:customerTestList) //Dealing with leaving
             {
                 customer.DecreasePatience();
