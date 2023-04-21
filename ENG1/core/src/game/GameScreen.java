@@ -81,6 +81,8 @@ public class GameScreen extends ScreenAdapter {
     public CustomerNew customerTest;
     public Array<CustomerNew> customerTestList;
 
+    private int freeze;
+
     /**
      * The constructor for the {@link GameScreen}.
      * @param screenController The {@link ScreenController} of the {@link ScreenAdapter}.
@@ -98,6 +100,7 @@ public class GameScreen extends ScreenAdapter {
         this.gold = new Gold();
         this.gold.setBalance(1000); //for testing purposes ONLY
         this.Reputation = new RepPoints();
+        this.freeze = 0;
 
         // UPDATE
         // this.collisionHelper = CollisionHelper.getInstance();
@@ -186,7 +189,7 @@ public class GameScreen extends ScreenAdapter {
         // First thing, update all inputs
         Interactions.updateKeys();
 
-        long diffInMillis = TimeUtils.timeSinceMillis(previousSecond);
+        long diffInMillis = TimeUtils.timeSinceMillis(previousSecond)-(freeze*1000);
         if (diffInMillis >= 1000) {
             previousSecond += 1000;
             secondsPassed += 1;
@@ -582,11 +585,17 @@ public class GameScreen extends ScreenAdapter {
     public ShopItem Powerup_Speed = new ShopItem("Speed",30); //increase current chef's movement seed
     public ShopItem Powerup_Items = new ShopItem("PowerItem",50);//give user a cup of tea, place onto stack
     public ShopItem Powerup_ChefBluggusMode = new ShopItem("Bluggus",80); //Transforms chef to bluggus to have bonus stack.
-    public ShopItem Powerup_4 = new ShopItem("-",30);
+    public ShopItem timefreeze = new ShopItem("time",100);
 //    public ShopItem Powerup_5 = new ShopItem("-",30);
     public ShopItem BuyablePeople = new ShopItem("NewChef",25);
 
     public ShopItem BuyableStation = new ShopItem("Station",10);
+
+    public void FreezeTime()
+    {
+        this.freeze = this.freeze + 10;
+        System.out.println("time deduction is "+this.freeze);
+    }
 
 
 

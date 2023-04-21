@@ -227,6 +227,9 @@ public class MapHelper {
 
                     mapStations.add(powerpantry);
                     break;
+                case "Freeze":
+                    mapStations.add(new FreezeTimeStation(newRectangle,gameScreen));
+                    break;
                 case "Locked":
                     mapStations.add(new Locked(newRectangle,gameScreen,rectangleMapObject.getProperties().get("type").toString()));
                     break;
