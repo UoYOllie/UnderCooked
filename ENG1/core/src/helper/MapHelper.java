@@ -215,11 +215,16 @@ public class MapHelper {
                     mapStations.add(new VAT(newRectangle,(rectangleMapObject.getProperties().get("Person")).toString(),gameScreen));
                     break;
                 case "Pantry":
+                    System.out.println("pantry is generated");
                     Pantry pantry = new Pantry(newRectangle);
                     pantry.setItem(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food"))); // lmao hashmap is sus
                     System.out.println("Setting to " + rectangleMapObject.getProperties().get("Food"));
                     System.out.println(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food")));
+
+                    mapStations.add(pantry);
+                    break;
                 case "poweritem":
+                    System.out.println("power pantry is generated");
                     PowerupPantry powerpantry = new PowerupPantry(newRectangle,gameScreen);
                     powerpantry.setItem(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food"))); // lmao hashmap is sus
                     System.out.println("Setting to " + rectangleMapObject.getProperties().get("Food"));
