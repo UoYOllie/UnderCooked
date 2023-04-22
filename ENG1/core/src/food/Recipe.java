@@ -57,6 +57,9 @@ public class Recipe {
         generateRecipe("Pepperoni Pizza", new FoodStack(FoodID.cheese, FoodID.pepperoni, FoodID.tomatoSauce, FoodID.doughCook));
         generateRecipe("Onion Pizza", new FoodStack(FoodID.cheese, FoodID.onionChop, FoodID.tomatoSauce, FoodID.doughCook));
 
+        // POWERUPS
+        generateRecipe("Teacup", new FoodStack(FoodID.teacup));
+
     }
 
     /**

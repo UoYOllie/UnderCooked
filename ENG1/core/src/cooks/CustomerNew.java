@@ -48,13 +48,16 @@ public class CustomerNew extends GameEntity {
     public Rectangle customerInteractor;
 
     private GameScreen gameScreen;
+    private Vector2 stationPosition;
+    private Vector2 destination;
+    public int customerStatus;
 
 
     /** The Constructor for CustomerNew. */
     public CustomerNew(float x, float y, float width, float height) {
         super(x, y, width, height);
         this.sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "0");
-        this.position = new Vector2(x, y);
+        //this.position = new Vector2(x, y);
         this.customerInteractor = new Rectangle(x - 4 * Constants.UnitScale, y - 4 * Constants.UnitScale,
                                                 width + 1f, height + 1f);
         this.request = Recipe.randomRecipe();
@@ -66,10 +69,36 @@ public class CustomerNew extends GameEntity {
         this.Stillhere = true;
         //
 
-        this.x = this.position.x;
-        this.y = this.position.y;
+        //this.x = this.position.x;
+        //this.y = this.position.y;
 
+        this.x = x;
+        this.y = y;
 
+        this.stationPosition = new Vector2(x, y);
+        this.destination = new Vector2(this.x, Constants.customerSplitPoint);
+        this.customerStatus = 0;
+    }
+
+    public void setStationPosition(float endX, float endY) {
+        this.stationPosition.x = endX;
+        this.stationPosition.y = endY;
+    }
+
+    public void setDestination(float endX, float endY) {
+        this.destination.x = endX;
+        this.destination.y = endY;
+    }
+
+    /**
+     * Helper method to return the sign of a value.
+     * */
+    public int sign(float value) {
+        if (value >= 0) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 
     public void setGameScreen(GameScreen g)
@@ -128,6 +157,36 @@ public class CustomerNew extends GameEntity {
 
     @Override
     public void update(float delta) {
+
+        if (this.customerStatus == 0) {
+
+            System.out.println("I am travelling down the corridor");
+
+            if (this.y > destination.y) {
+                this.y -= Constants.UnitScale;
+            } else {
+                this.setDestination(stationPosition.x, stationPosition.y);
+                this.customerStatus += 1;
+            }
+
+        } else if (this.customerStatus == 1) {
+
+            Boolean x_ready = false, y_ready = false;
+
+            if (this.y > stationPosition.y) { this.y -= Constants.UnitScale;
+            } else { x_ready = true;}
+
+            if (this.x < stationPosition.x) { this.x += Constants.UnitScale;
+            } else { y_ready = true;}
+
+            if (x_ready && y_ready) {
+                this.customerStatus += 1;
+            }
+
+        } else if (this.customerStatus == 2) {
+            System.out.println("i am waiting to be served");
+        }
+
         // Updates Interaction box (again change 1/8f to a const)
         this.customerInteractor.x = x - 1 / 8f;
         this.customerInteractor.y = y - 1 / 8f;
@@ -141,7 +200,8 @@ public class CustomerNew extends GameEntity {
 
         sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "0");
 
-        sprite.setPosition(position.x-sprite.getWidth()/2, position.y-sprite.getHeight()/2);
+        //sprite.setPosition(position.x-sprite.getWidth()/2, position.y-sprite.getHeight()/2);
+        sprite.setPosition(this.x-sprite.getWidth()/2, this.y-sprite.getHeight()/2);
         this.sprite.setSize(6,5.7f);
 
         sprite.draw(batch);
@@ -174,7 +234,7 @@ public class CustomerNew extends GameEntity {
      * @return The x-position of the customer.
      */
     public float getX() {
-        return position.x;
+        return x;
     }
 
     /**
@@ -182,7 +242,7 @@ public class CustomerNew extends GameEntity {
      * @return The y-position of the customer.
      */
     public float getY() {
-        return position.y;
+        return y;
     }
 
     /**

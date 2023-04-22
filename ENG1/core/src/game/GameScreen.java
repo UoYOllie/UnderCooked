@@ -310,7 +310,9 @@ public class GameScreen extends ScreenAdapter {
         }
         // laura
         for (CustomerNew customer : customersToServe) {
+            //customer.moveTo(customer.endX, customer.endY);
             customer.customerInteract(mapHelper.getMapStations());
+            customer.update(Gdx.graphics.getDeltaTime());
         }
 
         if(Interactions.isJustPressed(InputKey.InputTypes.COOK_SWAP)) {

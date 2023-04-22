@@ -25,4 +25,8 @@ public class Constants {
     public static final float CookHeight = 1f;
     public static final float UnitScale = 1/8f;
 
+    public static final Vector2 customerSpawnPoint = new Vector2(1915f, 2869.0442f);
+    public static final Vector2 customerToStationPoint = new Vector2(1915f, 2817.9171f);
+    public static final float customerSplitPoint = 2817.9171f;
+
 }
