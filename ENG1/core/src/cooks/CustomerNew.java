@@ -272,23 +272,27 @@ public class CustomerNew extends GameEntity {
 
     private void renderBubble(SpriteBatch batch) {
 
-        bubbleSprite.setPosition(this.x-8.5f, this.y-bubbleSprite.getHeight()/2);
-        this.bubbleSprite.setSize(6,5.7f);
-        bubbleSprite.draw(batch);
+        if (customerStatus == 1) {
 
-        Array<FoodItem.FoodID> requestList = Recipe.getCustomerRequestBubble(request);
-        float xOffset = -8.5f, yOffset = 0F;
-        float drawX = x, drawY = y;
+            bubbleSprite.setPosition(this.x - 8.5f, this.y - bubbleSprite.getHeight() / 2);
+            this.bubbleSprite.setSize(6, 5.7f);
+            bubbleSprite.draw(batch);
 
-        // Draw each FoodItem in DishList.
-        for (int i=0; i<requestList.size; i++) {
-            Sprite foodSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.FOOD, String.valueOf(requestList.get(i)));
-            foodSprite.setScale(0.8f*Constants.UnitScale);
-            foodSprite.setPosition((drawX - foodSprite.getWidth() / 3 + xOffset - 3.5f * Constants.UnitScale) - 1.15f,
-                    (drawY - foodSprite.getHeight() * 0.33f + yOffset * Constants.UnitScale) - 4.3f);
-            foodSprite.draw(batch);
-            //drawX += FoodItem.foodHeights.get(requestList.get(i)) * 0.9F;
-            drawX += 1.7f;
+            Array<FoodItem.FoodID> requestList = Recipe.getCustomerRequestBubble(request);
+            float xOffset = -8.5f, yOffset = 0F;
+            float drawX = x, drawY = y;
+
+            // Draw each FoodItem in DishList.
+            for (int i = 0; i < requestList.size; i++) {
+                Sprite foodSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.FOOD, String.valueOf(requestList.get(i)));
+                foodSprite.setScale(0.8f * Constants.UnitScale);
+                foodSprite.setPosition((drawX - foodSprite.getWidth() / 3 + xOffset - 3.5f * Constants.UnitScale) - 1.15f,
+                        (drawY - foodSprite.getHeight() * 0.33f + yOffset * Constants.UnitScale) - 4.3f);
+                foodSprite.draw(batch);
+                //drawX += FoodItem.foodHeights.get(requestList.get(i)) * 0.9F;
+                drawX += 1.7f;
+            }
+
         }
 
     }
