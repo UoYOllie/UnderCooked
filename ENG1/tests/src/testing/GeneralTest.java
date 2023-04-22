@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
 import cooks.CookInteractor;
+import cooks.CustomerInteractor;
 import cooks.GameEntity;
 import customers.Customer;
 import customers.CustomerController;
@@ -543,5 +544,16 @@ public class GeneralTest {
         finalList.add(servingStationNew);
         MapHelper helper = new MapHelper(new ArrayList<Rectangle>(),new ArrayList<Station>(),finalList);
         assertEquals(helper.getServingStationNewList(), finalList , "Error: The MapHelper utility function getServingStationsNew does not return the right list");
+    }
+
+    //The following test exercises the CustomerInteractor's updatePosition
+    @Test
+    public void testUpdatePosition(){
+        CustomerInteractor customerInteractor = new CustomerInteractor(20,30,100);
+        customerInteractor.updatePosition(10,20, Cook.Facing.DOWN);
+        assertEquals(customerInteractor.x,10,"Error: CustomerInteractor's updatePosition does not properly update the x position");
+        assertEquals(customerInteractor.y,20,"Error: CustomerInteractor's updatePosition does not properly update the y position");
+        assertEquals(customerInteractor.collision.x, (10-(100/2)),"Error: CustomerInteractor's updatePosition does not properly update the collision's x position");
+        assertEquals(customerInteractor.collision.y, (20-(100/2)),"Error: CustomerInteractor's updatePosition does not properly update the collision's y position");
     }
 }
