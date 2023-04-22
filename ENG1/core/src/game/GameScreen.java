@@ -90,7 +90,7 @@ public class GameScreen extends ScreenAdapter {
      * @param screenController The {@link ScreenController} of the {@link ScreenAdapter}.
      * @param camera The {@link OrthographicCamera} that the game should use.
      */
-    public GameScreen(ScreenController screenController, OrthographicCamera camera)
+    public GameScreen(ScreenController screenController, OrthographicCamera camera)//Constructor, reset rebuildings constructor
     {
         this.previousSecond = TimeUtils.millis();
         this.lastCustomerSecond = -1;
@@ -114,6 +114,79 @@ public class GameScreen extends ScreenAdapter {
         this.cookIndex = -1;
         this.camera = camera;
         this.camera.zoom = 1/20f;
+        this.screenController = screenController;
+        this.batch = screenController.getSpriteBatch();
+        this.shape = screenController.getShapeRenderer();
+        this.gameEntities = new ArrayList<>();
+        this.drawQueueComparator = new DrawQueueComparator();
+        this.customerController = new CustomerController(this);
+
+        this.world = new World(new Vector2(0,0), false);
+        //this.box2DDebugRenderer = new Box2DDebugRenderer();
+
+        // UPDATED
+        // this.mapHelper = MapHelper.getInstance();
+        this.mapHelper = new MapHelper(this);
+        //this.customerControllerNew = new CustomerControllerNew(this);
+        //this.servingStationNewList = this.mapHelper.getServingStationNewList();
+        //System.out.println(servingStationNewList);
+
+
+        // this.mapHelper.setGameScreen(this);
+        this.orthogonalTiledMapRenderer = mapHelper.setupMap();
+        this.gameHud = new GameHud(batch, this);
+        this.instructionHUD = new InstructionHud(batch);
+        addInteractable(this.mapHelper.getMapStations());
+        this.customerControllerNew = new CustomerControllerNew(this);
+
+
+        Cook GlibbertOrange = new Cook(2041*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        this.addCook(GlibbertOrange);
+        Cook GlibbertBlue = new Cook(2045*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        this.addCook(GlibbertBlue);
+        Cook GlibbertGreen = new Cook(2049*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        this.addCook(GlibbertGreen);
+
+        Cook Buy1 = new Cook((2031.1f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        this.addSpareCook(Buy1);
+        Cook Buy2 = new Cook((2031.1f+12f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        this.addSpareCook(Buy2);
+        Cook Buy3 = new Cook((2031.1f-92f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        this.addSpareCook(Buy3);
+        Cook Buy4 = new Cook((2031.1f-104f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        this.addSpareCook(Buy4);
+
+        this.customersToServe = new Array<>();
+        //this.addCustomersNew(customerControllerNew.getCustomers());
+
+        this.cook = cooks.get(0);
+        this.gameEntities.addAll(mapHelper.getMapStations());
+    }
+
+    public void reset()
+    {
+        this.previousSecond = TimeUtils.millis();
+        this.lastCustomerSecond = -1;
+        this.nextCustomerSecond = -1;
+        this.cooks = new Array<>();
+        this.unusedcooks = new Array<>();
+
+        this.interactables = new Array<>();
+        this.gold = new Gold();
+        this.gold.setBalance(1000); //for testing purposes ONLY
+        this.Reputation = new RepPoints();
+        this.freeze = 0;
+        this.EnableAutoZoom = true;
+        this.ZoomSecondCounter = 2f;
+
+        // UPDATE
+        // this.collisionHelper = CollisionHelper.getInstance();
+        this.collisionHelper = new CollisionHelper();
+
+        this.collisionHelper.setGameScreen(this);
+        this.cookIndex = -1;
+//        this.camera = camera;
+//        this.camera.zoom = 1/10f;
         this.screenController = screenController;
         this.batch = screenController.getSpriteBatch();
         this.shape = screenController.getShapeRenderer();
@@ -513,27 +586,28 @@ public class GameScreen extends ScreenAdapter {
      */
     public void addServingStation(ServingStation station) { customerController.addServingStation(station); }
     /** Reset the game variables, map and world. */
-    public void reset() {
-        // Reset all variables
-        secondsPassed = 0;
-        minutesPassed = 0;
-        hoursPassed = 0;
-        cooks.clear();
-        gameEntities.clear();
-        interactables.clear();
-        mapHelper.dispose();
-        customerController.clearServingStations();
-        dispose();
-        // UPDATE
-        //mapHelper = MapHelper.newInstance();
-        //mapHelper.setGameScreen(this);
-        this.mapHelper = new MapHelper(this);
-
-        world.dispose();
-        this.world = new World(new Vector2(0,0), false);
-        this.orthogonalTiledMapRenderer = mapHelper.setupMap();
-        cookIndex = -1;
-    }
+//    public void reset() {
+//        // Reset all variables
+//        secondsPassed = 0;
+//        minutesPassed = 0;
+//        hoursPassed = 0;
+////        cooks.clear();
+////        gameEntities.clear();
+////        interactables.clear();
+////        mapHelper.dispose();
+////        customerController.clearServingStations();
+////        dispose();
+//
+//        // UPDATE
+//        //mapHelper = MapHelper.newInstance();
+//        //mapHelper.setGameScreen(this);
+//        this.mapHelper = new MapHelper(this);
+//
+//        world.dispose();
+//        this.world = new World(new Vector2(0,0), false);
+//        this.orthogonalTiledMapRenderer = mapHelper.setupMap();
+//        cookIndex = -1;
+//    }
 
     /**
      * A variable for setting up the game when it starts.
