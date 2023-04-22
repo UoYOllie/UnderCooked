@@ -23,6 +23,7 @@ public class Recipe {
 
     /** A HashMap mapping the name of each recipe to its valid FoodStack. */
 	public static final HashMap<String, FoodStack> recipes = new HashMap<>();
+    public static final Array<FoodID> toppings = new Array<>();
 
     static {
 
@@ -58,7 +59,16 @@ public class Recipe {
         generateRecipe("Onion Pizza", new FoodStack(FoodID.cheese, FoodID.onionChop, FoodID.tomatoSauce, FoodID.doughCook));
 
         // POWERUPS
-        generateRecipe("Teacup", new FoodStack(FoodID.teacup));
+        //generateRecipe("Teacup", new FoodStack(FoodID.teacup));
+
+        // TOPPINGS
+        toppings.add(FoodID.lettuceChop);
+        toppings.add(FoodID.tomatoChop);
+        toppings.add(FoodID.onionChop);
+        toppings.add(FoodID.cheese);
+        toppings.add(FoodID.bakedBeans);
+        toppings.add(FoodID.coleslaw);
+        toppings.add(FoodID.pepperoni);
 
     }
 
@@ -149,6 +159,39 @@ public class Recipe {
         return null;
     }
 
+
+    public static Array<FoodID> getCustomerRequestBubble(String request) {
+
+        Array<FoodID> allItems = getRecipe(request).getStackCopy();
+        Array<FoodID> bubbleItems = new Array<>();
+
+        // Add a base item to the request bubble.
+        if (containsFood(allItems, FoodID.meatCook)) {
+            bubbleItems.add(FoodID.burger);
+        } else if (containsFood(allItems, FoodID.lettuceChop)
+                && !containsFood(allItems, FoodID.meatCook)) {
+            bubbleItems.add(FoodID.salad);
+        } else if (containsFood(allItems, FoodID.doughCook)) {
+            bubbleItems.add(FoodID.pizza);
+        } else if (containsFood(allItems, FoodID.potatoCook)) {
+            bubbleItems.add(FoodID.jacketPotato);
+        }
+
+        // Add the toppings to the requestBubble.
+
+        for (FoodID topping : toppings) {
+            if (containsFood(allItems, topping)) {
+
+                // LettuceChop is not a topping if the request is a salad:
+                if (!(topping == FoodID.lettuceChop && containsFood(bubbleItems, FoodID.salad))) {
+                    bubbleItems.add(topping);
+                }
+            }
+        }
+
+        return bubbleItems;
+
+    }
 
 
     /** Helper method to choose a random recipe for the customer to order. */

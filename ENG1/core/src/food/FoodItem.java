@@ -51,6 +51,10 @@ public class FoodItem {
         tomatoSauce,
         menu,
         teacup,
+        burger,
+        pizza,
+        salad,
+        jacketPotato,
         /** Default */
         none
     }
@@ -82,6 +86,11 @@ public class FoodItem {
         foodHeights.put(FoodID.tomatoSauce, 12F * Constants.UnitScale);
         foodHeights.put(FoodID.menu, 12F * Constants.UnitScale);
         foodHeights.put(FoodID.teacup, 12F * Constants.UnitScale);
+
+        foodHeights.put(FoodID.burger, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.pizza, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.salad, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.jacketPotato, 12F * Constants.UnitScale);
     }
 
     public static final HashMap<String, FoodID> foods = new HashMap<>(); // why are they called foods not items :(
@@ -109,6 +118,10 @@ public class FoodItem {
         foods.put("tomatoSauce", FoodID.tomatoSauce);
         foods.put("menu", FoodID.menu);
         foods.put("teacup", FoodID.teacup);
+        foods.put("burger", FoodID.burger);
+        foods.put("pizza", FoodID.pizza);
+        foods.put("salad", FoodID.salad);
+        foods.put("jacketPotato", FoodID.jacketPotato);
     }
 }
 
