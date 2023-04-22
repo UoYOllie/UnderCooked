@@ -2,7 +2,10 @@ package stations;
 
 import Shop.ShopItem;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
+import food.FoodItem;
+import food.FoodStack;
 import game.GameScreen;
 import interactions.InputKey;
 
@@ -28,7 +31,11 @@ public class PowerupPantry extends Pantry{
             // Take an item from the pantry if the input is to pick up.
             if (inputType == InputKey.InputTypes.PICK_UP || inputType == InputKey.InputTypes.USE) {
                 System.out.println(foodDispensed);
-                cook.foodStack.addStack(foodDispensed);
+                if(cook.foodStack.empty()) {
+                    Array<FoodItem.FoodID> temp = new Array<FoodItem.FoodID>();
+                    temp.add(foodDispensed);
+                    cook.dishStack.setStack(temp);
+                }
             }
         }
     }
