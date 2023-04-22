@@ -36,6 +36,7 @@ public class CustomerNew extends GameEntity {
 
     /** The Sprite of the CustomerNew. */
     public Sprite sprite;
+    public Sprite bubbleSprite;
 
     /** The name of the recipe being requested. */
     public String request;
@@ -58,7 +59,8 @@ public class CustomerNew extends GameEntity {
     /** The Constructor for CustomerNew. */
     public CustomerNew(float x, float y, float width, float height) {
         super(x, y, width, height);
-        this.sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "0");
+        this.sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "customer_bluggus");
+        this.bubbleSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "speech_bubble");
         //this.position = new Vector2(x, y);
         this.customerInteractor = new Rectangle(x - 4 * Constants.UnitScale, y - 4 * Constants.UnitScale,
                                                 width + 1f, height + 1f);
@@ -232,14 +234,19 @@ public class CustomerNew extends GameEntity {
      */
     public void render(SpriteBatch batch) {
 
-        sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "customer_bluggus");
+        //sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "customer_bluggus");
+        //bubbleSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "speech_bubble");
 
         //sprite.setPosition(position.x-sprite.getWidth()/2, position.y-sprite.getHeight()/2);
         sprite.setPosition(this.x-sprite.getWidth()/2, this.y-sprite.getHeight()/2);
         this.sprite.setSize(6,5.7f);
+        //bubbleSprite.setPosition(this.x-8.5f, this.y-bubbleSprite.getHeight()/2);
+        //this.bubbleSprite.setSize(6,5.7f);
 
         sprite.draw(batch);
+        //bubbleSprite.draw(batch);
         renderFood(batch);
+        renderBubble(batch);
     }
 
     /**
@@ -261,6 +268,29 @@ public class CustomerNew extends GameEntity {
             foodSprite.draw(batch);
             drawY += FoodItem.foodHeights.get(dishList.get(i)) * 0.18F;
         }
+    }
+
+    private void renderBubble(SpriteBatch batch) {
+
+        bubbleSprite.setPosition(this.x-8.5f, this.y-bubbleSprite.getHeight()/2);
+        this.bubbleSprite.setSize(6,5.7f);
+        bubbleSprite.draw(batch);
+
+        Array<FoodItem.FoodID> requestList = Recipe.getCustomerRequestBubble(request);
+        float xOffset = -8.5f, yOffset = 0F;
+        float drawX = x, drawY = y;
+
+        // Draw each FoodItem in DishList.
+        for (int i=0; i<requestList.size; i++) {
+            Sprite foodSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.FOOD, String.valueOf(requestList.get(i)));
+            foodSprite.setScale(0.8f*Constants.UnitScale);
+            foodSprite.setPosition((drawX - foodSprite.getWidth() / 3 + xOffset - 3.5f * Constants.UnitScale) - 1.15f,
+                    (drawY - foodSprite.getHeight() * 0.33f + yOffset * Constants.UnitScale) - 4.3f);
+            foodSprite.draw(batch);
+            //drawX += FoodItem.foodHeights.get(requestList.get(i)) * 0.9F;
+            drawX += 1.7f;
+        }
+
     }
 
     /**
