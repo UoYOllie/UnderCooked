@@ -51,6 +51,8 @@ public class CustomerNew extends GameEntity {
     private Vector2 stationPosition;
     private Vector2 destination;
     public int customerStatus;
+    private int entryStatus;
+    private Array<Vector2> customerPoints;
 
 
     /** The Constructor for CustomerNew. */
@@ -62,6 +64,7 @@ public class CustomerNew extends GameEntity {
                                                 width + 1f, height + 1f);
         this.request = Recipe.randomRecipe();
         this.dishStack = new DishStack();
+        this.customerStatus = 0;
 
         //Waittime in seconds
         Random rd = new Random();
@@ -75,9 +78,13 @@ public class CustomerNew extends GameEntity {
         this.x = x;
         this.y = y;
 
+
+        // used for customer movement:
         this.stationPosition = new Vector2(x, y);
-        this.destination = new Vector2(this.x, Constants.customerSplitPoint);
-        this.customerStatus = 0;
+        this.destination = Constants.customerPointB;
+        this.entryStatus = 0;
+        this.customerPoints = setCustomerPoints();
+
     }
 
     public void setStationPosition(float endX, float endY) {
@@ -88,17 +95,6 @@ public class CustomerNew extends GameEntity {
     public void setDestination(float endX, float endY) {
         this.destination.x = endX;
         this.destination.y = endY;
-    }
-
-    /**
-     * Helper method to return the sign of a value.
-     * */
-    public int sign(float value) {
-        if (value >= 0) {
-            return 1;
-        } else {
-            return -1;
-        }
     }
 
     public void setGameScreen(GameScreen g)
@@ -142,6 +138,7 @@ public class CustomerNew extends GameEntity {
     {
         this.Stillhere = false;
         System.out.println("Im leaving, bye");
+        this.customerStatus = 2;
         //Implement walk off
         //implement removement from array
         // from laura to morgan : i might make these move from a 'customersToServe' to 'servedCustomers' array
@@ -155,36 +152,73 @@ public class CustomerNew extends GameEntity {
         }
     }
 
+    // all methods controlling customer movement
+
+    public Array<Vector2> setCustomerPoints() {
+        Array<Vector2> customerPoints = new Array<>();
+        customerPoints.add(Constants.customerPointC);
+        customerPoints.add(Constants.customerPointD);
+        customerPoints.add(Constants.customerPointE);
+        customerPoints.add(Constants.customerPointF);
+        customerPoints.add(stationPosition);
+        return customerPoints;
+    }
+
+    public void move_left_down(Vector2 nextDestination) {
+
+        boolean readyX = false, readyY = false;
+
+        if (this.y > destination.y) { this.y -= Constants.UnitScale;
+        } else { readyY = true; }
+
+        if (this.x > destination.x) { this.x -= Constants.UnitScale;
+        } else { readyX = true; }
+
+        if (readyX && readyY) {
+            setDestination(nextDestination.x, nextDestination.y);
+            this.entryStatus += 1;
+        }
+    }
+
+    public void enterCustomer() {
+
+        for (int i=0; i<5; i++) {
+            if (this.entryStatus == i) {
+                move_left_down(customerPoints.get(i));
+            }
+        }
+
+        if (this.entryStatus == 5) {
+
+            boolean readyX = false, readyY = false;
+
+            if (this.y > stationPosition.y) { this.y -= Constants.UnitScale;
+            } else { readyY = true; }
+
+            if (this.x < stationPosition.x) { this.x += Constants.UnitScale;
+            } else { readyX = true;}
+
+            if (readyX && readyY) {
+                this.customerStatus += 1;
+                this.entryStatus += 1;
+            }
+        }
+    }
+
     @Override
     public void update(float delta) {
 
-        if (this.customerStatus == 0) {
-
-            System.out.println("I am travelling down the corridor");
-
-            if (this.y > destination.y) {
-                this.y -= Constants.UnitScale;
-            } else {
-                this.setDestination(stationPosition.x, stationPosition.y);
-                this.customerStatus += 1;
-            }
-
-        } else if (this.customerStatus == 1) {
-
-            Boolean x_ready = false, y_ready = false;
-
-            if (this.y > stationPosition.y) { this.y -= Constants.UnitScale;
-            } else { x_ready = true;}
-
-            if (this.x < stationPosition.x) { this.x += Constants.UnitScale;
-            } else { y_ready = true;}
-
-            if (x_ready && y_ready) {
-                this.customerStatus += 1;
-            }
-
-        } else if (this.customerStatus == 2) {
-            System.out.println("i am waiting to be served");
+        switch (customerStatus) {
+            case (0): // Customer is coming down the corridor.
+                enterCustomer();
+            case (1): // Customer is waiting at the serving station.
+                System.out.println("I am ready to be served now!");
+            case (2): // Customer goes to eat in the dining area.
+                System.out.println("I have been served now!");
+            case (4): // Customer leaves the restaurant after eating.
+                System.out.println("I have eaten now!");
+            case (3): // Customer storms out when their patience timer runs out.
+                System.out.println("I am storming out :(((");
         }
 
         // Updates Interaction box (again change 1/8f to a const)

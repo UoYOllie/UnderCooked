@@ -53,11 +53,9 @@ public class CustomerControllerNew {
         for (Station station : servingStations) {
 
             if (allCustomers.size < 5) {
-                System.out.println("serving station at " + station.getX() + "," + station.getY());
-                //CustomerNew customer = new CustomerNew(1912f-1.3f, 2813.9171f+4f, 3.34f, 2);
-                CustomerNew customer = new CustomerNew(Constants.customerSpawnPoint.x, Constants.customerSpawnPoint.y, 3.34f, 2);
+                System.out.println("top");
+                CustomerNew customer = new CustomerNew(Constants.customerPointA.x, Constants.customerPointA.y, 3.34f, 2);
                 customer.setStationPosition(station.getX()-1.3f, station.getY()+4f);
-                //customer.setDestination(customer.x, Constants.customerSplitPoint);
                 customer.setGameScreen(this.gameScreen);
                 allCustomers.add(customer);
             }

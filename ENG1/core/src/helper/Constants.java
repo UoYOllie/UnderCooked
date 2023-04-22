@@ -1,6 +1,7 @@
 package helper;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 
 /**
  * A class for variables that remain Constant
@@ -28,5 +29,15 @@ public class Constants {
     public static final Vector2 customerSpawnPoint = new Vector2(1915f, 2869.0442f);
     public static final Vector2 customerToStationPoint = new Vector2(1915f, 2817.9171f);
     public static final float customerSplitPoint = 2817.9171f;
+
+    // customer travelling down the corridor
+    public static final Vector2 customerPointA = new Vector2 (1978.075f, 2915.9f);
+    public static final Vector2 customerPointB = new Vector2 (1978.075f, 2913f);
+    public static final Vector2 customerPointC = new Vector2 (1939f, 2913f);
+    public static final Vector2 customerPointD = new Vector2 (1939f, 2872f);
+    public static final Vector2 customerPointE = new Vector2 (1915f, 2872f);
+    public static final Vector2 customerPointF = new Vector2 (1915f, 2817.9171f);
+
+    public static final Array<Vector2> customerPoints = new Array<>();
 
 }
