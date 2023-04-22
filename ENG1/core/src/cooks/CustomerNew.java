@@ -279,10 +279,10 @@ public class CustomerNew extends GameEntity {
             bubbleSprite.draw(batch);
 
             Array<FoodItem.FoodID> requestList = Recipe.getCustomerRequestBubble(request);
-            float xOffset = -8.5f, yOffset = 0F;
+            float xOffset = -8.5f, yOffset = +12F;
             float drawX = x, drawY = y;
 
-            // Draw each FoodItem in DishList.
+            // Draw each FoodItem in RequestList.
             for (int i = 0; i < requestList.size; i++) {
                 Sprite foodSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.FOOD, String.valueOf(requestList.get(i)));
                 foodSprite.setScale(0.8f * Constants.UnitScale);
