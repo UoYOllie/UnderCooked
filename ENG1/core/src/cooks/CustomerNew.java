@@ -212,13 +212,13 @@ public class CustomerNew extends GameEntity {
             case (0): // Customer is coming down the corridor.
                 enterCustomer();
             case (1): // Customer is waiting at the serving station.
-                System.out.println("I am ready to be served now!");
-            case (2): // Customer goes to eat in the dining area.
-                System.out.println("I have been served now!");
-            case (4): // Customer leaves the restaurant after eating.
-                System.out.println("I have eaten now!");
-            case (3): // Customer storms out when their patience timer runs out.
-                System.out.println("I am storming out :(((");
+                //System.out.println("I am ready to be served now!");
+//            case (2): // Customer goes to eat in the dining area.
+//                System.out.println("I have been served now!");
+//            case (4): // Customer leaves the restaurant after eating.
+//                System.out.println("I have eaten now!");
+//            case (3): // Customer storms out when their patience timer runs out.
+//                System.out.println("I am storming out :(((");
         }
 
         // Updates Interaction box (again change 1/8f to a const)
