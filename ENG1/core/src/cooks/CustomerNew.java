@@ -232,7 +232,7 @@ public class CustomerNew extends GameEntity {
      */
     public void render(SpriteBatch batch) {
 
-        sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "0");
+        sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "customer_bluggus");
 
         //sprite.setPosition(position.x-sprite.getWidth()/2, position.y-sprite.getHeight()/2);
         sprite.setPosition(this.x-sprite.getWidth()/2, this.y-sprite.getHeight()/2);

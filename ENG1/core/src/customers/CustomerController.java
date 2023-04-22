@@ -46,7 +46,7 @@ public class CustomerController {
         this.customers = new Array<>();
         this.customersLeft = 0;
         this.customersServed = 0;
-        this.customerSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER,"0");
+        this.customerSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER,"customer_bluggus");
         this.customerSprite.setSize(42.5F,70);
         this.servingStations = new Array<>();
         this.gameScreen = gameScreen;
@@ -56,7 +56,7 @@ public class CustomerController {
         this.customers = new Array<>();
         this.customersLeft = 0;
         this.customersServed = 0;
-        this.customerSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER,"0");
+        this.customerSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER,"customer_bluggus");
         this.customerSprite.setSize(42.5F,70);
         this.servingStations = new Array<>();
     }
