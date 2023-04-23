@@ -596,6 +596,7 @@ public class GeneralTest {
     public void testCustomerNewGetRequestName(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4);
         customerNew.request.equals("Plain Burger");
+//        System.out.println(customerNew.request.equals("Plain Burger"));
         assertEquals(customerNew.getRequestName(),"Plain Burger","Error: CustomerNew getRequestName does not get the right recipe");
     }
 }

@@ -89,6 +89,11 @@ public class CustomerNew extends GameEntity {
 
     }
 
+    public void setRequest(String x)
+    {
+        this.request = x;
+    }
+
     public void setStationPosition(float endX, float endY) {
         this.stationPosition.x = endX;
         this.stationPosition.y = endY;
