@@ -469,10 +469,4 @@ public class GameplayTest {
         assertEquals(customerNew.waittime, 300,"Error: Using the \"wait longer \" power up does not set the customers wait time to 300");
     }
 
-    @Test
-    public void testCustomerNewGetRequestName(){
-        CustomerNew customerNew = new CustomerNew(1,2,3,4);
-        customerNew.request.equals("Plain Burger");
-        assertEquals(customerNew.getRequestName(),"Plain Burger","Error: CustomerNew getRequestName does not get the right recipe");
-    }
 }

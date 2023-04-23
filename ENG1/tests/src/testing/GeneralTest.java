@@ -591,4 +591,11 @@ public class GeneralTest {
         CustomerNew customerNew = new CustomerNew(1,2,3,4);
         assertEquals(customerNew.getY(),2,"Error: CustomerNew getY does not get y");
     }
+
+    @Test
+    public void testCustomerNewGetRequestName(){
+        CustomerNew customerNew = new CustomerNew(1,2,3,4);
+        customerNew.request.equals("Plain Burger");
+        assertEquals(customerNew.getRequestName(),"Plain Burger","Error: CustomerNew getRequestName does not get the right recipe");
+    }
 }
