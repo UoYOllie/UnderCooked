@@ -279,7 +279,7 @@ public class CustomerNew extends GameEntity {
             bubbleSprite.draw(batch);
 
             Array<FoodItem.FoodID> requestList = Recipe.getCustomerRequestBubble(request);
-            float xOffset = -8.5f, yOffset = +12F;
+            float xOffset = -10f, yOffset = +12F;
             float drawX = x, drawY = y;
 
             // Draw each FoodItem in RequestList.
@@ -289,7 +289,6 @@ public class CustomerNew extends GameEntity {
                 foodSprite.setPosition((drawX - foodSprite.getWidth() / 3 + xOffset - 3.5f * Constants.UnitScale) - 1.15f,
                         (drawY - foodSprite.getHeight() * 0.33f + yOffset * Constants.UnitScale) - 4.3f);
                 foodSprite.draw(batch);
-                //drawX += FoodItem.foodHeights.get(requestList.get(i)) * 0.9F;
                 drawX += 1.7f;
             }
 
