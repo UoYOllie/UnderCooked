@@ -454,7 +454,7 @@ public class GameplayTest {
     @Test
     public void testCustomerNewHypnotise(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
-        customerNew.request.equals("Plain Burger");
+        customerNew.request = ("Plain Burger");
         customerNew.Hypnotise();
         assertFalse(customerNew.request.equals("Plain Burger"),"Error: Hypnotising a customer does not make them change their order");
         assertFalse(customerNew.request.isEmpty(),"Error: Hypnotising a customer empties there request constructor");
