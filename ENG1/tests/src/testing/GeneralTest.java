@@ -9,10 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
-import cooks.Cook;
-import cooks.CookInteractor;
-import cooks.CustomerInteractor;
-import cooks.GameEntity;
+import cooks.*;
 import customers.Customer;
 import customers.CustomerController;
 import food.FoodItem;
@@ -555,5 +552,43 @@ public class GeneralTest {
         assertEquals(customerInteractor.y,20,"Error: CustomerInteractor's updatePosition does not properly update the y position");
         assertEquals(customerInteractor.collision.x, (10-(100/2)),"Error: CustomerInteractor's updatePosition does not properly update the collision's x position");
         assertEquals(customerInteractor.collision.y, (20-(100/2)),"Error: CustomerInteractor's updatePosition does not properly update the collision's y position");
+    }
+
+    //The following tests the code in CustomerNew that isn't to do with the gameplay (gameplay test includes storming out etc)
+
+    @Test
+    public void testSetStationPosition(){
+        CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
+        customerNew.setStationPosition(100,200);
+        assertEquals(customerNew.stationPosition.x ,100);
+        assertEquals(customerNew.stationPosition.y ,200);
+    }
+
+    @Test
+    public void testSetDestination(){
+        CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
+        customerNew.setDestination(100,200);
+        assertEquals(customerNew.destination.x ,100);
+        assertEquals(customerNew.destination.y ,200);
+    }
+
+    @Test
+    public void testDecreasePatience(){
+        CustomerNew customerNew = new CustomerNew(1,2,3,4);
+        customerNew.waittime = 100;
+        customerNew.DecreasePatience();
+        assertEquals(customerNew.waittime, 100 - 1f,"Error: The customers patience is not decremented properly when Decrease patience is called");
+    }
+
+    @Test
+    public void testCustomerNewGetX(){
+        CustomerNew customerNew = new CustomerNew(1,2,3,4);
+        assertEquals(customerNew.getX(),1,"Error: CustomerNew getX does not get x");
+    }
+
+    @Test
+    public void testCustomerNewGetY(){
+        CustomerNew customerNew = new CustomerNew(1,2,3,4);
+        assertEquals(customerNew.getY(),2,"Error: CustomerNew getY does not get y");
     }
 }

@@ -1,5 +1,5 @@
 
-fod_placeholders_new.png
+food_placeholders_new_new.png
 size: 150, 30
 format: RGBA8888
 filter: Nearest, Nearest
@@ -161,6 +161,34 @@ teacup
 menu
   rotate: false
   xy: 178, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+salad
+  rotate: false
+  xy: 196, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+jacketPotato
+  rotate: false
+  xy: 196, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+pizza
+  rotate: false
+  xy: 214, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+burger
+  rotate: false
+  xy: 232, 18
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

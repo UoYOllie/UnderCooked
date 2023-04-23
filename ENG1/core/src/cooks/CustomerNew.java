@@ -49,8 +49,8 @@ public class CustomerNew extends GameEntity {
     public Rectangle customerInteractor;
 
     private GameScreen gameScreen;
-    private Vector2 stationPosition;
-    private Vector2 destination;
+    public Vector2 stationPosition;
+    public Vector2 destination;
     public int customerStatus;
     private int entryStatus;
     private Array<Vector2> customerPoints;
