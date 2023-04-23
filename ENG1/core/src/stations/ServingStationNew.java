@@ -59,16 +59,47 @@ public class ServingStationNew extends Station {
     public void customerInteract(CustomerNew customer) {
         this.customer = customer;
         Array<FoodItem.FoodID> plateless = servedDishStack.getStackCopy();
+        Array<FoodItem.FoodID> teacup_item = new Array<FoodItem.FoodID>();
+        Array<FoodItem.FoodID> menu_item = new Array<FoodItem.FoodID>();
+        teacup_item.add(FoodItem.FoodID.teacup);
+        menu_item.add(FoodItem.FoodID.menu);
 
-        if (plateless.size>0) {
-            plateless.removeIndex(plateless.size-1);
+//        System.out.println("------------------");
+//        System.out.println("Waga");
+//        System.out.println(teacup_item);
+//        System.out.println(plateless);
+//        System.out.println("Mama");
+
+
+
+        if (plateless.size > 0) {
+            if(plateless.get(0) == teacup_item.get(0)){
+                System.out.println(customer + "will leave in "+ customer.waittime);
+                customer.HangOnYourFoodIsComing();
+                System.out.println(customer + "now will leave in "+ customer.waittime);
+                servedDishStack.clearStack();
+            }
+            else if(plateless.get(0) == menu_item.get(0)){
+                System.out.println(customer + "is rethinking");
+                customer.Hypnotise();
+                servedDishStack.clearStack();
+            }
+            else {
+                plateless.removeIndex(plateless.size - 1);
+            }
         }
 
+
+//        System.out.println(teacup_item);
+//        System.out.println(plateless);
+//        System.out.println("------------------");
         if (matchesRecipeArray(plateless, customer.request)) {
+            System.out.println("This was correct for me");
             customer.dishStack.setStack(servedDishStack.getStackCopy());
             servedDishStack.clearStack();
             customer.Success(this);
         }
+
     }
 
     @Override

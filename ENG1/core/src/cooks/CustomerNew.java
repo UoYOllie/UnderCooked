@@ -49,8 +49,8 @@ public class CustomerNew extends GameEntity {
     public Rectangle customerInteractor;
 
     private GameScreen gameScreen;
-    private Vector2 stationPosition;
-    private Vector2 destination;
+    public Vector2 stationPosition;
+    public Vector2 destination;
     public int customerStatus;
     private int entryStatus;
     private Array<Vector2> customerPoints;
@@ -87,6 +87,11 @@ public class CustomerNew extends GameEntity {
         this.entryStatus = 0;
         this.customerPoints = setCustomerPoints();
 
+    }
+
+    public void setRequest(String x)
+    {
+        this.request = x;
     }
 
     public void setStationPosition(float endX, float endY) {

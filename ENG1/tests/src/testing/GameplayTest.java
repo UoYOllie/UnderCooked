@@ -449,4 +449,25 @@ public class GameplayTest {
         cook.userInput(testList);
         assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + (0.42f * 2)),"ERROR: movement with two speed power up is not correct");
     }
+
+    //The following tests the Hypnotise power up
+    @Test
+    public void testCustomerNewHypnotise(){
+        CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
+        customerNew.request = ("Plain Burger");
+        customerNew.Hypnotise();
+        assertFalse(customerNew.request.equals("Plain Burger"),"Error: Hypnotising a customer does not make them change their order");
+        assertFalse(customerNew.request.isEmpty(),"Error: Hypnotising a customer empties there request constructor");
+    }
+
+    //The following tests another power up which forces the customer to wait longer
+    @Test
+    public void testCustomerHangOnYourFoodIsComing(){
+        CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
+        customerNew.waittime = 10;
+        customerNew.HangOnYourFoodIsComing();
+        assertEquals(customerNew.waittime, 300,"Error: Using the \"wait longer \" power up does not set the customers wait time to 300");
+    }
+
+
 }
