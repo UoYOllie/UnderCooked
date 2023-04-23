@@ -67,7 +67,7 @@ public class ServingStationNew extends Station {
         if (matchesRecipeArray(plateless, customer.request)) {
             customer.dishStack.setStack(servedDishStack.getStackCopy());
             servedDishStack.clearStack();
-            customer.Success();
+            customer.Success(this);
         }
     }
 

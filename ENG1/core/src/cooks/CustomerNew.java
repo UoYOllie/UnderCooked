@@ -129,8 +129,9 @@ public class CustomerNew extends GameEntity {
         this.gameScreen.Reputation.Negative();
         Leave();
     }
-    public void Success() //Gets their dish, this is called
+    public void Success(Station station) //Gets their dish, this is called
     {
+        this.gameScreen.getCustomerControllerNew().removeCustomer(station);
         this.gameScreen.Reputation.Positive();
         this.gameScreen.gold.addBalance(50);
         Leave();
