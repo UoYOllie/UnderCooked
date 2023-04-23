@@ -42,6 +42,8 @@ public class CustomerControllerNew {
 
         for (Station station : servingStations) {
 
+            System.out.println("serving station at: " + station.getX() + "," + station.getY());
+
             CustomerNew customer = new CustomerNew(Constants.customerPointA.x, Constants.customerPointA.y, 3.34f, 2f);
             customer.setStationPosition(station.getX(), station.getY());
             customer.setGameScreen(this.gameScreen);
@@ -65,18 +67,47 @@ public class CustomerControllerNew {
 
             if (customer == null) {
                 System.out.println("new customer spawned");
-                CustomerNew newCustomer = new CustomerNew(station.getX(), station.getY(), 3.34f, 3f);
+                CustomerNew newCustomer = new CustomerNew(Constants.customerPointA.x, Constants.customerPointA.y, 3.34f, 3f);
                 newCustomer.setStationPosition(station.getX(), station.getY());
                 newCustomer.setGameScreen(this.gameScreen);
 
+                System.out.println("stationCustomerMap original: " + this.stationCustomerMap);
+
                 this.stationCustomerMap.put(station, newCustomer);
                 this.customers.add(newCustomer);
+                addedCustomers.add(newCustomer);
             }
 
         }
 
         return addedCustomers;
 
+    }
+
+    public void updateCustomersDifferent() {
+
+        ArrayList<CustomerNew> addedCustomers = new ArrayList<>();
+
+        for (Map.Entry<Station, CustomerNew> entry : stationCustomerMap.entrySet()) {
+
+            Station station = entry.getKey();
+            CustomerNew customer = entry.getValue();
+
+            if (customer == null) {
+                System.out.println("new customer spawned");
+                CustomerNew newCustomer = new CustomerNew(Constants.customerPointA.x, Constants.customerPointA.y, 3.34f, 3f);
+                newCustomer.setStationPosition(station.getX(), station.getY());
+                newCustomer.setGameScreen(this.gameScreen);
+
+                System.out.println("stationCustomerMap original: " + this.stationCustomerMap);
+
+                this.stationCustomerMap.put(station, newCustomer);
+
+                System.out.println("stationCustomerMap new: " + this.stationCustomerMap);
+                this.customers.add(newCustomer);
+            }
+
+        }
     }
 
     public void removeCustomer(Station station) {

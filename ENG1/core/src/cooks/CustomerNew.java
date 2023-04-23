@@ -95,6 +95,7 @@ public class CustomerNew extends GameEntity {
     }
 
     public void setDestination(float endX, float endY) {
+        System.out.println("i am going to: " + endX + "," + endY);
         this.destination.x = endX;
         this.destination.y = endY;
     }
@@ -202,10 +203,20 @@ public class CustomerNew extends GameEntity {
             } else { readyX = true;}
 
             if (readyX && readyY) {
+                destination.x = this.x - 88f;
                 this.customerStatus += 1;
                 this.entryStatus += 1;
             }
         }
+    }
+
+    public void servedCustomerLeaves() {
+
+        if (this.x > destination.x) { this.x -= Constants.UnitScale;
+        } else {
+            this.customerStatus += 1;
+        }
+
     }
 
     @Override
@@ -214,14 +225,17 @@ public class CustomerNew extends GameEntity {
         switch (customerStatus) {
             case (0): // Customer is coming down the corridor.
                 enterCustomer();
+                break;
             case (1): // Customer is waiting at the serving station.
                 //System.out.println("I am ready to be served now!");
-//            case (2): // Customer goes to eat in the dining area.
-//                System.out.println("I have been served now!");
-//            case (4): // Customer leaves the restaurant after eating.
-//                System.out.println("I have eaten now!");
-//            case (3): // Customer storms out when their patience timer runs out.
-//                System.out.println("I am storming out :(((");
+                break;
+            case (2): // Customer goes to eat in the dining area.
+                //System.out.println("I have been served now!");
+                servedCustomerLeaves();
+                break;
+            case (3): // Customer is eating in the dining area.
+                //System.out.println("i am eating now yay");
+                break;
         }
 
         // Updates Interaction box (again change 1/8f to a const)

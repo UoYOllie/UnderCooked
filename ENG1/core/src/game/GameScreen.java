@@ -310,8 +310,15 @@ public class GameScreen extends ScreenAdapter {
         }
 
         // laura
-        customersToServe.addAll(customerControllerNew.updateCustomers());
-        gameEntities.addAll(customerControllerNew.updateCustomers());
+
+        ArrayList<CustomerNew> tempNewCustomers = new ArrayList<>();
+        tempNewCustomers.addAll(customerControllerNew.updateCustomers());
+
+        customersToServe.addAll(tempNewCustomers);
+        gameEntities.addAll(tempNewCustomers);
+
+        //System.out.println("number of customers in update: " + customersToServe.size());
+        //System.out.println("number of game entities in update: " + gameEntities.size());
         //System.out.println(customersToServe);
 
         for (CustomerNew customer : customersToServe) {
@@ -325,20 +332,20 @@ public class GameScreen extends ScreenAdapter {
         }
         this.cook.update(Gdx.graphics.getDeltaTime());
 
-        // Spawning code to spawn a customer after an amount of time.
-        if(TimeUtils.millis() >= nextCustomerSecond)
-        {
-            int recipeComplexity = customerController.addCustomer();
-            if (recipeComplexity == -1) {
-                // If customer couldn't be added, then wait 2 seconds.
-                nextCustomerSecond += 2000;
-            } else {
-                // Wait longer if the recipe has more steps.
-                lastCustomerSecond = TimeUtils.millis();
-                nextCustomerSecond += 1000 * Math.floor(9 + 5.4F * Math.log(recipeComplexity - 0.7));
-            }
-            //System.out.println("i just spawned a customer");
-        }
+//        // Spawning code to spawn a customer after an amount of time.
+//        if(TimeUtils.millis() >= nextCustomerSecond)
+//        {
+//            int recipeComplexity = customerController.addCustomer();
+//            if (recipeComplexity == -1) {
+//                // If customer couldn't be added, then wait 2 seconds.
+//                nextCustomerSecond += 2000;
+//            } else {
+//                // Wait longer if the recipe has more steps.
+//                lastCustomerSecond = TimeUtils.millis();
+//                nextCustomerSecond += 1000 * Math.floor(9 + 5.4F * Math.log(recipeComplexity - 0.7));
+//            }
+//            //System.out.println("i just spawned a customer");
+//        }
 
         if(Interactions.isJustPressed(InputKey.InputTypes.PAUSE))
         {
