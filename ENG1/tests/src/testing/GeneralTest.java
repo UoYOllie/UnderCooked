@@ -8,12 +8,14 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import cooks.*;
 import customers.Customer;
 import customers.CustomerController;
 import food.FoodItem;
 import food.Recipe;
+import helper.Constants;
 import helper.MapHelper;
 import helper.Util;
 import interactions.InputKey;
@@ -595,8 +597,49 @@ public class GeneralTest {
     @Test
     public void testCustomerNewGetRequestName(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4);
-        customerNew.request.equals("Plain Burger");
-//        System.out.println(customerNew.request.equals("Plain Burger"));
+        customerNew.request = ("Plain Burger");
         assertEquals(customerNew.getRequestName(),"Plain Burger","Error: CustomerNew getRequestName does not get the right recipe");
+    }
+
+    @Test
+    public void testCustomerNewCustomerInteract(){
+        CustomerNew customerNew = new CustomerNew(1,2,3,4);
+        PreparationStation preparationStation = new PreparationStation(new Rectangle(1,2,3,4));
+        ArrayList<Station> testList = new ArrayList<>();
+        testList.add(preparationStation);
+        customerNew.customerInteract(testList);
+        //TO DO: when interact is done, finish this
+    }
+
+    @Test
+    public void testCustomerNewSetCustomerPoints(){
+        CustomerNew customerNew = new CustomerNew(1,2,3,4);
+        Array<Vector2> customerPoints = new Array<>();
+        customerPoints.add(Constants.customerPointC);
+        customerPoints.add(Constants.customerPointD);
+        customerPoints.add(Constants.customerPointE);
+        customerPoints.add(Constants.customerPointF);
+        customerPoints.add(customerNew.stationPosition);
+        assertEquals(customerPoints, customerNew.setCustomerPoints());
+    }
+
+    @Test
+    public void testCustomerNewMoveLeftDown(){
+        //First we will test the first if and the second if, to do with x and y
+        CustomerNew customerNew = new CustomerNew(20,20,3,4);
+        customerNew.destination.x = 1;
+        customerNew.destination.y = 1;
+        customerNew.move_left_down(new Vector2(100,200));
+        assertEquals(customerNew.x, 20 - Constants.UnitScale,"Error: when customer's x position is higher then the customer.destination's x position, and moveLeftDown is called, the x position is not updated correctly");
+        assertEquals(customerNew.y, 20 - Constants.UnitScale,"Error: when customer's y position is higher then the customer.destination's y position, and moveLeftDown is called, the y position is not updated correctly");
+
+        //Now testing if the else's work and hence if the final if works
+        customerNew.x = 20;
+        customerNew.y = 20;
+        customerNew.destination.x = 100;
+        customerNew.destination.y = 100;
+        customerNew.move_left_down(new Vector2(100,200));
+        assertEquals(customerNew.destination.x, 100,"Error: CustomerNew's moveLeftDown class does not set the x position of the customer correctly if both flags are met");
+        assertEquals(customerNew.destination.y, 200,"Error: CustomerNew's moveLeftDown class does not set the x position of the customer correctly if both flags are met");
     }
 }
