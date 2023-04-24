@@ -12,6 +12,7 @@ import customers.CustomerController;
 import food.DishStack;
 import food.FoodItem;
 import food.Recipe;
+import helper.Constants;
 import interactions.InputKey;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -468,5 +469,19 @@ public class GameplayTest {
         assertEquals(customerNew.waittime, 300,"Error: Using the \"wait longer \" power up does not set the customers wait time to 300");
     }
 
+    //This tests the logic behind a customer leaving when being served
+    @Test
+    public void testCustomerNewServedCustomerLeave(){
+        //Checking the if -> x > destination x
+        CustomerNew customerNew = new CustomerNew(1,2,3,4);
+        customerNew.destination.x = 0;
+        customerNew.servedCustomerLeaves();
+        assertEquals(customerNew.x, 1 - Constants.UnitScale,"Error: CustomerNew's servedCustomerLeaves is not updating the x position correctly");
 
+        //Checking the else -> x <= destination x
+        customerNew.destination.x = 2;
+        customerNew.customerStatus = 0;
+        customerNew.servedCustomerLeaves();
+        assertEquals(customerNew.customerStatus, 1,"Error: CustomerNew's customerStatus is not being incremented correctly if x <= destination x");
+    }
 }

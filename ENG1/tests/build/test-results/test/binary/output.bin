@@ -1,240 +1,249 @@
-
-	lettuce
-	lettuce
-	lettuce
-	lettuce
-
-peek
-null
-+*Initalising Gamescreen
-+*game.GameScreen@3c9dbda5
-+*power pantry is generated
-+*Setting to teacup
-+*teacup
-+*power pantry is generated
-+*Setting to menu
-+*menu
-+*pantry is generated
-+*Setting to meat
-+*meat
-+*pantry is generated
-+*Setting to lettuce
-+*lettuce
-+*pantry is generated
-+*Setting to onion
-+*onion
-+*pantry is generated
-+*Setting to tomato
-+*tomato
-+*pantry is generated
-+*Setting to bun
-+*bun
-+*pantry is generated
-+*Setting to lettuceChop
-+*lettuceChop
-+*pantry is generated
-+*Setting to meatCook
-+*	meatCook
-+*pantry is generated
-+*Setting to potato
-+*potato
-+*pantry is generated
-+*Setting to dough
-+*dough
-+*pantry is generated
-+*Setting to cheese
-+*cheese
-+*pantry is generated
-+*Setting to bakedBeans
-+*bakedBeans
-+*pantry is generated
-+*Setting to pepperoni
-+*
-pepperoni
-+*pantry is generated
-+*Setting to coleslaw
-+*	coleslaw
-+,Initalising Gamescreen
-+,game.GameScreen@75d1bc7e
-+,power pantry is generated
-+,Setting to teacup
-+,teacup
-+,power pantry is generated
-+,Setting to menu
-+,menu
-+,pantry is generated
-+,Setting to meat
-+,meat
-+,pantry is generated
-+,Setting to lettuce
-+,lettuce
-+,pantry is generated
-+,Setting to onion
-+,onion
-+,pantry is generated
-+,Setting to tomato
-+,tomato
-+,pantry is generated
-+,Setting to bun
-+,bun
-+,pantry is generated
-+,Setting to lettuceChop
-+,lettuceChop
-+,pantry is generated
-+,Setting to meatCook
-+,	meatCook
-+,pantry is generated
-+,Setting to potato
-+,potato
-+,pantry is generated
-+,Setting to dough
-+,dough
-+,pantry is generated
-+,Setting to cheese
-+,cheese
-+,pantry is generated
-+,Setting to bakedBeans
-+,bakedBeans
-+,pantry is generated
-+,Setting to pepperoni
-+,
-pepperoni
-+,pantry is generated
-+,Setting to coleslaw
-+,	coleslaw
-.3Initalising Gamescreen
-.3game.GameScreen@57f224cd
-.3power pantry is generated
-.3Setting to teacup
-.3teacup
-.3power pantry is generated
-.3Setting to menu
-.3menu
-.3pantry is generated
-.3Setting to meat
-.3meat
-.3pantry is generated
-.3Setting to lettuce
-.3lettuce
-.3pantry is generated
-.3Setting to onion
-.3onion
-.3pantry is generated
-.3Setting to tomato
-.3tomato
-.3pantry is generated
-.3Setting to bun
-.3bun
-.3pantry is generated
-.3Setting to lettuceChop
-.3lettuceChop
-.3pantry is generated
-.3Setting to meatCook
-.3	meatCook
-.3pantry is generated
-.3Setting to potato
-.3potato
-.3pantry is generated
-.3Setting to dough
-.3dough
-.3pantry is generated
-.3Setting to cheese
-.3cheese
-.3pantry is generated
-.3Setting to bakedBeans
-.3bakedBeans
-.3pantry is generated
-.3Setting to pepperoni
-.3
-pepperoni
-.3pantry is generated
-.3Setting to coleslaw
-.3	coleslaw
-OQdough
-OQpeek
-ORonion
-ORpeek
-OUpeek
-OUpeek
-OUpeek
-OUpeek
-OVpeek
-OVpeek
-OZpeek
-OZpeek
-O\lettuce
-O\peek
-O]peek
-O]peek
-O]peek
-O]peek
-O]peek
-O]peek
-O^peek
-O^peek
-O^peek
-O^peek
-O^peek
-O^peek
-O`peek
-O`peek
-Obpeek
-Ocpeek
-Ocpeek
-Ocpeek
-Ocpeek
-Odpeek
-Odpeek
-Oepeek
-Oepeek
-Ojpeek
-Ojpeek
-Ojpeek
-Ojpeek
-OnlettuceChop
-Onpeek
-Oopeek
-Oopeek
-Ospeek
-Ospeek
-Otpeek
-Otpeek
-OuIm interacting with a counter
-Ou187.5
-Ou150.0
-Ou20.0
-Ou20.0
-OuIm interacting with a counter
-Ou187.5
-Ou150.0
-Ou20.0
-Ou20.0
-OuIm interacting with a counter
-Ou187.5
-Ou150.0
-Ou20.0
-Ou20.0
-Ovpeek
-Ovpeek
-Owbun
-Owpeek
-Oxpotato
-Oxpeek
-Oytomato
-Oypeek
-Ozmeat
-Ozpeek
-O{peek
-O{peek
-O|peek
-O|peek
-OÄpeek
-OÄpeek
-OÅpeek
-OÜpeek
-OÜpeek
-Oápeek
-Oàpeek
-Oàpeek
-Oàpeek
-Oàpeek
+
+	lettuce
+	lettuce
+	lettuce
+	lettuce
+peek
+ null
+!i am going to: 100.0,200.0
+$i am going to: 1939.0,2913.0
+$i am going to: 1939.0,2872.0
+$i am going to: 1915.0,2872.0
+$ i am going to: 1915.0,2817.917
+$i am going to: 1.0,1.0
+'i am going to: 100.0,200.0
+CEdough
+CEpeek
+CFonion
+CFpeek
+CIpeek
+CIpeek
+CIpeek
+CIpeek
+CJpeek
+CJpeek
+CNpeek
+CNpeek
+CP	lettuce
+CPpeek
+CQpeek
+CQpeek
+CQpeek
+CQpeek
+CQpeek
+CQpeek
+CRpeek
+CRpeek
+CRpeek
+CRpeek
+CRpeek
+CRpeek
+CTpeek
+CTpeek
+CVpeek
+CWpeek
+CWpeek
+CWpeek
+CWpeek
+CXpeek
+CXpeek
+CYpeek
+CYpeek
+C^peek
+C^peek
+C^peek
+C^peek
+CblettuceChop
+Cbpeek
+Ccpeek
+Ccpeek
+Cgpeek
+Cgpeek
+Chpeek
+Chpeek
+CiIm interacting with a counter
+Ci187.5
+Ci150.0
+Ci20.0
+Ci20.0
+CiIm interacting with a counter
+Ci187.5
+Ci150.0
+Ci20.0
+Ci20.0
+CiIm interacting with a counter
+Ci187.5
+Ci150.0
+Ci20.0
+Ci20.0
+Cjpeek
+Cjpeek
+Ckbun
+Ckpeek
+Clpotato
+Clpeek
+Cmtomato
+Cmpeek
+Cnmeat
+Cnpeek
+Copeek
+Copeek
+Cppeek
+Cppeek
+Ctpeek
+Ctpeek
+Cupeek
+Czpeek
+Czpeek
+C{peek
+C|peek
+C|peek
+C|peek
+C|peek
+~Initalising Gamescreen
+~game.GameScreen@51de35ac
+~power pantry is generated
+~Setting to teacup
+~teacup
+~power pantry is generated
+~Setting to menu
+~menu
+~pantry is generated
+~Setting to meat
+~meat
+~pantry is generated
+~Setting to lettuce
+~	lettuce
+~pantry is generated
+~Setting to onion
+~onion
+~pantry is generated
+~Setting to tomato
+~tomato
+~pantry is generated
+~Setting to bun
+~bun
+~pantry is generated
+~Setting to lettuceChop
+~lettuceChop
+~pantry is generated
+~Setting to meatCook
+~
+meatCook
+~pantry is generated
+~Setting to potato
+~potato
+~pantry is generated
+~Setting to dough
+~dough
+~pantry is generated
+~Setting to cheese
+~cheese
+~pantry is generated
+~Setting to bakedBeans
+~bakedBeans
+~pantry is generated
+~Setting to pepperoni
+~pepperoni
+~pantry is generated
+~Setting to coleslaw
+~
+coleslaw
+ÄInitalising Gamescreen
+Ägame.GameScreen@539f4154
+Äpower pantry is generated
+ÄSetting to teacup
+Äteacup
+Äpower pantry is generated
+ÄSetting to menu
+Ämenu
+Äpantry is generated
+ÄSetting to meat
+Ämeat
+Äpantry is generated
+ÄSetting to lettuce
+Ä	lettuce
+Äpantry is generated
+ÄSetting to onion
+Äonion
+Äpantry is generated
+ÄSetting to tomato
+Ätomato
+Äpantry is generated
+ÄSetting to bun
+Äbun
+Äpantry is generated
+ÄSetting to lettuceChop
+ÄlettuceChop
+Äpantry is generated
+ÄSetting to meatCook
+Ä
+meatCook
+Äpantry is generated
+ÄSetting to potato
+Äpotato
+Äpantry is generated
+ÄSetting to dough
+Ädough
+Äpantry is generated
+ÄSetting to cheese
+Ächeese
+Äpantry is generated
+ÄSetting to bakedBeans
+ÄbakedBeans
+Äpantry is generated
+ÄSetting to pepperoni
+Äpepperoni
+Äpantry is generated
+ÄSetting to coleslaw
+Ä
+coleslaw
+ÇáInitalising Gamescreen
+Çágame.GameScreen@391f94c8
+Çápower pantry is generated
+ÇáSetting to teacup
+Çáteacup
+Çápower pantry is generated
+ÇáSetting to menu
+Çámenu
+Çápantry is generated
+ÇáSetting to meat
+Çámeat
+Çápantry is generated
+ÇáSetting to lettuce
+Çá	lettuce
+Çápantry is generated
+ÇáSetting to onion
+Çáonion
+Çápantry is generated
+ÇáSetting to tomato
+Çátomato
+Çápantry is generated
+ÇáSetting to bun
+Çábun
+Çápantry is generated
+ÇáSetting to lettuceChop
+ÇálettuceChop
+Çápantry is generated
+ÇáSetting to meatCook
+Çá
+meatCook
+Çápantry is generated
+ÇáSetting to potato
+Çápotato
+Çápantry is generated
+ÇáSetting to dough
+Çádough
+Çápantry is generated
+ÇáSetting to cheese
+Çácheese
+Çápantry is generated
+ÇáSetting to bakedBeans
+ÇábakedBeans
+Çápantry is generated
+ÇáSetting to pepperoni
+Çápepperoni
+Çápantry is generated
+ÇáSetting to coleslaw
+Çá
+coleslaw
