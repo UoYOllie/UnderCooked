@@ -9,6 +9,7 @@ import cooks.Cook;
 import cooks.CustomerNew;
 import customers.Customer;
 import customers.CustomerController;
+import food.DishStack;
 import food.FoodItem;
 import food.Recipe;
 import interactions.InputKey;
@@ -42,13 +43,12 @@ public class GameplayTest {
     }
     **/
 
-    /**
+
     @Test
     // Relates to the FR_DISH_SERVE requirement
     public void TestServingStationServeCustomerOnionTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.testFlag = 1;
+        ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
         Sprite sprite = new Sprite();
         Customer customer = new Customer(sprite);
@@ -56,20 +56,19 @@ public class GameplayTest {
         customerController.testFlag = 1;
         customerController.customers.add(customer);
         customer.request = "Onion Tomato Salad";
-        testStation.customerController = customerController;
-        testStation.setCustomer(customer);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
-        testStation.interact(cook, InputKey.InputTypes.USE);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
         assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        testStation.testFlag = 0;
         customerController.testFlag = 0;
     }
 
+    /*
     @Test
     // Relates to the FR_DISH_SERVE requirement
     public void TestServingStationServeCustomerLettuceTomatoSalad(){
