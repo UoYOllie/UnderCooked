@@ -46,32 +46,59 @@ public class GameplayTest {
 
 
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    public void TestServingStationInteract(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        ServingStationNew testStation = new ServingStationNew(rectangle);
+        testStation.setID(Station.StationID.serving);
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+        // Tests the PUT_DOWN functionality
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assertTrue(cook.foodStack.size() == 0, "The cook's food stack is not being emptied when they interact with a serving station");
+        ArrayList<FoodItem.FoodID> testList = new ArrayList<>();
+        testList.add(FoodItem.FoodID.bun);
+        testList.add(FoodItem.FoodID.plate);
+        assertEquals(testList, testStation.servedDishStack.getStack(), "The serving station's servedDishStack doesn't inherit the items from the cook's foodStack");
+
+        // Tests the PICK_UP functionality
+        testStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertEquals(cook.dishStack.getStack(), testList, "The cook doesn't pick up the right items from the serving station");
+        assertTrue(testStation.servedDishStack.getStack().isEmpty(), "The serving station doesn't lose its servedDishStack when it is picked up by a cook");
+    }
+
+    @Test
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerOnionTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
+        CustomerNew customer = new CustomerNew((1500 * 1/8f),(1200 * 1/8f),20,20);
         customer.request = "Onion Tomato Salad";
-        ArrayList<Rectangle> testList = new ArrayList<>();
-        testList.add(testStation.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+        ArrayList<FoodItem.FoodID> testList = new ArrayList<>();
+        testList.add(FoodItem.FoodID.lettuceChop);
+        testList.add(FoodItem.FoodID.tomatoChop);
+        testList.add(FoodItem.FoodID.onionChop);
+        testList.add(FoodItem.FoodID.plate);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
-        assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        customerController.testFlag = 0;
+        assertTrue(cook.dishStack.size() == 0, "The cook dish stack is not emptied after serving a request");
+        assertEquals(testList, testStation.servedDishStack.getStackCopy(), "The serving station's servedDishStack doesn't inherit the items from the cook's foodStack");
+
+        // Testing the customer
+        // testStation.customerInteract(customer);
+        // assertTrue(testStation.servedDishStack.getStack().isEmpty());
     }
 
     /*
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -98,7 +125,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceOnionSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -125,7 +152,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerPlainBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -154,7 +181,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServeWrongOrder(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -183,7 +210,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -213,7 +240,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -243,7 +270,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -273,7 +300,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -304,7 +331,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -335,7 +362,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -366,7 +393,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);

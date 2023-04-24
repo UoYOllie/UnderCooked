@@ -20,7 +20,7 @@ import static food.Recipe.*;
 
 public class ServingStationNew extends Station {
 
-    private DishStack servedDishStack;
+    public DishStack servedDishStack;
     public CustomerNew customer;
 
     public ServingStationNew(Rectangle rectangle) {
