@@ -319,7 +319,7 @@ public class GameScreen extends ScreenAdapter {
             //Chef Bluggus Mode
             if(thisCook.activateBluggus == true)
             {
-                System.out.println("Moving stacks");
+//                System.out.println("Moving stacks");
                 thisCook.moveStacks();
             }
         }
