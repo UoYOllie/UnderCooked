@@ -250,6 +250,7 @@ public class GameScreen extends ScreenAdapter {
      */
     public void update(float delta)
     {
+//        System.out.println("Rep Points: "+this.Reputation.getPoints());
 		if (Gdx.input.isKeyPressed(Input.Keys.L)){
 			System.out.println(this.cook.getX());
 			System.out.println(this.cook.getY());
@@ -315,7 +316,14 @@ public class GameScreen extends ScreenAdapter {
                 thisCook.userInput(mapHelper.getMapObstacles());
                 thisCook.userInteract(mapHelper.getMapStations());
             }
+            //Chef Bluggus Mode
+            if(thisCook.activateBluggus == true)
+            {
+                System.out.println("Moving stacks");
+                thisCook.moveStacks();
+            }
         }
+
 
         // laura
 

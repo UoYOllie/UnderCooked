@@ -11,4 +11,13 @@ public class BluggusChef extends Cook{
         this.foodStack2 = new FoodStack();
         System.out.println("Bluggus Chef is being born today");
     }
+
+//    public void moveStacks()
+//    {
+//        if((this.foodStack.size() == 3)&&(this.foodStack2.size() == 0)){
+//            this.foodStack2.setStack(this.foodStack.getStackCopy());
+//            this.foodStack.clearStack();
+//        }
+//    }
+
 }

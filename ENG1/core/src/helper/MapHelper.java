@@ -236,6 +236,9 @@ public class MapHelper {
                 case "Freeze":
                     mapStations.add(new FreezeTimeStation(newRectangle,gameScreen));
                     break;
+                case "BluggusMode":
+                    mapStations.add(new BluggusModeActivate(newRectangle,gameScreen));
+                    break;
                 case "Locked":
                     mapStations.add(new Locked(newRectangle,gameScreen,rectangleMapObject.getProperties().get("type").toString()));
                     break;

@@ -51,6 +51,7 @@ public class Cook extends GameEntity {
     public Array<Facing> inputs;
 
     private GameScreen gameScreen;
+    public boolean activateBluggus;
 
     /**
      * Rectangle for cook's interaction area.
@@ -101,8 +102,11 @@ public class Cook extends GameEntity {
         this.gameSprites = GameSprites.getInstance();
         this.controlSprite = gameSprites.getSprite(GameSprites.SpriteID.COOK,"control");
 
+        this.activateBluggus = false;
+
         // Initialize FoodStack
         this.foodStack = new FoodStack();
+        this.foodStack2 = new FoodStack();
         this.dishStack = new DishStack();
 
         // Input array, with the order of inputs the user has in what direction.
@@ -494,6 +498,26 @@ public class Cook extends GameEntity {
         } else {
             // If the opposite isn't there, it's fine to switch.
             dir = possibleNext;
+        }
+    }
+
+    private FoodStack foodStack2;
+
+    public void MakeIntoBluggus()
+    {
+        System.out.println("Bluggus Mode activating");
+        this.activateBluggus = true;
+    }
+    public void moveStacks()
+    {
+        if((this.foodStack.size() == 3)&&(this.foodStack2.size() == 0)){
+            this.foodStack2.setStack(this.foodStack.getStackCopy());
+            this.foodStack.clearStack();
+        }
+        else if((this.foodStack.size() == 0)&&(this.foodStack2.size() > 0))
+        {
+            this.foodStack.setStack(this.foodStack2.getStackCopy());
+            this.foodStack2.clearStack();
         }
     }
 }
