@@ -77,6 +77,7 @@ public class ServingStationNew extends Station {
                 System.out.println(customer + "will leave in "+ customer.waittime);
                 customer.HangOnYourFoodIsComing();
                 System.out.println(customer + "now will leave in "+ customer.waittime);
+                customer.dishStack.setStack(teacup_item);
                 servedDishStack.clearStack();
             }
             else if(plateless.get(0) == menu_item.get(0)){
@@ -95,11 +96,11 @@ public class ServingStationNew extends Station {
 //        System.out.println("------------------");
         if (matchesRecipeArray(plateless, customer.request)) {
             System.out.println("This was correct for me");
+            customer.dishStack.clearStack();
             customer.dishStack.setStack(servedDishStack.getStackCopy());
             servedDishStack.clearStack();
             customer.Success(this);
         }
-
     }
 
     @Override
