@@ -397,6 +397,28 @@ public class Cook extends GameEntity {
             drawY += drawInc;
         }
 
+        Array<FoodID> foodList2 = foodStack2.getStack();
+
+        xOffset = foodRelativeX(dir);
+        yOffset = foodRelativeY(dir);
+
+        drawX = x - 8f;
+        drawY = y - 12 * Constants.UnitScale;
+
+        for (int i = foodList2.size-1 ; i >= 0 ; i--) {
+            Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(foodList2.get(i)));
+            Float drawInc = FoodItem.foodHeights.get(foodList2.get(i));
+            if (drawInc == null) {
+                drawY += 5F;
+                continue;
+            }
+            foodSprite.setScale(2 * Constants.UnitScale);
+            foodSprite.setPosition(drawX-foodSprite.getWidth()/2+xOffset,drawY+yOffset);
+            foodSprite.draw(batch);
+            drawY += drawInc;
+        }
+
+
         // render DishStack, why doesn't this work :((
 
         Array<FoodID> dishList = dishStack.getStack();
