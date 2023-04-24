@@ -525,7 +525,7 @@ public class Cook extends GameEntity {
         }
     }
 
-    private FoodStack foodStack2;
+    public FoodStack foodStack2;
 
     public void MakeIntoBluggus()
     {
