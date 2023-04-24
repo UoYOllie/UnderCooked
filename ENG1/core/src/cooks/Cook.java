@@ -532,14 +532,22 @@ public class Cook extends GameEntity {
     }
     public void moveStacks()
     {
-        if((this.foodStack.size() == 3)&&(this.foodStack2.size() == 0)){
-            this.foodStack2.setStack(this.foodStack.getStackCopy());
-            this.foodStack.clearStack();
+//        if((this.foodStack.size() == 3)&&(this.foodStack2.size() == 0)){
+//            this.foodStack2.setStack(this.foodStack.getStackCopy());
+//            this.foodStack.clearStack();
+//        }
+//        else if((this.foodStack.size() == 0)&&(this.foodStack2.size() > 0))
+//        {
+//            this.foodStack.setStack(this.foodStack2.getStackCopy());
+//            this.foodStack2.clearStack();
+//        }
+        if((this.foodStack.size() > 1)&&(this.foodStack2.size() < 3)) {
+            this.foodStack2.addStack(foodStack.peekStack());
+            this.foodStack.popStack();
         }
-        else if((this.foodStack.size() == 0)&&(this.foodStack2.size() > 0))
-        {
-            this.foodStack.setStack(this.foodStack2.getStackCopy());
-            this.foodStack2.clearStack();
+        else if((this.foodStack.size() == 0)&&(this.foodStack2.size() > 0)){
+            this.foodStack.addStack(foodStack2.peekStack());
+            this.foodStack2.popStack();
         }
     }
 }
