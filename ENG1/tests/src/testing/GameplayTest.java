@@ -484,4 +484,27 @@ public class GameplayTest {
         customerNew.servedCustomerLeaves();
         assertEquals(customerNew.customerStatus, 1,"Error: CustomerNew's customerStatus is not being incremented correctly if x <= destination x");
     }
+
+    //The following tests make sure the bluggus power up
+    @Test
+    public void testMakeIntoBluggus(){
+        Cook cook = new Cook(1,2,3,4);
+        cook.MakeIntoBluggus();
+        assertEquals(cook.activateBluggus,true,"Error: Bluggus power up does not change you into bluggus");
+    }
+
+    @Test
+    public void testMoveStack(){
+        //Testing moving foodStack2 moving items to foodStack1
+        Cook cook = new Cook(1,2,3,4);
+        cook.MakeIntoBluggus();
+        cook.foodStack2.addStack(FoodItem.FoodID.bakedBeans);
+        cook.moveStacks();
+        assertEquals(cook.foodStack.peekStack(), FoodItem.FoodID.bakedBeans,"Error: moving items from foodStack2 to foodStack1 does not work");
+
+        //Testing moving foodStack1 items to foodStack2
+        cook.foodStack.addStack(FoodItem.FoodID.cheese);
+        cook.moveStacks();
+        assertEquals(cook.foodStack2.peekStack(), FoodItem.FoodID.cheese,"Error: moving items from foodStack1 to foodStack2 does not work");
+    }
 }
