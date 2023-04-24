@@ -31,6 +31,8 @@ import static org.testng.Assert.*;
 
 @RunWith(GdxTestRunner.class)
 public class GeneralTest {
+    // The following tests don't directly relate to requirements, instead testing helper functions such as getters and setters.
+
 
     @Test
     public void testCookInteractorRelativeX(){
@@ -608,7 +610,7 @@ public class GeneralTest {
         ArrayList<Station> testList = new ArrayList<>();
         testList.add(preparationStation);
         customerNew.customerInteract(testList);
-        //TO DO: when interact is done, finish this
+        //TODO: when interact is done, finish this
     }
 
     @Test
@@ -642,4 +644,16 @@ public class GeneralTest {
         assertEquals(customerNew.destination.x, 100,"Error: CustomerNew's moveLeftDown class does not set the x position of the customer correctly if both flags are met");
         assertEquals(customerNew.destination.y, 200,"Error: CustomerNew's moveLeftDown class does not set the x position of the customer correctly if both flags are met");
     }
+
+    @Test
+    public void testCustomerNewEnterCustomer(){
+        CustomerNew customerNew = new CustomerNew(10,20,3,4);
+        customerNew.stationPosition.x = 1;
+        customerNew.stationPosition.y = 1;
+        customerNew.customerStatus = 0;
+        customerNew.enterCustomer();
+        assertEquals(customerNew.customerStatus, 1);
+    }
+
+
 }
