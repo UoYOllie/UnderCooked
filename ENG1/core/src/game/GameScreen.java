@@ -3,6 +3,7 @@ package game;
 import Shop.Gold;
 import Shop.ShopItem;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
@@ -55,7 +56,7 @@ public class GameScreen extends ScreenAdapter {
     private World world;
     private Box2DDebugRenderer box2DDebugRenderer;
 
-    private OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
+    private SuperMapSuperRenderer orthogonalTiledMapRenderer;
     public MapHelper mapHelper;
     //public Array<Station> servingStationNewList;
     private Array<CookInteractable> interactables;
@@ -84,6 +85,9 @@ public class GameScreen extends ScreenAdapter {
     private int freeze;
     private boolean EnableAutoZoom;
     private float ZoomSecondCounter;
+
+    private OrthographicCamera backgroundCamera;
+    private SpriteBatch bgBatch;
 
     /**
      * The constructor for the {@link GameScreen}.
@@ -161,6 +165,10 @@ public class GameScreen extends ScreenAdapter {
 
         this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
+
+        this.backgroundCamera = new OrthographicCamera();
+        this.bgBatch = new SpriteBatch();
+        this.bgBatch.setProjectionMatrix(backgroundCamera.combined);
     }
 
     public void reset()
@@ -399,9 +407,21 @@ public class GameScreen extends ScreenAdapter {
      */
     public void renderGame(float delta) {
 
-        Gdx.gl.glClearColor(1,1,1,1);
+
+
+        Gdx.gl.glClearColor(0,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        backgroundCamera.position.x = 0;
+        backgroundCamera.position.y = 0;
+
+
+
+        bgBatch.begin();
+        bgBatch.draw(MenuScreen.spaceBackground, -1, -1, 2.3f, 2);
+        bgBatch.end();
         orthogonalTiledMapRenderer.render();
+
         batch.begin();
 
         gameEntities.sort(drawQueueComparator);
