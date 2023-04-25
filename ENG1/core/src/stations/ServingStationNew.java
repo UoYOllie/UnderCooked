@@ -9,8 +9,6 @@ import cooks.Cook;
 import cooks.CustomerNew;
 import food.FoodItem;
 import food.DishStack;
-import food.FoodStack;
-import food.Recipe;
 import game.GameSprites;
 import helper.Constants;
 import interactions.InputKey;
@@ -130,6 +128,14 @@ public class ServingStationNew extends Station {
 
     public void setTestFlag(int flag){
         testFlag = flag; // 0 if not testing, 1 if testing
+    }
+
+    public DishStack getServedDishStack(){
+        return servedDishStack;
+    }
+
+    public void setServedDishStack(DishStack servedDishStack){
+        this.servedDishStack = servedDishStack;
     }
 
 }

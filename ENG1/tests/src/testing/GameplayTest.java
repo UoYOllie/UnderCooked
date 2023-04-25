@@ -30,20 +30,84 @@ import static org.testng.Assert.*;
 @RunWith(GdxTestRunner.class)
 public class GameplayTest {
 
-    /**
+    //The following 2 tests are for robustness. The first tests that servingStations are multi-use. The second tests that failing recipes work
     @Test
-    public void TestServingStationCanHaveCustomer(){
+    public void TestServingStationServesMultipleCustomers(){
+        //First we test the servingStation is cleared after the customer interacts with a correct recipe. We will use this to make sure the customer is finished with the station and then test with a separate customer and different order
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStationNew testStation = new ServingStationNew(rectangle);
-        CustomerNew customer = new CustomerNew(1,1,1,1);
-        customer.request = "Onion Tomato Salad";
-        testStation.customer = customer;
+        testStation.setID(Station.StationID.serving);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Tomato Onion Salad";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
-        assertTrue(testStation.getCustomer() == customer,"Error: ServingStation can no longer have a customer assigned to them ");
-        assertFalse(testStation.hasCustomer(),"Error: ServingStation can no longer have a customer assigned to them ");
+
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.onionChop);
+        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+        assertTrue(testStation.getServedDishStack().getStack().isEmpty(),"Error: ServingStationNew is not cleared after a customer takes the correct recipe");
+
+        //Now test with separate customer
+        CustomerNew customerNew2 = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew2;
+        customerNew2.request = "Plain Potato";
+        cook.foodStack.addStack(FoodItem.FoodID.potatoCook);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew2);
+        assertTrue(testStation.getServedDishStack().getStack().isEmpty(),"Error: ServingStationNew cannot be used by more than one customer (when served one after the other)");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
-    */
+
+    @Test
+    public void TestServingStationNewDoesNotAcceptWrongRecipes(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        ServingStationNew testStation = new ServingStationNew(rectangle);
+        testStation.setID(Station.StationID.serving);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Plain Burger";
+
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testStation.getRectangle());
+
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.onionChop);
+        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        Array<FoodItem.FoodID> finalCustomersRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersRecipe.add(items);
+        }
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+        assertFalse(testStation.getServedDishStack().getStack().isEmpty(),"Error: ServingStationNew is cleared after a customer rejects an incorrect recipe");
+        assertFalse(customerNew.dishStack.getStack() == finalCustomersRecipe,"Error: Customer takes a recipe even if it is wrong");
+        assertEquals(testStation.getServedDishStack().getStack(),finalCustomersRecipe,"Error: The servingStation is cleared even if a wrong recipe is served");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
+    }
 
     @Test
     // Relates to the FR_DISH_SERVE requirement
