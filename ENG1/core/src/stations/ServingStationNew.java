@@ -103,9 +103,6 @@ public class ServingStationNew extends Station {
             if (testFlag == 0) {
                 customer.Success(this);
             }
-            else{
-                this.customer = null;
-            }
         }
     }
 

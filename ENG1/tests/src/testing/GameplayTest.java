@@ -5,6 +5,7 @@ import Shop.ShopItem;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
 import cooks.CustomerNew;
 import customers.Customer;
@@ -66,11 +67,16 @@ public class GameplayTest {
         cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
         cook.foodStack.clearStack();
 
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
+
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         testStation.customerInteract(customerNew);
 
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe);
 
         testStation.setTestFlag(0);
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
