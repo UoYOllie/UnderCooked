@@ -76,7 +76,8 @@ public class GameplayTest {
         testStation.customerInteract(customerNew);
 
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe);
+        //We then test that the customer has taken the order. This will tell us if the gme has registered the recipe as correct as the customer only picks it up if its correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
 
         testStation.setTestFlag(0);
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
