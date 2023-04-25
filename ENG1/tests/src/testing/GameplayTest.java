@@ -42,8 +42,7 @@ public class GameplayTest {
         assertTrue(testStation.getCustomer() == customer,"Error: ServingStation can no longer have a customer assigned to them ");
         assertFalse(testStation.hasCustomer(),"Error: ServingStation can no longer have a customer assigned to them ");
     }
-    **/
-
+    */
 
     @Test
     // Relates to the FR_DISH_SERVE requirement
@@ -51,20 +50,30 @@ public class GameplayTest {
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        customer.request = "Onion Tomato Salad";
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Tomato Onion Salad";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
+
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
         cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
         cook.foodStack.clearStack();
+
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
         assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
     /*

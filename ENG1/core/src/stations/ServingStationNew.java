@@ -22,6 +22,7 @@ public class ServingStationNew extends Station {
 
     private DishStack servedDishStack;
     public CustomerNew customer;
+    private Integer testFlag = 0;
 
     public ServingStationNew(Rectangle rectangle) {
         super(rectangle);
@@ -99,7 +100,12 @@ public class ServingStationNew extends Station {
             customer.dishStack.clearStack();
             customer.dishStack.setStack(servedDishStack.getStackCopy());
             servedDishStack.clearStack();
-            customer.Success(this);
+            if (testFlag == 0) {
+                customer.Success(this);
+            }
+            else{
+                this.customer = null;
+            }
         }
     }
 
@@ -119,6 +125,14 @@ public class ServingStationNew extends Station {
             foodSprite.draw(batch);
             drawY += FoodItem.foodHeights.get(dishList.get(i)) * 0.25F;
         }
+    }
+
+    public int getTestFlag(){
+        return testFlag;
+    }
+
+    public void setTestFlag(int flag){
+        testFlag = flag; // 0 if not testing, 1 if testing
     }
 
 }
