@@ -53,20 +53,18 @@ public class GameplayTest {
         testStation.setID(Station.StationID.serving);
         Sprite sprite = new Sprite();
         Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
         customer.request = "Onion Tomato Salad";
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
         assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        customerController.testFlag = 0;
     }
 
     /*

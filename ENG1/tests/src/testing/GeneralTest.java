@@ -360,6 +360,14 @@ public class GeneralTest {
         assertTrue(Gold.getInstance()  == gold );
     }
 
+    @Test
+    public void TestGoldAddBalance(){
+        Gold gold = new Gold();
+        gold.Balance = 1;
+        gold.addBalance(2);
+        assertEquals(gold.Balance,3);
+    }
+
     //The following tests ensure the robustness of the FoodStack class by testing utility functions and ensuring the fail cases work
     @Test
     public void TestFoodStackPeekStackCatchIndexOutOfBounds(){
@@ -647,7 +655,7 @@ public class GeneralTest {
 
     @Test
     public void testCustomerNewEnterCustomer(){
-        CustomerNew customerNew = new CustomerNew(10,20,3,4);
+        CustomerNew customerNew = new CustomerNew(100,400,3,4);
         customerNew.stationPosition.x = 1;
         customerNew.stationPosition.y = 1;
         customerNew.customerStatus = 0;
