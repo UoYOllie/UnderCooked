@@ -8,8 +8,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
 import cooks.CustomerNew;
-import customers.Customer;
-import customers.CustomerController;
+
 import customers.RepPoints;
 import food.DishStack;
 import food.FoodItem;

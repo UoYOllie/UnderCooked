@@ -18,11 +18,13 @@ public class InstructionHud extends Hud{
      */
     public InstructionHud(SpriteBatch batch) {
         super(batch);
-        instructionsLabel = new Label(String.format("Press %s to USE \nPress %s to COLLECT \nPress %s to PUT DOWN",
+        instructionsLabel = new Label(String.format("Press %s to USE \nPress %s to COLLECT \nPress %s to PUT DOWN \nPress %s to SAVE \nPress %s to LOAD",
                 Interactions.getKeyString(InputKey.InputTypes.USE),
                 Interactions.getKeyString(InputKey.InputTypes.PICK_UP),
-                Interactions.getKeyString(InputKey.InputTypes.PUT_DOWN)
-                ), new Label.LabelStyle(new BitmapFont(), Color.BLACK));
+                Interactions.getKeyString(InputKey.InputTypes.PUT_DOWN),
+                Interactions.getKeyString(InputKey.InputTypes.SAVE),
+                Interactions.getKeyString(InputKey.InputTypes.LOAD)
+                ), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         table.add(instructionsLabel).expandX().padTop(110).padRight(480);
     }
 

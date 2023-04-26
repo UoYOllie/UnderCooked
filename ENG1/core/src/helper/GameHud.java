@@ -41,9 +41,9 @@ public class GameHud extends Hud {
     {
         super(batch);
 
-        timeLabel = new Label("", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
-        reputation = new Label("",new Label.LabelStyle(new BitmapFont(),Color.BLACK));
-        goldLabel = new Label("",new Label.LabelStyle((new BitmapFont()),Color.YELLOW));
+        timeLabel = new Label("", new Label.LabelStyle(new BitmapFont(), Color.ORANGE));
+        reputation = new Label("",new Label.LabelStyle(new BitmapFont(),Color.FIREBRICK));
+        goldLabel = new Label("",new Label.LabelStyle((new BitmapFont()),Color.GOLD));
         updateTime(0,0,0);
         updateReputation(0);
         updateGold(0);
