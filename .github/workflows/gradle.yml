@@ -24,12 +24,9 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
 
-    - name: Build Core with Gradle
+    - name: Build with Gradle
       uses: gradle/gradle-build-action@v2.3.3
-      with:
-        arguments: build jacocoTestReport
-        gradle-version: 7.5.1
-        build-root-directory: ENG1/core
+      run: ./gradlew desktop:dist
 
     - name: Upload JaCoCo coverage report as a workflow artefact.
       uses: actions/upload-artifact@v3.1.1
