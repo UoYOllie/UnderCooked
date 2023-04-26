@@ -37,7 +37,7 @@ jobs:
         name: jacoco-report
         path: ENG1/tests/build/reports
         
-    - name: Upload library JAR
+    - name: Upload generated JAR
       uses: actions/upload-artifact@v3.1.1
       with:
         name: lib.jar
