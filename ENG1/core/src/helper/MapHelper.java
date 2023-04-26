@@ -200,9 +200,9 @@ public class MapHelper {
                 case "AssemblyStation":
                     mapStations.add(new AssemblyStation(newRectangle));
                     break;
-                case "ServingStation":
-                    mapStations.add(new ServingStation(newRectangle));
-                    break;
+//                case "ServingStation":
+//                    mapStations.add(new ServingStation(newRectangle));
+//                    break;
                 case "ServingStationNew":
                     mapStations.add(new ServingStationNew(newRectangle));
                     servingStationNewList.add(new ServingStationNew(newRectangle));
