@@ -35,11 +35,11 @@ jobs:
       uses: actions/upload-artifact@v3.1.1
       with:
         name: jacoco-report
-        path: ENG1/output/jacoco
+        path: ENG1/tests/build/reports
         
     - name: Upload library JAR
       uses: actions/upload-artifact@v3.1.1
       with:
         name: lib.jar
-        path: ENG1/core/build/libs/core-1.0.jar
+        path: ENG1/desktop/build/libs/desktop-1.0.jar
 
