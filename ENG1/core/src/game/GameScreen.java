@@ -2,8 +2,7 @@ package game;
 
 import Shop.Gold;
 import Shop.ShopItem;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.math.Rectangle;
@@ -13,8 +12,6 @@ import cooks.CustomerControllerNew;
 import cooks.CustomerNew;
 //import customers.Customer;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -51,7 +48,7 @@ public class GameScreen extends ScreenAdapter {
     private long previousSecond = 0;
     //private long lastCustomerSecond = 0;
     //private long nextCustomerSecond = 0;
-    private int secondsPassed = 0, minutesPassed = 0, hoursPassed = 0;
+    public int secondsPassed = 0, minutesPassed = 0, hoursPassed = 0;
     private GameHud gameHud;
     private InstructionHud instructionHUD;
     private SpriteBatch batch;
@@ -263,11 +260,18 @@ public class GameScreen extends ScreenAdapter {
     public void update(float delta)
     {
 //        System.out.println("Rep Points: "+this.Reputation.getPoints());
-		if (Gdx.input.isKeyPressed(Input.Keys.L)){
-			System.out.println(this.cook.getX());
-			System.out.println(this.cook.getY());
+		if (Gdx.input.isKeyPressed(Input.Keys.K)){
+            System.out.println("Saving....");
+//			System.out.println(this.cook.getX());
+//			System.out.println(this.cook.getY());
             this.Savegame();
 		}
+        if (Gdx.input.isKeyPressed(Input.Keys.L)){
+            System.out.println("Loading....");
+            System.out.println(this.cook.getX());
+            System.out.println(this.cook.getY());
+            this.Loadgame();
+        }
 
         // First thing, update all inputs
         Interactions.updateKeys();
@@ -337,6 +341,8 @@ public class GameScreen extends ScreenAdapter {
             }
         }
         gameHud.updateTime(hoursPassed, minutesPassed, secondsPassed);
+        gameHud.updateReputation(Reputation.getPoints());
+        gameHud.updateGold(gold.getBalance());
         cameraUpdate();
         orthogonalTiledMapRenderer.setView(camera);
         batch.setProjectionMatrix(camera.combined);
@@ -779,12 +785,19 @@ public class GameScreen extends ScreenAdapter {
     //-------------------------------------
     //Save Game
     //-------------------------------------
-    public void Savegame()
+    private Json StoredFile; //REMOVE
+    public Json Savegame()
     {
         Json json = new Json();
-//        SavingClass save = new SavingClass();
-        System.out.println(FoodItem.FoodID.dough.ordinal());
-//        json = save.SaveGoldRep(this);
+        SavingClass save = new SavingClass(this);
+        json.toJson(save);
+        System.out.println(json.prettyPrint(save));
+    }
+
+    public void Loadgame() //Change ton have no param
+    {
+//        SavingClass newsave = new SavingClass(GameScreen);
+//        StoredFile.fromJson(SavingClass newsave);
     }
 }
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testing.GameplayTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-04-23T15:21:24" hostname="Morgans-MacBook-Pro-2.local" time="0.068">
+  <properties/>
+  <testcase name="testCustomerNewHypnotise" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="testCustomerHangOnYourFoodIsComing" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="TestBuyShopItem" classname="testing.GameplayTest" time="0.001"/>
+  <testcase name="TestMultipleSpeedPowerUps" classname="testing.GameplayTest" time="0.001"/>
+  <testcase name="TestSpeedPowerUp" classname="testing.GameplayTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
