@@ -63,6 +63,7 @@ public class Cook extends GameEntity {
     public Rectangle cookInteractor;
 
     public float movement_speed = 0.6765f;
+    public String Colour;
 
     //-------------------------------------
     //Morgan's Shop Section
@@ -98,6 +99,7 @@ public class Cook extends GameEntity {
         super(x, y, width, height);
         this.dir = Facing.DOWN;
         this.speed = 10f;
+        this.Colour = "Blank";
         // this.gameScreen = gameScreen;
         this.gameSprites = GameSprites.getInstance();
         this.controlSprite = gameSprites.getSprite(GameSprites.SpriteID.COOK,"control");
@@ -549,5 +551,10 @@ public class Cook extends GameEntity {
             this.foodStack.addStack(foodStack2.peekStack());
             this.foodStack2.popStack();
         }
+    }
+
+    public void setColour(String c)
+    {
+        this.Colour = c;
     }
 }

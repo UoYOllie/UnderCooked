@@ -3,9 +3,11 @@ package game;
 import Shop.Gold;
 import Shop.ShopItem;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Json;
 import cooks.Cook;
 import cooks.CustomerControllerNew;
 import cooks.CustomerNew;
@@ -27,6 +29,7 @@ import com.badlogic.gdx.utils.TimeUtils;
 import cooks.GameEntity;
 import customers.CustomerController;
 import customers.RepPoints;
+import food.FoodItem;
 import helper.*;
 import interactions.InputKey;
 import interactions.Interactions;
@@ -88,6 +91,7 @@ public class GameScreen extends ScreenAdapter {
 
     private OrthographicCamera backgroundCamera;
     private SpriteBatch bgBatch;
+    public Preferences prefs = Gdx.app.getPreferences("My Preferences");
 
     /**
      * The constructor for the {@link GameScreen}.
@@ -222,19 +226,26 @@ public class GameScreen extends ScreenAdapter {
 
 
         Cook GlibbertOrange = new Cook(2041*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        GlibbertOrange.setColour("Orange");
         this.addCook(GlibbertOrange);
         Cook GlibbertBlue = new Cook(2045*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        GlibbertBlue.setColour("Blue");
         this.addCook(GlibbertBlue);
         Cook GlibbertGreen = new Cook(2049*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        GlibbertGreen.setColour("Green");
         this.addCook(GlibbertGreen);
 
         Cook Buy1 = new Cook((2031.1f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        Buy1.setColour("Purple");
         this.addSpareCook(Buy1);
         Cook Buy2 = new Cook((2031.1f+12f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        Buy2.setColour("Black");
         this.addSpareCook(Buy2);
         Cook Buy3 = new Cook((2031.1f-92f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        Buy3.setColour("White");
         this.addSpareCook(Buy3);
         Cook Buy4 = new Cook((2031.1f-104f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        Buy4.setColour("Red");
         this.addSpareCook(Buy4);
 
         this.customersToServe = new ArrayList<>();
@@ -254,6 +265,7 @@ public class GameScreen extends ScreenAdapter {
 		if (Gdx.input.isKeyPressed(Input.Keys.L)){
 			System.out.println(this.cook.getX());
 			System.out.println(this.cook.getY());
+            this.Savegame();
 		}
 
         // First thing, update all inputs
@@ -613,6 +625,7 @@ public class GameScreen extends ScreenAdapter {
         }
     }
 
+
     /**
      * Adds a game entity to the GameScreen to be rendered and updated.
      * @param entity The {@link GameEntity} to be added.
@@ -730,6 +743,15 @@ public class GameScreen extends ScreenAdapter {
 
 
     //-------------------------------------
+    //Save Game
+    //-------------------------------------
+    public void Savegame()
+    {
+        Json json = new Json();
+//        SavingClass save = new SavingClass();
+        System.out.println(FoodItem.FoodID.dough.ordinal());
+//        json = save.SaveGoldRep(this);
+    }
 }
 
 

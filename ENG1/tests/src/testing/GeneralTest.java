@@ -360,6 +360,14 @@ public class GeneralTest {
         assertTrue(Gold.getInstance()  == gold );
     }
 
+    @Test
+    public void TestGoldAddBalance(){
+        Gold gold = new Gold();
+        gold.Balance = 1;
+        gold.addBalance(2);
+        assertEquals(gold.Balance,3);
+    }
+
     //The following tests ensure the robustness of the FoodStack class by testing utility functions and ensuring the fail cases work
     @Test
     public void TestFoodStackPeekStackCatchIndexOutOfBounds(){
@@ -647,7 +655,7 @@ public class GeneralTest {
 
     @Test
     public void testCustomerNewEnterCustomer(){
-        CustomerNew customerNew = new CustomerNew(10,20,3,4);
+        CustomerNew customerNew = new CustomerNew(100,400,3,4);
         customerNew.stationPosition.x = 1;
         customerNew.stationPosition.y = 1;
         customerNew.customerStatus = 0;
@@ -655,5 +663,38 @@ public class GeneralTest {
         assertEquals(customerNew.customerStatus, 1);
     }
 
+    //The following test the ServingStationNew's customerInteract method for the menu and teacup change power ups
+    @Test
+    public void testServingStationNewCustomerInteract(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        ServingStationNew testStation = new ServingStationNew(rectangle);
+        testStation.setID(Station.StationID.serving);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Plain Burger";
+        customerNew.waittime = 50;
+
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testStation.getRectangle());
+
+        //First we test the teacup - it should reset the customers waiting time after use
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.teacup);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+        assertEquals(customerNew.waittime, 300,"Error: Serving a teacup does not reset the customers wait-time");
+        assertEquals(customerNew.dishStack.getStack().peek(), FoodItem.FoodID.teacup,"Error: Customer does not have a teacup in their inventory after they are served one");
+
+        //Next we check the menu, which should force the customer to request a different item after use
+        cook.foodStack.addStack(FoodItem.FoodID.menu);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+        assertFalse(customerNew.request == "Plain Burger","Error: Giving the menu to the customer does not make them choose a different request");
+    }
 
 }
