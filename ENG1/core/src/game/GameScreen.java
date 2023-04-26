@@ -387,6 +387,7 @@ public class GameScreen extends ScreenAdapter {
         if(Interactions.isJustPressed(InputKey.InputTypes.COOK_SWAP)) {
             setCook((cookIndex + 1) % cooks.size);
         }
+
         this.cook.update(Gdx.graphics.getDeltaTime());
 
 //        // Spawning code to spawn a customer after an amount of time.

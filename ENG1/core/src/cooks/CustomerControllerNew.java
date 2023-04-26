@@ -107,12 +107,17 @@ public class CustomerControllerNew {
             CustomerNew customer = entry.getValue();
 
             if (customer == null) {
-                System.out.println("new customer spawned");
+
+                //System.out.println("new customer spawned, destination " + station);
                 CustomerNew newCustomer = new CustomerNew(Constants.customerPointA.x, Constants.customerPointA.y, 3.34f, 3f);
                 newCustomer.setStationPosition(station.getX(), station.getY());
+                newCustomer.setStation(station);
                 newCustomer.setGameScreen(this.gameScreen);
 
-                System.out.println("stationCustomerMap original: " + this.stationCustomerMap);
+                if (customers.size() == 2) {
+                    newCustomer.customerToTest = true;
+                    System.out.println("testing " + newCustomer + " with destination " + station);
+                }
 
                 this.stationCustomerMap.put(station, newCustomer);
                 this.customers.add(newCustomer);
