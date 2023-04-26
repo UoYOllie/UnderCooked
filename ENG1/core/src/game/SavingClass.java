@@ -35,7 +35,11 @@ public class SavingClass {
     private Array<Float> waitimes; //-1 for cooks
     private Array<String> requests; //norequest = cooks
     //------------------------------------------------------------------------------------
-
+    //Timer
+    private int seconds;
+    private int minutes;
+    private int hours;
+    //------------------------------------------------------------------------------------
 
 
 
@@ -59,6 +63,8 @@ public class SavingClass {
 
         SaveGoldRep(g);
         SaveCooksAndCustomers(g);
+        Timer(g);
+        //Stations
 
     }
 
@@ -189,5 +195,11 @@ public class SavingClass {
         this.gold = gameScreen.gold.getBalance();
         //get reputation
         this.reputation = gameScreen.Reputation.getPoints();
+    }
+    private void Timer(GameScreen gameScreen)
+    {
+        this.seconds = gameScreen.secondsPassed;
+        this.minutes = gameScreen.minutesPassed;
+        this.hours = gameScreen.hoursPassed;
     }
 }
