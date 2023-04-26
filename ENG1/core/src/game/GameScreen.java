@@ -798,8 +798,34 @@ public class GameScreen extends ScreenAdapter {
     {
 //        SavingClass newsave = new SavingClass(GameScreen);
 //        StoredFile.fromJson(SavingClass newsave);
+        reset();
         JsonValue root = new JsonReader().parse(this.SaveText);
         System.out.println(root);
+        //Gold and Reputation
+        int held_Gold = root.getInt("gold");
+        this.gold.setBalance(held_Gold);
+        int held_Reputation = root.getInt("reputation");
+        this.Reputation.setPoints(held_Reputation);
+        //Timer
+        int held_seconds = root.getInt("seconds");
+        int held_minutes = root.getInt("minutes");
+        int held_hours = root.getInt("hours");
+        this.secondsPassed = held_seconds;
+        this.minutesPassed = held_minutes;
+        this.hoursPassed = held_hours;
+        //cooks
+        Array<Integer> cooks = new Array<Integer>(); //See above ^^^^
+        Array<Array<Float>> cookscoords = new Array<Array<Float>>(); //If not spawned, (0,0)
+        Array<Array<Integer>> cookstack1 = new Array<Array<Integer>>();
+        Array<Array<Integer>> cookstack2 = new Array<Array<Integer>>();
+        Array<Array<Integer>> cookdishstack = new Array<Array<Integer>>();
+        Array<Boolean> cookisbluggus = new Array<Boolean>(); //if chef is bluggus or not
+        Array<Float> cookspeed = new Array<Float>();
+        Array<String> colour = new Array<String>(); //allocates the sprite
+        Array<Float> waitimes = new Array<Float>(); //-1 for cooks
+        Array<String> requests = new Array<String>(); //norequest = cooks
+        //stations
+
     }
 }
 
