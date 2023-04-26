@@ -138,8 +138,8 @@ public class PauseScreen extends ScreenAdapter {
 
         shape.begin(ShapeRenderer.ShapeType.Filled);
 
-        Gdx.gl.glEnable(GL20.GL_BLEND);
-        Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        Gdx.gl.glClearColor(0,0,0,1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         shape.setColor(0,0,0,0.5F);
         shape.rect(0,0, Constants.V_Width,Constants.V_Height);
@@ -147,8 +147,6 @@ public class PauseScreen extends ScreenAdapter {
         shape.end();
 
         stage.draw();
-
-        Gdx.gl.glDisable(GL20.GL_BLEND);
 
         this.update(delta);
 
