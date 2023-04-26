@@ -10,6 +10,7 @@ import cooks.Cook;
 import cooks.CustomerNew;
 import customers.Customer;
 import customers.CustomerController;
+import customers.RepPoints;
 import food.DishStack;
 import food.FoodItem;
 import food.Recipe;
@@ -681,5 +682,30 @@ public class GameplayTest {
         cook.foodStack.addStack(FoodItem.FoodID.cheese);
         cook.moveStacks();
         assertEquals(cook.foodStack2.peekStack(), FoodItem.FoodID.cheese,"Error: moving items from foodStack1 to foodStack2 does not work");
+    }
+
+    //The following tests the logic behind gaining and losing reputation
+    @Test
+    public void TestRepPoints(){
+        //First, I will test that RepPoints can be decremented
+        RepPoints repPoints = new RepPoints();
+        repPoints.Negative();
+        assertEquals(repPoints.getPoints(),2,"Error: you can not decrement the reputation points using Negative");
+
+        //Then,I will check you can decrement multiple times and for robustness
+        for (int i = 0; i < 2; i++){
+            repPoints.Negative();
+        }
+        assertEquals(repPoints.getPoints(),0,"Error: Using Negative on RepPoints only decrements the reputation once");
+
+        //Now I will check gaining points works
+        repPoints.Positive();
+        assertEquals(repPoints.getPoints(),1,"Error: Positive does not increase the reputation points");
+
+        //RepPoints are meant to be capped at a max of 5 points, so we will test this works
+        for (int i = 0; i < 10; i++){
+            repPoints.Positive();
+        }
+        assertEquals(repPoints.getPoints(),5,"Error: Points don't get capped at 5 maximum points");
     }
 }

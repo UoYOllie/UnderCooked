@@ -511,6 +511,13 @@ public class GeneralTest {
         assertTrue(cook.foodStack.size() == 3, "The chef is able to hold more than 3 items at once");
     }
 
+    @Test
+    public void TestCookSetColour(){
+        Cook cook = new Cook(1,2,3,4);
+        cook.setColour("Blue");
+        assertEquals(cook.Colour, "Blue","Error: the Setter for cooks colour is not setting the colour correctly");
+    }
+
     //These test the utility function of getInputKey and getInputType
     @Test
     // TODO: add reference to requirement
