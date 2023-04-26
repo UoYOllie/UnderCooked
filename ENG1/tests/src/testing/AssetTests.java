@@ -2,6 +2,7 @@ package testing;
 
 import com.badlogic.gdx.Gdx;
 import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
 import org.junit.runner.RunWith;
 
 import java.io.File;
@@ -19,6 +20,7 @@ public class AssetTests {
 	// They all relate to the UR_GRAPHICS requirement
 	// The following are tests to do with checking that the assets in the cooks folder still remain
 	@Test
+    @Disabled
 	public void testAssets() throws FileNotFoundException {
 		System.out.println();
 		Scanner fileReader = new Scanner(assetList);

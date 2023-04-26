@@ -5,8 +5,6 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
-import customers.Customer;
-import customers.CustomerController;
 import food.FoodItem;
 import food.FoodStack;
 import food.Recipe;

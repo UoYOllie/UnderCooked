@@ -11,8 +11,6 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import cooks.*;
-import customers.Customer;
-import customers.CustomerController;
 import food.FoodItem;
 import food.Recipe;
 import helper.Constants;
