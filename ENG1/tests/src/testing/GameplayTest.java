@@ -8,8 +8,6 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
 import cooks.CustomerNew;
-import customers.Customer;
-import customers.CustomerController;
 import customers.RepPoints;
 import food.DishStack;
 import food.FoodItem;
@@ -18,7 +16,6 @@ import helper.Constants;
 import interactions.InputKey;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import stations.ServingStation;
 import stations.ServingStationNew;
 import stations.SpeedPowerup;
 import stations.Station;
@@ -397,17 +394,12 @@ public class GameplayTest {
         cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
         cook.foodStack.clearStack();
 
-        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
-        for (FoodItem.FoodID items: cook.dishStack.getStack()){
-            finalCustomersExpectedRecipe.add(items);
-        }
-
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         testStation.customerInteract(customerNew);
 
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
         //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if it's correct
-        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+        assertEquals(customerNew.dishStack.getStack(),Recipe.recipes.get(customerNew.request).getStack(),"Error: Customer has got the wrong items when served the correct dish");
 
         testStation.setTestFlag(0);
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");

@@ -320,6 +320,8 @@ public class GameScreen extends ScreenAdapter {
             }
         }
         gameHud.updateTime(hoursPassed, minutesPassed, secondsPassed);
+        gameHud.updateReputation(Reputation.getPoints());
+        gameHud.updateGold(gold.getBalance());
         cameraUpdate();
         orthogonalTiledMapRenderer.setView(camera);
         batch.setProjectionMatrix(camera.combined);
