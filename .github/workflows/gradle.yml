@@ -25,7 +25,6 @@ jobs:
         distribution: 'temurin'
 
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@v2.3.3
       run: ./gradlew desktop:dist
 
     - name: Upload JaCoCo coverage report as a workflow artefact.
