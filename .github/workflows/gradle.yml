@@ -36,3 +36,10 @@ jobs:
       with:
         name: jacoco-report
         path: ENG1/output/jacoco
+        
+    - name: Upload library JAR
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: lib.jar
+        path: ENG1/core/build/libs/
+
