@@ -53,6 +53,8 @@ public class SavingClass {
     }
     public SavingClass(GameScreen g)
     {
+        setAttributes();
+
         SaveGoldRep(g);
 
     }
