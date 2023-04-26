@@ -1,10 +1,15 @@
 atlas/customer.atlas
 atlas/customer.png
+atlas/customer_bluggus.atlas
+atlas/customer_bluggus.png
+atlas/customer_bluggus_bubble.png
+atlas/fod_placeholders_new.png
 atlas/food.atlas
 atlas/food.png
 atlas/food_new.atlas
 atlas/food_new.png
 atlas/food_placeholders.png
+atlas/food_placeholders_new_new.png
 atlas/player.atlas
 atlas/player.png
 atlas/station.atlas
@@ -20,29 +25,6 @@ cooks/normal right.png
 cooks/normal up.png
 cooks/testdummy.png
 customers/Customer.png
-foods/BottomBun.png
-foods/Burger.png
-foods/Burger_Buns.png
-foods/Burger_BunsUpscaled.png
-foods/Lettuce.png
-foods/LettuceChop.png
-foods/LettuceUpscaled.png
-foods/MargheritaPizza.png
-foods/Meat.png
-foods/MeatFried.png
-foods/Onion.png
-foods/OnionChop.png
-foods/OnionUpscaled.png
-foods/Tomato.png
-foods/TomatoChop.png
-foods/TomatoUpscaled.png
-foods/TopBun.png
-foods/laura new recipe test/bottom_bun_laura.png
-foods/laura new recipe test/lettuce_for_burger_laura.png
-foods/laura new recipe test/onion_for_burger_laura.png
-foods/laura new recipe test/patty_laura.png
-foods/laura new recipe test/tomato_for_burger_laura.png
-foods/laura new recipe test/top_bun_laura.png
 Individual_Stations/Bin.png
 Individual_Stations/Cutting_Station.png
 Individual_Stations/Fryer.png
@@ -51,6 +33,8 @@ Individual_Stations/TableWithChairs.png
 Maps/StartMenuBackground.png
 Maps/Stations.png
 Maps/StationsMap.png
+menu/space-bg.png
+menu/title.png
 MFPack/Beam.png
 MFPack/BottomVAT.png
 MFPack/CurvyMetal.png
@@ -81,6 +65,8 @@ MFPack/TopVAT.png
 MFPack/Window-Starship-withbluggy.png
 MFPack/Window-Starship.png
 MorgansMap/Tiles/Assembler.png
+MorgansMap/Tiles/assembly_big.png
+MorgansMap/Tiles/assembly_small.png
 MorgansMap/Tiles/bakedbeans_placeholder.png
 MorgansMap/Tiles/baking.png
 MorgansMap/Tiles/baking_top.png
@@ -148,6 +134,7 @@ MorgansMap/Tiles/serving.png
 MorgansMap/Tiles/serving_counter.png
 MorgansMap/Tiles/serving_test.png
 MorgansMap/Tiles/side.png
+MorgansMap/Tiles/space-bg.png
 MorgansMap/Tiles/tile test.png
 MorgansMap/Tiles/tile.png
 MorgansMap/Tiles/tilepiece.png
