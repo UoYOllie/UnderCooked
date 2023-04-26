@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import customers.Customer;
+//import customers.Customer;
 import food.FoodItem;
 import food.FoodStack;
 import food.Recipe;
@@ -19,17 +19,17 @@ import game.MenuScreen;
 public class GameHud extends Hud {
     /** The label with the current amount of time played. */
     Label timeLabel;
-    /** The label with the number of {@link Customer}s left to serve.  */
-    Label CustomerLabel;
+//    /** The label with the number of {@link Customer}s left to serve.  */
+//    Label CustomerLabel;
     Label CustomerScore;
     /** The {@link SpriteBatch} of the GameHud. Use for drawing {@link food.Recipe}s. */
     private SpriteBatch batch;
     /** The {@link FoodStack} that the {@link GameHud} should render. */
     private FoodStack recipe;
-    /** The {@link Customer} to have their request rendered.. */
-    private Customer customer;
-    // /** The time, in milliseconds, of the last recipe change. */
-    // private long lastChange;
+//    /** The {@link Customer} to have their request rendered.. */
+//    private Customer customer;
+//    // /** The time, in milliseconds, of the last recipe change. */
+//    // private long lastChange;
 
     /**
      * The GameHud constructor.
@@ -43,38 +43,38 @@ public class GameHud extends Hud {
         timeLabel = new Label("", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
         updateTime(0,0,0);
 
-        CustomerLabel = new Label("CUSTOMERS LEFT:", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
-
-        table.add(CustomerLabel).expandX().padTop(80).padRight(60);
+//        CustomerLabel = new Label("CUSTOMERS LEFT:", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
+//
+//        table.add(CustomerLabel).expandX().padTop(80).padRight(60);
         table.add(timeLabel).expandX().padTop(80).padLeft(60);
 
         this.batch = batch;
     }
 
-    /**
-     * Renders both the {@link Hud} with the game information and
-     * the {@link Recipe} required the {@link customers.Customer} selected.
-     * <br>The {@link Recipe} displays on the right side of the screen.
-     */
-    @Override
-    public void render() {
-        super.render();
-        batch.begin();
-        GameSprites gameSprites = GameSprites.getInstance();
-        float drawX = Constants.RECIPE_X, drawY = Constants.RECIPE_Y;
-        // If there is a recipe...
-        if (recipe != null) {
-            // Loop through on the top right of the screen, and render!
-            for (FoodItem.FoodID ingredient : recipe.getStack()) {
-                Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, ingredient.toString());
-                foodSprite.setScale(2F);
-                foodSprite.setPosition(drawX-foodSprite.getWidth()/2,drawY-foodSprite.getHeight()/2);
-                foodSprite.draw(batch);
-                drawY -= 64;
-            }
-        }
-        batch.end();
-    }
+//    /**
+//     * Renders both the {@link Hud} with the game information and
+//     * the {@link Recipe} required the {@link customers.Customer} selected.
+//     * <br>The {@link Recipe} displays on the right side of the screen.
+//     */
+//    @Override
+//    public void render() {
+//        super.render();
+//        batch.begin();
+//        GameSprites gameSprites = GameSprites.getInstance();
+//        float drawX = Constants.RECIPE_X, drawY = Constants.RECIPE_Y;
+//        // If there is a recipe...
+//        if (recipe != null) {
+//            // Loop through on the top right of the screen, and render!
+//            for (FoodItem.FoodID ingredient : recipe.getStack()) {
+//                Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, ingredient.toString());
+//                foodSprite.setScale(2F);
+//                foodSprite.setPosition(drawX-foodSprite.getWidth()/2,drawY-foodSprite.getHeight()/2);
+//                foodSprite.draw(batch);
+//                drawY -= 64;
+//            }
+//        }
+//        batch.end();
+//    }
 
     /* Removed as it was confusing to look at.
     /**
@@ -91,19 +91,19 @@ public class GameHud extends Hud {
         }
     }*/
 
-    /**
-     * Sets the recipe to be rendered.
-     * @param customer The {@link Customer} who is requesting the {@link #recipe}.
-     */
-    public void setRecipe(Customer customer) {
-        // this.lastChange = TimeUtils.millis();
-        this.customer = customer;
-        if (customer == null) {
-            this.recipe = null;
-            return;
-        }
-        this.recipe = Recipe.getRecipe(customer.getRequestName());
-    }
+//    /**
+//     * Sets the recipe to be rendered.
+//     * @param customer The {@link Customer} who is requesting the {@link #recipe}.
+//     */
+//    public void setRecipe(Customer customer) {
+//        // this.lastChange = TimeUtils.millis();
+//        this.customer = customer;
+//        if (customer == null) {
+//            this.recipe = null;
+//            return;
+//        }
+//        this.recipe = Recipe.getRecipe(customer.getRequestName());
+//    }
 
     /**
      * Update the Timer
@@ -133,23 +133,23 @@ public class GameHud extends Hud {
         timeLabel.setText("TIMER: " + String.format(Util.formatTime(hoursPassed,minutesPassed,secondsPassed)));
     }
 
-    /**
-     * Set the Customer Count label
-     * @param customerCount New Customer Count
-     */
-    public void setCustomerCount(int customerCount) {
-        CustomerLabel.setText(String.format("CUSTOMERS: %d",customerCount));
-    }
+//    /**
+//     * Set the Customer Count label
+//     * @param customerCount New Customer Count
+//     */
+//    public void setCustomerCount(int customerCount) {
+//        CustomerLabel.setText(String.format("CUSTOMERS: %d",customerCount));
+//    }
 
-    /**
-     * Getter for the {@link Customer} that has their
-     * request being shown.
-     * @return {@link Customer} : The {@link Customer} having their
-     *                            request shown.
-     */
-    public Customer getCustomer() {
-        return customer;
-    }
+//    /**
+//     * Getter for the {@link Customer} that has their
+//     * request being shown.
+//     * @return {@link Customer} : The {@link Customer} having their
+//     *                            request shown.
+//     */
+//    public Customer getCustomer() {
+//        return customer;
+//    }
 
 
 }

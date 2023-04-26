@@ -1,234 +1,234 @@
-package stations;
-
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
-import cooks.Cook;
-import customers.Customer;
-import customers.CustomerController;
-import food.DishStack;
-import food.Recipe;
-import game.Boot;
-import game.GameScreen;
-import game.ScreenController;
-import interactions.InputKey;
-
-/**
- * The {@link ServingStation} class, where the {@link Cook} provide
- * the {@link customers.Customer}s with their orders.
- *
- *
- * FROM LAURA - sorting the serving logic looks like a nightmare. i also need to understand everything customer related.
- * PLAN OF ACTION: i will make an assembly station and make sure i can assemble items.
- * after that i can worry about serving
- *
- */
-public class ServingStation extends Station {
-
-    private String request;
-    public Customer customer;
-    private GameScreen gameScreen;
-    private float customerX, customerY;
-    public CustomerController customerController;
-//    private OrthographicCamera orthographicCamera;
-//    private Boot boot;
-//    private ScreenController screenController;
-
-    public int testFlag = 0;
-    private DishStack servedDishStack;
-    private DishStack targetDishStack;
-
-    /**
-     * The constructor for the {@link ServingStation}.
-     * @param rectangle The collision and interaction area of the {@link ServingStation}.
-     * *//*
-     //* @param customerController The {@link CustomerController} for the game.
-     */
-    public ServingStation(Rectangle rectangle) {
-        super(rectangle);
-        this.customerController = null;
-        // The below x and y can be changed wherever needed.
-        this.customerX = rectangle.x + 32;
-        this.customerY = rectangle.y + 96;
-        servedDishStack = new DishStack();
-        targetDishStack = new DishStack();
-    }
-
-//    private OrthographicCamera getOrthographicCamera(){
-//        if (orthographicCamera == null) { return orthographicCamera = new OrthographicCamera();}
-//        return null;
-//    }
+//package stations;
 //
-//    private Boot getBoot(){
-//        if (boot == null) { return boot = new Boot();}
-//        return null;
-//    }
+//import com.badlogic.gdx.graphics.OrthographicCamera;
+//import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+//import com.badlogic.gdx.math.Rectangle;
+//import cooks.Cook;
+////import customers.Customer;
+////import customers.CustomerController;
+//import food.DishStack;
+//import food.Recipe;
+//import game.Boot;
+//import game.GameScreen;
+//import game.ScreenController;
+//import interactions.InputKey;
 //
-//    private ScreenController getScreenController(){
-//        if (screenController == null) { return screenController = new ScreenController(getBoot(),getOrthographicCamera());}
-//        return null;
-//    }
+///**
+// * The {@link ServingStation} class, where the {@link Cook} provide
+// * the {@link  with their orders.
+// *
+// *
+// * FROM LAURA - sorting the serving logic looks like a nightmare. i also need to understand everything customer related.
+// * PLAN OF ACTION: i will make an assembly station and make sure i can assemble items.
+// * after that i can worry about serving
+// *
+// */
+//public class ServingStation extends Station {
 //
-//    private GameScreen getGameScreen(){
-//        if (gameScreen == null) { return gameScreen = new GameScreen(getScreenController(),getOrthographicCamera());}
-//        return null;
-//    }
-
-    /**
-     * Returns whether the {@link ServingStation} does
-     * @return {@code boolean} : Whether there is ({@code true})
-     *                 or isn't ({@code false}) a {@link Customer}.
-     */
-    public boolean hasCustomer() {
-        return customer != null;
-    }
-
-    /*public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }*/
-
+//    private String request;
+//    public Customer customer;
+//    private GameScreen gameScreen;
+//    private float customerX, customerY;
+//    public CustomerController customerController;
+////    private OrthographicCamera orthographicCamera;
+////    private Boot boot;
+////    private ScreenController screenController;
+//
+//    public int testFlag = 0;
+//    private DishStack servedDishStack;
+//    private DishStack targetDishStack;
+//
 //    /**
-//     * The interact function for the {@link ServingStation}.
-//     *
-//     * <br>This checks that the {@link Cook} has the right {@link food.Recipe}, and then acts
-//     * based on if the {@link Cook} does or does not.
-//     * @param cook The cook that interacted with the {@link CookInteractable}.
-//     * @param inputType The type of {@link InputKey.InputTypes} the player made with
-//     *                  the {@link CookInteractable}.
+//     * The constructor for the {@link ServingStation}.
+//     * @param rectangle The collision and interaction area of the {@link ServingStation}.
+//     * *//*
+//     //* @param customerController The {@link CustomerController} for the game.
 //     */
+//    public ServingStation(Rectangle rectangle) {
+//        super(rectangle);
+//        this.customerController = null;
+//        // The below x and y can be changed wherever needed.
+//        this.customerX = rectangle.x + 32;
+//        this.customerY = rectangle.y + 96;
+//        servedDishStack = new DishStack();
+//        targetDishStack = new DishStack();
+//    }
+//
+////    private OrthographicCamera getOrthographicCamera(){
+////        if (orthographicCamera == null) { return orthographicCamera = new OrthographicCamera();}
+////        return null;
+////    }
+////
+////    private Boot getBoot(){
+////        if (boot == null) { return boot = new Boot();}
+////        return null;
+////    }
+////
+////    private ScreenController getScreenController(){
+////        if (screenController == null) { return screenController = new ScreenController(getBoot(),getOrthographicCamera());}
+////        return null;
+////    }
+////
+////    private GameScreen getGameScreen(){
+////        if (gameScreen == null) { return gameScreen = new GameScreen(getScreenController(),getOrthographicCamera());}
+////        return null;
+////    }
+//
+//    /**
+//     * Returns whether the {@link ServingStation} does
+//     * @return {@code boolean} : Whether there is ({@code true})
+//     *                 or isn't ({@code false}) a {@link Customer}.
+//     */
+//    public boolean hasCustomer() {
+//        return customer != null;
+//    }
+//
+//    /*public void setCustomer(Customer customer) {
+//        this.customer = customer;
+//    }*/
+//
+////    /**
+////     * The interact function for the {@link ServingStation}.
+////     *
+////     * <br>This checks that the {@link Cook} has the right {@link food.Recipe}, and then acts
+////     * based on if the {@link Cook} does or does not.
+////     * @param cook The cook that interacted with the {@link CookInteractable}.
+////     * @param inputType The type of {@link InputKey.InputTypes} the player made with
+////     *                  the {@link CookInteractable}.
+////     */
+////    @Override
+////    public void interact(Cook cook, InputKey.InputTypes inputType) {
+////
+////        // USE to see request, or submit request
+////        if (inputType == InputKey.InputTypes.USE) {
+////            // First make sure there is actually a request on this counter.
+////            if (hasCustomer()) {
+////                // If there is a request, then compare the two.
+////                if (Recipe.matchesRecipe(cook.foodStack,customer.getRequestName())) {
+////                    // If it's correct, then the customer will take the food and leave.
+////                    request = null;
+////                    cook.foodStack.clearStack();
+////                    if (testFlag != 1 && (gameScreen.getGameHud().getCustomer() == this.customer)) {
+////                        gameScreen.getGameHud().setRecipe(null);
+////                    }
+////                    customerController.customerServed(this);
+////                } else {
+////                    // If not, then display the customer's request.
+////                    if (testFlag != 1) {
+////                        gameScreen.getGameHud().setRecipe(customer);
+////                    }
+////                }
+////            }
+////        } else {
+////            if (hasCustomer() && testFlag != 1) {
+////                // Display the customer's request.
+////                gameScreen.getGameHud().setRecipe(customer);
+////            }
+////        }
+////    }
+//
 //    @Override
 //    public void interact(Cook cook, InputKey.InputTypes inputType) {
 //
-//        // USE to see request, or submit request
-//        if (inputType == InputKey.InputTypes.USE) {
-//            // First make sure there is actually a request on this counter.
-//            if (hasCustomer()) {
-//                // If there is a request, then compare the two.
-//                if (Recipe.matchesRecipe(cook.foodStack,customer.getRequestName())) {
-//                    // If it's correct, then the customer will take the food and leave.
-//                    request = null;
-//                    cook.foodStack.clearStack();
-//                    if (testFlag != 1 && (gameScreen.getGameHud().getCustomer() == this.customer)) {
-//                        gameScreen.getGameHud().setRecipe(null);
-//                    }
-//                    customerController.customerServed(this);
-//                } else {
-//                    // If not, then display the customer's request.
-//                    if (testFlag != 1) {
-//                        gameScreen.getGameHud().setRecipe(customer);
-//                    }
-//                }
-//            }
-//        } else {
-//            if (hasCustomer() && testFlag != 1) {
-//                // Display the customer's request.
-//                gameScreen.getGameHud().setRecipe(customer);
-//            }
+//        if (cook.dishStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
+//            this.servedDishStack.setStack(cook.dishStack.getStackCopy());
+//            cook.dishStack.clearStack();
+//            return;
+//        }
+//
+//        if (servedDishStack.size() > 0 && inputType == InputKey.InputTypes.PICK_UP) {
+//            cook.dishStack.setStack(this.servedDishStack.getStackCopy());
+//            this.servedDishStack.clearStack();
 //        }
 //    }
-
-    @Override
-    public void interact(Cook cook, InputKey.InputTypes inputType) {
-
-        if (cook.dishStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
-            this.servedDishStack.setStack(cook.dishStack.getStackCopy());
-            cook.dishStack.clearStack();
-            return;
-        }
-
-        if (servedDishStack.size() > 0 && inputType == InputKey.InputTypes.PICK_UP) {
-            cook.dishStack.setStack(this.servedDishStack.getStackCopy());
-            this.servedDishStack.clearStack();
-        }
-    }
-
-    /**
-     * Renders the {@link Customer} that is at the
-     * {@link ServingStation}.
-     * @param batch The {@link SpriteBatch} used to render.
-     */
-    @Override
-    public void render(SpriteBatch batch) {
-        if (hasCustomer()) {
-            customer.render(batch);
-        }
-    }
-
-    /**
-     * Set the {@link GameScreen} that will be used by the
-     * {@link ServingStation} when interacted with.
-     * @param gameScreen The {@link GameScreen} to set it to.
-     */
-//    public void setGameScreen(GameScreen gameScreen) {
-//        this.gameScreen = gameScreen;
-//        this.customerController = gameScreen.getCustomerController();
+//
+//    /**
+//     * Renders the {@link Customer} that is at the
+//     * {@link ServingStation}.
+//     * @param batch The {@link SpriteBatch} used to render.
+//     */
+//    @Override
+//    public void render(SpriteBatch batch) {
+//        if (hasCustomer()) {
+//            customer.render(batch);
+//        }
 //    }
-
-    /**
-     * Set the {@link #customer} of the {@link ServingStation} to
-     * a new {@link Customer}.
-     * @param customer The {@link Customer} to set the {@link ServingStation} to.
-     */
-    public void setCustomer(Customer customer)
-    {
-        this.customer = customer;
-    }
-
-    /**
-     * Getter for the {@link Customer} that is tied to
-     * the {@link ServingStation}. If there is no {@link Customer},
-     * then {@code null} is returned.
-     * @return {@link Customer} : The {@link Customer} at the {@link ServingStation}.
-     */
-    public Customer getCustomer() { return this.customer; }
-
-    /**
-     * Getter for the {@link Customer}'s {@code x} position at the
-     * {@link ServingStation}.
-     * @return {@code float} : The {@link Customer}'s {@code x}.
-     */
-    public float getCustomerX() {
-        return customerX;
-    }
-
-    /**
-     * Getter for the {@link Customer}'s {@code y} position at the
-     * {@link ServingStation}.
-     * @return {@code float} : The {@link Customer}'s {@code y}.
-     */
-    public float getCustomerY() {
-        return customerY;
-    }
-
-    /**
-     * Getter for the {@code x} of the {@link Customer}.
-     * This is because the {@link Customer} is drawn by the
-     * {@link ServingStation}, and not the {@link ServingStation}
-     * itself.
-     * <br> If there is no {@link Customer} assigned, it uses the
-     * {@link #customerX} variable.
-     * @return {@code float} : The {@code x} of the {@link Customer}.
-     */
-    public float getX() {
-        if (!hasCustomer()) {
-            return customerX;
-        }
-        return customer.getX();
-    }
-
-    /**
-     * Getter for the {@code y} of the {@link Customer}.
-     * This is because the {@link Customer} is drawn by the
-     * {@link ServingStation}, and not the {@link ServingStation}
-     * itself.
-     * <br> If there is no {@link Customer} assigned, it uses the
-     * {@link #customerY} variable.
-     * @return {@code float} : The {@code y} of the {@link Customer}.
-     */
-    public float getY() {
-        if (!hasCustomer()) {
-            return customerY;
-        }
-        return customer.getY();
-    }
-}
+//
+//    /**
+//     * Set the {@link GameScreen} that will be used by the
+//     * {@link ServingStation} when interacted with.
+//     * @param gameScreen The {@link GameScreen} to set it to.
+//     */
+////    public void setGameScreen(GameScreen gameScreen) {
+////        this.gameScreen = gameScreen;
+////        this.customerController = gameScreen.getCustomerController();
+////    }
+//
+//    /**
+//     * Set the {@link #customer} of the {@link ServingStation} to
+//     * a new {@link Customer}.
+//     * @param customer The {@link Customer} to set the {@link ServingStation} to.
+//     */
+//    public void setCustomer(Customer customer)
+//    {
+//        this.customer = customer;
+//    }
+//
+//    /**
+//     * Getter for the {@link Customer} that is tied to
+//     * the {@link ServingStation}. If there is no {@link Customer},
+//     * then {@code null} is returned.
+//     * @return {@link Customer} : The {@link Customer} at the {@link ServingStation}.
+//     */
+//    public Customer getCustomer() { return this.customer; }
+//
+//    /**
+//     * Getter for the {@link Customer}'s {@code x} position at the
+//     * {@link ServingStation}.
+//     * @return {@code float} : The {@link Customer}'s {@code x}.
+//     */
+//    public float getCustomerX() {
+//        return customerX;
+//    }
+//
+//    /**
+//     * Getter for the {@link Customer}'s {@code y} position at the
+//     * {@link ServingStation}.
+//     * @return {@code float} : The {@link Customer}'s {@code y}.
+//     */
+//    public float getCustomerY() {
+//        return customerY;
+//    }
+//
+//    /**
+//     * Getter for the {@code x} of the {@link Customer}.
+//     * This is because the {@link Customer} is drawn by the
+//     * {@link ServingStation}, and not the {@link ServingStation}
+//     * itself.
+//     * <br> If there is no {@link Customer} assigned, it uses the
+//     * {@link #customerX} variable.
+//     * @return {@code float} : The {@code x} of the {@link Customer}.
+//     */
+//    public float getX() {
+//        if (!hasCustomer()) {
+//            return customerX;
+//        }
+//        return customer.getX();
+//    }
+//
+//    /**
+//     * Getter for the {@code y} of the {@link Customer}.
+//     * This is because the {@link Customer} is drawn by the
+//     * {@link ServingStation}, and not the {@link ServingStation}
+//     * itself.
+//     * <br> If there is no {@link Customer} assigned, it uses the
+//     * {@link #customerY} variable.
+//     * @return {@code float} : The {@code y} of the {@link Customer}.
+//     */
+//    public float getY() {
+//        if (!hasCustomer()) {
+//            return customerY;
+//        }
+//        return customer.getY();
+//    }
+//}
