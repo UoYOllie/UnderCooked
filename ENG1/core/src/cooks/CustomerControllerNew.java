@@ -10,7 +10,7 @@ import game.GameScreen;
 import game.GameSprites;
 import helper.Constants;
 import helper.MapHelper;
-import stations.ServingStation;
+//import stations.ServingStation;
 import stations.ServingStationNew;
 import stations.Station;
 
@@ -31,9 +31,12 @@ public class CustomerControllerNew {
         this.gameScreen = gameScreen;
         this.servingStations = gameScreen.mapHelper.getServingStationNewList();
         this.stationCustomerMap = new HashMap<Station, CustomerNew>();
+        initialiseStationCustomerMap();
         //this.customers = spawnCustomers();
         this.customers = initialiseCustomers();
     }
+
+
 
     public ArrayList<CustomerNew> initialiseCustomers() {
 
@@ -84,9 +87,19 @@ public class CustomerControllerNew {
 
     }
 
-    public void updateCustomersDifferent() {
+    public void removeCustomer(Station station) {
+        this.stationCustomerMap.put(station, null);
+    }
 
-        ArrayList<CustomerNew> addedCustomers = new ArrayList<>();
+    public void initialiseStationCustomerMap() {
+
+        for (Station station : servingStations) {
+            this.stationCustomerMap.put(station, null);
+        }
+
+    }
+
+    public void addCustomer() {
 
         for (Map.Entry<Station, CustomerNew> entry : stationCustomerMap.entrySet()) {
 
@@ -102,16 +115,10 @@ public class CustomerControllerNew {
                 System.out.println("stationCustomerMap original: " + this.stationCustomerMap);
 
                 this.stationCustomerMap.put(station, newCustomer);
-
-                System.out.println("stationCustomerMap new: " + this.stationCustomerMap);
                 this.customers.add(newCustomer);
             }
-
         }
-    }
 
-    public void removeCustomer(Station station) {
-        this.stationCustomerMap.put(station, null);
     }
 
     public Map<Station, CustomerNew> getStationCustomerMap() {

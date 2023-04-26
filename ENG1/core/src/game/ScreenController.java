@@ -106,7 +106,7 @@ public class ScreenController {
     /** Pause the game. */
     public void pauseGameScreen() {
         playTimeDiff = TimeUtils.millis() - gameScreen.getPreviousSecond();
-        customerTimeDiff = gameScreen.getNextCustomerSecond() - TimeUtils.millis();
+        //customerTimeDiff = gameScreen.getNextCustomerSecond() - TimeUtils.millis();
         setScreen(ScreenID.PAUSE);
     }
 
@@ -114,7 +114,7 @@ public class ScreenController {
      * Only call this AFTER {@link #pauseGameScreen()}. */
     public void playGameScreen() {
         gameScreen.setPreviousSecond(TimeUtils.millis()- playTimeDiff);
-        gameScreen.setNextCustomerSecond(TimeUtils.millis() - customerTimeDiff);
+        //gameScreen.setNextCustomerSecond(TimeUtils.millis() - customerTimeDiff);
         setScreen(ScreenID.GAME);
     }
 

@@ -1,0 +1,19 @@
+
+customer_bluggus_bubble.png
+size: 36, 34
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+customer_bluggus
+  rotate: false
+  xy: 0, 0
+  size: 36, 34
+  orig: 36, 34
+  offset: 0, 0
+  index: -1
+speech_bubble
+  rotate: false
+  xy: 41, 0
+  size: 50, 50
+  offset: 0, 0
+  index: -1

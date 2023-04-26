@@ -7,6 +7,8 @@ import cooks.CustomerNew;
 import food.FoodItem;
 import food.FoodStack;
 
+import java.util.ArrayList;
+
 public class SavingClass {
     private int gold;
     private int reputation;
@@ -38,10 +40,25 @@ public class SavingClass {
 
 
 
-
+    private void setAttributes()
+    {
+        this.cooks = new Array<Integer>();
+        this.cookscoords = new Array<Array<Float>>();
+        this.cookstack1 = new Array<Array<Integer>>();
+        this.cookstack2 = new Array<Array<Integer>>();
+        this.cookdishstack = new Array<Array<Integer>>();
+        this.cookisbluggus = new Array<Boolean>();
+        this.cookspeed = new Array<Float>();
+        this.colour = new Array<String>();
+        this.waitimes = new Array<Float>();
+        this.requests = new Array<String>();
+    }
     public SavingClass(GameScreen g)
     {
+        setAttributes();
+
         SaveGoldRep(g);
+        SaveCooksAndCustomers(g);
 
     }
 
@@ -138,8 +155,25 @@ public class SavingClass {
     }
     private void SaveCooksAndCustomers(GameScreen gameScreen)
     {
+        Array<Cook> cookarray = gameScreen.cooks;
+        Array<Cook> unusedcookarray = gameScreen.unusedcooks;
+        ArrayList<CustomerNew> customers = gameScreen.customersToServe;
+
+        for(Cook c:cookarray)
+        {
+            CookData(c,1);
+        }
+        for(Cook c:unusedcookarray)
+        {
+            CookData(c,0);
+        }
+        for(CustomerNew c:customers)
+        {
+            CustomerData(c,2);
+        }
 
     }
+
 
     //Run for saving station data
     private String SaveStations()
