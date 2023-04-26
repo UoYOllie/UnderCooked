@@ -112,6 +112,7 @@ public class SavingClass {
             dishy.add(f.ordinal());
         }
         this.cookdishstack.add(dishy);
+        //System.out.println(this.cookdishstack + "<----------------------------------------------------");
 
 //        private Array<Boolean> cookisbluggus; //if chef is bluggus or not
         this.cookisbluggus.add(cook.activateBluggus);
