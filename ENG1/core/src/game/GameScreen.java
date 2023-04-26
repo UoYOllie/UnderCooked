@@ -2,19 +2,16 @@ package game;
 
 import Shop.Gold;
 import Shop.ShopItem;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.*;
 import cooks.Cook;
 import cooks.CustomerControllerNew;
 import cooks.CustomerNew;
 //import customers.Customer;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -24,8 +21,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.TimeUtils;
 import cooks.GameEntity;
 //import customers.CustomerController;
 import customers.RepPoints;
@@ -51,7 +46,7 @@ public class GameScreen extends ScreenAdapter {
     private long previousSecond = 0;
     //private long lastCustomerSecond = 0;
     //private long nextCustomerSecond = 0;
-    private int secondsPassed = 0, minutesPassed = 0, hoursPassed = 0;
+    public int secondsPassed = 0, minutesPassed = 0, hoursPassed = 0;
     private GameHud gameHud;
     private InstructionHud instructionHUD;
     private SpriteBatch batch;
@@ -84,7 +79,7 @@ public class GameScreen extends ScreenAdapter {
     //private CustomerController customerController;
     private CustomerControllerNew customerControllerNew;
     //private int customersToServe;
-    public ArrayList<CustomerNew> customersToServe;
+    //public ArrayList<CustomerNew> customersToServe;
 
     private int freeze;
     private boolean EnableAutoZoom;
@@ -109,7 +104,7 @@ public class GameScreen extends ScreenAdapter {
 
         this.interactables = new Array<>();
         this.gold = new Gold();
-        this.gold.setBalance(1000); //for testing purposes ONLY
+        this.gold.setBalance(0);
         this.Reputation = new RepPoints();
         this.freeze = 0;
         this.EnableAutoZoom = true;
@@ -165,7 +160,7 @@ public class GameScreen extends ScreenAdapter {
         Cook Buy4 = new Cook((2031.1f-104f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
         this.addSpareCook(Buy4);
 
-        this.customersToServe = new ArrayList<>();
+        //this.customersToServe = new ArrayList<>();
         //this.addCustomersNew(customerControllerNew.getCustomers());
 
         this.cook = cooks.get(0);
@@ -176,7 +171,7 @@ public class GameScreen extends ScreenAdapter {
         this.bgBatch.setProjectionMatrix(backgroundCamera.combined);
     }
 
-    public void reset()
+    public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame)
     {
         this.previousSecond = TimeUtils.millis();
         //this.lastCustomerSecond = -1;
@@ -186,7 +181,7 @@ public class GameScreen extends ScreenAdapter {
 
         this.interactables = new Array<>();
         this.gold = new Gold();
-        this.gold.setBalance(1000); //for testing purposes ONLY
+        this.gold.setBalance(0);
         this.Reputation = new RepPoints();
         this.freeze = 0;
         this.EnableAutoZoom = true;
@@ -225,31 +220,47 @@ public class GameScreen extends ScreenAdapter {
         addInteractable(this.mapHelper.getMapStations());
         this.customerControllerNew = new CustomerControllerNew(this);
 
+        if(cooksforgame.size == 0) {
+            System.out.println("cOOKS ARE NULL");
+            Cook GlibbertOrange = new Cook(2041 * 8f, 2814 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            GlibbertOrange.setColour("Orange");
+            this.addCook(GlibbertOrange);
+            Cook GlibbertBlue = new Cook(2045 * 8f, 2814 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            GlibbertBlue.setColour("Blue");
+            this.addCook(GlibbertBlue);
+            Cook GlibbertGreen = new Cook(2049 * 8f, 2814 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            GlibbertGreen.setColour("Green");
+            this.addCook(GlibbertGreen);
 
-        Cook GlibbertOrange = new Cook(2041*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        GlibbertOrange.setColour("Orange");
-        this.addCook(GlibbertOrange);
-        Cook GlibbertBlue = new Cook(2045*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        GlibbertBlue.setColour("Blue");
-        this.addCook(GlibbertBlue);
-        Cook GlibbertGreen = new Cook(2049*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        GlibbertGreen.setColour("Green");
-        this.addCook(GlibbertGreen);
+            Cook Buy1 = new Cook((2031.1f) * 8f, 2853 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            Buy1.setColour("Purple");
+            this.addSpareCook(Buy1);
+            Cook Buy2 = new Cook((2031.1f + 12f) * 8f, 2853 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            Buy2.setColour("Black");
+            this.addSpareCook(Buy2);
+            Cook Buy3 = new Cook((2031.1f - 92f) * 8f, 2853 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            Buy3.setColour("White");
+            this.addSpareCook(Buy3);
+            Cook Buy4 = new Cook((2031.1f - 104f) * 8f, 2853 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            Buy4.setColour("Red");
+            this.addSpareCook(Buy4);
+        }
+        else
+        {
+            System.out.println("cOOKS ARE in ere");
+            System.out.print(cooksforgame);
+            for(Cook c:cooksforgame)
+            {
+                System.out.print(c);
+                this.addCook(c);
+            }
+            for(Cook c:unusedcooksforgame)
+            {
+                this.addSpareCook(c);
+            }
+        }
 
-        Cook Buy1 = new Cook((2031.1f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        Buy1.setColour("Purple");
-        this.addSpareCook(Buy1);
-        Cook Buy2 = new Cook((2031.1f+12f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        Buy2.setColour("Black");
-        this.addSpareCook(Buy2);
-        Cook Buy3 = new Cook((2031.1f-92f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        Buy3.setColour("White");
-        this.addSpareCook(Buy3);
-        Cook Buy4 = new Cook((2031.1f-104f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        Buy4.setColour("Red");
-        this.addSpareCook(Buy4);
-
-        this.customersToServe = new ArrayList<>();
+        //this.customersToServe = new ArrayList<>();
         //this.addCustomersNew(customerControllerNew.getCustomers());
 
         this.cook = cooks.get(0);
@@ -263,11 +274,18 @@ public class GameScreen extends ScreenAdapter {
     public void update(float delta)
     {
 //        System.out.println("Rep Points: "+this.Reputation.getPoints());
-		if (Gdx.input.isKeyPressed(Input.Keys.L)){
-			System.out.println(this.cook.getX());
-			System.out.println(this.cook.getY());
+		if (Gdx.input.isKeyPressed(Input.Keys.K)){
+            System.out.println("Saving....");
+//			System.out.println(this.cook.getX());
+//			System.out.println(this.cook.getY());
             this.Savegame();
 		}
+        if (Gdx.input.isKeyPressed(Input.Keys.L)){
+            System.out.println("Loading....");
+            System.out.println(this.cook.getX());
+            System.out.println(this.cook.getY());
+            this.Loadgame();
+        }
 
         // First thing, update all inputs
         Interactions.updateKeys();
@@ -290,7 +308,19 @@ public class GameScreen extends ScreenAdapter {
             else if(ZoomSecondCounter>0) {
                 ZoomSecondCounter = ZoomSecondCounter-1f;
             }
-            for(CustomerNew customer:customersToServe) //Dealing with leaving
+
+//            for(CustomerNew customer:customersToServe) //Dealing with leaving
+//            {
+//                customer.DecreasePatience();
+//                if((customer.waittime<=0)&&(customer.Stillhere ==true))
+//                {
+//                    System.out.println(customer + " is now leaving");
+//                    customer.StormOut(); //When customer wants to leave
+//                }
+//            }
+
+            // SWITCH TO CUSTOMER CONTROLLER instead of customersServed
+            for(CustomerNew customer:customerControllerNew.getCustomers()) //Dealing with leaving
             {
                 customer.DecreasePatience();
                 if((customer.waittime<=0)&&(customer.Stillhere ==true))
@@ -299,6 +329,11 @@ public class GameScreen extends ScreenAdapter {
                     customer.StormOut(); //When customer wants to leave
                 }
             }
+
+            //gameEntities.add(customerControllerNew.addCustomer());
+            addCustomer(customerControllerNew.addCustomer());
+
+
             previousSecond += 1000;
             secondsPassed += 1;
             if (secondsPassed >= 60) {
@@ -320,6 +355,8 @@ public class GameScreen extends ScreenAdapter {
             }
         }
         gameHud.updateTime(hoursPassed, minutesPassed, secondsPassed);
+        gameHud.updateReputation(Reputation.getPoints());
+        gameHud.updateGold(gold.getBalance());
         cameraUpdate();
         orthogonalTiledMapRenderer.setView(camera);
         batch.setProjectionMatrix(camera.combined);
@@ -340,17 +377,24 @@ public class GameScreen extends ScreenAdapter {
 
         // laura
 
-        ArrayList<CustomerNew> tempNewCustomers = new ArrayList<>();
-        tempNewCustomers.addAll(customerControllerNew.updateCustomers());
-
-        customersToServe.addAll(tempNewCustomers);
-        gameEntities.addAll(tempNewCustomers);
+//        ArrayList<CustomerNew> tempNewCustomers = new ArrayList<>();
+//        tempNewCustomers.addAll(customerControllerNew.updateCustomers());
+//
+//        //customersToServe.addAll(tempNewCustomers);
+//        gameEntities.addAll(tempNewCustomers);
 
         //System.out.println("number of customers in update: " + customersToServe.size());
         //System.out.println("number of game entities in update: " + gameEntities.size());
         //System.out.println(customersToServe);
 
-        for (CustomerNew customer : customersToServe) {
+//        for (CustomerNew customer : customersToServe) {
+//            //customer.moveTo(customer.endX, customer.endY);
+//            customer.customerInteract(mapHelper.getMapStations());
+//            customer.update(Gdx.graphics.getDeltaTime());
+//        }
+
+        // SWITCH TO CUSTOMER CONTROLLER NEW
+        for (CustomerNew customer : customerControllerNew.getCustomers()) {
             //customer.moveTo(customer.endX, customer.endY);
             customer.customerInteract(mapHelper.getMapStations());
             customer.update(Gdx.graphics.getDeltaTime());
@@ -359,6 +403,7 @@ public class GameScreen extends ScreenAdapter {
         if(Interactions.isJustPressed(InputKey.InputTypes.COOK_SWAP)) {
             setCook((cookIndex + 1) % cooks.size);
         }
+
         this.cook.update(Gdx.graphics.getDeltaTime());
 
 //        // Spawning code to spawn a customer after an amount of time.
@@ -516,6 +561,14 @@ public class GameScreen extends ScreenAdapter {
         this.cook = cooks.get(cookIndex);
         this.cookIndex = cookIndex;
         return this.cook;
+    }
+
+    public void addCustomer(CustomerNew customer) {
+
+        if (customer != null) {
+            gameEntities.add(customer);
+        }
+
     }
 
 //    public void addCustomersNew(Array<CustomerNew> customers) {
@@ -683,8 +736,8 @@ public class GameScreen extends ScreenAdapter {
         //gameHud.setRecipe(null);
         //customersToServe = CustomerControllerNew.getcustomers;
         //this.addCustomersNew(customerControllerNew.getCustomers());
-        customersToServe.addAll(customerControllerNew.getCustomers());
-        gameEntities.addAll(new ArrayList<GameEntity>(customerControllerNew.getCustomers()));
+        //customersToServe.addAll(customerControllerNew.getCustomers());
+        //gameEntities.addAll(new ArrayList<GameEntity>(customerControllerNew.getCustomers()));
 
 
 ////        customerController.setCustomersLeft(customers);
@@ -692,6 +745,7 @@ public class GameScreen extends ScreenAdapter {
 ////        customerController.addCustomer();
 //        //setCustomerHud(customers);
 //        gameHud.setCustomerCount(customers);
+        Savegame();
     }
 
 //    /**
@@ -747,11 +801,138 @@ public class GameScreen extends ScreenAdapter {
     //-------------------------------------
     //Save Game
     //-------------------------------------
+    private String SaveText; //REMOVE
+    private  Json json = new Json();
     public void Savegame()
     {
-        Json json = new Json();
         SavingClass save = new SavingClass(this);
-        System.out.println(json.toJson(save));
+        this.SaveText = json.toJson(save);
+//        System.out.println(json.prettyPrint(save));
+    }
+
+
+    public void Loadgame() //Change ton have no param
+    {
+//        SavingClass newsave = new SavingClass(GameScreen);
+//        StoredFile.fromJson(SavingClass newsave);
+        JsonValue root = new JsonReader().parse(this.SaveText);
+        System.out.println(root);
+        //cooks
+        JsonValue held_cook = root.get("cooks");
+        JsonValue held_coords = root.get("cookscoords");
+        JsonValue held_stack1 = root.get("cookstack1");
+        JsonValue held_stack2 = root.get("cookstack2");
+        JsonValue held_dishstack = root.get("cookdishstack");
+        JsonValue held_bluggy = root.get("cookisbluggus");
+        JsonValue held_speed = root.get("cookspeed");
+        JsonValue held_colour = root.get("colour");
+        JsonValue held_wait = root.get("waitimes");
+        JsonValue held_req = root.get("requests");
+//        System.out.println(held_coords.get(0).get(0).get(1));//Takes person Takes x or y Takes value
+//        System.out.println(held_coords.get(0).get(0));
+//        System.out.println(held_coords.get(0));
+//        JsonValue held_x = held_coords.get(0).get(0).get(1);
+//        System.out.println(held_x.asFloat());
+
+
+        Array<Integer> cooks = new Array<Integer>();
+        Array<Array<Float>> cookscoords = new Array<Array<Float>>(); //If not spawned, (0,0)
+        Array<Array<Integer>> cookstack1 = new Array<Array<Integer>>();
+        Array<Array<Integer>> cookstack2 = new Array<Array<Integer>>();
+        Array<Array<Integer>> cookdishstack = new Array<Array<Integer>>();
+        Array<Boolean> cookisbluggus = new Array<Boolean>(); //if chef is bluggus or not
+        Array<Float> cookspeed = new Array<Float>();
+        Array<String> colour = new Array<String>(); //allocates the sprite
+        Array<Float> waitimes = new Array<Float>(); //-1 for cooks
+        Array<String> requests = new Array<String>(); //norequest = cooks
+
+        //Arrayys to hold all data
+        Array<Cook> cooksforgame = new Array<Cook>();
+        Array<Cook> unusedcooksforgame = new Array<Cook>();
+        ArrayList<CustomerNew> customersforgame = new ArrayList<CustomerNew>();
+        JsonValue held_x;
+        JsonValue held_y;
+        float x,y;
+        int count = 0;
+        for(JsonValue t:held_cook)
+        {
+            int type = held_cook.getInt(count);
+            System.out.println(type + " is the chef type");
+            held_x = held_coords.get(count).get(0).get(1);
+            held_y = held_coords.get(count).get(1).get(1);
+            x = held_x.asFloat();
+            y = held_y.asFloat();
+            //System.out.println(held_dishstack.get(0)+"<-------------------------------------");
+            Array<Integer> newdishstack = new Array<Integer>();
+            Array<Integer> s1 = new Array<Integer>();
+            Array<Integer> s2 = new Array<Integer>();
+
+
+            if(held_dishstack.get(count)!=null) {
+                for (JsonValue placeindishstack : held_dishstack.get(count)) {
+                    System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                    newdishstack.add(placeindishstack.get(1).asInt());
+                }
+
+            }
+
+            if(type==2) //Customer
+            {
+
+
+
+            }
+            else //must be cook
+            {
+                if(held_stack1.get(count)!=null) {
+                    for (JsonValue placeinstack : held_stack1.get(count)) {
+                        //System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                        s1.add(placeinstack.get(1).asInt());
+                    }
+                }
+                if(held_stack2.get(count)!=null) {
+                    for (JsonValue placeinstack2 : held_stack2.get(count)) {
+                        //System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                        s1.add(placeinstack2.get(1).asInt());
+                    }
+                }
+                float _speed_ = held_speed.getFloat(count);
+                String _colour_ = held_colour.getString(count);
+                boolean _isbluggus_ = held_bluggy.getBoolean(count);
+
+                Cook toAdd = new Cook(x*8f,y*8f,3.34f,1);
+
+                if(type==1) //Used cook
+                {
+                    cooksforgame.add(toAdd);
+                }
+                else if(type==0) //not used chef
+                {
+                    unusedcooksforgame.add(toAdd);
+                }
+            }
+            count++; //increment person
+        }
+
+        //stations
+
+        reset(cooksforgame,unusedcooksforgame);
+//        System.out.println(root);
+
+        //Gold and Reputation
+        int held_Gold = root.getInt("gold");
+        this.gold.setBalance(held_Gold);
+        int held_Reputation = root.getInt("reputation");
+        this.Reputation.setPoints(held_Reputation);
+        //Timer
+        int held_seconds = root.getInt("seconds");
+        int held_minutes = root.getInt("minutes");
+        int held_hours = root.getInt("hours");
+        this.secondsPassed = held_seconds;
+        this.minutesPassed = held_minutes;
+        this.hoursPassed = held_hours;
+
+
     }
 }
 

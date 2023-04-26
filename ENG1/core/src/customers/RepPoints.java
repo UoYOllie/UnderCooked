@@ -7,6 +7,19 @@ public class RepPoints {
         this.Points = 3;
     }
 
+    public void setPoints(int x)
+    {
+        if(x>=5)
+        {
+            this.Points = 5;
+        }
+        else if(x>=0)
+        {
+            this.Points = x;
+        }
+    }
+
+
     public void Negative()
     {
         this.Points = this.Points - 1;

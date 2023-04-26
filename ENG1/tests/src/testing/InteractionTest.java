@@ -977,6 +977,41 @@ public class InteractionTest {
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a lettuce tomato onion burger");
     }
 
+    @Test
+    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    public void TestAssemblyStationTestMultipleRecipes(){
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        AssemblyStation assemblyStation = new AssemblyStation(rectangle);
+        ServingStationNew servingStation = new ServingStationNew(rectangle);
+        testList.add(assemblyStation.getRectangle());
+        testList.add(servingStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        cook.foodStack.addStack(FoodItem.FoodID.meatCook);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        for (int x = cook.foodStack.size(); x >= 0; x--){
+            assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        }
+        assemblyStation.interact(cook, InputKey.InputTypes.USE);
+        assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        Array<FoodItem.FoodID> foodID = new Array<>();
+        foodID.add(FoodItem.FoodID.bun);
+        foodID.add(FoodItem.FoodID.meatCook);
+        foodID.add(FoodItem.FoodID.bun);
+        foodID.add(FoodItem.FoodID.plate);
+        assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a plain burger");
+
+        servingStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.USE);
+        assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
+        foodID.clear();
+        foodID.add(FoodItem.FoodID.lettuceChop);
+        foodID.add(FoodItem.FoodID.plate);
+        assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station Is not handling multiple recipes correctly");
+    }
 
     @Test
     // Relates to the FR_USE_STATION and FR_INTERACTION requirements

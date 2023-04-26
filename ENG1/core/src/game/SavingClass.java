@@ -35,7 +35,11 @@ public class SavingClass {
     private Array<Float> waitimes; //-1 for cooks
     private Array<String> requests; //norequest = cooks
     //------------------------------------------------------------------------------------
-
+    //Timer
+    private int seconds;
+    private int minutes;
+    private int hours;
+    //------------------------------------------------------------------------------------
 
 
 
@@ -59,6 +63,8 @@ public class SavingClass {
 
         SaveGoldRep(g);
         SaveCooksAndCustomers(g);
+        Timer(g);
+        //Stations
 
     }
 
@@ -106,6 +112,7 @@ public class SavingClass {
             dishy.add(f.ordinal());
         }
         this.cookdishstack.add(dishy);
+        //System.out.println(this.cookdishstack + "<----------------------------------------------------");
 
 //        private Array<Boolean> cookisbluggus; //if chef is bluggus or not
         this.cookisbluggus.add(cook.activateBluggus);
@@ -157,7 +164,7 @@ public class SavingClass {
     {
         Array<Cook> cookarray = gameScreen.cooks;
         Array<Cook> unusedcookarray = gameScreen.unusedcooks;
-        ArrayList<CustomerNew> customers = gameScreen.customersToServe;
+        ArrayList<CustomerNew> customers = gameScreen.getCustomerControllerNew().getCustomers();
 
         for(Cook c:cookarray)
         {
@@ -189,5 +196,11 @@ public class SavingClass {
         this.gold = gameScreen.gold.getBalance();
         //get reputation
         this.reputation = gameScreen.Reputation.getPoints();
+    }
+    private void Timer(GameScreen gameScreen)
+    {
+        this.seconds = gameScreen.secondsPassed;
+        this.minutes = gameScreen.minutesPassed;
+        this.hours = gameScreen.hoursPassed;
     }
 }
