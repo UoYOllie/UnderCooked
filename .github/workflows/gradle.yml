@@ -41,5 +41,5 @@ jobs:
       uses: actions/upload-artifact@v3.1.1
       with:
         name: lib.jar
-        path: ENG1/core/build/libs/
+        path: ENG1/core/build/libs/core-1.0.jar
 
