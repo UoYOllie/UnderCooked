@@ -38,7 +38,19 @@ public class SavingClass {
 
 
 
-
+    private void setAttributes()
+    {
+        this.cooks = new Array<Integer>();
+        this.cookscoords = new Array<Array<Float>>();
+        this.cookstack1 = new Array<Array<Integer>>();
+        this.cookstack2 = new Array<Array<Integer>>();
+        this.cookdishstack = new Array<Array<Integer>>();
+        this.cookisbluggus = new Array<Boolean>();
+        this.cookspeed = new Array<Float>();
+        this.colour = new Array<String>();
+        this.waitimes = new Array<Float>();
+        this.requests = new Array<String>();
+    }
     public SavingClass(GameScreen g)
     {
         SaveGoldRep(g);
@@ -140,6 +152,7 @@ public class SavingClass {
     {
 
     }
+
 
     //Run for saving station data
     private String SaveStations()
