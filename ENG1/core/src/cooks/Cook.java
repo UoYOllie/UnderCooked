@@ -51,6 +51,7 @@ public class Cook extends GameEntity {
     public Array<Facing> inputs;
 
     private GameScreen gameScreen;
+    public boolean activateBluggus;
 
     /**
      * Rectangle for cook's interaction area.
@@ -62,6 +63,7 @@ public class Cook extends GameEntity {
     public Rectangle cookInteractor;
 
     public float movement_speed = 0.6765f;
+    public String Colour;
 
     //-------------------------------------
     //Morgan's Shop Section
@@ -97,12 +99,16 @@ public class Cook extends GameEntity {
         super(x, y, width, height);
         this.dir = Facing.DOWN;
         this.speed = 10f;
+        this.Colour = "Blank";
         // this.gameScreen = gameScreen;
         this.gameSprites = GameSprites.getInstance();
         this.controlSprite = gameSprites.getSprite(GameSprites.SpriteID.COOK,"control");
 
+        this.activateBluggus = false;
+
         // Initialize FoodStack
         this.foodStack = new FoodStack();
+        this.foodStack2 = new FoodStack();
         this.dishStack = new DishStack();
 
         // Input array, with the order of inputs the user has in what direction.
@@ -393,6 +399,28 @@ public class Cook extends GameEntity {
             drawY += drawInc;
         }
 
+        Array<FoodID> foodList2 = foodStack2.getStack();
+
+        xOffset = foodRelativeX(dir);
+        yOffset = foodRelativeY(dir);
+
+        drawX = x - 8f;
+        drawY = y - 12 * Constants.UnitScale;
+
+        for (int i = foodList2.size-1 ; i >= 0 ; i--) {
+            Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(foodList2.get(i)));
+            Float drawInc = FoodItem.foodHeights.get(foodList2.get(i));
+            if (drawInc == null) {
+                drawY += 5F;
+                continue;
+            }
+            foodSprite.setScale(2 * Constants.UnitScale);
+            foodSprite.setPosition(drawX-foodSprite.getWidth()/2+xOffset,drawY+yOffset);
+            foodSprite.draw(batch);
+            drawY += drawInc;
+        }
+
+
         // render DishStack, why doesn't this work :((
 
         Array<FoodID> dishList = dishStack.getStack();
@@ -495,5 +523,38 @@ public class Cook extends GameEntity {
             // If the opposite isn't there, it's fine to switch.
             dir = possibleNext;
         }
+    }
+
+    public FoodStack foodStack2;
+
+    public void MakeIntoBluggus()
+    {
+        System.out.println("Bluggus Mode activating");
+        this.activateBluggus = true;
+    }
+    public void moveStacks()
+    {
+//        if((this.foodStack.size() == 3)&&(this.foodStack2.size() == 0)){
+//            this.foodStack2.setStack(this.foodStack.getStackCopy());
+//            this.foodStack.clearStack();
+//        }
+//        else if((this.foodStack.size() == 0)&&(this.foodStack2.size() > 0))
+//        {
+//            this.foodStack.setStack(this.foodStack2.getStackCopy());
+//            this.foodStack2.clearStack();
+//        }
+        if((this.foodStack.size() > 1)&&(this.foodStack2.size() < 3)) {
+            this.foodStack2.addStack(foodStack.peekStack());
+            this.foodStack.popStack();
+        }
+        else if((this.foodStack.size() == 0)&&(this.foodStack2.size() > 0)){
+            this.foodStack.addStack(foodStack2.peekStack());
+            this.foodStack2.popStack();
+        }
+    }
+
+    public void setColour(String c)
+    {
+        this.Colour = c;
     }
 }

@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import food.FoodItem;
 import game.GameScreen;
+import game.SuperMapSuperRenderer;
 import stations.*;
 
 import java.util.ArrayList;
@@ -49,12 +50,12 @@ public class MapHelper {
      * @return The {@link OrthogonalTiledMapRenderer} used to render the Tilemap.
      *
      */
-    public OrthogonalTiledMapRenderer setupMap()
+    public SuperMapSuperRenderer setupMap()
     {
         //IGNORE
         tiledMap = new TmxMapLoader().load("MorgansMap/AWholeNewWorld.tmx"); //<---PUT MAP FILE
         parseMapObjects(tiledMap); //<--keep it for now
-        return new OrthogonalTiledMapRenderer(tiledMap, 1/8f);
+        return new SuperMapSuperRenderer(tiledMap, 1/8f);
     }
 
 //    /**
@@ -234,6 +235,9 @@ public class MapHelper {
                     break;
                 case "Freeze":
                     mapStations.add(new FreezeTimeStation(newRectangle,gameScreen));
+                    break;
+                case "BluggusMode":
+                    mapStations.add(new BluggusModeActivate(newRectangle,gameScreen));
                     break;
                 case "Locked":
                     mapStations.add(new Locked(newRectangle,gameScreen,rectangleMapObject.getProperties().get("type").toString()));

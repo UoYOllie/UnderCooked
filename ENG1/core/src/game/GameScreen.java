@@ -3,8 +3,11 @@ package game;
 import Shop.Gold;
 import Shop.ShopItem;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Json;
 import cooks.Cook;
 import cooks.CustomerControllerNew;
 import cooks.CustomerNew;
@@ -26,6 +29,7 @@ import com.badlogic.gdx.utils.TimeUtils;
 import cooks.GameEntity;
 import customers.CustomerController;
 import customers.RepPoints;
+import food.FoodItem;
 import helper.*;
 import interactions.InputKey;
 import interactions.Interactions;
@@ -55,7 +59,7 @@ public class GameScreen extends ScreenAdapter {
     private World world;
     private Box2DDebugRenderer box2DDebugRenderer;
 
-    private OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
+    private SuperMapSuperRenderer orthogonalTiledMapRenderer;
     public MapHelper mapHelper;
     //public Array<Station> servingStationNewList;
     private Array<CookInteractable> interactables;
@@ -84,6 +88,10 @@ public class GameScreen extends ScreenAdapter {
     private int freeze;
     private boolean EnableAutoZoom;
     private float ZoomSecondCounter;
+
+    private OrthographicCamera backgroundCamera;
+    private SpriteBatch bgBatch;
+    public Preferences prefs = Gdx.app.getPreferences("My Preferences");
 
     /**
      * The constructor for the {@link GameScreen}.
@@ -161,6 +169,10 @@ public class GameScreen extends ScreenAdapter {
 
         this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
+
+        this.backgroundCamera = new OrthographicCamera();
+        this.bgBatch = new SpriteBatch();
+        this.bgBatch.setProjectionMatrix(backgroundCamera.combined);
     }
 
     public void reset()
@@ -214,19 +226,26 @@ public class GameScreen extends ScreenAdapter {
 
 
         Cook GlibbertOrange = new Cook(2041*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        GlibbertOrange.setColour("Orange");
         this.addCook(GlibbertOrange);
         Cook GlibbertBlue = new Cook(2045*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        GlibbertBlue.setColour("Blue");
         this.addCook(GlibbertBlue);
         Cook GlibbertGreen = new Cook(2049*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        GlibbertGreen.setColour("Green");
         this.addCook(GlibbertGreen);
 
         Cook Buy1 = new Cook((2031.1f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        Buy1.setColour("Purple");
         this.addSpareCook(Buy1);
         Cook Buy2 = new Cook((2031.1f+12f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        Buy2.setColour("Black");
         this.addSpareCook(Buy2);
         Cook Buy3 = new Cook((2031.1f-92f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        Buy3.setColour("White");
         this.addSpareCook(Buy3);
         Cook Buy4 = new Cook((2031.1f-104f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
+        Buy4.setColour("Red");
         this.addSpareCook(Buy4);
 
         this.customersToServe = new ArrayList<>();
@@ -242,9 +261,11 @@ public class GameScreen extends ScreenAdapter {
      */
     public void update(float delta)
     {
+//        System.out.println("Rep Points: "+this.Reputation.getPoints());
 		if (Gdx.input.isKeyPressed(Input.Keys.L)){
 			System.out.println(this.cook.getX());
 			System.out.println(this.cook.getY());
+            this.Savegame();
 		}
 
         // First thing, update all inputs
@@ -307,7 +328,14 @@ public class GameScreen extends ScreenAdapter {
                 thisCook.userInput(mapHelper.getMapObstacles());
                 thisCook.userInteract(mapHelper.getMapStations());
             }
+            //Chef Bluggus Mode
+            if(thisCook.activateBluggus == true)
+            {
+//                System.out.println("Moving stacks");
+                thisCook.moveStacks();
+            }
         }
+
 
         // laura
 
@@ -399,9 +427,21 @@ public class GameScreen extends ScreenAdapter {
      */
     public void renderGame(float delta) {
 
-        Gdx.gl.glClearColor(1,1,1,1);
+
+
+        Gdx.gl.glClearColor(0,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        backgroundCamera.position.x = 0;
+        backgroundCamera.position.y = 0;
+
+
+
+        bgBatch.begin();
+        bgBatch.draw(MenuScreen.spaceBackground, -1, -1, 2.3f, 2);
+        bgBatch.end();
         orthogonalTiledMapRenderer.render();
+
         batch.begin();
 
         gameEntities.sort(drawQueueComparator);
@@ -585,6 +625,7 @@ public class GameScreen extends ScreenAdapter {
         }
     }
 
+
     /**
      * Adds a game entity to the GameScreen to be rendered and updated.
      * @param entity The {@link GameEntity} to be added.
@@ -702,6 +743,15 @@ public class GameScreen extends ScreenAdapter {
 
 
     //-------------------------------------
+    //Save Game
+    //-------------------------------------
+    public void Savegame()
+    {
+        Json json = new Json();
+//        SavingClass save = new SavingClass();
+        System.out.println(FoodItem.FoodID.dough.ordinal());
+//        json = save.SaveGoldRep(this);
+    }
 }
 
 

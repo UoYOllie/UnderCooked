@@ -29,6 +29,7 @@ public class FoodStack {
 
     /** FoodStack Constructor. Creates a blank foodStack.*/
     public FoodStack() {
+
         this(new Array<FoodID>());
     }
 
@@ -37,6 +38,7 @@ public class FoodStack {
      * @param foodStack The LibGDX Array of FoodIDs which will become a FoodStack.
      */
     public FoodStack(Array<FoodID> foodStack) {
+
         this.foodStack = foodStack;
     }
 

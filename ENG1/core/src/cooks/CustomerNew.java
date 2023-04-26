@@ -39,13 +39,12 @@ public class CustomerNew extends GameEntity {
     public Sprite bubbleSprite;
 
     /** The name of the recipe being requested. */
-    public String request;
 
     public boolean Stillhere;
     public float waittime;
 
     public DishStack dishStack;
-
+    public String request;
     public Rectangle customerInteractor;
 
     private GameScreen gameScreen;

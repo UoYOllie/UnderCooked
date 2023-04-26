@@ -36,6 +36,8 @@ public class MenuScreen extends ScreenAdapter {
     private Stage stage;
     private Texture backgroundSprite;
 
+    public static Texture spaceBackground = new Texture("menu/space-bg.png");
+
 
 
 
@@ -53,7 +55,7 @@ public class MenuScreen extends ScreenAdapter {
         viewport = new FitViewport(Constants.V_Width, Constants.V_Height, camera);
 
         stage = new Stage(viewport, batch);
-        this.backgroundSprite = new Texture("menu/space-bg.png");
+        this.backgroundSprite = spaceBackground;
 
         Label.LabelStyle font = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
         Table table = new Table();

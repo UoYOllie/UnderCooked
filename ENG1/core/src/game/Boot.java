@@ -59,6 +59,7 @@ public class Boot extends Game {
         this.spriteBatch = new SpriteBatch();
         this.shapeRenderer = new ShapeRenderer();
         this.shapeRenderer.setAutoShapeType(true);
+        this.orthographicCamera.zoom = 1/20f;
         gamePort = new FitViewport(Constants.V_Width, Constants.V_Height, orthographicCamera);
         this.screenController = new ScreenController(this, orthographicCamera);
         setScreen(new MenuScreen(screenController, orthographicCamera));
