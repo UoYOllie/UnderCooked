@@ -18,7 +18,7 @@ import static food.Recipe.*;
 
 public class ServingStationNew extends Station {
 
-    private DishStack servedDishStack;
+    public DishStack servedDishStack;
     public CustomerNew customer;
     private Integer testFlag = 0;
 
