@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testing.MenuTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2023-04-23T15:21:18" hostname="Morgans-MacBook-Pro-2.local" time="3.685">
+  <properties/>
+  <testcase name="testStartGame" classname="testing.MenuTest" time="1.967">
+    <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
+	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
+	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
+	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:81)
+	at com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer.&lt;init&gt;(BatchTiledMapRenderer.java:102)
+	at com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer.&lt;init&gt;(OrthogonalTiledMapRenderer.java:59)
+	at helper.MapHelper.setupMap(MapHelper.java:57)
+	at game.GameScreen.&lt;init&gt;(GameScreen.java:136)
+	at game.ScreenController.&lt;init&gt;(ScreenController.java:36)
+	at testing.MenuTest.testStartGame(MenuTest.java:26)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <testcase name="testCreditsMenu" classname="testing.MenuTest" time="1.697">
+    <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
+	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
+	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
+	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:81)
+	at com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer.&lt;init&gt;(BatchTiledMapRenderer.java:102)
+	at com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer.&lt;init&gt;(OrthogonalTiledMapRenderer.java:59)
+	at helper.MapHelper.setupMap(MapHelper.java:57)
+	at game.GameScreen.&lt;init&gt;(GameScreen.java:136)
+	at game.ScreenController.&lt;init&gt;(ScreenController.java:36)
+	at testing.MenuTest.testCreditsMenu(MenuTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <system-out><![CDATA[Initalising Gamescreen
+game.GameScreen@3c9dbda5
+power pantry is generated
+Setting to teacup
+teacup
+power pantry is generated
+Setting to menu
+menu
+pantry is generated
+Setting to meat
+meat
+pantry is generated
+Setting to lettuce
+lettuce
+pantry is generated
+Setting to onion
+onion
+pantry is generated
+Setting to tomato
+tomato
+pantry is generated
+Setting to bun
+bun
+pantry is generated
+Setting to lettuceChop
+lettuceChop
+pantry is generated
+Setting to meatCook
+meatCook
+pantry is generated
+Setting to potato
+potato
+pantry is generated
+Setting to dough
+dough
+pantry is generated
+Setting to cheese
+cheese
+pantry is generated
+Setting to bakedBeans
+bakedBeans
+pantry is generated
+Setting to pepperoni
+pepperoni
+pantry is generated
+Setting to coleslaw
+coleslaw
+Initalising Gamescreen
+game.GameScreen@75d1bc7e
+power pantry is generated
+Setting to teacup
+teacup
+power pantry is generated
+Setting to menu
+menu
+pantry is generated
+Setting to meat
+meat
+pantry is generated
+Setting to lettuce
+lettuce
+pantry is generated
+Setting to onion
+onion
+pantry is generated
+Setting to tomato
+tomato
+pantry is generated
+Setting to bun
+bun
+pantry is generated
+Setting to lettuceChop
+lettuceChop
+pantry is generated
+Setting to meatCook
+meatCook
+pantry is generated
+Setting to potato
+potato
+pantry is generated
+Setting to dough
+dough
+pantry is generated
+Setting to cheese
+cheese
+pantry is generated
+Setting to bakedBeans
+bakedBeans
+pantry is generated
+Setting to pepperoni
+pepperoni
+pantry is generated
+Setting to coleslaw
+coleslaw
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
