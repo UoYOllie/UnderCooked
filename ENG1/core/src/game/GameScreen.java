@@ -750,9 +750,8 @@ public class GameScreen extends ScreenAdapter {
     public void Savegame()
     {
         Json json = new Json();
-//        SavingClass save = new SavingClass();
-        System.out.println(FoodItem.FoodID.dough.ordinal());
-//        json = save.SaveGoldRep(this);
+        SavingClass save = new SavingClass(this);
+        System.out.println(json.toJson(save));
     }
 }
 

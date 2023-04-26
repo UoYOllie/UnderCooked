@@ -58,6 +58,7 @@ public class SavingClass {
         setAttributes();
 
         SaveGoldRep(g);
+        SaveCooksAndCustomers(g);
 
     }
 
