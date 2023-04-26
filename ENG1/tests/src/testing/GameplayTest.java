@@ -140,342 +140,439 @@ public class GameplayTest {
         testStation.customerInteract(customerNew);
 
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        //We then test that the customer has taken the order. This will tell us if the gme has registered the recipe as correct as the customer only picks it up if its correct
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
         assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
 
         testStation.setTestFlag(0);
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
-    /*
     @Test
-    // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.testFlag = 1;
+        ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
-        customer.request = "Lettuce Tomato Salad";
-        testStation.customerController = customerController;
-        testStation.setCustomer(customer);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Tomato Salad";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
+
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
-        testStation.interact(cook, InputKey.InputTypes.USE);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        testStation.testFlag = 0;
-        customerController.testFlag = 0;
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
     @Test
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceOnionSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.testFlag = 1;
+        ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
-        customer.request = "Lettuce Onion Salad";
-        testStation.customerController = customerController;
-        testStation.setCustomer(customer);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Onion Salad";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
+
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
-        testStation.interact(cook, InputKey.InputTypes.USE);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        testStation.testFlag = 0;
-        customerController.testFlag = 0;
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
     @Test
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerPlainBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.testFlag = 1;
+        ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
-        customer.request = "Plain Burger";
-        testStation.customerController = customerController;
-        testStation.setCustomer(customer);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Plain Burger";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
+
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bottomBun);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
-        cook.foodStack.addStack(FoodItem.FoodID.topBun);
-        assertTrue(Recipe.matchesRecipe(cook.foodStack,customer.getRequestName()),"Error: correct recipes are not being accepted due to Recipe.matchesRecipe");
-        testStation.interact(cook, InputKey.InputTypes.USE);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        testStation.testFlag = 0;
-        customerController.testFlag = 0;
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
     @Test
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeWrongOrder(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.testFlag = 1;
+        ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
-        customer.request = "Onion Burger";
-        testStation.customerController = customerController;
-        testStation.setCustomer(customer);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Plain Burger";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
+
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bottomBun);
-        cook.foodStack.addStack(FoodItem.FoodID.meatCook);
-        cook.foodStack.addStack(FoodItem.FoodID.topBun);
-        assertFalse(Recipe.matchesRecipe(cook.foodStack,customer.getRequestName()),"Error: Recipe is saying it is equal to completely different recipe");
-        testStation.interact(cook, InputKey.InputTypes.USE);
-        assertFalse(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertTrue(testStation.customer != null, "Error: The serving station is getting rid of customers even if a wrong order is sent");
-        testStation.testFlag = 0;
-        customerController.testFlag = 0;
+        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+
+        assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
     @Test
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.testFlag = 1;
+        ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
-        customer.request = "Lettuce Burger";
-        testStation.customerController = customerController;
-        testStation.setCustomer(customer);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Lettuce Burger";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
+
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bottomBun);
-        cook.foodStack.addStack(FoodItem.FoodID.topBun);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
         cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
-        assertTrue(Recipe.matchesRecipe(cook.foodStack,customer.getRequestName()),"Error: correct recipes are not being accepted due to Recipe.matchesRecipe");
-        testStation.interact(cook, InputKey.InputTypes.USE);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        testStation.testFlag = 0;
-        customerController.testFlag = 0;
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
     @Test
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.testFlag = 1;
+        ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
-        customer.request = "Onion Burger";
-        testStation.customerController = customerController;
-        testStation.setCustomer(customer);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Onion Burger";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
+
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bottomBun);
-        cook.foodStack.addStack(FoodItem.FoodID.topBun);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
-        assertTrue(Recipe.matchesRecipe(cook.foodStack,customer.getRequestName()),"Error: correct recipes are not being accepted due to Recipe.matchesRecipe");
-        testStation.interact(cook, InputKey.InputTypes.USE);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        testStation.testFlag = 0;
-        customerController.testFlag = 0;
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
     @Test
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.testFlag = 1;
+        ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
-        customer.request = "Tomato Burger";
-        testStation.customerController = customerController;
-        testStation.setCustomer(customer);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Tomato Burger";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
+
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bottomBun);
-        cook.foodStack.addStack(FoodItem.FoodID.topBun);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
         cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
-        assertTrue(Recipe.matchesRecipe(cook.foodStack,customer.getRequestName()),"Error: correct recipes are not being accepted due to Recipe.matchesRecipe");
-        testStation.interact(cook, InputKey.InputTypes.USE);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        testStation.testFlag = 0;
-        customerController.testFlag = 0;
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if it's correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
     @Test
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.testFlag = 1;
+        ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
-        customer.request = "Lettuce Tomato Burger";
-        testStation.customerController = customerController;
-        testStation.setCustomer(customer);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Lettuce Tomato Burger";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
+
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bottomBun);
-        cook.foodStack.addStack(FoodItem.FoodID.topBun);
-        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
         cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
-        assertTrue(Recipe.matchesRecipe(cook.foodStack,customer.getRequestName()),"Error: correct recipes are not being accepted due to Recipe.matchesRecipe");
-        testStation.interact(cook, InputKey.InputTypes.USE);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        testStation.testFlag = 0;
-        customerController.testFlag = 0;
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
     @Test
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.testFlag = 1;
+        ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
-        customer.request = "Lettuce Onion Burger";
-        testStation.customerController = customerController;
-        testStation.setCustomer(customer);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Lettuce Onion Burger";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
+
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bottomBun);
-        cook.foodStack.addStack(FoodItem.FoodID.topBun);
-        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
-        assertTrue(Recipe.matchesRecipe(cook.foodStack,customer.getRequestName()),"Error: correct recipes are not being accepted due to Recipe.matchesRecipe");
-        testStation.interact(cook, InputKey.InputTypes.USE);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        testStation.testFlag = 0;
-        customerController.testFlag = 0;
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
     @Test
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.testFlag = 1;
+        ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
-        customer.request = "Tomato Onion Burger";
-        testStation.customerController = customerController;
-        testStation.setCustomer(customer);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Tomato Onion Burger";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
+
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bottomBun);
-        cook.foodStack.addStack(FoodItem.FoodID.topBun);
-        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
+        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
-        assertTrue(Recipe.matchesRecipe(cook.foodStack,customer.getRequestName()),"Error: correct recipes are not being accepted due to Recipe.matchesRecipe");
-        testStation.interact(cook, InputKey.InputTypes.USE);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        testStation.testFlag = 0;
-        customerController.testFlag = 0;
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
     @Test
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.testFlag = 1;
+        ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
-        Sprite sprite = new Sprite();
-        Customer customer = new Customer(sprite);
-        CustomerController customerController = new CustomerController();
-        customerController.testFlag = 1;
-        customerController.customers.add(customer);
-        customer.request = "Lettuce Tomato Onion Burger";
-        testStation.customerController = customerController;
-        testStation.setCustomer(customer);
+        testStation.setTestFlag(1);
+
+        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customerNew;
+        customerNew.request = "Lettuce Tomato Onion Burger";
+
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
+
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bottomBun);
-        cook.foodStack.addStack(FoodItem.FoodID.topBun);
-        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
-        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
+        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
-        assertTrue(Recipe.matchesRecipe(cook.foodStack,customer.getRequestName()),"Error: correct recipes are not being accepted due to Recipe.matchesRecipe");
-        testStation.interact(cook, InputKey.InputTypes.USE);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
+        cook.foodStack.clearStack();
+
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
+
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        testStation.customerInteract(customerNew);
+
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        assertFalse(testStation.customer != null, "Error: The serving station does not get rid of the customer after they are served");
-        testStation.testFlag = 0;
-        customerController.testFlag = 0;
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+
+        testStation.setTestFlag(0);
+        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
-     **/
 
     // Relates to the FR_SPEND MONEY requirement
     @Test
