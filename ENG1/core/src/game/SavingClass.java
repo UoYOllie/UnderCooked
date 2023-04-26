@@ -163,7 +163,7 @@ public class SavingClass {
     {
         Array<Cook> cookarray = gameScreen.cooks;
         Array<Cook> unusedcookarray = gameScreen.unusedcooks;
-        ArrayList<CustomerNew> customers = gameScreen.customersToServe;
+        ArrayList<CustomerNew> customers = gameScreen.getCustomerControllerNew().getCustomers();
 
         for(Cook c:cookarray)
         {
