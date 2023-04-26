@@ -66,8 +66,12 @@ public class MenuScreen extends ScreenAdapter {
         table.add(welcomeLabel).expandX();
         table.row();
 
-        Label startLabel = new Label(String.format("PRESS %s TO START",Interactions.getKeyString(InputKey.InputTypes.START_GAME).toUpperCase()), font);
-        table.add(startLabel).expandX();
+        Label scenarioLabel = new Label(String.format("PRESS %s TO START SCENARIO MODE",Interactions.getKeyString(InputKey.InputTypes.START_SCENARIO).toUpperCase()), font);
+        table.add(scenarioLabel).expandX();
+        table.row();
+
+        Label endlessLabel = new Label(String.format("PRESS %s TO START ENDLESS MODE",Interactions.getKeyString(InputKey.InputTypes.START_ENDLESS).toUpperCase()), font);
+        table.add(endlessLabel).expandX();
         table.row();
 
         Label instructionLabel = new Label(String.format("PRESS %s FOR INSTRUCTIONS",Interactions.getKeyString(InputKey.InputTypes.INSTRUCTIONS).toUpperCase()), font);
@@ -95,10 +99,13 @@ public class MenuScreen extends ScreenAdapter {
     public void update(float delta) {
         Interactions.updateKeys();
 
-        // Set the screen to the gameplay screen
-        if (Interactions.isJustPressed(InputKey.InputTypes.START_GAME)) {
+        if (Interactions.isJustPressed(InputKey.InputTypes.START_SCENARIO)) {
             screenController.setScreen(ScreenID.GAME);
-            ((GameScreen) screenController.getScreen(ScreenID.GAME)).startGame(5);
+            ((GameScreen) screenController.getScreen(ScreenID.GAME)).startGame(true);
+        }
+        else if (Interactions.isJustPressed(InputKey.InputTypes.START_ENDLESS)) {
+            screenController.setScreen(ScreenID.GAME);
+            ((GameScreen) screenController.getScreen(ScreenID.GAME)).startGame(false);
         }
         // Set the screen to the instructions screen
         else if (Interactions.isJustPressed(InputKey.InputTypes.INSTRUCTIONS)) {
