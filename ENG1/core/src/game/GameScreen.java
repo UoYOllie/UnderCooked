@@ -84,7 +84,7 @@ public class GameScreen extends ScreenAdapter {
     //private CustomerController customerController;
     private CustomerControllerNew customerControllerNew;
     //private int customersToServe;
-    public ArrayList<CustomerNew> customersToServe;
+    //public ArrayList<CustomerNew> customersToServe;
 
     private int freeze;
     private boolean EnableAutoZoom;
@@ -165,7 +165,7 @@ public class GameScreen extends ScreenAdapter {
         Cook Buy4 = new Cook((2031.1f-104f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
         this.addSpareCook(Buy4);
 
-        this.customersToServe = new ArrayList<>();
+        //this.customersToServe = new ArrayList<>();
         //this.addCustomersNew(customerControllerNew.getCustomers());
 
         this.cook = cooks.get(0);
@@ -249,7 +249,7 @@ public class GameScreen extends ScreenAdapter {
         Buy4.setColour("Red");
         this.addSpareCook(Buy4);
 
-        this.customersToServe = new ArrayList<>();
+        //this.customersToServe = new ArrayList<>();
         //this.addCustomersNew(customerControllerNew.getCustomers());
 
         this.cook = cooks.get(0);
@@ -290,7 +290,19 @@ public class GameScreen extends ScreenAdapter {
             else if(ZoomSecondCounter>0) {
                 ZoomSecondCounter = ZoomSecondCounter-1f;
             }
-            for(CustomerNew customer:customersToServe) //Dealing with leaving
+
+//            for(CustomerNew customer:customersToServe) //Dealing with leaving
+//            {
+//                customer.DecreasePatience();
+//                if((customer.waittime<=0)&&(customer.Stillhere ==true))
+//                {
+//                    System.out.println(customer + " is now leaving");
+//                    customer.StormOut(); //When customer wants to leave
+//                }
+//            }
+
+            // SWITCH TO CUSTOMER CONTROLLER instead of customersServed
+            for(CustomerNew customer:customerControllerNew.getCustomers()) //Dealing with leaving
             {
                 customer.DecreasePatience();
                 if((customer.waittime<=0)&&(customer.Stillhere ==true))
@@ -299,6 +311,11 @@ public class GameScreen extends ScreenAdapter {
                     customer.StormOut(); //When customer wants to leave
                 }
             }
+
+            //gameEntities.add(customerControllerNew.addCustomer());
+            addCustomer(customerControllerNew.addCustomer());
+
+
             previousSecond += 1000;
             secondsPassed += 1;
             if (secondsPassed >= 60) {
@@ -340,17 +357,24 @@ public class GameScreen extends ScreenAdapter {
 
         // laura
 
-        ArrayList<CustomerNew> tempNewCustomers = new ArrayList<>();
-        tempNewCustomers.addAll(customerControllerNew.updateCustomers());
-
-        customersToServe.addAll(tempNewCustomers);
-        gameEntities.addAll(tempNewCustomers);
+//        ArrayList<CustomerNew> tempNewCustomers = new ArrayList<>();
+//        tempNewCustomers.addAll(customerControllerNew.updateCustomers());
+//
+//        //customersToServe.addAll(tempNewCustomers);
+//        gameEntities.addAll(tempNewCustomers);
 
         //System.out.println("number of customers in update: " + customersToServe.size());
         //System.out.println("number of game entities in update: " + gameEntities.size());
         //System.out.println(customersToServe);
 
-        for (CustomerNew customer : customersToServe) {
+//        for (CustomerNew customer : customersToServe) {
+//            //customer.moveTo(customer.endX, customer.endY);
+//            customer.customerInteract(mapHelper.getMapStations());
+//            customer.update(Gdx.graphics.getDeltaTime());
+//        }
+
+        // SWITCH TO CUSTOMER CONTROLLER NEW
+        for (CustomerNew customer : customerControllerNew.getCustomers()) {
             //customer.moveTo(customer.endX, customer.endY);
             customer.customerInteract(mapHelper.getMapStations());
             customer.update(Gdx.graphics.getDeltaTime());
@@ -518,6 +542,14 @@ public class GameScreen extends ScreenAdapter {
         return this.cook;
     }
 
+    public void addCustomer(CustomerNew customer) {
+
+        if (customer != null) {
+            gameEntities.add(customer);
+        }
+
+    }
+
 //    public void addCustomersNew(Array<CustomerNew> customers) {
 //
 //        for (CustomerNew customer : customers) {
@@ -683,8 +715,8 @@ public class GameScreen extends ScreenAdapter {
         //gameHud.setRecipe(null);
         //customersToServe = CustomerControllerNew.getcustomers;
         //this.addCustomersNew(customerControllerNew.getCustomers());
-        customersToServe.addAll(customerControllerNew.getCustomers());
-        gameEntities.addAll(new ArrayList<GameEntity>(customerControllerNew.getCustomers()));
+        //customersToServe.addAll(customerControllerNew.getCustomers());
+        //gameEntities.addAll(new ArrayList<GameEntity>(customerControllerNew.getCustomers()));
 
 
 ////        customerController.setCustomersLeft(customers);
