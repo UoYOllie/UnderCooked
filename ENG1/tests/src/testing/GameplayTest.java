@@ -8,6 +8,8 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
 import cooks.CustomerNew;
+import customers.Customer;
+import customers.CustomerController;
 import customers.RepPoints;
 import food.DishStack;
 import food.FoodItem;
@@ -16,9 +18,7 @@ import helper.Constants;
 import interactions.InputKey;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import stations.ServingStationNew;
-import stations.SpeedPowerup;
-import stations.Station;
+import stations.*;
 
 import java.util.ArrayList;
 
@@ -286,8 +286,8 @@ public class GameplayTest {
         testStation.customerInteract(customerNew);
 
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
-        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if it's correct
+        assertNotEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the right items when served the incorrect dish");
 
         testStation.setTestFlag(0);
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
@@ -301,6 +301,9 @@ public class GameplayTest {
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
+        AssemblyStation assemblyStation = new AssemblyStation(rectangle);
+        assemblyStation.setID(Station.StationID.assembly);
+
         CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
         testStation.customer = customerNew;
         customerNew.request = "Lettuce Burger";
@@ -309,12 +312,16 @@ public class GameplayTest {
         testList.add(testStation.getRectangle());
 
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bun);
         cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
         cook.foodStack.addStack(FoodItem.FoodID.bun);
-        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
-        cook.foodStack.clearStack();
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.USE);
+        assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
 
         Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
         for (FoodItem.FoodID items: cook.dishStack.getStack()){
@@ -340,6 +347,9 @@ public class GameplayTest {
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
+        AssemblyStation assemblyStation = new AssemblyStation(rectangle);
+        assemblyStation.setID(Station.StationID.assembly);
+
         CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
         testStation.customer = customerNew;
         customerNew.request = "Onion Burger";
@@ -348,12 +358,16 @@ public class GameplayTest {
         testList.add(testStation.getRectangle());
 
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bun);
         cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
         cook.foodStack.addStack(FoodItem.FoodID.bun);
-        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
-        cook.foodStack.clearStack();
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.USE);
+        assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
 
         Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
         for (FoodItem.FoodID items: cook.dishStack.getStack()){
@@ -379,6 +393,9 @@ public class GameplayTest {
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
+        AssemblyStation assemblyStation = new AssemblyStation(rectangle);
+        assemblyStation.setID(Station.StationID.assembly);
+
         CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
         testStation.customer = customerNew;
         customerNew.request = "Tomato Burger";
@@ -387,24 +404,32 @@ public class GameplayTest {
         testList.add(testStation.getRectangle());
 
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bun);
         cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
         cook.foodStack.addStack(FoodItem.FoodID.bun);
-        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
-        cook.foodStack.clearStack();
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.USE);
+        assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
+
+        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
+        for (FoodItem.FoodID items: cook.dishStack.getStack()){
+            finalCustomersExpectedRecipe.add(items);
+        }
 
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         testStation.customerInteract(customerNew);
 
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if it's correct
-        assertEquals(customerNew.dishStack.getStack(),Recipe.recipes.get(customerNew.request).getStack(),"Error: Customer has got the wrong items when served the correct dish");
+        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
+        assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
 
         testStation.setTestFlag(0);
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
-
     @Test
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceTomatoBurger(){
@@ -412,6 +437,9 @@ public class GameplayTest {
         ServingStationNew testStation = new ServingStationNew(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
+
+        AssemblyStation assemblyStation = new AssemblyStation(rectangle);
+        assemblyStation.setID(Station.StationID.assembly);
 
         CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
         testStation.customer = customerNew;
@@ -421,13 +449,18 @@ public class GameplayTest {
         testList.add(testStation.getRectangle());
 
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bun);
-        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
         cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
         cook.foodStack.addStack(FoodItem.FoodID.bun);
-        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
-        cook.foodStack.clearStack();
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.USE);
+        assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
 
         Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
         for (FoodItem.FoodID items: cook.dishStack.getStack()){
@@ -453,6 +486,9 @@ public class GameplayTest {
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
+        AssemblyStation assemblyStation = new AssemblyStation(rectangle);
+        assemblyStation.setID(Station.StationID.assembly);
+
         CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
         testStation.customer = customerNew;
         customerNew.request = "Lettuce Onion Burger";
@@ -461,13 +497,18 @@ public class GameplayTest {
         testList.add(testStation.getRectangle());
 
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bun);
-        cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
         cook.foodStack.addStack(FoodItem.FoodID.bun);
-        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
-        cook.foodStack.clearStack();
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        cook.foodStack.addStack(FoodItem.FoodID.onionChop);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.USE);
+        assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
 
         Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
         for (FoodItem.FoodID items: cook.dishStack.getStack()){
@@ -493,6 +534,9 @@ public class GameplayTest {
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
+        AssemblyStation assemblyStation = new AssemblyStation(rectangle);
+        assemblyStation.setID(Station.StationID.assembly);
+
         CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
         testStation.customer = customerNew;
         customerNew.request = "Tomato Onion Burger";
@@ -501,13 +545,18 @@ public class GameplayTest {
         testList.add(testStation.getRectangle());
 
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bun);
-        cook.foodStack.addStack(FoodItem.FoodID.onionChop);
         cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
         cook.foodStack.addStack(FoodItem.FoodID.bun);
-        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
-        cook.foodStack.clearStack();
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        cook.foodStack.addStack(FoodItem.FoodID.onionChop);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.USE);
+        assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
 
         Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
         for (FoodItem.FoodID items: cook.dishStack.getStack()){
@@ -533,6 +582,9 @@ public class GameplayTest {
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
+        AssemblyStation assemblyStation = new AssemblyStation(rectangle);
+        assemblyStation.setID(Station.StationID.assembly);
+
         CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
         testStation.customer = customerNew;
         customerNew.request = "Lettuce Tomato Onion Burger";
@@ -541,14 +593,20 @@ public class GameplayTest {
         testList.add(testStation.getRectangle());
 
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bun);
-        cook.foodStack.addStack(FoodItem.FoodID.onionChop);
-        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
         cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         cook.foodStack.addStack(FoodItem.FoodID.meatCook);
         cook.foodStack.addStack(FoodItem.FoodID.bun);
-        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
-        cook.foodStack.clearStack();
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
+        cook.foodStack.addStack(FoodItem.FoodID.onionChop);
+        cook.foodStack.addStack(FoodItem.FoodID.bun);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assemblyStation.interact(cook, InputKey.InputTypes.USE);
+        assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
 
         Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
         for (FoodItem.FoodID items: cook.dishStack.getStack()){
