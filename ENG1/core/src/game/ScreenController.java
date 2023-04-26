@@ -19,6 +19,7 @@ public class ScreenController {
 
     private Boot boot;
     private GameScreen gameScreen;
+    private DifficultyScreen difficultyScreen;
     private MenuScreen menuScreen;
     private GameOverScreen gameOverScreen;
     private CreditsScreen creditsScreen;
@@ -40,6 +41,7 @@ public class ScreenController {
         this.gameOverScreen = new GameOverScreen(this,new OrthographicCamera());
         this.instructionScreen = new InstructionScreen(this,new OrthographicCamera());
         this.creditsScreen = new CreditsScreen(this,new OrthographicCamera());
+        this.difficultyScreen = new DifficultyScreen(this, new OrthographicCamera(), true);
 
         this.screens = new HashMap<>();
         this.screens.put(ScreenID.MENU,menuScreen);
@@ -47,6 +49,7 @@ public class ScreenController {
         this.screens.put(ScreenID.GAMEOVER, gameOverScreen);
         this.screens.put(ScreenID.INSTRUCTIONS,instructionScreen);
         this.screens.put(ScreenID.CREDITS,creditsScreen);
+        this.screens.put(ScreenID.DIFFICULTY, difficultyScreen);
 
         this.pauseScreen = new PauseScreen(this,new OrthographicCamera());
         this.screens.put(ScreenID.PAUSE,pauseScreen);
@@ -59,6 +62,10 @@ public class ScreenController {
     public void setScreen(ScreenID screenID) {
         System.out.println("setting screen to "+screenID);
         this.boot.setScreen(this.screens.get(screenID));
+    }
+
+    public void setMode(boolean mode) {
+        this.difficultyScreen.setMode(mode);
     }
 
     /**
@@ -76,6 +83,7 @@ public class ScreenController {
     public enum ScreenID {
         /** The {@link MenuScreen}, where the program opens to. */
         MENU,
+        DIFFICULTY,
         /** The {@link GameScreen}, where the game is played. */
         GAME,
         /** The {@link PauseScreen}, where the game is paused, and the player can

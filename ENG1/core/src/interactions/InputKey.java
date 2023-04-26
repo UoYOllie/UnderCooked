@@ -29,9 +29,13 @@ public class InputKey {
         QUIT,
         /** Load a saved game */
         LOAD,
-
          /** Save a loaded game */
         SAVE,
+
+        // DIFFICULTY
+        EASY,
+        MEDIUM,
+        HARD,
 
         // COOK_INTERACT
         /** Put down an item onto a {@link stations.Station} in the {@link Cook}'s hands. */

@@ -81,6 +81,7 @@ public class Interactions {
         COOK_INTERACT,
         /** Key maps for Menu controls. */
         MENU,
+        DIFFICULTY,
         /** Key maps for Menu controls. */
         COOK_MOVEMENT,
         /** Key maps for Miscellaneous Cook controls. */
@@ -115,6 +116,11 @@ public class Interactions {
                 new InputKey(InputKey.InputTypes.QUIT, Input.Keys.Q),
                 new InputKey(InputKey.InputTypes.SAVE, Input.Keys.K),
                 new InputKey(InputKey.InputTypes.LOAD, Input.Keys.L)
+        }));
+        inputs.put(InputID.DIFFICULTY, new Array<>(new InputKey[]{
+                new InputKey(InputKey.InputTypes.EASY, Input.Keys.NUM_1),
+                new InputKey(InputKey.InputTypes.MEDIUM, Input.Keys.NUM_2),
+                new InputKey(InputKey.InputTypes.HARD, Input.Keys.NUM_3)
         }));
         inputs.put(InputID.COOK_MOVEMENT, new Array<>(new InputKey[] {
                 new InputKey(InputKey.InputTypes.COOK_UP,Input.Keys.W),

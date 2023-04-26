@@ -24,7 +24,9 @@ public class CustomerControllerNew {
     private ArrayList<CustomerNew> customers;
     private GameScreen gameScreen;
     private Map<Station, CustomerNew> stationCustomerMap;
-    private boolean scenarioMode;
+    private boolean mode;
+    private int difficulty;
+
 
     public CustomerControllerNew(GameScreen gameScreen) {
         this.gameScreen = gameScreen;
@@ -34,15 +36,18 @@ public class CustomerControllerNew {
         //this.customers = spawnCustomers();
        // this.customers = initialiseCustomers();
         this.customers = new ArrayList<>();
-        this.scenarioMode = false;
+        //this.scenarioMode = false;
     }
 
     public void setMode(boolean mode) {
-        this.scenarioMode = mode;
+        this.mode = mode;
+    }
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
     }
 
     private boolean noMoreCustomers() {
-        return (this.scenarioMode == true && this.customers.size() > 4);
+        return (this.mode == true && this.customers.size() > 4);
     }
 
     public void removeCustomer(Station station) {
