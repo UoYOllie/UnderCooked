@@ -21,7 +21,8 @@ public class GameHud extends Hud {
     Label timeLabel;
 //    /** The label with the number of {@link Customer}s left to serve.  */
 //    Label CustomerLabel;
-    Label CustomerScore;
+    Label reputation;
+    Label goldLabel;
     /** The {@link SpriteBatch} of the GameHud. Use for drawing {@link food.Recipe}s. */
     private SpriteBatch batch;
     /** The {@link FoodStack} that the {@link GameHud} should render. */
@@ -41,13 +42,18 @@ public class GameHud extends Hud {
         super(batch);
 
         timeLabel = new Label("", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
+        reputation = new Label("",new Label.LabelStyle(new BitmapFont(),Color.BLACK));
+        goldLabel = new Label("",new Label.LabelStyle((new BitmapFont()),Color.YELLOW));
         updateTime(0,0,0);
+        updateReputation(0);
+        updateGold(0);
 
 //        CustomerLabel = new Label("CUSTOMERS LEFT:", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
 //
 //        table.add(CustomerLabel).expandX().padTop(80).padRight(60);
         table.add(timeLabel).expandX().padTop(80).padLeft(60);
-
+        table.add(reputation).expandX().padTop(80).padRight(60);
+        table.add(goldLabel).expandX().padTop(80).padRight(60);
         this.batch = batch;
     }
 
@@ -131,6 +137,14 @@ public class GameHud extends Hud {
     public void updateTime(int hoursPassed, int minutesPassed, int secondsPassed)
     {
         timeLabel.setText("TIMER: " + String.format(Util.formatTime(hoursPassed,minutesPassed,secondsPassed)));
+    }
+
+    public void updateReputation(int Reputation){
+        reputation.setText("REPUTATION: " + String.format(String.valueOf(Reputation)));
+    }
+
+    public void updateGold(int gold){
+        goldLabel.setText("GOLD: " + String.format(String.valueOf(gold)));
     }
 
 //    /**

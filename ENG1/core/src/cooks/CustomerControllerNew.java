@@ -33,7 +33,8 @@ public class CustomerControllerNew {
         this.stationCustomerMap = new HashMap<Station, CustomerNew>();
         initialiseStationCustomerMap();
         //this.customers = spawnCustomers();
-        this.customers = initialiseCustomers();
+       // this.customers = initialiseCustomers();
+        this.customers = new ArrayList<>();
     }
 
 
@@ -96,10 +97,9 @@ public class CustomerControllerNew {
         for (Station station : servingStations) {
             this.stationCustomerMap.put(station, null);
         }
-
     }
 
-    public void addCustomer() {
+    public CustomerNew addCustomer() {
 
         for (Map.Entry<Station, CustomerNew> entry : stationCustomerMap.entrySet()) {
 
@@ -116,8 +116,12 @@ public class CustomerControllerNew {
 
                 this.stationCustomerMap.put(station, newCustomer);
                 this.customers.add(newCustomer);
+
+                return newCustomer;
             }
         }
+
+        return null;
 
     }
 
