@@ -104,7 +104,7 @@ public class GameScreen extends ScreenAdapter {
 
         this.interactables = new Array<>();
         this.gold = new Gold();
-        this.gold.setBalance(1000); //for testing purposes ONLY
+        this.gold.setBalance(0);
         this.Reputation = new RepPoints();
         this.freeze = 0;
         this.EnableAutoZoom = true;
@@ -171,7 +171,7 @@ public class GameScreen extends ScreenAdapter {
         this.bgBatch.setProjectionMatrix(backgroundCamera.combined);
     }
 
-    public void reset()
+    public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame)
     {
         this.previousSecond = TimeUtils.millis();
         //this.lastCustomerSecond = -1;
@@ -181,7 +181,7 @@ public class GameScreen extends ScreenAdapter {
 
         this.interactables = new Array<>();
         this.gold = new Gold();
-        this.gold.setBalance(1000); //for testing purposes ONLY
+        this.gold.setBalance(0);
         this.Reputation = new RepPoints();
         this.freeze = 0;
         this.EnableAutoZoom = true;
@@ -220,29 +220,45 @@ public class GameScreen extends ScreenAdapter {
         addInteractable(this.mapHelper.getMapStations());
         this.customerControllerNew = new CustomerControllerNew(this);
 
+        if(cooksforgame.size == 0) {
+            System.out.println("cOOKS ARE NULL");
+            Cook GlibbertOrange = new Cook(2041 * 8f, 2814 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            GlibbertOrange.setColour("Orange");
+            this.addCook(GlibbertOrange);
+            Cook GlibbertBlue = new Cook(2045 * 8f, 2814 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            GlibbertBlue.setColour("Blue");
+            this.addCook(GlibbertBlue);
+            Cook GlibbertGreen = new Cook(2049 * 8f, 2814 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            GlibbertGreen.setColour("Green");
+            this.addCook(GlibbertGreen);
 
-        Cook GlibbertOrange = new Cook(2041*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        GlibbertOrange.setColour("Orange");
-        this.addCook(GlibbertOrange);
-        Cook GlibbertBlue = new Cook(2045*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        GlibbertBlue.setColour("Blue");
-        this.addCook(GlibbertBlue);
-        Cook GlibbertGreen = new Cook(2049*8f, 2814*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        GlibbertGreen.setColour("Green");
-        this.addCook(GlibbertGreen);
-
-        Cook Buy1 = new Cook((2031.1f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        Buy1.setColour("Purple");
-        this.addSpareCook(Buy1);
-        Cook Buy2 = new Cook((2031.1f+12f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        Buy2.setColour("Black");
-        this.addSpareCook(Buy2);
-        Cook Buy3 = new Cook((2031.1f-92f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        Buy3.setColour("White");
-        this.addSpareCook(Buy3);
-        Cook Buy4 = new Cook((2031.1f-104f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
-        Buy4.setColour("Red");
-        this.addSpareCook(Buy4);
+            Cook Buy1 = new Cook((2031.1f) * 8f, 2853 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            Buy1.setColour("Purple");
+            this.addSpareCook(Buy1);
+            Cook Buy2 = new Cook((2031.1f + 12f) * 8f, 2853 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            Buy2.setColour("Black");
+            this.addSpareCook(Buy2);
+            Cook Buy3 = new Cook((2031.1f - 92f) * 8f, 2853 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            Buy3.setColour("White");
+            this.addSpareCook(Buy3);
+            Cook Buy4 = new Cook((2031.1f - 104f) * 8f, 2853 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
+            Buy4.setColour("Red");
+            this.addSpareCook(Buy4);
+        }
+        else
+        {
+            System.out.println("cOOKS ARE in ere");
+            System.out.print(cooksforgame);
+            for(Cook c:cooksforgame)
+            {
+                System.out.print(c);
+                this.addCook(c);
+            }
+            for(Cook c:unusedcooksforgame)
+            {
+                this.addSpareCook(c);
+            }
+        }
 
         //this.customersToServe = new ArrayList<>();
         //this.addCustomersNew(customerControllerNew.getCustomers());
@@ -798,9 +814,110 @@ public class GameScreen extends ScreenAdapter {
     {
 //        SavingClass newsave = new SavingClass(GameScreen);
 //        StoredFile.fromJson(SavingClass newsave);
-        reset();
         JsonValue root = new JsonReader().parse(this.SaveText);
         System.out.println(root);
+        //cooks
+        JsonValue held_cook = root.get("cooks");
+        JsonValue held_coords = root.get("cookscoords");
+        JsonValue held_stack1 = root.get("cookstack1");
+        JsonValue held_stack2 = root.get("cookstack2");
+        JsonValue held_dishstack = root.get("cookdishstack");
+        JsonValue held_bluggy = root.get("cookisbluggus");
+        JsonValue held_speed = root.get("cookspeed");
+        JsonValue held_colour = root.get("colour");
+        JsonValue held_wait = root.get("waitimes");
+        JsonValue held_req = root.get("requests");
+//        System.out.println(held_coords.get(0).get(0).get(1));//Takes person Takes x or y Takes value
+//        System.out.println(held_coords.get(0).get(0));
+//        System.out.println(held_coords.get(0));
+//        JsonValue held_x = held_coords.get(0).get(0).get(1);
+//        System.out.println(held_x.asFloat());
+
+
+        Array<Integer> cooks = new Array<Integer>();
+        Array<Array<Float>> cookscoords = new Array<Array<Float>>(); //If not spawned, (0,0)
+        Array<Array<Integer>> cookstack1 = new Array<Array<Integer>>();
+        Array<Array<Integer>> cookstack2 = new Array<Array<Integer>>();
+        Array<Array<Integer>> cookdishstack = new Array<Array<Integer>>();
+        Array<Boolean> cookisbluggus = new Array<Boolean>(); //if chef is bluggus or not
+        Array<Float> cookspeed = new Array<Float>();
+        Array<String> colour = new Array<String>(); //allocates the sprite
+        Array<Float> waitimes = new Array<Float>(); //-1 for cooks
+        Array<String> requests = new Array<String>(); //norequest = cooks
+
+        //Arrayys to hold all data
+        Array<Cook> cooksforgame = new Array<Cook>();
+        Array<Cook> unusedcooksforgame = new Array<Cook>();
+        ArrayList<CustomerNew> customersforgame = new ArrayList<CustomerNew>();
+        JsonValue held_x;
+        JsonValue held_y;
+        float x,y;
+        int count = 0;
+        for(JsonValue t:held_cook)
+        {
+            int type = held_cook.getInt(count);
+            System.out.println(type + " is the chef type");
+            held_x = held_coords.get(count).get(0).get(1);
+            held_y = held_coords.get(count).get(1).get(1);
+            x = held_x.asFloat();
+            y = held_y.asFloat();
+            //System.out.println(held_dishstack.get(0)+"<-------------------------------------");
+            Array<Integer> newdishstack = new Array<Integer>();
+            Array<Integer> s1 = new Array<Integer>();
+            Array<Integer> s2 = new Array<Integer>();
+
+
+            if(held_dishstack.get(count)!=null) {
+                for (JsonValue placeindishstack : held_dishstack.get(count)) {
+                    System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                    newdishstack.add(placeindishstack.get(1).asInt());
+                }
+
+            }
+
+            if(type==2) //Customer
+            {
+
+
+
+            }
+            else //must be cook
+            {
+                if(held_stack1.get(count)!=null) {
+                    for (JsonValue placeinstack : held_stack1.get(count)) {
+                        //System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                        s1.add(placeinstack.get(1).asInt());
+                    }
+                }
+                if(held_stack2.get(count)!=null) {
+                    for (JsonValue placeinstack2 : held_stack2.get(count)) {
+                        //System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                        s1.add(placeinstack2.get(1).asInt());
+                    }
+                }
+                float _speed_ = held_speed.getFloat(count);
+                String _colour_ = held_colour.getString(count);
+                boolean _isbluggus_ = held_bluggy.getBoolean(count);
+
+                Cook toAdd = new Cook(x*8f,y*8f,3.34f,1);
+
+                if(type==1) //Used cook
+                {
+                    cooksforgame.add(toAdd);
+                }
+                else if(type==0) //not used chef
+                {
+                    unusedcooksforgame.add(toAdd);
+                }
+            }
+            count++; //increment person
+        }
+
+        //stations
+
+        reset(cooksforgame,unusedcooksforgame);
+//        System.out.println(root);
+
         //Gold and Reputation
         int held_Gold = root.getInt("gold");
         this.gold.setBalance(held_Gold);
@@ -813,18 +930,7 @@ public class GameScreen extends ScreenAdapter {
         this.secondsPassed = held_seconds;
         this.minutesPassed = held_minutes;
         this.hoursPassed = held_hours;
-        //cooks
-        Array<Integer> cooks = new Array<Integer>(); //See above ^^^^
-        Array<Array<Float>> cookscoords = new Array<Array<Float>>(); //If not spawned, (0,0)
-        Array<Array<Integer>> cookstack1 = new Array<Array<Integer>>();
-        Array<Array<Integer>> cookstack2 = new Array<Array<Integer>>();
-        Array<Array<Integer>> cookdishstack = new Array<Array<Integer>>();
-        Array<Boolean> cookisbluggus = new Array<Boolean>(); //if chef is bluggus or not
-        Array<Float> cookspeed = new Array<Float>();
-        Array<String> colour = new Array<String>(); //allocates the sprite
-        Array<Float> waitimes = new Array<Float>(); //-1 for cooks
-        Array<String> requests = new Array<String>(); //norequest = cooks
-        //stations
+
 
     }
 }
