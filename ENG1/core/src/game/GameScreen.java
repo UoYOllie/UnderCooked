@@ -6,7 +6,7 @@ import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.*;
 import cooks.Cook;
 import cooks.CustomerControllerNew;
 import cooks.CustomerNew;
@@ -21,8 +21,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.TimeUtils;
 import cooks.GameEntity;
 //import customers.CustomerController;
 import customers.RepPoints;
@@ -696,6 +694,7 @@ public class GameScreen extends ScreenAdapter {
 ////        customerController.addCustomer();
 //        //setCustomerHud(customers);
 //        gameHud.setCustomerCount(customers);
+        Savegame();
     }
 
 //    /**
@@ -751,19 +750,22 @@ public class GameScreen extends ScreenAdapter {
     //-------------------------------------
     //Save Game
     //-------------------------------------
-    private Json StoredFile; //REMOVE
-    public Json Savegame()
+    private String SaveText; //REMOVE
+    private  Json json = new Json();
+    public void Savegame()
     {
-        Json json = new Json();
         SavingClass save = new SavingClass(this);
-        json.toJson(save);
-        System.out.println(json.prettyPrint(save));
+        this.SaveText = json.toJson(save);
+//        System.out.println(json.prettyPrint(save));
     }
+
 
     public void Loadgame() //Change ton have no param
     {
 //        SavingClass newsave = new SavingClass(GameScreen);
 //        StoredFile.fromJson(SavingClass newsave);
+        JsonValue root = new JsonReader().parse(this.SaveText);
+        System.out.println(root);
     }
 }
 
