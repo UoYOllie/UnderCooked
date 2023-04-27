@@ -205,38 +205,38 @@ public class CustomerNew extends GameEntity {
 
         if (this.entryStatus == 0) {
             if (this.customerToTest == true) {
-                System.out.println("entry status 0 moving to point B" + destination.x + "," + destination.y);
+                //System.out.println("entry status 0 moving to point B" + destination.x + "," + destination.y);
             }
             move_left_down(Constants.customerPointC);
         }
         if (this.entryStatus == 1) {
             if (this.customerToTest == true) {
-                System.out.println(this + "entry status 1 moving to point C");
+                //System.out.println(this + "entry status 1 moving to point C");
             }
             move_left_down(Constants.customerPointD);
         }
         if (this.entryStatus == 2) {
             if (this.customerToTest == true) {
-                System.out.println("entry status 2 moving to point D");
+                //System.out.println("entry status 2 moving to point D");
             }
             move_left_down(Constants.customerPointE);
         }
         if (this.entryStatus == 3) {
             if (this.customerToTest == true) {
-                System.out.println("entry status 3 moving to point E");
+                //System.out.println("entry status 3 moving to point E");
             }
             move_left_down(Constants.customerPointF);
         }
         if (this.entryStatus == 4) {
             if (this.customerToTest == true) {
-                System.out.println("entry status 4 moving to point F");
+                //System.out.println("entry status 4 moving to point F");
             }
             move_left_down(stationPosition);
         }
 
         if (this.entryStatus == 5) {
             if (this.customerToTest == true) {
-                System.out.println("entry status 5 moving to station" + this.station);
+                //System.out.println("entry status 5 moving to station" + this.station);
             }
 
             boolean readyX = false, readyY = false;
