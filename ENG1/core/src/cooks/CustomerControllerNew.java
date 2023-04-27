@@ -76,6 +76,7 @@ public class CustomerControllerNew {
                 CustomerNew newCustomer = new CustomerNew(Constants.customerPointA.x, Constants.customerPointA.y, 3.34f, 3f);
                 newCustomer.setStationPosition(station.getX(), station.getY());
                 newCustomer.setStation(station);
+                newCustomer.setDifficulty(difficulty);
                 newCustomer.setGameScreen(this.gameScreen);
 
                 if (customers.size() == 2) {

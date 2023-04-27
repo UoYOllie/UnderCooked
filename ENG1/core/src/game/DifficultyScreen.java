@@ -65,6 +65,10 @@ public class DifficultyScreen extends ScreenAdapter {
         table.add(welcomeLabel).expandX();
         table.row();
 
+        Label textLabel = new Label(String.format("The higher the difficulty, the less patient the customers will be!"), font);
+        table.add(textLabel).expandX();
+        table.row();
+
         Label easyLabel = new Label(String.format("PRESS %s FOR EASY",Interactions.getKeyString(InputKey.InputTypes.EASY).toUpperCase()), font);
         table.add(easyLabel).expandX();
         table.row();
