@@ -90,23 +90,9 @@ public class CustomerNew extends GameEntity {
         this.request = x;
     }
 
-
-//    public void setDifficulty(int difficulty) {
-//        this.difficulty = difficulty;
-//        if (difficulty == 1) {
-//            this.waittime += 100;
-//        }
-//        if (difficulty == 2) {
-//            this.waittime += 50;
-//        }
-//    }
-
     public void setDifficulty(int difficulty) {
 
-        System.out.println("difficulty" + difficulty);
-
         this.difficulty = difficulty;
-
         Random rd = new Random();
         this.waittime += rd.nextFloat()*100;
 
@@ -117,19 +103,6 @@ public class CustomerNew extends GameEntity {
             this.waittime += 50;
         }
     }
-
-//    public void setWaitTime() {
-//
-//        Random rd = new Random();
-//        this.waittime = 200 + rd.nextFloat()*100;
-//
-//        if (this.difficulty == 1) {
-//            this.waittime += 100;
-//        }
-//        if (this.difficulty == 2) {
-//            this.waittime += 50;
-//        }
-//    }
 
     public void setStationPosition(float endX, float endY) {
         this.stationPosition.x = endX;

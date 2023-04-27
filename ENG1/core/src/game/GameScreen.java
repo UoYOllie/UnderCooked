@@ -431,6 +431,11 @@ public class GameScreen extends ScreenAdapter {
             entity.update(delta);
         }
 
+        if(customerController.scenarioCustomersLeft() == 0) {
+            screenController.setEndTime(Util.formatTime(hoursPassed,minutesPassed,secondsPassed));
+            screenController.winGame();
+        }
+
         //Checking Reputation
         if(this.Reputation.getPoints() == 0){
             screenController.setScreen(ScreenController.ScreenID.GAMEOVER);
