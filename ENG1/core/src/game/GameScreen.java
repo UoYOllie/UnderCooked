@@ -739,6 +739,14 @@ public class GameScreen extends ScreenAdapter {
 
             if(type==2) //Customer
             {
+                CustomerNew newc = new CustomerNew(x*8f,y*8f,20,20);
+                newc.dishStack.setStack(tempdish);
+                float _wait_ = held_wait.getFloat(count);
+                String _req_ = held_req.getString(count);
+                newc.waittime = _wait_;
+                newc.request = _req_;
+                customersforgame.add(newc);
+
 
 
 
