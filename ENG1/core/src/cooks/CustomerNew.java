@@ -48,8 +48,6 @@ public class CustomerNew extends GameEntity {
     public String request;
     public Rectangle customerInteractor;
 
-    private Station station;
-
     private GameScreen gameScreen;
     public Vector2 stationPosition;
     public Vector2 destination;
@@ -83,8 +81,6 @@ public class CustomerNew extends GameEntity {
 
         this.x = x;
         this.y = y;
-
-        this.station = null;
 
         // used for customer movement:
         this.stationPosition = new Vector2(x, y);
@@ -145,10 +141,6 @@ public class CustomerNew extends GameEntity {
         this.stationPosition.y = endY;
     }
 
-    public void setStation(Station station) {
-        this.station = station;
-    }
-
     public void setDestination(float endX, float endY) {
         //System.out.println("i am going to: " + endX + "," + endY);
         this.destination.x = endX;
@@ -187,7 +179,7 @@ public class CustomerNew extends GameEntity {
     }
     public void Success(Station station) //Gets their dish, this is called
     {
-        this.gameScreen.getCustomerControllerNew().removeCustomer(station);
+        this.gameScreen.getCustomerController().removeCustomer(station);
         this.gameScreen.Reputation.Positive();
         this.gameScreen.gold.addBalance(50);
         Leave();
