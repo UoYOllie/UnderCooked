@@ -25,8 +25,8 @@ public class MenuTest {
         OrthographicCamera camera = new OrthographicCamera();
         ScreenController screenController = new ScreenController(boot, camera);
         screenController.setScreen(ScreenController.ScreenID.MENU);
-        keysPressed.add(InputKey.InputTypes.START_GAME);
-        assertEquals(screenController.getScreen(ScreenController.ScreenID.GAME), boot.getScreen());
+        keysPressed.add(InputKey.InputTypes.START_ENDLESS);
+        assertEquals(screenController.getScreen(ScreenController.ScreenID.DIFFICULTY), boot.getScreen());
     }
 
     @Test
