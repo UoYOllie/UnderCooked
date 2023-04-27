@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.GameplayTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-04-23T15:21:24" hostname="Morgans-MacBook-Pro-2.local" time="0.068">
+<testsuite name="testing.GameplayTest" tests="31" skipped="0" failures="0" errors="0" timestamp="2023-04-26T16:10:53" hostname="TRASHTOP" time="0.579">
   <properties/>
+  <testcase name="TestServingStationServeCustomerColeslawCheesePotato" classname="testing.GameplayTest" time="0.077"/>
+  <testcase name="testMakeIntoBluggus" classname="testing.GameplayTest" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerTomatoBurger" classname="testing.GameplayTest" time="0.002"/>
+  <testcase name="TestServingStationServeCustomerLettuceBurger" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerBeansColeslawCheesePotato" classname="testing.GameplayTest" time="0.001"/>
   <testcase name="testCustomerNewHypnotise" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerLettuceTomatoOnionBurger" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="TestServingStationNewDoesNotAcceptWrongRecipes" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="testCustomerNewServedCustomerLeave" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerLettuceOnionSalad" classname="testing.GameplayTest" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerPlainBurger" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="TestServingStationServeWrongOrder" classname="testing.GameplayTest" time="0.005"/>
+  <testcase name="TestServingStationServeCustomerLettuceTomatoBurger" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="TestServingStationServesMultipleCustomers" classname="testing.GameplayTest" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerColeslawPotato" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerPlainPotato" classname="testing.GameplayTest" time="0.001"/>
+  <testcase name="TestRepPoints" classname="testing.GameplayTest" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerBeansColeslawPotato" classname="testing.GameplayTest" time="0.001"/>
   <testcase name="testCustomerHangOnYourFoodIsComing" classname="testing.GameplayTest" time="0.0"/>
-  <testcase name="TestBuyShopItem" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestMultipleSpeedPowerUps" classname="testing.GameplayTest" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerBeansPotato" classname="testing.GameplayTest" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerLettuceOnionBurger" classname="testing.GameplayTest" time="0.001"/>
+  <testcase name="TestBuyShopItem" classname="testing.GameplayTest" time="0.002"/>
+  <testcase name="TestServingStationServeCustomerTomatoOnionBurger" classname="testing.GameplayTest" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerLettuceTomatoSalad" classname="testing.GameplayTest" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerBeansCheesePotato" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="TestMultipleSpeedPowerUps" classname="testing.GameplayTest" time="0.004"/>
+  <testcase name="TestServingStationServeCustomerOnionBurger" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerOnionTomatoSalad" classname="testing.GameplayTest" time="0.0"/>
   <testcase name="TestSpeedPowerUp" classname="testing.GameplayTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="testMoveStack" classname="testing.GameplayTest" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerCheesePotato" classname="testing.GameplayTest" time="0.0"/>
+  <system-out><![CDATA[This was correct for me
+Bluggus Mode activating
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+This was correct for me
+Bluggus Mode activating
+peek
+peek
+peek
+peek
+This was correct for me
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

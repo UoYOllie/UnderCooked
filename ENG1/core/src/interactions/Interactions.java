@@ -81,6 +81,7 @@ public class Interactions {
         COOK_INTERACT,
         /** Key maps for Menu controls. */
         MENU,
+        DIFFICULTY,
         /** Key maps for Menu controls. */
         COOK_MOVEMENT,
         /** Key maps for Miscellaneous Cook controls. */
@@ -107,13 +108,19 @@ public class Interactions {
         inputs.put(InputID.MENU, new Array<>(new InputKey[]{
                 new InputKey(InputKey.InputTypes.INSTRUCTIONS, Input.Keys.I),
                 new InputKey(InputKey.InputTypes.RESET_GAME, Input.Keys.R),
-                new InputKey(InputKey.InputTypes.START_GAME, Input.Keys.ENTER),
+                new InputKey(InputKey.InputTypes.START_ENDLESS, Input.Keys.E),
+                new InputKey(InputKey.InputTypes.START_SCENARIO, Input.Keys.S),
                 new InputKey(InputKey.InputTypes.PAUSE, Input.Keys.ESCAPE),
                 new InputKey(InputKey.InputTypes.UNPAUSE, Input.Keys.ESCAPE),
                 new InputKey(InputKey.InputTypes.CREDITS, Input.Keys.C),
                 new InputKey(InputKey.InputTypes.QUIT, Input.Keys.Q),
                 new InputKey(InputKey.InputTypes.SAVE, Input.Keys.K),
                 new InputKey(InputKey.InputTypes.LOAD, Input.Keys.L)
+        }));
+        inputs.put(InputID.DIFFICULTY, new Array<>(new InputKey[]{
+                new InputKey(InputKey.InputTypes.EASY, Input.Keys.NUM_1),
+                new InputKey(InputKey.InputTypes.MEDIUM, Input.Keys.NUM_2),
+                new InputKey(InputKey.InputTypes.HARD, Input.Keys.NUM_3)
         }));
         inputs.put(InputID.COOK_MOVEMENT, new Array<>(new InputKey[] {
                 new InputKey(InputKey.InputTypes.COOK_UP,Input.Keys.W),

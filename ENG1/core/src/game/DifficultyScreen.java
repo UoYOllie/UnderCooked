@@ -19,7 +19,6 @@ import game.ScreenController.ScreenID;
 import helper.Constants;
 import interactions.InputKey;
 import interactions.Interactions;
-import jdk.internal.org.jline.utils.DiffHelper;
 
 /**
  * The {@link MenuScreen}, which provides the player with
@@ -27,7 +26,7 @@ import jdk.internal.org.jline.utils.DiffHelper;
  * One of which is to change to the {@link GameScreen} and
  * play the game.
  */
-public class MenuScreen extends ScreenAdapter {
+public class DifficultyScreen extends ScreenAdapter {
 
     private ScreenController screenController;
     private OrthographicCamera camera;
@@ -38,9 +37,7 @@ public class MenuScreen extends ScreenAdapter {
     private Texture backgroundSprite;
 
     public static Texture spaceBackground = new Texture("menu/space-bg.png");
-
-
-
+    private boolean mode;
 
 
     /**
@@ -48,7 +45,7 @@ public class MenuScreen extends ScreenAdapter {
      * @param screenController The {@link ScreenController} of the {@link ScreenAdapter}.
      * @param orthographicCamera The {@link OrthographicCamera} that the game should use.
      */
-    public MenuScreen(ScreenController screenController, OrthographicCamera orthographicCamera) {
+    public DifficultyScreen(ScreenController screenController, OrthographicCamera orthographicCamera, boolean mode) {
         this.screenController = screenController;
         this.camera = orthographicCamera;
         this.batch = screenController.getSpriteBatch();
@@ -57,6 +54,7 @@ public class MenuScreen extends ScreenAdapter {
 
         stage = new Stage(viewport, batch);
         this.backgroundSprite = spaceBackground;
+        this.mode = mode;
 
         Label.LabelStyle font = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
         Table table = new Table();
@@ -67,28 +65,24 @@ public class MenuScreen extends ScreenAdapter {
         table.add(welcomeLabel).expandX();
         table.row();
 
-        Label scenarioLabel = new Label(String.format("PRESS %s TO START SCENARIO MODE",Interactions.getKeyString(InputKey.InputTypes.START_SCENARIO).toUpperCase()), font);
-        table.add(scenarioLabel).expandX();
+        Label easyLabel = new Label(String.format("PRESS %s FOR EASY",Interactions.getKeyString(InputKey.InputTypes.EASY).toUpperCase()), font);
+        table.add(easyLabel).expandX();
         table.row();
 
-        Label endlessLabel = new Label(String.format("PRESS %s TO START ENDLESS MODE",Interactions.getKeyString(InputKey.InputTypes.START_ENDLESS).toUpperCase()), font);
-        table.add(endlessLabel).expandX();
+        Label mediumLabel = new Label(String.format("PRESS %s FOR MEDIUM",Interactions.getKeyString(InputKey.InputTypes.MEDIUM).toUpperCase()), font);
+        table.add(mediumLabel).expandX();
         table.row();
 
-        Label instructionLabel = new Label(String.format("PRESS %s FOR INSTRUCTIONS",Interactions.getKeyString(InputKey.InputTypes.INSTRUCTIONS).toUpperCase()), font);
-        table.add(instructionLabel).expandX();
+        Label hardLabel = new Label(String.format("PRESS %s FOR HARD",Interactions.getKeyString(InputKey.InputTypes.HARD).toUpperCase()), font);
+        table.add(hardLabel).expandX();
         table.row();
-
-        Label creditLabel = new Label(String.format("PRESS %s TO VIEW CREDITS",Interactions.getKeyString(InputKey.InputTypes.CREDITS).toUpperCase()), font);
-        table.add(creditLabel).expandX();
-        table.row();
-
-        Label quitLabel = new Label(String.format("PRESS %s TO QUIT",Interactions.getKeyString(InputKey.InputTypes.QUIT).toUpperCase()), font);
-        table.add(quitLabel).expandX();
-
 
         stage.addActor(table);
 
+    }
+
+    public void setMode(boolean mode) {
+        this.mode = mode;
     }
 
 
@@ -100,33 +94,17 @@ public class MenuScreen extends ScreenAdapter {
     public void update(float delta) {
         Interactions.updateKeys();
 
-        if (Interactions.isJustPressed(InputKey.InputTypes.START_SCENARIO)) {
-            screenController.setScreen(ScreenID.DIFFICULTY);
-            screenController.setMode(true);
+        if (Interactions.isJustPressed(InputKey.InputTypes.EASY)) {
+            screenController.setScreen(ScreenID.INTRO);
+            screenController.setDifficulty(1);
         }
-        else if (Interactions.isJustPressed(InputKey.InputTypes.START_ENDLESS)) {
-            screenController.setScreen(ScreenID.DIFFICULTY);
-            screenController.setMode(false);
+        else if (Interactions.isJustPressed(InputKey.InputTypes.MEDIUM)) {
+            screenController.setScreen(ScreenID.INTRO);
+            screenController.setDifficulty(2);
         }
-
-//        if (Interactions.isJustPressed(InputKey.InputTypes.START_SCENARIO)) {
-//            screenController.setScreen(ScreenID.GAME);
-//            ((GameScreen) screenController.getScreen(ScreenID.GAME)).startGame(true);
-//        }
-//        else if (Interactions.isJustPressed(InputKey.InputTypes.START_ENDLESS)) {
-//            screenController.setScreen(ScreenID.GAME);
-//            ((GameScreen) screenController.getScreen(ScreenID.GAME)).startGame(false, 1);
-//        }
-        // Set the screen to the instructions screen
-        else if (Interactions.isJustPressed(InputKey.InputTypes.INSTRUCTIONS)) {
-            screenController.setScreen(ScreenID.INSTRUCTIONS);
-        }
-        else if (Interactions.isJustPressed(InputKey.InputTypes.CREDITS)) {
-            ((CreditsScreen)screenController.getScreen(ScreenID.CREDITS)).setPrevScreenID(ScreenID.MENU);
-            screenController.setScreen(ScreenID.CREDITS);
-        }
-        else if (Interactions.isJustPressed(InputKey.InputTypes.QUIT)) {
-            Gdx.app.exit();
+        else if (Interactions.isJustPressed(InputKey.InputTypes.HARD)) {
+            screenController.setScreen(ScreenID.INTRO);
+            screenController.setDifficulty(3);
         }
     }
 

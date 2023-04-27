@@ -13,8 +13,8 @@ public class InputKey {
     /** All the different inputs available in the game. */
     public enum InputTypes {
         // MENU
-        /** Starting the game, {@link GameScreen#startGame(int)}. */
-        START_GAME,
+        START_ENDLESS,
+        START_SCENARIO,
         /** Resetting the game, {@link ScreenController#resetGameScreen()} and {@link GameScreen#reset()}. */
         RESET_GAME,
         /** Opening the {@link game.InstructionScreen}. */
@@ -29,9 +29,13 @@ public class InputKey {
         QUIT,
         /** Load a saved game */
         LOAD,
-
          /** Save a loaded game */
         SAVE,
+
+        // DIFFICULTY
+        EASY,
+        MEDIUM,
+        HARD,
 
         // COOK_INTERACT
         /** Put down an item onto a {@link stations.Station} in the {@link Cook}'s hands. */

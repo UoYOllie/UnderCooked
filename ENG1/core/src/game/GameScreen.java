@@ -724,7 +724,13 @@ public class GameScreen extends ScreenAdapter {
      * @param customers The number of customers that need to be
      *                  served in the game to finish.
      */
-    public void startGame(int customers) {
+    public void startGame(boolean mode, int difficulty) {
+
+        customerControllerNew.setMode(mode);
+        customerControllerNew.setDifficulty(difficulty);
+
+        System.out.println(mode);
+        System.out.println(difficulty);
         secondsPassed = 0;
         minutesPassed = 0;
         hoursPassed = 0;

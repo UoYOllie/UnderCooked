@@ -20,12 +20,13 @@ import java.util.Map;
 import java.util.Random;
 
 public class CustomerControllerNew {
-
-    //private MapHelper mapHelper;
     private ArrayList<Station> servingStations;
     private ArrayList<CustomerNew> customers;
     private GameScreen gameScreen;
     private Map<Station, CustomerNew> stationCustomerMap;
+    private boolean mode;
+    private int difficulty;
+
 
     public CustomerControllerNew(GameScreen gameScreen) {
         this.gameScreen = gameScreen;
@@ -35,57 +36,18 @@ public class CustomerControllerNew {
         //this.customers = spawnCustomers();
        // this.customers = initialiseCustomers();
         this.customers = new ArrayList<>();
+        //this.scenarioMode = false;
     }
 
-
-
-    public ArrayList<CustomerNew> initialiseCustomers() {
-
-        ArrayList<CustomerNew> initialCustomers = new ArrayList<>();
-
-
-        for (Station station : servingStations) {
-
-            System.out.println("serving station at: " + station.getX() + "," + station.getY());
-
-            CustomerNew customer = new CustomerNew(Constants.customerPointA.x, Constants.customerPointA.y, 3.34f, 2f);
-            customer.setStationPosition(station.getX(), station.getY());
-            customer.setGameScreen(this.gameScreen);
-
-            initialCustomers.add(customer);
-            stationCustomerMap.put(station, customer);
-
-        }
-
-        return initialCustomers;
+    public void setMode(boolean mode) {
+        this.mode = mode;
+    }
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
     }
 
-    public ArrayList<CustomerNew> updateCustomers() {
-
-        ArrayList<CustomerNew> addedCustomers = new ArrayList<>();
-
-        for (Map.Entry<Station, CustomerNew> entry : stationCustomerMap.entrySet()) {
-
-            Station station = entry.getKey();
-            CustomerNew customer = entry.getValue();
-
-            if (customer == null) {
-                System.out.println("new customer spawned");
-                CustomerNew newCustomer = new CustomerNew(Constants.customerPointA.x, Constants.customerPointA.y, 3.34f, 3f);
-                newCustomer.setStationPosition(station.getX(), station.getY());
-                newCustomer.setGameScreen(this.gameScreen);
-
-                System.out.println("stationCustomerMap original: " + this.stationCustomerMap);
-
-                this.stationCustomerMap.put(station, newCustomer);
-                this.customers.add(newCustomer);
-                addedCustomers.add(newCustomer);
-            }
-
-        }
-
-        return addedCustomers;
-
+    private boolean noMoreCustomers() {
+        return (this.mode == true && this.customers.size() > 4);
     }
 
     public void removeCustomer(Station station) {
@@ -100,6 +62,8 @@ public class CustomerControllerNew {
     }
 
     public CustomerNew addCustomer() {
+
+        if (noMoreCustomers()) {return null;}
 
         for (Map.Entry<Station, CustomerNew> entry : stationCustomerMap.entrySet()) {
 
@@ -128,28 +92,6 @@ public class CustomerControllerNew {
 
         return null;
 
-    }
-
-    public Map<Station, CustomerNew> getStationCustomerMap() {
-        return this.stationCustomerMap;
-    }
-
-    private Array<CustomerNew> spawnCustomers() {
-
-        Array<CustomerNew> allCustomers = new Array<>();
-
-        for (Station station : servingStations) {
-
-            if (allCustomers.size < 5) {
-                CustomerNew customer = new CustomerNew(Constants.customerPointA.x, Constants.customerPointA.y, 3.34f, 2);
-                customer.setStationPosition(station.getX()-1.3f, station.getY()+4f);
-                customer.setGameScreen(this.gameScreen);
-                allCustomers.add(customer);
-            }
-
-        }
-
-        return allCustomers;
     }
 
     public ArrayList<CustomerNew> getCustomers() {
