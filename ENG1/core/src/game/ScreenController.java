@@ -43,8 +43,8 @@ public class ScreenController {
         this.gameOverScreen = new GameOverScreen(this,new OrthographicCamera());
         this.instructionScreen = new InstructionScreen(this,new OrthographicCamera());
         this.creditsScreen = new CreditsScreen(this,new OrthographicCamera());
-        this.difficultyScreen = new DifficultyScreen(this, new OrthographicCamera(), true);
-        this.introScreen = new IntroScreen(this, new OrthographicCamera(), true,1);
+        this.difficultyScreen = new DifficultyScreen(this, new OrthographicCamera());
+        this.introScreen = new IntroScreen(this, new OrthographicCamera(), "scenario",1);
 
         this.screens = new HashMap<>();
         this.screens.put(ScreenID.MENU,menuScreen);
@@ -68,8 +68,9 @@ public class ScreenController {
         this.boot.setScreen(this.screens.get(screenID));
     }
 
-    public void setMode(boolean mode) {
+    public void setMode(String mode) {
         this.difficultyScreen.setMode(mode);
+        this.introScreen.setMode(mode);
     }
 
     public void setDifficulty(Integer difficulty){this.introScreen.setDifficulty(difficulty);}

@@ -54,6 +54,7 @@ public class CustomerNew extends GameEntity {
     public Vector2 stationPosition;
     public Vector2 destination;
     public int customerStatus;
+    private int difficulty;
     private int entryStatus;
     private Array<Vector2> customerPoints;
     public boolean customerToTest;
@@ -73,8 +74,11 @@ public class CustomerNew extends GameEntity {
         this.customerToTest = false;
 
         //Waittime in seconds
-        Random rd = new Random();
-        this.waittime = 200 + rd.nextFloat()*100;
+        //Random rd = new Random();
+//        this.waittime = 200 + rd.nextFloat()*100;
+//        waittime += 100;
+        //setWaitTime();
+        this.waittime = 200;
         this.Stillhere = true;
 
         this.x = x;
@@ -94,6 +98,47 @@ public class CustomerNew extends GameEntity {
     {
         this.request = x;
     }
+
+
+//    public void setDifficulty(int difficulty) {
+//        this.difficulty = difficulty;
+//        if (difficulty == 1) {
+//            this.waittime += 100;
+//        }
+//        if (difficulty == 2) {
+//            this.waittime += 50;
+//        }
+//    }
+
+    public void setDifficulty(int difficulty) {
+
+        System.out.println("difficulty" + difficulty);
+
+        this.difficulty = difficulty;
+
+        Random rd = new Random();
+        this.waittime += rd.nextFloat()*100;
+
+        if (this.difficulty == 1) {
+            this.waittime += 100;
+        }
+        if (this.difficulty == 2) {
+            this.waittime += 50;
+        }
+    }
+
+//    public void setWaitTime() {
+//
+//        Random rd = new Random();
+//        this.waittime = 200 + rd.nextFloat()*100;
+//
+//        if (this.difficulty == 1) {
+//            this.waittime += 100;
+//        }
+//        if (this.difficulty == 2) {
+//            this.waittime += 50;
+//        }
+//    }
 
     public void setStationPosition(float endX, float endY) {
         this.stationPosition.x = endX;
@@ -211,32 +256,32 @@ public class CustomerNew extends GameEntity {
         }
         if (this.entryStatus == 1) {
             if (this.customerToTest == true) {
-                //System.out.println(this + "entry status 1 moving to point C");
+               // System.out.println(this + "entry status 1 moving to point C");
             }
             move_left_down(Constants.customerPointD);
         }
         if (this.entryStatus == 2) {
             if (this.customerToTest == true) {
-                //System.out.println("entry status 2 moving to point D");
+            //    System.out.println("entry status 2 moving to point D");
             }
             move_left_down(Constants.customerPointE);
         }
         if (this.entryStatus == 3) {
             if (this.customerToTest == true) {
-                //System.out.println("entry status 3 moving to point E");
+            //    System.out.println("entry status 3 moving to point E");
             }
             move_left_down(Constants.customerPointF);
         }
         if (this.entryStatus == 4) {
             if (this.customerToTest == true) {
-                //System.out.println("entry status 4 moving to point F");
+            //    System.out.println("entry status 4 moving to point F");
             }
             move_left_down(stationPosition);
         }
 
         if (this.entryStatus == 5) {
             if (this.customerToTest == true) {
-                //System.out.println("entry status 5 moving to station" + this.station);
+              //  System.out.println("entry status 5 moving to station" + this.station);
             }
 
             boolean readyX = false, readyY = false;
@@ -385,38 +430,30 @@ public class CustomerNew extends GameEntity {
 
     @Override
     public void renderShape(ShapeRenderer shape) {
+
         // Render the progress bar when inUse
         if (customerStatus == 1) {
             float rectX = x - 9f,
                     rectY = y -2f,
-                    rectWidth = 48 * Constants.UnitScale,
+                    rectWidth = 1f,
                     rectHeight = 10 * Constants.UnitScale;
+            if (difficulty==1) { rectWidth = 8f; }
+            else if (difficulty==2) { rectWidth = 7f; }
+            else { rectWidth = 6f; }
+
             // Black bar behind
             shape.rect(rectX, rectY, rectWidth, rectHeight, Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK);
             // Now the progress bar.
-            float progressWidth = rectWidth-4 * Constants.UnitScale;
-            Color progressColor = Color.SKY;
-            if (200 < this.waittime) {
-                progressColor = Color.GREEN;
-            } if (100 < this.waittime && this.waittime <= 200) {
+            float progressWidth = (waittime*0.02f) -2f * Constants.UnitScale;
+            Color progressColor = Color.FOREST;
+            if (100 < this.waittime && this.waittime <= 200) {
                 progressColor = Color.YELLOW;
             } if (0 < this.waittime && this.waittime <= 100) {
                 progressColor = Color.ORANGE;
             } if (this.waittime == 0) {
                 progressColor = Color.RED;
             }
-            // If preparation is done, show as green.
-//            switch (state) {
-//                case NEED_USE:
-//                    progressColor = Color.YELLOW;
-//                    break;
-//                case FINISHED:
-//                    progressColor = Color.GREEN;
-//                    break;
-//                default:
-//                    break;
-//            }
-            shape.rect(rectX+ 2 * Constants.UnitScale,rectY + 2 * Constants.UnitScale,waittime/300 * progressWidth,rectHeight - 4 * Constants.UnitScale,progressColor,progressColor,progressColor,progressColor);
+            shape.rect(rectX+ 2 * Constants.UnitScale,rectY + 2 * Constants.UnitScale, progressWidth,rectHeight - 4 * Constants.UnitScale,progressColor,progressColor,progressColor,progressColor);
         }
     }
 

@@ -724,7 +724,7 @@ public class GameScreen extends ScreenAdapter {
      *  customers The number of customers that need to be
      *                  served in the game to finish.
      */
-    public void startGame(boolean mode, int difficulty) {
+    public void startGame(String mode, int difficulty) {
 
         customerControllerNew.setMode(mode);
         customerControllerNew.setDifficulty(difficulty);

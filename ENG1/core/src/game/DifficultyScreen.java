@@ -37,7 +37,7 @@ public class DifficultyScreen extends ScreenAdapter {
     private Texture backgroundSprite;
 
     public static Texture spaceBackground = new Texture("menu/space-bg.png");
-    private boolean mode;
+    private String mode;
 
 
     /**
@@ -45,7 +45,7 @@ public class DifficultyScreen extends ScreenAdapter {
      * @param screenController The {@link ScreenController} of the {@link ScreenAdapter}.
      * @param orthographicCamera The {@link OrthographicCamera} that the game should use.
      */
-    public DifficultyScreen(ScreenController screenController, OrthographicCamera orthographicCamera, boolean mode) {
+    public DifficultyScreen(ScreenController screenController, OrthographicCamera orthographicCamera) {
         this.screenController = screenController;
         this.camera = orthographicCamera;
         this.batch = screenController.getSpriteBatch();
@@ -54,7 +54,7 @@ public class DifficultyScreen extends ScreenAdapter {
 
         stage = new Stage(viewport, batch);
         this.backgroundSprite = spaceBackground;
-        this.mode = mode;
+        //this.mode = mode;
 
         Label.LabelStyle font = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
         Table table = new Table();
@@ -63,6 +63,10 @@ public class DifficultyScreen extends ScreenAdapter {
 
         Image welcomeLabel = new Image(new Texture("menu/title.png"));
         table.add(welcomeLabel).expandX();
+        table.row();
+
+        Label textLabel = new Label(String.format("The higher the difficulty, the less patient the customers will be!"), font);
+        table.add(textLabel).expandX();
         table.row();
 
         Label easyLabel = new Label(String.format("PRESS %s FOR EASY",Interactions.getKeyString(InputKey.InputTypes.EASY).toUpperCase()), font);
@@ -81,7 +85,7 @@ public class DifficultyScreen extends ScreenAdapter {
 
     }
 
-    public void setMode(boolean mode) {
+    public void setMode(String mode) {
         this.mode = mode;
     }
 

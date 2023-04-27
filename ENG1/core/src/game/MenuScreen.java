@@ -102,11 +102,11 @@ public class MenuScreen extends ScreenAdapter {
 
         if (Interactions.isJustPressed(InputKey.InputTypes.START_SCENARIO)) {
             screenController.setScreen(ScreenID.DIFFICULTY);
-            screenController.setMode(true);
+            screenController.setMode("scenario");
         }
         else if (Interactions.isJustPressed(InputKey.InputTypes.START_ENDLESS)) {
             screenController.setScreen(ScreenID.DIFFICULTY);
-            screenController.setMode(false);
+            screenController.setMode("endless");
         }
 
 //        if (Interactions.isJustPressed(InputKey.InputTypes.START_SCENARIO)) {
