@@ -28,10 +28,12 @@ public class ScreenController {
     private InstructionScreen instructionScreen;
     private PauseScreen pauseScreen;
     private IntroScreen introScreen;
+    private WinScreen winScreen;
     private HashMap<ScreenID, ScreenAdapter> screens;
 
     private long playTimeDiff;
     private long customerTimeDiff;
+    private String endTime;
 
     /**
      * Screen Controller Constructor
@@ -106,7 +108,8 @@ public class ScreenController {
          *  within the game. */
         CREDITS,
 
-        INTRO
+        INTRO,
+        WIN
     }
 
     /**
@@ -116,6 +119,14 @@ public class ScreenController {
      */
     public ScreenAdapter getScreen(ScreenID screenID) {
         return this.screens.get(screenID);
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
     }
 
     /** Reset the game to the initial state. */
@@ -137,6 +148,12 @@ public class ScreenController {
         gameScreen.setPreviousSecond(TimeUtils.millis()- playTimeDiff);
         //gameScreen.setNextCustomerSecond(TimeUtils.millis() - customerTimeDiff);
         setScreen(ScreenID.GAME);
+    }
+
+    public void winGame() {
+        this.winScreen = new WinScreen(this,new OrthographicCamera());
+        this.screens.put(ScreenID.WIN, winScreen);
+        setScreen(ScreenID.WIN);
     }
 
 }
