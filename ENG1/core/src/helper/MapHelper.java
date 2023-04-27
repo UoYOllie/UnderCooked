@@ -22,7 +22,7 @@ public class MapHelper {
     private TiledMap tiledMap;
     private ArrayList<Rectangle> mapObstacles;
     public ArrayList<Station> mapStations;
-    private ArrayList<Station> servingStationNewList;
+    private ArrayList<Station> ServingStationList;
 
 
     /**
@@ -32,14 +32,14 @@ public class MapHelper {
     public MapHelper(GameScreen g) {
         mapObstacles = new ArrayList<>();
         mapStations = new ArrayList<>();
-        servingStationNewList = new ArrayList<>();
+        ServingStationList = new ArrayList<>();
         this.gameScreen = g;
     }
 
-    public MapHelper(ArrayList<Rectangle> obstacles,ArrayList<Station> stations,ArrayList<Station> servingStationNew) {
+    public MapHelper(ArrayList<Rectangle> obstacles,ArrayList<Station> stations,ArrayList<Station> ServingStation) {
         mapObstacles = obstacles;
         mapStations = stations;
-        servingStationNewList = servingStationNew;
+        ServingStationList = ServingStation;
     }
 
     /**
@@ -203,9 +203,9 @@ public class MapHelper {
 //                case "ServingStation":
 //                    mapStations.add(new ServingStation(newRectangle));
 //                    break;
-                case "ServingStationNew":
-                    mapStations.add(new ServingStationNew(newRectangle));
-                    servingStationNewList.add(new ServingStationNew(newRectangle));
+                case "ServingStation":
+                    mapStations.add(new ServingStation(newRectangle));
+                    ServingStationList.add(new ServingStation(newRectangle));
                 case "SpeedPowerup":
                     mapStations.add(new SpeedPowerup(newRectangle,gameScreen));
                     break;
@@ -362,9 +362,9 @@ public class MapHelper {
         return mapStations;
     }
 
-    //public Array<Station> getServingStationNewList() { return servingStationNewList;}
+    //public Array<Station> getServingStationList() { return ServingStationList;}
 
-    public ArrayList<Station> getServingStationNewList() {return servingStationNewList;}
+    public ArrayList<Station> getServingStationList() {return ServingStationList;}
 
     /** Disposes of loaded tiledMap textures when no longer required. */
 

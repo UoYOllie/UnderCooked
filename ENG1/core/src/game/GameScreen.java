@@ -28,7 +28,7 @@ import helper.*;
 import interactions.InputKey;
 import interactions.Interactions;
 import stations.CookInteractable;
-import stations.ServingStationNew;
+import stations.ServingStation;
 import stations.Station;
 
 import java.util.ArrayList;
@@ -186,7 +186,7 @@ public class GameScreen extends ScreenAdapter {
         // UPDATED
         // this.mapHelper = MapHelper.getInstance();
         this.mapHelper = new MapHelper(this);
-        //System.out.println(servingStationNewList);
+        //System.out.println(ServingStationList);
 
 
         // this.mapHelper.setGameScreen(this);

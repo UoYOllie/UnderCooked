@@ -21,8 +21,8 @@ public class CustomerController {
     /** The ArrayList of all customers currently in the game.*/
     private ArrayList<CustomerNew> customers;
 
-    /** The ArrayList of all ServingStations in the game, used for generating customers.*/
-    private ArrayList<Station> servingStations;
+    /** The ArrayList of all s in the game, used for generating customers.*/
+    private ArrayList<Station> s;
 
     /** The Map linking each station to exactly one customer who has not been served.*/
     private Map<Station, CustomerNew> stationCustomerMap;
@@ -39,7 +39,7 @@ public class CustomerController {
     public CustomerController(GameScreen gameScreen) {
         this.gameScreen = gameScreen;
         this.customers = new ArrayList<>();
-        this.servingStations = gameScreen.mapHelper.getServingStationNewList();
+        this.s = gameScreen.mapHelper.getServingStationList();
         this.stationCustomerMap = new HashMap<Station, CustomerNew>();
         initialiseStationCustomerMap();
     }
@@ -89,16 +89,16 @@ public class CustomerController {
 
     /**
      * Method to remove a customer from stationCustomerMap, after they have been saved.
-     * @param station the ServingStation to remove the customer from.
+     * @param station the  to remove the customer from.
      * */
     public void removeCustomer(Station station) {
         this.stationCustomerMap.put(station, null);
     }
 
-    /** Method to initialise StationCustomerMap to map each ServingStation to a null customer. */
+    /** Method to initialise StationCustomerMap to map each  to a null customer. */
     public void initialiseStationCustomerMap() {
 
-        for (Station station : servingStations) {
+        for (Station station : s) {
             this.stationCustomerMap.put(station, null);
         }
     }
