@@ -445,4 +445,8 @@ public class CustomerNew extends GameEntity {
         }
     }
 
+    public void setCustomerStatus(Integer customerStatus){
+        this.customerStatus = customerStatus;
+    }
+
 }

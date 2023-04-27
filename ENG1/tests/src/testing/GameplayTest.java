@@ -31,7 +31,7 @@ public class GameplayTest {
     public void TestServingStationServesMultipleCustomers(){
         //First we test the servingStation is cleared after the customer interacts with a correct recipe. We will use this to make sure the customer is finished with the station and then test with a separate customer and different order
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -51,7 +51,7 @@ public class GameplayTest {
 
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         testStation.customerInteract(customerNew);
-        assertTrue(testStation.getServedDishStack().getStack().isEmpty(),"Error: ServingStationNew is not cleared after a customer takes the correct recipe");
+        assertTrue(testStation.getServedDishStack().getStack().isEmpty(),"Error: ServingStation is not cleared after a customer takes the correct recipe");
 
         //Now test with separate customer
         CustomerNew customerNew2 = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
@@ -63,16 +63,16 @@ public class GameplayTest {
 
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         testStation.customerInteract(customerNew2);
-        assertTrue(testStation.getServedDishStack().getStack().isEmpty(),"Error: ServingStationNew cannot be used by more than one customer (when served one after the other)");
+        assertTrue(testStation.getServedDishStack().getStack().isEmpty(),"Error: ServingStation cannot be used by more than one customer (when served one after the other)");
 
         testStation.setTestFlag(0);
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
     @Test
-    public void TestServingStationNewDoesNotAcceptWrongRecipes(){
+    public void TestServingStationDoesNotAcceptWrongRecipes(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -97,7 +97,7 @@ public class GameplayTest {
 
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         testStation.customerInteract(customerNew);
-        assertFalse(testStation.getServedDishStack().getStack().isEmpty(),"Error: ServingStationNew is cleared after a customer rejects an incorrect recipe");
+        assertFalse(testStation.getServedDishStack().getStack().isEmpty(),"Error: ServingStation is cleared after a customer rejects an incorrect recipe");
         assertFalse(customerNew.dishStack.getStack() == finalCustomersRecipe,"Error: Customer takes a recipe even if it is wrong");
         assertEquals(testStation.getServedDishStack().getStack(),finalCustomersRecipe,"Error: The servingStation is cleared even if a wrong recipe is served");
 
@@ -109,7 +109,7 @@ public class GameplayTest {
     // Relates to the FR_DISH_SERVE requirement
     public void TestServingStationServeCustomerOnionTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -146,7 +146,7 @@ public class GameplayTest {
     @Test
     public void TestServingStationServeCustomerLettuceTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -183,7 +183,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceOnionSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -220,7 +220,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerPlainBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -258,7 +258,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeWrongOrder(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -295,7 +295,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -341,7 +341,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -387,7 +387,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -432,7 +432,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -480,7 +480,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -528,7 +528,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -576,7 +576,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerLettuceTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -626,7 +626,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerPlainPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -662,7 +662,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerBeansPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -699,7 +699,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerColeslawPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -736,7 +736,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -773,7 +773,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerBeansCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -811,7 +811,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerBeansColeslawPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -849,7 +849,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerColeslawCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -886,7 +886,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerBeansColeslawCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -932,7 +932,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerPlainPizza(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -970,7 +970,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerPepperoniPizza(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -1016,7 +1016,7 @@ public class GameplayTest {
     // Relates to the FR_SERVE requirement
     public void TestServingStationServeCustomerOnionPizza(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
         testStation.setTestFlag(1);
 
@@ -1140,9 +1140,9 @@ public class GameplayTest {
 
         //Checking the else -> x <= destination x
         customerNew.destination.x = 2;
-        customerNew.customerStatus = 0;
+        customerNew.setCustomerStatus(0);
         customerNew.servedCustomerLeaves();
-        assertEquals(customerNew.customerStatus, 1,"Error: CustomerNew's customerStatus is not being incremented correctly if x <= destination x");
+        assertEquals(customerNew.getCustomerStatus(), 1,"Error: CustomerNew's customerStatus is not being incremented correctly if x <= destination x");
     }
 
     //The following tests make sure the bluggus power up

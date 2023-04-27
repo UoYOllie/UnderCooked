@@ -22,6 +22,7 @@ import org.junit.runner.RunWith;
 import stations.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import static Shop.Gold.gold;
 import static interactions.Interactions.keysJustPressed;
@@ -449,12 +450,12 @@ public class GeneralTest {
     }
 
     @Test
-    public void testsgetServingStationNewList(){
-        ServingStationNew servingStationNew = new ServingStationNew(new Rectangle(1,2,3,4));
+    public void testsgetServingStationList(){
+        ServingStation ServingStation = new ServingStation(new Rectangle(1,2,3,4));
         ArrayList<Station> finalList = new ArrayList<>();
-        finalList.add(servingStationNew);
+        finalList.add(ServingStation);
         MapHelper helper = new MapHelper(new ArrayList<Rectangle>(),new ArrayList<Station>(),finalList);
-        assertEquals(helper.getServingStationNewList(), finalList , "Error: The MapHelper utility function getServingStationsNew does not return the right list");
+        assertEquals(helper.getServingStationList(), finalList , "Error: The MapHelper utility function getServingStationsNew does not return the right list");
     }
 
     //The following test exercises the CustomerInteractor's updatePosition
@@ -560,16 +561,16 @@ public class GeneralTest {
         CustomerNew customerNew = new CustomerNew(100,400,3,4);
         customerNew.stationPosition.x = 1;
         customerNew.stationPosition.y = 1;
-        customerNew.customerStatus = 0;
+        customerNew.setCustomerStatus(0);
         customerNew.enterCustomer();
-        assertEquals(customerNew.customerStatus, 1);
+        assertEquals(customerNew.getCustomerStatus(), 1);
     }
 
-    //The following test the ServingStationNew's customerInteract method for the menu and teacup change power ups
+    //The following test the ServingStation's customerInteract method for the menu and teacup change power ups
     @Test
-    public void testServingStationNewCustomerInteract(){
+    public void testServingStationCustomerInteract(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStationNew testStation = new ServingStationNew(rectangle);
+        ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
 
         CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);

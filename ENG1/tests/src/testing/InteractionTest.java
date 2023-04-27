@@ -983,7 +983,7 @@ public class InteractionTest {
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
-        ServingStationNew servingStation = new ServingStationNew(rectangle);
+        ServingStation servingStation = new ServingStation(rectangle);
         testList.add(assemblyStation.getRectangle());
         testList.add(servingStation.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
