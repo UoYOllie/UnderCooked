@@ -104,7 +104,7 @@ public class GameScreen extends ScreenAdapter {
 
         this.interactables = new Array<>();
         this.gold = new Gold();
-        this.gold.setBalance(0);
+        this.gold.setBalance(1000);
         this.Reputation = new RepPoints();
         this.freeze = 0;
         this.EnableAutoZoom = true;
@@ -181,7 +181,7 @@ public class GameScreen extends ScreenAdapter {
 
         this.interactables = new Array<>();
         this.gold = new Gold();
-        this.gold.setBalance(0);
+        this.gold.setBalance(1000);
         this.Reputation = new RepPoints();
         this.freeze = 0;
         this.EnableAutoZoom = true;
@@ -907,6 +907,11 @@ public class GameScreen extends ScreenAdapter {
                 boolean _isbluggus_ = held_bluggy.getBoolean(count);
 
                 Cook toAdd = new Cook(x*8f,y*8f,3.34f,1);
+                toAdd.movement_speed = _speed_;
+                toAdd.setColour(_colour_);
+                if (_isbluggus_) {
+                    toAdd.MakeIntoBluggus();
+                }
 
                 if(type==1) //Used cook
                 {
