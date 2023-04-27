@@ -37,7 +37,7 @@ public class IntroScreen extends ScreenAdapter {
     private Texture backgroundSprite;
 
     public static Texture spaceBackground = new Texture("menu/space-bg.png");
-    private boolean mode;
+    private String mode;
 
     private Integer difficulty;
 
@@ -47,7 +47,7 @@ public class IntroScreen extends ScreenAdapter {
      * @param screenController The {@link ScreenController} of the {@link ScreenAdapter}.
      * @param orthographicCamera The {@link OrthographicCamera} that the game should use.
      */
-    public IntroScreen(ScreenController screenController, OrthographicCamera orthographicCamera, boolean mode,Integer difficulty) {
+    public IntroScreen(ScreenController screenController, OrthographicCamera orthographicCamera, String mode, Integer difficulty) {
         this.screenController = screenController;
         this.camera = orthographicCamera;
         this.batch = screenController.getSpriteBatch();
@@ -88,7 +88,7 @@ public class IntroScreen extends ScreenAdapter {
 
     }
 
-    public void setMode(boolean mode) {
+    public void setMode(String mode) {
         this.mode = mode;
     }
 

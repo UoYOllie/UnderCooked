@@ -112,6 +112,8 @@ public class CustomerNew extends GameEntity {
 
     public void setDifficulty(int difficulty) {
 
+        System.out.println("difficulty" + difficulty);
+
         this.difficulty = difficulty;
 
         Random rd = new Random();
