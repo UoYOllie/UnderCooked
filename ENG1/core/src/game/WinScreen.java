@@ -56,7 +56,7 @@ public class WinScreen extends ScreenAdapter {
 
         table.row();
 
-        timeLabel = new Label(screenController.getEndTime(), font);
+//        timeLabel = new Label(screenController.getEndTime(), font);
         //setTime(hoursPassed, minutesPassed, secondsPassed);
         timeLabel.setFontScale(2);
         table.add(timeLabel);

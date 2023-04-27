@@ -8,7 +8,9 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
 import cooks.Cook;
+import cooks.CustomerNew;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -118,7 +120,7 @@ public class ScreenController {
 
     /** Reset the game to the initial state. */
     public void resetGameScreen() {
-        gameScreen.reset(new Array<Cook>(),new Array<Cook>());
+        gameScreen.reset(new Array<Cook>(),new Array<Cook>(),new ArrayList<CustomerNew>());
         instructionScreen.setPrevScreenID(ScreenID.MENU);
     }
 

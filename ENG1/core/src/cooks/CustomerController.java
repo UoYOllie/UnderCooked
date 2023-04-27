@@ -19,7 +19,7 @@ public class CustomerController {
     private GameScreen gameScreen;
 
     /** The ArrayList of all customers currently in the game.*/
-    private ArrayList<CustomerNew> customers;
+    public ArrayList<CustomerNew> customers;
 
     /** The ArrayList of all s in the game, used for generating customers.*/
     private ArrayList<Station> s;
@@ -144,7 +144,50 @@ public class CustomerController {
             }
         }
 
+
+
         // Returns null if all servingStations were busy.
+        return null;
+    }
+    public CustomerNew addCustomer(float x,float y) {
+
+        // Check if all customers have been served, if yes return.
+        if (maxCustomersReached()) {
+            System.out.print("MAX REACHED RETURNING NULL");
+            return null;
+        }
+
+        // Iterate through each servingStation key in stationCustomerMap.
+        for (Map.Entry<Station, CustomerNew> entry : stationCustomerMap.entrySet()) {
+
+            Station station = entry.getKey();
+            CustomerNew customer = entry.getValue();
+
+            // If there is no customer at the station, create a new one.
+            if (customer == null) {
+
+                CustomerNew newCustomer = new CustomerNew(x, y, 3.34f, 3f);
+
+                // Set station position, difficulty, and gameScreen attributes for the Customer.
+                newCustomer.setStationPosition(station.getX(), station.getY());
+                newCustomer.setDifficulty(difficulty);
+                newCustomer.setGameScreen(this.gameScreen);
+
+                // LAURA GET RID OF THIS LATER
+                if (customers.size() == 2) {
+                    newCustomer.customerToTest = true;
+                    System.out.println("testing " + newCustomer + " with destination " + station);
+                }
+
+                // Add the new customer to customers and stationCustomerMap, then return the new Customer.
+                this.stationCustomerMap.put(station, newCustomer);
+                System.out.print("Im adding a customer now!!!!!!!!");
+                this.customers.add(newCustomer);
+                return newCustomer;
+            }
+        }
+        // Returns null if all servingStations were busy.
+        System.out.print("Im about to return null, be ready");
         return null;
     }
 

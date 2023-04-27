@@ -171,7 +171,7 @@ public class GameScreen extends ScreenAdapter {
         this.bgBatch.setProjectionMatrix(backgroundCamera.combined);
     }
 
-    public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame)
+    public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame,ArrayList<CustomerNew>customersforgame)
     {
         this.previousSecond = TimeUtils.millis();
         //this.lastCustomerSecond = -1;
@@ -220,6 +220,7 @@ public class GameScreen extends ScreenAdapter {
         addInteractable(this.mapHelper.getMapStations());
         this.customerController = new CustomerController(this);
 
+
         if(cooksforgame.size == 0) {
             System.out.println("cOOKS ARE NULL");
             Cook GlibbertOrange = new Cook(2041 * 8f, 2814 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
@@ -257,6 +258,16 @@ public class GameScreen extends ScreenAdapter {
             for(Cook c:unusedcooksforgame)
             {
                 this.addSpareCook(c);
+            }
+
+            int counter = 0;
+            for(CustomerNew c:customersforgame)
+            {
+                addCustomer(customerController.addCustomer(c.x,c.y));
+                customerController.customers.get(counter).request = c.request;
+                customerController.customers.get(counter).waittime = c.waittime;
+
+                counter++;
             }
         }
 
@@ -564,7 +575,7 @@ public class GameScreen extends ScreenAdapter {
     }
 
     public void addCustomer(CustomerNew customer) {
-
+//        System.out.print("__________________G"+customer);
         if (customer != null) {
             gameEntities.add(customer);
         }
@@ -954,7 +965,7 @@ public class GameScreen extends ScreenAdapter {
 
         //stations
 
-        reset(cooksforgame,unusedcooksforgame);
+        reset(cooksforgame,unusedcooksforgame,customersforgame);
 //        System.out.println(root);
 
         //Gold and Reputation
