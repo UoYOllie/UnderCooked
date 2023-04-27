@@ -721,7 +721,7 @@ public class GameScreen extends ScreenAdapter {
 
     /**
      * A variable for setting up the game when it starts.
-     * @param customers The number of customers that need to be
+     *  customers The number of customers that need to be
      *                  served in the game to finish.
      */
     public void startGame(String mode, int difficulty) {
@@ -881,6 +881,12 @@ public class GameScreen extends ScreenAdapter {
                 }
 
             }
+            Array<FoodItem.FoodID> tempdish = new Array<FoodItem.FoodID>();
+            for(int item:newdishstack)
+            {
+                FoodItem.FoodID value = FoodItem.FoodID.values()[item];
+                tempdish.add(value);
+            }
 
             if(type==2) //Customer
             {
@@ -909,9 +915,22 @@ public class GameScreen extends ScreenAdapter {
                 Cook toAdd = new Cook(x*8f,y*8f,3.34f,1);
                 toAdd.movement_speed = _speed_;
                 toAdd.setColour(_colour_);
+                toAdd.dishStack.setStack(tempdish);
                 if (_isbluggus_) {
                     toAdd.MakeIntoBluggus();
                 }
+                //System.out.print("food id values: "+ value);
+                for(int item:s1)
+                {
+                    FoodItem.FoodID value = FoodItem.FoodID.values()[item];
+                    toAdd.foodStack.addStack(value);
+                }
+                for(int item:s2)
+                {
+                    FoodItem.FoodID value = FoodItem.FoodID.values()[item];
+                    toAdd.foodStack2.addStack(value);
+                }
+
 
                 if(type==1) //Used cook
                 {
