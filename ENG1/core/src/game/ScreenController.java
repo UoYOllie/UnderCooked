@@ -25,7 +25,9 @@ public class ScreenController {
     private CreditsScreen creditsScreen;
     private InstructionScreen instructionScreen;
     private PauseScreen pauseScreen;
+    private IntroScreen introScreen;
     private HashMap<ScreenID, ScreenAdapter> screens;
+
     private long playTimeDiff;
     private long customerTimeDiff;
 
@@ -42,6 +44,7 @@ public class ScreenController {
         this.instructionScreen = new InstructionScreen(this,new OrthographicCamera());
         this.creditsScreen = new CreditsScreen(this,new OrthographicCamera());
         this.difficultyScreen = new DifficultyScreen(this, new OrthographicCamera(), true);
+        this.introScreen = new IntroScreen(this, new OrthographicCamera(), true,1);
 
         this.screens = new HashMap<>();
         this.screens.put(ScreenID.MENU,menuScreen);
@@ -50,6 +53,7 @@ public class ScreenController {
         this.screens.put(ScreenID.INSTRUCTIONS,instructionScreen);
         this.screens.put(ScreenID.CREDITS,creditsScreen);
         this.screens.put(ScreenID.DIFFICULTY, difficultyScreen);
+        this.screens.put(ScreenID.INTRO, introScreen);
 
         this.pauseScreen = new PauseScreen(this,new OrthographicCamera());
         this.screens.put(ScreenID.PAUSE,pauseScreen);
@@ -67,6 +71,8 @@ public class ScreenController {
     public void setMode(boolean mode) {
         this.difficultyScreen.setMode(mode);
     }
+
+    public void setDifficulty(Integer difficulty){this.introScreen.setDifficulty(difficulty);}
 
     /**
      * An intermediate function to get the SpriteBatch from the {@link Boot}.
@@ -95,7 +101,9 @@ public class ScreenController {
         INSTRUCTIONS,
         /** The {@link CreditsScreen}, where the game shows credit for the assets we used
          *  within the game. */
-        CREDITS
+        CREDITS,
+
+        INTRO
     }
 
     /**

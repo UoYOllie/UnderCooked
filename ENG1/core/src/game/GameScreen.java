@@ -729,6 +729,8 @@ public class GameScreen extends ScreenAdapter {
         customerControllerNew.setMode(mode);
         customerControllerNew.setDifficulty(difficulty);
 
+        System.out.println(mode);
+        System.out.println(difficulty);
         secondsPassed = 0;
         minutesPassed = 0;
         hoursPassed = 0;

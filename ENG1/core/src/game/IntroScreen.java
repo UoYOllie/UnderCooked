@@ -26,7 +26,7 @@ import interactions.Interactions;
  * One of which is to change to the {@link GameScreen} and
  * play the game.
  */
-public class DifficultyScreen extends ScreenAdapter {
+public class IntroScreen extends ScreenAdapter {
 
     private ScreenController screenController;
     private OrthographicCamera camera;
@@ -39,13 +39,15 @@ public class DifficultyScreen extends ScreenAdapter {
     public static Texture spaceBackground = new Texture("menu/space-bg.png");
     private boolean mode;
 
+    private Integer difficulty;
+
 
     /**
      * The constructor for the {@link MenuScreen}.
      * @param screenController The {@link ScreenController} of the {@link ScreenAdapter}.
      * @param orthographicCamera The {@link OrthographicCamera} that the game should use.
      */
-    public DifficultyScreen(ScreenController screenController, OrthographicCamera orthographicCamera, boolean mode) {
+    public IntroScreen(ScreenController screenController, OrthographicCamera orthographicCamera, boolean mode,Integer difficulty) {
         this.screenController = screenController;
         this.camera = orthographicCamera;
         this.batch = screenController.getSpriteBatch();
@@ -55,6 +57,7 @@ public class DifficultyScreen extends ScreenAdapter {
         stage = new Stage(viewport, batch);
         this.backgroundSprite = spaceBackground;
         this.mode = mode;
+        this.difficulty = difficulty;
 
         Label.LabelStyle font = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
         Table table = new Table();
@@ -65,16 +68,20 @@ public class DifficultyScreen extends ScreenAdapter {
         table.add(welcomeLabel).expandX();
         table.row();
 
-        Label easyLabel = new Label(String.format("PRESS %s FOR EASY",Interactions.getKeyString(InputKey.InputTypes.EASY).toUpperCase()), font);
-        table.add(easyLabel).expandX();
+        Label PiazzaLabel = new Label(String.format("PIAZZA BUILDING"), font);
+        table.add(PiazzaLabel).expandX();
         table.row();
 
-        Label mediumLabel = new Label(String.format("PRESS %s FOR MEDIUM",Interactions.getKeyString(InputKey.InputTypes.MEDIUM).toUpperCase()), font);
-        table.add(mediumLabel).expandX();
+        Label YearLabel = new Label("YEAR:3999", font);
+        table.add(YearLabel).expandX();
         table.row();
 
-        Label hardLabel = new Label(String.format("PRESS %s FOR HARD",Interactions.getKeyString(InputKey.InputTypes.HARD).toUpperCase()), font);
-        table.add(hardLabel).expandX();
+        Label IncidentLabel = new Label("The Piazza Panic Incident", font);
+        table.add(IncidentLabel).expandX();
+        table.row();
+
+        Label UseLabel = new Label(String.format("PRESS %s TO START",Interactions.getKeyString(InputKey.InputTypes.USE).toUpperCase()), font);
+        table.add(UseLabel).expandX();
         table.row();
 
         stage.addActor(table);
@@ -83,6 +90,10 @@ public class DifficultyScreen extends ScreenAdapter {
 
     public void setMode(boolean mode) {
         this.mode = mode;
+    }
+
+    public void setDifficulty(Integer difficulty){
+        this.difficulty = difficulty;
     }
 
 
@@ -94,17 +105,9 @@ public class DifficultyScreen extends ScreenAdapter {
     public void update(float delta) {
         Interactions.updateKeys();
 
-        if (Interactions.isJustPressed(InputKey.InputTypes.EASY)) {
-            screenController.setScreen(ScreenID.INTRO);
-            screenController.setDifficulty(1);
-        }
-        else if (Interactions.isJustPressed(InputKey.InputTypes.MEDIUM)) {
-            screenController.setScreen(ScreenID.INTRO);
-            screenController.setDifficulty(2);
-        }
-        else if (Interactions.isJustPressed(InputKey.InputTypes.HARD)) {
-            screenController.setScreen(ScreenID.INTRO);
-            screenController.setDifficulty(3);
+        if (Interactions.isJustPressed(InputKey.InputTypes.USE)) {
+            screenController.setScreen(ScreenID.GAME);
+            ((GameScreen) screenController.getScreen(ScreenID.GAME)).startGame(this.mode, difficulty);
         }
     }
 
