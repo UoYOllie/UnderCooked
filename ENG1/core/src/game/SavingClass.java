@@ -40,6 +40,9 @@ public class SavingClass {
     private int minutes;
     private int hours;
     //------------------------------------------------------------------------------------
+    private String Mode;
+    private int Difficulty;
+    //------------------------------------------------------------------------------------
 
 
 
@@ -64,6 +67,7 @@ public class SavingClass {
         SaveGoldRep(g);
         SaveCooksAndCustomers(g);
         Timer(g);
+        Modediff(g);
         //Stations
 
     }
@@ -202,5 +206,10 @@ public class SavingClass {
         this.seconds = gameScreen.secondsPassed;
         this.minutes = gameScreen.minutesPassed;
         this.hours = gameScreen.hoursPassed;
+    }
+    private void Modediff(GameScreen gameScreen)
+    {
+        this.Mode = gameScreen.getCustomerController().getMode();
+        this.Difficulty = gameScreen.getCustomerController().getDifficulty();
     }
 }

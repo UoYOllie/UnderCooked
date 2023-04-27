@@ -148,4 +148,11 @@ public class CustomerController {
         return null;
     }
 
+    public String getMode() {
+        return  this.mode;
+    }
+
+    public int getDifficulty() {
+        return this.difficulty;
+    }
 }

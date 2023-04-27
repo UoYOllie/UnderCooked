@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import cooks.Cook;
 
 import java.util.HashMap;
@@ -23,7 +22,6 @@ public class ScreenController {
     private DifficultyScreen difficultyScreen;
     private MenuScreen menuScreen;
     private GameOverScreen gameOverScreen;
-    private WinScreen winScreen;
     private CreditsScreen creditsScreen;
     private InstructionScreen instructionScreen;
     private PauseScreen pauseScreen;
@@ -32,7 +30,6 @@ public class ScreenController {
 
     private long playTimeDiff;
     private long customerTimeDiff;
-    private String endTime;
 
     /**
      * Screen Controller Constructor
@@ -78,9 +75,6 @@ public class ScreenController {
 
     public void setDifficulty(Integer difficulty){this.introScreen.setDifficulty(difficulty);}
 
-    public void setEndTime(String time) {this.endTime = time;}
-    public String getEndTime() {return this.endTime;}
-
     /**
      * An intermediate function to get the SpriteBatch from the {@link Boot}.
      * @return {@link SpriteBatch} : {@link SpriteBatch} for the game.
@@ -110,8 +104,7 @@ public class ScreenController {
          *  within the game. */
         CREDITS,
 
-        INTRO,
-        WIN
+        INTRO
     }
 
     /**
@@ -142,12 +135,6 @@ public class ScreenController {
         gameScreen.setPreviousSecond(TimeUtils.millis()- playTimeDiff);
         //gameScreen.setNextCustomerSecond(TimeUtils.millis() - customerTimeDiff);
         setScreen(ScreenID.GAME);
-    }
-
-    public void winGame() {
-        this.winScreen = new WinScreen(this, new OrthographicCamera());
-        this.screens.put(ScreenID.WIN, winScreen);
-        setScreen(ScreenID.WIN);
     }
 
 }
