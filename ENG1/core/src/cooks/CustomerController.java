@@ -60,12 +60,32 @@ public class CustomerController {
     }
 
     /**
-     * Method to check whether all customers have been served in Scenario Mode.
+     * Helper method to check whether all customers have been served in Scenario Mode.
      * @return true if all customers in the scenario have been served.
      * */
-    private boolean allCustomersServed() {
-        return (this.mode == "scenario" && this.customers.size() > 4);
+    private boolean maxCustomersReached() {
+        return (this.mode == "scenario" && this.customers.size() > 0);
     }
+
+    public int scenarioCustomersLeft() {
+
+        if (customers.size() == 0) {
+            return 1;
+        }
+
+        int customersLeft = customers.size();
+
+        if (this.mode == "scenario" && customersLeft > 0) {
+            for (CustomerNew customer : customers) {
+                if (customer.getCustomerStatus() == 2) {
+                    customersLeft -= 1;
+                }
+            }
+        }
+
+        return customersLeft;
+    }
+
 
     /**
      * Method to remove a customer from stationCustomerMap, after they have been saved.
@@ -91,7 +111,7 @@ public class CustomerController {
     public CustomerNew addCustomer() {
 
         // Check if all customers have been served, if yes return.
-        if (allCustomersServed()) {
+        if (maxCustomersReached()) {
             return null;
         }
 

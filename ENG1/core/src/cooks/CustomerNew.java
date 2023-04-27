@@ -51,7 +51,7 @@ public class CustomerNew extends GameEntity {
     private GameScreen gameScreen;
     public Vector2 stationPosition;
     public Vector2 destination;
-    public int customerStatus;
+    private int customerStatus;
     private int difficulty;
     private int entryStatus;
     private Array<Vector2> customerPoints;
@@ -71,11 +71,6 @@ public class CustomerNew extends GameEntity {
         this.customerStatus = 0;
         this.customerToTest = false;
 
-        //Waittime in seconds
-        //Random rd = new Random();
-//        this.waittime = 200 + rd.nextFloat()*100;
-//        waittime += 100;
-        //setWaitTime();
         this.waittime = 200;
         this.Stillhere = true;
 
@@ -152,6 +147,8 @@ public class CustomerNew extends GameEntity {
         this.gameScreen = g;
     }
 
+    public int getCustomerStatus() {return this.customerStatus;}
+
     public void Hypnotise() //Change their mind powerup
     {
         String temp = Recipe.randomRecipe();
@@ -192,7 +189,6 @@ public class CustomerNew extends GameEntity {
         this.customerStatus = 2;
         //Implement walk off
         //implement removement from array
-        // from laura to morgan : i might make these move from a 'customersToServe' to 'servedCustomers' array
     }
 
     public void customerInteract(ArrayList<Station> mapStations) {

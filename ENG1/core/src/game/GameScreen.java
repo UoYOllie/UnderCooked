@@ -360,6 +360,12 @@ public class GameScreen extends ScreenAdapter {
             entity.update(delta);
         }
 
+        System.out.println("customers left in scenario:" + this.customerController.scenarioCustomersLeft());
+        if(this.customerController.scenarioCustomersLeft() == 0) {
+            screenController.setEndTime(Util.formatTime(hoursPassed,minutesPassed,secondsPassed));
+            screenController.winGame();
+        }
+
         //Checking Reputation
         if(this.Reputation.getPoints() == 0){
             screenController.setScreen(ScreenController.ScreenID.GAMEOVER);
