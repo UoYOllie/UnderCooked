@@ -29,6 +29,7 @@ public class Locked extends Station{
         this.rectangle = rectangle;
         this.Enabled = true;
         this.item = gameScreen.BuyableStation;
+        this.Locked = true;
     }
 
     @Override

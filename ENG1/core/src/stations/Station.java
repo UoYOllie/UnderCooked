@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
+import food.DishStack;
+import food.FoodStack;
 import game.GameScreen;
 import game.GameSprites;
 import interactions.InputKey;
@@ -16,6 +18,9 @@ public class Station extends CookInteractable {
 
     /** Indicates whether the station is currently locked or usable. */
     public Boolean Enabled = true;
+    public FoodStack stationFoodStack;
+    public DishStack stationDishStack;
+    public boolean Locked;
 
     /** IDs of all types of PreparationStation. */
     public enum StationID {
@@ -48,9 +53,13 @@ public class Station extends CookInteractable {
         inUse = false;
         this.gameSprites = GameSprites.getInstance();
         this.setPropertyID(-1);
+        this.stationDishStack = new DishStack();
+        this.stationFoodStack = new FoodStack();
+        this.Locked = false;
     }
 
     public void setPropertyID(int x){this.PropertyID = x;}
+    public int getPropertyID(){return this.PropertyID;}
 
     /**
      * Sets the stationID of the station.

@@ -6,6 +6,7 @@ import cooks.Cook;
 import cooks.CustomerNew;
 import food.FoodItem;
 import food.FoodStack;
+import stations.Station;
 
 import java.util.ArrayList;
 
@@ -48,9 +49,10 @@ public class SavingClass {
     private int Difficulty;
     //------------------------------------------------------------------------------------
     //Stations
-    private int StationPropertyID;
-    private Array<Integer> HeldFood;
-    private boolean lockedStation;
+    private Array<Integer> StationPropertyID;
+    private Array<Array<Integer>> HeldFood;
+    private Array<Array<Integer>> stationdishstack;
+    private Array<Boolean> lockedStation;
 
 
 
@@ -127,6 +129,7 @@ public class SavingClass {
             dishy.add(f.ordinal());
         }
         this.cookdishstack.add(dishy);
+
         //System.out.println(this.cookdishstack + "<----------------------------------------------------");
 
 //        private Array<Boolean> cookisbluggus; //if chef is bluggus or not
@@ -204,8 +207,33 @@ public class SavingClass {
 
 
     //Run for saving station data
-    private void SaveStations()
+    private void SaveStations(GameScreen gameScreen)
     {
+        ArrayList<Station> tosave = gameScreen.mapHelper.getMapStations();
+        for(Station s:tosave)
+        {
+//            private Array<Integer> StationPropertyID;
+//            private Array<Array<Integer>> HeldFood;
+//            private Array<Array<Integer>> stationdishstack;
+//            private Array<Boolean> lockedStation;
+            StationPropertyID.add(s.getPropertyID());
+            Array<FoodItem.FoodID> tempstack = new Array<FoodItem.FoodID> ();
+            Array<Integer> dishy = new Array<Integer>();
+            tempstack = s.stationDishStack.getStackCopy();
+            for(FoodItem.FoodID f:tempstack)
+            {
+                dishy.add(f.ordinal());
+            }
+            this.stationdishstack.add(dishy);
+            Array<Integer> stack1items = new Array<Integer>();
+            tempstack = s.stationFoodStack.getStackCopy();
+            for(FoodItem.FoodID f:tempstack)
+            {
+                stack1items.add(f.ordinal());
+            }
+            this.HeldFood.add(stack1items);
+
+        }
 
     }
 

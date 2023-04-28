@@ -2,16 +2,11 @@ package helper;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 //import customers.Customer;
-import food.FoodItem;
 import food.FoodStack;
-import food.Recipe;
 import game.GameScreen;
-import game.GameSprites;
-import game.MenuScreen;
 
 // import java.awt.*;
 
@@ -22,6 +17,7 @@ public class GameHud extends Hud {
 //    /** The label with the number of {@link Customer}s left to serve.  */
 //    Label CustomerLabel;
     Label reputation;
+    Label Loading;
     Label goldLabel;
     /** The {@link SpriteBatch} of the GameHud. Use for drawing {@link food.Recipe}s. */
     private SpriteBatch batch;
@@ -41,12 +37,17 @@ public class GameHud extends Hud {
     {
         super(batch);
 
+        Label.LabelStyle font = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
+
         timeLabel = new Label("", new Label.LabelStyle(new BitmapFont(), Color.ORANGE));
         reputation = new Label("",new Label.LabelStyle(new BitmapFont(),Color.FIREBRICK));
         goldLabel = new Label("",new Label.LabelStyle((new BitmapFont()),Color.GOLD));
+        Loading = new Label("", font);
+        Loading.setFontScale(10);
         updateTime(0,0,0);
         updateReputation(0);
         updateGold(0);
+        updateloading("Loading");
 
 //        CustomerLabel = new Label("CUSTOMERS LEFT:", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
 //
@@ -54,6 +55,8 @@ public class GameHud extends Hud {
         table.add(timeLabel).expandX().padTop(80).padLeft(60);
         table.add(reputation).expandX().padTop(80).padRight(60);
         table.add(goldLabel).expandX().padTop(80).padRight(60);
+        table.row();
+        table.add(Loading).expandX().padTop(100).padLeft(150);
         this.batch = batch;
     }
 
@@ -141,6 +144,9 @@ public class GameHud extends Hud {
 
     public void updateReputation(int Reputation){
         reputation.setText("REPUTATION: " + String.format(String.valueOf(Reputation)));
+    }
+    public void updateloading(String val){
+        Loading.setText(String.format(val));
     }
 
     public void updateGold(int gold){
