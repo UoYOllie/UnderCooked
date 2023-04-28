@@ -1,12 +1,12 @@
 package cooks;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
-
 import game.GameScreen;
 import helper.Constants;
 import stations.Station;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Used by GameScreen to manage all customers in the game.
@@ -33,6 +33,8 @@ public class CustomerController {
     /** The difficulty of the game being played, either 1 (easy), 2 (medium), or 3 (hard).*/
     private int difficulty;
 
+    private int interval;
+
     /** The constructor of CustomerController.
      * @param gameScreen the instance of GameScreen for the current game.
      * */
@@ -42,6 +44,8 @@ public class CustomerController {
         this.s = gameScreen.mapHelper.getServingStationList();
         this.stationCustomerMap = new HashMap<Station, CustomerNew>();
         initialiseStationCustomerMap();
+
+        this.interval = 9;
     }
 
     /** Setter for mode.*/
@@ -64,15 +68,20 @@ public class CustomerController {
      * @return true if all customers in the scenario have been served.
      * */
     private boolean maxCustomersReached() {
-        return (this.mode == "scenario" && this.customers.size() > 0);
+        return (this.mode == "scenario" && this.customers.size() > 4);
     }
 
+    /**
+     * Method to check whether a game has been won in scenario mode (if there are 0 customers left).
+     *
+     * Returns the number of customers left to serve in scenario mode,
+     * but will never return 0 if the game is in endless mode.
+     *
+     * @return the number of customers left to serve.
+     * */
     public int scenarioCustomersLeft() {
 
-        if (customers.size() == 0) {
-            return 1;
-        }
-
+        if (customers.size() == 0) { return 1;}
         int customersLeft = customers.size();
 
         if (this.mode == "scenario" && customersLeft > 0) {
@@ -82,10 +91,8 @@ public class CustomerController {
                 }
             }
         }
-
         return customersLeft;
     }
-
 
     /**
      * Method to remove a customer from stationCustomerMap, after they have been saved.
@@ -110,8 +117,12 @@ public class CustomerController {
      * */
     public CustomerNew addCustomer() {
 
+        interval += 1;
+
         // Check if all customers have been served, if yes return.
-        if (maxCustomersReached()) {
+        // Also checks if the current interval is a multiple of 10, new customers
+        // are spawned every 10 seconds.
+        if (maxCustomersReached() || !(this.interval%10==0)) {
             return null;
         }
 
@@ -140,13 +151,11 @@ public class CustomerController {
                 // Add the new customer to customers and stationCustomerMap, then return the new Customer.
                 this.stationCustomerMap.put(station, newCustomer);
                 this.customers.add(newCustomer);
+
                 return newCustomer;
             }
         }
 
-
-
-        // Returns null if all servingStations were busy.
         return null;
     }
     public CustomerNew addCustomer(float x,float y) {
