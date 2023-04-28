@@ -319,11 +319,11 @@ public class GameScreen extends ScreenAdapter {
             System.out.println(this.cook.getY());
             this.Loadgame();
         }
-//        if (Gdx.input.isKeyPressed(Input.Keys.Q)){
-////            this.forcewin = true;
-//            System.out.print("Forcing win");
-////            this.Reputation.setPoints(0);
-//        }
+        if (Gdx.input.isKeyPressed(Input.Keys.Q)){
+            this.forcewin = true;
+            System.out.print("Forcing win");
+//            this.Reputation.setPoints(0);
+        }
 
         // First thing, update all inputs
         Interactions.updateKeys();
