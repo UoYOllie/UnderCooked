@@ -324,17 +324,31 @@ public class GameScreen extends ScreenAdapter {
      * @param delta The time between frames as a float.
      */
     private int countcycles = 0;
-    float incred = 1f;
+
     public void update(float delta)
     {
         if(readytorezoooom)
         {
-            if (camera.zoom >2f){
-                camera.zoom -= incred;
-                incred= incred/2;
+            if (camera.zoom >4f){
+                camera.zoom -= 1f;
+            }
+            else if (camera.zoom >1f){
+                if((camera.zoom -= 1/100f)<1/10f)
+                {
+                    this.camera.zoom = 1/100f;
+                }
+                else {
+                    camera.zoom -= 1 / 100f;
+                }
             }
             else if (camera.zoom >1/10f){
-                camera.zoom -= 1/100f;
+                if((camera.zoom -= 1/1000f)<1/10f)
+                {
+                    this.camera.zoom = 1/1000f;
+                }
+                else {
+                    camera.zoom -= 1 / 100f;
+                }
             }
             else {
                 this.camera.zoom = 1/10f;
