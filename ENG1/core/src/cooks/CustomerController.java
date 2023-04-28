@@ -1,5 +1,6 @@
 package cooks;
 
+import com.sun.org.apache.bcel.internal.Const;
 import game.GameScreen;
 import helper.Constants;
 import stations.Station;
@@ -7,6 +8,7 @@ import stations.Station;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Used by GameScreen to manage all customers in the game.
@@ -22,7 +24,7 @@ public class CustomerController {
     public ArrayList<CustomerNew> customers;
 
     /** The ArrayList of all s in the game, used for generating customers.*/
-    private ArrayList<Station> s;
+    private ArrayList<Station> servingStations;
 
     /** The Map linking each station to exactly one customer who has not been served.*/
     private Map<Station, CustomerNew> stationCustomerMap;
@@ -41,7 +43,7 @@ public class CustomerController {
     public CustomerController(GameScreen gameScreen) {
         this.gameScreen = gameScreen;
         this.customers = new ArrayList<>();
-        this.s = gameScreen.mapHelper.getServingStationList();
+        this.servingStations = gameScreen.mapHelper.getServingStationList();
         this.stationCustomerMap = new HashMap<Station, CustomerNew>();
         initialiseStationCustomerMap();
 
@@ -105,9 +107,28 @@ public class CustomerController {
     /** Method to initialise StationCustomerMap to map each  to a null customer. */
     public void initialiseStationCustomerMap() {
 
-        for (Station station : s) {
+        for (Station station : servingStations) {
             this.stationCustomerMap.put(station, null);
         }
+
+        System.out.println("this is the initialised stationCustomerMap " + this.stationCustomerMap);
+
+    }
+
+    public void multipleCustomers() {
+
+        Random rd = new Random();
+        int numberToSpawn = rd.nextInt(1,4);
+
+        System.out.println("group of " + numberToSpawn);
+
+        System.out.println("old interval " + this.interval);
+
+        if (numberToSpawn > 1) {
+            this.interval += (9 - this.interval % numberToSpawn);
+        }
+
+        System.out.println("new interval " + this.interval);
     }
 
     /**
@@ -118,6 +139,7 @@ public class CustomerController {
     public CustomerNew addCustomer() {
 
         interval += 1;
+        System.out.println(interval);
 
         // Check if all customers have been served, if yes return.
         // Also checks if the current interval is a multiple of 10, new customers
@@ -150,7 +172,10 @@ public class CustomerController {
 
                 // Add the new customer to customers and stationCustomerMap, then return the new Customer.
                 this.stationCustomerMap.put(station, newCustomer);
+                System.out.println("this is the station customer map " + stationCustomerMap);
                 this.customers.add(newCustomer);
+
+                multipleCustomers();
 
                 return newCustomer;
             }
@@ -158,46 +183,37 @@ public class CustomerController {
 
         return null;
     }
-    public CustomerNew addCustomer(float x,float y) {
 
-        // Check if all customers have been served, if yes return.
-        if (maxCustomersReached()) {
-            System.out.print("MAX REACHED RETURNING NULL");
-            return null;
-        }
+    private Station getStationKey(Map<Station, CustomerNew> stationCustomerMap, float station_y) {
 
-        // Iterate through each servingStation key in stationCustomerMap.
         for (Map.Entry<Station, CustomerNew> entry : stationCustomerMap.entrySet()) {
 
             Station station = entry.getKey();
-            CustomerNew customer = entry.getValue();
-
-            // If there is no customer at the station, create a new one.
-            if (customer == null) {
-
-                CustomerNew newCustomer = new CustomerNew(x*8f, y*8f, 3.34f, 3f);
-
-                // Set station position, difficulty, and gameScreen attributes for the Customer.
-                newCustomer.setStationPosition(station.getX(), station.getY());
-                newCustomer.setDifficulty(difficulty);
-                newCustomer.setGameScreen(this.gameScreen);
-
-                // LAURA GET RID OF THIS LATER
-                if (customers.size() == 2) {
-                    newCustomer.customerToTest = true;
-                    System.out.println("testing " + newCustomer + " with destination " + station);
-                }
-
-                // Add the new customer to customers and stationCustomerMap, then return the new Customer.
-                this.stationCustomerMap.put(station, newCustomer);
-                System.out.print("Im adding a customer now!!!!!!!!");
-                this.customers.add(newCustomer);
-                return newCustomer;
+            if (Math.round(station.getY()) == Math.round(station_y)) {
+                return station;
             }
         }
-        // Returns null if all servingStations were busy.
-        System.out.print("Im about to return null, be ready");
+
         return null;
+    }
+
+    public CustomerNew addSavedCustomer(float x,float y, float station_x, float station_y) {
+
+        if (this.stationCustomerMap.isEmpty()) {
+            initialiseStationCustomerMap();
+        }
+
+        CustomerNew newCustomer = new CustomerNew(x*Constants.UnitScale, y*Constants.UnitScale, 3.34f, 3f);
+
+        newCustomer.setStationPosition(station_x, station_y);
+        newCustomer.setDifficulty(1);
+        newCustomer.setGameScreen(this.gameScreen);
+
+        // Add the new customer to customers and stationCustomerMap, then return the new Customer.
+        this.stationCustomerMap.put(getStationKey(stationCustomerMap, station_y*Constants.UnitScale), newCustomer);
+        this.customers.add(newCustomer);
+
+        return newCustomer;
     }
 
     public String getMode() {

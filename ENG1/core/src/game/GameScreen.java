@@ -238,6 +238,7 @@ public class GameScreen extends ScreenAdapter {
         this.gameHud = new GameHud(batch, this);
         this.instructionHUD = new InstructionHud(batch);
         addInteractable(this.mapHelper.getMapStations());
+
         this.customerController = new CustomerController(this);
 
 
@@ -283,7 +284,7 @@ public class GameScreen extends ScreenAdapter {
             int counter = 0;
             for(CustomerNew c:customersforgame)
             {
-                addCustomer(customerController.addCustomer(c.x,c.y));
+                addCustomer(customerController.addSavedCustomer(c.x,c.y, c.stationPosition.x, c.stationPosition.y));
                 customerController.customers.get(counter).request = c.request;
                 customerController.customers.get(counter).waittime = c.waittime;
                 customerController.customers.get(counter).setStatus(c.getStatus());
@@ -1056,6 +1057,9 @@ public class GameScreen extends ScreenAdapter {
         this.minutesPassed = held_minutes;
         this.hoursPassed = held_hours;
 
+        //Mode and difficulty
+        customerController.setMode("scenario");
+        customerController.setDifficulty(root.getInt("difficulty"));
 
     }
 }
