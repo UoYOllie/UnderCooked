@@ -36,18 +36,22 @@ public class CustomerController {
     private int difficulty;
 
     private int interval;
+    private int group_size;
 
     /** The constructor of CustomerController.
      * @param gameScreen the instance of GameScreen for the current game.
      * */
     public CustomerController(GameScreen gameScreen) {
+
         this.gameScreen = gameScreen;
         this.customers = new ArrayList<>();
+
         this.servingStations = gameScreen.mapHelper.getServingStationList();
         this.stationCustomerMap = new HashMap<Station, CustomerNew>();
         initialiseStationCustomerMap();
 
-        this.interval = 9;
+        this.interval = 1;
+        this.group_size = 1;
     }
 
     /** Setter for mode.*/
@@ -111,24 +115,6 @@ public class CustomerController {
             this.stationCustomerMap.put(station, null);
         }
 
-        System.out.println("this is the initialised stationCustomerMap " + this.stationCustomerMap);
-
-    }
-
-    public void multipleCustomers() {
-
-        Random rd = new Random();
-        int numberToSpawn = rd.nextInt(1,4);
-
-        System.out.println("group of " + numberToSpawn);
-
-        System.out.println("old interval " + this.interval);
-
-        if (numberToSpawn > 1) {
-            this.interval += (9 - this.interval % numberToSpawn);
-        }
-
-        System.out.println("new interval " + this.interval);
     }
 
     /**
@@ -138,13 +124,15 @@ public class CustomerController {
      * */
     public CustomerNew addCustomer() {
 
-        interval += 1;
-        System.out.println(interval);
+        System.out.println("group size " + group_size);
+
+        interval -= 1;
+        System.out.println("interval " + interval);
 
         // Check if all customers have been served, if yes return.
         // Also checks if the current interval is a multiple of 10, new customers
         // are spawned every 10 seconds.
-        if (maxCustomersReached() || !(this.interval%10==0)) {
+        if (maxCustomersReached() || !(this.interval==0)) {
             return null;
         }
 
@@ -172,11 +160,19 @@ public class CustomerController {
 
                 // Add the new customer to customers and stationCustomerMap, then return the new Customer.
                 this.stationCustomerMap.put(station, newCustomer);
-                System.out.println("this is the station customer map " + stationCustomerMap);
                 this.customers.add(newCustomer);
 
-                multipleCustomers();
+                //multipleCustomers();
+                if (group_size > 1) {
+                    group_size -= 1;
+                    interval = 1;
+                } else {
+                    Random rd = new Random();
+                    this.group_size = rd.nextInt(4);
+                    this.interval = 10;
+                }
 
+                System.out.println("added customer" + newCustomer);
                 return newCustomer;
             }
         }
