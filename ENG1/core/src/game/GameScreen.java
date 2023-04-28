@@ -109,6 +109,8 @@ public class GameScreen extends ScreenAdapter {
      */
     public GameScreen(ScreenController screenController, OrthographicCamera camera)//Constructor, reset rebuildings constructor
     {
+        this.load = false;
+        this.save = false;
         this.Loading = false;
         this.holdzoomcounter = 0;
         this.posCamera = camera.position;
@@ -190,12 +192,15 @@ public class GameScreen extends ScreenAdapter {
         this.bgBatch = new SpriteBatch();
         this.bgBatch.setProjectionMatrix(backgroundCamera.combined);
         setCook((cookIndex + 1) % cooks.size);
+        this.gameHud.updateloading("");
 
     }
 
     public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame,ArrayList<CustomerNew>customersforgame)
     {
-        this.Loading = false;
+        this.gameHud = new GameHud(batch, this);
+        this.gameHud.updateloading("Loading");
+        this.Loading = true;
         holdzoomcounter = 0;
         this.posCamera = camera.position;
         this.Cookswapstage = 0;
@@ -243,7 +248,6 @@ public class GameScreen extends ScreenAdapter {
 
         // this.mapHelper.setGameScreen(this);
         this.orthogonalTiledMapRenderer = mapHelper.setupMap();
-        this.gameHud = new GameHud(batch, this);
         this.instructionHUD = new InstructionHud(batch);
         addInteractable(this.mapHelper.getMapStations());
         this.customerController = new CustomerController(this);
@@ -306,34 +310,47 @@ public class GameScreen extends ScreenAdapter {
 
         //this.customersToServe = new ArrayList<>();
         //this.addCustomersNew(customerControllerNew.getCustomers());
-
         this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
         setCook((cookIndex + 1) % cooks.size);
+        this.Loading = false;
     }
 
     /**
      * Update the game's values, {@link GameEntity}s and so on.
      * @param delta The time between frames as a float.
      */
+    private boolean load;
+    private boolean save;
     public void update(float delta)
     {
-        this.posCamera = camera.position;
-//        System.out.println("Rep Points: "+this.Reputation.getPoints());
-		if (Gdx.input.isKeyPressed(Input.Keys.K)){
-            System.out.println("Saving....");
-//			System.out.println(this.cook.getX());
-//			System.out.println(this.cook.getY());
-            this.Savegame();
-		}
-        if (Gdx.input.isKeyPressed(Input.Keys.L)){
-//            screenController.setScreen(ScreenController.ScreenID.LOADING);
-            gameHud.updateloading("Loading");
-            this.Loading = true;
+        if(this.Loading)
+        {
+            this.gameHud.updateloading("Loading...");
             System.out.println("Loading....");
             System.out.println(this.cook.getX());
             System.out.println(this.cook.getY());
             this.Loadgame();
+            this.Loading = false;
+        }
+        else {
+            this.gameHud.updateloading("");
+
+        }
+        this.posCamera = camera.position;
+//        System.out.println("Rep Points: "+this.Reputation.getPoints());
+		if (Gdx.input.isKeyPressed(Input.Keys.K)){
+            System.out.println("Saving....");
+            this.gameHud.updateloading("Loading");
+//			System.out.println(this.cook.getX());
+//			System.out.println(this.cook.getY());
+            this.Savegame();
+            this.gameHud.updateloading("");
+		}
+        if (Gdx.input.isKeyPressed(Input.Keys.L)){
+//            screenController.setScreen(ScreenController.ScreenID.LOADING);
+            this.gameHud.updateloading("Loading...");
+            this.Loading = true;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.Q)){
             this.forcewin = true;
