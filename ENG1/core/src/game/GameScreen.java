@@ -216,6 +216,7 @@ public class GameScreen extends ScreenAdapter {
         this.cookIndex = -1;
 //        this.camera = camera;
 //        this.camera.zoom = 1/10f;
+        this.camera.zoom = 1f;
         this.screenController = screenController;
         this.batch = screenController.getSpriteBatch();
         this.shape = screenController.getShapeRenderer();
@@ -503,6 +504,8 @@ public class GameScreen extends ScreenAdapter {
             }
             else {
                 System.out.print("winning215");
+                this.initalzoom = 2f;
+                this.zoomincrements = 1/100f;
                 screenController.winGame();
             }
         }
