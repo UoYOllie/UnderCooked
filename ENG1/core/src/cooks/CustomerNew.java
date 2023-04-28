@@ -51,7 +51,7 @@ public class CustomerNew extends GameEntity {
     private GameScreen gameScreen;
     public Vector2 stationPosition;
     public Vector2 destination;
-    private int customerStatus;
+    private int customerStatus; //SAVE
     private int difficulty;
     private int entryStatus;
     private Array<Vector2> customerPoints;
@@ -416,6 +416,15 @@ public class CustomerNew extends GameEntity {
             }
             shape.rect(rectX+ 2 * Constants.UnitScale,rectY + 2 * Constants.UnitScale, progressWidth,rectHeight - 4 * Constants.UnitScale,progressColor,progressColor,progressColor,progressColor);
         }
+    }
+
+    public int getStatus()
+    {
+        return this.customerStatus;
+    }
+
+    public void setStatus(int x){
+        this.customerStatus = x;
     }
 
     public void setCustomerStatus(Integer customerStatus){

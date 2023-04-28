@@ -34,6 +34,9 @@ public class SavingClass {
     private Array<String> colour; //allocates the sprite
     private Array<Float> waitimes; //-1 for cooks
     private Array<String> requests; //norequest = cooks
+    private Array<Integer> Status;
+    private Array<Float> station_x;
+    private Array<Float> station_y;
     //------------------------------------------------------------------------------------
     //Timer
     private int seconds;
@@ -64,6 +67,9 @@ public class SavingClass {
         this.colour = new Array<String>();
         this.waitimes = new Array<Float>();
         this.requests = new Array<String>();
+        this.Status = new Array<Integer>();
+        this.station_x = new Array<Float>();
+        this.station_y = new Array<Float>();
     }
     public SavingClass(GameScreen g)
     {
@@ -133,6 +139,9 @@ public class SavingClass {
         this.waitimes.add(-1f);
 //        private Array<String> requests; //norequest = cooks
         this.requests.add("norequest");
+        this.Status.add(-1);
+        this.station_x.add(0f);
+        this.station_y.add(0f);
     }
     private void CustomerData(CustomerNew customer, Integer persontype)
     {
@@ -168,6 +177,9 @@ public class SavingClass {
         this.waitimes.add(customer.waittime);
 //        private Array<String> requests; //norequest = cooks
         this.requests.add(customer.request);
+        this.Status.add(customer.getStatus());
+        this.station_x.add(customer.stationPosition.x);
+        this.station_y.add(customer.stationPosition.y);
     }
     private void SaveCooksAndCustomers(GameScreen gameScreen)
     {

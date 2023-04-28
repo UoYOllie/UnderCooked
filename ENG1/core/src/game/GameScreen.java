@@ -286,9 +286,13 @@ public class GameScreen extends ScreenAdapter {
                 addCustomer(customerController.addCustomer(c.x,c.y));
                 customerController.customers.get(counter).request = c.request;
                 customerController.customers.get(counter).waittime = c.waittime;
+                customerController.customers.get(counter).setStatus(c.getStatus());
+                customerController.customers.get(counter).stationPosition = c.stationPosition;
+
 
                 counter++;
             }
+//            this.customerController.customers = customersforgame;
         }
 
         //this.customersToServe = new ArrayList<>();
@@ -914,6 +918,7 @@ public class GameScreen extends ScreenAdapter {
         JsonValue held_colour = root.get("colour");
         JsonValue held_wait = root.get("waitimes");
         JsonValue held_req = root.get("requests");
+        JsonValue held_sts = root.get("Status");
 //        System.out.println(held_coords.get(0).get(0).get(1));//Takes person Takes x or y Takes value
 //        System.out.println(held_coords.get(0).get(0));
 //        System.out.println(held_coords.get(0));
@@ -976,6 +981,7 @@ public class GameScreen extends ScreenAdapter {
                 String _req_ = held_req.getString(count);
                 newc.waittime = _wait_;
                 newc.request = _req_;
+                newc.setStatus(held_sts.getInt(count));
                 customersforgame.add(newc);
 
 
