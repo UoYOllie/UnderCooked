@@ -386,7 +386,9 @@ public class GameScreen extends ScreenAdapter {
             }
 
             //gameEntities.add(customerControllerNew.addCustomer());
+
             addCustomer(customerController.addCustomer());
+
 
 
             previousSecond += 1000;
