@@ -40,6 +40,7 @@ import static helper.Constants.PPM;
 
 /** A {@link ScreenAdapter} containing certain elements of the game. */
 public class GameScreen extends ScreenAdapter {
+    private int holdzoomcounter;
     private OrthographicCamera camera;
     private int delay;
 
@@ -54,6 +55,7 @@ public class GameScreen extends ScreenAdapter {
     private ScreenController screenController;
     // private ShapeRenderer shapeRenderer;
     private World world;
+    Vector3 posCamera;
     private Box2DDebugRenderer box2DDebugRenderer;
 
     private SuperMapSuperRenderer orthogonalTiledMapRenderer;
@@ -92,6 +94,7 @@ public class GameScreen extends ScreenAdapter {
     private OrthographicCamera backgroundCamera;
     private SpriteBatch bgBatch;
     public Preferences prefs = Gdx.app.getPreferences("My Preferences");
+    private float Cookswapstage;
 
     /**
      * The constructor for the {@link GameScreen}.
@@ -100,6 +103,9 @@ public class GameScreen extends ScreenAdapter {
      */
     public GameScreen(ScreenController screenController, OrthographicCamera camera)//Constructor, reset rebuildings constructor
     {
+        this.holdzoomcounter = 0;
+        this.posCamera = camera.position;
+        this.Cookswapstage = 0;
         this.zoomincrements = 1/100f;
         this.initalzoom = 1f;
         this.forcewin = false;
@@ -176,11 +182,18 @@ public class GameScreen extends ScreenAdapter {
         this.backgroundCamera = new OrthographicCamera();
         this.bgBatch = new SpriteBatch();
         this.bgBatch.setProjectionMatrix(backgroundCamera.combined);
+        setCook((cookIndex + 1) % cooks.size);
 
     }
 
     public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame,ArrayList<CustomerNew>customersforgame)
     {
+        holdzoomcounter = 0;
+        this.posCamera = camera.position;
+        this.Cookswapstage = 0;
+        this.zoomincrements = 1/100f;
+        this.initalzoom = 1f;
+        this.forcewin = false;
         this.previousSecond = TimeUtils.millis();
         //this.lastCustomerSecond = -1;
         //this.nextCustomerSecond = -1;
@@ -283,6 +296,7 @@ public class GameScreen extends ScreenAdapter {
 
         this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
+        setCook((cookIndex + 1) % cooks.size);
     }
 
     /**
@@ -291,6 +305,7 @@ public class GameScreen extends ScreenAdapter {
      */
     public void update(float delta)
     {
+        this.posCamera = camera.position;
 //        System.out.println("Rep Points: "+this.Reputation.getPoints());
 		if (Gdx.input.isKeyPressed(Input.Keys.K)){
             System.out.println("Saving....");
@@ -306,8 +321,8 @@ public class GameScreen extends ScreenAdapter {
         }
 //        if (Gdx.input.isKeyPressed(Input.Keys.Q)){
 ////            this.forcewin = true;
-////            System.out.print("Forcing win");
-//            this.Reputation.setPoints(0);
+//            System.out.print("Forcing win");
+////            this.Reputation.setPoints(0);
 //        }
 
         // First thing, update all inputs
@@ -423,8 +438,44 @@ public class GameScreen extends ScreenAdapter {
             customer.update(Gdx.graphics.getDeltaTime());
         }
 
-        if(Interactions.isJustPressed(InputKey.InputTypes.COOK_SWAP)) {
-            setCook((cookIndex + 1) % cooks.size);
+        if((Interactions.isJustPressed(InputKey.InputTypes.COOK_SWAP))||(this.Cookswapstage>0)) {
+            if(Cookswapstage==0) {
+                Cookswapstage++;
+            }
+            else if(Cookswapstage==1){
+                if (camera.zoom <= 1/4f) {
+                    camera.zoom += 1 / 100f;
+                }
+                else {
+                    Cookswapstage++;
+                }
+            }
+            else if((Cookswapstage==2)){ //FOR TRASITION
+                this.holdzoomcounter++;
+                if(this.holdzoomcounter>10) {
+                    Cookswapstage++;
+                    this.holdzoomcounter =0;
+                }
+            }
+            else if((Cookswapstage==4)){ //FOR TRASITION
+                this.holdzoomcounter++;
+                if(this.holdzoomcounter>10) {
+                    Cookswapstage++;
+                    this.holdzoomcounter =0;
+                }
+            }
+            else if(Cookswapstage==5){
+                if (camera.zoom >= 1 / 10f) {
+                    camera.zoom -= 1 / 100f;
+                }
+                else {
+                    Cookswapstage=0;
+                }
+            }
+            else if(Cookswapstage==3){
+                setCook((cookIndex + 1) % cooks.size);
+                Cookswapstage++;
+            }
         }
 
         this.cook.update(Gdx.graphics.getDeltaTime());
