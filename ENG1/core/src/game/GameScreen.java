@@ -304,10 +304,11 @@ public class GameScreen extends ScreenAdapter {
             System.out.println(this.cook.getY());
             this.Loadgame();
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.Q)){
-            this.forcewin = true;
-            System.out.print("Forcing win");
-        }
+//        if (Gdx.input.isKeyPressed(Input.Keys.Q)){
+////            this.forcewin = true;
+////            System.out.print("Forcing win");
+//            this.Reputation.setPoints(0);
+//        }
 
         // First thing, update all inputs
         Interactions.updateKeys();
@@ -453,7 +454,15 @@ public class GameScreen extends ScreenAdapter {
 
         //Checking Reputation
         if(this.Reputation.getPoints() == 0){
-            screenController.setScreen(ScreenController.ScreenID.GAMEOVER);
+            if ((camera.zoom < initalzoom)&&(camera.zoom < 1000f)){
+                camera.zoom += zoomincrements;
+                initalzoom = initalzoom + 1/4f*initalzoom;
+                zoomincrements = 18/17f*zoomincrements;
+            }
+            else {
+                System.out.print("Sucks to lose");
+                screenController.setScreen(ScreenController.ScreenID.GAMEOVER);
+            }
         }
     }
 
