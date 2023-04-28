@@ -13,6 +13,7 @@ import game.SuperMapSuperRenderer;
 import stations.*;
 
 import java.util.ArrayList;
+import java.util.concurrent.locks.Lock;
 
 /** The {@link MapHelper} class helps by setting up the map
  * of the game, and providing the {@link OrthogonalTiledMapRenderer}
@@ -170,13 +171,19 @@ public class MapHelper {
 //            System.out.println(":)"); // :)
 
             // Check which instance of Station and add the corresponding object to mapStations.
-
+            int IDcounter = 0;
             switch(stationName) {
                 case "BinStation":
-                    mapStations.add(new BinStation(newRectangle));
+                    BinStation binStation = new BinStation(newRectangle);
+                    binStation.setPropertyID(IDcounter);
+                    mapStations.add(binStation);
+                    IDcounter++;
                     break;
                 case "CounterStation":
-                    mapStations.add(new CounterStation(newRectangle));
+                    CounterStation cs = new CounterStation(newRectangle);
+                    cs.setPropertyID(IDcounter);
+                    mapStations.add(cs);
+                    IDcounter++;
                     break;
                 case "PreparationStation":
                     String t = rectangleMapObject.getProperties().get("type").toString();
@@ -195,25 +202,40 @@ public class MapHelper {
 //                            prepStation.setID(Station.StationID.assembly);
 //                            break;
                     }
+                    prepStation.setPropertyID(IDcounter);
                     mapStations.add(prepStation);
+                    IDcounter++;
                     break;
                 case "AssemblyStation":
-                    mapStations.add(new AssemblyStation(newRectangle));
+                    AssemblyStation as = new AssemblyStation(newRectangle);
+                    as.setPropertyID(IDcounter);
+                    mapStations.add(as);
+                    IDcounter++;
                     break;
-//                case "ServingStation":
-//                    mapStations.add(new ServingStation(newRectangle));
-//                    break;
                 case "ServingStation":
-                    mapStations.add(new ServingStation(newRectangle));
-                    ServingStationList.add(new ServingStation(newRectangle));
+                    ServingStation ss = new ServingStation(newRectangle);
+                    ss.setPropertyID(IDcounter);
+                    mapStations.add(ss);
+                    ServingStationList.add(ss);
+                    IDcounter++;
+                    break;
                 case "SpeedPowerup":
-                    mapStations.add(new SpeedPowerup(newRectangle,gameScreen));
+                    SpeedPowerup sp = new SpeedPowerup(newRectangle,gameScreen);
+                    sp.setPropertyID(IDcounter);
+                    mapStations.add(sp);
+                    IDcounter++;
                     break;
                 case "Shop":
-                    mapStations.add(new ShopCounter(newRectangle));
+                    ShopCounter sc = new ShopCounter(newRectangle);
+                    sc.setPropertyID(IDcounter);
+                    mapStations.add(sc);
+                    IDcounter++;
                     break;
                 case "VAT":
-                    mapStations.add(new VAT(newRectangle,(rectangleMapObject.getProperties().get("Person")).toString(),gameScreen));
+                    VAT v = new VAT(newRectangle,(rectangleMapObject.getProperties().get("Person")).toString(),gameScreen);
+                    v.setPropertyID(IDcounter);
+                    mapStations.add(v);
+                    IDcounter++;
                     break;
                 case "Pantry":
                     System.out.println("pantry is generated");
@@ -221,8 +243,9 @@ public class MapHelper {
                     pantry.setItem(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food"))); // lmao hashmap is sus
                     System.out.println("Setting to " + rectangleMapObject.getProperties().get("Food"));
                     System.out.println(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food")));
-
+                    pantry.setPropertyID(IDcounter);
                     mapStations.add(pantry);
+                    IDcounter++;
                     break;
                 case "poweritem":
                     System.out.println("power pantry is generated");
@@ -231,20 +254,33 @@ public class MapHelper {
                     System.out.println("Setting to " + rectangleMapObject.getProperties().get("Food"));
                     System.out.println(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food")));
 
+                    powerpantry.setPropertyID(IDcounter);
+
                     mapStations.add(powerpantry);
+                    IDcounter++;
                     break;
                 case "Freeze":
-                    mapStations.add(new FreezeTimeStation(newRectangle,gameScreen));
+                    FreezeTimeStation fts = new FreezeTimeStation(newRectangle,gameScreen);
+                    fts.setPropertyID(IDcounter);
+                    mapStations.add(fts);
+                    IDcounter++;
                     break;
                 case "BluggusMode":
-                    mapStations.add(new BluggusModeActivate(newRectangle,gameScreen));
+                    BluggusModeActivate bma = new BluggusModeActivate(newRectangle,gameScreen);
+                    bma.setPropertyID(IDcounter);
+                    mapStations.add(bma);
+                    IDcounter++;
                     break;
                 case "Locked":
-                    mapStations.add(new Locked(newRectangle,gameScreen,rectangleMapObject.getProperties().get("type").toString()));
+                    Locked LerLocked = new Locked(newRectangle,gameScreen,rectangleMapObject.getProperties().get("type").toString());
+                    LerLocked.setPropertyID(IDcounter);
+                    mapStations.add(LerLocked);
+                    IDcounter++;
                     break;
 
 
             }
+
         }
     }
 

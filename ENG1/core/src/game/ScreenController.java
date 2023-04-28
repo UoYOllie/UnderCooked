@@ -152,6 +152,7 @@ public class ScreenController {
 
     public void winGame() {
         this.winScreen = new WinScreen(this,new OrthographicCamera());
+        System.out.print("winning");
         this.screens.put(ScreenID.WIN, winScreen);
         setScreen(ScreenID.WIN);
     }

@@ -70,6 +70,9 @@ public class GameScreen extends ScreenAdapter {
     public Gold gold;
     public RepPoints Reputation;
 
+    private float initalzoom;
+    private float zoomincrements;
+
     //Objects
     public Array<Cook> unusedcooks;
     public Array<Cook> cooks;
@@ -84,6 +87,7 @@ public class GameScreen extends ScreenAdapter {
     private int freeze;
     private boolean EnableAutoZoom;
     private float ZoomSecondCounter;
+    private boolean forcewin;
 
     private OrthographicCamera backgroundCamera;
     private SpriteBatch bgBatch;
@@ -96,6 +100,9 @@ public class GameScreen extends ScreenAdapter {
      */
     public GameScreen(ScreenController screenController, OrthographicCamera camera)//Constructor, reset rebuildings constructor
     {
+        this.zoomincrements = 1/100f;
+        this.initalzoom = 1f;
+        this.forcewin = false;
         this.previousSecond = TimeUtils.millis();
         //this.lastCustomerSecond = -1;
         //this.nextCustomerSecond = -1;
@@ -297,6 +304,10 @@ public class GameScreen extends ScreenAdapter {
             System.out.println(this.cook.getY());
             this.Loadgame();
         }
+        if (Gdx.input.isKeyPressed(Input.Keys.Q)){
+            this.forcewin = true;
+            System.out.print("Forcing win");
+        }
 
         // First thing, update all inputs
         Interactions.updateKeys();
@@ -442,9 +453,17 @@ public class GameScreen extends ScreenAdapter {
             entity.update(delta);
         }
 
-        if(customerController.scenarioCustomersLeft() == 0) {
+        if((customerController.scenarioCustomersLeft() == 0)||(this.forcewin)) {
             screenController.setEndTime(Util.formatTime(hoursPassed,minutesPassed,secondsPassed));
-            screenController.winGame();
+            if ((camera.zoom < initalzoom)&&(camera.zoom < 1000f)){
+                camera.zoom += zoomincrements;
+                initalzoom = initalzoom + 1/4f*initalzoom;
+                zoomincrements = 18/17f*zoomincrements;
+            }
+            else {
+                System.out.print("winning215");
+                screenController.winGame();
+            }
         }
 
         //Checking Reputation

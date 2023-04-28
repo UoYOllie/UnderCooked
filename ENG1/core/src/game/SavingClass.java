@@ -40,9 +40,14 @@ public class SavingClass {
     private int minutes;
     private int hours;
     //------------------------------------------------------------------------------------
+    //Gamemodes
     private String Mode;
     private int Difficulty;
     //------------------------------------------------------------------------------------
+    //Stations
+    private int StationPropertyID;
+    private Array<Integer> HeldFood;
+    private boolean lockedStation;
 
 
 
@@ -187,10 +192,9 @@ public class SavingClass {
 
 
     //Run for saving station data
-    private String SaveStations()
+    private void SaveStations()
     {
-        String json = "";
-        return  json;
+
     }
 
     //Run for saving rep and money data

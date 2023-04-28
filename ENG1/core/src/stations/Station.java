@@ -35,6 +35,8 @@ public class Station extends CookInteractable {
     StationID stationID;
     public boolean inUse;
     GameSprites gameSprites;
+
+    private int PropertyID;
     //public Cook CurrentCook;
 
     /**
@@ -45,7 +47,10 @@ public class Station extends CookInteractable {
         super(rectangle);
         inUse = false;
         this.gameSprites = GameSprites.getInstance();
+        this.setPropertyID(-1);
     }
+
+    public void setPropertyID(int x){this.PropertyID = x;}
 
     /**
      * Sets the stationID of the station.

@@ -166,7 +166,7 @@ public class CustomerController {
             // If there is no customer at the station, create a new one.
             if (customer == null) {
 
-                CustomerNew newCustomer = new CustomerNew(x, y, 3.34f, 3f);
+                CustomerNew newCustomer = new CustomerNew(x*8f, y*8f, 3.34f, 3f);
 
                 // Set station position, difficulty, and gameScreen attributes for the Customer.
                 newCustomer.setStationPosition(station.getX(), station.getY());
