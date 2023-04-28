@@ -47,7 +47,7 @@ public class GameHud extends Hud {
         updateTime(0,0,0);
         updateReputation(0);
         updateGold(0);
-        updateloading("Loading");
+        updateloading("");
 
 //        CustomerLabel = new Label("CUSTOMERS LEFT:", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
 //
