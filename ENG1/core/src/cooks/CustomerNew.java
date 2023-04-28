@@ -362,6 +362,14 @@ public class CustomerNew extends GameEntity {
 
     }
 
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
     /**
      * Getter for the x-position of CustomerNew.
      * @return The x-position of the customer.
