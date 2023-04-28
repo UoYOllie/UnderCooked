@@ -145,11 +145,11 @@ public class GameHud extends Hud {
         reputation.setText("REPUTATION: " + String.format(String.valueOf(Reputation)));
     }
     public void updateloading(String val){
-        System.out.println("Yippppppp----------pppppp<------------------------------->"+val+"<------------>");
+        //System.out.println("Yippppppp----------pppppp<------------------------------->"+val+"<------------>");
         this.Loading.setText(String.format(val));
-        System.out.println(Loading);
-        System.out.println(Loading.getText());
-        System.out.println("Yippppppp----------pppppp<------------------------------->"+val+"<------------>");
+        //System.out.println(Loading);
+        //System.out.println(Loading.getText());
+        //System.out.println("Yippppppp----------pppppp<------------------------------->"+val+"<------------>");
     }
 
     public void updateGold(int gold){

@@ -84,6 +84,8 @@ public class GameScreen extends ScreenAdapter {
     public Array<Cook> cooks;
     public Cook cook;
 
+    private boolean readytorezoooom;
+
 
     private int cookIndex;
     //private CustomerController customerController;
@@ -109,8 +111,7 @@ public class GameScreen extends ScreenAdapter {
      */
     public GameScreen(ScreenController screenController, OrthographicCamera camera)//Constructor, reset rebuildings constructor
     {
-        this.load = false;
-        this.save = false;
+        this.readytorezoooom = false;
         this.Loading = false;
         this.holdzoomcounter = 0;
         this.posCamera = camera.position;
@@ -198,6 +199,7 @@ public class GameScreen extends ScreenAdapter {
 
     public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame,ArrayList<CustomerNew>customersforgame)
     {
+        this.readytorezoooom = true;
         this.gameHud = new GameHud(batch, this);
         this.gameHud.updateloading("Loading");
         this.Loading = true;
@@ -321,18 +323,44 @@ public class GameScreen extends ScreenAdapter {
      * Update the game's values, {@link GameEntity}s and so on.
      * @param delta The time between frames as a float.
      */
-    private boolean load;
-    private boolean save;
+    private int countcycles = 0;
+    float incred = 1f;
     public void update(float delta)
     {
+        if(readytorezoooom)
+        {
+            if (camera.zoom >2f){
+                camera.zoom -= incred;
+                incred= incred/2;
+            }
+            else if (camera.zoom >1/10f){
+                camera.zoom -= 1/100f;
+            }
+            else {
+                this.camera.zoom = 1/10f;
+                this.readytorezoooom = false;
+                zoomincrements = 1/100f;
+                initalzoom = 2f;
+            }
+
+        }
         if(this.Loading)
         {
             this.gameHud.updateloading("Loading...");
+            if ((camera.zoom < initalzoom)&&(camera.zoom < 40f)){
+                camera.zoom += zoomincrements;
+                initalzoom = initalzoom + 1/4f*initalzoom;
+                zoomincrements = 20/17f*zoomincrements;
+            }
+            else if(countcycles==0){
+                System.out.print("winning215");
+                this.initalzoom = 2f;
+                this.zoomincrements = 1/100f;
+                this.Loadgame();
+            }
             System.out.println("Loading....");
             System.out.println(this.cook.getX());
             System.out.println(this.cook.getY());
-            this.Loadgame();
-            this.Loading = false;
         }
         else {
             this.gameHud.updateloading("");
