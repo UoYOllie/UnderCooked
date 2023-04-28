@@ -109,7 +109,8 @@ public class ScreenController {
         CREDITS,
 
         INTRO,
-        WIN
+        WIN,
+        LOADING
     }
 
     /**

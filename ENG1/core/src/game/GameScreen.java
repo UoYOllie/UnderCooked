@@ -3,9 +3,13 @@ package game;
 import Shop.Gold;
 import Shop.ShopItem;
 import com.badlogic.gdx.*;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.*;
 import cooks.Cook;
 import cooks.CustomerController;
@@ -80,6 +84,7 @@ public class GameScreen extends ScreenAdapter {
     public Array<Cook> cooks;
     public Cook cook;
 
+
     private int cookIndex;
     //private CustomerController customerController;
     private CustomerController customerController;
@@ -95,6 +100,7 @@ public class GameScreen extends ScreenAdapter {
     private SpriteBatch bgBatch;
     public Preferences prefs = Gdx.app.getPreferences("My Preferences");
     private float Cookswapstage;
+    private boolean Loading;
 
     /**
      * The constructor for the {@link GameScreen}.
@@ -103,6 +109,7 @@ public class GameScreen extends ScreenAdapter {
      */
     public GameScreen(ScreenController screenController, OrthographicCamera camera)//Constructor, reset rebuildings constructor
     {
+        this.Loading = false;
         this.holdzoomcounter = 0;
         this.posCamera = camera.position;
         this.Cookswapstage = 0;
@@ -188,6 +195,7 @@ public class GameScreen extends ScreenAdapter {
 
     public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame,ArrayList<CustomerNew>customersforgame)
     {
+        this.Loading = false;
         holdzoomcounter = 0;
         this.posCamera = camera.position;
         this.Cookswapstage = 0;
@@ -243,6 +251,7 @@ public class GameScreen extends ScreenAdapter {
 
 
         if(cooksforgame.size == 0) {
+            this.camera.zoom = 1f;
             System.out.println("cOOKS ARE NULL");
             Cook GlibbertOrange = new Cook(2041 * 8f, 2814 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
             GlibbertOrange.setColour("Orange");
@@ -319,6 +328,9 @@ public class GameScreen extends ScreenAdapter {
             this.Savegame();
 		}
         if (Gdx.input.isKeyPressed(Input.Keys.L)){
+//            screenController.setScreen(ScreenController.ScreenID.LOADING);
+            gameHud.updateloading("Loading");
+            this.Loading = true;
             System.out.println("Loading....");
             System.out.println(this.cook.getX());
             System.out.println(this.cook.getY());
@@ -504,6 +516,8 @@ public class GameScreen extends ScreenAdapter {
             }
             else {
                 System.out.print("winning215");
+                this.initalzoom = 2f;
+                this.zoomincrements = 1/100f;
                 screenController.winGame();
             }
         }
