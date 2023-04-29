@@ -490,25 +490,6 @@ public class GameScreen extends ScreenAdapter {
             }
         }
 
-
-        // laura
-
-//        ArrayList<CustomerNew> tempNewCustomers = new ArrayList<>();
-//        tempNewCustomers.addAll(customerControllerNew.updateCustomers());
-//
-//        //customersToServe.addAll(tempNewCustomers);
-//        gameEntities.addAll(tempNewCustomers);
-
-        //System.out.println("number of customers in update: " + customersToServe.size());
-        //System.out.println("number of game entities in update: " + gameEntities.size());
-        //System.out.println(customersToServe);
-
-//        for (CustomerNew customer : customersToServe) {
-//            //customer.moveTo(customer.endX, customer.endY);
-//            customer.customerInteract(mapHelper.getMapStations());
-//            customer.update(Gdx.graphics.getDeltaTime());
-//        }
-
         // SWITCH TO CUSTOMER CONTROLLER NEW
         for (CustomerNew customer : customerController.getCustomers()) {
             //customer.moveTo(customer.endX, customer.endY);
@@ -568,7 +549,8 @@ public class GameScreen extends ScreenAdapter {
             entity.update(delta);
         }
 
-        if((customerController.scenarioCustomersLeft() == 0)||(this.forcewin)) {
+        if((customerController.wonScenario()) ||(this.forcewin)) {
+            System.out.println("game is won!");
             screenController.setEndTime(Util.formatTime(hoursPassed,minutesPassed,secondsPassed));
             if ((camera.zoom < initalzoom)&&(camera.zoom < 1000f)){
                 camera.zoom += zoomincrements;
