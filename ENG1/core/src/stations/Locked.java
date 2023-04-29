@@ -39,7 +39,7 @@ public class Locked extends Station{
             System.out.println(type);
             String t = this.type;
             gameScreen.gold = item.buy(gameScreen.gold);
-            PreparationStation prepStation = new PreparationStation(rectangle);
+            PreparationStation prepStation = new PreparationStation(rectangle,gameScreen);
             switch(t) {
                 case "cut":
                     prepStation.setID(Station.StationID.cut);

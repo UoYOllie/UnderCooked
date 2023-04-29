@@ -1,13 +1,16 @@
 package stations;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
 import food.FoodItem;
+import game.GameScreen;
 import game.GameSprites;
+import game.ScreenController;
 import helper.Constants;
 import interactions.InputKey;
 import interactions.Interactions;
@@ -24,12 +27,24 @@ public class PreparationStation extends Station {
     private int stepNum;
     public StationState state;
 
+    private int usingchef;
+    private boolean Done;
+    private GameScreen gameScreen;
+
     /**
      * The constructor for the {@link PreparationStation}.
      * @param rectangle The collision and interaction area of the {@link PreparationStation}.
      */
     public PreparationStation(Rectangle rectangle) {
         super(rectangle);
+        this.Done = true;
+        this.usingchef = 0;
+    }
+    public PreparationStation(Rectangle rectangle,GameScreen g) {
+        super(rectangle);
+        this.Done = true;
+        this.gameScreen = g;
+        this.usingchef = 0;
     }
 
     /**
@@ -39,10 +54,21 @@ public class PreparationStation extends Station {
      * until it requires a {@link InputKey.InputTypes#USE} from the {@link Cook}
      * when the current {@code step} of the {@link interactions.Interactions.InteractionResult}
      * is reached.
-     * @param delta The time between frames as a float.
+     *  delta The time between frames as a float.
      */
+    public void setGameScreen(GameScreen gameScreen)
+    {
+        this.gameScreen = gameScreen;
+    }
+
     @Override
     public void update(float delta) {
+        if (progress < 100) {
+            gameScreen.cooks.get(usingchef).lockmovement = true;
+        }
+        else{
+            gameScreen.cooks.get(usingchef).lockmovement = false;
+        }
         if (inUse) {
             if (progress < 100) {
                 float[] steps = interaction.getSteps();
@@ -154,6 +180,7 @@ public class PreparationStation extends Station {
      */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
+        this.usingchef = gameScreen.cooks.indexOf(cook,false); //MAY NEED TO BE FALSE
         if(inUse) {
             cook.lockmovement = true;
         }

@@ -187,7 +187,7 @@ public class MapHelper {
                     break;
                 case "PreparationStation":
                     String t = rectangleMapObject.getProperties().get("type").toString();
-                    PreparationStation prepStation = new PreparationStation(newRectangle);
+                    PreparationStation prepStation = new PreparationStation(newRectangle,gameScreen);
                     switch(t) {
                         case "cut":
                             prepStation.setID(Station.StationID.cut);
