@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.9" tiledversion="1.9.2" name="MFTiles2" tilewidth="1000" tileheight="2048" tilecount="29" columns="0">
+<tileset version="1.9" tiledversion="1.9.2" name="MFTiles2" tilewidth="1000" tileheight="2048" tilecount="35" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image width="256" height="2048" source="Tiles/MFPack/Beam.png"/>
@@ -87,5 +87,23 @@
  </tile>
  <tile id="28">
   <image width="32" height="32" source="Tiles/MFPack/Window-Starship.png"/>
+ </tile>
+ <tile id="35">
+  <image width="128" height="128" source="Tiles/Speedpad.png"/>
+ </tile>
+ <tile id="36">
+  <image width="128" height="128" source="Tiles/BaseBlugggypad.png"/>
+ </tile>
+ <tile id="37">
+  <image width="128" height="128" source="Tiles/BluggusBars.png"/>
+ </tile>
+ <tile id="38">
+  <image width="128" height="128" source="Tiles/FeelTheSpeeeeed.png"/>
+ </tile>
+ <tile id="39">
+  <image width="128" height="128" source="Tiles/FreezePad.png"/>
+ </tile>
+ <tile id="40">
+  <image width="128" height="128" source="Tiles/PauseState.png"/>
  </tile>
 </tileset>

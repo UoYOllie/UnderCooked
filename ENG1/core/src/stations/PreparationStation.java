@@ -1,7 +1,6 @@
 package stations;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -10,7 +9,6 @@ import cooks.Cook;
 import food.FoodItem;
 import game.GameScreen;
 import game.GameSprites;
-import game.ScreenController;
 import helper.Constants;
 import interactions.InputKey;
 import interactions.Interactions;
@@ -30,6 +28,7 @@ public class PreparationStation extends Station {
     private int usingchef;
     private boolean Done;
     private GameScreen gameScreen;
+    private int TestFlag = 0; //Normal mode = 0 , Test Mode = 1
 
     /**
      * The constructor for the {@link PreparationStation}.
@@ -63,11 +62,12 @@ public class PreparationStation extends Station {
 
     @Override
     public void update(float delta) {
-        if (progress < 100) {
-            gameScreen.cooks.get(usingchef).lockmovement = true;
-        }
-        else{
-            gameScreen.cooks.get(usingchef).lockmovement = false;
+        if (TestFlag == 0) {
+            if (progress < 100) {
+                gameScreen.cooks.get(usingchef).lockmovement = true;
+            } else {
+                gameScreen.cooks.get(usingchef).lockmovement = false;
+            }
         }
         if (inUse) {
             if (progress < 100) {
@@ -142,11 +142,12 @@ public class PreparationStation extends Station {
      * @param shape The {@link ShapeRenderer} used to render.
      */
     public void renderShape(ShapeRenderer shape) {
-        if (progress < 100) {
-            gameScreen.cooks.get(usingchef).lockmovement = true;
-        }
-        else{
-            gameScreen.cooks.get(usingchef).lockmovement = false;
+        if (TestFlag == 0) {
+            if (progress < 100) {
+                gameScreen.cooks.get(usingchef).lockmovement = true;
+            } else {
+                gameScreen.cooks.get(usingchef).lockmovement = false;
+            }
         }
         // Render the progress bar when inUse
         if (inUse) {
@@ -186,7 +187,9 @@ public class PreparationStation extends Station {
      */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
-        this.usingchef = gameScreen.cookIndex;
+        if (TestFlag == 0) {
+            this.usingchef = gameScreen.cookIndex;
+        }
         cook.lockmovement = true;
         System.out.print(this.usingchef+" ///////////////////////");
 
@@ -288,5 +291,13 @@ public class PreparationStation extends Station {
 
             }
         }
+    }
+
+    public int GetTestFlag(){
+        return this.TestFlag;
+    }
+
+    public void SetTestFlag(int testFlag){
+        this.TestFlag = testFlag;
     }
 }

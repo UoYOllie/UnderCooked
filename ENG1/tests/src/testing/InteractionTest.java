@@ -28,7 +28,7 @@ public class InteractionTest {
     // Relates to the FR_PUT_FOOD_DOWN requirement
     public void TestPutDownItem(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        PreparationStation testStation = new PreparationStation(rectangle);
+        CounterStation testStation = new CounterStation(rectangle);
         testStation.setID(Station.StationID.cut);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
@@ -42,7 +42,7 @@ public class InteractionTest {
     // Relates to the FR_GET_FOOD requirement
     public void TestPickUpItem(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        PreparationStation testStation = new PreparationStation(rectangle);
+        CounterStation testStation = new CounterStation(rectangle);
         testStation.setID(Station.StationID.cut);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
@@ -59,6 +59,7 @@ public class InteractionTest {
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
         testStation.setID(Station.StationID.cut);
+        testStation.SetTestFlag(1);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
@@ -67,13 +68,14 @@ public class InteractionTest {
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         assertTrue(cook.foodStack.size() == 1, "Error: Preparation stations can now hold " + cook.foodStack.size() + " items (if zero, that is max. Greater than 1 means at least 0) instead of the previous 1.");
+        testStation.SetTestFlag(0);
     }
 
     @Test
     // Relates to the FR_GET_FOOD requirement
     public void TestPlayerItemStack(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        PreparationStation testStation = new PreparationStation(rectangle);
+        CounterStation testStation = new CounterStation(rectangle);
         testStation.setID(Station.StationID.cut);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
@@ -90,6 +92,7 @@ public class InteractionTest {
     public void TestPreparationStationCutLettuce(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
+        testStation.SetTestFlag(1);
         testStation.setID(Station.StationID.cut);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
@@ -101,6 +104,7 @@ public class InteractionTest {
         }
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.lettuceChop, "Error:The process of chopping lettuce no longer results in chopped lettuce at the end. PreperationStation is therefore broken");
+        testStation.SetTestFlag(0);
     }
 
     @Test
@@ -108,6 +112,7 @@ public class InteractionTest {
     public void TestPreparationStationCutTomato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
+        testStation.SetTestFlag(1);
         testStation.setID(Station.StationID.cut);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
@@ -119,6 +124,7 @@ public class InteractionTest {
         }
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.tomatoChop, "Error:The process of cutting tomatoes no longer results in chopped tomatoes at the end. PreperationStation is therefore broken");
+        testStation.SetTestFlag(0);
     }
 
     @Test
@@ -126,6 +132,7 @@ public class InteractionTest {
     public void TestPreparationStationCutOnion(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
+        testStation.SetTestFlag(1);
         testStation.setID(Station.StationID.cut);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
@@ -137,6 +144,7 @@ public class InteractionTest {
         }
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onionChop,"Error:The process of chopping no longer results in chopped onions at the end. PreperationStation is therefore broken");
+        testStation.SetTestFlag(0);
     }
 
     @Test
@@ -144,6 +152,7 @@ public class InteractionTest {
     public void TestPreparationStationCookMeat(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
+        testStation.SetTestFlag(1);
         testStation.setID(Station.StationID.fry);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
@@ -155,6 +164,7 @@ public class InteractionTest {
         }
         testStation.interact(cook, InputKey.InputTypes.PICK_UP);
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook,"Error:The process of cooking meat no longer results in cooked meat at the end. PreperationStation is therefore broken");
+        testStation.SetTestFlag(0);
     }
 
     @Test
@@ -162,6 +172,7 @@ public class InteractionTest {
     public void TestPreparationStationSetsStatetoFinished(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
+        testStation.SetTestFlag(1);
         testStation.setID(Station.StationID.fry);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
@@ -172,6 +183,7 @@ public class InteractionTest {
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         testStation.update(1);
         assertEquals(testStation.state, PreparationStation.StationState.FINISHED);
+        testStation.SetTestFlag(0);
     }
 
     @Test
@@ -179,6 +191,7 @@ public class InteractionTest {
     public void TestPreparationStationAddsResultBackWhenFinishedUse(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
+        testStation.SetTestFlag(1);
         testStation.setID(Station.StationID.fry);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
@@ -189,6 +202,7 @@ public class InteractionTest {
         testStation.inUse = true;
         testStation.interact(cook, InputKey.InputTypes.USE);
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook);
+        testStation.SetTestFlag(0);
     }
 
     @Test
@@ -366,6 +380,7 @@ public class InteractionTest {
     public void TestBakingStationPotatoToBakedPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.SetTestFlag(1);
         preparationStation.setID(Station.StationID.bake);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(preparationStation.getRectangle());
@@ -377,13 +392,15 @@ public class InteractionTest {
         }
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.potatoCook, "Error:The process of baking potatoes no longer results in chopped tomatoes at the end. PreperationStation is therefore broken");
+        preparationStation.SetTestFlag(0);
     }
 
     @Test
     // Relates to the FR_USE_STATION and FR_INTERACTION requirements
-    public void TestBakingStationDoughtoDoughCook(){
+    public void TestBakingStationDoughToDoughCook(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.SetTestFlag(1);
         preparationStation.setID(Station.StationID.bake);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(preparationStation.getRectangle());
@@ -395,6 +412,7 @@ public class InteractionTest {
         }
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.doughCook, "Error:The process of baking dough no longer results in chopped tomatoes at the end. PreperationStation is therefore broken");
+        preparationStation.SetTestFlag(0);
     }
 
     @Test
@@ -1063,6 +1081,7 @@ public class InteractionTest {
         //This tests whether the player is able to chop already chopped items (not meant to be able to)
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation preparationStation = new PreparationStation(rectangle);
+        preparationStation.SetTestFlag(1);
         preparationStation.setID(Station.StationID.cut);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(preparationStation.getRectangle());
@@ -1095,6 +1114,7 @@ public class InteractionTest {
         assertFalse(preparationStation.inUse, "Error: Preparation station is able to be used with an already chopped onion");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.onionChop, "Error: Trying to chop an already chopped onion results in a different food item being returned");
+        preparationStation.SetTestFlag(0);
     }
 
     @Test
