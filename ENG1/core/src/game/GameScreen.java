@@ -67,7 +67,7 @@ public class GameScreen extends ScreenAdapter {
     //public Array<Station> servingStationNewList;
     private Array<CookInteractable> interactables;
     private CollisionHelper collisionHelper;
-    private ArrayList<GameEntity> gameEntities;
+    public ArrayList<GameEntity> gameEntities;
     private DrawQueueComparator drawQueueComparator;
     //private Array<ServingStation> servingStations;
     private float xOffset = 1500;
