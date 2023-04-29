@@ -37,6 +37,7 @@ public class CustomerController {
 
     private int interval;
     private int group_size;
+    private int customers_left;
 
     /** The constructor of CustomerController.
      * @param gameScreen the instance of GameScreen for the current game.
@@ -52,6 +53,7 @@ public class CustomerController {
 
         this.interval = 1;
         this.group_size = 1;
+        this.customers_left = 4;
     }
 
     /** Setter for mode.*/
@@ -77,27 +79,25 @@ public class CustomerController {
         return (this.mode == "scenario" && this.customers.size() > 4);
     }
 
-    /**
-     * Method to check whether a game has been won in scenario mode (if there are 0 customers left).
-     *
-     * Returns the number of customers left to serve in scenario mode,
-     * but will never return 0 if the game is in endless mode.
-     *
-     * @return the number of customers left to serve.
-     * */
-    public int scenarioCustomersLeft() {
+    public boolean wonScenario() {
 
-        if (customers.size() == 0) { return 1;}
-        int customersLeft = customers.size();
 
-        if (this.mode == "scenario" && customersLeft > 0) {
+        //if (customers.size() == 0) { return false;}
+
+        if (this.mode == "scenario" && this.customers_left > 0) {
+
             for (CustomerNew customer : customers) {
                 if (customer.getCustomerStatus() == 2) {
-                    customersLeft -= 1;
+                    this.customers_left -= 1;
+                    customer.setStatus(customer.getStatus() + 1);
+                    System.out.println("customers left " + customers_left);
                 }
             }
+        } else if (this.mode == "scenario" || this.customers_left == 0) {
+            return true;
         }
-        return customersLeft;
+
+        return false;
     }
 
     /**
@@ -124,15 +124,17 @@ public class CustomerController {
      * */
     public CustomerNew addCustomer() {
 
-        System.out.println("group size " + group_size);
+        //System.out.println("group size " + group_size);
 
         interval -= 1;
         System.out.println("interval " + interval);
+        System.out.println("group size " + group_size);
 
         // Check if all customers have been served, if yes return.
         // Also checks if the current interval is a multiple of 10, new customers
         // are spawned every 10 seconds.
-        if (maxCustomersReached() || !(this.interval==0)) {
+        if ((this.mode == "scenario" && this.customers.size() > 4) || !(this.interval==0)) {
+            System.out.println("no customer added this time!");
             return null;
         }
 
@@ -152,31 +154,33 @@ public class CustomerController {
                 newCustomer.setDifficulty(difficulty);
                 newCustomer.setGameScreen(this.gameScreen);
 
-                // LAURA GET RID OF THIS LATER
-                if (customers.size() == 2) {
-                    newCustomer.customerToTest = true;
-                    System.out.println("testing " + newCustomer + " with destination " + station);
-                }
-
                 // Add the new customer to customers and stationCustomerMap, then return the new Customer.
                 this.stationCustomerMap.put(station, newCustomer);
                 this.customers.add(newCustomer);
 
-                //multipleCustomers();
-                if (group_size > 1) {
-                    group_size -= 1;
-                    interval = 1;
+                if (this.mode == "endless" && this.customers.size() > 5) {
+                    if (group_size > 1) {
+                        group_size -= 1;
+                        interval = 1;
+                        //System.out.println("group_size " + group_size);
+                    } else {
+                        Random rd = new Random();
+                        this.group_size = rd.nextInt(1, 4);
+                        this.interval = 10;
+                        //System.out.println("group size " + group_size);
+                    }
                 } else {
-                    Random rd = new Random();
-                    this.group_size = rd.nextInt(4);
+                    //System.out.println("group size " + group_size);
                     this.interval = 10;
                 }
 
-                System.out.println("added customer" + newCustomer);
+                System.out.println("added customer " + newCustomer);
                 return newCustomer;
             }
         }
 
+        System.out.println("no customer added!");
+        interval = 10;
         return null;
     }
 
