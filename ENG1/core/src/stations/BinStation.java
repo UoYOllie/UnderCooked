@@ -29,6 +29,7 @@ public class BinStation extends Station {
      */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
+        cook.lockmovement = false;
 
         if (inputType == InputKey.InputTypes.PUT_DOWN) {
             if (cook.foodStack.size() > 0 && cook.dishStack.empty()) {

@@ -21,7 +21,6 @@ public class PreparationStation extends Station {
 
     private FoodItem.FoodID foodItem;
     public Interactions.InteractionResult interaction;
-    public float progress;
     private int stepNum;
     public StationState state;
 
@@ -155,13 +154,20 @@ public class PreparationStation extends Station {
      */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
-
+        if(inUse) {
+            cook.lockmovement = true;
+        }
+        else
+        {
+            cook.lockmovement = false;
+        }
         if (cook.getBlocked() == true) {
             return;
         }
 
         // If the Cook is holding a food item, and they use the "Put down" control...
         if (cook.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
+            cook.lockmovement = true;
             // Start by getting the possible interaction result
             Interactions.InteractionResult newInteraction = interactions.Interactions.interaction(cook.foodStack.peekStack(), stationID);
             // If it's null, just stop here.
@@ -193,7 +199,8 @@ public class PreparationStation extends Station {
         // The other two inputs require the station being inUse.
         else if (inUse) {
             // If the user instead uses the "Pick Up" option, check if the station is inUse
-            if (inputType == InputKey.InputTypes.PICK_UP) {
+            if ((inputType == InputKey.InputTypes.PICK_UP)&&(cook.lockmovement==false)) {
+                cook.lockmovement = false;
                 inUse = false;
                 // If it is done, pick up the result instead of the foodItem
                 if (progress >= 100) {
@@ -204,10 +211,32 @@ public class PreparationStation extends Station {
                 cook.foodStack.addStack(foodItem);
                 return; // Return as it the Station is no longer inUse
             }
+            if ((inputType == InputKey.InputTypes.PICK_UP)&&(cook.lockmovement==false)) {
+                cook.lockmovement = false;
+                inUse = false;
+                // If it is done, pick up the result instead of the foodItem
+                if (progress >= 100) {
+                    cook.foodStack.addStack(interaction.getResult());
+                    return;
+                }
+                // Take the item from the Station, and change it to not being used
+                cook.foodStack.addStack(foodItem);
+                return; // Return as it the Station is no longer inUse
+            }
+            if ((inputType == InputKey.InputTypes.PICK_UP)&&(cook.lockmovement==true)) {
+                // If progress >= 100, then take the result of the preparation.
+                if (progress >= 100) {
+                    cook.lockmovement = false;
+                    inUse = false;
+                    cook.foodStack.addStack(interaction.getResult());
+                    return;
+                }
+            }
             // Otherwise, check if the user is trying to use the Station.
             if (inputType == InputKey.InputTypes.USE) {
                 // If progress >= 100, then take the result of the preparation.
                 if (progress >= 100) {
+                    cook.lockmovement = false;
                     inUse = false;
                     cook.foodStack.addStack(interaction.getResult());
                     return;
@@ -220,6 +249,7 @@ public class PreparationStation extends Station {
                         stepNum += 1;
                     }
                 }
+
             }
         }
     }

@@ -63,6 +63,7 @@ public class AssemblyStation extends Station {
      */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
+        cook.lockmovement = false;
 
         switch (inputType) {
 

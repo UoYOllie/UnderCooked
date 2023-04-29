@@ -29,6 +29,7 @@ import java.util.ArrayList;
 
 /** A {@link GameEntity} that the player controls to interact with the game. */
 public class Cook extends GameEntity {
+    public boolean lockmovement;
 
 
     /** The cook's current sprite. */
@@ -97,6 +98,7 @@ public class Cook extends GameEntity {
      */
     public Cook(float x, float y, float width, float height) {
         super(x, y, width, height);
+        this.lockmovement = false;
         this.dir = Facing.DOWN;
         this.speed = 10f;
         this.Colour = "Blank";
@@ -153,74 +155,71 @@ public class Cook extends GameEntity {
     public void userInput(ArrayList<Rectangle> mapObstacles) {
         velX = 0F;
         velY = 0F;
-        if(Interactions.isPressed(InputKey.InputTypes.COOK_RIGHT))
-        {
-            velX = movement_speed;
-            if (!inputs.contains(Facing.RIGHT, true)) {
-                inputs.add(Facing.RIGHT);
+        if(this.lockmovement == false) {
+            if (Interactions.isPressed(InputKey.InputTypes.COOK_RIGHT)) {
+                velX = movement_speed;
+                if (!inputs.contains(Facing.RIGHT, true)) {
+                    inputs.add(Facing.RIGHT);
+                }
+            } else {
+                inputs.removeValue(Facing.RIGHT, true);
             }
-        } else {
-            inputs.removeValue(Facing.RIGHT,true);
-        }
-        if(Interactions.isPressed(InputKey.InputTypes.COOK_LEFT))
-        {
-            velX = -movement_speed;
-            if (!inputs.contains(Facing.LEFT, true)) {
-                inputs.add(Facing.LEFT);
+            if (Interactions.isPressed(InputKey.InputTypes.COOK_LEFT)) {
+                velX = -movement_speed;
+                if (!inputs.contains(Facing.LEFT, true)) {
+                    inputs.add(Facing.LEFT);
+                }
+            } else {
+                inputs.removeValue(Facing.LEFT, true);
             }
-        } else {
-            inputs.removeValue(Facing.LEFT,true);
-        }
-        if(Interactions.isPressed(InputKey.InputTypes.COOK_UP))
-        {
-            velY = movement_speed;
-            if (!inputs.contains(Facing.UP, true)) {
-                inputs.add(Facing.UP);
+            if (Interactions.isPressed(InputKey.InputTypes.COOK_UP)) {
+                velY = movement_speed;
+                if (!inputs.contains(Facing.UP, true)) {
+                    inputs.add(Facing.UP);
+                }
+            } else {
+                inputs.removeValue(Facing.UP, true);
             }
-        } else {
-            inputs.removeValue(Facing.UP,true);
-        }
-        if(Interactions.isPressed(InputKey.InputTypes.COOK_DOWN))
-        {
-            velY = -movement_speed;
-            if (!inputs.contains(Facing.DOWN, true)) {
-                inputs.add(Facing.DOWN);
+            if (Interactions.isPressed(InputKey.InputTypes.COOK_DOWN)) {
+                velY = -movement_speed;
+                if (!inputs.contains(Facing.DOWN, true)) {
+                    inputs.add(Facing.DOWN);
+                }
+            } else {
+                inputs.removeValue(Facing.DOWN, true);
             }
-        } else {
-            inputs.removeValue(Facing.DOWN,true);
-        }
 
-        Rectangle newPlayerRectangle = new Rectangle(this.x + velX, this.y, this.width, this.height);
-        for (Rectangle obstacle : mapObstacles) {
-            if (Intersector.overlaps(obstacle, newPlayerRectangle)) {
-                if (velX < 0) {
-                    newPlayerRectangle.x = obstacle.x + obstacle.width;
-                } else if (velX > 0) {
-                    newPlayerRectangle.x = obstacle.x - newPlayerRectangle.width;
+            Rectangle newPlayerRectangle = new Rectangle(this.x + velX, this.y, this.width, this.height);
+            for (Rectangle obstacle : mapObstacles) {
+                if (Intersector.overlaps(obstacle, newPlayerRectangle)) {
+                    if (velX < 0) {
+                        newPlayerRectangle.x = obstacle.x + obstacle.width;
+                    } else if (velX > 0) {
+                        newPlayerRectangle.x = obstacle.x - newPlayerRectangle.width;
+                    }
                 }
             }
-        }
 
-        newPlayerRectangle.y += velY;
+            newPlayerRectangle.y += velY;
 
-        for (Rectangle obstacle : mapObstacles) {
-            if (Intersector.overlaps(obstacle, newPlayerRectangle)) {
-                if (velY < 0) {
-                    newPlayerRectangle.y = obstacle.y + obstacle.height;
-                } else if (velY > 0) {
-                    newPlayerRectangle.y = obstacle.y - newPlayerRectangle.height;
+            for (Rectangle obstacle : mapObstacles) {
+                if (Intersector.overlaps(obstacle, newPlayerRectangle)) {
+                    if (velY < 0) {
+                        newPlayerRectangle.y = obstacle.y + obstacle.height;
+                    } else if (velY > 0) {
+                        newPlayerRectangle.y = obstacle.y - newPlayerRectangle.height;
+                    }
                 }
             }
+
+            setDir();
+
+
+            // body.setLinearVelocity(velX * speed,velY * speed);
+            this.rectangle = newPlayerRectangle;
+            this.x = rectangle.x;
+            this.y = rectangle.y;
         }
-
-        setDir();
-
-
-
-        // body.setLinearVelocity(velX * speed,velY * speed);
-        this.rectangle = newPlayerRectangle;
-        this.x = rectangle.x;
-        this.y = rectangle.y;
     }
 
     public void userInteract(ArrayList<Station> mapStations){

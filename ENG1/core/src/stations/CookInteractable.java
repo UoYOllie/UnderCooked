@@ -10,6 +10,7 @@ import interactions.InputKey;
 public abstract class CookInteractable extends GameEntity {
     /** The rectangle representing the collision of this interactable. */
     protected Rectangle interactRect;
+    public float progress;
 
     /**
      * Calls the parent function, {@link GameEntity}, and sets the
@@ -20,6 +21,7 @@ public abstract class CookInteractable extends GameEntity {
     public CookInteractable(Rectangle rect) {
         super(rect);
         this.interactRect = rect;
+        this.progress = 100;
     }
 
     /**
@@ -39,6 +41,7 @@ public abstract class CookInteractable extends GameEntity {
      */
     public void interact(Cook cook, InputKey.InputTypes inputType) {
         System.out.println("Im interacting with:");
+        cook.lockmovement = false;
         //System.out.println("Interaction at x=" + body.getPosition().x*PPM + ", y=" + body.getPosition().x*PPM);
     }
 
