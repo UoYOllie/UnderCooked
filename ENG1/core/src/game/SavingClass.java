@@ -72,6 +72,10 @@ public class SavingClass {
         this.Status = new Array<Integer>();
         this.station_x = new Array<Float>();
         this.station_y = new Array<Float>();
+        this.StationPropertyID = new Array<Integer>();
+        this.HeldFood = new Array<Array<Integer>>();
+        this.stationdishstack = new Array<Array<Integer>>();
+        this.lockedStation = new Array<Boolean>();
     }
     public SavingClass(GameScreen g)
     {
@@ -81,8 +85,7 @@ public class SavingClass {
         SaveCooksAndCustomers(g);
         Timer(g);
         Modediff(g);
-        //Stations
-
+        SaveStations(g);
     }
 
 
@@ -232,6 +235,7 @@ public class SavingClass {
                 stack1items.add(f.ordinal());
             }
             this.HeldFood.add(stack1items);
+            this.lockedStation.add(s.Locked);
 
         }
 
