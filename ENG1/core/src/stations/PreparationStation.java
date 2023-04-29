@@ -145,9 +145,9 @@ public class PreparationStation extends Station {
         if (progress < 100) {
             gameScreen.cooks.get(usingchef).lockmovement = true;
         }
-        else{
-            gameScreen.cooks.get(usingchef).lockmovement = false;
-        }
+//        else{
+//            gameScreen.cooks.get(usingchef).lockmovement = false;
+//        }
         // Render the progress bar when inUse
         if (inUse) {
             float rectX = x,
@@ -191,11 +191,11 @@ public class PreparationStation extends Station {
         System.out.print(this.usingchef+" ///////////////////////");
 
         if(inUse) {
-            cook.lockmovement = true;
+            gameScreen.cooks.get(usingchef).lockmovement = true;
         }
         else
         {
-            cook.lockmovement = false;
+            gameScreen.cooks.get(usingchef).lockmovement = false;
         }
         if (cook.getBlocked() == true) {
             return;
@@ -203,7 +203,7 @@ public class PreparationStation extends Station {
 
         // If the Cook is holding a food item, and they use the "Put down" control...
         if (cook.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
-            cook.lockmovement = true;
+            gameScreen.cooks.get(usingchef).lockmovement = true;
             // Start by getting the possible interaction result
             Interactions.InteractionResult newInteraction = interactions.Interactions.interaction(cook.foodStack.peekStack(), stationID);
             // If it's null, just stop here.
@@ -236,7 +236,7 @@ public class PreparationStation extends Station {
         else if (inUse) {
             // If the user instead uses the "Pick Up" option, check if the station is inUse
             if ((inputType == InputKey.InputTypes.PICK_UP)&&(cook.lockmovement==false)) {
-                cook.lockmovement = false;
+                gameScreen.cooks.get(usingchef).lockmovement = false;
                 inUse = false;
                 // If it is done, pick up the result instead of the foodItem
                 if (progress >= 100) {
@@ -248,7 +248,7 @@ public class PreparationStation extends Station {
                 return; // Return as it the Station is no longer inUse
             }
             if ((inputType == InputKey.InputTypes.PICK_UP)&&(cook.lockmovement==false)) {
-                cook.lockmovement = false;
+                gameScreen.cooks.get(usingchef).lockmovement  = false;
                 inUse = false;
                 // If it is done, pick up the result instead of the foodItem
                 if (progress >= 100) {
