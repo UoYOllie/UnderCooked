@@ -413,9 +413,10 @@ public class GameScreen extends ScreenAdapter {
             this.Loading = true;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.Q)){
-            this.forcewin = true;
+//            this.forcewin = true;
             System.out.print("Forcing win");
 //            this.Reputation.setPoints(0);
+            System.out.println(this.SaveText);
         }
 
         // First thing, update all inputs

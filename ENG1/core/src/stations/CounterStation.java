@@ -19,9 +19,6 @@ import interactions.InputKey;
  */
 public class CounterStation extends Station {
 
-    public FoodStack stationFoodStack;
-    public DishStack stationDishStack;
-
     /**
      * The constructor for the {@link CounterStation}. It sets up the
      * {@link FoodStack} for the {@link CounterStation}.

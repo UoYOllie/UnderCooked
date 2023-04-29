@@ -20,7 +20,6 @@ import interactions.Interactions;
  */
 public class PreparationStation extends Station {
 
-    private FoodItem.FoodID foodItem;
     public Interactions.InteractionResult interaction;
     private int stepNum;
     public StationState state;
@@ -117,7 +116,7 @@ public class PreparationStation extends Station {
         if (inUse) {
             Sprite renderItem;
             if (progress < 100) {
-                renderItem = gameSprites.getSprite(GameSprites.SpriteID.FOOD,foodItem.toString());
+                renderItem = gameSprites.getSprite(GameSprites.SpriteID.FOOD,this.stationFoodStack.getStack().get(0).toString());
             } else {
                 renderItem = gameSprites.getSprite(GameSprites.SpriteID.FOOD,interaction.getResult().toString());
             }
@@ -217,7 +216,7 @@ public class PreparationStation extends Station {
             // Check to make sure the station isn't inUse.
             if (!inUse) {
                 // Set the current interaction, and put this station inUse
-                foodItem = cook.foodStack.popStack();
+                this.stationFoodStack.addStack(cook.foodStack.popStack());
                 interaction = newInteraction;
                 stepNum = 0;
                 progress = 0;
@@ -247,7 +246,7 @@ public class PreparationStation extends Station {
                     return;
                 }
                 // Take the item from the Station, and change it to not being used
-                cook.foodStack.addStack(foodItem);
+                cook.foodStack.addStack(this.stationFoodStack.getStack().get(0));
                 return; // Return as it the Station is no longer inUse
             }
             if ((inputType == InputKey.InputTypes.PICK_UP)&&(cook.lockmovement==false)) {
@@ -259,7 +258,7 @@ public class PreparationStation extends Station {
                     return;
                 }
                 // Take the item from the Station, and change it to not being used
-                cook.foodStack.addStack(foodItem);
+                cook.foodStack.addStack(this.stationFoodStack.getStack().get(0));
                 return; // Return as it the Station is no longer inUse
             }
             if ((inputType == InputKey.InputTypes.PICK_UP)&&(cook.lockmovement==true)) {

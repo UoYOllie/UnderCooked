@@ -219,12 +219,15 @@ public class SavingClass {
 //            private Array<Array<Integer>> HeldFood;
 //            private Array<Array<Integer>> stationdishstack;
 //            private Array<Boolean> lockedStation;
+//            System.out.println(s.getPropertyID());
             StationPropertyID.add(s.getPropertyID());
-            Array<FoodItem.FoodID> tempstack = new Array<FoodItem.FoodID> ();
+            Array<FoodItem.FoodID> tempstack = s.stationFoodStack.getStack();
             Array<Integer> dishy = new Array<Integer>();
+            System.out.println(s.stationDishStack.getStackCopy());
             tempstack = s.stationDishStack.getStackCopy();
             for(FoodItem.FoodID f:tempstack)
             {
+                System.out.println("eeeeeeeeeeeeeeY"+f.ordinal()+"Yeeeeeeeeeeeee");
                 dishy.add(f.ordinal());
             }
             this.stationdishstack.add(dishy);

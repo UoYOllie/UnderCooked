@@ -18,13 +18,13 @@ import static food.Recipe.*;
 
 public class ServingStation extends Station {
 
-    public DishStack servedDishStack;
+
     public CustomerNew customer;
     private Integer testFlag = 0;
 
     public ServingStation(Rectangle rectangle) {
         super(rectangle);
-        servedDishStack = new DishStack();
+        stationDishStack = new DishStack();
         //customer = null;
     }
 
@@ -40,15 +40,15 @@ public class ServingStation extends Station {
 
         switch (inputType) {
             case PUT_DOWN:
-                if (!cook.dishStack.empty() && servedDishStack.empty()) {
-                    this.servedDishStack.setStack(cook.dishStack.getStackCopy());
+                if (!cook.dishStack.empty() && stationDishStack.empty()) {
+                    this.stationDishStack.setStack(cook.dishStack.getStackCopy());
                     cook.dishStack.clearStack();
                 }
                 break;
             case PICK_UP:
-                if (!servedDishStack.empty() && cook.dishStack.empty()) {
-                    cook.dishStack.setStack(servedDishStack.getStackCopy());
-                    servedDishStack.clearStack();
+                if (!stationDishStack.empty() && cook.dishStack.empty()) {
+                    cook.dishStack.setStack(stationDishStack.getStackCopy());
+                    stationDishStack.clearStack();
                 }
                 break;
         }
@@ -57,7 +57,7 @@ public class ServingStation extends Station {
     @Override
     public void customerInteract(CustomerNew customer) {
         this.customer = customer;
-        Array<FoodItem.FoodID> plateless = servedDishStack.getStackCopy();
+        Array<FoodItem.FoodID> plateless = stationDishStack.getStackCopy();
         Array<FoodItem.FoodID> teacup_item = new Array<FoodItem.FoodID>();
         Array<FoodItem.FoodID> menu_item = new Array<FoodItem.FoodID>();
         teacup_item.add(FoodItem.FoodID.teacup);
@@ -77,12 +77,12 @@ public class ServingStation extends Station {
                 customer.HangOnYourFoodIsComing();
                 System.out.println(customer + "now will leave in "+ customer.waittime);
                 customer.dishStack.setStack(teacup_item);
-                servedDishStack.clearStack();
+                stationDishStack.clearStack();
             }
             else if(plateless.get(0) == menu_item.get(0)){
                 System.out.println(customer + "is rethinking");
                 customer.Hypnotise();
-                servedDishStack.clearStack();
+                stationDishStack.clearStack();
             }
             else {
                 plateless.removeIndex(plateless.size - 1);
@@ -96,8 +96,8 @@ public class ServingStation extends Station {
         if (matchesRecipeArray(plateless, customer.request)) {
             System.out.println("This was correct for me");
             customer.dishStack.clearStack();
-            customer.dishStack.setStack(servedDishStack.getStackCopy());
-            servedDishStack.clearStack();
+            customer.dishStack.setStack(stationDishStack.getStackCopy());
+            stationDishStack.clearStack();
             if (testFlag == 0) {
                 customer.Success(this);
             }
@@ -107,7 +107,7 @@ public class ServingStation extends Station {
     @Override
     public void render(SpriteBatch batch) {
 
-        Array<FoodItem.FoodID> dishList = servedDishStack.getStack();
+        Array<FoodItem.FoodID> dishList = stationDishStack.getStack();
         float xOffset = 0F, yOffset = 0F;
         float drawX = x, drawY = y;
 
@@ -131,11 +131,11 @@ public class ServingStation extends Station {
     }
 
     public DishStack getServedDishStack(){
-        return servedDishStack;
+        return stationDishStack;
     }
 
     public void setServedDishStack(DishStack servedDishStack){
-        this.servedDishStack = servedDishStack;
+        this.stationDishStack = servedDishStack;
     }
 
 }

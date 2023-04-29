@@ -280,6 +280,12 @@ public class MapHelper {
 
 
             }
+            int i = 0;
+            for(Station s:mapStations)
+            {
+                s.setPropertyID(i);
+                i++;
+            }
 
         }
     }
