@@ -62,14 +62,7 @@ potatoCook
   index: -1
 bakedBeans
   rotate: false
-  xy: 108, 0
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-pepperoni
-  rotate: false
-  xy: 126, 0
+  xy: 162, 0
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -77,6 +70,20 @@ pepperoni
 doughCook
   rotate: false
   xy: 144, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+beansCooked
+   rotate: false
+   xy: 108, 0
+   size: 16, 16
+   orig: 16, 16
+   offset: 0, 0
+   index: -1
+waste
+  rotate: false
+  xy: 214, 0
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
