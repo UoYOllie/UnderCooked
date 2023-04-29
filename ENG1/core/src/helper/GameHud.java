@@ -44,6 +44,9 @@ public class GameHud extends Hud {
         goldLabel = new Label("",new Label.LabelStyle((new BitmapFont()),Color.GOLD));
         Loading = new Label("", font);
         Loading.setFontScale(10);
+        timeLabel.setFontScale(1);
+        reputation.setFontScale(1);
+        goldLabel.setFontScale(1);
         updateTime(0,0,0);
         updateReputation(0);
         updateGold(0);

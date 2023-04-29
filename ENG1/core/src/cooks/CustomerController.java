@@ -183,10 +183,11 @@ public class CustomerController {
     private Station getStationKey(Map<Station, CustomerNew> stationCustomerMap, float station_y) {
 
         for (Map.Entry<Station, CustomerNew> entry : stationCustomerMap.entrySet()) {
-
             Station station = entry.getKey();
-            if (Math.round(station.getY()) == Math.round(station_y)) {
-                return station;
+            if(station!=null) {
+                if (Math.round(station.getY()) == Math.round(station_y)) {
+                    return station;
+                }
             }
         }
 
