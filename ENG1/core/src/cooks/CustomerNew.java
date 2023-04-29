@@ -285,6 +285,7 @@ public class CustomerNew extends GameEntity {
                 servedCustomerLeaves();
                 break;
             case (3): // Customer is eating in the dining area.
+                servedCustomerLeaves();
                 //System.out.println("i am eating now yay");
                 break;
         }
