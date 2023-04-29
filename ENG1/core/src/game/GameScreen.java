@@ -87,7 +87,7 @@ public class GameScreen extends ScreenAdapter {
     private boolean readytorezoooom;
 
 
-    private int cookIndex;
+    public int cookIndex;
     //private CustomerController customerController;
     private CustomerController customerController;
     //private int customersToServe;

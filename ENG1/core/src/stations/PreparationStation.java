@@ -122,7 +122,7 @@ public class PreparationStation extends Station {
                 renderItem = gameSprites.getSprite(GameSprites.SpriteID.FOOD,interaction.getResult().toString());
             }
             renderItem.setScale(Constants.UnitScale);
-			System.out.println(renderItem.getWidth());
+			//System.out.println(renderItem.getWidth());
             renderItem.setPosition(x - 1/3f * renderItem.getWidth(),y - 0.354f * renderItem.getHeight());
             renderItem.draw(batch);
         }
@@ -142,6 +142,12 @@ public class PreparationStation extends Station {
      * @param shape The {@link ShapeRenderer} used to render.
      */
     public void renderShape(ShapeRenderer shape) {
+        if (progress < 100) {
+            gameScreen.cooks.get(usingchef).lockmovement = true;
+        }
+        else{
+            gameScreen.cooks.get(usingchef).lockmovement = false;
+        }
         // Render the progress bar when inUse
         if (inUse) {
             float rectX = x,
@@ -180,7 +186,10 @@ public class PreparationStation extends Station {
      */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
-        this.usingchef = gameScreen.cooks.indexOf(cook,false); //MAY NEED TO BE FALSE
+        this.usingchef = gameScreen.cookIndex;
+        cook.lockmovement = true;
+        System.out.print(this.usingchef+" ///////////////////////");
+
         if(inUse) {
             cook.lockmovement = true;
         }
