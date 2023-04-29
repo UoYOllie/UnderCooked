@@ -227,7 +227,7 @@ public class SavingClass {
             tempstack = s.stationDishStack.getStackCopy();
             for(FoodItem.FoodID f:tempstack)
             {
-                System.out.println("eeeeeeeeeeeeeeY"+f.ordinal()+"Yeeeeeeeeeeeee");
+//                System.out.println("eeeeeeeeeeeeeeY"+f.ordinal()+"Yeeeeeeeeeeeee");
                 dishy.add(f.ordinal());
             }
             this.stationdishstack.add(dishy);
