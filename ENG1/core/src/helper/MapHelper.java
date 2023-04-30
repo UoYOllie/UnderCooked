@@ -272,9 +272,22 @@ public class MapHelper {
                     IDcounter++;
                     break;
                 case "Locked":
-                    Locked LerLocked = new Locked(newRectangle,gameScreen,rectangleMapObject.getProperties().get("type").toString());
-                    LerLocked.setPropertyID(IDcounter);
-                    mapStations.add(LerLocked);
+                    String ts = rectangleMapObject.getProperties().get("type").toString();
+                    PreparationStation lockedprep = new PreparationStation(newRectangle,gameScreen);
+                    switch(ts) {
+                        case "cut":
+                            lockedprep.setID(Station.StationID.cut);
+                            break;
+                        case "fry":
+                            lockedprep.setID(Station.StationID.fry);
+                            break;
+                        case "bake":
+                            lockedprep.setID(Station.StationID.bake);
+                            break;
+                    }
+                    lockedprep.setPropertyID(IDcounter);
+                    lockedprep.Locked = true;
+                    mapStations.add(lockedprep);
                     IDcounter++;
                     break;
 
