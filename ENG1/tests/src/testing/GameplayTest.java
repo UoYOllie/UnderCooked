@@ -28,6 +28,7 @@ public class GameplayTest {
 
     //The following 2 tests are for robustness. The first tests that servingStations are multi-use. The second tests that failing recipes work
     @Test
+    // Relates to the FR_SERVE requirement
     public void TestServingStationServesMultipleCustomers(){
         //First we test the servingStation is cleared after the customer interacts with a correct recipe. We will use this to make sure the customer is finished with the station and then test with a separate customer and different order
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -70,6 +71,7 @@ public class GameplayTest {
     }
 
     @Test
+    // Relates to the FR_SERVE requirement
     public void TestServingStationDoesNotAcceptWrongRecipes(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -106,7 +108,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_DISH_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerOnionTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -144,6 +146,7 @@ public class GameplayTest {
     }
 
     @Test
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerLettuceTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -180,7 +183,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerLettuceOnionSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -217,7 +220,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerPlainBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -255,7 +258,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeWrongOrder(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -292,7 +295,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerLettuceBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -338,7 +341,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -384,7 +387,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -429,7 +432,7 @@ public class GameplayTest {
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerLettuceTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -477,7 +480,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerLettuceOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -525,7 +528,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -573,7 +576,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerLettuceTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -623,7 +626,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerPlainPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -659,7 +662,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerBeansPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -696,7 +699,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerColeslawPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -733,7 +736,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -770,7 +773,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerBeansCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -808,7 +811,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerBeansColeslawPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -846,7 +849,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerColeslawCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -883,7 +886,7 @@ public class GameplayTest {
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerBeansColeslawCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -929,7 +932,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerPlainPizza(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -967,7 +970,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerPepperoniPizza(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -1013,7 +1016,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerOnionPizza(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -1087,7 +1090,7 @@ public class GameplayTest {
         assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + 0.42f));
     }
 
-    // Relates to the FR_POWER_UPS requirements
+    // Relates to the FR_POWER_UPS requirement
     @Test
     public void TestMultipleSpeedPowerUps(){
         Cook cook = new Cook(1500,1200,20,20);
@@ -1110,7 +1113,7 @@ public class GameplayTest {
         assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + (0.42f * 2)),"ERROR: movement with two speed power up is not correct");
     }
 
-    //The following tests the Hypnotise power up
+    //The following tests the Hypnotise power up, relating to the FR_POWER_UPS requirement
     @Test
     public void testCustomerNewHypnotise(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
@@ -1120,7 +1123,7 @@ public class GameplayTest {
         assertFalse(customerNew.request.isEmpty(),"Error: Hypnotising a customer empties there request constructor");
     }
 
-    //The following tests another power up which forces the customer to wait longer
+    //The following tests another power up which forces the customer to wait longer, relating to the FR_POWER_UP requirement
     @Test
     public void testCustomerHangOnYourFoodIsComing(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
@@ -1129,7 +1132,7 @@ public class GameplayTest {
         assertEquals(customerNew.waittime, 300,"Error: Using the \"wait longer \" power up does not set the customers wait time to 300");
     }
 
-    //This tests the logic behind a customer leaving when being served
+    //This tests the logic behind a customer leaving when being served, relating to the FR_CUSTOMER_WAIT requirement
     @Test
     public void testCustomerNewServedCustomerLeave(){
         //Checking the if -> x > destination x
@@ -1145,7 +1148,7 @@ public class GameplayTest {
         assertEquals(customerNew.getCustomerStatus(), 1,"Error: CustomerNew's customerStatus is not being incremented correctly if x <= destination x");
     }
 
-    //The following tests make sure the bluggus power up
+    //The following tests make sure the bluggus power up, relating to the FR_POWER_UPS requirement
     @Test
     public void testMakeIntoBluggus(){
         Cook cook = new Cook(1,2,3,4);
@@ -1154,6 +1157,7 @@ public class GameplayTest {
     }
 
     @Test
+    // Relates to the FR_STACK_DISPLAY requirement
     public void testMoveStack(){
         //Testing moving foodStack2 moving items to foodStack1
         Cook cook = new Cook(1,2,3,4);
@@ -1171,6 +1175,7 @@ public class GameplayTest {
     //The following tests the logic behind gaining and losing reputation
     //This test relates to the FR_REPUTATION_POINTS requirement
     @Test
+    // Relates to the FR_REPUTATION_POINTS requirement
     public void TestRepPoints(){
         //First, I will test that RepPoints can be decremented
         RepPoints repPoints = new RepPoints();
