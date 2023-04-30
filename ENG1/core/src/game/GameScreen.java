@@ -311,19 +311,15 @@ public class GameScreen extends ScreenAdapter {
                 counter++;
             }
 
+            ArrayList<Station> newmapStations = new ArrayList<>();
+            counter=0;
             for(StationData newstation:stationsforgame)
             {
-                for(Station current:mapHelper.getMapStations())
-                {
-                    if(current.getPropertyID()==newstation.StationPropertyID)
-                    {
-                        FoodStack fs1 = new FoodStack();
-                        DishStack ds1 = new DishStack();
-                        fs1.setStack(newstation.HeldFood.getStack());
-                        ds1.setStack(newstation.stationdishstack.getStack());
-                    }
-                }
-
+                Station n = mapHelper.mapStations.get(newstation.StationPropertyID);
+                n.stationFoodStack = newstation.HeldFood;
+                n.stationDishStack = newstation.stationdishstack;
+                n.Locked = newstation.lock;
+                mapHelper.mapStations.set(newstation.StationPropertyID,n);
             }
 //            this.customerController.customers = customersforgame;
         }
@@ -1158,10 +1154,20 @@ public class GameScreen extends ScreenAdapter {
             sd.stationdishstack.setStack(ds);
 
             sd.lock = held_LockedStatus.getBoolean(count);
+            System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
+            System.out.println(sd.lock);
+            System.out.println(sd.stationdishstack);
+            System.out.println(sd.HeldFood);
+            System.out.println(sd.StationPropertyID);
+            System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
 
+            stationsforgame.add(sd);
             count++;
         }
 
+//        System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
+//        System.out.println(stationsforgame);
+//        System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
         reset(cooksforgame,unusedcooksforgame,customersforgame,stationsforgame);
 //        System.out.println(root);
 
