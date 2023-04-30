@@ -56,6 +56,9 @@ public class CreditsScreen extends ScreenAdapter {
 
         String[] instructions = new String[] {
             "OuterCooked, by Broken Designers",
+            "Made using libGDX",
+            "Tests made using JUnit and run using Jacoco",
+            "Program to draw assets: https://www.gimp.org/",
             "Program to create the texture atlases: https://github.com/crashinvaders/gdx-texture-packer-gui/releases",
             "Program to create the map: https://www.mapeditor.org/"
         };
