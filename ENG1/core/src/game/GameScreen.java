@@ -318,7 +318,7 @@ public class GameScreen extends ScreenAdapter {
                 Station n = mapHelper.mapStations.get(newstation.StationPropertyID);
                 //
                 n.stationFoodStack.setStack(newstation.HeldFood.getStackCopy());
-                n.stationDishStack.setStack(newstation.stationdishstack.getStackCopy());;
+//                n.stationDishStack.setStack(newstation.stationdishstack.getStackCopy());;
                 System.out.println(n.stationDishStack.getStackCopy()+",,,,,,,,,,,,,,,,,,,,,,,,,,,,,99");
                 //
                 n.Locked = newstation.lock;
