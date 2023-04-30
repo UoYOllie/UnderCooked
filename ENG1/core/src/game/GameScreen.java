@@ -319,6 +319,15 @@ public class GameScreen extends ScreenAdapter {
                 //
                 n.stationFoodStack.setStack(newstation.HeldFood.getStackCopy());
 //                n.stationDishStack.setStack(newstation.stationdishstack.getStackCopy());;
+                Array<FoodItem.FoodID> nd = new Array<FoodItem.FoodID>();
+                for(FoodItem.FoodID f:newstation.stationdishstack.getStack())
+                {
+                    System.out.println("ffffffffffffff......");
+                    System.out.println(f);
+                    System.out.println("ffffffffffffff......");
+                    nd.add(f);
+                }
+                n.stationDishStack.setStack(nd);
                 System.out.println(n.stationDishStack.getStackCopy()+",,,,,,,,,,,,,,,,,,,,,,,,,,,,,99");
                 //
                 n.Locked = newstation.lock;
@@ -1149,16 +1158,15 @@ public class GameScreen extends ScreenAdapter {
             sd.HeldFood = fs;
 
             fs = new FoodStack();
-            if(held_SFOOOOD.get(count)!=null) {
-                for (JsonValue placeinstack : held_SFOOOOD.get(count)) {
+            if(held_dishstack.get(count)!=null) {
+                for (JsonValue placeinstack : held_dishstack.get(count)) {
                     //System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
                     FoodItem.FoodID value = FoodItem.FoodID.values()[(placeinstack.get(1).asInt())];
                     fs.addStack(value);
                 }
 
             }
-            Array<FoodItem.FoodID> ds = fs.getStackCopy();
-            sd.stationdishstack.setStack(ds);
+            sd.stationdishstack.setStack(fs.getStackCopy());
 
             sd.lock = held_LockedStatus.getBoolean(count);
             System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
