@@ -1090,6 +1090,24 @@ public class GameplayTest {
         assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + 0.42f));
     }
 
+    // Relates to the FR_POWER_UPS requirements
+    @Test
+    public void TestMultipleSpeedPowerUp(){
+        Cook cook = new Cook(1500,1200,20,20);
+        Float StartMovement = cook.movement_speed;
+        Rectangle rectangle = new Rectangle((1500 * 1/8f), (1200*1/8f),20,20);
+        SpeedPowerup speedPowerup = new SpeedPowerup(rectangle);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        speedPowerup.setSpeed(cook);
+        assertEquals(StartMovement + 0.42f,cook.movement_speed,"ERROR: The speed power up isn't changing the default movement speed of the chef");
+        speedPowerup.setSpeed(cook);
+        assertEquals(StartMovement + 0.84f,cook.movement_speed,"ERROR: Using multiple speed powerups doesn't change the chef's movement speed to the correct value");
+        keysPressed.clear();
+        keysPressed.add(InputKey.InputTypes.COOK_LEFT);
+        cook.userInput(testList);
+        assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + 0.84f));
+    }
+
     // Relates to the FR_POWER_UPS requirement
     @Test
     public void TestMultipleSpeedPowerUps(){
