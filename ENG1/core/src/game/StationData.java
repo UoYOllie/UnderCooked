@@ -11,4 +11,5 @@ public class StationData
     public FoodStack HeldFood = new FoodStack();
     public DishStack stationdishstack = new DishStack();
     public boolean lock = false;
+    public boolean Enabled;
 }

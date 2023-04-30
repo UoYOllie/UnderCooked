@@ -53,6 +53,8 @@ public class SavingClass {
     private Array<Array<Integer>> HeldFood;
     private Array<Array<Integer>> stationdishstack;
     private Array<Boolean> lockedStation;
+    private Array<Boolean> Enabled;
+
 
 
 
@@ -76,6 +78,7 @@ public class SavingClass {
         this.HeldFood = new Array<Array<Integer>>();
         this.stationdishstack = new Array<Array<Integer>>();
         this.lockedStation = new Array<Boolean>();
+        this.Enabled = new Array<Boolean>();
     }
     public SavingClass(GameScreen g)
     {
@@ -239,6 +242,7 @@ public class SavingClass {
             }
             this.HeldFood.add(stack1items);
             this.lockedStation.add(s.Locked);
+            this.Enabled.add(s.Enabled);
 
         }
 

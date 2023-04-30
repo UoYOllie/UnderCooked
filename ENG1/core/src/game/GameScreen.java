@@ -331,6 +331,7 @@ public class GameScreen extends ScreenAdapter {
                 System.out.println(n.stationDishStack.getStackCopy()+",,,,,,,,,,,,,,,,,,,,,,,,,,,,,99");
                 //
                 n.Locked = newstation.lock;
+                n.Enabled = newstation.Enabled;
                 newmapStations.add(n);
 //                System.out.println("******************************************");
 //                System.out.println(mapHelper.mapStations.get(newstation.StationPropertyID).stationFoodStack.toString());
@@ -776,6 +777,7 @@ public class GameScreen extends ScreenAdapter {
         newcook.x = newcook.rectangle.x;
         newcook.y = newcook.rectangle.y;
         cooks.add(newcook);
+        unusedcooks.removeIndex(index);
 
     }
 
@@ -1137,6 +1139,7 @@ public class GameScreen extends ScreenAdapter {
         JsonValue held_SFOOOOD = root.get("HeldFood");
         JsonValue held_SDishyStacky = root.get("stationdishstack");
         JsonValue held_LockedStatus = root.get("lockedStation");
+        JsonValue held_enab = root.get("Enabled");
         count = 0;
 
 
@@ -1169,6 +1172,7 @@ public class GameScreen extends ScreenAdapter {
             sd.stationdishstack.setStack(fs.getStackCopy());
 
             sd.lock = held_LockedStatus.getBoolean(count);
+            sd.Enabled = held_enab.getBoolean(count);
             System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
             System.out.println(sd.lock);
             System.out.println(sd.stationdishstack);
