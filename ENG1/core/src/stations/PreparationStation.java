@@ -39,7 +39,6 @@ public class PreparationStation extends Station {
         super(rectangle);
         this.Done = true;
         this.usingchef = 0;
-        this.item = gameScreen.BuyableStation;
     }
     public PreparationStation(Rectangle rectangle,GameScreen g) {
         super(rectangle);

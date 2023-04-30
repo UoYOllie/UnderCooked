@@ -271,7 +271,7 @@ public class GeneralTest {
     //The following tests exercise the utility functions in the MapHelper class
 
     @Test
-    public void testsgetMapObstacles(){
+    public void testSetMapObstacles(){
         PreparationStation preparationStation = new PreparationStation(new Rectangle(1,2,3,4));
         ArrayList<Rectangle> finalList = new ArrayList<>();
         finalList.add(preparationStation.getRectangle());
@@ -280,7 +280,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void testsgetMapStations(){
+    public void testsGetMapStations(){
         PreparationStation preparationStation = new PreparationStation(new Rectangle(1,2,3,4));
         ArrayList<Station> finalList = new ArrayList<>();
         finalList.add(preparationStation);
