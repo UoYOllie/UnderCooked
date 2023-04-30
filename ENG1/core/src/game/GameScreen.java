@@ -28,7 +28,9 @@ import com.badlogic.gdx.physics.box2d.World;
 import cooks.GameEntity;
 //import customers.CustomerController;
 import customers.RepPoints;
+import food.DishStack;
 import food.FoodItem;
+import food.FoodStack;
 import helper.*;
 import interactions.InputKey;
 import interactions.Interactions;
@@ -197,7 +199,7 @@ public class GameScreen extends ScreenAdapter {
 
     }
 
-    public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame,ArrayList<CustomerNew>customersforgame)
+    public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame,ArrayList<CustomerNew>customersforgame,ArrayList<StationData>stationsforgame)
     {
         this.readytorezoooom = true;
         this.gameHud = new GameHud(batch, this);
@@ -308,6 +310,23 @@ public class GameScreen extends ScreenAdapter {
 
                 counter++;
             }
+
+            ArrayList<Station> newmapStations = new ArrayList<>();
+            counter=0;
+            for(StationData newstation:stationsforgame)
+            {
+                Station n = mapHelper.mapStations.get(newstation.StationPropertyID);
+                //
+                n.stationFoodStack.setStack(newstation.HeldFood.getStackCopy());
+                n.stationDishStack.setStack(newstation.stationdishstack.getStackCopy());;
+                //
+                n.Locked = newstation.lock;
+                newmapStations.add(n);
+//                System.out.println("******************************************");
+//                System.out.println(mapHelper.mapStations.get(newstation.StationPropertyID).stationFoodStack.toString());
+//                System.out.println("******************************************");
+            }
+            mapHelper.mapStations = newmapStations;
 //            this.customerController.customers = customersforgame;
         }
 
@@ -396,9 +415,10 @@ public class GameScreen extends ScreenAdapter {
             this.Loading = true;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.Q)){
-            this.forcewin = true;
+//            this.forcewin = true;
             System.out.print("Forcing win");
 //            this.Reputation.setPoints(0);
+            System.out.println(this.SaveText);
         }
 
         // First thing, update all inputs
@@ -999,6 +1019,7 @@ public class GameScreen extends ScreenAdapter {
         Array<Cook> cooksforgame = new Array<Cook>();
         Array<Cook> unusedcooksforgame = new Array<Cook>();
         ArrayList<CustomerNew> customersforgame = new ArrayList<CustomerNew>();
+        ArrayList<StationData> stationsforgame = new ArrayList<StationData>();
         JsonValue held_x;
         JsonValue held_y;
         float x,y;
@@ -1096,9 +1117,64 @@ public class GameScreen extends ScreenAdapter {
             count++; //increment person
         }
 
-        //stations
 
-        reset(cooksforgame,unusedcooksforgame,customersforgame);
+        //stations
+//        this.StationPropertyID = new Array<Integer>();
+//        this.HeldFood = new Array<Array<Integer>>();
+//        this.stationdishstack = new Array<Array<Integer>>();
+//        this.lockedStation = new Array<Boolean>();
+        JsonValue held_SID = root.get("StationPropertyID");
+        JsonValue held_SFOOOOD = root.get("HeldFood");
+        JsonValue held_SDishyStacky = root.get("stationdishstack");
+        JsonValue held_LockedStatus = root.get("lockedStation");
+        count = 0;
+
+
+        for(JsonValue ID:held_SID)
+        {
+
+            StationData sd = new StationData();
+            sd.StationPropertyID = held_SID.getInt(count);
+
+            FoodStack fs = new FoodStack();
+            if(held_SFOOOOD.get(count)!=null) {
+                for (JsonValue placeinstack : held_SFOOOOD.get(count)) {
+                    //System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                    FoodItem.FoodID value = FoodItem.FoodID.values()[(placeinstack.get(1).asInt())];
+                    fs.addStack(value);
+                }
+
+            }
+            sd.HeldFood = fs;
+
+            fs = new FoodStack();
+            if(held_SFOOOOD.get(count)!=null) {
+                for (JsonValue placeinstack : held_SFOOOOD.get(count)) {
+                    //System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                    FoodItem.FoodID value = FoodItem.FoodID.values()[(placeinstack.get(1).asInt())];
+                    fs.addStack(value);
+                }
+
+            }
+            Array<FoodItem.FoodID> ds = fs.getStackCopy();
+            sd.stationdishstack.setStack(ds);
+
+            sd.lock = held_LockedStatus.getBoolean(count);
+            System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
+            System.out.println(sd.lock);
+            System.out.println(sd.stationdishstack);
+            System.out.println(sd.HeldFood);
+            System.out.println(sd.StationPropertyID);
+            System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
+
+            stationsforgame.add(sd);
+            count++;
+        }
+
+//        System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
+//        System.out.println(stationsforgame);
+//        System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
+        reset(cooksforgame,unusedcooksforgame,customersforgame,stationsforgame);
 //        System.out.println(root);
 
         //Gold and Reputation
@@ -1119,6 +1195,8 @@ public class GameScreen extends ScreenAdapter {
         customerController.setDifficulty(root.getInt("difficulty"));
 
     }
+
+
 }
 
 

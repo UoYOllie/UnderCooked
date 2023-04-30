@@ -51,7 +51,7 @@ public class Recipe {
         generateRecipe("Beans Cheese Potato", new FoodStack(FoodID.cheese, FoodID.bakedBeans, FoodID.potatoCook));
         generateRecipe("Beans Coleslaw Potato", new FoodStack(FoodID.coleslaw, FoodID.bakedBeans, FoodID.potatoCook));
         generateRecipe("Coleslaw Cheese Potato", new FoodStack(FoodID.cheese, FoodID.coleslaw, FoodID.potatoCook));
-        generateRecipe("Beans Coleslaw Cheese Potato", new FoodStack(FoodID.cheese, FoodID.coleslaw, FoodID.bakedBeans, FoodID.potatoCook));
+        generateRecipe("Beans Coleslaw Cheese Potato", new FoodStack(FoodID.cheese, FoodID.coleslaw, FoodID.beansCooked, FoodID.potatoCook));
 
         // PIZZA - i'll add some more interesting combos later down the line
         generateRecipe("Plain Pizza", new FoodStack(FoodID.cheese, FoodID.tomatoSauce, FoodID.doughCook));
@@ -198,6 +198,7 @@ public class Recipe {
     public static String randomRecipe() {
          Random random = new Random();
          return recipeNames.get(random.nextInt(recipeNames.size));
+         //return ("Beans Potato");
     }
 
     public static FoodStack getRecipe(String recipeName) {

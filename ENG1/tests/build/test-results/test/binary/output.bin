@@ -1,276 +1,264 @@
 
-	lettuce
-	lettuce
-	lettuce
-	lettuce
-	peek
-
-null
-.cooks.CustomerNew@455f24aawill leave in 50.0
-3cooks.CustomerNew@455f24aanow will leave in 300.0
-)cooks.CustomerNew@455f24aais rethinking
-+*Initalising Gamescreen
-+*game.GameScreen@6e3561c1
-+*power pantry is generated
-+*Setting to teacup
-+*teacup
-+*power pantry is generated
-+*Setting to menu
-+*menu
-+*pantry is generated
-+*Setting to meat
-+*meat
-+*pantry is generated
-+*Setting to lettuce
-+*	lettuce
-+*pantry is generated
-+*Setting to onion
-+*onion
-+*pantry is generated
-+*Setting to tomato
-+*tomato
-+*pantry is generated
-+*Setting to bun
-+*bun
-+*pantry is generated
-+*Setting to lettuceChop
-+*lettuceChop
-+*pantry is generated
-+*Setting to meatCook
-+*
+	lettuce
+	lettuce
+	lettuce
+	lettuce
+peek
+	null
+.cooks.CustomerNew@6982d87awill leave in 50.0
+3cooks.CustomerNew@6982d87anow will leave in 300.0
+)cooks.CustomerNew@6982d87ais rethinking
++-dough
++-peek
++.onion
++.peek
++20 ///////////////////////peek
++20 ///////////////////////peek
++60 ///////////////////////peek
++60 ///////////////////////peek
++8	lettuce
++8peek
++90 ///////////////////////peek
++90 ///////////////////////peek
++;0 ///////////////////////peek
++;0 ///////////////////////+?Im interacting with a counter
++?187.5
++?150.0
++?20.0
++?20.0
++A0 ///////////////////////peek
++A0 ///////////////////////peek
++B0 ///////////////////////peek
++B0 ///////////////////////peek
++KlettuceChop
++Kpeek
++LIm interacting with a counter
++L187.5
++L150.0
++L20.0
++L20.0
++LIm interacting with a counter
++L187.5
++L150.0
++L20.0
++L20.0
++Lpeek
++P0 ///////////////////////peek
++P0 ///////////////////////peek
++Q0 ///////////////////////peek
++Q0 ///////////////////////peek
++RIm interacting with a counter
++R187.5
++R150.0
++R20.0
++R20.0
++RIm interacting with a counter
++R187.5
++R150.0
++R20.0
++R20.0
++RIm interacting with a counter
++R187.5
++R150.0
++R20.0
++R20.0
++Tbun
++Tpeek
++Upotato
++Upeek
++Vtomato
++Vpeek
++Wmeat
++Wpeek
++X0 ///////////////////////peek
++X0 ///////////////////////peek
++YIm interacting with a counter
++Y187.5
++Y150.0
++Y20.0
++Y20.0
++YIm interacting with a counter
++Y187.5
++Y150.0
++Y20.0
++Y20.0
++Ypeek
++]peek
++c0 ///////////////////////peek
+gfInitalising Gamescreen
+gfgame.GameScreen@1fe97084
+gfpower pantry is generated
+gfSetting to teacup
+gfteacup
+gfpower pantry is generated
+gfSetting to menu
+gfmenu
+gfN0<|||||||||||||||||||||||||||||||||||||||||||||||||||||||pantry is generated
+gfSetting to meat
+gfmeat
+gfpantry is generated
+gfSetting to lettuce
+gf	lettuce
+gfpantry is generated
+gfSetting to onion
+gfonion
+gfpantry is generated
+gfSetting to tomato
+gftomato
+gfpantry is generated
+gfSetting to bun
+gfbun
+gfpantry is generated
+gfSetting to lettuceChop
+gflettuceChop
+gfpantry is generated
+gfSetting to meatCook
+gf
 meatCook
-+*pantry is generated
-+*Setting to potato
-+*potato
-+*pantry is generated
-+*Setting to dough
-+*dough
-+*pantry is generated
-+*Setting to cheese
-+*cheese
-+*pantry is generated
-+*Setting to bakedBeans
-+*bakedBeans
-+*pantry is generated
-+*Setting to pepperoni
-+*pepperoni
-+*pantry is generated
-+*Setting to coleslaw
-+*
+gfpantry is generated
+gfSetting to potato
+gfpotato
+gfpantry is generated
+gfSetting to dough
+gfdough
+gfpantry is generated
+gfSetting to cheese
+gfcheese
+gfpantry is generated
+gfSetting to bakedBeans
+gfbakedBeans
+gfpantry is generated
+gfSetting to pepperoni
+gfpepperoni
+gfpantry is generated
+gfSetting to coleslaw
+gf
 coleslaw
-+,Initalising Gamescreen
-+,game.GameScreen@7393bbc4
-+,power pantry is generated
-+,Setting to teacup
-+,teacup
-+,power pantry is generated
-+,Setting to menu
-+,menu
-+,pantry is generated
-+,Setting to meat
-+,meat
-+,pantry is generated
-+,Setting to lettuce
-+,	lettuce
-+,pantry is generated
-+,Setting to onion
-+,onion
-+,pantry is generated
-+,Setting to tomato
-+,tomato
-+,pantry is generated
-+,Setting to bun
-+,bun
-+,pantry is generated
-+,Setting to lettuceChop
-+,lettuceChop
-+,pantry is generated
-+,Setting to meatCook
-+,
+gfr1<|||||||||||||||||||||||||||||||||||||||||||||||||||||||2<|||||||||||||||||||||||||||||||||||||||||||||||||||||||ghInitalising Gamescreen
+ghgame.GameScreen@1ee721b6
+ghpower pantry is generated
+ghSetting to teacup
+ghteacup
+ghpower pantry is generated
+ghSetting to menu
+ghmenu
+ghN0<|||||||||||||||||||||||||||||||||||||||||||||||||||||||pantry is generated
+ghSetting to meat
+ghmeat
+ghpantry is generated
+ghSetting to lettuce
+gh	lettuce
+ghpantry is generated
+ghSetting to onion
+ghonion
+ghpantry is generated
+ghSetting to tomato
+ghtomato
+ghpantry is generated
+ghSetting to bun
+ghbun
+ghpantry is generated
+ghSetting to lettuceChop
+ghlettuceChop
+ghpantry is generated
+ghSetting to meatCook
+gh
 meatCook
-+,pantry is generated
-+,Setting to potato
-+,potato
-+,pantry is generated
-+,Setting to dough
-+,dough
-+,pantry is generated
-+,Setting to cheese
-+,cheese
-+,pantry is generated
-+,Setting to bakedBeans
-+,bakedBeans
-+,pantry is generated
-+,Setting to pepperoni
-+,pepperoni
-+,pantry is generated
-+,Setting to coleslaw
-+,
+ghpantry is generated
+ghSetting to potato
+ghpotato
+ghpantry is generated
+ghSetting to dough
+ghdough
+ghpantry is generated
+ghSetting to cheese
+ghcheese
+ghpantry is generated
+ghSetting to bakedBeans
+ghbakedBeans
+ghpantry is generated
+ghSetting to pepperoni
+ghpepperoni
+ghpantry is generated
+ghSetting to coleslaw
+gh
 coleslaw
-.3Initalising Gamescreen
-.3game.GameScreen@1574212a
-.3power pantry is generated
-.3Setting to teacup
-.3teacup
-.3power pantry is generated
-.3Setting to menu
-.3menu
-.3pantry is generated
-.3Setting to meat
-.3meat
-.3pantry is generated
-.3Setting to lettuce
-.3	lettuce
-.3pantry is generated
-.3Setting to onion
-.3onion
-.3pantry is generated
-.3Setting to tomato
-.3tomato
-.3pantry is generated
-.3Setting to bun
-.3bun
-.3pantry is generated
-.3Setting to lettuceChop
-.3lettuceChop
-.3pantry is generated
-.3Setting to meatCook
-.3
+ghr1<|||||||||||||||||||||||||||||||||||||||||||||||||||||||2<|||||||||||||||||||||||||||||||||||||||||||||||||||||||joInitalising Gamescreen
+jogame.GameScreen@47d7395e
+jopower pantry is generated
+joSetting to teacup
+joteacup
+jopower pantry is generated
+joSetting to menu
+jomenu
+joN0<|||||||||||||||||||||||||||||||||||||||||||||||||||||||pantry is generated
+joSetting to meat
+jomeat
+jopantry is generated
+joSetting to lettuce
+jo	lettuce
+jopantry is generated
+joSetting to onion
+joonion
+jopantry is generated
+joSetting to tomato
+jotomato
+jopantry is generated
+joSetting to bun
+jobun
+jopantry is generated
+joSetting to lettuceChop
+jolettuceChop
+jopantry is generated
+joSetting to meatCook
+jo
 meatCook
-.3pantry is generated
-.3Setting to potato
-.3potato
-.3pantry is generated
-.3Setting to dough
-.3dough
-.3pantry is generated
-.3Setting to cheese
-.3cheese
-.3pantry is generated
-.3Setting to bakedBeans
-.3bakedBeans
-.3pantry is generated
-.3Setting to pepperoni
-.3pepperoni
-.3pantry is generated
-.3Setting to coleslaw
-.3
+jopantry is generated
+joSetting to potato
+jopotato
+jopantry is generated
+joSetting to dough
+jodough
+jopantry is generated
+joSetting to cheese
+jocheese
+jopantry is generated
+joSetting to bakedBeans
+jobakedBeans
+jopantry is generated
+joSetting to pepperoni
+jopepperoni
+jopantry is generated
+joSetting to coleslaw
+jo
 coleslaw
-IHThis was correct for me
-IJBluggus Mode activating
-IKThis was correct for me
-ILThis was correct for me
-IMThis was correct for me
-INThis was correct for me
-IOThis was correct for me
-IQThis was correct for me
-ISThis was correct for me
-ITThis was correct for me
-IVThis was correct for me
-IWThis was correct for me
-IWThis was correct for me
-IYThis was correct for me
-IZThis was correct for me
-I\This was correct for me
-I^This was correct for me
-I_This was correct for me
-IaThis was correct for me
-IbThis was correct for me
-IcThis was correct for me
-IeThis was correct for me
-IfThis was correct for me
-IhThis was correct for me
-IiBluggus Mode activating
-Iipeek
-Iipeek
-Iipeek
-Iipeek
-IjThis was correct for me
-lndough
-lnpeek
-loonion
-lopeek
-lrpeek
-lrpeek
-lrpeek
-lrpeek
-lspeek
-lspeek
-lwpeek
-lwpeek
-ly	lettuce
-lypeek
-lzpeek
-lzpeek
-lzpeek
-lzpeek
-lzpeek
-lzpeek
-l{peek
-l{peek
-l{peek
-l{peek
-l{peek
-l{peek
-l}peek
-l}peek
-lpeek
-l€peek
-l€peek
-l€peek
-l€peek
-lpeek
-lpeek
-l‚peek
-l‚peek
-l‡peek
-l‡peek
-l‡peek
-l‡peek
-l‹lettuceChop
-l‹peek
-lŒpeek
-lŒpeek
-lpeek
-lpeek
-l‘peek
-l‘peek
-l’Im interacting with a counter
-l’187.5
-l’150.0
-l’20.0
-l’20.0
-l’Im interacting with a counter
-l’187.5
-l’150.0
-l’20.0
-l’20.0
-l’Im interacting with a counter
-l’187.5
-l’150.0
-l’20.0
-l’20.0
-l“peek
-l“peek
-l”bun
-l”peek
-l•potato
-l•peek
-l–tomato
-l–peek
-l—meat
-l—peek
-l˜peek
-l˜peek
-l™peek
-l™peek
-lpeek
-lpeek
-lžpeek
-l£peek
-l£peek
-l¤peek
-l¥peek
-l¥peek
-l¥peek
-l¥peek
+jor1<|||||||||||||||||||||||||||||||||||||||||||||||||||||||2<|||||||||||||||||||||||||||||||||||||||||||||||||||||||…„This was correct for me
+…†Bluggus Mode activating
+…‡This was correct for me
+…ˆThis was correct for me
+…‰This was correct for me
+…ŠThis was correct for me
+…‹This was correct for me
+…This was correct for me
+…This was correct for me
+…This was correct for me
+…’This was correct for me
+…“This was correct for me
+…“This was correct for me
+…•This was correct for me
+…–This was correct for me
+…˜This was correct for me
+…šThis was correct for me
+…›This was correct for me
+…This was correct for me
+…žThis was correct for me
+…ŸThis was correct for me
+…¡This was correct for me
+…¢This was correct for me
+…¤This was correct for me
+…¥Bluggus Mode activating
+…¥peek
+…¥peek
+…¥peek
+…¥peek
+…¦This was correct for me

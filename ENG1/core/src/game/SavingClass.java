@@ -72,6 +72,10 @@ public class SavingClass {
         this.Status = new Array<Integer>();
         this.station_x = new Array<Float>();
         this.station_y = new Array<Float>();
+        this.StationPropertyID = new Array<Integer>();
+        this.HeldFood = new Array<Array<Integer>>();
+        this.stationdishstack = new Array<Array<Integer>>();
+        this.lockedStation = new Array<Boolean>();
     }
     public SavingClass(GameScreen g)
     {
@@ -81,8 +85,7 @@ public class SavingClass {
         SaveCooksAndCustomers(g);
         Timer(g);
         Modediff(g);
-        //Stations
-
+        SaveStations(g);
     }
 
 
@@ -216,12 +219,15 @@ public class SavingClass {
 //            private Array<Array<Integer>> HeldFood;
 //            private Array<Array<Integer>> stationdishstack;
 //            private Array<Boolean> lockedStation;
+//            System.out.println(s.getPropertyID());
             StationPropertyID.add(s.getPropertyID());
-            Array<FoodItem.FoodID> tempstack = new Array<FoodItem.FoodID> ();
+            Array<FoodItem.FoodID> tempstack = s.stationFoodStack.getStack();
             Array<Integer> dishy = new Array<Integer>();
+            System.out.println(s.stationDishStack.getStackCopy());
             tempstack = s.stationDishStack.getStackCopy();
             for(FoodItem.FoodID f:tempstack)
             {
+//                System.out.println("eeeeeeeeeeeeeeY"+f.ordinal()+"Yeeeeeeeeeeeee");
                 dishy.add(f.ordinal());
             }
             this.stationdishstack.add(dishy);
@@ -232,6 +238,7 @@ public class SavingClass {
                 stack1items.add(f.ordinal());
             }
             this.HeldFood.add(stack1items);
+            this.lockedStation.add(s.Locked);
 
         }
 

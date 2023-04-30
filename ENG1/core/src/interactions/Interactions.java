@@ -29,6 +29,7 @@ public class Interactions {
         interactions.put(InteractionKey(FoodID.potato, StationID.bake), new InteractionResult(FoodID.potatoCook,new float[] {},13F));
         interactions.put(InteractionKey(FoodID.dough, StationID.bake), new InteractionResult(FoodID.doughCook,new float[] {},13F));
         interactions.put(InteractionKey(FoodID.tomatoChop, StationID.fry), new InteractionResult(FoodID.tomatoSauce,new float[] {},13F));
+        interactions.put(InteractionKey(FoodID.bakedBeans, StationID.fry), new InteractionResult(FoodID.beansCooked, new float[] {}, 13F));
     }
 
     /**

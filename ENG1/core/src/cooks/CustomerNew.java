@@ -363,6 +363,10 @@ public class CustomerNew extends GameEntity {
 
     }
 
+    /**
+     * @param x
+     * @return the x value
+     */
     public void setX(float x) {
         this.x = x;
     }

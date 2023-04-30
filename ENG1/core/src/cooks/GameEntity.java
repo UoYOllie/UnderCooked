@@ -40,6 +40,7 @@ public abstract class GameEntity {
     //UPDATED
     // removed Body body parameter
 
+
     public GameEntity(float x, float y, float width, float height)
     {
         //this.y = body.getPosition().y * PPM; UPDATE TO:

@@ -85,167 +85,6 @@ public class GeneralTest {
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook);
     }
 
-    /*
-    @Test
-    public void testGameEntityGetWidth(){
-        GameEntity gameEntity = new GameEntity(20,21,22,23){
-
-            @Override
-            public void update(float delta) {
-
-            }
-
-            @Override
-            public void render(SpriteBatch batch) {
-
-            }
-
-            @Override
-            public void renderDebug(SpriteBatch batch) {
-
-            }
-
-            @Override
-            public void renderShape(ShapeRenderer shape) {
-
-            }
-
-            @Override
-            public void renderShapeDebug(ShapeRenderer shape) {
-
-            }
-        };
-        assertTrue(gameEntity.getWidth() == gameEntity.width);
-    }
-
-    @Test
-    public void testGameEntityGetHeight(){
-        GameEntity gameEntity = new GameEntity(20,21,22,23){
-
-            @Override
-            public void update(float delta) {
-
-            }
-
-            @Override
-            public void render(SpriteBatch batch) {
-
-            }
-
-            @Override
-            public void renderDebug(SpriteBatch batch) {
-
-            }
-
-            @Override
-            public void renderShape(ShapeRenderer shape) {
-
-            }
-
-            @Override
-            public void renderShapeDebug(ShapeRenderer shape) {
-
-            }
-        };
-        assertTrue(gameEntity.getHeight() == gameEntity.height);
-    }
-
-    @Test
-    public void testGameEntityGetX(){
-        GameEntity gameEntity = new GameEntity(20,21,22,23){
-
-            @Override
-            public void update(float delta) {
-
-            }
-
-            @Override
-            public void render(SpriteBatch batch) {
-
-            }
-
-            @Override
-            public void renderDebug(SpriteBatch batch) {
-
-            }
-
-            @Override
-            public void renderShape(ShapeRenderer shape) {
-
-            }
-
-            @Override
-            public void renderShapeDebug(ShapeRenderer shape) {
-
-            }
-        };
-        assertTrue(gameEntity.x == gameEntity.x);
-    }
-
-    @Test
-    public void testGameEntityGetY(){
-        GameEntity gameEntity = new GameEntity(20,21,22,23){
-
-            @Override
-            public void update(float delta) {
-
-            }
-
-            @Override
-            public void render(SpriteBatch batch) {
-
-            }
-
-            @Override
-            public void renderDebug(SpriteBatch batch) {
-
-            }
-
-            @Override
-            public void renderShape(ShapeRenderer shape) {
-
-            }
-
-            @Override
-            public void renderShapeDebug(ShapeRenderer shape) {
-
-            }
-        };
-        assertTrue(gameEntity.y == gameEntity.y);
-    }
-
-    @Test
-    public void testGameEntityGetRectangle(){
-        GameEntity gameEntity = new GameEntity(20,21,22,23){
-
-            @Override
-            public void update(float delta) {
-
-            }
-
-            @Override
-            public void render(SpriteBatch batch) {
-
-            }
-
-            @Override
-            public void renderDebug(SpriteBatch batch) {
-
-            }
-
-            @Override
-            public void renderShape(ShapeRenderer shape) {
-
-            }
-
-            @Override
-            public void renderShapeDebug(ShapeRenderer shape) {
-
-            }
-        };
-        assertTrue(gameEntity.getRectangle() == gameEntity.rectangle);
-    }
-    **/
     @Test
     public void testUtilClass(){
         String finalString = Util.formatTime(0,10,1);
@@ -432,7 +271,7 @@ public class GeneralTest {
     //The following tests exercise the utility functions in the MapHelper class
 
     @Test
-    public void testsgetMapObstacles(){
+    public void testSetMapObstacles(){
         PreparationStation preparationStation = new PreparationStation(new Rectangle(1,2,3,4));
         ArrayList<Rectangle> finalList = new ArrayList<>();
         finalList.add(preparationStation.getRectangle());
@@ -441,7 +280,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void testsgetMapStations(){
+    public void testsGetMapStations(){
         PreparationStation preparationStation = new PreparationStation(new Rectangle(1,2,3,4));
         ArrayList<Station> finalList = new ArrayList<>();
         finalList.add(preparationStation);
