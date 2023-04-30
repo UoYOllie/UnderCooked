@@ -316,11 +316,17 @@ public class GameScreen extends ScreenAdapter {
             for(StationData newstation:stationsforgame)
             {
                 Station n = mapHelper.mapStations.get(newstation.StationPropertyID);
-                n.stationFoodStack = newstation.HeldFood;
-                n.stationDishStack = newstation.stationdishstack;
+                //
+                n.stationFoodStack.setStack(newstation.HeldFood.getStackCopy());
+                n.stationDishStack.setStack(newstation.stationdishstack.getStackCopy());;
+                //
                 n.Locked = newstation.lock;
-                mapHelper.mapStations.set(newstation.StationPropertyID,n);
+                newmapStations.add(n);
+//                System.out.println("******************************************");
+//                System.out.println(mapHelper.mapStations.get(newstation.StationPropertyID).stationFoodStack.toString());
+//                System.out.println("******************************************");
             }
+            mapHelper.mapStations = newmapStations;
 //            this.customerController.customers = customersforgame;
         }
 
@@ -1188,6 +1194,23 @@ public class GameScreen extends ScreenAdapter {
         customerController.setMode("scenario");
         customerController.setDifficulty(root.getInt("difficulty"));
 
+    }
+
+    private void Putdown(Cook cook,FoodStack stationFoodStack,DishStack stationDishStack) {
+        if (!cook.foodStack.empty() && stationFoodStack.size() < 1
+                && allDishStacksEmpty(cook, stationDishStack)) {
+            stationFoodStack.addStackLimited(cook.foodStack.popStack(), 1);
+        }
+        // Put the cook's DishStack down onto the station's DishStack.
+        if (cook.foodStack.empty() && stationFoodStack.empty()
+                && !cook.dishStack.empty() && stationDishStack.empty()) {
+            stationDishStack.setStack(cook.dishStack.getStackCopy());
+            cook.dishStack.clearStack();
+        }
+    }
+
+    private boolean allDishStacksEmpty(Cook cook, DishStack stationDishStack) {
+        return cook.dishStack.size() == 0 && stationDishStack.size() == 0;
     }
 }
 
