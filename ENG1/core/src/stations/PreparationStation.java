@@ -146,10 +146,13 @@ public class PreparationStation extends Station {
     public void renderShape(ShapeRenderer shape) {
         if (TestFlag == 0) {
             if (progress < 100) {
+//                System.out.println("+++++++++++++++Locking+++++++++++++++++");
                 gameScreen.cooks.get(usingchef).lockmovement = true;
-            } else {
-                gameScreen.cooks.get(usingchef).lockmovement = false;
             }
+//            else {
+//                System.out.println("+++++++++++++++Locking+++++++++++++++++");
+//                gameScreen.cooks.get(usingchef).lockmovement = false;
+//            }
         }
         // Render the progress bar when inUse
         if (inUse) {
