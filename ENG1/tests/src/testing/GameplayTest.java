@@ -1059,7 +1059,7 @@ public class GameplayTest {
     }
 
 
-    // Relates to the FR_SPEND MONEY requirement
+    // Relates to the FR_SPEND_MONEY requirement
     @Test
     public void TestBuyShopItem(){
         ShopItem shopItem = new ShopItem("testItem",100);
@@ -1169,6 +1169,7 @@ public class GameplayTest {
     }
 
     //The following tests the logic behind gaining and losing reputation
+    //This test relates to the FR_REPUTATION_POINTS requirement
     @Test
     public void TestRepPoints(){
         //First, I will test that RepPoints can be decremented
