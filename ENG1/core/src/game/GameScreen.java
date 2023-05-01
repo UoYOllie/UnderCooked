@@ -450,10 +450,13 @@ public class GameScreen extends ScreenAdapter {
         }
         if (Gdx.input.isKeyPressed(Input.Keys.Q)){
 //            this.forcewin = true;
-            System.out.print("Forcing Quit"+this.SaveText);
-//            this.Reputation.setPoints(0);
+//            System.out.print("Forcing Quit"+this.SaveText);
+            this.Reputation.setPoints(0);
 //            System.out.println("Writing to file");
 //            WriteSaveFile();
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.T)){
+            System.out.println(this.getCustomerController().getMode());
         }
 
         // First thing, update all inputs
@@ -528,9 +531,7 @@ public class GameScreen extends ScreenAdapter {
         gameHud.updateTime(hoursPassed, minutesPassed, secondsPassed);
         gameHud.updateReputation(Reputation.getPoints());
         gameHud.updateGold(gold.getBalance());
-        if (this.customerController.getMode() == "endless"){
-            gameHud.updateCustomerServed(this.customerController.TotalCustomersServed);
-        }
+        gameHud.updateCustomerServed(this.customerController.TotalCustomersServed);
         cameraUpdate();
         orthogonalTiledMapRenderer.setView(camera);
         batch.setProjectionMatrix(camera.combined);
@@ -1238,10 +1239,12 @@ public class GameScreen extends ScreenAdapter {
         customerController.setMode(root.getString("Mode"));
         customerController.setDifficulty(root.getInt("Difficulty"));
         customerController.TotalCustomersServed = root.getInt("HowManyHaveBeenServed");
-        if (this.customerController.getMode() == "endless"){
-            gameHud.updateCustomerServed(this.customerController.TotalCustomersServed);
-            gameHud.render();
-        }
+        gameHud.updateCustomerServed(this.customerController.TotalCustomersServed);
+//        gameHud.render();
+//        else
+//        {
+//            gameHud.cs = "";
+//        }
     }
 
     private void WriteSaveFile()

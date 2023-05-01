@@ -20,6 +20,7 @@ public class GameHud extends Hud {
     Label Loading;
     Label goldLabel;
     Label CustomerServed;
+    private GameScreen gameScreen;
     /** The {@link SpriteBatch} of the GameHud. Use for drawing {@link food.Recipe}s. */
     private SpriteBatch batch;
     /** The {@link FoodStack} that the {@link GameHud} should render. */
@@ -53,6 +54,7 @@ public class GameHud extends Hud {
         updateTime(0,0,0);
         updateReputation(0);
         updateGold(0);
+        this.gameScreen = gameScreen;
 
 //        CustomerLabel = new Label("CUSTOMERS LEFT:", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
 //
@@ -165,7 +167,13 @@ public class GameHud extends Hud {
     }
 
     public void updateCustomerServed(int served){
-        CustomerServed.setText("Customers Served: " + String.format(String.valueOf(served)));
+        if((gameScreen.getCustomerController().getMode().equals("endless"))) {
+            CustomerServed.setText("Customers Served: " + String.format(String.valueOf(served)));
+        }
+        else
+        {
+            CustomerServed.setText("");
+        }
     }
 
 //    /**
