@@ -1235,9 +1235,13 @@ public class GameScreen extends ScreenAdapter {
         this.hoursPassed = held_hours;
 
         //Mode and difficulty
-        customerController.setMode("scenario");
-        customerController.setDifficulty(root.getInt("difficulty"));
+        customerController.setMode(root.getString("Mode"));
+        customerController.setDifficulty(root.getInt("Difficulty"));
         customerController.TotalCustomersServed = root.getInt("HowManyHaveBeenServed");
+        if (this.customerController.getMode() == "endless"){
+            gameHud.updateCustomerServed(this.customerController.TotalCustomersServed);
+            gameHud.render();
+        }
     }
 
     private void WriteSaveFile()
