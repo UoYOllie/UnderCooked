@@ -21,22 +21,30 @@ public class VAT extends Station{
     public VAT(Rectangle rectangle,String Person, GameScreen g)
     {
         super(rectangle);
-        this.Enabled = true;
+        Enable();
         this.gameScreen = g;
         this.PrisonerNumber = Integer.parseInt(Person);
         this.item = gameScreen.BuyablePeople;
     }
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
-        if((this.Enabled)&&(gameScreen.gold.getBalance()-item.cost>=0) ){
+        if((this.getEnabled())&&(gameScreen.gold.getBalance()-item.cost>=0) ){
             System.out.println(gameScreen.gold.getBalance());
             gameScreen.gold = item.buy(gameScreen.gold);
             gameScreen.SpareToNotSpare(PrisonerNumber);
-            this.Enabled = false;
+            SetEnFalse();
             System.out.println(gameScreen.gold.getBalance());
 
         }
 
+    }
+
+    @Override
+    public void Disable()
+    {
+        SetEnFalse();
+        Cook newcook = gameScreen.unusedcooks.get(this.PrisonerNumber-1);
+        gameScreen.gameEntities.remove(newcook);
     }
 
 

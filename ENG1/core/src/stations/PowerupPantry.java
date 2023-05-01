@@ -16,14 +16,14 @@ public class PowerupPantry extends Pantry{
         super(rectangle);
         this.gameScreen = g;
         this.rectangle = rectangle;
-        this.Enabled = true;
+        Enable();
         this.item = gameScreen.Powerup_Items;
     }
 
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
         System.out.println(gameScreen.gold.getBalance());
-        if((this.Enabled)&&(gameScreen.gold.getBalance()-item.cost>=0) ){
+        if((this.getEnabled())&&(gameScreen.gold.getBalance()-item.cost>=0) ){
             gameScreen.gold = item.buy(gameScreen.gold);
             // Do not allow interactions with the pantry if the chef is holding a dish.
             if (cook.getBlocked() == true) { return; }

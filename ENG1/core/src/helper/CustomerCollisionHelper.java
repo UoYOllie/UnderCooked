@@ -38,7 +38,7 @@ public class CustomerCollisionHelper {
         for(Station object : mapStations){
             if (Intersector.overlaps(object.getRectangle(), customerInteractor)){
                 //System.out.println("Customer Overlaps: " + object);
-                if(object.Enabled) {
+                if(object.getEnabled()) {
                     found.add(object);
                 }
             }

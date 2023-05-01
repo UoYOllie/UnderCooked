@@ -242,7 +242,7 @@ public class SavingClass {
             }
             this.HeldFood.add(stack1items);
             this.lockedStation.add(s.Locked);
-            this.Enabled.add(s.Enabled);
+            this.Enabled.add(s.getEnabled());
 
         }
 
