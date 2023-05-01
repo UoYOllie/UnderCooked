@@ -44,11 +44,10 @@ public class BluggusModeActivate extends Station {
                 System.out.println(gameScreen.gold.getBalance());
                 gameScreen.gold = item.buy(gameScreen.gold);
                 cook.MakeIntoBluggus();
-                gameScreen.gameEntities.remove(NewBluggusSpawn);
+                Disable();
                 System.out.println(gameScreen.gold.getBalance());
 //                System.out.println(gameScreen.gameEntities.+"PWOOOOOOOSH");
             }
-            Disable();
             System.out.print(this.getEnabled() + "Is what is is <,,e,ge,geuhgeieg");
         }
     }

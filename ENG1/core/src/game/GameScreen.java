@@ -455,9 +455,11 @@ public class GameScreen extends ScreenAdapter {
 //            System.out.println("Writing to file");
 //            WriteSaveFile();
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.T)){
-            System.out.println(this.getCustomerController().getMode());
-        }
+//        if (Gdx.input.isKeyPressed(Input.Keys.T)){
+////            System.out.println(this.getCustomerController().getMode());
+//            System.out.println("Adding gold");
+//            this.gold.setBalance(1000);
+//        }
 
         // First thing, update all inputs
         Interactions.updateKeys();
