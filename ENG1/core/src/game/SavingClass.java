@@ -54,6 +54,8 @@ public class SavingClass {
     private Array<Array<Integer>> stationdishstack;
     private Array<Boolean> lockedStation;
     private Array<Boolean> Enabled;
+    //------------------------------------------------------------------------------------
+    private int HowManyHaveBeenServed;
 
 
 
@@ -266,5 +268,6 @@ public class SavingClass {
     {
         this.Mode = gameScreen.getCustomerController().getMode();
         this.Difficulty = gameScreen.getCustomerController().getDifficulty();
+        this.HowManyHaveBeenServed = gameScreen.getCustomerController().TotalCustomersServed;
     }
 }

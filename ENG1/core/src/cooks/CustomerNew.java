@@ -162,6 +162,7 @@ public class CustomerNew extends GameEntity {
         this.customerStatus = 2;
         //Implement walk off
         //implement removement from array
+        gameScreen.getCustomerController().TotalCustomersServed++;
     }
 
     public void customerInteract(ArrayList<Station> mapStations) {

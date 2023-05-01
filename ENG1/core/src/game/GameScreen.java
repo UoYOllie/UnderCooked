@@ -1223,7 +1223,7 @@ public class GameScreen extends ScreenAdapter {
         //Mode and difficulty
         customerController.setMode("scenario");
         customerController.setDifficulty(root.getInt("difficulty"));
-
+        customerController.TotalCustomersServed = root.getInt("HowManyHaveBeenServed");
     }
 
 

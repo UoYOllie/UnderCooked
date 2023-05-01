@@ -39,6 +39,8 @@ public class CustomerController {
     private int group_size;
     private int customers_left;
 
+    public int TotalCustomersServed;
+
     /** The constructor of CustomerController.
      * @param gameScreen the instance of GameScreen for the current game.
      * */
@@ -54,6 +56,7 @@ public class CustomerController {
         this.interval = 1;
         this.group_size = 1;
         this.customers_left = 4;
+        this.TotalCustomersServed = 0;
     }
 
     /** Setter for mode.*/
