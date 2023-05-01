@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.*;
 import cooks.Cook;
 import cooks.CustomerController;
 import cooks.CustomerNew;
+import java.nio.file.Files;
 //import customers.Customer;
 
 import com.badlogic.gdx.graphics.GL20;
@@ -39,6 +40,8 @@ import stations.CookInteractable;
 import stations.ServingStation;
 import stations.Station;
 
+import java.io.*;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -46,6 +49,7 @@ import static helper.Constants.PPM;
 
 /** A {@link ScreenAdapter} containing certain elements of the game. */
 public class GameScreen extends ScreenAdapter {
+    private String filepath;
     private int holdzoomcounter;
     private OrthographicCamera camera;
     private int delay;
@@ -113,6 +117,8 @@ public class GameScreen extends ScreenAdapter {
      */
     public GameScreen(ScreenController screenController, OrthographicCamera camera)//Constructor, reset rebuildings constructor
     {
+        this.filepath = "OutercookedSaveData.json";
+
         this.readytorezoooom = false;
         this.Loading = false;
         this.holdzoomcounter = 0;
@@ -444,9 +450,10 @@ public class GameScreen extends ScreenAdapter {
         }
         if (Gdx.input.isKeyPressed(Input.Keys.Q)){
 //            this.forcewin = true;
-            System.out.print("Forcing win");
+            System.out.print("Forcing Quit"+this.SaveText);
 //            this.Reputation.setPoints(0);
-            System.out.println(this.SaveText);
+//            System.out.println("Writing to file");
+//            WriteSaveFile();
         }
 
         // First thing, update all inputs
@@ -941,7 +948,7 @@ public class GameScreen extends ScreenAdapter {
 ////        customerController.addCustomer();
 //        //setCustomerHud(customers);
 //        gameHud.setCustomerCount(customers);
-        Savegame();
+        //Savegame();
     }
 
 //    /**
@@ -1003,6 +1010,8 @@ public class GameScreen extends ScreenAdapter {
     {
         SavingClass save = new SavingClass(this);
         this.SaveText = json.toJson(save);
+        WriteSaveFile();
+        this.SaveText = "";
 //        System.out.println(json.prettyPrint(save));
     }
 
@@ -1011,6 +1020,7 @@ public class GameScreen extends ScreenAdapter {
     {
 //        SavingClass newsave = new SavingClass(GameScreen);
 //        StoredFile.fromJson(SavingClass newsave);
+        ReadSaveFile();
         JsonValue root = new JsonReader().parse(this.SaveText);
         System.out.println(root);
         //cooks
@@ -1052,6 +1062,7 @@ public class GameScreen extends ScreenAdapter {
         JsonValue held_y;
         float x,y;
         int count = 0;
+        System.out.println(this.SaveText);
         for(JsonValue t:held_cook)
         {
             int type = held_cook.getInt(count);
@@ -1225,6 +1236,47 @@ public class GameScreen extends ScreenAdapter {
         customerController.setDifficulty(root.getInt("difficulty"));
         customerController.TotalCustomersServed = root.getInt("HowManyHaveBeenServed");
     }
+
+    private void WriteSaveFile()
+    {
+        try (PrintWriter output = new PrintWriter(new FileWriter(this.filepath))) {
+            output.write(this.SaveText);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void ReadSaveFile(){
+//        try(FileReader output = new FileReader(this.filepath))
+//        {
+//            this.SaveText = String.valueOf(output.toString());
+//        }
+//        catch(IOException e)
+//        {
+//            e.printStackTrace();
+//        }
+//        try(String output = String(Files.readAllBytes(Paths.get(this.filepath))))
+//        {
+//
+//        }
+//        catch(IOException e)
+//        {
+//            e.printStackTrace();
+//        }
+        try{
+            this.SaveText = getnewString();
+        }
+        catch (IOException e)
+        {
+
+        }
+
+    }
+
+    private String getnewString() throws IOException {
+        return new String(Files.readAllBytes(Paths.get(this.filepath)));
+    }
+
 
 
 }
