@@ -308,13 +308,11 @@ public class GameScreen extends ScreenAdapter {
             int counter = 0;
             for(CustomerNew c:customersforgame)
             {
-                if(c.Stillhere) {
-                    addCustomer(customerController.addSavedCustomer(c.x, c.y, c.stationPosition.x, c.stationPosition.y));
-                    customerController.customers.get(counter).request = c.request;
-                    customerController.customers.get(counter).waittime = c.waittime;
-                    customerController.customers.get(counter).setStatus(c.getStatus());
-                    customerController.customers.get(counter).stationPosition = c.stationPosition;
-                }
+                addCustomer(customerController.addSavedCustomer(c.x, c.y, c.stationPosition.x, c.stationPosition.y));
+                customerController.customers.get(counter).request = c.request;
+                customerController.customers.get(counter).waittime = c.waittime;
+                customerController.customers.get(counter).setStatus(c.getStatus());
+                customerController.customers.get(counter).stationPosition = c.stationPosition;
 
 
                 counter++;
