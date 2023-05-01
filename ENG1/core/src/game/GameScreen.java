@@ -135,7 +135,7 @@ public class GameScreen extends ScreenAdapter {
 
         this.interactables = new Array<>();
         this.gold = new Gold();
-        this.gold.setBalance(1000);
+        this.gold.setBalance(0);
         this.Reputation = new RepPoints();
         this.freeze = 0;
         this.EnableAutoZoom = true;
@@ -225,7 +225,7 @@ public class GameScreen extends ScreenAdapter {
 
         this.interactables = new Array<>();
         this.gold = new Gold();
-        this.gold.setBalance(1000);
+        this.gold.setBalance(0);
         this.Reputation = new RepPoints();
         this.freeze = 0;
         this.EnableAutoZoom = true;
