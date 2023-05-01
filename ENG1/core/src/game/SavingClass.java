@@ -6,6 +6,7 @@ import cooks.Cook;
 import cooks.CustomerNew;
 import food.FoodItem;
 import food.FoodStack;
+import helper.Constants;
 import stations.Station;
 
 import java.util.ArrayList;
@@ -156,41 +157,42 @@ public class SavingClass {
     }
     private void CustomerData(CustomerNew customer, Integer persontype)
     {
+        if(customer.entryStatus>=6){
 //        private Array<Integer> cooks; //See above ^^^^
-        this.cooks.add(persontype);
+            this.cooks.add(persontype);
 //        private Array<Array<Float>> cookscoords; //If not spawned, (0,0)
-        Array<Float> coords = new Array<Float>();
-        coords.add(customer.getX());
-        coords.add(customer.getY());
-        this.cookscoords.add(coords);
+            Array<Float> coords = new Array<Float>();
+            coords.add(customer.getX());
+            coords.add(customer.getY());
+            this.cookscoords.add(coords);
 //        private Array<Array<Integer>> cookstack1;
-        Array<Integer> s = new Array<Integer>();
-        s.add(-1);
-        this.cookstack1.add(s);
+            Array<Integer> s = new Array<Integer>();
+            s.add(-1);
+            this.cookstack1.add(s);
 //        private Array<Array<Integer>> cookstack2;
-        this.cookstack2.add(s);
+            this.cookstack2.add(s);
 //        private Array<Array<Integer>> cookdishstack;
-        Array<FoodItem.FoodID> tempstack = new Array<FoodItem.FoodID> ();
-        Array<Integer> dishy = new Array<Integer>();
-        tempstack = customer.dishStack.getStackCopy();
-        for(FoodItem.FoodID f:tempstack)
-        {
-            dishy.add(f.ordinal());
-        }
-        this.cookdishstack.add(dishy);
+            Array<FoodItem.FoodID> tempstack = new Array<FoodItem.FoodID>();
+            Array<Integer> dishy = new Array<Integer>();
+            tempstack = customer.dishStack.getStackCopy();
+            for (FoodItem.FoodID f : tempstack) {
+                dishy.add(f.ordinal());
+            }
+            this.cookdishstack.add(dishy);
 //        private Array<Boolean> cookisbluggus; //if chef is bluggus or not
-        this.cookisbluggus.add(false);
+            this.cookisbluggus.add(false);
 //        private Array<Float> cookspeed;
-        this.cookspeed.add(-1f); //Check with laura
+            this.cookspeed.add(-1f); //Check with laura
 //        private Array<String> colour; //allocates the sprite
-        this.colour.add("Blank");
+            this.colour.add("Blank");
 //        private Array<Float> waitimes; //-1 for cooks
-        this.waitimes.add(customer.waittime);
+            this.waitimes.add(customer.waittime);
 //        private Array<String> requests; //norequest = cooks
-        this.requests.add(customer.request);
-        this.Status.add(customer.getStatus());
-        this.station_x.add(customer.stationPosition.x);
-        this.station_y.add(customer.stationPosition.y);
+            this.requests.add(customer.request);
+            this.Status.add(customer.getStatus());
+            this.station_x.add(customer.stationPosition.x);
+            this.station_y.add(customer.stationPosition.y);
+        }
     }
     private void SaveCooksAndCustomers(GameScreen gameScreen)
     {

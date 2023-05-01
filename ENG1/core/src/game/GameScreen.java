@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.maps.MapObjects;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -307,11 +308,13 @@ public class GameScreen extends ScreenAdapter {
             int counter = 0;
             for(CustomerNew c:customersforgame)
             {
-                addCustomer(customerController.addSavedCustomer(c.x,c.y, c.stationPosition.x, c.stationPosition.y));
-                customerController.customers.get(counter).request = c.request;
-                customerController.customers.get(counter).waittime = c.waittime;
-                customerController.customers.get(counter).setStatus(c.getStatus());
-                customerController.customers.get(counter).stationPosition = c.stationPosition;
+                if(c.Stillhere) {
+                    addCustomer(customerController.addSavedCustomer(c.x, c.y, c.stationPosition.x, c.stationPosition.y));
+                    customerController.customers.get(counter).request = c.request;
+                    customerController.customers.get(counter).waittime = c.waittime;
+                    customerController.customers.get(counter).setStatus(c.getStatus());
+                    customerController.customers.get(counter).stationPosition = c.stationPosition;
+                }
 
 
                 counter++;
@@ -455,11 +458,27 @@ public class GameScreen extends ScreenAdapter {
 //            System.out.println("Writing to file");
 //            WriteSaveFile();
         }
-//        if (Gdx.input.isKeyPressed(Input.Keys.T)){
+        if (Gdx.input.isKeyPressed(Input.Keys.T)){
 ////            System.out.println(this.getCustomerController().getMode());
 //            System.out.println("Adding gold");
 //            this.gold.setBalance(1000);
-//        }
+            //DrawDebugLine(Constants.customerPointC,Constants.customerPointD,20,Color.CYAN,camera.combined);
+            System.out.println("Line Rendering");
+            Array<Cook> ConstantPoints = new Array<Cook>();
+            //ConstantPoints.add(new Cook(Constants.customerPointA.x* 8f,Constants.customerPointA.y* 8f,1,1));
+            //ConstantPoints.add(new Cook(Constants.customerPointB.x* 8f,Constants.customerPointB.y* 8f,1,1));
+//            ConstantPoints.add(new Cook(Constants.customerPointC.x* 8f,Constants.customerPointC.y* 8f,1,1));
+//            ConstantPoints.add(new Cook(Constants.customerPointD.x* 8f,Constants.customerPointD.y* 8f,1,1));
+//            ConstantPoints.add(new Cook(Constants.customerPointE.x* 8f,Constants.customerPointE.y* 8f,1,1));
+//            ConstantPoints.add(new Cook(Constants.customerPointF.x* 8f,Constants.customerPointF.y* 8f,1,1));
+            ConstantPoints.add(new Cook(1944.1375f* 8f,2774.0818f* 8f,1,1)); //(1944.1375,2774.0818)
+            for(Cook c:ConstantPoints)
+            {
+                System.out.println("adding");
+                gameEntities.add(c);
+            }
+
+        }
 
         // First thing, update all inputs
         Interactions.updateKeys();
@@ -1242,11 +1261,9 @@ public class GameScreen extends ScreenAdapter {
         customerController.setDifficulty(root.getInt("Difficulty"));
         customerController.TotalCustomersServed = root.getInt("HowManyHaveBeenServed");
         gameHud.updateCustomerServed(this.customerController.TotalCustomersServed);
-//        gameHud.render();
-//        else
-//        {
-//            gameHud.cs = "";
-//        }
+
+        //remove customers walking
+
     }
 
     private void WriteSaveFile()

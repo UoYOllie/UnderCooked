@@ -1,5 +1,6 @@
 package cooks;
 
+import com.badlogic.gdx.math.Vector2;
 import com.sun.org.apache.bcel.internal.Const;
 import game.GameScreen;
 import helper.Constants;
@@ -216,7 +217,6 @@ public class CustomerController {
         // Add the new customer to customers and stationCustomerMap, then return the new Customer.
         this.stationCustomerMap.put(getStationKey(stationCustomerMap, station_y*Constants.UnitScale), newCustomer);
         this.customers.add(newCustomer);
-
         return newCustomer;
     }
 
