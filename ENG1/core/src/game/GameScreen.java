@@ -528,6 +528,9 @@ public class GameScreen extends ScreenAdapter {
         gameHud.updateTime(hoursPassed, minutesPassed, secondsPassed);
         gameHud.updateReputation(Reputation.getPoints());
         gameHud.updateGold(gold.getBalance());
+        if (this.customerController.getMode() == "endless"){
+            gameHud.updateCustomerServed(this.customerController.TotalCustomersServed);
+        }
         cameraUpdate();
         orthogonalTiledMapRenderer.setView(camera);
         batch.setProjectionMatrix(camera.combined);
