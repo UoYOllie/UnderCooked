@@ -327,11 +327,28 @@ public class GameScreen extends ScreenAdapter {
                     System.out.println("ffffffffffffff......");
                     nd.add(f);
                 }
-                n.stationDishStack.setStack(nd);
+                if(nd.size>0)
+                {
+                    n.stationDishStack.setStackPlate(nd);
+                }
+                else {
+                    n.stationDishStack.setStack(nd);
+                }
                 System.out.println(n.stationDishStack.getStackCopy()+",,,,,,,,,,,,,,,,,,,,,,,,,,,,,99");
                 //
                 n.Locked = newstation.lock;
-                n.Enabled = newstation.Enabled;
+                if(newstation.Enabled){
+                    n.Enable();
+                }
+                else
+                {
+                    n.Disable();
+                }
+
+//                if(n.isABluggusPrison&&n.Enabled)
+//                {
+//                    n.interact(new Cook(0,0,1,1), InputKey.InputTypes.USE);
+//                }
                 newmapStations.add(n);
 //                System.out.println("******************************************");
 //                System.out.println(mapHelper.mapStations.get(newstation.StationPropertyID).stationFoodStack.toString());
@@ -777,7 +794,6 @@ public class GameScreen extends ScreenAdapter {
         newcook.x = newcook.rectangle.x;
         newcook.y = newcook.rectangle.y;
         cooks.add(newcook);
-        unusedcooks.removeIndex(index);
 
     }
 
@@ -1161,14 +1177,15 @@ public class GameScreen extends ScreenAdapter {
             sd.HeldFood = fs;
 
             fs = new FoodStack();
-            if(held_dishstack.get(count)!=null) {
-                for (JsonValue placeinstack : held_dishstack.get(count)) {
-                    //System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+            if(held_SDishyStacky.get(count)!=null) {
+                for (JsonValue placeinstack : held_SDishyStacky.get(count)) {
+                    System.out.println("SIZE OF ARRAY OF DISTACK "+placeinstack);
                     FoodItem.FoodID value = FoodItem.FoodID.values()[(placeinstack.get(1).asInt())];
                     fs.addStack(value);
                 }
 
             }
+            System.out.println("SIZE OF ARRAY OF DISTACK "+fs+"ksjfbshgfskgfuksgfkusgfugskfgsgfs");
             sd.stationdishstack.setStack(fs.getStackCopy());
 
             sd.lock = held_LockedStatus.getBoolean(count);

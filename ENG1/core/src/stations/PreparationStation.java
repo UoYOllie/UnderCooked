@@ -195,7 +195,7 @@ public class PreparationStation extends Station {
         if(Locked){
             if (TestFlag == 0) {
                 System.out.println(gameScreen.gold.getBalance());
-                if ((this.Enabled) && (gameScreen.gold.getBalance() - item.cost >= 0)) {
+                if ((this.getEnabled()) && (gameScreen.gold.getBalance() - item.cost >= 0)) {
                     gameScreen.gold = item.buy(gameScreen.gold);
                     this.Locked = false;
                 }

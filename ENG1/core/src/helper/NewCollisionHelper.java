@@ -38,7 +38,7 @@ public class NewCollisionHelper {
         for(Station object : mapStations){
             if (Intersector.overlaps(object.getRectangle(), cookInteractor)){
                 System.out.println("Cook Overlaps: " + object);
-                if(object.Enabled) {
+                if(object.getEnabled()) {
                     found.add(object);
                 }
             }
