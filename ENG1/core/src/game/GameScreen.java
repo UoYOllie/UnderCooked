@@ -689,10 +689,34 @@ public class GameScreen extends ScreenAdapter {
 
         shape.begin(ShapeRenderer.ShapeType.Filled);
 
+
+
+
         orthogonalTiledMapRenderer.getBatch().begin();
+
         orthogonalTiledMapRenderer.renderTileLayer(
-                (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("FrontWalls")
+                (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("VatTop")
         );
+
+        orthogonalTiledMapRenderer.getBatch().end();
+
+
+        batch.begin();
+
+        gameEntities.sort(drawQueueComparator);
+
+        for (GameEntity entity : gameEntities) {
+            if (entity == cook) {
+                entity.render(batch);
+                ((Cook) entity).renderControlArrow(batch);
+            }
+        }
+
+        batch.end();
+
+
+        orthogonalTiledMapRenderer.getBatch().begin();
+
         orthogonalTiledMapRenderer.renderTileLayer(
                 (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("Front2")
         );
@@ -700,7 +724,7 @@ public class GameScreen extends ScreenAdapter {
                 (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("Windows")
         );
         orthogonalTiledMapRenderer.renderTileLayer(
-                (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("VatTop")
+                (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("FrontWalls")
         );
         orthogonalTiledMapRenderer.getBatch().end();
 
