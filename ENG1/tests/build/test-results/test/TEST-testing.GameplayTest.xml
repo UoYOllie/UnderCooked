@@ -1,70 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.GameplayTest" tests="34" skipped="0" failures="0" errors="0" timestamp="2023-05-02T01:39:34" hostname="DESKTOP-06RIULD" time="0.638">
+<testsuite name="testing.GameplayTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-02T09:23:33" hostname="AB-ASUS-1" time="0.115">
   <properties/>
-  <testcase name="TestServingStationServeCustomerColeslawCheesePotato" classname="testing.GameplayTest" time="0.006"/>
-  <testcase name="testMakeIntoBluggus" classname="testing.GameplayTest" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerTomatoBurger" classname="testing.GameplayTest" time="0.003"/>
-  <testcase name="TestServingStationServeCustomerPlainPizza" classname="testing.GameplayTest" time="0.003"/>
-  <testcase name="TestServingStationServeCustomerPepperoniPizza" classname="testing.GameplayTest" time="0.004"/>
-  <testcase name="TestServingStationServeCustomerLettuceBurger" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerBeansColeslawCheesePotato" classname="testing.GameplayTest" time="0.052"/>
-  <testcase name="testCustomerNewHypnotise" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerLettuceTomatoOnionBurger" classname="testing.GameplayTest" time="0.002"/>
-  <testcase name="testCustomerNewServedCustomerLeave" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerLettuceOnionSalad" classname="testing.GameplayTest" time="0.007"/>
-  <testcase name="TestServingStationServeCustomerPlainBurger" classname="testing.GameplayTest" time="0.003"/>
-  <testcase name="TestServingStationServeWrongOrder" classname="testing.GameplayTest" time="0.013"/>
-  <testcase name="TestServingStationServeCustomerLettuceTomatoBurger" classname="testing.GameplayTest" time="0.002"/>
-  <testcase name="TestServingStationServesMultipleCustomers" classname="testing.GameplayTest" time="0.003"/>
-  <testcase name="TestServingStationDoesNotAcceptWrongRecipes" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerColeslawPotato" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerPlainPotato" classname="testing.GameplayTest" time="0.0"/>
-  <testcase name="TestRepPoints" classname="testing.GameplayTest" time="0.002"/>
-  <testcase name="TestServingStationServeCustomerBeansColeslawPotato" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="testCustomerHangOnYourFoodIsComing" classname="testing.GameplayTest" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerBeansPotato" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerLettuceOnionBurger" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestBuyShopItem" classname="testing.GameplayTest" time="0.003"/>
-  <testcase name="TestServingStationServeCustomerTomatoOnionBurger" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerLettuceTomatoSalad" classname="testing.GameplayTest" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerBeansCheesePotato" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestMultipleSpeedPowerUps" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerOnionBurger" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerOnionTomatoSalad" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestSpeedPowerUp" classname="testing.GameplayTest" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerOnionPizza" classname="testing.GameplayTest" time="0.0"/>
-  <testcase name="testMoveStack" classname="testing.GameplayTest" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerCheesePotato" classname="testing.GameplayTest" time="0.001"/>
-  <system-out><![CDATA[This was correct for me
-Bluggus Mode activating
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-Bluggus Mode activating
-peek
-peek
-peek
-peek
-This was correct for me
+  <testcase name="TestServingStationServeWrongOrder" classname="testing.GameplayTest" time="0.115"/>
+  <system-out><![CDATA[cooks.CustomerNew@62a50d5a moving to point B------null------ (187.5,150.0)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
