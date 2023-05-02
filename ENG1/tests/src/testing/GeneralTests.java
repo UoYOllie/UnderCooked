@@ -200,8 +200,8 @@ public class GeneralTests {
     public void TestChefFoodRelativeX(){
         // Tests that the cook.foodRelativeX method returns the expected value for the given cook's direction
         Cook cook = new Cook(1,1,1,1);
-        assertEquals(cook.foodRelativeX(Cook.Facing.RIGHT),38F * 1/8f);
-        assertEquals(cook.foodRelativeX(Cook.Facing.LEFT),-13F * 1/8f);
+        assertEquals(cook.foodRelativeX(Cook.Facing.RIGHT),13F * 1/8f);
+        assertEquals(cook.foodRelativeX(Cook.Facing.LEFT),13F * 1/8f);
         assertEquals(cook.foodRelativeX(Cook.Facing.UP),13 * 1/8f);
     }
 

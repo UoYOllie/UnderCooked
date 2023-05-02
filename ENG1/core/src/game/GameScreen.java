@@ -46,11 +46,13 @@ import java.io.*;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.ConcurrentModificationException;
 
 import static helper.Constants.PPM;
 
 /** A {@link ScreenAdapter} containing certain elements of the game. */
 public class GameScreen extends ScreenAdapter {
+    public Array<CustomerNew> letsremove;
     private String filepath;
     private int holdzoomcounter;
     private OrthographicCamera camera;
@@ -107,7 +109,7 @@ public class GameScreen extends ScreenAdapter {
     private boolean forcewin;
 
     private OrthographicCamera backgroundCamera;
-    private SpriteBatch bgBatch;
+    public static SpriteBatch bgBatch;
     public Preferences prefs = Gdx.app.getPreferences("My Preferences");
     private float Cookswapstage;
     private boolean Loading;
@@ -119,6 +121,7 @@ public class GameScreen extends ScreenAdapter {
      */
     public GameScreen(ScreenController screenController, OrthographicCamera camera)//Constructor, reset rebuildings constructor
     {
+        this.letsremove = new Array<CustomerNew>();
         this.filepath = "OutercookedSaveData.json";
 
         this.readytorezoooom = false;
@@ -612,6 +615,9 @@ public class GameScreen extends ScreenAdapter {
         world.step(1/60f,6,2);
         for (GameEntity entity : gameEntities) {
             entity.update(delta);
+        }
+        for (GameEntity entity : letsremove) {
+            gameEntities.remove(entity);
         }
 
         if((customerController.wonScenario()) ||(this.forcewin)) {

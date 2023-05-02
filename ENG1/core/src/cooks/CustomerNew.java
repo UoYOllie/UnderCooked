@@ -156,6 +156,7 @@ public class CustomerNew extends GameEntity {
     public void Success(Station station) //Gets their dish, this is called
     {
         this.gameScreen.getCustomerController().removeCustomer(station);
+        gameScreen.getCustomerController().TotalCustomersServed++;
         this.gameScreen.Reputation.Positive();
         this.gameScreen.gold.addBalance(50);
         Leave();
@@ -168,7 +169,7 @@ public class CustomerNew extends GameEntity {
         this.customerStatus = 2;
         //Implement walk off
         //implement removement from array
-        gameScreen.getCustomerController().TotalCustomersServed++;
+        //gameScreen.getCustomerController().TotalCustomersServed++;
     }
 
     public void customerInteract(ArrayList<Station> mapStations) {
@@ -366,11 +367,11 @@ public class CustomerNew extends GameEntity {
             }
             moveToPoint("DELETION ZONE");
 //            setDestination(Constants.customerPointA.x+3f,Constants.customerPointA.y+12f);
-            setDestination(Constants.customerPointA.x,Constants.customerPointA.y);
-            move_right_up(Constants.customerPointA);
+            setDestination(Constants.customerPointA.x+3,Constants.customerPointA.y+12f);
+            move_right_up(new Vector2(Constants.customerPointA.x+3,Constants.customerPointA.y+12f));
         }
         if (this.entryStatus == -2) {
-            gameScreen.gameEntities.remove(this);
+            gameScreen.letsremove.add(this);
         }
 
     }
