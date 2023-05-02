@@ -61,7 +61,11 @@ public class InstructionScreen extends ScreenAdapter {
                         Interactions.getKeyString(InputKey.InputTypes.USE),
                         Interactions.getKeyString(InputKey.InputTypes.PUT_DOWN)),
                 "RECIPES:-",
-                "Plain Salad- chop lettuce and bring it to the assembly station and serve the customer.",
+                "Plain Salad- chop lettuce, bring it to the assembly station, put it in a plate and then serve it to the customer.",
+                "Tomato Salad- chop tomato, chop lettuce, bring it to the assembly station, put it in a plate and then serve it to the customer.",
+                "Onion Salad- chop onion, chop lettuce, bring it to the assembly station, put it in a plate and then serve it to the customer.",
+                "Tomato Onion Salad- chop tomato, chop onion, chop lettuce, bring it to the assembly station, put it in a plate and then serve it to the customer.",
+
 
                 "POWERUPS:-",
                 "Speed- makes the cook you control move faster.",
