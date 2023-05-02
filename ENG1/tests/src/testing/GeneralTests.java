@@ -27,6 +27,7 @@ public class GeneralTests {
 
 
     @Test
+    // Checks that the Cook.dir can be set to different values for the cook's x value
     public void testCookInteractorRelativeX(){
         CookInteractor cookInteractor = new CookInteractor(20,20,20);
         Cook cook = new Cook(20,20,20,20);
@@ -39,6 +40,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Checks that the Cook.dir can be set to different values for the cook's y value
     public void testCookInteractorRelativeY(){
         CookInteractor cookInteractor = new CookInteractor(20,20,20);
         Cook cook = new Cook(20,20,20,20);
@@ -55,6 +57,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Checks that the cook interactor updates the cook's position correctly
     public void testCookInteractorUpdatePosition(){
         CookInteractor cookInteractor = new CookInteractor(20,20,20);
         Cook cook = new Cook(20,20,20,20);
@@ -65,6 +68,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Checks that the cook interactor allows use inputs to be detected
     public void testCookInteractorCheckCollision(){
         CookInteractor cookInteractor = new CookInteractor((1500 * 1/8f),(1200 * 1/8f),20);
         Cook cook = new Cook((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -79,6 +83,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Checks that the Util class can format time correctly and find the distance between two points
     public void testUtilClass(){
         String finalString = Util.formatTime(0,10,1);
         assertEquals(finalString, "10:01");
@@ -89,25 +94,28 @@ public class GeneralTests {
         assertEquals(finalNum,testAgainst);
     }
 
-    //Relates to the FR_SPEND_MONEY and FR_EARN_MONEY requirements
+    // Relates to the FR_SPEND_MONEY and FR_EARN_MONEY requirements
     @Test
+    // Tests the gold setter method works
     public void TestGoldSetandGetBalance(){
         Gold gold = new Gold();
         gold.setBalance(36);
-        assertTrue(gold.Balance == 36);
+        assertTrue(gold.Balance == 36, "gold.setBalance does not set gold.Balance to the correct value");
     }
 
     @Test
+    // Tests the gold getter method works
     public void TestGoldGetInstance(){
-        assertTrue(Gold.getInstance()  == gold );
+        assertTrue(Gold.getInstance()  == gold , "gold.getInstance does not return the correct value");
     }
 
     @Test
+    // Tests the method to increase the player's gold
     public void TestGoldAddBalance(){
         Gold gold = new Gold();
         gold.Balance = 1;
         gold.addBalance(2);
-        assertEquals(gold.Balance,3);
+        assertEquals(gold.Balance,3, "gold.addBalance doesn't add the correct amount to gold.Balance");
     }
 
     //The following tests ensure the robustness of the FoodStack class by testing utility functions and ensuring the fail cases work
@@ -148,6 +156,7 @@ public class GeneralTests {
 
     //The following are general tests for the utility functions in the cook class
     @Test
+    // Tests the cook.userInteract method allows the cook to interact with a station
     public void TestCookUserInteract(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         BinStation testStation = new BinStation(rectangle);
@@ -164,6 +173,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the cook.getBlocked method returns the correct value
     public void TestGetBlocked(){
         Cook cook = new Cook(1,1,1,1);
         Array<FoodItem.FoodID> foodID = new Array<>();
@@ -176,6 +186,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the cook.update method correctly updates the cooks position
     public void TestCookUpdate(){
         Cook cook = new Cook(1,1,1,1);
         cook.update(0);
@@ -187,6 +198,7 @@ public class GeneralTests {
 
     @Test
     public void TestChefFoodRelativeX(){
+        // Tests that the cook.foodRelativeX method returns the expected value for the given cook's direction
         Cook cook = new Cook(1,1,1,1);
         assertEquals(cook.foodRelativeX(Cook.Facing.RIGHT),13F * 1/8f);
         assertEquals(cook.foodRelativeX(Cook.Facing.LEFT),13F * 1/8f);
@@ -194,6 +206,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the cook.foodRelativeY method returns the expected value for the given cook's direction
     public void TestChefFoodRelativeY(){
         Cook cook = new Cook(1,1,1,1);
         assertEquals(cook.foodRelativeY(Cook.Facing.RIGHT),-24F * 1/8f);
@@ -204,6 +217,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the cook.opposite method returns the expected value for the given cook's direction
     public void TestCookOpposite(){
         Cook cook = new Cook(1,1,1,1);
         assertEquals(cook.opposite(Cook.Facing.UP), Cook.Facing.DOWN);
@@ -214,6 +228,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the cook.rotate90c method returns the expected value for the given cook's direction
     public void TestCookRotate90C(){
         Cook cook = new Cook(1,1,1,1);
         assertEquals(cook.rotate90c(Cook.Facing.UP), Cook.Facing.RIGHT);
@@ -224,6 +239,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the cook.setDir method correctly sets the cooks direction
     public void TestSetDir(){
         //Testing that there is no opposites in the cook input
         Cook cook = new Cook(1,2,3,4);
@@ -250,8 +266,8 @@ public class GeneralTests {
 
     }
 
-    //The following test tests the players stack is limited to 3 items
     @Test
+    // Tests that the player stack is limited to 3 items
     public void TestHoldItems(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -267,22 +283,22 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the cook.setColour method correctly sets the cook's colour
     public void TestCookSetColour(){
         Cook cook = new Cook(1,2,3,4);
         cook.setColour("Blue");
         assertEquals(cook.Colour, "Blue","Error: the Setter for cooks colour is not setting the colour correctly");
     }
 
-    //These test the utility function of getInputKey and getInputType
     @Test
-    // TODO: add reference to requirement
+    // Tests that the test.getKey method returns the correct key
     public void TestGetInputKey(){
         InputKey test = new InputKey(InputKey.InputTypes.INSTRUCTIONS, Input.Keys.I);
         assertTrue(test.getKey() == Input.Keys.I, "The getKey function is broken/returns wrong key");
     }
 
     @Test
-    // TODO: add reference to requirement
+    // Tests that the test.getType method returns the correct type
     public void TestGetInputType(){
         InputKey test = new InputKey(InputKey.InputTypes.INSTRUCTIONS, Input.Keys.I);
         assertTrue(test.getType() == InputKey.InputTypes.INSTRUCTIONS,"The getType function is broken/returns wrong type");
@@ -291,6 +307,7 @@ public class GeneralTests {
     //The following tests exercise the utility functions in the MapHelper class
 
     @Test
+    // Tests that the helper.getMapObstacles method returns the correct list of preparation stations
     public void testSetMapObstacles(){
         PreparationStation preparationStation = new PreparationStation(new Rectangle(1,2,3,4));
         ArrayList<Rectangle> finalList = new ArrayList<>();
@@ -300,6 +317,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the helper.getMapStations method returns the correct list of preparation stations
     public void testsGetMapStations(){
         PreparationStation preparationStation = new PreparationStation(new Rectangle(1,2,3,4));
         ArrayList<Station> finalList = new ArrayList<>();
@@ -309,7 +327,8 @@ public class GeneralTests {
     }
 
     @Test
-    public void testsgetServingStationList(){
+    // Tests that the helper.getServingStationList method returns the correct list of serving stations
+    public void testsGetServingStationList(){
         ServingStation ServingStation = new ServingStation(new Rectangle(1,2,3,4));
         ArrayList<Station> finalList = new ArrayList<>();
         finalList.add(ServingStation);
@@ -317,8 +336,8 @@ public class GeneralTests {
         assertEquals(helper.getServingStationList(), finalList , "Error: The MapHelper utility function getServingStationsNew does not return the right list");
     }
 
-    //The following test exercises the CustomerInteractor's updatePosition
     @Test
+    // Tests that the customer interactor method updatePosition by ensuring the x and y position get updated accordingly
     public void testUpdatePosition(){
         CustomerInteractor customerInteractor = new CustomerInteractor(20,30,100);
         customerInteractor.updatePosition(10,20, Cook.Facing.DOWN);
@@ -331,6 +350,7 @@ public class GeneralTests {
     //The following tests the code in CustomerNew that isn't to do with the gameplay (gameplay test includes storming out etc)
 
     @Test
+    // Tests that the CustomerNew method setStationPosition sets a station's x and y coordinates to the given values
     public void testSetStationPosition(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
         customerNew.setStationPosition(100,200);
@@ -339,6 +359,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Checks that the CustomerNew method setDestination sets a customer's x and y coordinates to the given values
     public void testSetDestination(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
         customerNew.setDestination(100,200);
@@ -347,6 +368,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the CustomerNew method DecreasePatience decrements the customers wait time by the correct amount
     public void testDecreasePatience(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4);
         customerNew.waittime = 100;
@@ -355,18 +377,21 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the CustomerNew method getX returns the customer's x position
     public void testCustomerNewGetX(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4);
         assertEquals(customerNew.getX(),1,"Error: CustomerNew getX does not get x");
     }
 
     @Test
+    // Tests that the CustomerNew method getY returns the customer's y position
     public void testCustomerNewGetY(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4);
         assertEquals(customerNew.getY(),2,"Error: CustomerNew getY does not get y");
     }
 
     @Test
+    // Tests that the CustomerNew method getRequestName returns the correct recipe
     public void testCustomerNewGetRequestName(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4);
         customerNew.request = ("Plain Burger");
@@ -374,16 +399,7 @@ public class GeneralTests {
     }
 
     @Test
-    public void testCustomerNewCustomerInteract(){
-        CustomerNew customerNew = new CustomerNew(1,2,3,4);
-        PreparationStation preparationStation = new PreparationStation(new Rectangle(1,2,3,4));
-        ArrayList<Station> testList = new ArrayList<>();
-        testList.add(preparationStation);
-        customerNew.customerInteract(testList);
-        //TODO: when interact is done, finish this
-    }
-
-    @Test
+    // Tests that the CustomerNew method setCustomerPoints correctly sets the customerPoints to the given value
     public void testCustomerNewSetCustomerPoints(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4);
         Array<Vector2> customerPoints = new Array<>();
@@ -392,10 +408,11 @@ public class GeneralTests {
         customerPoints.add(Constants.customerPointE);
         customerPoints.add(Constants.customerPointF);
         customerPoints.add(customerNew.stationPosition);
-        assertEquals(customerPoints, customerNew.setCustomerPoints());
+        assertEquals(customerPoints, customerNew.setCustomerPoints(), "Error: CustomerNew setCustomerPoints does not set the correct value to the customerPoints array");
     }
 
     @Test
+    // Tests that the CustomerNew method move_left_down sets the x and y coordinates to the correct values according to their position relative to their destination
     public void testCustomerNewMoveLeftDown(){
         //First we will test the first if and the second if, to do with x and y
         CustomerNew customerNew = new CustomerNew(20,20,3,4);
@@ -416,6 +433,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the customer's status is set to 1 when they enter the game
     public void testCustomerNewEnterCustomer(){
         CustomerNew customerNew = new CustomerNew(100,400,3,4);
         customerNew.stationPosition.x = 1;
@@ -427,6 +445,7 @@ public class GeneralTests {
 
     //The following test the ServingStation's customerInteract method for the menu and teacup change power ups
     @Test
+    // Tests that giving a customer a teacup will reset their wait time and puts a teacup in their inventory, and giving them a menu will cause them to change their request
     public void testServingStationCustomerInteract(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
