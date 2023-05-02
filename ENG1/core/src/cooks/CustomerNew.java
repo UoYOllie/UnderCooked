@@ -69,7 +69,7 @@ public class CustomerNew extends GameEntity {
         this.sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "customer_bluggus");
         this.bubbleSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "speech_bubble");
         //this.position = new Vector2(x, y);
-        this.customerInteractor = new Rectangle(x - 4 * Constants.UnitScale, y - 4 * Constants.UnitScale,
+        this.customerInteractor = new Rectangle(x - 4 * Constants.UnitScale, (y) - 4 * Constants.UnitScale,
                                                 width + 1f, height+1f);
         this.request = Recipe.randomRecipe();
         this.dishStack = new DishStack();
@@ -254,8 +254,8 @@ public class CustomerNew extends GameEntity {
             if (this.customerToTest == true) {
             //    System.out.println("entry status 4 moving to point F");
             }
-            setDestination(stationPosition.x,stationPosition.y);
-            move_left_down(new Vector2(stationPosition.x,stationPosition.y));
+            setDestination(stationPosition.x,stationPosition.y+3f);
+            move_left_down(new Vector2(stationPosition.x,stationPosition.y+3f));
         }
 
         if (this.entryStatus == 5) {
@@ -266,7 +266,7 @@ public class CustomerNew extends GameEntity {
             this.readyX = false;
             this.readyY = false;
 
-            if (this.y > stationPosition.y) { this.y -= Constants.UnitScale;
+            if (this.y > stationPosition.y+3f) { this.y -= Constants.UnitScale;
             } else { this.readyY = true; }
 
             if (this.x < stationPosition.x) { this.x += Constants.UnitScale;
@@ -563,7 +563,7 @@ public class CustomerNew extends GameEntity {
 
     public void moveToPoint(String x)
     {
-        //System.out.println(this+" moving to point "+x+"------"+this.destination+"------ ("+this.x+","+this.y+")");
+        System.out.println(this+" moving to point "+x+"------"+this.destination+"------ ("+this.x+","+this.y+")");
         this.offtopoint = x;
     }
 
