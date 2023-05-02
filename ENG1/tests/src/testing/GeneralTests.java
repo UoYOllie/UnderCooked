@@ -16,6 +16,8 @@ import org.junit.runner.RunWith;
 import stations.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static Shop.Gold.gold;
 import static interactions.Interactions.keysJustPressed;
@@ -481,30 +483,34 @@ public class GeneralTests {
     //The following test the logic for the CustomerController class
 
     @Test
+    // Tests that the getMode method returns the correct game mode (endless or scenario)
     public void TestSetAndGetMode(){
         CustomerController customerController = new CustomerController();
         customerController.setMode("scenario");
-        assertEquals(customerController.getMode(), "scenario");
+        assertEquals(customerController.getMode(), "scenario", "getMode does not return the correct game mode");
     }
 
     @Test
+    // Tests that the getDifficulty method returns the correct game difficulty (easy, medium or hard as represented by the integers 1, 2, 3 respectively)
     public void TestSetAndGetDifficulty(){
         CustomerController customerController = new CustomerController();
         customerController.setDifficulty(3);
-        assertEquals(customerController.getDifficulty(), 3);
+        assertEquals(customerController.getDifficulty(), 3, "getDifficulty does not return the correct game difficulty");
     }
 
     @Test
+    // Tests that the getCustomers method returns the correct array of customers
     public void TestGetCustomers(){
         CustomerController customerController = new CustomerController();
         CustomerNew customerNew = new CustomerNew(1,2,3,4);
         ArrayList<CustomerNew> customerNews = new ArrayList<CustomerNew>();
         customerNews.add(customerNew);
         customerController.customers.add(customerNew);
-        assertEquals(customerController.getCustomers(), customerNews);
+        assertEquals(customerController.getCustomers(), customerNews, "getCustomers does not return the correct array of customers");
     }
 
     @Test
+    // Tests that there is a limit on the number of customers that can place an order at once
     public void TestMaxCustomersReached(){
         //Testing fails when supposed to
         CustomerController customerController = new CustomerController();
@@ -525,7 +531,7 @@ public class GeneralTests {
         customerNews.add(customerNew4);
         customerNews.add(customerNew5);
         customerController.customers = customerNews;
-        assertTrue(customerController.maxCustomersReached());
+        assertTrue(customerController.maxCustomersReached(), "the maxCustomersReached method does not provide a customer limit");
     }
 
     @Test
@@ -540,6 +546,56 @@ public class GeneralTests {
         customerController.setMode("endless");
         customerController.setCustomers_left(1);
         assertFalse(customerController.wonScenario());
+
+        //next test scenario where the mode is scenario and customers_left is > 0
+        customerController.setMode("scenario");
+        customerController.setCustomers_left(3);
+
+        CustomerNew customerNew1 = new CustomerNew(1,2,3,4);
+        customerNew1.setCustomerStatus(2);
+        CustomerNew customerNew2 = new CustomerNew(1,2,3,4);
+        customerNew2.setCustomerStatus(2);
+        CustomerNew customerNew3 = new CustomerNew(1,2,3,4);
+        customerNew3.setCustomerStatus(2);
+        ArrayList<CustomerNew> customerNews = new ArrayList<CustomerNew>();
+        customerNews.add(customerNew1);
+        customerNews.add(customerNew2);
+        customerNews.add(customerNew3);
+        customerController.customers = customerNews;
+        customerController.wonScenario();
+        assertEquals(customerController.getCustomers_left(), 0);
+    }
+
+    @Test
+    public void TestRemoveCustomer(){
+        CustomerController customerController = new CustomerController();
+        Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
+        PreparationStation preparationStation = new PreparationStation(new Rectangle());
+        CustomerNew customerNew = new CustomerNew(1,2,3,4);
+        stationCustomerMap.put(preparationStation,customerNew);
+        customerController.setStationCustomerMap(stationCustomerMap);
+        customerController.removeCustomer(preparationStation);
+        assertEquals(stationCustomerMap.get(preparationStation),null);
+    }
+
+    @Test
+    public void TestInitialiseStationCustomerMap(){
+        CustomerController customerController = new CustomerController();
+        ServingStation servingStation1 = new ServingStation(new Rectangle());
+        ServingStation servingStation2 = new ServingStation(new Rectangle());
+        ArrayList<Station> arrayList = new ArrayList<Station>();
+
+        arrayList.add(servingStation1);
+        arrayList.add(servingStation2);
+
+        customerController.setServingStations(arrayList);
+        customerController.initialiseStationCustomerMap();
+
+        Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
+        stationCustomerMap.put(servingStation1,null);
+        stationCustomerMap.put(servingStation2,null);
+
+        assertEquals(customerController.getStationCustomerMap(),stationCustomerMap);
     }
 
 }

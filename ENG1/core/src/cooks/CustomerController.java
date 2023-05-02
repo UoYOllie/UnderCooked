@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.sun.org.apache.bcel.internal.Const;
 import game.GameScreen;
 import helper.Constants;
+import stations.ServingStation;
 import stations.Station;
 
 import java.util.ArrayList;
@@ -251,4 +252,19 @@ public class CustomerController {
 
     public int getCustomers_left(){ return  this.customers_left;}
     public void setCustomers_left(int left){ customers_left = left;}
+    public void setStationCustomerMap(Map<Station,CustomerNew> map){
+        this.stationCustomerMap = map;
+    }
+
+    public Map getStationCustomerMap(){
+        return this.stationCustomerMap;
+    }
+
+    public void setServingStations(ArrayList<Station> array){
+        this.servingStations = array;
+    }
+
+    public ArrayList<Station> getServingStations(){
+        return this.servingStations;
+    }
 }
