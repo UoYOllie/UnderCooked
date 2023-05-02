@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.MenuTests" tests="2" skipped="0" failures="2" errors="0" timestamp="2023-05-02T23:10:58" hostname="DESKTOP-8SNM91F" time="5.752">
+<testsuite name="testing.MenuTests" tests="2" skipped="0" failures="2" errors="0" timestamp="2023-05-02T23:22:24" hostname="DESKTOP-8SNM91F" time="5.353">
   <properties/>
-  <testcase name="testStartEndlessGame" classname="testing.MenuTests" time="3.057">
+  <testcase name="testStartEndlessGame" classname="testing.MenuTests" time="2.866">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -9,7 +9,7 @@
 	at com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer.&lt;init&gt;(BatchTiledMapRenderer.java:102)
 	at game.SuperMapSuperRenderer.&lt;init&gt;(SuperMapSuperRenderer.java:44)
 	at helper.MapHelper.setupMap(MapHelper.java:59)
-	at game.GameScreen.&lt;init&gt;(GameScreen.java:151)
+	at game.GameScreen.&lt;init&gt;(GameScreen.java:150)
 	at game.ScreenController.&lt;init&gt;(ScreenController.java:46)
 	at testing.MenuTests.testStartEndlessGame(MenuTests.java:25)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -29,7 +29,7 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <testcase name="testCreditsMenu" classname="testing.MenuTests" time="2.678">
+  <testcase name="testCreditsMenu" classname="testing.MenuTests" time="2.469">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -37,7 +37,7 @@
 	at com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer.&lt;init&gt;(BatchTiledMapRenderer.java:102)
 	at game.SuperMapSuperRenderer.&lt;init&gt;(SuperMapSuperRenderer.java:44)
 	at helper.MapHelper.setupMap(MapHelper.java:59)
-	at game.GameScreen.&lt;init&gt;(GameScreen.java:151)
+	at game.GameScreen.&lt;init&gt;(GameScreen.java:150)
 	at game.ScreenController.&lt;init&gt;(ScreenController.java:46)
 	at testing.MenuTests.testCreditsMenu(MenuTests.java:37)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

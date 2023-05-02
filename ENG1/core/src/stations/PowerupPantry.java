@@ -1,11 +1,10 @@
 package stations;
 
-import Shop.ShopItem;
+import shop.ShopItem;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
 import food.FoodItem;
-import food.FoodStack;
 import game.GameScreen;
 import interactions.InputKey;
 

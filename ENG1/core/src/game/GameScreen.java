@@ -1,7 +1,7 @@
 package game;
 
-import Shop.Gold;
-import Shop.ShopItem;
+import shop.Gold;
+import shop.ShopItem;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;

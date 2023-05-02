@@ -1,7 +1,7 @@
 package testing;
 
-import Shop.Gold;
-import Shop.ShopItem;
+import shop.Gold;
+import shop.ShopItem;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import cooks.Cook;

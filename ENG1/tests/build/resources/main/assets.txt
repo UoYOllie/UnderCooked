@@ -19,7 +19,7 @@ cooks/normal left.png
 cooks/normal right.png
 cooks/normal up.png
 cooks/testdummy.png
-customers/Customer.png
+reputation/Customer.png
 foods/BottomBun.png
 foods/Burger.png
 foods/Burger_Buns.png
@@ -70,7 +70,7 @@ MFPack/MetalSlope2flipped.png
 MFPack/Purpadurple.png
 MFPack/Rarch.png
 MFPack/ServingStation.png
-MFPack/Shop.png
+MFPack/shop.png
 MFPack/SignDining.png
 MFPack/SignFridge.png
 MFPack/SignPantry.png
@@ -203,7 +203,7 @@ MorgansMap/Tiles/MFPack/MetalSlope2flipped.png
 MorgansMap/Tiles/MFPack/Purpadurple.png
 MorgansMap/Tiles/MFPack/Rarch.png
 MorgansMap/Tiles/MFPack/ServingStation.png
-MorgansMap/Tiles/MFPack/Shop.png
+MorgansMap/Tiles/MFPack/shop.png
 MorgansMap/Tiles/MFPack/SignDining.png
 MorgansMap/Tiles/MFPack/SignFridge.png
 MorgansMap/Tiles/MFPack/SignPantry.png
@@ -368,7 +368,7 @@ OJAssets/MFPack/MetalSlope2flipped.png
 OJAssets/MFPack/Purpadurple.png
 OJAssets/MFPack/Rarch.png
 OJAssets/MFPack/ServingStation.png
-OJAssets/MFPack/Shop.png
+OJAssets/MFPack/shop.png
 OJAssets/MFPack/SignDining.png
 OJAssets/MFPack/SignFridge.png
 OJAssets/MFPack/SignPantry.png

@@ -1,6 +1,6 @@
 package stations;
 
-import Shop.ShopItem;
+import shop.ShopItem;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

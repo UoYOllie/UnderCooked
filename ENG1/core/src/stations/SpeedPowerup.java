@@ -1,14 +1,9 @@
 package stations;
 
-import Shop.ShopItem;
-import com.badlogic.gdx.physics.bullet.collision._btMprSimplex_t;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import shop.ShopItem;
 import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
 import game.GameScreen;
-import game.GameSprites;
 import interactions.InputKey;
 
 

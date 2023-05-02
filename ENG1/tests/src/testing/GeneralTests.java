@@ -1,6 +1,6 @@
 package testing;
 
-import Shop.Gold;
+import shop.Gold;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -19,8 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static Shop.Gold.gold;
-import static interactions.Interactions.keysJustPressed;
+import static shop.Gold.gold;
 import static org.testng.Assert.*;
 
 @RunWith(GdxTestRunner.class)

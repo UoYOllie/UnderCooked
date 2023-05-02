@@ -59,7 +59,7 @@
   <image width="64" height="32" source="Tiles/MFPack/ServingStation.png"/>
  </tile>
  <tile id="19">
-  <image width="78" height="62" source="Tiles/MFPack/Shop.png"/>
+  <image width="78" height="62" source="Tiles/MFPack/shop.png"/>
  </tile>
  <tile id="20">
   <image width="96" height="32" source="Tiles/MFPack/SignDining.png"/>

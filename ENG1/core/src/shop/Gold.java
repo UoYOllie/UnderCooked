@@ -1,4 +1,4 @@
-package Shop;
+package shop;
 
 /**
  * Class used to hold data for buyable items

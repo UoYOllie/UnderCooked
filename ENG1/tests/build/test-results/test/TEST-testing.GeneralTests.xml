@@ -1,90 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.GeneralTests" tests="41" skipped="0" failures="0" errors="0" timestamp="2023-05-02T23:10:58" hostname="DESKTOP-8SNM91F" time="0.668">
+<testsuite name="testing.GeneralTests" tests="41" skipped="0" failures="0" errors="0" timestamp="2023-05-02T23:22:33" hostname="DESKTOP-8SNM91F" time="0.667">
   <properties/>
-  <testcase name="TestHoldItems" classname="testing.GeneralTests" time="0.003"/>
-  <testcase name="testsGetServingStationList" classname="testing.GeneralTests" time="0.005"/>
-  <testcase name="TestGoldAddBalance" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestHoldItems" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="testsGetServingStationList" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestGoldAddBalance" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="TestFoodStackPeekStackCatchIndexOutOfBounds" classname="testing.GeneralTests" time="0.001"/>
-  <testcase name="TestSetAndGetMode" classname="testing.GeneralTests" time="0.005"/>
-  <testcase name="TestCookRotate90C" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestSetAndGetMode" classname="testing.GeneralTests" time="0.003"/>
+  <testcase name="TestCookRotate90C" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="testSetDestination" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="TestGetBlocked" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestGetBlocked" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="testCustomerMoveLeftDown" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="TestSetDir" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="testDecreasePatience" classname="testing.GeneralTests" time="0.001"/>
-  <testcase name="TestAddCustomerCustomerPresent" classname="testing.GeneralTests" time="0.002"/>
-  <testcase name="TestRemoveCustomer" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestAddCustomerCustomerPresent" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestRemoveCustomer" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestAddCustomerCustomersPresent" classname="testing.GeneralTests" time="0.002"/>
-  <testcase name="TestGoldGetInstance" classname="testing.GeneralTests" time="0.001"/>
-  <testcase name="testServingStationCustomerInteract" classname="testing.GeneralTests" time="0.003"/>
+  <testcase name="TestGoldGetInstance" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testServingStationCustomerInteract" classname="testing.GeneralTests" time="0.002"/>
   <testcase name="TestFoodStackSetStack" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="TestCookSetColour" classname="testing.GeneralTests" time="0.001"/>
-  <testcase name="TestCookUpdate" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="testSetStationPosition" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestCookSetColour" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestCookUpdate" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="testSetStationPosition" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestChefFoodRelativeX" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="TestChefFoodRelativeY" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestChefFoodRelativeY" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="testCustomerSetCustomerPoints" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="testSetMapObstacles" classname="testing.GeneralTests" time="0.001"/>
-  <testcase name="TestGetInputKey" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestGetInputKey" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestFoodStackPopStackCatchIndexOutOfBounds" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestGetStationKey" classname="testing.GeneralTests" time="0.001"/>
-  <testcase name="TestMaxCustomersReached" classname="testing.GeneralTests" time="0.003"/>
-  <testcase name="TestWonScenario" classname="testing.GeneralTests" time="0.002"/>
-  <testcase name="TestFoodStackToString" classname="testing.GeneralTests" time="0.012"/>
+  <testcase name="TestMaxCustomersReached" classname="testing.GeneralTests" time="0.002"/>
+  <testcase name="TestWonScenario" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestFoodStackToString" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestInitialiseStationCustomerMap" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="testsGetMapStations" classname="testing.GeneralTests" time="0.001"/>
-  <testcase name="TestGoldSetandGetBalance" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="testsGetMapStations" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestGoldSetandGetBalance" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestGetCustomers" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="testUtilClass" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="TestGetInputType" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="TestCookOpposite" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="testCustomerGetX" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestCookOpposite" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="testCustomerGetX" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="testCustomerGetY" classname="testing.GeneralTests" time="0.001"/>
-  <testcase name="TestSetAndGetDifficulty" classname="testing.GeneralTests" time="0.001"/>
-  <testcase name="testCustomerGetRequestName" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestSetAndGetDifficulty" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testCustomerGetRequestName" classname="testing.GeneralTests" time="0.0"/>
   <system-out><![CDATA[lettuce
 lettuce
 lettuce
 lettuce
 peek
-cooks.Customer@67826013 moving to point B------null------ (1.0,2.0)
-cooks.Customer@6468b2d2 moving to point B------null------ (20.0,20.0)
-cooks.Customer@65b4fec5 moving to point B------null------ (1.0,2.0)
-cooks.Customer@6f111ab1 moving to point B------null------ (1.0,2.0)
+cooks.Customer@47b9486f moving to point B------null------ (1.0,2.0)
+cooks.Customer@2ee0fdc3 moving to point B------null------ (20.0,20.0)
+cooks.Customer@6b9eaa16 moving to point B------null------ (1.0,2.0)
+cooks.Customer@12052182 moving to point B------null------ (1.0,2.0)
 interval 0
 group size 1
 no customer added!
-cooks.Customer@cce4679 moving to point B------null------ (1.0,2.0)
-cooks.Customer@4bb33924 moving to point B------null------ (1.0,2.0)
-cooks.Customer@73186032 moving to point B------null------ (1.0,2.0)
-cooks.Customer@d1b1da6 moving to point B------null------ (1.0,2.0)
-cooks.Customer@22f00ac2 moving to point B------null------ (1.0,2.0)
-cooks.Customer@70586da1 moving to point B------null------ (1.0,2.0)
+cooks.Customer@36551155 moving to point B------null------ (1.0,2.0)
+cooks.Customer@1337ee20 moving to point B------null------ (1.0,2.0)
+cooks.Customer@1b01d3da moving to point B------null------ (1.0,2.0)
+cooks.Customer@5c0b656 moving to point B------null------ (1.0,2.0)
+cooks.Customer@35f6436 moving to point B------null------ (1.0,2.0)
+cooks.Customer@2fb5cc93 moving to point B------null------ (1.0,2.0)
 interval 0
 group size 1
 no customer added this time!
-cooks.Customer@3756f78f moving to point B------null------ (187.5,150.0)
-cooks.Customer@3756f78fwill leave in 50.0
-cooks.Customer@3756f78fnow will leave in 300.0
-cooks.Customer@3756f78fis rethinking
-cooks.Customer@450b1a1 moving to point B------null------ (1.0,2.0)
-cooks.Customer@48be5999 moving to point B------null------ (1.0,2.0)
-cooks.Customer@4f24ecd2 moving to point B------null------ (1.0,2.0)
-cooks.Customer@4e12edd7 moving to point B------null------ (1.0,2.0)
-cooks.Customer@74da171d moving to point B------null------ (1.0,2.0)
-cooks.Customer@1c702728 moving to point B------null------ (1.0,2.0)
-cooks.Customer@27845bb0 moving to point B------null------ (1.0,2.0)
-cooks.Customer@7ea176c2 moving to point B------null------ (1.0,2.0)
-cooks.Customer@5a67e4f4 moving to point B------null------ (1.0,2.0)
-cooks.Customer@4733d1f7 moving to point B------null------ (1.0,2.0)
-cooks.Customer@426f4b7a moving to point B------null------ (1.0,2.0)
+cooks.Customer@42cb9b00 moving to point B------null------ (187.5,150.0)
+cooks.Customer@42cb9b00will leave in 50.0
+cooks.Customer@42cb9b00now will leave in 300.0
+cooks.Customer@42cb9b00is rethinking
+cooks.Customer@431b169e moving to point B------null------ (1.0,2.0)
+cooks.Customer@349a9e4 moving to point B------null------ (1.0,2.0)
+cooks.Customer@50e2af58 moving to point B------null------ (1.0,2.0)
+cooks.Customer@55db6d7a moving to point B------null------ (1.0,2.0)
+cooks.Customer@1b93e8ac moving to point B------null------ (1.0,2.0)
+cooks.Customer@5ece1ce9 moving to point B------null------ (1.0,2.0)
+cooks.Customer@6978c32a moving to point B------null------ (1.0,2.0)
+cooks.Customer@6746c3c2 moving to point B------null------ (1.0,2.0)
+cooks.Customer@6314810e moving to point B------null------ (1.0,2.0)
+cooks.Customer@4d93f0d1 moving to point B------null------ (1.0,2.0)
+cooks.Customer@625d1bda moving to point B------null------ (1.0,2.0)
 customers left 2
 customers left 1
 customers left 0
-cooks.Customer@318e07f moving to point B------null------ (1.0,2.0)
-cooks.Customer@693dd253 moving to point B------null------ (1.0,2.0)
-cooks.Customer@5745665c moving to point B------null------ (1.0,2.0)
-cooks.Customer@fef3c77 moving to point B------null------ (1.0,2.0)
+cooks.Customer@2648042d moving to point B------null------ (1.0,2.0)
+cooks.Customer@661fb140 moving to point B------null------ (1.0,2.0)
+cooks.Customer@199f33b0 moving to point B------null------ (1.0,2.0)
+cooks.Customer@622a359c moving to point B------null------ (1.0,2.0)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
