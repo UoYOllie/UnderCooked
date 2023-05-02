@@ -78,8 +78,7 @@ public class InstructionScreen extends ScreenAdapter {
                         "\n cook the potato, place all the items on the assembly station, serve the customer.",
 
 
-
-                "POWERUPS:-",
+                "\n POWERUPS:-",
                 "Speed- makes the cook you control move faster.",
                 "Teacup- Increases the customer's wait time.",
                 "Menu- Changes the request of customer",
