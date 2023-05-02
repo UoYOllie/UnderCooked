@@ -1,3 +1,4 @@
+//DC
 package cooks;
 
 import com.badlogic.gdx.Gdx;
@@ -28,6 +29,7 @@ import stations.Station;
 import java.util.ArrayList;
 
 /** A {@link GameEntity} that the player controls to interact with the game. */
+
 public class Cook extends GameEntity {
     public boolean lockmovement;
 
@@ -52,7 +54,7 @@ public class Cook extends GameEntity {
     public Array<Facing> inputs;
 
     private GameScreen gameScreen;
-    public boolean activateBluggus;
+    public boolean activateBluggus; //Determines if this cook is a Chef Bluggus
 
     /**
      * Rectangle for cook's interaction area.
@@ -61,16 +63,12 @@ public class Cook extends GameEntity {
      * Note: Rectangles are actually OP, I love them so much. Rectangles will handle anything from collisions to making
      * sure your hands are in the right place, we should use them more :)))
      */
-    public Rectangle cookInteractor;
+    public Rectangle cookInteractor; //The rectangle that interacts with stations
 
-    public float movement_speed = 0.6765f;
+    public float movement_speed = 0.6765f; //The speed of the cook
+    //The colour of the cook - if a colour was to be implemented to distinguish cooks.
     public String Colour;
 
-    //-------------------------------------
-    //Morgan's Shop Section
-    //-------------------------------------
-
-    //-------------------------------------
 
 
     /**
@@ -90,11 +88,11 @@ public class Cook extends GameEntity {
     }
 
     /**
-     * Cook Constructor.
-     * @param x : X value that the Cook will spawn at.
-     * @param y : Y Value that the Cook will spawn at
-     * @param width : Width of the player's hitbox.
-     * @param height : Height of the player's hitbox (Not the height of the player sprite).
+     * Cook constructor
+     * @param x
+     * @param y
+     * @param width
+     * @param height
      */
     public Cook(float x, float y, float width, float height) {
         super(x, y, width, height);
@@ -123,35 +121,12 @@ public class Cook extends GameEntity {
         // Defines the bounds for interaction box, using 1/8f as the unit-scale because its not a const rn.
         cookInteractor = new Rectangle(x - 4 * Constants.UnitScale, y - 4 * Constants.UnitScale, width + 1f, height + 1f);
 
-
-        //this.gameScreen = g; no
-        //this.cookInteractor = new CookInteractor(x,y,cookInteractorSize,gameScreen);
     }
 
-    /*public Cook(float x, float y, float width, float height) {
-        super(x, y, width, height);
-        this.dir = Facing.DOWN;
-        this.speed = 10f;
-        // this.gameScreen = gameScreen;
-        this.gameSprites = GameSprites.getInstance();
-        this.controlSprite = gameSprites.getSprite(GameSprites.SpriteID.COOK,"control");
-
-        // Initialize FoodStack
-        this.foodStack = new FoodStack();
-
-        // Input array, with the order of inputs the user has in what direction.
-        // The oldest button pressed is the one used. Pressing the opposite key removes them.
-        this.inputs = new Array<>();
-
-        // Set the sprite
-        this.setSprite();
-
-        float cookInteractorSize = 32;
-
-        this.cookInteractor = new CookInteractor(x,y,cookInteractorSize);
-    }*/
-
     /** Responsible for processing user input information into {@link #inputs}, {@link #velX} and {@link #velY}. */
+    /**
+     * @param mapObstacles
+     */
     public void userInput(ArrayList<Rectangle> mapObstacles) {
         velX = 0F;
         velY = 0F;
@@ -189,6 +164,7 @@ public class Cook extends GameEntity {
                 inputs.removeValue(Facing.DOWN, true);
             }
 
+            //Looks for potential collisions
             Rectangle newPlayerRectangle = new Rectangle(this.x + velX, this.y, this.width, this.height);
             for (Rectangle obstacle : mapObstacles) {
                 if (Intersector.overlaps(obstacle, newPlayerRectangle)) {
@@ -214,31 +190,25 @@ public class Cook extends GameEntity {
 
             setDir();
 
-
-            // body.setLinearVelocity(velX * speed,velY * speed);
             this.rectangle = newPlayerRectangle;
             this.x = rectangle.x;
             this.y = rectangle.y;
         }
     }
 
+    /**
+     * Checks for something it can interact with, if i can interact with a station,
+     * it will run the interact command on that station.
+     * @param mapStations
+     */
     public void userInteract(ArrayList<Station> mapStations){
 
         for (InputKey inputKey : Interactions.getInputKeys(Interactions.InputID.COOK_INTERACT)) {
             if (Gdx.input.isKeyJustPressed(inputKey.getKey())) {
-                //System.out.println(mapStations.toString());
-//                cookInteractor.checkCollisions(this, inputKey.getType());  //THIS IS THE FOR OLD COLLISION HELPER
-//                for(Station station : mapStations){
-//                    if (Intersector.overlaps(station.getRectangle(), cookInteractor)){
-//                        station.interact(this, inputKey.getType());
-//                    }
-//                }
                 NewCollisionHelper checker = new NewCollisionHelper(gameScreen,this,mapStations);
                 CookInteractable station = checker.NearbyStation(cookInteractor);
-                System.out.println(station);
                 if(station!=null) {
                     station.interact(this, inputKey.getType());
-                    //System.out.println("cook is interacting with a station!");
                 }
 
             }
@@ -247,6 +217,11 @@ public class Cook extends GameEntity {
     }
 
 
+    /**
+     * Checks if this cook's dishstack size is greater than 1
+     * @return true if > 0
+     * @return false otherwise
+     */
     public boolean getBlocked() {
         if (this.dishStack.size() > 0) {
             return true;
@@ -308,21 +283,16 @@ public class Cook extends GameEntity {
         }
     }
 
+    /**
+     * Renders the red arrow to show user which cook they are currently using
+     * @param batch
+     */
     public void renderControlArrow(SpriteBatch batch) {
         controlSprite.setSize(3,1.5f);
         controlSprite.setPosition((x-controlSprite.getWidth()/8+0.66f),
                 y-controlSprite.getHeight()/8 + sprite.getHeight()+1);
         controlSprite.draw(batch);
     }
-
-//    /**
-//     * Debug rendering using the {@link SpriteBatch}. Unused.
-//     * @param batch The {@link SpriteBatch} used to render.
-//     */
-//    @Override
-//    public void renderDebug(SpriteBatch batch) {
-//
-//    }
 
     /**
      * Rendering using the {@link ShapeRenderer}. Unused.
@@ -333,16 +303,13 @@ public class Cook extends GameEntity {
 
     }
 
-//    /**
-//     * Debug rendering using the {@link ShapeRenderer}. Unused.
-//     * @param shape The {@link ShapeRenderer} used to draw.
-//     */
-//    @Override
-//    public void renderShapeDebug(ShapeRenderer shape) {
-//        return;
-//    }
 
     /** Return the X pixel offset from the cook's position that the cook's FoodStack requires for rendering.*/
+    /**
+     *
+     * @param dir
+     * @return X pixel offset
+     */
     public float foodRelativeX(Cook.Facing dir) {
         switch (dir) {
             case RIGHT:
@@ -355,6 +322,10 @@ public class Cook extends GameEntity {
     }
 
     /** Return the Y pixel offset from the cook's position that the cook's FoodStack requires for rendering.*/
+    /**
+     * @param dir
+     * @return Y pixel offset
+     */
     public float foodRelativeY(Cook.Facing dir) {
         switch (dir) {
             case UP:
@@ -382,9 +353,6 @@ public class Cook extends GameEntity {
         // Get offset based on direction.
 
         float drawX = x, drawY = y - 12 * Constants.UnitScale;
-        /*if (foodStack.size() > 0) {
-            foodStack.popStack();
-        }*/
         for (int i = foodList.size-1 ; i >= 0 ; i--) {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(foodList.get(i)));
             Float drawInc = FoodItem.foodHeights.get(foodList.get(i));
@@ -420,7 +388,7 @@ public class Cook extends GameEntity {
         }
 
 
-        // render DishStack, why doesn't this work :((
+        // render DishStack
 
         Array<FoodID> dishList = dishStack.getStack();
         xOffset = foodRelativeX(dir);
@@ -429,9 +397,7 @@ public class Cook extends GameEntity {
 
         drawX = x;
         drawY = y - 12 * Constants.UnitScale;
-        /*if (foodStack.size() > 0) {
-            foodStack.popStack();
-        }*/
+
         for (int i = dishList.size-1 ; i >= 0 ; i--) {
             Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, String.valueOf(dishList.get(i)));
             Float drawInc = FoodItem.foodHeights.get(dishList.get(i)) * 0.5F;
@@ -524,24 +490,27 @@ public class Cook extends GameEntity {
         }
     }
 
+    /**
+     * This is used for when a chef goes chef bluggus mode as a powerup, to allow the cook
+     * to hold <= 6 Food items
+     */
     public FoodStack foodStack2;
 
+    /**
+     * Turns cook to chef bluggus
+     * Used by powerup
+     */
     public void MakeIntoBluggus()
     {
-        System.out.println("Bluggus Mode activating");
         this.activateBluggus = true;
     }
+
+    /**
+     * Used by Chef Bluggus powerups to actively move items between the 2 stacks the cook can hold
+     * This allows the cook to always to only use stack 1.
+     */
     public void moveStacks()
     {
-//        if((this.foodStack.size() == 3)&&(this.foodStack2.size() == 0)){
-//            this.foodStack2.setStack(this.foodStack.getStackCopy());
-//            this.foodStack.clearStack();
-//        }
-//        else if((this.foodStack.size() == 0)&&(this.foodStack2.size() > 0))
-//        {
-//            this.foodStack.setStack(this.foodStack2.getStackCopy());
-//            this.foodStack2.clearStack();
-//        }
         if((this.foodStack.size() > 1)&&(this.foodStack2.size() < 3)) {
             this.foodStack2.addStack(foodStack.peekStack());
             this.foodStack.popStack();
@@ -552,6 +521,11 @@ public class Cook extends GameEntity {
         }
     }
 
+    /**
+     * Takes a string of a colour
+     * @param c the colour of to set
+     * Sets the colour of this cook to @param c
+     */
     public void setColour(String c)
     {
         this.Colour = c;

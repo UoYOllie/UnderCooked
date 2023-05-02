@@ -16,7 +16,7 @@ public class AssetTests {
 
 	public static InputStream assetList = Gdx.files.internal("assets.txt").read();
 
-	// They all relate to the UR_GRAPHICS requirement
+	// This relates to the UR_GRAPHICS requirement as well as the non_functional requirement of NFR_GRAPHIC
 	// The following are tests to do with checking that the assets in the cooks folder still remain
 	@Test
 	public void testAssets() throws FileNotFoundException {

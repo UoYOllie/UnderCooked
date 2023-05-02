@@ -1,5 +1,6 @@
 package stations;
 
+import Shop.ShopItem;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -28,6 +29,7 @@ public class PreparationStation extends Station {
     private boolean Done;
     private GameScreen gameScreen;
     private int TestFlag = 0; //Normal mode = 0 , Test Mode = 1
+    private ShopItem item;
 
     /**
      * The constructor for the {@link PreparationStation}.
@@ -43,6 +45,7 @@ public class PreparationStation extends Station {
         this.Done = true;
         this.gameScreen = g;
         this.usingchef = 0;
+        this.item = gameScreen.BuyableStation;
     }
 
     /**
@@ -143,10 +146,13 @@ public class PreparationStation extends Station {
     public void renderShape(ShapeRenderer shape) {
         if (TestFlag == 0) {
             if (progress < 100) {
+//                System.out.println("+++++++++++++++Locking+++++++++++++++++");
                 gameScreen.cooks.get(usingchef).lockmovement = true;
-            } else {
-                gameScreen.cooks.get(usingchef).lockmovement = false;
             }
+//            else {
+//                System.out.println("+++++++++++++++Locking+++++++++++++++++");
+//                gameScreen.cooks.get(usingchef).lockmovement = false;
+//            }
         }
         // Render the progress bar when inUse
         if (inUse) {
@@ -186,110 +192,130 @@ public class PreparationStation extends Station {
      */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
-        if (TestFlag == 0) {
-            this.usingchef = gameScreen.cookIndex;
+        if(Locked){
+            if (TestFlag == 0) {
+                System.out.println(gameScreen.gold.getBalance());
+                if ((this.getEnabled()) && (gameScreen.gold.getBalance() - item.cost >= 0)) {
+                    gameScreen.gold = item.buy(gameScreen.gold);
+                    this.Locked = false;
+                }
+            }
         }
-        cook.lockmovement = true;
-        System.out.print(this.usingchef+" ///////////////////////");
+        else{
+            if (TestFlag == 0) {
+                this.usingchef = gameScreen.cookIndex;
+                gameScreen.cooks.get(usingchef).lockmovement = true;
+                System.out.print(this.usingchef + " ///////////////////////");
 
-        if(inUse) {
-            cook.lockmovement = true;
-        }
-        else
-        {
-            cook.lockmovement = false;
-        }
-        if (cook.getBlocked() == true) {
-            return;
-        }
-
-        // If the Cook is holding a food item, and they use the "Put down" control...
-        if (cook.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
-            cook.lockmovement = true;
-            // Start by getting the possible interaction result
-            Interactions.InteractionResult newInteraction = interactions.Interactions.interaction(cook.foodStack.peekStack(), stationID);
-            // If it's null, just stop here.
-            if (newInteraction == null) {
-                return;
+                if (inUse) {
+                    gameScreen.cooks.get(usingchef).lockmovement = true;
+                } else {
+                    gameScreen.cooks.get(usingchef).lockmovement = false;
+                }
+                if (cook.getBlocked() == true) {
+                    return;
+                }
             }
 
-            // Check to make sure the station isn't inUse.
-            if (!inUse) {
-                // Set the current interaction, and put this station inUse
-                this.stationFoodStack.addStack(cook.foodStack.popStack());
-                interaction = newInteraction;
-                stepNum = 0;
-                progress = 0;
-                inUse = true;
-                state = StationState.PREPARING;
+            // If the Cook is holding a food item, and they use the "Put down" control...
+            if (cook.foodStack.size() > 0 && inputType == InputKey.InputTypes.PUT_DOWN) {
+                if (TestFlag == 0) {
+                    gameScreen.cooks.get(usingchef).lockmovement = true;
+                }
+                // Start by getting the possible interaction result
+                Interactions.InteractionResult newInteraction = interactions.Interactions.interaction(cook.foodStack.peekStack(), stationID);
+                // If it's null, just stop here.
+                if (newInteraction == null) {
+                    return;
+                }
 
-                // If the speed is -1, immediately set the progress to the first step.
-                float[] steps = interaction.getSteps();
-                if (steps.length > 0) {
-                    if (interaction.getSpeed() == -1) {
-                        progress = steps[0];
-                        state = StationState.NEED_USE;
+                // Check to make sure the station isn't inUse.
+                if (!inUse) {
+                    // Set the current interaction, and put this station inUse
+                    this.stationFoodStack.addStack(cook.foodStack.popStack());
+                    interaction = newInteraction;
+                    stepNum = 0;
+                    progress = 0;
+                    inUse = true;
+                    state = StationState.PREPARING;
+
+                    // If the speed is -1, immediately set the progress to the first step.
+                    float[] steps = interaction.getSteps();
+                    if (steps.length > 0) {
+                        if (interaction.getSpeed() == -1) {
+                            progress = steps[0];
+                            state = StationState.NEED_USE;
+                        }
                     }
                 }
             }
-        }
 
-        // The other two inputs require the station being inUse.
-        else if (inUse) {
-            // If the user instead uses the "Pick Up" option, check if the station is inUse
-            if ((inputType == InputKey.InputTypes.PICK_UP)&&(cook.lockmovement==false)) {
-                cook.lockmovement = false;
-                inUse = false;
-                // If it is done, pick up the result instead of the foodItem
-                if (progress >= 100) {
-                    cook.foodStack.addStack(interaction.getResult());
-                    return;
-                }
-                // Take the item from the Station, and change it to not being used
-                cook.foodStack.addStack(this.stationFoodStack.getStack().get(0));
-                return; // Return as it the Station is no longer inUse
-            }
-            if ((inputType == InputKey.InputTypes.PICK_UP)&&(cook.lockmovement==false)) {
-                cook.lockmovement = false;
-                inUse = false;
-                // If it is done, pick up the result instead of the foodItem
-                if (progress >= 100) {
-                    cook.foodStack.addStack(interaction.getResult());
-                    return;
-                }
-                // Take the item from the Station, and change it to not being used
-                cook.foodStack.addStack(this.stationFoodStack.getStack().get(0));
-                return; // Return as it the Station is no longer inUse
-            }
-            if ((inputType == InputKey.InputTypes.PICK_UP)&&(cook.lockmovement==true)) {
-                // If progress >= 100, then take the result of the preparation.
-                if (progress >= 100) {
-                    cook.lockmovement = false;
+            // The other two inputs require the station being inUse.
+            else if (inUse) {
+                // If the user instead uses the "Pick Up" option, check if the station is inUse
+                if ((inputType == InputKey.InputTypes.PICK_UP) && ((TestFlag == 1) || (gameScreen.cooks.get(usingchef).lockmovement == false))) {
+                    if (TestFlag == 0) {
+                        gameScreen.cooks.get(usingchef).lockmovement = false;
+                    }
                     inUse = false;
-                    cook.foodStack.addStack(interaction.getResult());
-                    return;
+                    // If it is done, pick up the result instead of the foodItem
+                    if (progress >= 100) {
+                        cook.foodStack.addStack(interaction.getResult());
+                        return;
+                    }
+                    // Take the item from the Station, and change it to not being used
+                    cook.foodStack.addStack(this.stationFoodStack.getStack().get(0));
+                    return; // Return as it the Station is no longer inUse
                 }
-            }
-            // Otherwise, check if the user is trying to use the Station.
-            if (inputType == InputKey.InputTypes.USE) {
-                // If progress >= 100, then take the result of the preparation.
-                if (progress >= 100) {
-                    cook.lockmovement = false;
+                if ((inputType == InputKey.InputTypes.PICK_UP) && (cook.lockmovement == false)) {
+                    if (TestFlag == 0) {
+                        gameScreen.cooks.get(usingchef).lockmovement = false;
+                    }
                     inUse = false;
-                    cook.foodStack.addStack(interaction.getResult());
-                    return;
+                    // If it is done, pick up the result instead of the foodItem
+                    if (progress >= 100) {
+                        cook.foodStack.addStack(interaction.getResult());
+                        return;
+                    }
+                    // Take the item from the Station, and change it to not being used
+                    cook.foodStack.addStack(this.stationFoodStack.getStack().get(0));
+                    return; // Return as it the Station is no longer inUse
                 }
-                // If currently at a step, move to the next step.
-                float[] steps = interaction.getSteps();
-                if (stepNum < steps.length) {
-                    if (progress >= steps[stepNum]) {
-                        progress = steps[stepNum];
-                        stepNum += 1;
+                if ((inputType == InputKey.InputTypes.PICK_UP) && ((TestFlag == 1) || (gameScreen.cooks.get(usingchef).lockmovement == true))) {
+                    // If progress >= 100, then take the result of the preparation.
+                    if (progress >= 100) {
+                        if (TestFlag == 0) {
+                            gameScreen.cooks.get(usingchef).lockmovement = false;
+                        }
+                        inUse = false;
+                        cook.foodStack.addStack(interaction.getResult());
+                        return;
                     }
                 }
+                // Otherwise, check if the user is trying to use the Station.
+                if (inputType == InputKey.InputTypes.USE) {
+                    // If progress >= 100, then take the result of the preparation.
+                    if (progress >= 100) {
+                        if (TestFlag == 0) {
+                            gameScreen.cooks.get(usingchef).lockmovement = false;
+                        }
+                        inUse = false;
+                        cook.foodStack.addStack(interaction.getResult());
+                        return;
+                    }
+                    // If currently at a step, move to the next step.
+                    float[] steps = interaction.getSteps();
+                    if (stepNum < steps.length) {
+                        if (progress >= steps[stepNum]) {
+                            progress = steps[stepNum];
+                            stepNum += 1;
+                        }
+                    }
 
+                }
             }
         }
+
     }
 
     public int GetTestFlag(){
@@ -299,4 +325,5 @@ public class PreparationStation extends Station {
     public void SetTestFlag(int testFlag){
         this.TestFlag = testFlag;
     }
+
 }

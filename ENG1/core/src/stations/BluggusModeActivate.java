@@ -20,13 +20,12 @@ public class BluggusModeActivate extends Station {
     private Cook NewBluggusSpawn;
     private ArrayList<Float> coordsofbluggy;
 
-    private boolean enabled;
-
     public BluggusModeActivate(Rectangle rectangle, GameScreen g) {
         super(rectangle);
+        this.isABluggusPrison = true;
         this.gameScreen = g;
         this.item = gameScreen.Powerup_ChefBluggusMode;
-        this.enabled = true;
+        Enable();
         coordsofbluggy = new ArrayList<Float>();
         coordsofbluggy.add(rectangle.x+7.5f);
         coordsofbluggy.add(rectangle.y+2.6f);
@@ -38,20 +37,26 @@ public class BluggusModeActivate extends Station {
 
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
-        System.out.print(this.enabled + "Is what is is <,,e,ge,geuhgeieg");
-        if((enabled)&&(cook.activateBluggus==false)) {
+        System.out.print(this.getEnabled() + "Is what is is <,,e,ge,geuhgeieg");
+        if((getEnabled())&&(cook.activateBluggus==false)) {
             System.out.println(gameScreen.gold.getBalance());
             if (gameScreen.gold.getBalance() - item.cost >= 0) {
                 System.out.println(gameScreen.gold.getBalance());
                 gameScreen.gold = item.buy(gameScreen.gold);
                 cook.MakeIntoBluggus();
-                gameScreen.gameEntities.remove(NewBluggusSpawn);
+                Disable();
                 System.out.println(gameScreen.gold.getBalance());
 //                System.out.println(gameScreen.gameEntities.+"PWOOOOOOOSH");
             }
-            this.enabled = false;
-            System.out.print(this.enabled + "Is what is is <,,e,ge,geuhgeieg");
+            System.out.print(this.getEnabled() + "Is what is is <,,e,ge,geuhgeieg");
         }
+    }
+
+    @Override
+    public void Disable()
+    {
+        SetEnFalse();
+        gameScreen.gameEntities.remove(NewBluggusSpawn);
     }
 }
 

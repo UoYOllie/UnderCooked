@@ -18,8 +18,9 @@ import static org.junit.Assert.assertTrue;
 public class MenuTest {
     private Boot boot = Boot.getInstance();
 
-    // main menu
+    // The following tests relate to UR_MENU, they don't work due to limitations in the headless backend so have been tested manually
     @Test
+    // Relates to the UR_MENU requirement
     public void testStartGame() {
         Gdx.gl20 = Gdx.gl;
         OrthographicCamera camera = new OrthographicCamera();
@@ -30,6 +31,7 @@ public class MenuTest {
     }
 
     @Test
+    // Relates to the UR_MENU requirement
     public void testCreditsMenu() {
         Gdx.gl20 = Gdx.gl;
         OrthographicCamera camera = new OrthographicCamera();

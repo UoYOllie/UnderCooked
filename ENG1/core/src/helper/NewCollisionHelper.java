@@ -1,21 +1,13 @@
 package helper;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Intersector;
 import cooks.Cook;
 import game.GameScreen;
 import stations.CookInteractable;
-import java.awt.geom.Rectangle2D;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
-import cooks.Cook;
-import game.GameScreen;
-import stations.CookInteractable;
-import stations.Locked;
 import stations.Station;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 import static helper.Constants.CookHeight;
@@ -46,7 +38,7 @@ public class NewCollisionHelper {
         for(Station object : mapStations){
             if (Intersector.overlaps(object.getRectangle(), cookInteractor)){
                 System.out.println("Cook Overlaps: " + object);
-                if(object.Enabled) {
+                if(object.getEnabled()) {
                     found.add(object);
                 }
             }

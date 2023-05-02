@@ -53,14 +53,19 @@ public class CustomerNew extends GameEntity {
     public Vector2 destination;
     private int customerStatus; //SAVE
     private int difficulty;
-    private int entryStatus;
+    public int entryStatus;
     private Array<Vector2> customerPoints;
     public boolean customerToTest;
+
+    public String offtopoint;
+    private boolean readyX = false;
+    private boolean readyY = false;
 
 
     /** The Constructor for CustomerNew. */
     public CustomerNew(float x, float y, float width, float height) {
         super(x, y, width, height);
+        String offtopoint = "A";
         this.sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "customer_bluggus");
         this.bubbleSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "speech_bubble");
         //this.position = new Vector2(x, y);
@@ -79,6 +84,7 @@ public class CustomerNew extends GameEntity {
 
         // used for customer movement:
         this.stationPosition = new Vector2(x, y);
+        moveToPoint("B");
         this.destination = Constants.customerPointB;
         this.entryStatus = 0;
         this.customerPoints = setCustomerPoints();
@@ -162,6 +168,7 @@ public class CustomerNew extends GameEntity {
         this.customerStatus = 2;
         //Implement walk off
         //implement removement from array
+        gameScreen.getCustomerController().TotalCustomersServed++;
     }
 
     public void customerInteract(ArrayList<Station> mapStations) {
@@ -186,15 +193,16 @@ public class CustomerNew extends GameEntity {
 
     public void move_left_down(Vector2 nextDestination) {
 
-        boolean readyX = false, readyY = false;
+        this.readyX = false;
+        this.readyY = false;
 
-        if (this.y > destination.y) { this.y -= Constants.UnitScale;
-        } else { readyY = true; }
+        if (this.y > this.destination.y) { this.y -= Constants.UnitScale;
+        } else { this.readyY = true; }
 
-        if (this.x > destination.x) { this.x -= Constants.UnitScale;
-        } else { readyX = true; }
+        if (this.x > this.destination.x) { this.x -= Constants.UnitScale;
+        } else { this.readyX = true; }
 
-        if (readyX && readyY) {
+        if (this.readyX && this.readyY) {
             setDestination(nextDestination.x, nextDestination.y);
             this.entryStatus += 1;
         }
@@ -213,30 +221,39 @@ public class CustomerNew extends GameEntity {
             if (this.customerToTest == true) {
                 //System.out.println("entry status 0 moving to point B" + destination.x + "," + destination.y);
             }
+            moveToPoint("C");
+            setDestination(Constants.customerPointC.x,Constants.customerPointC.y);
             move_left_down(Constants.customerPointC);
         }
         if (this.entryStatus == 1) {
             if (this.customerToTest == true) {
                // System.out.println(this + "entry status 1 moving to point C");
             }
+            moveToPoint("D");
+            setDestination(Constants.customerPointD.x,Constants.customerPointD.y);
             move_left_down(Constants.customerPointD);
         }
         if (this.entryStatus == 2) {
             if (this.customerToTest == true) {
             //    System.out.println("entry status 2 moving to point D");
             }
+            moveToPoint("E");
+            setDestination(Constants.customerPointE.x,Constants.customerPointE.y);
             move_left_down(Constants.customerPointE);
         }
         if (this.entryStatus == 3) {
             if (this.customerToTest == true) {
             //    System.out.println("entry status 3 moving to point E");
             }
+            moveToPoint("F");
+            setDestination(Constants.customerPointF.x,Constants.customerPointF.y);
             move_left_down(Constants.customerPointF);
         }
         if (this.entryStatus == 4) {
             if (this.customerToTest == true) {
             //    System.out.println("entry status 4 moving to point F");
             }
+            setDestination(stationPosition.x,stationPosition.y);
             move_left_down(stationPosition);
         }
 
@@ -245,15 +262,16 @@ public class CustomerNew extends GameEntity {
               //  System.out.println("entry status 5 moving to station" + this.station);
             }
 
-            boolean readyX = false, readyY = false;
+            this.readyX = false;
+            this.readyY = false;
 
             if (this.y > stationPosition.y) { this.y -= Constants.UnitScale;
-            } else { readyY = true; }
+            } else { this.readyY = true; }
 
             if (this.x < stationPosition.x) { this.x += Constants.UnitScale;
-            } else { readyX = true;}
+            } else { this.readyX = true;}
 
-            if (readyX && readyY) {
+            if (this.readyX && this.readyY) {
                 destination.x = this.x - 88f;
                 this.customerStatus += 1;
                 this.entryStatus += 1;
@@ -442,6 +460,12 @@ public class CustomerNew extends GameEntity {
 
     public void setCustomerStatus(Integer customerStatus){
         this.customerStatus = customerStatus;
+    }
+
+    public void moveToPoint(String x)
+    {
+        System.out.println(this+" moving to point "+x+"------"+this.destination+"------ ("+this.x+","+this.y+")");
+        this.offtopoint = x;
     }
 
 }

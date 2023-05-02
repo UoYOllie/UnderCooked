@@ -19,6 +19,8 @@ public class GameHud extends Hud {
     Label reputation;
     Label Loading;
     Label goldLabel;
+    Label CustomerServed;
+    private GameScreen gameScreen;
     /** The {@link SpriteBatch} of the GameHud. Use for drawing {@link food.Recipe}s. */
     private SpriteBatch batch;
     /** The {@link FoodStack} that the {@link GameHud} should render. */
@@ -43,13 +45,16 @@ public class GameHud extends Hud {
         reputation = new Label("",new Label.LabelStyle(new BitmapFont(),Color.FIREBRICK));
         goldLabel = new Label("",new Label.LabelStyle((new BitmapFont()),Color.GOLD));
         Loading = new Label("", font);
+        CustomerServed = new Label("",new Label.LabelStyle((new BitmapFont()),Color.SCARLET));
         Loading.setFontScale(10);
         timeLabel.setFontScale(1);
         reputation.setFontScale(1);
         goldLabel.setFontScale(1);
+        CustomerServed.setFontScale(1);
         updateTime(0,0,0);
         updateReputation(0);
         updateGold(0);
+        this.gameScreen = gameScreen;
 
 //        CustomerLabel = new Label("CUSTOMERS LEFT:", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
 //
@@ -57,6 +62,8 @@ public class GameHud extends Hud {
         table.add(timeLabel).expandX().padTop(80).padLeft(60);
         table.add(reputation).expandX().padTop(80).padRight(60);
         table.add(goldLabel).expandX().padTop(80).padRight(60);
+        table.row();
+        table.add(CustomerServed).expandY().padBottom(25).padLeft(67);
         table.row();
         table.add(Loading).expandX().padTop(100).padLeft(150);
         this.batch = batch;
@@ -157,6 +164,16 @@ public class GameHud extends Hud {
 
     public void updateGold(int gold){
         goldLabel.setText("GOLD: " + String.format(String.valueOf(gold)));
+    }
+
+    public void updateCustomerServed(int served){
+        if((gameScreen.getCustomerController().getMode().equals("endless"))) {
+            CustomerServed.setText("Customers Served: " + String.format(String.valueOf(served)));
+        }
+        else
+        {
+            CustomerServed.setText("");
+        }
     }
 
 //    /**

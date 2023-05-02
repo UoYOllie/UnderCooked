@@ -1124,6 +1124,7 @@ public class InteractionTest {
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation preparationStation = new PreparationStation(rectangle);
         preparationStation.setID(Station.StationID.cut);
+        preparationStation.SetTestFlag(1);
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(preparationStation.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
@@ -1145,6 +1146,7 @@ public class InteractionTest {
         assertFalse(preparationStation.inUse, "Error: Preparation station is able to be used with a cooked potato");
         preparationStation.interact(cook, InputKey.InputTypes.PICK_UP);
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.potatoCook, "Error: Trying to chop a cooked potato results in a different food item being returned");
+        preparationStation.SetTestFlag(0);
     }
 
     @Test
