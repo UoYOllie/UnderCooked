@@ -578,4 +578,24 @@ public class GeneralTests {
         assertEquals(stationCustomerMap.get(preparationStation),null);
     }
 
+    @Test
+    public void TestInitialiseStationCustomerMap(){
+        CustomerController customerController = new CustomerController();
+        ServingStation servingStation1 = new ServingStation(new Rectangle());
+        ServingStation servingStation2 = new ServingStation(new Rectangle());
+        ArrayList<Station> arrayList = new ArrayList<Station>();
+
+        arrayList.add(servingStation1);
+        arrayList.add(servingStation2);
+
+        customerController.setServingStations(arrayList);
+        customerController.initialiseStationCustomerMap();
+
+        Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
+        stationCustomerMap.put(servingStation1,null);
+        stationCustomerMap.put(servingStation2,null);
+
+        assertEquals(customerController.getStationCustomerMap(),stationCustomerMap);
+    }
+
 }
