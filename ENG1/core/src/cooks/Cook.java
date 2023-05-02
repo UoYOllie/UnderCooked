@@ -463,7 +463,7 @@ public class Cook extends GameEntity {
      * but the opposite Left was pressed, so Up is the
      * final choice of direction.
      */
-    private void setDir() {
+    public void setDir() {
         // If the size of inputs is 0, just return and change nothing.
         if (inputs.size == 0) { return; }
 

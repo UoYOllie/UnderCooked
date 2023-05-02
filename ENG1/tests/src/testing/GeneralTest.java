@@ -17,6 +17,7 @@ import helper.Constants;
 import helper.MapHelper;
 import helper.Util;
 import interactions.InputKey;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import stations.*;
@@ -228,6 +229,33 @@ public class GeneralTest {
         assertEquals(cook.rotate90c(Cook.Facing.DOWN), Cook.Facing.LEFT);
         assertEquals(cook.rotate90c(Cook.Facing.LEFT), Cook.Facing.UP);
         assertEquals(cook.opposite(Cook.Facing.NONE), Cook.Facing.NONE);
+    }
+
+    @Test
+    public void TestSetDir(){
+        //Testing that there is no opposites in the cook input
+        Cook cook = new Cook(1,2,3,4);
+        cook.inputs.add(Cook.Facing.LEFT);
+        cook.inputs.add(Cook.Facing.DOWN);
+        cook.setDir();
+        assertEquals(cook.dir, Cook.Facing.DOWN,"Error: Cook's setDir method does not set to the correct direction when no opposite directions appear in the inputs");
+
+        //Testing case when there are opposites for the next and a 90 degree rotation of the next
+        cook.inputs.clear();
+        cook.inputs.add(Cook.Facing.LEFT);
+        cook.inputs.add(Cook.Facing.UP);
+        cook.inputs.add(Cook.Facing.RIGHT);
+        cook.setDir();
+        assertEquals(cook.dir, Cook.Facing.UP,"Error: Cook's setDir method does not set to the correct direction when opposite directions appear in the inputs");
+
+        //Testing case when there are opposites for the next and a 90 degree rotation for the opposite of the next
+        cook.inputs.clear();
+        cook.inputs.add(Cook.Facing.LEFT);
+        cook.inputs.add(Cook.Facing.DOWN);
+        cook.inputs.add(Cook.Facing.RIGHT);
+        cook.setDir();
+        assertEquals(cook.dir, Cook.Facing.DOWN,"Error: Cook's setDir method does not set to the correct direction when opposite directions appear in the inputs");
+
     }
 
     //The following test tests the players stack is limited to 3 items

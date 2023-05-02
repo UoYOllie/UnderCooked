@@ -55,8 +55,8 @@ public class Recipe {
 
         // PIZZA - i'll add some more interesting combos later down the line
         generateRecipe("Plain Pizza", new FoodStack(FoodID.cheese, FoodID.tomatoSauce, FoodID.doughCook));
-        generateRecipe("Pepperoni Pizza", new FoodStack(FoodID.cheese, FoodID.pepperoni, FoodID.tomatoSauce, FoodID.doughCook));
-        generateRecipe("Onion Pizza", new FoodStack(FoodID.cheese, FoodID.onionChop, FoodID.tomatoSauce, FoodID.doughCook));
+        //generateRecipe("Pepperoni Pizza", new FoodStack(FoodID.cheese, FoodID.pepperoni, FoodID.tomatoSauce, FoodID.doughCook));
+        //generateRecipe("Onion Pizza", new FoodStack(FoodID.cheese, FoodID.onionChop, FoodID.tomatoSauce, FoodID.doughCook));
 
         // POWERUPS
         //generateRecipe("Teacup", new FoodStack(FoodID.teacup));
@@ -68,7 +68,7 @@ public class Recipe {
         toppings.add(FoodID.cheese);
         toppings.add(FoodID.bakedBeans);
         toppings.add(FoodID.coleslaw);
-        toppings.add(FoodID.pepperoni);
+        //toppings.add(FoodID.pepperoni);
 
     }
 

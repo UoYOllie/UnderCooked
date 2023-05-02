@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">9</div>
+<div class="counter">10</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.327s</div>
+<div class="counter">0.021s</div>
 <p>duration</p>
 </div>
 </td>
@@ -51,7 +51,7 @@
 </td>
 <td>
 <div class="infoBox failures" id="successRate">
-<div class="percent">84%</div>
+<div class="percent">83%</div>
 <p>successful</p>
 </div>
 </td>
@@ -73,12 +73,39 @@
 <div id="tab0" class="tab">
 <h2>Failed tests</h2>
 <div class="test">
+<a name="TestAssemblyStationMakeBeansColeslawCheesePotato"></a>
+<h3 class="failures">TestAssemblyStationMakeBeansColeslawCheesePotato</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Error: Assembly Station does not give the right outcome when given the items to make a beans coleslaw cheese potato expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at testing.InteractionTest.TestAssemblyStationMakeBeansColeslawCheesePotato(InteractionTest.java:746)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</pre>
+</span>
+</div>
+<div class="test">
 <a name="TestFailCaseBakingBakedItem"></a>
 <h3 class="failures">TestFailCaseBakingBakedItem</h3>
 <span class="code">
 <pre>java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseBakingBakedItem(InteractionTest.java:1261)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseBakingBakedItem(InteractionTest.java:1263)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -102,8 +129,8 @@
 <h3 class="failures">TestFailCaseBakingChoppedItem</h3>
 <span class="code">
 <pre>java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseBakingChoppedItem(InteractionTest.java:1291)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseBakingChoppedItem(InteractionTest.java:1293)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -127,8 +154,8 @@
 <h3 class="failures">TestFailCaseBakingFriedItem</h3>
 <span class="code">
 <pre>java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseBakingFriedItem(InteractionTest.java:1331)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseBakingFriedItem(InteractionTest.java:1333)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -151,9 +178,11 @@
 <a name="TestFailCaseChoppingBakedItem"></a>
 <h3 class="failures">TestFailCaseChoppingBakedItem</h3>
 <span class="code">
-<pre>java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseChoppingBakedItem(InteractionTest.java:1131)
+<pre>java.lang.AssertionError: Error: Using a preparation station with cooked dough results in its progress value changing expected [false] but found [true]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertFalse(Assert.java:65)
+	at testing.InteractionTest.TestFailCaseChoppingBakedItem(InteractionTest.java:1135)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -204,8 +233,8 @@
 <h3 class="failures">TestFailCaseChoppingFriedItem</h3>
 <span class="code">
 <pre>java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseChoppingFriedItem(InteractionTest.java:1161)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseChoppingFriedItem(InteractionTest.java:1163)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -229,8 +258,8 @@
 <h3 class="failures">TestFailCaseFryingBakedItem</h3>
 <span class="code">
 <pre>java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseFryingBakedItem(InteractionTest.java:1231)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseFryingBakedItem(InteractionTest.java:1233)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -254,8 +283,8 @@
 <h3 class="failures">TestFailCaseFryingChoppedItem</h3>
 <span class="code">
 <pre>java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseFryingChoppedItem(InteractionTest.java:1201)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseFryingChoppedItem(InteractionTest.java:1203)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -279,8 +308,8 @@
 <h3 class="failures">TestFailCaseFryingFriedItem</h3>
 <span class="code">
 <pre>java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseFryingFriedItem(InteractionTest.java:1181)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseFryingFriedItem(InteractionTest.java:1183)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -317,7 +346,7 @@
 </tr>
 <tr>
 <td class="success">PantryTestDough</td>
-<td class="success">0.015s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -332,12 +361,12 @@
 </tr>
 <tr>
 <td class="success">PantryTestOnion</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">PantryTestPotato</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -347,7 +376,7 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationHoldsFood</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -372,13 +401,13 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationLettuceTomatoOnionBurger</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">TestAssemblyStationMakeBeansColeslawCheesePotato</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
+<td class="failures">TestAssemblyStationMakeBeansColeslawCheesePotato</td>
+<td class="failures">0.001s</td>
+<td class="failures">failed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakeBeansColeslawPotato</td>
@@ -397,17 +426,17 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakeCheesePotato</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakeColeslawPotato</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakeOnionPizza</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -427,7 +456,7 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakePlainPizza</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -437,17 +466,17 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakePlainSalad</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakeTomatoSalad</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationOnionBurger</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -457,32 +486,32 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationTestMultipleRecipes</td>
-<td class="success">0.233s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationTomatoBurger</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationTomatoOnionBurger</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationWrongRecipe</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestBakingStationDoughToDoughCook</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestBakingStationPotatoToBakedPotato</td>
-<td class="success">0.009s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -497,57 +526,57 @@
 </tr>
 <tr>
 <td class="success">TestBinStationWorksWithEmptyStack</td>
-<td class="success">0.003s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestCounterCanHoldMultiple</td>
-<td class="success">0.002s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="failures">TestFailCaseBakingBakedItem</td>
-<td class="failures">0.001s</td>
-<td class="failures">failed</td>
-</tr>
-<tr>
-<td class="failures">TestFailCaseBakingChoppedItem</td>
-<td class="failures">0.003s</td>
-<td class="failures">failed</td>
-</tr>
-<tr>
-<td class="failures">TestFailCaseBakingFriedItem</td>
 <td class="failures">0s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
+<td class="failures">TestFailCaseBakingChoppedItem</td>
+<td class="failures">0s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">TestFailCaseBakingFriedItem</td>
+<td class="failures">0.001s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
 <td class="failures">TestFailCaseChoppingBakedItem</td>
-<td class="failures">0.017s</td>
+<td class="failures">0s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
 <td class="failures">TestFailCaseChoppingChoppedItem</td>
-<td class="failures">0.004s</td>
+<td class="failures">0s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
 <td class="failures">TestFailCaseChoppingFriedItem</td>
-<td class="failures">0.001s</td>
+<td class="failures">0s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
 <td class="failures">TestFailCaseFryingBakedItem</td>
-<td class="failures">0.001s</td>
+<td class="failures">0s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
 <td class="failures">TestFailCaseFryingChoppedItem</td>
-<td class="failures">0.001s</td>
+<td class="failures">0s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
 <td class="failures">TestFailCaseFryingFriedItem</td>
-<td class="failures">0.002s</td>
+<td class="failures">0.001s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
@@ -557,22 +586,22 @@
 </tr>
 <tr>
 <td class="success">TestPlayerItemStack</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestPreparationStationAddsResultBackWhenFinishedUse</td>
-<td class="success">0.003s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestPreparationStationCookMeat</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestPreparationStationCutLettuce</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -592,7 +621,7 @@
 </tr>
 <tr>
 <td class="success">TestPutDownItem</td>
-<td class="success">0.007s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -602,7 +631,7 @@
 </tr>
 <tr>
 <td class="success">TestUsePantryandLettuceChop</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -614,24 +643,25 @@
 peek
 onion
 peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
+peek
+peek
+peek
+peek
+peek
 lettuce
 peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////Im interacting with a counter
+peek
+peek
+peek
+Im interacting with a counter
 187.5
 150.0
 20.0
 20.0
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
+peek
+peek
+peek
+peek
 lettuceChop
 peek
 Im interacting with a counter
@@ -644,11 +674,17 @@ Im interacting with a counter
 150.0
 20.0
 20.0
+PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP
+[lettuce]
+true
+true
+[]
+PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP
 peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
+peek
+peek
+peek
+peek
 Im interacting with a counter
 187.5
 150.0
@@ -672,8 +708,8 @@ tomato
 peek
 meat
 peek
-0 ///////////////////////peek
-0 ///////////////////////peek
+peek
+peek
 Im interacting with a counter
 187.5
 150.0
@@ -684,9 +720,15 @@ Im interacting with a counter
 150.0
 20.0
 20.0
+PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP
+[tomato]
+true
+true
+[]
+PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP
 peek
 peek
-0 ///////////////////////peek
+peek
 </pre>
 </span>
 </div>
@@ -698,7 +740,7 @@ peek
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.5.1</a> at 2 May 2023, 02:39:47</p>
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at 2 May 2023, 10:05:02</p>
 </div>
 </div>
 </body>

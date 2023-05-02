@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.MovementTest" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-02T01:39:43" hostname="DESKTOP-06RIULD" time="3.724">
+<testsuite name="testing.MovementTest" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-02T09:05:00" hostname="AB-ASUS-1" time="2.168">
   <properties/>
   <testcase name="TestChefMoveRight" classname="testing.MovementTest" time="0.001"/>
-  <testcase name="TestChefMoveRightUp" classname="testing.MovementTest" time="0.001"/>
-  <testcase name="TestChefMoveLeftUp" classname="testing.MovementTest" time="0.0"/>
+  <testcase name="TestChefMoveRightUp" classname="testing.MovementTest" time="0.0"/>
+  <testcase name="TestChefMoveLeftUp" classname="testing.MovementTest" time="0.001"/>
   <testcase name="TestChefMoveUpLeft" classname="testing.MovementTest" time="0.0"/>
   <testcase name="TestChefMoveUp" classname="testing.MovementTest" time="0.0"/>
-  <testcase name="TestChefSwitch" classname="testing.MovementTest" time="3.525">
+  <testcase name="TestChefSwitch" classname="testing.MovementTest" time="1.967">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -14,7 +14,7 @@
 	at com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer.&lt;init&gt;(BatchTiledMapRenderer.java:102)
 	at game.SuperMapSuperRenderer.&lt;init&gt;(SuperMapSuperRenderer.java:44)
 	at helper.MapHelper.setupMap(MapHelper.java:59)
-	at game.GameScreen.&lt;init&gt;(GameScreen.java:165)
+	at game.GameScreen.&lt;init&gt;(GameScreen.java:172)
 	at game.ScreenController.&lt;init&gt;(ScreenController.java:46)
 	at testing.MovementTest.TestChefSwitch(MovementTest.java:199)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -37,12 +37,12 @@
   <testcase name="TestChefMoveDown" classname="testing.MovementTest" time="0.0"/>
   <testcase name="TestChefMoveLeft" classname="testing.MovementTest" time="0.0"/>
   <testcase name="TestChefMoveDownLeft" classname="testing.MovementTest" time="0.0"/>
-  <testcase name="TestChefMoveDownRight" classname="testing.MovementTest" time="0.001"/>
+  <testcase name="TestChefMoveDownRight" classname="testing.MovementTest" time="0.0"/>
   <testcase name="TestChefMoveLeftDown" classname="testing.MovementTest" time="0.001"/>
   <testcase name="TestChefMoveUpRight" classname="testing.MovementTest" time="0.0"/>
   <testcase name="TestChefMoveRightDown" classname="testing.MovementTest" time="0.0"/>
   <system-out><![CDATA[Initalising Gamescreen
-game.GameScreen@619e5e
+game.GameScreen@5ad7afa1
 power pantry is generated
 Setting to teacup
 teacup
@@ -80,14 +80,29 @@ pantry is generated
 Setting to cheese
 cheese
 pantry is generated
-Setting to bakedBeans
-bakedBeans
-pantry is generated
 Setting to pepperoni
 pepperoni
 pantry is generated
 Setting to coleslaw
 coleslaw
-1<|||||||||||||||||||||||||||||||||||||||||||||||||||||||2<|||||||||||||||||||||||||||||||||||||||||||||||||||||||]]></system-out>
+1<|||||||||||||||||||||||||||||||||||||||||||||||||||||||2<|||||||||||||||||||||||||||||||||||||||||||||||||||||||pantry is generated
+Setting to pepperoni
+pepperoni
+pantry is generated
+Setting to coleslaw
+coleslaw
+pantry is generated
+Setting to dough
+dough
+pantry is generated
+Setting to cheese
+cheese
+pantry is generated
+Setting to potato
+potato
+pantry is generated
+Setting to bakedBeans
+bakedBeans
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

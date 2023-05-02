@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.MenuTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2023-05-02T01:39:35" hostname="DESKTOP-06RIULD" time="7.856">
+<testsuite name="testing.MenuTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2023-05-02T09:04:55" hostname="AB-ASUS-1" time="4.722">
   <properties/>
-  <testcase name="testStartGame" classname="testing.MenuTest" time="4.162">
+  <testcase name="testStartGame" classname="testing.MenuTest" time="2.683">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -9,9 +9,9 @@
 	at com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer.&lt;init&gt;(BatchTiledMapRenderer.java:102)
 	at game.SuperMapSuperRenderer.&lt;init&gt;(SuperMapSuperRenderer.java:44)
 	at helper.MapHelper.setupMap(MapHelper.java:59)
-	at game.GameScreen.&lt;init&gt;(GameScreen.java:165)
+	at game.GameScreen.&lt;init&gt;(GameScreen.java:172)
 	at game.ScreenController.&lt;init&gt;(ScreenController.java:46)
-	at testing.MenuTest.testStartGame(MenuTest.java:26)
+	at testing.MenuTest.testStartGame(MenuTest.java:27)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -29,7 +29,7 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <testcase name="testCreditsMenu" classname="testing.MenuTest" time="3.676">
+  <testcase name="testCreditsMenu" classname="testing.MenuTest" time="2.02">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -37,9 +37,9 @@
 	at com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer.&lt;init&gt;(BatchTiledMapRenderer.java:102)
 	at game.SuperMapSuperRenderer.&lt;init&gt;(SuperMapSuperRenderer.java:44)
 	at helper.MapHelper.setupMap(MapHelper.java:59)
-	at game.GameScreen.&lt;init&gt;(GameScreen.java:165)
+	at game.GameScreen.&lt;init&gt;(GameScreen.java:172)
 	at game.ScreenController.&lt;init&gt;(ScreenController.java:46)
-	at testing.MenuTest.testCreditsMenu(MenuTest.java:36)
+	at testing.MenuTest.testCreditsMenu(MenuTest.java:38)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -58,7 +58,7 @@
 </failure>
   </testcase>
   <system-out><![CDATA[Initalising Gamescreen
-game.GameScreen@45edc847
+game.GameScreen@62702028
 power pantry is generated
 Setting to teacup
 teacup
@@ -96,16 +96,31 @@ pantry is generated
 Setting to cheese
 cheese
 pantry is generated
-Setting to bakedBeans
-bakedBeans
-pantry is generated
 Setting to pepperoni
 pepperoni
 pantry is generated
 Setting to coleslaw
 coleslaw
-1<|||||||||||||||||||||||||||||||||||||||||||||||||||||||2<|||||||||||||||||||||||||||||||||||||||||||||||||||||||Initalising Gamescreen
-game.GameScreen@2ea9d91c
+1<|||||||||||||||||||||||||||||||||||||||||||||||||||||||2<|||||||||||||||||||||||||||||||||||||||||||||||||||||||pantry is generated
+Setting to pepperoni
+pepperoni
+pantry is generated
+Setting to coleslaw
+coleslaw
+pantry is generated
+Setting to dough
+dough
+pantry is generated
+Setting to cheese
+cheese
+pantry is generated
+Setting to potato
+potato
+pantry is generated
+Setting to bakedBeans
+bakedBeans
+Initalising Gamescreen
+game.GameScreen@4bf40daa
 power pantry is generated
 Setting to teacup
 teacup
@@ -143,14 +158,29 @@ pantry is generated
 Setting to cheese
 cheese
 pantry is generated
-Setting to bakedBeans
-bakedBeans
-pantry is generated
 Setting to pepperoni
 pepperoni
 pantry is generated
 Setting to coleslaw
 coleslaw
-1<|||||||||||||||||||||||||||||||||||||||||||||||||||||||2<|||||||||||||||||||||||||||||||||||||||||||||||||||||||]]></system-out>
+1<|||||||||||||||||||||||||||||||||||||||||||||||||||||||2<|||||||||||||||||||||||||||||||||||||||||||||||||||||||pantry is generated
+Setting to pepperoni
+pepperoni
+pantry is generated
+Setting to coleslaw
+coleslaw
+pantry is generated
+Setting to dough
+dough
+pantry is generated
+Setting to cheese
+cheese
+pantry is generated
+Setting to potato
+potato
+pantry is generated
+Setting to bakedBeans
+bakedBeans
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
