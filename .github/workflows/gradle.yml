@@ -62,10 +62,21 @@ jobs:
       contents: write
 
     steps:
-      - name: Download a Build Artifact
+      - name: Download Ubuntu Build Artifact
         uses: actions/download-artifact@v3.0.1
-        with:
-          name: lib.jar
+        with: {name: lib-ubuntu-22.04.jar}
+        run: mv lib.jar lib-ubuntu.jar
+
+      - name: Download MacOS Build Artifact
+        uses: actions/download-artifact@v3.0.1
+        with: { name: lib-macos.jar }
+        run: mv lib.jar lib-macos.jar
+
+      - name: Download Windows Build Artifact
+        uses: actions/download-artifact@v3.0.1
+        with: { name: lib-windows-2022.jar }
+        run: mv lib.jar lib-windows-2022.jar
+
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
