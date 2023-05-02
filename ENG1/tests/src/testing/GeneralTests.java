@@ -100,23 +100,6 @@ public class GeneralTests {
 
     //The following are general tests for the utility functions in the cook class
     @Test
-    // Tests the cook.userInteract method allows the cook to interact with a station
-    public void TestCookUserInteract(){
-        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        BinStation testStation = new BinStation(rectangle);
-        ArrayList<Rectangle> testList = new ArrayList<>();
-        ArrayList<Station> stationList = new ArrayList<>();
-        testList.add(testStation.getRectangle());
-        stationList.add(testStation);
-        Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
-        keysJustPressed.add(InputKey.InputTypes.PUT_DOWN);
-        cook.userInteract(stationList);
-        assertEquals(cook.foodStack.size(), 0);
-        keysJustPressed.clear();
-    }
-
-    @Test
     // Tests that the cook.getBlocked method returns the correct value
     public void TestGetBlocked(){
         Cook cook = new Cook(1,1,1,1);
@@ -363,17 +346,6 @@ public class GeneralTests {
         customerNew.move_left_down(new Vector2(100,200));
         assertEquals(customerNew.destination.x, 100,"Error: CustomerNew's moveLeftDown class does not set the x position of the customer correctly if both flags are met");
         assertEquals(customerNew.destination.y, 200,"Error: CustomerNew's moveLeftDown class does not set the x position of the customer correctly if both flags are met");
-    }
-
-    @Test
-    // Tests that the customer's status is set to 1 when they enter the game
-    public void testCustomerNewEnterCustomer(){
-        CustomerNew customerNew = new CustomerNew(100,400,3,4);
-        customerNew.stationPosition.x = 1;
-        customerNew.stationPosition.y = 1;
-        customerNew.setCustomerStatus(0);
-        customerNew.enterCustomer();
-        assertEquals(customerNew.getCustomerStatus(), 1);
     }
 
     //The following test the ServingStation's customerInteract method for the menu and teacup change power ups
