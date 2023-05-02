@@ -279,6 +279,7 @@ public class Cook extends GameEntity {
 
         if (activateBluggus){
             this.sprite.setSize(16,11);
+            sprite.setPosition(x-width/8-5.5f,y-height/8);
         }
 
         // If the cook is looking anywhere but down, draw the food first

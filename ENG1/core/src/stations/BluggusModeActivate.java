@@ -30,6 +30,7 @@ public class BluggusModeActivate extends Station {
         coordsofbluggy.add(rectangle.x+7.5f);
         coordsofbluggy.add(rectangle.y+2.6f);
         NewBluggusSpawn = new Cook(coordsofbluggy.get(0) * 8f, coordsofbluggy.get(1) * 8f, 3.34f, 1);
+        NewBluggusSpawn.activateBluggus = true;
         placementofentity = g.gameEntities.size();
         System.out.print(placementofentity + "<|||||||||||||||||||||||||||||||||||||||||||||||||||||||");
         g.gameEntities.add(NewBluggusSpawn);
