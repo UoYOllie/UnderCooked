@@ -17,6 +17,10 @@ import helper.Util;
 import interactions.InputKey;
 import interactions.Interactions;
 
+import static game.GameScreen.bgBatch;
+import static game.GameSprites.glibbsad;
+import static game.GameSprites.sadglib;
+
 /**
  * The {@link GameOverScreen}, which shows once the player
  * has finished the game. It provides the player with the
@@ -30,6 +34,10 @@ public class GameOverScreen extends ScreenAdapter {
     private Stage stage;
 
     private Label timeLabel;
+
+    float glib_x = 0;
+    float rotation = 0;
+
 
     /**
      * The constructor for the {@link GameOverScreen}.
@@ -82,9 +90,23 @@ public class GameOverScreen extends ScreenAdapter {
      * @param delta The time between frames as a float.
      */
     public void update(float delta) {
+        System.out.println(glib_x);
+        glib_x += 1f;
+        rotation += 0.7f;
+        glibbsad.setOriginCenter();
+        glibbsad.setRotation(rotation);
+        glibbsad.setSize(300, 540);
+        glibbsad.setPosition(camera.position.x - 900f + glib_x,camera.position.y - 300f);
+
+        if (glib_x == 1500f){
+            glib_x = 0;
+        }
+
         // Check for input.
         Interactions.updateKeys();
         if (Interactions.isJustPressed(InputKey.InputTypes.RESET_GAME)) {
+            rotation = 0;
+            glib_x = 0;
             screenController.resetGameScreen();
             screenController.setScreen(ScreenController.ScreenID.MENU);
         }
@@ -104,7 +126,20 @@ public class GameOverScreen extends ScreenAdapter {
     public void render(float delta) {
         Gdx.gl.glEnable(GL20.GL_BLEND);
         Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        Gdx.gl.glClearColor(0,0,0,1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        bgBatch.begin();
+        bgBatch.draw(MenuScreen.spaceBackground, -1, -1, 2.3f, 2);
+        bgBatch.end();
+
+        batch.begin();
+
+        glibbsad.draw(batch);
+        batch.end();
+
         stage.draw();
+
 
         this.update(delta);
     }

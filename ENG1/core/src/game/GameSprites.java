@@ -1,5 +1,6 @@
 package game;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import cooks.Cook;
@@ -11,6 +12,8 @@ import java.util.HashMap;
  * Allows for avoiding using {@link TextureAtlas#createSprite(String)}
  * everywhere, which may result in problems if the Sprite isn't disposed. */
 public class GameSprites {
+    public static Texture sadglib = new Texture("menu/sadglib.png");
+    public static Sprite glibbsad = new Sprite(sadglib);
 
     /**
      * An enum of the different Sprite IDs for each {@link TextureAtlas}.
