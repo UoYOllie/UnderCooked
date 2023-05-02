@@ -251,4 +251,7 @@ public class CustomerController {
 
     public int getCustomers_left(){ return  this.customers_left;}
     public void setCustomers_left(int left){ customers_left = left;}
+    public void setStationCustomerMap(Map<Station,CustomerNew> map){
+        this.stationCustomerMap = map;
+    }
 }
