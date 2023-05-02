@@ -367,8 +367,8 @@ public class CustomerNew extends GameEntity {
             }
             moveToPoint("DELETION ZONE");
 //            setDestination(Constants.customerPointA.x+3f,Constants.customerPointA.y+12f);
-            setDestination(Constants.customerPointA.x,Constants.customerPointA.y);
-            move_right_up(Constants.customerPointA);
+            setDestination(Constants.customerPointA.x+3,Constants.customerPointA.y+12f);
+            move_right_up(new Vector2(Constants.customerPointA.x+3,Constants.customerPointA.y+12f));
         }
         if (this.entryStatus == -2) {
             gameScreen.letsremove.add(this);
