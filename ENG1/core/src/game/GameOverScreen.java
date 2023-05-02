@@ -56,7 +56,7 @@ public class GameOverScreen extends ScreenAdapter {
 
         table.row();
 
-        timeLabel = new Label("0:00", font);
+        timeLabel = new Label(screenController.getEndTime(), font);
         timeLabel.setFontScale(2);
         table.add(timeLabel);
 
