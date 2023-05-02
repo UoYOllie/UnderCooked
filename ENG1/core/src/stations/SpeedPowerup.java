@@ -31,7 +31,7 @@ public class SpeedPowerup extends Station {
     }
 
     public Cook setSpeed(Cook cook){
-        cook.movement_speed = cook.movement_speed + 0.42f;
+        cook.movement_speed = cook.movement_speed + 0.21f;
         return cook;
     }
     @Override
