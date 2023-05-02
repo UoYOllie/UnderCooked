@@ -535,17 +535,18 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the wonScenario method returns true if there are no customers left to be served
     public void TestWonScenario(){
-        //First we tests the win scenario, no customers left
+        //First we test the win scenario, no customers left
         CustomerController customerController = new CustomerController();
         customerController.setMode("scenario");
         customerController.setCustomers_left(0);
-        assertTrue(customerController.wonScenario());
+        assertTrue(customerController.wonScenario(), "wonScenario does not return true in scenario mode if there are no customers left to be served");
 
         //Now we test endless
         customerController.setMode("endless");
         customerController.setCustomers_left(1);
-        assertFalse(customerController.wonScenario());
+        assertFalse(customerController.wonScenario(), "wonScenario does not return true in endless mode if there is a customer left waiting to be served");
 
         //next test scenario where the mode is scenario and customers_left is > 0
         customerController.setMode("scenario");
@@ -563,10 +564,11 @@ public class GeneralTests {
         customerNews.add(customerNew3);
         customerController.customers = customerNews;
         customerController.wonScenario();
-        assertEquals(customerController.getCustomers_left(), 0);
+        assertEquals(customerController.getCustomers_left(), 0, "there are customers left after winning the game in scenario mode");
     }
 
     @Test
+    // Tests the removeCustomer method
     public void TestRemoveCustomer(){
         CustomerController customerController = new CustomerController();
         Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
@@ -575,10 +577,11 @@ public class GeneralTests {
         stationCustomerMap.put(preparationStation,customerNew);
         customerController.setStationCustomerMap(stationCustomerMap);
         customerController.removeCustomer(preparationStation);
-        assertEquals(stationCustomerMap.get(preparationStation),null);
+        assertNull(stationCustomerMap.get(preparationStation), "removeCustomer does not remove the customer from the station in the hashmap");
     }
 
     @Test
+    // Tests that the initialiseStationCustomerMap method creates a hashmap with all the serving stations
     public void TestInitialiseStationCustomerMap(){
         CustomerController customerController = new CustomerController();
         ServingStation servingStation1 = new ServingStation(new Rectangle());
@@ -595,17 +598,26 @@ public class GeneralTests {
         stationCustomerMap.put(servingStation1,null);
         stationCustomerMap.put(servingStation2,null);
 
-        assertEquals(customerController.getStationCustomerMap(),stationCustomerMap);
+        assertEquals(customerController.getStationCustomerMap(),stationCustomerMap, "getStationCustomerMap doesn't create the correct hashmap with all the serving stations");
     }
 
     @Test
-    public void TestGetStationKey(){
+    // Tests that the addCustomer method doesn't add a customer if there are already more than 4 customers present
+    public void TestAddCustomer(){
         CustomerController customerController = new CustomerController();
-        ServingStation servingStation1 = new ServingStation(new Rectangle(1,2,3,4));
-        Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
-        stationCustomerMap.put(servingStation1,new CustomerNew(1,2,3,4));
-        customerController.setStationCustomerMap(stationCustomerMap);
-        assertEquals(customerController.getStationKey(stationCustomerMap,2),servingStation1);
+        customerController.setMode("scenario");
+        ArrayList<CustomerNew> customerNews = new ArrayList<CustomerNew>();
+        CustomerNew customerNew1 = new CustomerNew(1,2,3,4);
+        CustomerNew customerNew2 = new CustomerNew(1,2,3,4);
+        CustomerNew customerNew3 = new CustomerNew(1,2,3,4);
+        CustomerNew customerNew4 = new CustomerNew(1,2,3,4);
+        CustomerNew customerNew5 = new CustomerNew(1,2,3,4);
+        customerNews.add(customerNew1);
+        customerNews.add(customerNew2);
+        customerNews.add(customerNew3);
+        customerNews.add(customerNew4);
+        customerNews.add(customerNew5);
+        customerController.customers = customerNews;
+        assertNull(customerController.addCustomer(), "The addCustomer method should return null when there are already 5 customers present, but doesn't");
     }
-
 }
