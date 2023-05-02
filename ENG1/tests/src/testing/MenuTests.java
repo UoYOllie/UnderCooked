@@ -18,7 +18,8 @@ public class MenuTests {
     // The following tests relate to UR_MENU, they don't work due to limitations in the headless backend so have been tested manually
     @Test
     // Relates to the UR_MENU requirement
-    public void testStartGame() {
+    public void testStartEndlessGame() {
+        //This test doesn't work, but the idea behind it was to set the screen to the main menu, then press the button to select endless mode and see if the screen ID was moved to the difficulty screen
         Gdx.gl20 = Gdx.gl;
         OrthographicCamera camera = new OrthographicCamera();
         ScreenController screenController = new ScreenController(boot, camera);
@@ -30,6 +31,7 @@ public class MenuTests {
     @Test
     // Relates to the UR_MENU requirement
     public void testCreditsMenu() {
+        //This test doesn't work, but the idea behind it was to set the screen to the main menu, then press the button to select credits mode and see if the screen ID was moved to the credits screen
         Gdx.gl20 = Gdx.gl;
         OrthographicCamera camera = new OrthographicCamera();
         ScreenController screenController = new ScreenController(boot, camera);
