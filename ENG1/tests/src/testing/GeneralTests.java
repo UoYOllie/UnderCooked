@@ -631,4 +631,14 @@ public class GeneralTests {
         customerController.setStationCustomerMap(stationCustomerMap);
         assertNull(customerController.addCustomer());
     }
+
+    @Test
+    public void TestGetStationKey(){
+        CustomerController customerController = new CustomerController();
+        ServingStation servingStation1 = new ServingStation(new Rectangle(1,2,3,4));
+        Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
+        stationCustomerMap.put(servingStation1,new CustomerNew(1,2,3,4));
+        customerController.setStationCustomerMap(stationCustomerMap);
+        assertEquals(customerController.getStationKey(stationCustomerMap,2),servingStation1);
+    }
 }

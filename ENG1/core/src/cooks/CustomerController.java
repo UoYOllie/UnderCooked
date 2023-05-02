@@ -210,7 +210,7 @@ public class CustomerController {
         return null;
     }
 
-    private Station getStationKey(Map<Station, CustomerNew> stationCustomerMap, float station_y) {
+    public Station getStationKey(Map<Station, CustomerNew> stationCustomerMap, float station_y) {
 
         for (Map.Entry<Station, CustomerNew> entry : stationCustomerMap.entrySet()) {
             Station station = entry.getKey();
@@ -267,4 +267,5 @@ public class CustomerController {
     public ArrayList<Station> getServingStations(){
         return this.servingStations;
     }
+
 }
