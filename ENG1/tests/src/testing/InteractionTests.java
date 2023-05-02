@@ -52,6 +52,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_PUT_FOOD_DOWN, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, UR_ITEM and UR_STATION requirementS
     public void TestStackOnPreparationStation(){
+        //This test exercises the fact that counters can only hold one item. A chef and a counter are spawned, then the chef is given a lettuce and a tomato. Afterwards, the chef is given the command to put an item down twice. The test passes if only one thing was put on the counter
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
         testStation.setID(Station.StationID.cut);
@@ -70,6 +71,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPlayerItemStack(){
+        //This test makes sure the chef has a stack. We make a chef and give him a lettuce and a tomato. He then is told to put down then pick up. If the tomato is the top of the stack, cooks use stacks.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         CounterStation testStation = new CounterStation(rectangle);
         testStation.setID(Station.StationID.cut);
@@ -86,6 +88,9 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_COMPLETE_PREP and UR_STATION requirements
     public void TestPreparationStationCutLettuce(){
+        //This tests that the player can cut lettuce on the preparation station.
+        //This is done by making a chef with lettuce and spawning a preparation station on top of him. Then we ask him to interact with the station and wait till progress is 100% done.
+        //Afterwards, we ask him to pick up the result and make sure its chopped lettuce
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
         testStation.SetTestFlag(1);
@@ -106,6 +111,9 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_COMPLETE_PREP and UR_STATION requirements
     public void TestPreparationStationCutTomato(){
+        //This tests that the player can cut a tomato on the preparation station.
+        //This is done by making a chef with a tomato and spawning a preparation station on top of him. Then we ask him to interact with the station and wait till progress is 100% done.
+        //Afterwards, we ask him to pick up the result and make sure it is a chopped tomato
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
         testStation.SetTestFlag(1);
@@ -126,6 +134,9 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_COMPLETE_PREP and UR_STATION requirements
     public void TestPreparationStationCutOnion(){
+        //This tests that the player can cut an onion on the preparation station.
+        //This is done by making a chef with an onion and spawning a preparation station on top of him. Then we ask him to interact with the station and wait till progress is 100% done.
+        //Afterwards, we ask him to pick up the result and make sure it is a chopped onion
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
         testStation.SetTestFlag(1);
@@ -146,6 +157,9 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_COMPLETE_PREP and UR_STATION requirements
     public void TestPreparationStationCookMeat(){
+        //This tests that the player can fry meat on the preparation station.
+        //This is done by making a chef with a raw meat and spawning a preparation station on top of him. Then we ask him to interact with the station and wait till progress is 100% done.
+        //Afterwards, we ask him to pick up the result and make sure it is fried onion
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
         testStation.SetTestFlag(1);
@@ -166,6 +180,9 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_COMPLETE_PREP and UR_STATION requirements
     public void TestPreparationStationSetsStateToFinished(){
+        //This tests that a preparation station is set to state FINISHED after an interaction.
+        //This is done by making a chef fry meat then checking the stations state.
+        //This passes if the state is Finished
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
         testStation.SetTestFlag(1);
@@ -185,6 +202,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_COMPLETE_PREP and UR_STATION requirements
     public void TestPreparationStationAddsResultBackWhenFinishedUse(){
+        //This is the same as the previous frying meat test, but tests that the player can also use the USE button to pick up the result.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
         testStation.SetTestFlag(1);
@@ -204,6 +222,8 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirements
     public void TestBinStationGetsRidOfItem(){
+        //This tests that a bin gets rid of an item when used. We spawn a cook and a bin on top of each other. Then we give the chef meat.
+        //Afterwards, we ask the chef to put the meat down, this then passes if the cook has nothing in his stack.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         BinStation testStation = new BinStation(rectangle);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -217,6 +237,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirements
     public void TestBinStationWorksWithEmptyStack(){
+        //This is the same as the previous test, but makes sure that nothing weird happens if players attempt to interact with the bin with both the foodStack and dishStack empty
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         BinStation testStation = new BinStation(rectangle);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -232,6 +253,9 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirements
     public void TestBinStationWorksWithEmptyFoodStackButHaveADishStack(){
+        //This tests that a player can bin items in their dishStack using the bin.
+        //We add items to a cooks dishStack then ask him to put them in the bin in one interaction
+        //This passes if both the cooks stacks are size 0
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         BinStation testStation = new BinStation(rectangle);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -250,6 +274,8 @@ public class InteractionTests {
     @Test
     // Relates to the FR_COUNTER, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestCounterCanHoldMultiple(){
+        //This test makes sure counters are multi-use. They shouldn't hold more than one item, but we test that after a use, they can be used again.
+        //We add to the counter then pop the stack to make sure the item held is correct. This passes if 3 separate items can be added to the counter in three separate occasions
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         CounterStation testStation = new CounterStation(rectangle);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -270,6 +296,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryLettuce(){
+        //This tests that a player can take lettuce from the lettuce pantry
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.lettuce);
@@ -283,6 +310,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryTomato(){
+        //This tests that a player can take a tomato from the tomato pantry
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.tomato);
@@ -297,6 +325,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryOnion(){
+        //This tests that a player can take an onion from the onion pantry
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.onion);
@@ -310,6 +339,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryMeat(){
+        //This tests that a player can take meat from the meat pantry
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.meat);
@@ -322,6 +352,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryPotato(){
+        //This tests that a player can take a potato from the potato pantry
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.potato);
@@ -334,6 +365,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryDough(){
+        //This tests that a player can take dough from the dough pantry
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.dough);
@@ -347,6 +379,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryBun(){
+        //This tests that a player can take bun from the bun pantry
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.bun);
@@ -357,10 +390,53 @@ public class InteractionTests {
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.bun, "Picking up a bun while no bottom bun is your stack should make it a bottom bun. It currently does not");
     }
 
+    @Test
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
+    public void TestPantryColeslaw(){
+        //This tests that a player can take coleslaw from the coleslaw pantry
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        Pantry testPantry = new Pantry(rectangle);
+        testPantry.setItem(FoodItem.FoodID.coleslaw);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testPantry.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.coleslaw, "Picking up a bun while no bottom bun is your stack should make it a bottom bun. It currently does not");
+    }
+
+    @Test
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
+    public void TestPantryBeans(){
+        //This tests that a player can take beans from the beans pantry
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        Pantry testPantry = new Pantry(rectangle);
+        testPantry.setItem(FoodItem.FoodID.bakedBeans);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testPantry.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.bakedBeans, "Picking up a bun while no bottom bun is your stack should make it a bottom bun. It currently does not");
+    }
+
+    @Test
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
+    public void TestPantryCheese(){
+        //This tests that a player can take cheese from the cheese pantry
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        Pantry testPantry = new Pantry(rectangle);
+        testPantry.setItem(FoodItem.FoodID.cheese);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testPantry.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        testPantry.interact(cook, InputKey.InputTypes.PICK_UP);
+        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.cheese, "Picking up a bun while no bottom bun is your stack should make it a bottom bun. It currently does not");
+    }
+
 
     @Test
     // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, and UR_ITEM requirement
     public void TestUsePantryAndLettuceChop(){
+        //This just tests that you can press USE and use the pantry
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.lettuceChop);
@@ -374,6 +450,9 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_COMPLETE_PREP and UR_STATION  requirements
     public void TestBakingStationPotatoToBakedPotato(){
+        //This tests that a player can bake a potato
+        //We spawn a cook and a baking station at the same spot, give the cook a potato then ask him to interact with the station.
+        //We then wait till the progress is done, then ask the cook to pick it up. This passes if the cook has a cooked potato at then end.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation preparationStation = new PreparationStation(rectangle);
         preparationStation.SetTestFlag(1);
@@ -394,6 +473,9 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_COMPLETE_PREP and UR_STATION  requirements
     public void TestBakingStationDoughToDoughCook(){
+        //This tests that a player can bake dough
+        //We spawn a cook and a baking station at the same spot, give the cook raw dough then ask him to interact with the station.
+        //We then wait till the progress is done, then ask the cook to pick it up. This passes if the cook has cooked dough at then end.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation preparationStation = new PreparationStation(rectangle);
         preparationStation.SetTestFlag(1);
@@ -414,6 +496,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakePlainSalad(){
+        //This tests that the player can make a plain salad at an assembly station with chopped lettuce
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -434,6 +517,7 @@ public class InteractionTests {
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     // The following tests to do with making recipes in the assembly station test whether, given the right ingredients, the assembly station returns the expected outcome to the cooks dish stack
     public void TestAssemblyStationMakeTomatoSalad(){
+        //This tests that the player can make a tomato salad at an assembly station with chopped lettuce and a chopped tomato
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -456,6 +540,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeOnionSalad(){
+        //This tests that the player can make onion salad at an assembly station with chopped lettuce and chopped onion
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -478,6 +563,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeOnionTomatoSalad(){
+        //This tests that the player can make onion tomato salad at an assembly station with chopped lettuce, chopped tomato and chopped onion
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -501,6 +587,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakePlainPizza(){
+        //This tests that a player can make a plain pizza with cheese, tomato sauce and cooked dough
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -525,6 +612,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakePlainPotato(){
+        //This tests that a player can make a plain potato using a cooked potato.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -545,6 +633,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeBeansPotato(){
+        //This tests that a player can make a beans potato using a cooked potato and cooked beans.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -567,6 +656,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeColeslawPotato(){
+        //This tests that a player can make a coleslaw potato using a cooked potato and coleslaw.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -589,6 +679,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeCheesePotato(){
+        //This tests that a player can make a cheese potato using a cooked potato and cheese.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -611,6 +702,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeCheeseBeansPotato(){
+        //This tests that a player can make a cheese and beans potato using a cooked potato, cheese and cooked beans.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -635,6 +727,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeBeansColeslawPotato(){
+        //This tests that a player can make beans,coleslaw potato using a cooked potato, cooked beans and coleslaw.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -659,6 +752,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeBeansColeslawCheesePotato(){
+        //This tests that a player can make beans,coleslaw and cheese potato using a cooked potato,coleslaw, cooked beans and cheese.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -689,6 +783,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationPlainBurger(){
+        //This tests that a player can make a plain burger using cooked meat and 2 buns.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -713,6 +808,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationLettuceBurger(){
+        //This tests that a player can make a lettuce burger using cooked meat,chopped lettuce and 2 buns.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -724,7 +820,7 @@ public class InteractionTests {
         for (int x = cook.foodStack.size(); x >= 0; x--){
             assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         }
-        //These two lines are here since the player stack is limited to 3 items so we have to do it separately
+        //These two lines are here since the player stack is limited to 3 items, so we have to do it separately
         cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
         assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
 
@@ -743,6 +839,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationOnionBurger(){
+        //This tests that a player can make an onion burger using cooked meat,chopped onion and 2 buns.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -773,6 +870,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationTomatoBurger(){
+        //This tests that a player can make a tomato burger using cooked meat,chopped tomato and 2 buns.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -803,6 +901,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationLettuceTomatoBurger(){
+        //This tests that a player can make a lettuce,tomato burger using cooked meat,chopped lettuce,chopped tomato and 2 buns.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -836,6 +935,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationLettuceOnionBurger(){
+        //This tests that a player can make a lettuce,onion burger using cooked meat,chopped lettuce, chopped onion and 2 buns.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -869,6 +969,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationTomatoOnionBurger(){
+        //This tests that a player can make a tomato,onion burger using cooked meat,chopped tomato,chopped onion and 2 buns.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -902,6 +1003,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationLettuceTomatoOnionBurger(){
+        //This tests that a player can make a lettuce,tomato,onion burger using cooked meat,chopped lettuce,chopped tomato,chopped onion and 2 buns.
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -937,6 +1039,8 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationTestMultipleRecipes(){
+        //This tests that an assembly station can be used multiple times on separate occasions.
+        //It passes if both a plain burger and plain salad have been made by the end
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -973,6 +1077,7 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationHoldsFood(){
+        //This tests that you can put things on and take thing of the assembly station
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
@@ -987,6 +1092,8 @@ public class InteractionTests {
     @Test
     // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationHoldsNothing(){
+        //This ensures that nothing weird happens if you try to PICK UP an item on an assembly station when it has no items
+        //This passes if nothing happens from the interaction
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         AssemblyStation assemblyStation = new AssemblyStation(rectangle);
