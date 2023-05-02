@@ -63,7 +63,7 @@ jobs:
         with:
           name: lib.jar
       - name: Release
-        uses: softprops/action/gh/release@de2c0eb89ae2a093876385947365aca7b0e5f844
+        uses: softprops/action/gh/release@v1
         with:
           files: lib.jar
 
