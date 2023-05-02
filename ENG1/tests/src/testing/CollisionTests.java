@@ -1,6 +1,5 @@
 package testing;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
 import game.Boot;
@@ -14,7 +13,7 @@ import static interactions.Interactions.keysPressed;
 import static org.testng.Assert.*;
 
 @RunWith(GdxTestRunner.class)
-public class CollisionTest {
+public class CollisionTests {
 
     private Boot boot = Boot.getInstance();
     @Test
