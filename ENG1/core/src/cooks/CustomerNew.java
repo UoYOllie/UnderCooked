@@ -365,7 +365,8 @@ public class CustomerNew extends GameEntity {
                 //  System.out.println("entry status 5 moving to station" + this.station);
             }
             moveToPoint("DELETION ZONE");
-            setDestination(Constants.customerPointA.x+3f,Constants.customerPointA.y+12f);
+//            setDestination(Constants.customerPointA.x+3f,Constants.customerPointA.y+12f);
+            setDestination(Constants.customerPointA.x,Constants.customerPointA.y);
             move_right_up(Constants.customerPointA);
         }
         if (this.entryStatus == -2) {
