@@ -85,15 +85,11 @@ public class InstructionScreen extends ScreenAdapter {
                 "Menu- Changes the request of customer",
                 "Freeze Timer- Temporarily freezes time so that customer can wait for more time.",
                 "Chef Bluggus Mode- It changes to chef Bluggus.",
-                String.format("Some of the recipes don't follow a specific order. You can see this by interacting with the serving counter. (%s, %s or %s)",
-                        Interactions.getKeyString(InputKey.InputTypes.USE),
-                        Interactions.getKeyString(InputKey.InputTypes.PICK_UP),
-                        Interactions.getKeyString(InputKey.InputTypes.PUT_DOWN)),
+
                 "",
                 "Your goal is to successfully give every customer the food they request, and the game will end once you do.",
                 "",
-                String.format("You can pause the game by pressing %s.", Interactions.getKeyString(InputKey.InputTypes.PAUSE)),
-                ""
+
         };
 
         for (String instruction : instructions) {
