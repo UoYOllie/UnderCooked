@@ -50,15 +50,4 @@ public abstract class CookInteractable extends GameEntity {
     }
 
 
-// for the record, interact before laura tries new stuff
-//    /**
-//     * Allows a {@link Cook} to interact with the {@link CookInteractable}.
-//     * @param cook The cook that interacted with the {@link CookInteractable}.
-//     * @param inputType The type of {@link InputKey.InputTypes} the player made with
-//     *                  the {@link CookInteractable}.
-//     */
-//    public void interact(Cook cook, InputKey.InputTypes inputType) {
-//        System.out.println("Im interacting with:");
-//        //System.out.println("Interaction at x=" + body.getPosition().x*PPM + ", y=" + body.getPosition().x*PPM);
-//    }
 }

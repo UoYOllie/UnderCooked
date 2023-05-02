@@ -228,7 +228,7 @@ public class SavingClass {
 //            private Array<Boolean> lockedStation;
 //            System.out.println(s.getPropertyID());
             StationPropertyID.add(s.getPropertyID());
-            Array<FoodItem.FoodID> tempstack = s.stationFoodStack.getStack();
+            Array<FoodItem.FoodID> tempstack;
             Array<Integer> dishy = new Array<Integer>();
             System.out.println(s.stationDishStack.getStackCopy());
             tempstack = s.stationDishStack.getStackCopy();

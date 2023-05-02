@@ -28,14 +28,6 @@ public class ServingStation extends Station {
         //customer = null;
     }
 
-    //public boolean hasCustomer() {
-        //return customer == null;
-   // }
-
-    //public CustomerNew getCustomer() {
-        //return customer;
-    //}
-
     public void interact(Cook cook, InputKey.InputTypes inputType) {
 
         switch (inputType) {
@@ -63,11 +55,6 @@ public class ServingStation extends Station {
         teacup_item.add(FoodItem.FoodID.teacup);
         menu_item.add(FoodItem.FoodID.menu);
 
-//        System.out.println("------------------");
-//        System.out.println("Waga");
-//        System.out.println(teacup_item);
-//        System.out.println(plateless);
-//        System.out.println("Mama");
 
 
 
@@ -89,10 +76,6 @@ public class ServingStation extends Station {
             }
         }
 
-
-//        System.out.println(teacup_item);
-//        System.out.println(plateless);
-//        System.out.println("------------------");
         if (matchesRecipeArray(plateless, customer.request)) {
             System.out.println("This was correct for me");
             customer.dishStack.clearStack();
@@ -134,8 +117,5 @@ public class ServingStation extends Station {
         return stationDishStack;
     }
 
-    public void setServedDishStack(DishStack servedDishStack){
-        this.stationDishStack = servedDishStack;
-    }
 
 }

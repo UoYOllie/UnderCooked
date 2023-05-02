@@ -119,23 +119,5 @@ public class Station extends CookInteractable {
         return this.Enabled;
     }
 
-//    /**
-//     * The function used to render the {@link Station}'s
-//     * debug visuals.
-//     * @param batch The {@link SpriteBatch} used to render.
-//     */
-//    @Override
-//    public void renderDebug(SpriteBatch batch) { }
-
-
-//    /**
-//     * The function used to render the {@link Station}'s
-//     * debug visuals.
-//     * @param shape The {@link ShapeRenderer} used to render.
-//     */
-//    @Override
-//    public void renderShapeDebug(ShapeRenderer shape) {
-//
-//    }
 }
 

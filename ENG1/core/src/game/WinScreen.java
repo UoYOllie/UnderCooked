@@ -57,7 +57,6 @@ public class WinScreen extends ScreenAdapter {
         table.row();
 
         timeLabel = new Label(screenController.getEndTime(), font);
-        //setTime(hoursPassed, minutesPassed, secondsPassed);
         timeLabel.setFontScale(2);
         table.add(timeLabel);
 
@@ -108,16 +107,5 @@ public class WinScreen extends ScreenAdapter {
         stage.draw();
 
         this.update(delta);
-    }
-
-    /**
-     * Sets the {@link #timeLabel} to use the end time
-     * of the player after finishing the game.
-     * @param hours Hours taken.
-     * @param minutes Minutes taken.
-     * @param seconds Seconds taken.
-     */
-    public void setTime(int hours, int minutes, int seconds) {
-        timeLabel.setText(Util.formatTime(hours,minutes,seconds));
     }
 }

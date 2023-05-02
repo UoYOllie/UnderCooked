@@ -25,7 +25,7 @@ public class GameSprites {
         FOOD,
         /** The {@link stations.Station}'s and {@link stations.Pantry}'s {@link TextureAtlas}.*/
         STATION,
-        /** The {@link customers.Customer}'s {@link TextureAtlas}.*/
+
         CUSTOMER,
 
         BLUGGUS
@@ -109,11 +109,5 @@ public class GameSprites {
         return returnSprite;
     }
 
-    /**
-     * A function to dispose of unneeded resources to free up space.
-     */
-    public void dispose() {
-        spriteMap.clear();
-    }
 
 }

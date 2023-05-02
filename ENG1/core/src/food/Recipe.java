@@ -55,11 +55,6 @@ public class Recipe {
 
         // PIZZA - i'll add some more interesting combos later down the line
         generateRecipe("Plain Pizza", new FoodStack(FoodID.cheese, FoodID.tomatoSauce, FoodID.doughCook));
-        //generateRecipe("Pepperoni Pizza", new FoodStack(FoodID.cheese, FoodID.pepperoni, FoodID.tomatoSauce, FoodID.doughCook));
-        //generateRecipe("Onion Pizza", new FoodStack(FoodID.cheese, FoodID.onionChop, FoodID.tomatoSauce, FoodID.doughCook));
-
-        // POWERUPS
-        //generateRecipe("Teacup", new FoodStack(FoodID.teacup));
 
         // TOPPINGS
         toppings.add(FoodID.lettuceChop);
@@ -196,8 +191,7 @@ public class Recipe {
     /** Helper method to choose a random recipe for the customer to order. */
     public static String randomRecipe() {
          Random random = new Random();
-         //return recipeNames.get(random.nextInt(recipeNames.size));
-         return ("Coleslaw Potato");
+         return recipeNames.get(random.nextInt(recipeNames.size));
     }
 
     public static FoodStack getRecipe(String recipeName) {

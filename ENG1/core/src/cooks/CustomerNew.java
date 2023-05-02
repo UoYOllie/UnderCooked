@@ -1,7 +1,4 @@
 package cooks;
-
-//import Shop.MindControl;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -17,11 +14,6 @@ import food.Recipe;
 import game.GameScreen;
 import game.GameSprites;
 import helper.Constants;
-import helper.CustomerCollisionHelper;
-import helper.NewCollisionHelper;
-import interactions.InputKey;
-import interactions.Interactions;
-import stations.CookInteractable;
 import stations.Station;
 
 import java.util.ArrayList;
@@ -32,8 +24,6 @@ import java.util.Random;
  */
 public class CustomerNew extends GameEntity {
 
-    /** The position of the CustomerNew. */
-    public Vector2 position;
 
     /** The Sprite of the CustomerNew. */
     public Sprite sprite;
@@ -54,7 +44,6 @@ public class CustomerNew extends GameEntity {
     private int customerStatus; //SAVE
     private int difficulty;
     public int entryStatus;
-    private Array<Vector2> customerPoints;
     public boolean customerToTest;
 
     public String offtopoint;
@@ -64,8 +53,7 @@ public class CustomerNew extends GameEntity {
 
     /** The Constructor for CustomerNew. */
     public CustomerNew(float x, float y, float width, float height) {
-        super(x, y, width, height);//
-        String offtopoint = "A";
+        super(x, y, width, height);
         this.sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "customer_bluggus");
         this.bubbleSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "speech_bubble");
         //this.position = new Vector2(x, y);
@@ -87,13 +75,7 @@ public class CustomerNew extends GameEntity {
         moveToPoint("B");
         this.destination = Constants.customerPointB;
         this.entryStatus = 0;
-        this.customerPoints = setCustomerPoints();
 
-    }
-
-    public void setRequest(String x)
-    {
-        this.request = x;
     }
 
     public void setDifficulty(int difficulty) {
@@ -346,13 +328,6 @@ public class CustomerNew extends GameEntity {
             setDestination(Constants.customerPointF.x,Constants.customerPointF.y);
             move_right_up(Constants.customerPointF);
         }
-//        if (this.entryStatus == 5) {
-//            if (this.customerToTest == true) {
-//                //    System.out.println("entry status 4 moving to point F");
-//            }
-//            setDestination(stationPosition.x,stationPosition.y);
-//            move_right_up(stationPosition);
-//        }
 
         if (this.entryStatus == 0) {
             if (this.customerToTest == true) {

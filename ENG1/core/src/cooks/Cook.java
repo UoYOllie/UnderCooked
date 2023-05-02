@@ -39,8 +39,6 @@ public class Cook extends GameEntity {
     /** The control arrow sprite. */
     private Sprite controlSprite;
     private GameSprites gameSprites;
-    //private CookInteractor cookInteractor;
-    // private GameScreen gameScreen;
     /** The direction this cook is facing. */
     public Facing dir;
     /** The cook's stack of things, containing all the items they're holding. Index 0 = Top Item */
@@ -235,7 +233,6 @@ public class Cook extends GameEntity {
     /**
      * The update function for the {@link Cook}, which updates the {@link Cook}'s
      * {@link #x} and {@link #y} values, and updates the position of the
-     * {@link Cook}'s {@link CookInteractor}.
      * @param delta The time between frames as a float.
      */
     @Override

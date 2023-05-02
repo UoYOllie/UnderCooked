@@ -37,7 +37,7 @@ public class DifficultyScreen extends ScreenAdapter {
     private Texture backgroundSprite;
 
     public static Texture spaceBackground = new Texture("menu/space-bg.png");
-    private String mode;
+
 
 
     /**
@@ -85,9 +85,6 @@ public class DifficultyScreen extends ScreenAdapter {
 
     }
 
-    public void setMode(String mode) {
-        this.mode = mode;
-    }
 
 
 

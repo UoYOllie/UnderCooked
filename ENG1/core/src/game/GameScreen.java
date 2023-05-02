@@ -3,52 +3,37 @@ package game;
 import Shop.Gold;
 import Shop.ShopItem;
 import com.badlogic.gdx.*;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.*;
 import cooks.Cook;
 import cooks.CustomerController;
 import cooks.CustomerNew;
 import java.nio.file.Files;
-//import customers.Customer;
 
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import cooks.GameEntity;
-//import customers.CustomerController;
 import customers.RepPoints;
-import food.DishStack;
 import food.FoodItem;
 import food.FoodStack;
 import helper.*;
 import interactions.InputKey;
 import interactions.Interactions;
 import stations.CookInteractable;
-//import stations.ServingStation;
-import stations.ServingStation;
+
 import stations.Station;
 
 import java.io.*;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.ConcurrentModificationException;
-
-import static helper.Constants.PPM;
 
 /** A {@link ScreenAdapter} containing certain elements of the game. */
 public class GameScreen extends ScreenAdapter {
@@ -56,32 +41,24 @@ public class GameScreen extends ScreenAdapter {
     private String filepath;
     private int holdzoomcounter;
     private OrthographicCamera camera;
-    private int delay;
 
     private long previousSecond = 0;
-    //private long lastCustomerSecond = 0;
-    //private long nextCustomerSecond = 0;
     public int secondsPassed = 0, minutesPassed = 0, hoursPassed = 0;
     private GameHud gameHud;
     private InstructionHud instructionHUD;
     private SpriteBatch batch;
     private ShapeRenderer shape;
     private ScreenController screenController;
-    // private ShapeRenderer shapeRenderer;
     private World world;
     Vector3 posCamera;
-    private Box2DDebugRenderer box2DDebugRenderer;
 
     private SuperMapSuperRenderer orthogonalTiledMapRenderer;
     public MapHelper mapHelper;
     //public Array<Station> servingStationNewList;
     private Array<CookInteractable> interactables;
-    private CollisionHelper collisionHelper;
     public ArrayList<GameEntity> gameEntities;
     private DrawQueueComparator drawQueueComparator;
     //private Array<ServingStation> servingStations;
-    private float xOffset = 1500;
-    private float yOffset = 1200;
 
     public Gold gold;
     public RepPoints Reputation;
@@ -148,9 +125,7 @@ public class GameScreen extends ScreenAdapter {
 
         // UPDATE
         // this.collisionHelper = CollisionHelper.getInstance();
-        this.collisionHelper = new CollisionHelper();
 
-        this.collisionHelper.setGameScreen(this);
         this.cookIndex = -1;
         this.camera = camera;
         this.camera.zoom = 1/20f;
@@ -238,9 +213,6 @@ public class GameScreen extends ScreenAdapter {
 
         // UPDATE
         // this.collisionHelper = CollisionHelper.getInstance();
-        this.collisionHelper = new CollisionHelper();
-
-        this.collisionHelper.setGameScreen(this);
         this.cookIndex = -1;
 //        this.camera = camera;
 //        this.camera.zoom = 1/10f;
@@ -1005,9 +977,7 @@ public class GameScreen extends ScreenAdapter {
         return instructionHUD;
     }
 
-    public CollisionHelper getCollisionHelper() {
-        return collisionHelper;
-    }
+
 
     //-------------------------------------
     //Morgan's Shop Section

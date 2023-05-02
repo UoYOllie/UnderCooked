@@ -108,15 +108,6 @@ public class MenuScreen extends ScreenAdapter {
             screenController.setScreen(ScreenID.DIFFICULTY);
             screenController.setMode("endless");
         }
-
-//        if (Interactions.isJustPressed(InputKey.InputTypes.START_SCENARIO)) {
-//            screenController.setScreen(ScreenID.GAME);
-//            ((GameScreen) screenController.getScreen(ScreenID.GAME)).startGame(true);
-//        }
-//        else if (Interactions.isJustPressed(InputKey.InputTypes.START_ENDLESS)) {
-//            screenController.setScreen(ScreenID.GAME);
-//            ((GameScreen) screenController.getScreen(ScreenID.GAME)).startGame(false, 1);
-//        }
         // Set the screen to the instructions screen
         else if (Interactions.isJustPressed(InputKey.InputTypes.INSTRUCTIONS)) {
             screenController.setScreen(ScreenID.INSTRUCTIONS);
