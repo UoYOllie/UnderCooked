@@ -65,7 +65,9 @@ public class PayList extends ScreenAdapter {
                 "- 2.) Teacup (Increase Wait Time) = $50",
                 "- 3.) Menu (Change Request) = $50",
                 "- 4.) Freeze Timer = $100",
-                "- 5.) Chef Bluggus Mode = $80"
+                "- 5.) Chef Bluggus Mode = $80",
+                "",
+                "Press p to return to game!"
         };
         /* OLD CODE
         Label pauseLabel = new Label("PAUSED", font);
