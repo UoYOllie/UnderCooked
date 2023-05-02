@@ -1,36 +1,28 @@
 package testing;
 
 import Shop.Gold;
-import Shop.ShopItem;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import cooks.*;
 import food.FoodItem;
-import food.Recipe;
 import helper.Constants;
 import helper.MapHelper;
 import helper.Util;
 import interactions.InputKey;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import stations.*;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import static Shop.Gold.gold;
 import static interactions.Interactions.keysJustPressed;
 import static org.testng.Assert.*;
 
 @RunWith(GdxTestRunner.class)
-public class GeneralTest {
+public class GeneralTests {
     // The following tests don't directly relate to requirements, instead testing helper functions such as getters and setters.
 
 

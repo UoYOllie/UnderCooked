@@ -4,8 +4,6 @@ package testing;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.World;
 import cooks.Cook;
 import game.Boot;
 import game.GameScreen;
@@ -21,7 +19,7 @@ import static interactions.Interactions.keysPressed;
 import static org.testng.Assert.*;
 
 @RunWith(GdxTestRunner.class)
-public class MovementTest {
+public class MovementTests {
 
     private Boot boot = Boot.getInstance();
     @Test

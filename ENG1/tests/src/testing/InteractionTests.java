@@ -1,27 +1,20 @@
 package testing;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
 import food.FoodItem;
-import food.FoodStack;
-import food.Recipe;
 import interactions.InputKey;
-import interactions.Interactions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import stations.*;
 import com.badlogic.gdx.math.Rectangle;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 import static org.testng.Assert.*;
 
 @RunWith(GdxTestRunner.class)
-public class InteractionTest {
+public class InteractionTests {
 
 
     @Test

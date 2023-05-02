@@ -1,9 +1,6 @@
 package testing;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import game.*;
 import interactions.InputKey;
@@ -15,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(GdxTestRunner.class)
-public class MenuTest {
+public class MenuTests {
     private Boot boot = Boot.getInstance();
 
     // The following tests relate to UR_MENU, they don't work due to limitations in the headless backend so have been tested manually

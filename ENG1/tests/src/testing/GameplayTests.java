@@ -2,16 +2,12 @@ package testing;
 
 import Shop.Gold;
 import Shop.ShopItem;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import cooks.Cook;
 import cooks.CustomerNew;
 import customers.RepPoints;
-import food.DishStack;
 import food.FoodItem;
-import food.Recipe;
 import helper.Constants;
 import interactions.InputKey;
 import org.junit.Test;
@@ -24,7 +20,7 @@ import static interactions.Interactions.keysPressed;
 import static org.testng.Assert.*;
 
 @RunWith(GdxTestRunner.class)
-public class GameplayTest {
+public class GameplayTests {
 
     // The following 2 tests are for robustness. The first tests that servingStations are multi-use. The second tests that failing recipes work
     // All of them relate to the UR_GAMEPLAY requirement
