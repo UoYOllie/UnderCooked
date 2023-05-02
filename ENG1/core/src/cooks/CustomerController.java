@@ -60,6 +60,20 @@ public class CustomerController {
         this.TotalCustomersServed = 0;
     }
 
+    public CustomerController() {
+
+        this.customers = new ArrayList<>();
+
+        this.servingStations = new ArrayList<Station>();
+        this.stationCustomerMap = new HashMap<Station, CustomerNew>();
+        initialiseStationCustomerMap();
+
+        this.interval = 1;
+        this.group_size = 1;
+        this.customers_left = 4;
+        this.TotalCustomersServed = 0;
+    }
+
     /** Setter for mode.*/
     public void setMode(String mode) {
         this.mode = mode;
@@ -79,7 +93,7 @@ public class CustomerController {
      * Helper method to check whether all customers have been served in Scenario Mode.
      * @return true if all customers in the scenario have been served.
      * */
-    private boolean maxCustomersReached() {
+    public boolean maxCustomersReached() {
         return (this.mode == "scenario" && this.customers.size() > 4);
     }
 
