@@ -481,30 +481,34 @@ public class GeneralTests {
     //The following test the logic for the CustomerController class
 
     @Test
+    // Tests that the getMode method returns the correct game mode (endless or scenario)
     public void TestSetAndGetMode(){
         CustomerController customerController = new CustomerController();
         customerController.setMode("scenario");
-        assertEquals(customerController.getMode(), "scenario");
+        assertEquals(customerController.getMode(), "scenario", "getMode does not return the correct game mode");
     }
 
     @Test
+    // Tests that the getDifficulty method returns the correct game difficulty (easy, medium or hard as represented by the integers 1, 2, 3 respectively)
     public void TestSetAndGetDifficulty(){
         CustomerController customerController = new CustomerController();
         customerController.setDifficulty(3);
-        assertEquals(customerController.getDifficulty(), 3);
+        assertEquals(customerController.getDifficulty(), 3, "getDifficulty does not return the correct game difficulty");
     }
 
     @Test
+    // Tests that the getCustomers method returns the correct array of customers
     public void TestGetCustomers(){
         CustomerController customerController = new CustomerController();
         CustomerNew customerNew = new CustomerNew(1,2,3,4);
         ArrayList<CustomerNew> customerNews = new ArrayList<CustomerNew>();
         customerNews.add(customerNew);
         customerController.customers.add(customerNew);
-        assertEquals(customerController.getCustomers(), customerNews);
+        assertEquals(customerController.getCustomers(), customerNews, "getCustomers does not return the correct array of customers");
     }
 
     @Test
+    // Tests that there is a limit on the number of customers that can place an order at once
     public void TestMaxCustomersReached(){
         //Testing fails when supposed to
         CustomerController customerController = new CustomerController();
@@ -525,7 +529,7 @@ public class GeneralTests {
         customerNews.add(customerNew4);
         customerNews.add(customerNew5);
         customerController.customers = customerNews;
-        assertTrue(customerController.maxCustomersReached());
+        assertTrue(customerController.maxCustomersReached(), "the maxCustomersReached method does not provide a customer limit");
     }
 
     public void TestWonScenario(){
