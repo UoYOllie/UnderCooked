@@ -266,6 +266,13 @@ public class PreparationStation extends Station {
                 }
             }
 
+            else if (!inUse && stationFoodStack.size() > 0) {
+                if ((inputType == InputKey.InputTypes.PICK_UP)) {
+                    cook.foodStack.addStack(stationFoodStack.popStack());
+                    return;
+                }
+            }
+
             // The other two inputs require the station being inUse.
             else if (inUse) {
                 // If the user instead uses the "Pick Up" option, check if the station is inUse
