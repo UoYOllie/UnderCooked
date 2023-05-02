@@ -68,6 +68,9 @@ public class InstructionScreen extends ScreenAdapter {
                 "Plain Burger- Take two buns from the right side of the pantry, meat from the fridge, place it on the preparation station," +
                         " cook the meat, place all the items on the assembly station," +
                         " chop salad and then serve the customer",
+                "Lettuce Burger- Take two buns from the right side of the pantry, meat from the fridge, place it on the preparation station," +
+                        "cook the meat, place all the items on the assembly station," +
+                        "chop lettuce and then serve the customer",
 
 
                 "POWERUPS:-",
