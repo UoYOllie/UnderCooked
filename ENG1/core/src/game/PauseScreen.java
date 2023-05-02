@@ -14,10 +14,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import cooks.GameEntity;
 import game.ScreenController.ScreenID;
 import helper.Constants;
 import interactions.InputKey;
 import interactions.Interactions;
+
+import java.util.ArrayList;
 
 /**
  * A {@link ScreenAdapter} that is used when the game is paused.
@@ -138,12 +141,8 @@ public class PauseScreen extends ScreenAdapter {
 
         shape.begin(ShapeRenderer.ShapeType.Filled);
 
-        Gdx.gl.glClearColor(0,0,0,1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        shape.setColor(0,0,0,0.5F);
-        shape.rect(0,0, Constants.V_Width,Constants.V_Height);
-        shape.setColor(Color.WHITE);
+        Gdx.gl.glEnable(GL20.GL_BLEND);
+        Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         shape.end();
 
         stage.draw();

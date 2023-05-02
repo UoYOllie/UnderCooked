@@ -64,7 +64,7 @@ public class CustomerNew extends GameEntity {
 
     /** The Constructor for CustomerNew. */
     public CustomerNew(float x, float y, float width, float height) {
-        super(x, y, width, height);
+        super(x, y, width, height);//
         String offtopoint = "A";
         this.sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "customer_bluggus");
         this.bubbleSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "speech_bubble");
@@ -279,11 +279,98 @@ public class CustomerNew extends GameEntity {
         }
     }
 
+    public void move_right_up(Vector2 nextDestination) {
+
+        this.readyX = false;
+        this.readyY = false;
+
+        if (this.x < this.destination.x) { this.x += Constants.UnitScale;
+        } else { this.readyX = true; }
+
+        if (this.y < this.destination.y) { this.y += Constants.UnitScale;
+        } else { this.readyY = true; }
+
+
+        if (this.readyX && this.readyY) {
+            setDestination(nextDestination.x, nextDestination.y);
+            this.entryStatus -= 1;
+        }
+    }
+
     public void servedCustomerLeaves() {
 
-        if (this.x > destination.x) { this.x -= Constants.UnitScale;
-        } else {
-            this.customerStatus += 1;
+//        if (this.x > destination.x) { this.x -= Constants.UnitScale;
+//        } else {
+//            this.customerStatus += 1;
+//        }
+        System.out.println("Entry status "+entryStatus);
+        if(entryStatus==6) {
+            moveToPoint("F Hybrid");
+            setDestination(stationPosition.x-30f,stationPosition.y);
+            move_left_down(new Vector2(stationPosition.x-30f,stationPosition.y));
+        }
+        if(entryStatus==7) {
+            this.entryStatus=4;
+        }
+        if (this.entryStatus == 1) {
+            if (this.customerToTest == true) {
+                //System.out.println("entry status 0 moving to point B" + destination.x + "," + destination.y);
+            }
+            moveToPoint("C");
+            setDestination(Constants.customerPointC.x,Constants.customerPointC.y);
+            move_right_up(Constants.customerPointC);
+        }
+        if (this.entryStatus == 2) {
+            if (this.customerToTest == true) {
+                // System.out.println(this + "entry status 1 moving to point C");
+            }
+            moveToPoint("D");
+            setDestination(Constants.customerPointD.x,Constants.customerPointD.y);
+            move_right_up(Constants.customerPointD);
+        }
+        if (this.entryStatus == 3) {
+            if (this.customerToTest == true) {
+                //    System.out.println("entry status 2 moving to point D");
+            }
+            moveToPoint("E");
+            setDestination(Constants.customerPointE.x,Constants.customerPointE.y);
+            move_right_up(Constants.customerPointE);
+        }
+        if (this.entryStatus == 4) {
+            if (this.customerToTest == true) {
+                //    System.out.println("entry status 3 moving to point E");
+            }
+            moveToPoint("F");
+            setDestination(Constants.customerPointF.x,Constants.customerPointF.y);
+            move_right_up(Constants.customerPointF);
+        }
+//        if (this.entryStatus == 5) {
+//            if (this.customerToTest == true) {
+//                //    System.out.println("entry status 4 moving to point F");
+//            }
+//            setDestination(stationPosition.x,stationPosition.y);
+//            move_right_up(stationPosition);
+//        }
+
+        if (this.entryStatus == 0) {
+            if (this.customerToTest == true) {
+                //  System.out.println("entry status 5 moving to station" + this.station);
+            }
+            moveToPoint("A");
+            setDestination(Constants.customerPointA.x,Constants.customerPointA.y);
+            move_right_up(Constants.customerPointA);
+        }
+        if (this.entryStatus == -1) {
+            if (this.customerToTest == true) {
+                //  System.out.println("entry status 5 moving to station" + this.station);
+            }
+            moveToPoint("DELETION ZONE");
+//            setDestination(Constants.customerPointA.x+3f,Constants.customerPointA.y+12f);
+            setDestination(Constants.customerPointA.x,Constants.customerPointA.y);
+            move_right_up(Constants.customerPointA);
+        }
+        if (this.entryStatus == -2) {
+            gameScreen.gameEntities.remove(this);
         }
 
     }
