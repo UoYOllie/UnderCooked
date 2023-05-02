@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">38</div>
+<div class="counter">39</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.031s</div>
+<div class="counter">0.038s</div>
 <p>duration</p>
 </div>
 </td>
@@ -82,7 +82,7 @@
 	at org.testng.Assert.assertEquals(Assert.java:118)
 	at org.testng.Assert.assertEquals(Assert.java:839)
 	at org.testng.Assert.assertEquals(Assert.java:849)
-	at testing.GeneralTest.TestCookUserInteract(GeneralTest.java:330)
+	at testing.GeneralTest.TestCookUserInteract(GeneralTest.java:170)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -109,7 +109,7 @@
 	at helper.CollisionHelper.stationCollisions(CollisionHelper.java:63)
 	at helper.CollisionHelper.getInteract(CollisionHelper.java:87)
 	at cooks.CookInteractor.checkCollisions(CookInteractor.java:118)
-	at testing.GeneralTest.testCookInteractorCheckCollision(GeneralTest.java:84)
+	at testing.GeneralTest.testCookInteractorCheckCollision(GeneralTest.java:85)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -138,7 +138,7 @@
 	at org.testng.Assert.assertEquals(Assert.java:118)
 	at org.testng.Assert.assertEquals(Assert.java:839)
 	at org.testng.Assert.assertEquals(Assert.java:849)
-	at testing.GeneralTest.testCustomerNewEnterCustomer(GeneralTest.java:566)
+	at testing.GeneralTest.testCustomerNewEnterCustomer(GeneralTest.java:433)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -190,17 +190,17 @@
 </tr>
 <tr>
 <td class="success">TestCookSetColour</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestCookUpdate</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">TestCookUpdate</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="failures">TestCookUserInteract</td>
-<td class="failures">0s</td>
+<td class="failures">0.001s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
@@ -220,12 +220,12 @@
 </tr>
 <tr>
 <td class="success">TestFoodStackToString</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestGetBlocked</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -240,12 +240,12 @@
 </tr>
 <tr>
 <td class="success">TestGoldAddBalance</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestGoldGetInstance</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -259,13 +259,18 @@
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">TestSetDir</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="failures">testCookInteractorCheckCollision</td>
-<td class="failures">0.004s</td>
+<td class="failures">0.020s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
 <td class="success">testCookInteractorRelativeX</td>
-<td class="success">0.002s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -275,7 +280,7 @@
 </tr>
 <tr>
 <td class="success">testCookInteractorUpdatePosition</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -285,12 +290,12 @@
 </tr>
 <tr>
 <td class="failures">testCustomerNewEnterCustomer</td>
-<td class="failures">0.002s</td>
+<td class="failures">0.001s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
 <td class="success">testCustomerNewGetRequestName</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -300,7 +305,7 @@
 </tr>
 <tr>
 <td class="success">testCustomerNewGetY</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -315,27 +320,32 @@
 </tr>
 <tr>
 <td class="success">testDecreasePatience</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testServingStationCustomerInteract</td>
-<td class="success">0.004s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testSetDestination</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testSetStationPosition</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testUpdatePosition</td>
+<td class="success">testServingStationCustomerInteract</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSetDestination</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSetMapObstacles</td>
 <td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSetStationPosition</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testUpdatePosition</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -344,13 +354,8 @@
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testsgetMapObstacles</td>
+<td class="success">testsGetMapStations</td>
 <td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testsgetMapStations</td>
-<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -367,11 +372,26 @@
 lettuce
 lettuce
 lettuce
+cooks.CustomerNew@12a5761d moving to point B------null------ (1.0,2.0)
 peek
 null
-cooks.CustomerNew@624d32a1will leave in 50.0
-cooks.CustomerNew@624d32a1now will leave in 300.0
-cooks.CustomerNew@624d32a1is rethinking
+cooks.CustomerNew@27657c78 moving to point B------null------ (20.0,20.0)
+cooks.CustomerNew@45d721ca moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@7bb704e0 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@76773ee2 moving to point B------null------ (100.0,400.0)
+cooks.CustomerNew@76773ee2 moving to point C------(100.0,200.0)------ (100.0,400.0)
+cooks.CustomerNew@76773ee2 moving to point D------(1939.0,2913.0)------ (100.0,400.0)
+cooks.CustomerNew@76773ee2 moving to point E------(19394.0,2872.0)------ (100.0,400.0)
+cooks.CustomerNew@76773ee2 moving to point F------(1915.0,2872.0)------ (100.0,400.0)
+cooks.CustomerNew@7a7d0ae8 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@6d8bd1c moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@18fceea4 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@18fceea4will leave in 50.0
+cooks.CustomerNew@18fceea4now will leave in 300.0
+cooks.CustomerNew@18fceea4is rethinking
+cooks.CustomerNew@5b8f90fa moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@7ff61886 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@5db38510 moving to point B------null------ (1.0,2.0)
 </pre>
 </span>
 </div>
@@ -383,7 +403,7 @@ cooks.CustomerNew@624d32a1is rethinking
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.5.1</a> at 2 May 2023, 02:39:47</p>
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at 2 May 2023, 10:05:02</p>
 </div>
 </div>
 </body>

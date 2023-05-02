@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.InteractionTest" tests="59" skipped="0" failures="9" errors="0" timestamp="2023-05-02T01:39:32" hostname="DESKTOP-06RIULD" time="1.258">
+<testsuite name="testing.InteractionTest" tests="59" skipped="0" failures="10" errors="0" timestamp="2023-05-02T09:04:54" hostname="AB-ASUS-1" time="0.967">
   <properties/>
-  <testcase name="TestAssemblyStationTestMultipleRecipes" classname="testing.InteractionTest" time="0.233"/>
+  <testcase name="TestAssemblyStationTestMultipleRecipes" classname="testing.InteractionTest" time="0.001"/>
   <testcase name="TestAssemblyStationMakeCheeseBeansPotato" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="PantryTestDough" classname="testing.InteractionTest" time="0.015"/>
-  <testcase name="PantryTestOnion" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestAssemblyStationTomatoOnionBurger" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestAssemblyStationMakeColeslawPotato" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestFailCaseChoppingBakedItem" classname="testing.InteractionTest" time="0.017">
-    <failure message="java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseChoppingBakedItem(InteractionTest.java:1131)
+  <testcase name="PantryTestDough" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="PantryTestOnion" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestAssemblyStationTomatoOnionBurger" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestAssemblyStationMakeColeslawPotato" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestFailCaseChoppingBakedItem" classname="testing.InteractionTest" time="0.0">
+    <failure message="java.lang.AssertionError: Error: Using a preparation station with cooked dough results in its progress value changing expected [false] but found [true]" type="java.lang.AssertionError">java.lang.AssertionError: Error: Using a preparation station with cooked dough results in its progress value changing expected [false] but found [true]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertFalse(Assert.java:65)
+	at testing.InteractionTest.TestFailCaseChoppingBakedItem(InteractionTest.java:1135)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -28,18 +30,18 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <testcase name="TestBakingStationPotatoToBakedPotato" classname="testing.InteractionTest" time="0.009"/>
+  <testcase name="TestBakingStationPotatoToBakedPotato" classname="testing.InteractionTest" time="0.001"/>
   <testcase name="TestAssemblyStationMakeBeansPotato" classname="testing.InteractionTest" time="0.0"/>
-  <testcase name="TestAssemblyStationMakeOnionPizza" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestAssemblyStationMakeOnionPizza" classname="testing.InteractionTest" time="0.001"/>
   <testcase name="TestAssemblyStationMakeOnionSalad" classname="testing.InteractionTest" time="0.0"/>
-  <testcase name="TestPreparationStationAddsResultBackWhenFinishedUse" classname="testing.InteractionTest" time="0.003"/>
-  <testcase name="TestAssemblyStationMakeTomatoSalad" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="TestPreparationStationAddsResultBackWhenFinishedUse" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestAssemblyStationMakeTomatoSalad" classname="testing.InteractionTest" time="0.0"/>
   <testcase name="PantryTestLettuce" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestBakingStationDoughToDoughCook" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestFailCaseBakingChoppedItem" classname="testing.InteractionTest" time="0.003">
+  <testcase name="TestBakingStationDoughToDoughCook" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestFailCaseBakingChoppedItem" classname="testing.InteractionTest" time="0.0">
     <failure message="java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseBakingChoppedItem(InteractionTest.java:1291)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseBakingChoppedItem(InteractionTest.java:1293)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -57,7 +59,7 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <testcase name="TestFailCaseChoppingChoppedItem" classname="testing.InteractionTest" time="0.004">
+  <testcase name="TestFailCaseChoppingChoppedItem" classname="testing.InteractionTest" time="0.0">
     <failure message="java.lang.AssertionError: Error: Using a preparation station with an already chopped lettuce results in its progress value changing expected [false] but found [true]" type="java.lang.AssertionError">java.lang.AssertionError: Error: Using a preparation station with an already chopped lettuce results in its progress value changing expected [false] but found [true]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
@@ -80,11 +82,11 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <testcase name="TestAssemblyStationOnionBurger" classname="testing.InteractionTest" time="0.0"/>
-  <testcase name="TestFailCaseBakingFriedItem" classname="testing.InteractionTest" time="0.0">
+  <testcase name="TestAssemblyStationOnionBurger" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="TestFailCaseBakingFriedItem" classname="testing.InteractionTest" time="0.001">
     <failure message="java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseBakingFriedItem(InteractionTest.java:1331)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseBakingFriedItem(InteractionTest.java:1333)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -103,11 +105,11 @@
 </failure>
   </testcase>
   <testcase name="TestAssemblyStationHoldsNothing" classname="testing.InteractionTest" time="0.0"/>
-  <testcase name="TestPutDownItem" classname="testing.InteractionTest" time="0.007"/>
-  <testcase name="TestFailCaseFryingChoppedItem" classname="testing.InteractionTest" time="0.001">
+  <testcase name="TestPutDownItem" classname="testing.InteractionTest" time="0.003"/>
+  <testcase name="TestFailCaseFryingChoppedItem" classname="testing.InteractionTest" time="0.0">
     <failure message="java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseFryingChoppedItem(InteractionTest.java:1201)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseFryingChoppedItem(InteractionTest.java:1203)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -126,15 +128,15 @@
 </failure>
   </testcase>
   <testcase name="TestPreparationStationCutTomato" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestPreparationStationCookMeat" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestBinStationWorksWithEmptyStack" classname="testing.InteractionTest" time="0.003"/>
-  <testcase name="TestAssemblyStationMakePlainPizza" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestAssemblyStationMakePlainSalad" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestAssemblyStationWrongRecipe" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestFailCaseBakingBakedItem" classname="testing.InteractionTest" time="0.001">
+  <testcase name="TestPreparationStationCookMeat" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestBinStationWorksWithEmptyStack" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestAssemblyStationMakePlainPizza" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestAssemblyStationMakePlainSalad" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestAssemblyStationWrongRecipe" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestFailCaseBakingBakedItem" classname="testing.InteractionTest" time="0.0">
     <failure message="java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseBakingBakedItem(InteractionTest.java:1261)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseBakingBakedItem(InteractionTest.java:1263)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -152,21 +154,43 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <testcase name="TestAssemblyStationLettuceTomatoOnionBurger" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestAssemblyStationMakeCheesePotato" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="TestAssemblyStationLettuceTomatoOnionBurger" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestAssemblyStationMakeCheesePotato" classname="testing.InteractionTest" time="0.0"/>
   <testcase name="TestAssemblyStationMakeOnionTomatoSalad" classname="testing.InteractionTest" time="0.0"/>
-  <testcase name="TestUsePantryandLettuceChop" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="TestUsePantryandLettuceChop" classname="testing.InteractionTest" time="0.0"/>
   <testcase name="TestPickUpItem" classname="testing.InteractionTest" time="0.002"/>
   <testcase name="TestAssemblyStationLettuceTomatoBurger" classname="testing.InteractionTest" time="0.001"/>
   <testcase name="TestAssemblyStationMakeBeansColeslawPotato" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestAssemblyStationMakeBeansColeslawCheesePotato" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestPreparationStationCutLettuce" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="TestAssemblyStationMakeBeansColeslawCheesePotato" classname="testing.InteractionTest" time="0.001">
+    <failure message="java.lang.AssertionError: Error: Assembly Station does not give the right outcome when given the items to make a beans coleslaw cheese potato expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: Error: Assembly Station does not give the right outcome when given the items to make a beans coleslaw cheese potato expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at testing.InteractionTest.TestAssemblyStationMakeBeansColeslawCheesePotato(InteractionTest.java:746)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <testcase name="TestPreparationStationCutLettuce" classname="testing.InteractionTest" time="0.0"/>
   <testcase name="TestPreparationStationCutOnion" classname="testing.InteractionTest" time="0.0"/>
-  <testcase name="TestCounterCanHoldMultiple" classname="testing.InteractionTest" time="0.002"/>
-  <testcase name="TestFailCaseFryingFriedItem" classname="testing.InteractionTest" time="0.002">
+  <testcase name="TestCounterCanHoldMultiple" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestFailCaseFryingFriedItem" classname="testing.InteractionTest" time="0.001">
     <failure message="java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseFryingFriedItem(InteractionTest.java:1181)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseFryingFriedItem(InteractionTest.java:1183)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -185,23 +209,23 @@
 </failure>
   </testcase>
   <testcase name="PantryTestBun" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="PantryTestPotato" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="PantryTestPotato" classname="testing.InteractionTest" time="0.0"/>
   <testcase name="PantryTestTomato" classname="testing.InteractionTest" time="0.0"/>
   <testcase name="PantryTestMeat" classname="testing.InteractionTest" time="0.0"/>
   <testcase name="TestStackOnPreparationStation" classname="testing.InteractionTest" time="0.0"/>
-  <testcase name="TestPlayerItemStack" classname="testing.InteractionTest" time="0.001"/>
+  <testcase name="TestPlayerItemStack" classname="testing.InteractionTest" time="0.0"/>
   <testcase name="TestAssemblyStationLettuceBurger" classname="testing.InteractionTest" time="0.0"/>
   <testcase name="TestBinStationGetsRidOfItem" classname="testing.InteractionTest" time="0.0"/>
   <testcase name="TestBinStationWorksWithEmptyFoodStackButHaveADishStack" classname="testing.InteractionTest" time="0.0"/>
-  <testcase name="TestAssemblyStationHoldsFood" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestAssemblyStationHoldsFood" classname="testing.InteractionTest" time="0.001"/>
   <testcase name="TestAssemblyStationMakePepperoniPizza" classname="testing.InteractionTest" time="0.0"/>
-  <testcase name="TestAssemblyStationTomatoBurger" classname="testing.InteractionTest" time="0.0"/>
+  <testcase name="TestAssemblyStationTomatoBurger" classname="testing.InteractionTest" time="0.001"/>
   <testcase name="TestAssemblyStationPlainBurger" classname="testing.InteractionTest" time="0.0"/>
   <testcase name="TestAssemblyStationMakePlainPotato" classname="testing.InteractionTest" time="0.0"/>
-  <testcase name="TestFailCaseChoppingFriedItem" classname="testing.InteractionTest" time="0.001">
+  <testcase name="TestFailCaseChoppingFriedItem" classname="testing.InteractionTest" time="0.0">
     <failure message="java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseChoppingFriedItem(InteractionTest.java:1161)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseChoppingFriedItem(InteractionTest.java:1163)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -220,10 +244,10 @@
 </failure>
   </testcase>
   <testcase name="TestPreparationStationSetsStatetoFinished" classname="testing.InteractionTest" time="0.001"/>
-  <testcase name="TestFailCaseFryingBakedItem" classname="testing.InteractionTest" time="0.001">
+  <testcase name="TestFailCaseFryingBakedItem" classname="testing.InteractionTest" time="0.0">
     <failure message="java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot read field &quot;cookIndex&quot; because &quot;this.gameScreen&quot; is null
-	at stations.PreparationStation.interact(PreparationStation.java:190)
-	at testing.InteractionTest.TestFailCaseFryingBakedItem(InteractionTest.java:1231)
+	at stations.PreparationStation.interact(PreparationStation.java:206)
+	at testing.InteractionTest.TestFailCaseFryingBakedItem(InteractionTest.java:1233)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -246,24 +270,25 @@
 peek
 onion
 peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
+peek
+peek
+peek
+peek
+peek
 lettuce
 peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////Im interacting with a counter
+peek
+peek
+peek
+Im interacting with a counter
 187.5
 150.0
 20.0
 20.0
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
+peek
+peek
+peek
+peek
 lettuceChop
 peek
 Im interacting with a counter
@@ -276,11 +301,17 @@ Im interacting with a counter
 150.0
 20.0
 20.0
+PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP
+[lettuce]
+true
+true
+[]
+PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP
 peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
-0 ///////////////////////peek
+peek
+peek
+peek
+peek
 Im interacting with a counter
 187.5
 150.0
@@ -304,8 +335,8 @@ tomato
 peek
 meat
 peek
-0 ///////////////////////peek
-0 ///////////////////////peek
+peek
+peek
 Im interacting with a counter
 187.5
 150.0
@@ -316,9 +347,15 @@ Im interacting with a counter
 150.0
 20.0
 20.0
+PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP
+[tomato]
+true
+true
+[]
+PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP
 peek
 peek
-0 ///////////////////////peek
+peek
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
