@@ -533,17 +533,18 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the wonScenario method returns true if there are no customers left to be served
     public void TestWonScenario(){
-        //First we tests the win scenario, no customers left
+        //First we test the win scenario, no customers left
         CustomerController customerController = new CustomerController();
         customerController.setMode("scenario");
         customerController.setCustomers_left(0);
-        assertTrue(customerController.wonScenario());
+        assertTrue(customerController.wonScenario(), "wonScenario does not return true in scenario mode if there are no customers left to be served");
 
         //Now we test endless
         customerController.setMode("endless");
         customerController.setCustomers_left(1);
-        assertFalse(customerController.wonScenario());
+        assertFalse(customerController.wonScenario(), "wonScenario returns true in endless mode if there are customers left to be served (expected false)");
     }
 
 }
