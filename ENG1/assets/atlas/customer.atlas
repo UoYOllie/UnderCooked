@@ -1,13 +1,19 @@
 
 customer.png
-size: 174, 284
+size: 90, 90
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
-0
+customer_bluggus
   rotate: false
-  xy: 2, 2
-  size: 170, 280
-  orig: 170, 280
+  xy: 0, 0
+  size: 36, 34
+  orig: 36, 34
+  offset: 0, 0
+  index: -1
+speech_bubble
+  rotate: false
+  xy: 0, 37
+  size: 75, 30
   offset: 0, 0
   index: -1

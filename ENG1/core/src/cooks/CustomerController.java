@@ -2,6 +2,7 @@ package cooks;
 
 import game.GameScreen;
 import helper.Constants;
+import stations.ServingStation;
 import stations.Station;
 
 import java.util.ArrayList;
@@ -207,7 +208,7 @@ public class CustomerController {
         return null;
     }
 
-    private Station getStationKey(Map<Station, CustomerNew> stationCustomerMap, float station_y) {
+    public Station getStationKey(Map<Station, CustomerNew> stationCustomerMap, float station_y) {
 
         for (Map.Entry<Station, CustomerNew> entry : stationCustomerMap.entrySet()) {
             Station station = entry.getKey();
@@ -252,4 +253,17 @@ public class CustomerController {
     public void setStationCustomerMap(Map<Station,CustomerNew> map){
         this.stationCustomerMap = map;
     }
+
+    public Map getStationCustomerMap(){
+        return this.stationCustomerMap;
+    }
+
+    public void setServingStations(ArrayList<Station> array){
+        this.servingStations = array;
+    }
+
+    public ArrayList<Station> getServingStations(){
+        return this.servingStations;
+    }
+
 }
