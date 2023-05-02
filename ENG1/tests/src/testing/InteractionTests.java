@@ -20,6 +20,8 @@ public class InteractionTests {
     @Test
     // Relates to the FR_PUT_FOOD_DOWN, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPutDownItem(){
+        //This test works by making a counter and spawning the chef near the counter. Then we add lettuce to the chefs stack and ask him to put it down. We check the chef has no items after attempting put them down
+        //The final assertion checks that the counter actually holds the item by checking the food stack of the counter
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         CounterStation testStation = new CounterStation(rectangle);
         testStation.setID(Station.StationID.cut);
@@ -29,6 +31,7 @@ public class InteractionTests {
         cook.foodStack.addStack(FoodItem.FoodID.lettuce);
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         assertTrue(cook.foodStack.size() == 0,"Error: cannot put items of preparation stations");
+        assertEquals(testStation.stationFoodStack.peekStack(), FoodItem.FoodID.lettuce,"Error: Counter does not have lettuce after lettuce is given to it");
     }
 
     @Test
@@ -548,14 +551,14 @@ public class InteractionTests {
         testList.add(assemblyStation.getRectangle());
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.potatoCook);
-        cook.foodStack.addStack(FoodItem.FoodID.bakedBeans);
+        cook.foodStack.addStack(FoodItem.FoodID.beansCooked);
         for (int x = cook.foodStack.size(); x >= 0; x--){
             assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         }
         assemblyStation.interact(cook, InputKey.InputTypes.USE);
         assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
         Array<FoodItem.FoodID> foodID = new Array<>();
-        foodID.add(FoodItem.FoodID.bakedBeans);
+        foodID.add(FoodItem.FoodID.beansCooked);
         foodID.add(FoodItem.FoodID.potatoCook);
         foodID.add(FoodItem.FoodID.plate);
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a Beans potato");
@@ -615,7 +618,7 @@ public class InteractionTests {
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.potatoCook);
         cook.foodStack.addStack(FoodItem.FoodID.cheese);
-        cook.foodStack.addStack(FoodItem.FoodID.bakedBeans);
+        cook.foodStack.addStack(FoodItem.FoodID.beansCooked);
         for (int x = cook.foodStack.size(); x >= 0; x--){
             assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         }
@@ -623,7 +626,7 @@ public class InteractionTests {
         assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
         Array<FoodItem.FoodID> foodID = new Array<>();
         foodID.add(FoodItem.FoodID.cheese);
-        foodID.add(FoodItem.FoodID.bakedBeans);
+        foodID.add(FoodItem.FoodID.beansCooked);
         foodID.add(FoodItem.FoodID.potatoCook);
         foodID.add(FoodItem.FoodID.plate);
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a cheese beans potato");
@@ -639,7 +642,7 @@ public class InteractionTests {
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.potatoCook);
         cook.foodStack.addStack(FoodItem.FoodID.coleslaw);
-        cook.foodStack.addStack(FoodItem.FoodID.bakedBeans);
+        cook.foodStack.addStack(FoodItem.FoodID.beansCooked);
         for (int x = cook.foodStack.size(); x >= 0; x--){
             assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         }
@@ -647,7 +650,7 @@ public class InteractionTests {
         assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
         Array<FoodItem.FoodID> foodID = new Array<>();
         foodID.add(FoodItem.FoodID.coleslaw);
-        foodID.add(FoodItem.FoodID.bakedBeans);
+        foodID.add(FoodItem.FoodID.beansCooked);
         foodID.add(FoodItem.FoodID.potatoCook);
         foodID.add(FoodItem.FoodID.plate);
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a beans coleslaw potato");
@@ -663,7 +666,7 @@ public class InteractionTests {
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.potatoCook);
         cook.foodStack.addStack(FoodItem.FoodID.coleslaw);
-        cook.foodStack.addStack(FoodItem.FoodID.bakedBeans);
+        cook.foodStack.addStack(FoodItem.FoodID.beansCooked);
         for (int x = cook.foodStack.size(); x >= 0; x--){
             assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         }
@@ -676,7 +679,7 @@ public class InteractionTests {
         Array<FoodItem.FoodID> foodID = new Array<>();
         foodID.add(FoodItem.FoodID.cheese);
         foodID.add(FoodItem.FoodID.coleslaw);
-        foodID.add(FoodItem.FoodID.bakedBeans);
+        foodID.add(FoodItem.FoodID.beansCooked);
         foodID.add(FoodItem.FoodID.potatoCook);
         foodID.add(FoodItem.FoodID.plate);
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a beans coleslaw cheese potato");
