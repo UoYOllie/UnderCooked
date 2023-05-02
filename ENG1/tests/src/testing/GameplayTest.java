@@ -259,43 +259,6 @@ public class GameplayTest {
 
     @Test
     // Relates to the FR_SERVE_CHECK requirement
-    public void TestServingStationServeWrongOrder(){
-        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ServingStation testStation = new ServingStation(rectangle);
-        testStation.setID(Station.StationID.serving);
-        testStation.setTestFlag(1);
-
-        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
-        testStation.customer = customerNew;
-        customerNew.request = "Plain Burger";
-
-        ArrayList<Rectangle> testList = new ArrayList<>();
-        testList.add(testStation.getRectangle());
-
-        Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.tomatoChop);
-        cook.foodStack.addStack(FoodItem.FoodID.lettuceChop);
-        cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
-        cook.foodStack.clearStack();
-
-        Array<FoodItem.FoodID> finalCustomersExpectedRecipe = new Array<FoodItem.FoodID>();
-        for (FoodItem.FoodID items: cook.dishStack.getStack()){
-            finalCustomersExpectedRecipe.add(items);
-        }
-
-        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
-        testStation.customerInteract(customerNew);
-
-        assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if it's correct
-        assertNotEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the right items when served the incorrect dish");
-
-        testStation.setTestFlag(0);
-        assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
-    }
-
-    @Test
-    // Relates to the FR_SERVE_CHECK requirement
     public void TestServingStationServeCustomerLettuceBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);

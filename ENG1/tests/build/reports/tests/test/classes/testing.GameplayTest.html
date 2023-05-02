@@ -23,13 +23,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">35</div>
+<div class="counter">1</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.042s</div>
+<div class="counter">0.115s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">97%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,46 +61,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
-</li>
-<li>
-<a href="#tab2">Standard output</a>
+<a href="#tab1">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="TestServingStationServeCustomerBeansColeslawCheesePotato"></a>
-<h3 class="failures">TestServingStationServeCustomerBeansColeslawCheesePotato</h3>
-<span class="code">
-<pre>java.lang.AssertionError: The cook food stack is not emptied after serving a request expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at testing.GameplayTest.TestServingStationServeCustomerBeansColeslawCheesePotato(GameplayTest.java:926)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
-	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
-	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -111,241 +78,16 @@
 </tr>
 </thead>
 <tr>
-<td class="success">TestBuyShopItem</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestMultipleSpeedPowerUp</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestMultipleSpeedPowerUps</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestRepPoints</td>
-<td class="success">0.002s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationDoesNotAcceptWrongRecipes</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerBeansCheesePotato</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="failures">TestServingStationServeCustomerBeansColeslawCheesePotato</td>
-<td class="failures">0.001s</td>
-<td class="failures">failed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerBeansColeslawPotato</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerBeansPotato</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerCheesePotato</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerColeslawCheesePotato</td>
-<td class="success">0.012s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerColeslawPotato</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerLettuceBurger</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerLettuceOnionBurger</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerLettuceOnionSalad</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerLettuceTomatoBurger</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerLettuceTomatoOnionBurger</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerLettuceTomatoSalad</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerOnionBurger</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerOnionPizza</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerOnionTomatoSalad</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerPepperoniPizza</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerPlainBurger</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerPlainPizza</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerPlainPotato</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerTomatoBurger</td>
-<td class="success">0.004s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServeCustomerTomatoOnionBurger</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
 <td class="success">TestServingStationServeWrongOrder</td>
-<td class="success">0.007s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestServingStationServesMultipleCustomers</td>
-<td class="success">0.002s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestSpeedPowerUp</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testCustomerHangOnYourFoodIsComing</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testCustomerNewHypnotise</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testCustomerNewServedCustomerLeave</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testMakeIntoBluggus</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testMoveStack</td>
-<td class="success">0s</td>
+<td class="success">0.115s</td>
 <td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>cooks.CustomerNew@269aa425 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@6eb144cf moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@6dcc431e moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@24e3b53c moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@d415a10 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@a9410d8 moving to point B------null------ (187.5,150.0)
-cooks.CustomerNew@5cf7627 moving to point B------null------ (1.0,2.0)
-cooks.CustomerNew@3cbc79f7 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@66298c31 moving to point B------null------ (1.0,2.0)
-cooks.CustomerNew@247486ed moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@7611c350 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@24729518 moving to point B------null------ (187.5,150.0)
-cooks.CustomerNew@70c5dbd6 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@3558e33a moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@6b9d952c moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@39c05b02 moving to point B------null------ (187.5,150.0)
-cooks.CustomerNew@3fed493d moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@4d5e2cc9 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@183bfd20 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@3d569aa0 moving to point B------null------ (1.0,2.0)
-cooks.CustomerNew@39e9f0f3 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@60a715a1 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@723450 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@36455350 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@59cf3ba7 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@71af9e moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@1130db74 moving to point B------null------ (187.5,150.0)
-This was correct for me
-cooks.CustomerNew@df3d5d1 moving to point B------null------ (187.5,150.0)
-This was correct for me
-peek
-peek
-peek
-peek
-cooks.CustomerNew@2dc1c5cb moving to point B------null------ (187.5,150.0)
-This was correct for me
+<pre>cooks.CustomerNew@62a50d5a moving to point B------null------ (187.5,150.0)
 </pre>
 </span>
 </div>
@@ -357,7 +99,7 @@ This was correct for me
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.5.1</a> at 2 May 2023, 10:05:02</p>
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at 2 May 2023, 10:23:33</p>
 </div>
 </div>
 </body>

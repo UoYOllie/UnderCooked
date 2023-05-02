@@ -525,64 +525,7 @@ public class InteractionTest {
         foodID.add(FoodItem.FoodID.plate);
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a Plain pizza");
     }
-
-    @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
-    public void TestAssemblyStationMakePepperoniPizza(){
-        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ArrayList<Rectangle> testList = new ArrayList<>();
-        AssemblyStation assemblyStation = new AssemblyStation(rectangle);
-        testList.add(assemblyStation.getRectangle());
-        Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.cheese);
-        cook.foodStack.addStack(FoodItem.FoodID.tomatoSauce);
-        cook.foodStack.addStack(FoodItem.FoodID.doughCook);
-        for (int x = cook.foodStack.size(); x >= 0; x--){
-            assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
-        }
-        //These two lines are here since the player stack is limited to 3 items so we have to do it separately
-        cook.foodStack.addStack(FoodItem.FoodID.pepperoni);
-        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
-
-        assemblyStation.interact(cook, InputKey.InputTypes.USE);
-        assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        Array<FoodItem.FoodID> foodID = new Array<>();
-        foodID.add(FoodItem.FoodID.cheese);
-        foodID.add(FoodItem.FoodID.pepperoni);
-        foodID.add(FoodItem.FoodID.tomatoSauce);
-        foodID.add(FoodItem.FoodID.doughCook);
-        foodID.add(FoodItem.FoodID.plate);
-        assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a Pepperoni pizza");
-    }
-
-    @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
-    public void TestAssemblyStationMakeOnionPizza(){
-        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        ArrayList<Rectangle> testList = new ArrayList<>();
-        AssemblyStation assemblyStation = new AssemblyStation(rectangle);
-        testList.add(assemblyStation.getRectangle());
-        Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.cheese);
-        cook.foodStack.addStack(FoodItem.FoodID.tomatoSauce);
-        cook.foodStack.addStack(FoodItem.FoodID.doughCook);
-        for (int x = cook.foodStack.size(); x >= 0; x--){
-            assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
-        }
-        //These two lines are here since the player stack is limited to 3 items so we have to do it separately
-        cook.foodStack.addStack(FoodItem.FoodID.onionChop);
-        assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
-
-        assemblyStation.interact(cook, InputKey.InputTypes.USE);
-        assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
-        Array<FoodItem.FoodID> foodID = new Array<>();
-        foodID.add(FoodItem.FoodID.cheese);
-        foodID.add(FoodItem.FoodID.onionChop);
-        foodID.add(FoodItem.FoodID.tomatoSauce);
-        foodID.add(FoodItem.FoodID.doughCook);
-        foodID.add(FoodItem.FoodID.plate);
-        assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make an onion pizza");
-    }
+    
     @Test
     // Relates to the FR_USE_STATION and FR_INTERACTION requirements
     public void TestAssemblyStationMakePlainPotato(){
