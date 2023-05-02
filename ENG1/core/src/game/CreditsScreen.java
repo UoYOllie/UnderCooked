@@ -58,9 +58,13 @@ public class CreditsScreen extends ScreenAdapter {
             "OuterCooked, by Broken Designers",
             "Made using libGDX",
             "Tests made using JUnit and run using Jacoco",
+                "Using Jacoco version 0.8.10 - Available at https://www.eclemma.org/jacoco/",
+                "In accordance to the apache licence version 2.0",
+                "As well as the Eclipse public licence versions 1.0 and 2.0",
             "Program to draw assets: https://www.gimp.org/",
             "Program to create the texture atlases: https://github.com/crashinvaders/gdx-texture-packer-gui/releases",
-            "Program to create the map: https://www.mapeditor.org/"
+            "Program to create the map: https://www.mapeditor.org/",
+                        "As well as CheckStyles version 10.4"
         };
 
         for (String instruction : instructions) {
