@@ -74,6 +74,8 @@ public class InstructionScreen extends ScreenAdapter {
                         "\n cook the potato, place all the items on the assembly station, serve the customer.",
                 "Beans Potato- Take jacket potatoes and canned beans from pantry, coleslaw from the bottom left of the fridge, " +
                         "\n cook the potato and beans, place all the items on the assembly station, serve the customer.",
+                "Coleslaw Potato- Take jacket potatoes from pantry, coleslaw from the bottom left of the fridge, " +
+                        "\n cook the potato, place all the items on the assembly station, serve the customer.",
 
 
 
