@@ -65,11 +65,9 @@ public class InstructionScreen extends ScreenAdapter {
                 "Tomato Salad- chop tomato, chop lettuce, bring it to the assembly station, put it in a plate and then serve it to the customer.",
                 "Onion Salad- chop onion, chop lettuce, bring it to the assembly station, put it in a plate and then serve it to the customer.",
                 "Tomato Onion Salad- chop tomato, chop onion, chop lettuce, bring it to the assembly station, put it in a plate and then serve it to the customer.",
-                "Plain Burger- Take two buns from the right side of the pantry, meat from the fridge, place it on the preparation station," +
-                        " cook the meat, place all the items on the assembly station," +
+                "Plain Burger- Take two buns from the pantry, meat from the fridge," + " cook the meat, place all the items on the assembly station," +
                         " chop salad and then serve the customer",
-                "Lettuce Burger- Take two buns from the right side of the pantry, meat from the fridge, place it on the preparation station," +
-                        "cook the meat, place all the items on the assembly station," +
+                "Lettuce Burger- Take two buns from the pantry, meat from the fridge," + "cook the meat, place all the items on the assembly station," +
                         "chop lettuce and then serve the customer",
 
 
