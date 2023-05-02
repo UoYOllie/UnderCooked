@@ -31,7 +31,7 @@ public class Constants {
     public static final float customerSplitPoint = 2817.9171f;
 
     // customer travelling down the corridor
-    public static final Vector2 customerPointA = new Vector2 (1978.075f, 2915.9f);
+    public static final Vector2 customerPointA = new Vector2 (1978.075f+10f, 2915.9f+12f);
     public static final Vector2 customerPointB = new Vector2 (1978.075f, 2913f);
     public static final Vector2 customerPointC = new Vector2 (1939f, 2913f);
     public static final Vector2 customerPointD = new Vector2 (1939.4f, 2872f);
