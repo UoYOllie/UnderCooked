@@ -76,7 +76,7 @@ public class CustomerNew extends GameEntity {
         this.customerStatus = 0;
         this.customerToTest = false;
 
-        this.waittime = 200;
+        this.waittime = 200f;
         this.Stillhere = true;
 
         this.x = x;

@@ -20,6 +20,7 @@ public class AssetTests {
 	// The following are tests to do with checking that the assets in the cooks folder still remain
 	@Test
 	public void testAssets() throws FileNotFoundException {
+        //The following test works by using a python script made by team in order to generate a list of directories of our assets. Then this test goes through the list and makes sure all the assets are there.
 		System.out.println();
 		Scanner fileReader = new Scanner(assetList);
 		while (fileReader.hasNextLine()) {

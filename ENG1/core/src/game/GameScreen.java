@@ -107,7 +107,7 @@ public class GameScreen extends ScreenAdapter {
     private boolean forcewin;
 
     private OrthographicCamera backgroundCamera;
-    private SpriteBatch bgBatch;
+    public static SpriteBatch bgBatch;
     public Preferences prefs = Gdx.app.getPreferences("My Preferences");
     private float Cookswapstage;
     private boolean Loading;
@@ -451,9 +451,9 @@ public class GameScreen extends ScreenAdapter {
             this.Loading = true;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.Q)){
-//            this.forcewin = true;
+            this.forcewin = true;
 //            System.out.print("Forcing Quit"+this.SaveText);
-            this.Reputation.setPoints(0);
+//            this.Reputation.setPoints(0);
 //            System.out.println("Writing to file");
 //            WriteSaveFile();
         }
