@@ -16,6 +16,8 @@ import org.junit.runner.RunWith;
 import stations.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static Shop.Gold.gold;
 import static interactions.Interactions.keysJustPressed;
@@ -544,6 +546,36 @@ public class GeneralTests {
         customerController.setMode("endless");
         customerController.setCustomers_left(1);
         assertFalse(customerController.wonScenario());
+
+        //next test scenario where the mode is scenario and customers_left is > 0
+        customerController.setMode("scenario");
+        customerController.setCustomers_left(3);
+
+        CustomerNew customerNew1 = new CustomerNew(1,2,3,4);
+        customerNew1.setCustomerStatus(2);
+        CustomerNew customerNew2 = new CustomerNew(1,2,3,4);
+        customerNew2.setCustomerStatus(2);
+        CustomerNew customerNew3 = new CustomerNew(1,2,3,4);
+        customerNew3.setCustomerStatus(2);
+        ArrayList<CustomerNew> customerNews = new ArrayList<CustomerNew>();
+        customerNews.add(customerNew1);
+        customerNews.add(customerNew2);
+        customerNews.add(customerNew3);
+        customerController.customers = customerNews;
+        customerController.wonScenario();
+        assertEquals(customerController.getCustomers_left(), 0);
+    }
+
+    @Test
+    public void TestRemoveCustomer(){
+        CustomerController customerController = new CustomerController();
+        Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
+        PreparationStation preparationStation = new PreparationStation(new Rectangle());
+        CustomerNew customerNew = new CustomerNew(1,2,3,4);
+        stationCustomerMap.put(preparationStation,customerNew);
+        customerController.setStationCustomerMap(stationCustomerMap);
+        customerController.removeCustomer(preparationStation);
+        assertEquals(stationCustomerMap.get(preparationStation),null);
     }
 
 }
