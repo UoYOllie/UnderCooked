@@ -70,7 +70,7 @@ public class CustomerNew extends GameEntity {
         this.bubbleSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "speech_bubble");
         //this.position = new Vector2(x, y);
         this.customerInteractor = new Rectangle(x - 4 * Constants.UnitScale, y - 4 * Constants.UnitScale,
-                                                width + 1f, height + 1f);
+                                                width + 1f, height+1f);
         this.request = Recipe.randomRecipe();
         this.dishStack = new DishStack();
         this.customerStatus = 0;
@@ -255,7 +255,7 @@ public class CustomerNew extends GameEntity {
             //    System.out.println("entry status 4 moving to point F");
             }
             setDestination(stationPosition.x,stationPosition.y);
-            move_left_down(stationPosition);
+            move_left_down(new Vector2(stationPosition.x,stationPosition.y));
         }
 
         if (this.entryStatus == 5) {

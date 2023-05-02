@@ -63,7 +63,7 @@ public class GameHud extends Hud {
         table.add(reputation).expandX().padTop(80).padRight(60);
         table.add(goldLabel).expandX().padTop(80).padRight(60);
         table.row();
-        table.add(CustomerServed).expandY().padBottom(25).padLeft(67);
+        table.add(CustomerServed).expandY().padBottom(0).padLeft(70);
         table.row();
         table.add(Loading).expandX().padTop(100).padLeft(150);
         this.batch = batch;

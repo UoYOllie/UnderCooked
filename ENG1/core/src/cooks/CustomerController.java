@@ -116,6 +116,7 @@ public class CustomerController {
     public void initialiseStationCustomerMap() {
 
         for (Station station : servingStations) {
+            station.y = station.y;
             this.stationCustomerMap.put(station, null);
         }
 

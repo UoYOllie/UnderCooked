@@ -1,5 +1,8 @@
 package Shop;
 
+/**
+ * Class used to hold data for buyable items
+ */
 public class Gold {
 
     public int Balance;

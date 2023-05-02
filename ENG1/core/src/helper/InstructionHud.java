@@ -18,7 +18,7 @@ public class InstructionHud extends Hud{
      */
     public InstructionHud(SpriteBatch batch) {
         super(batch);
-        instructionsLabel = new Label(String.format("Press %s to USE \nPress %s to COLLECT \nPress %s to PUT DOWN \nPress %s to SAVE \nPress %s to LOAD",
+        instructionsLabel = new Label(String.format("Press %s to USE \nPress %s to COLLECT \nPress %s to PUT DOWN \nPress %s to SAVE \nPress %s to LOAD\nPress P to view costs for items",
                 Interactions.getKeyString(InputKey.InputTypes.USE),
                 Interactions.getKeyString(InputKey.InputTypes.PICK_UP),
                 Interactions.getKeyString(InputKey.InputTypes.PUT_DOWN),
