@@ -196,7 +196,8 @@ public class Recipe {
     /** Helper method to choose a random recipe for the customer to order. */
     public static String randomRecipe() {
          Random random = new Random();
-         return recipeNames.get(random.nextInt(recipeNames.size));
+         //return recipeNames.get(random.nextInt(recipeNames.size));
+         return ("Coleslaw Potato");
     }
 
     public static FoodStack getRecipe(String recipeName) {
