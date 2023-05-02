@@ -5,3 +5,5 @@ libGDX version 1.11.0 - available at https://libgdx.com/wiki/start/project-gener
 libGDX texture packer version 3.2.0 - Available at https://code.google.com/archive/p/libgdx-texturepacker-gui/downloads
 
 GIMP - Available at https://www.gimp.org/downloads/
+Jacoco version 0.8.10 - Available at https://www.eclemma.org/jacoco/
+CheckStyles version 10.4
