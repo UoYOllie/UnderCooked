@@ -159,7 +159,6 @@ public class Recipe {
         return null;
     }
 
-
     public static Array<FoodID> getCustomerRequestBubble(String request) {
 
         Array<FoodID> allItems = getRecipe(request).getStackCopy();
@@ -198,7 +197,6 @@ public class Recipe {
     public static String randomRecipe() {
          Random random = new Random();
          return recipeNames.get(random.nextInt(recipeNames.size));
-         //return ("Lettuce Tomato Onion Burger");
     }
 
     public static FoodStack getRecipe(String recipeName) {

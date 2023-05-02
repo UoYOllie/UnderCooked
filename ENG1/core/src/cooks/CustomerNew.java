@@ -156,6 +156,7 @@ public class CustomerNew extends GameEntity {
     public void Success(Station station) //Gets their dish, this is called
     {
         this.gameScreen.getCustomerController().removeCustomer(station);
+        gameScreen.getCustomerController().TotalCustomersServed++;
         this.gameScreen.Reputation.Positive();
         this.gameScreen.gold.addBalance(50);
         Leave();
@@ -168,7 +169,7 @@ public class CustomerNew extends GameEntity {
         this.customerStatus = 2;
         //Implement walk off
         //implement removement from array
-        gameScreen.getCustomerController().TotalCustomersServed++;
+        //gameScreen.getCustomerController().TotalCustomersServed++;
     }
 
     public void customerInteract(ArrayList<Station> mapStations) {
