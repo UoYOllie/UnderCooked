@@ -25,7 +25,7 @@ public class MovementTest {
 
     private Boot boot = Boot.getInstance();
     @Test
-    // Relates to the FR_MOVE requirement
+    // Relates to the FR_MOVE and UR_CHEF requirements
     public void TestChefMoveLeft(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -37,7 +37,7 @@ public class MovementTest {
     }
 
     @Test
-    // Relates to the FR_MOVE requirement
+    // Relates to the FR_MOVE and UR_CHEF requirements
     public void TestChefMoveUp() {
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -48,7 +48,7 @@ public class MovementTest {
         assertTrue(cook.getY() == final_move, "Error: moving up does not work properly");
     }
     @Test
-    // Relates to the FR_MOVE requirement
+    // Relates to the FR_MOVE and UR_CHEF requirements
     public void TestChefMoveUpLeft(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -63,7 +63,7 @@ public class MovementTest {
     }
 
     @Test
-    // Relates to the FR_MOVE requirement
+    // Relates to the FR_MOVE and UR_CHEF requirements
     public void TestChefMoveUpRight(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -78,7 +78,7 @@ public class MovementTest {
     }
 
     @Test
-    // Relates to the FR_MOVE requirement
+    // Relates to the FR_MOVE and UR_CHEF requirements
     public void TestChefMoveDownLeft(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -93,7 +93,7 @@ public class MovementTest {
     }
 
     @Test
-    // Relates to the FR_MOVE requirement
+    // Relates to the FR_MOVE and UR_CHEF requirements
     public void TestChefMoveDownRight(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -108,7 +108,7 @@ public class MovementTest {
     }
 
     @Test
-    // Relates to the FR_MOVE requirement
+    // Relates to the FR_MOVE and UR_CHEF requirements
     public void TestChefMoveRightUp(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -123,7 +123,7 @@ public class MovementTest {
     }
 
     @Test
-    // Relates to the FR_MOVE requirement
+    // Relates to the FR_MOVE and UR_CHEF requirements
     public void TestChefMoveRightDown(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -138,7 +138,7 @@ public class MovementTest {
     }
 
     @Test
-    // Relates to the FR_MOVE requirement
+    // Relates to the FR_MOVE and UR_CHEF requirements
     public void TestChefMoveLeftUp(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -153,7 +153,7 @@ public class MovementTest {
     }
 
     @Test
-    // Relates to the FR_MOVE requirement
+    // Relates to the FR_MOVE and UR_CHEF requirements
     public void TestChefMoveLeftDown(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -168,7 +168,7 @@ public class MovementTest {
     }
 
     @Test
-    // Relates to the FR_MOVE requirement
+    // Relates to the FR_MOVE and UR_CHEF requirements
     public void TestChefMoveDown(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -180,7 +180,7 @@ public class MovementTest {
     }
 
     @Test
-    // Relates to the FR_MOVE requirement
+    // Relates to the FR_MOVE and UR_CHEF requirements
     public void TestChefMoveRight(){
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -192,7 +192,7 @@ public class MovementTest {
     }
 
     @Test
-    // Relates to the FR_SWITCH_CHEF requirement
+    // Relates to the FR_SWITCH_CHEF and UR_CHEF requirements
     public void TestChefSwitch(){
         Gdx.gl20 = Gdx.gl;
         OrthographicCamera camera = new OrthographicCamera();
