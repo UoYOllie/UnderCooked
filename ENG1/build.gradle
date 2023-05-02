@@ -1,3 +1,4 @@
+
 buildscript {
 
 
@@ -13,6 +14,13 @@ buildscript {
 
     }
 }
+
+plugins {
+    id 'jacoco'
+    id 'checkstyle'
+}
+
+
 
 allprojects {
     apply plugin: "eclipse"
@@ -38,7 +46,26 @@ allprojects {
         maven { url "https://jitpack.io" }
     }
 
+    configurations {
+        checkstyleRules
+    }
+
+    dependencies {
+        checkstyleRules(
+                "com.puppycrawl.tools:checkstyle:10.4") {
+            transitive = false
+        }
+    }
+
+    checkstyle {
+        toolVersion '10.4'
+        config = resources.text.fromArchiveEntry(
+                configurations.checkstyleRules, 'google_checks.xml')
+    }
+
     apply plugin: "jacoco"
+    apply plugin: "checkstyle"
+
 }
 
 project(":core") {
