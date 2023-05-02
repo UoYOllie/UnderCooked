@@ -105,6 +105,8 @@ public class GameplayTests {
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
+
+    // The following 19 tests check that serving a specific recipe will result in the player's food stack emptying and it being accepted by the customer
     @Test
     // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerOnionTomatoSalad(){
@@ -136,7 +138,7 @@ public class GameplayTests {
         testStation.customerInteract(customerNew);
 
         assertTrue(cook.foodStack.size() == 0, "The cook food stack is not emptied after serving a request");
-        //We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if its correct
+        // We then test that the customer has taken the order. This will tell us if the game has registered the recipe as correct as the customer only picks it up if it's correct
         assertEquals(customerNew.dishStack.getStack(),finalCustomersExpectedRecipe,"Error: Customer has got the wrong items when served the correct dish");
 
         testStation.setTestFlag(0);
@@ -930,6 +932,7 @@ public class GameplayTests {
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
 
+    // The following test checks that a shop item can be bought and the money will be deducted from the player's gold
     // Relates to the FR_SPEND_MONEY requirement
     @Test
     public void TestBuyShopItem(){
@@ -942,6 +945,7 @@ public class GameplayTests {
         assertTrue(gold.Balance == 1);
     }
 
+    // The following test checks that using the speed powerup correctly changes the selected cook's movement speed
     // Relates to the FR_POWER_UPS requirements
     @Test
     public void TestSpeedPowerUp(){
@@ -958,6 +962,7 @@ public class GameplayTests {
         assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + 0.42f));
     }
 
+    // The following test checks that using more than one speed powerup increases the player's movement speed by the correct amount
     // Relates to the FR_POWER_UPS requirements
     @Test
     public void TestMultipleSpeedPowerUp(){
@@ -976,7 +981,8 @@ public class GameplayTests {
         assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + 0.84f));
     }
 
-    //The following tests the Hypnotise power up, relating to the FR_POWER_UPS requirement
+    // The following tests the Hypnotise power up, making sure it changes the customer's order
+    // Relates to the FR_POWER_UPS requirement
     @Test
     public void TestCustomerNewHypnotise(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
@@ -986,7 +992,8 @@ public class GameplayTests {
         assertFalse(customerNew.request.isEmpty(),"Error: Hypnotising a customer empties there request constructor");
     }
 
-    //The following tests another power up which forces the customer to wait longer, relating to the FR_POWER_UP requirement
+    //The following tests another power up which forces the customer to wait longer. It ensures the wait time is set to the correct amount
+    // Relates to the FR_POWER_UP requirement
     @Test
     public void TestCustomerHangOnYourFoodIsComing(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
@@ -995,7 +1002,8 @@ public class GameplayTests {
         assertEquals(customerNew.waittime, 300,"Error: Using the \"wait longer \" power up does not set the customers wait time to 300");
     }
 
-    //This tests the logic behind a customer leaving when being served, relating to the FR_CUSTOMER_WAIT requirement
+    //This tests the logic behind a customer leaving when being served
+    // Relates to the FR_CUSTOMER_WAIT requirement
     @Test
     public void TestCustomerNewServedCustomerLeave(){
         //Checking the if -> x > destination x
@@ -1011,7 +1019,8 @@ public class GameplayTests {
         assertEquals(customerNew.getCustomerStatus(), 1,"Error: CustomerNew's customerStatus is not being incremented correctly if x <= destination x");
     }
 
-    //The following tests make sure the bluggus power up, relating to the FR_POWER_UPS requirement
+    // The following tests make sure the bluggus power up correctly changes the player into bluggus
+    // Relates to the FR_POWER_UPS requirement
     @Test
     public void TestMakeIntoBluggus(){
         Cook cook = new Cook(1,2,3,4);
@@ -1020,6 +1029,7 @@ public class GameplayTests {
     }
 
     @Test
+    // This tests that items can be moved between two food stacks
     // Relates to the FR_STACK_DISPLAY requirement
     public void TestMoveStack(){
         //Testing moving foodStack2 moving items to foodStack1

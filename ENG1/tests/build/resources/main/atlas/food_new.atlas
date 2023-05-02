@@ -202,8 +202,8 @@ pizza
   index: -1
 burger
   rotate: false
-  xy: 232, 18
-  size: 16, 16
+  xy: 232, 10
+  size: 16, 24
   orig: 16, 16
   offset: 0, 0
   index: -1
