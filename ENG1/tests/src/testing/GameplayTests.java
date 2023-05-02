@@ -638,7 +638,7 @@ public class GameplayTests {
         testList.add(testStation.getRectangle());
 
         Cook cook = new Cook(1500, 1200, 20, 20);
-        cook.foodStack.addStack(FoodItem.FoodID.bakedBeans);
+        cook.foodStack.addStack(FoodItem.FoodID.beansCooked);
         cook.foodStack.addStack(FoodItem.FoodID.potatoCook);
         cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
         cook.foodStack.clearStack();
@@ -750,7 +750,7 @@ public class GameplayTests {
 
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.cheese);
-        cook.foodStack.addStack(FoodItem.FoodID.bakedBeans);
+        cook.foodStack.addStack(FoodItem.FoodID.beansCooked);
         cook.foodStack.addStack(FoodItem.FoodID.potatoCook);
         cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
         cook.foodStack.clearStack();
@@ -788,7 +788,7 @@ public class GameplayTests {
 
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.coleslaw);
-        cook.foodStack.addStack(FoodItem.FoodID.bakedBeans);
+        cook.foodStack.addStack(FoodItem.FoodID.beansCooked);
         cook.foodStack.addStack(FoodItem.FoodID.potatoCook);
         cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
         cook.foodStack.clearStack();
@@ -866,7 +866,7 @@ public class GameplayTests {
 
         Cook cook = new Cook(1500, 1200, 20, 20);
         cook.foodStack.addStack(FoodItem.FoodID.coleslaw);
-        cook.foodStack.addStack(FoodItem.FoodID.bakedBeans);
+        cook.foodStack.addStack(FoodItem.FoodID.beansCooked);
         cook.foodStack.addStack(FoodItem.FoodID.potatoCook);
         assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
         assemblyStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
@@ -955,7 +955,7 @@ public class GameplayTests {
         keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         cook.userInput(testList);
-        assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + 0.42f));
+        assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + 0.21f));
     }
 
     // Relates to the FR_POWER_UPS requirements
@@ -967,13 +967,13 @@ public class GameplayTests {
         SpeedPowerup speedPowerup = new SpeedPowerup(rectangle);
         ArrayList<Rectangle> testList = new ArrayList<>();
         speedPowerup.setSpeed(cook);
-        assertEquals(StartMovement + 0.42f,cook.movement_speed,"ERROR: The speed power up isn't changing the default movement speed of the chef");
+        assertEquals(StartMovement + 0.21f,cook.movement_speed,"ERROR: The speed power up isn't changing the default movement speed of the chef");
         speedPowerup.setSpeed(cook);
-        assertEquals(StartMovement + 0.84f,cook.movement_speed,"ERROR: Using multiple speed powerups doesn't change the chef's movement speed to the correct value");
+        assertEquals(StartMovement + 0.42f,cook.movement_speed,"ERROR: Using multiple speed powerups doesn't change the chef's movement speed to the correct value");
         keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         cook.userInput(testList);
-        assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + 0.84f));
+        assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + 0.42f));
     }
 
     //The following tests the Hypnotise power up, relating to the FR_POWER_UPS requirement
