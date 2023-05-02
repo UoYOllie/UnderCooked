@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.MenuTests" tests="2" skipped="0" failures="2" errors="0" timestamp="2023-05-02T21:40:31" hostname="DESKTOP-8SNM91F" time="5.303">
+<testsuite name="testing.MenuTests" tests="2" skipped="0" failures="2" errors="0" timestamp="2023-05-02T21:47:48" hostname="Morgans-MacBook-Pro-2.local" time="6.31">
   <properties/>
-  <testcase name="testStartEndlessGame" classname="testing.MenuTests" time="2.902">
+  <testcase name="testStartEndlessGame" classname="testing.MenuTests" time="3.733">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -9,8 +9,8 @@
 	at com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer.&lt;init&gt;(BatchTiledMapRenderer.java:102)
 	at game.SuperMapSuperRenderer.&lt;init&gt;(SuperMapSuperRenderer.java:44)
 	at helper.MapHelper.setupMap(MapHelper.java:59)
-	at game.GameScreen.&lt;init&gt;(GameScreen.java:176)
-	at game.ScreenController.&lt;init&gt;(ScreenController.java:47)
+	at game.GameScreen.&lt;init&gt;(GameScreen.java:151)
+	at game.ScreenController.&lt;init&gt;(ScreenController.java:46)
 	at testing.MenuTests.testStartEndlessGame(MenuTests.java:25)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -29,7 +29,7 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <testcase name="testCreditsMenu" classname="testing.MenuTests" time="2.384">
+  <testcase name="testCreditsMenu" classname="testing.MenuTests" time="2.556">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -37,8 +37,8 @@
 	at com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer.&lt;init&gt;(BatchTiledMapRenderer.java:102)
 	at game.SuperMapSuperRenderer.&lt;init&gt;(SuperMapSuperRenderer.java:44)
 	at helper.MapHelper.setupMap(MapHelper.java:59)
-	at game.GameScreen.&lt;init&gt;(GameScreen.java:176)
-	at game.ScreenController.&lt;init&gt;(ScreenController.java:47)
+	at game.GameScreen.&lt;init&gt;(GameScreen.java:151)
+	at game.ScreenController.&lt;init&gt;(ScreenController.java:46)
 	at testing.MenuTests.testCreditsMenu(MenuTests.java:37)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -57,9 +57,7 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <system-out><![CDATA[Initalising Gamescreen
-game.GameScreen@6b076340
-power pantry is generated
+  <system-out><![CDATA[power pantry is generated
 Setting to teacup
 teacup
 power pantry is generated
@@ -116,8 +114,6 @@ potato
 pantry is generated
 Setting to bakedBeans
 bakedBeans
-Initalising Gamescreen
-game.GameScreen@11d9f39f
 power pantry is generated
 Setting to teacup
 teacup

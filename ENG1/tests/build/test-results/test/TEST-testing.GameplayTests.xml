@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.GameplayTests" tests="31" skipped="0" failures="1" errors="0" timestamp="2023-05-02T21:40:29" hostname="DESKTOP-8SNM91F" time="0.498">
+<testsuite name="testing.GameplayTests" tests="31" skipped="0" failures="1" errors="0" timestamp="2023-05-02T21:47:47" hostname="Morgans-MacBook-Pro-2.local" time="0.543">
   <properties/>
-  <testcase name="TestCustomerHangOnYourFoodIsComing" classname="testing.GameplayTests" time="0.007"/>
-  <testcase name="TestServingStationServeCustomerColeslawCheesePotato" classname="testing.GameplayTests" time="0.003"/>
-  <testcase name="TestMoveStack" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestCustomerHangOnYourFoodIsComing" classname="testing.GameplayTests" time="0.039"/>
+  <testcase name="TestServingStationServeCustomerColeslawCheesePotato" classname="testing.GameplayTests" time="0.004"/>
+  <testcase name="TestMoveStack" classname="testing.GameplayTests" time="0.001"/>
   <testcase name="TestServingStationServeCustomerTomatoBurger" classname="testing.GameplayTests" time="0.002"/>
   <testcase name="TestServingStationServeCustomerPlainPizza" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerLettuceBurger" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerBeansColeslawCheesePotato" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerLettuceTomatoOnionBurger" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestMultipleSpeedPowerUp" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerBeansColeslawCheesePotato" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerLettuceTomatoOnionBurger" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestMultipleSpeedPowerUp" classname="testing.GameplayTests" time="0.002"/>
   <testcase name="TestMakeIntoBluggus" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerLettuceOnionSalad" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerPlainBurger" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerLettuceTomatoBurger" classname="testing.GameplayTests" time="0.002"/>
-  <testcase name="TestServingStationServesMultipleCustomers" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationDoesNotAcceptWrongRecipes" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerColeslawPotato" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerLettuceTomatoBurger" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServesMultipleCustomers" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationDoesNotAcceptWrongRecipes" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerColeslawPotato" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerPlainPotato" classname="testing.GameplayTests" time="0.001"/>
   <testcase name="TestRepPoints" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerBeansColeslawPotato" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerBeansColeslawPotato" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestCustomerNewServedCustomerLeave" classname="testing.GameplayTests" time="0.0">
     <failure message="java.lang.AssertionError: Error: CustomerNew's servedCustomerLeaves is not updating the x position correctly expected [0.875] but found [1.125]" type="java.lang.AssertionError">java.lang.AssertionError: Error: CustomerNew's servedCustomerLeaves is not updating the x position correctly expected [0.875] but found [1.125]
 	at org.testng.Assert.fail(Assert.java:97)
@@ -43,69 +43,69 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <testcase name="TestServingStationServeCustomerBeansPotato" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerBeansPotato" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerLettuceOnionBurger" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestBuyShopItem" classname="testing.GameplayTests" time="0.002"/>
-  <testcase name="TestServingStationServeCustomerTomatoOnionBurger" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerLettuceTomatoSalad" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerBeansCheesePotato" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestBuyShopItem" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerTomatoOnionBurger" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerLettuceTomatoSalad" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerBeansCheesePotato" classname="testing.GameplayTests" time="0.001"/>
   <testcase name="TestCustomerNewHypnotise" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerOnionBurger" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerOnionBurger" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerOnionTomatoSalad" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestSpeedPowerUp" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerCheesePotato" classname="testing.GameplayTests" time="0.001"/>
-  <system-out><![CDATA[cooks.CustomerNew@4cdea609 moving to point B------null------ (1.0,2.0)
-cooks.CustomerNew@14f2ef05 moving to point B------null------ (187.5,150.0)
+  <testcase name="TestServingStationServeCustomerCheesePotato" classname="testing.GameplayTests" time="0.0"/>
+  <system-out><![CDATA[cooks.CustomerNew@239e3033 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@2f111f2f moving to point B------null------ (187.5,150.0)
 This was correct for me
 peek
 peek
 peek
 peek
-cooks.CustomerNew@1436a01f moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@6fc724dc moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@2b759091 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@1e61a2d0 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@7bd848b2 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@f6130cb moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@673adeac moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@7aced63d moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@3ec338cf moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@7f9afa28 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@386ad55c moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@7c77988c moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@65f48acb moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@4eea3b0a moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@6d9b31d9 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@5c78abed moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@5264d130 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@2aee1ffc moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@3cca2e15 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@6a9d51d5 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@7da95995 moving to point B------null------ (187.5,150.0)
-cooks.CustomerNew@50c62461 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@36c51ced moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@47b98569 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@6714aa1d moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@62008d1b moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@7d9cfed0 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@733be279 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@10937f4a moving to point B------null------ (1.0,2.0)
-cooks.CustomerNew@10937f4a moving to point A------(0.0,2913.0)------ (1.0,2.0)
-cooks.CustomerNew@3fcd3187 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@14cccf8 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@14cccf8 moving to point A------(0.0,2913.0)------ (1.0,2.0)
+cooks.CustomerNew@7b956eb0 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@57c4488d moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@40776d86 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@6534fbe9 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@206f1f22 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@ad9fb0a moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@57d5f95b moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@7cb12d00 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@267664c5 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@662090e3 moving to point B------null------ (1.0,2.0)
-cooks.CustomerNew@2489c47d moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@7cc6901 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@5f02f0d5 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@61cd6a4d moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@2765c54f moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.CustomerNew@14e19259 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@32a0dd2a moving to point B------null------ (187.5,150.0)
 This was correct for me
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

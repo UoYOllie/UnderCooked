@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.CollisionTests" tests="12" skipped="0" failures="0" errors="0" timestamp="2023-05-02T21:40:28" hostname="DESKTOP-8SNM91F" time="0.305">
+<testsuite name="testing.CollisionTests" tests="12" skipped="0" failures="0" errors="0" timestamp="2023-05-02T21:47:57" hostname="Morgans-MacBook-Pro-2.local" time="0.252">
   <properties/>
-  <testcase name="TestChefMoveSlideLeftDown" classname="testing.CollisionTests" time="0.12"/>
+  <testcase name="TestChefMoveSlideLeftDown" classname="testing.CollisionTests" time="0.065"/>
   <testcase name="TestChefMoveSlideUpLeft" classname="testing.CollisionTests" time="0.0"/>
-  <testcase name="TestChefMoveUpCollision" classname="testing.CollisionTests" time="0.0"/>
+  <testcase name="TestChefMoveUpCollision" classname="testing.CollisionTests" time="0.001"/>
   <testcase name="TestChefMoveSlideUpRight" classname="testing.CollisionTests" time="0.001"/>
-  <testcase name="TestChefMoveSlideRightUp" classname="testing.CollisionTests" time="0.0"/>
+  <testcase name="TestChefMoveSlideRightUp" classname="testing.CollisionTests" time="0.001"/>
   <testcase name="TestChefMoveSlideDownRight" classname="testing.CollisionTests" time="0.0"/>
-  <testcase name="TestChefMoveRightCollision" classname="testing.CollisionTests" time="0.001"/>
+  <testcase name="TestChefMoveRightCollision" classname="testing.CollisionTests" time="0.0"/>
   <testcase name="TestChefMoveLeftCollision" classname="testing.CollisionTests" time="0.0"/>
   <testcase name="TestChefMoveDownCollision" classname="testing.CollisionTests" time="0.0"/>
-  <testcase name="TestChefMoveSlideRightDown" classname="testing.CollisionTests" time="0.001"/>
+  <testcase name="TestChefMoveSlideRightDown" classname="testing.CollisionTests" time="0.0"/>
   <testcase name="TestChefMoveSlideDownLeft" classname="testing.CollisionTests" time="0.0"/>
-  <testcase name="TestChefMoveSlideLeftUp" classname="testing.CollisionTests" time="0.0"/>
+  <testcase name="TestChefMoveSlideLeftUp" classname="testing.CollisionTests" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
