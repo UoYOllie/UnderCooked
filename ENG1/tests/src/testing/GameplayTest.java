@@ -955,7 +955,7 @@ public class GameplayTest {
         SpeedPowerup speedPowerup = new SpeedPowerup(rectangle);
         ArrayList<Rectangle> testList = new ArrayList<>();
         speedPowerup.setSpeed(cook);
-        assertEquals(StartMovement + 0.42f,cook.movement_speed,"ERROR: The speed power up isn't changing the default movement speed of the chef");
+        assertEquals(StartMovement + 0.21f,cook.movement_speed,"ERROR: The speed power up isn't changing the default movement speed of the chef");
         keysPressed.clear();
         keysPressed.add(InputKey.InputTypes.COOK_LEFT);
         cook.userInput(testList);

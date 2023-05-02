@@ -16,7 +16,7 @@ public class Constants {
     /** The ViewPort / Window Height. */
     public static final int V_Height = 640;
 
-    /** The {@link customers.Customer} default spawn position */
+    /** The {Customer} default spawn position */
     public static final Vector2 customerSpawn= new Vector2(2012.0625f, 2855.9087f);
     /** The location that the {@link food.Recipe} being checked is rendered. */
     public static final float RECIPE_X = 928F, RECIPE_Y = 608F;
@@ -34,7 +34,7 @@ public class Constants {
     public static final Vector2 customerPointA = new Vector2 (1978.075f, 2915.9f);
     public static final Vector2 customerPointB = new Vector2 (1978.075f, 2913f);
     public static final Vector2 customerPointC = new Vector2 (1939f, 2913f);
-    public static final Vector2 customerPointD = new Vector2 (19394f, 2872f);
+    public static final Vector2 customerPointD = new Vector2 (1939.4f, 2872f);
     public static final Vector2 customerPointE = new Vector2 (1915f, 2872f);
     public static final Vector2 customerPointF = new Vector2 (1915f, 2817.9171f);
 

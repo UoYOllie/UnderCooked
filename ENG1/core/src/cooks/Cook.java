@@ -259,7 +259,12 @@ public class Cook extends GameEntity {
 //        if (foodStack.size() > 0 || dishStack.size() >0) {
 //            spriteName += "h";
 //        }
-        sprite = gameSprites.getSprite(GameSprites.SpriteID.COOK, spriteName + dir);
+        if (activateBluggus){
+            sprite = gameSprites.getSprite(GameSprites.SpriteID.BLUGGUS, spriteName + dir);
+        } else {
+            sprite = gameSprites.getSprite(GameSprites.SpriteID.COOK, spriteName + dir);
+        }
+
     }
 
     /**
@@ -271,6 +276,11 @@ public class Cook extends GameEntity {
         setSprite();
         sprite.setPosition(x-width/8-0.5f,y-height/8); // -2.5 for a similar reason to the below one
         this.sprite.setSize(5,8);
+
+        if (activateBluggus){
+            this.sprite.setSize(16,11);
+            sprite.setPosition(x-width/8-5.5f,y-height/8);
+        }
 
         // If the cook is looking anywhere but down, draw the food first
         if (dir != Facing.DOWN) {
