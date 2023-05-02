@@ -64,7 +64,7 @@ public class CustomerNew extends GameEntity {
 
     /** The Constructor for CustomerNew. */
     public CustomerNew(float x, float y, float width, float height) {
-        super(x, y, width, height);
+        super(x, y, width, height);//
         String offtopoint = "A";
         this.sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "customer_bluggus");
         this.bubbleSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "speech_bubble");
