@@ -123,6 +123,13 @@ public class PreparationStation extends Station {
             renderLock.setPosition(x - 1/3f * renderLock.getWidth(),y - 0.354f * renderLock.getHeight());
             renderLock.draw(batch);
         }
+        if (stationFoodStack.size() == 1 && stationFoodStack.getStack().get(0) == FoodItem.FoodID.waste) {
+            Sprite renderWaste = gameSprites.getSprite(GameSprites.SpriteID.FOOD, "waste");
+            renderWaste.setScale(Constants.UnitScale);
+            renderWaste.setPosition(x - 1/3f * renderWaste.getWidth(),y - 0.354f * renderWaste.getHeight());
+            renderWaste.draw(batch);
+        }
+
         if (inUse) {
             Sprite renderItem;
             if (progress < 100) {
@@ -233,6 +240,8 @@ public class PreparationStation extends Station {
                 Interactions.InteractionResult newInteraction = interactions.Interactions.interaction(cook.foodStack.peekStack(), stationID);
                 // If it's null, just stop here.
                 if (newInteraction == null) {
+                    cook.foodStack.popStack();
+                    this.stationFoodStack.addStack(FoodItem.FoodID.waste);
                     return;
                 }
 
