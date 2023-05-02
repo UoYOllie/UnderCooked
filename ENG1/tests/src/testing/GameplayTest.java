@@ -1110,7 +1110,7 @@ public class GameplayTest {
 
     //The following tests the Hypnotise power up, relating to the FR_POWER_UPS requirement
     @Test
-    public void testCustomerNewHypnotise(){
+    public void TestCustomerNewHypnotise(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
         customerNew.request = ("Plain Burger");
         customerNew.Hypnotise();
@@ -1120,7 +1120,7 @@ public class GameplayTest {
 
     //The following tests another power up which forces the customer to wait longer, relating to the FR_POWER_UP requirement
     @Test
-    public void testCustomerHangOnYourFoodIsComing(){
+    public void TestCustomerHangOnYourFoodIsComing(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
         customerNew.waittime = 10;
         customerNew.HangOnYourFoodIsComing();
@@ -1129,7 +1129,7 @@ public class GameplayTest {
 
     //This tests the logic behind a customer leaving when being served, relating to the FR_CUSTOMER_WAIT requirement
     @Test
-    public void testCustomerNewServedCustomerLeave(){
+    public void TestCustomerNewServedCustomerLeave(){
         //Checking the if -> x > destination x
         CustomerNew customerNew = new CustomerNew(1,2,3,4);
         customerNew.destination.x = 0;
@@ -1145,7 +1145,7 @@ public class GameplayTest {
 
     //The following tests make sure the bluggus power up, relating to the FR_POWER_UPS requirement
     @Test
-    public void testMakeIntoBluggus(){
+    public void TestMakeIntoBluggus(){
         Cook cook = new Cook(1,2,3,4);
         cook.MakeIntoBluggus();
         assertEquals(cook.activateBluggus,true,"Error: Bluggus power up does not change you into bluggus");
@@ -1153,7 +1153,7 @@ public class GameplayTest {
 
     @Test
     // Relates to the FR_STACK_DISPLAY requirement
-    public void testMoveStack(){
+    public void TestMoveStack(){
         //Testing moving foodStack2 moving items to foodStack1
         Cook cook = new Cook(1,2,3,4);
         cook.MakeIntoBluggus();

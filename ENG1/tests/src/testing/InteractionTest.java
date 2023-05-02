@@ -169,7 +169,7 @@ public class InteractionTest {
 
     @Test
     // Relates to the FR_USE_STATION and FR_INTERACTION requirements
-    public void TestPreparationStationSetsStatetoFinished(){
+    public void TestPreparationStationSetsStateToFinished(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
         testStation.SetTestFlag(1);
@@ -364,7 +364,7 @@ public class InteractionTest {
 
     @Test
     // Relates to the FR_GET_FOOD requirement
-    public void TestUsePantryandLettuceChop(){
+    public void TestUsePantryAndLettuceChop(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.lettuceChop);
