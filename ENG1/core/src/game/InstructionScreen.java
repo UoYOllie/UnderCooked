@@ -60,7 +60,9 @@ public class InstructionScreen extends ScreenAdapter {
                 String.format("The bin allows you to dispose of items you no longer need.",
                         Interactions.getKeyString(InputKey.InputTypes.USE),
                         Interactions.getKeyString(InputKey.InputTypes.PUT_DOWN)),
-                "",
+                "RECIPES:-",
+                "Plain Salad- chop lettuce and bring it to the assembly station and serve the customer.",
+
                 "POWERUPS:-",
                 "Speed- makes the cook you control move faster.",
                 "Teacup- Increases the customer's wait time.",
