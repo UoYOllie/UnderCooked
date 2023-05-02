@@ -107,15 +107,15 @@ These classes were not present in our initial UML in any form. This class is an 
 ### Addition 6: Customers
 ![Customers UML](https://raw.githubusercontent.com/undercooked-team/UnderCooked/main/ENG1/SUBMITTABLES/Architecture/customers.png)
 
-These classes were also not present in our initial UML, and we realised this a while ago too, that we need customers to allow for the gameplay specified in the User Requirements. However, this was also the last thing we added since all the other classes above can be tested with each other without needing customers.
+These classes were also not present in our initial UML, and we realised this a while ago too, that we need reputation to allow for the gameplay specified in the User Requirements. However, this was also the last thing we added since all the other classes above can be tested with each other without needing reputation.
 - **Customer** is similar to **Cook**, in that it holds cruical information about the customer, like the recipe/request they want.
-- **CustomerController** is a new class dedicated to controlling the flow of customers into the restaurant.
+- **CustomerController** is a new class dedicated to controlling the flow of reputation into the restaurant.
   
 ### Addition 7: Helper
 ![Helper UML](https://raw.githubusercontent.com/undercooked-team/UnderCooked/main/ENG1/SUBMITTABLES/Architecture/helper.png)
   
 - **Hud** is a superclass which easily allows for the addition of information on the screen during gameplay.
-- **GameHud** displays the number of customers remaining, as well as a time taken to complete the task.
+- **GameHud** displays the number of reputation remaining, as well as a time taken to complete the task.
 - **InstructionHud** displays the controls during gameplay, so the cook always has a guide to tell them what to do next.
 - None of the other Helper classes were orignally added into the initial UML, as none of them directly correlated to a user requirement. Rather, these classes were gradually added throughout development to allow for other classes to function properly, letting the other classes complete their assigned user requirement.
 - **Constants** simply contained some global values.

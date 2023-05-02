@@ -3394,7 +3394,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGGCfaaSaYOmJk="
 					},
-					"name": "customers",
+					"name": "reputation",
 					"ownedElements": [
 						{
 							"_type": "UMLClass",
@@ -3696,7 +3696,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGGCfadiKaIY68="
 									},
-									"name": "customers",
+									"name": "reputation",
 									"documentation": "An {@link Array} of {@link Customer}s currently waiting.",
 									"visibility": "private"
 								},
@@ -4024,7 +4024,7 @@
 										"$ref": "AAAAAAGGCfadiKaIY68="
 									},
 									"name": "clearServingStations",
-									"documentation": "if (customers.size == 0) {\r\n            if (TimeUtils.timeSinceMillis(gameScreen.getNextCustomerSecond()) > 2000) {\r\n                gameScreen.setNextCustomerSecond(TimeUtils.millis() + 2000);\r\n            }\r\n        }\nClears the {@link Array} of {@link ServingStation}. Should\nbe called when the game is reset.",
+									"documentation": "if (reputation.size == 0) {\r\n            if (TimeUtils.timeSinceMillis(gameScreen.getNextCustomerSecond()) > 2000) {\r\n                gameScreen.setNextCustomerSecond(TimeUtils.millis() + 2000);\r\n            }\r\n        }\nClears the {@link Array} of {@link ServingStation}. Should\nbe called when the game is reset.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -4100,7 +4100,7 @@
 													"font": "Arial;13;0",
 													"width": 98.22998046875,
 													"height": 13,
-													"text": "(from customers)"
+													"text": "(from reputation)"
 												},
 												{
 													"_type": "LabelView",
@@ -4440,7 +4440,7 @@
 													"font": "Arial;13;0",
 													"width": 98.22998046875,
 													"height": 13,
-													"text": "(from customers)"
+													"text": "(from reputation)"
 												},
 												{
 													"_type": "LabelView",
@@ -4496,7 +4496,7 @@
 													"top": 50,
 													"width": 290.80517578125,
 													"height": 13,
-													"text": "-customers",
+													"text": "-reputation",
 													"horizontalAlignment": 0
 												},
 												{
@@ -8638,7 +8638,7 @@
 										"$ref": "AAAAAAGGCfahJ6cd3tg="
 									},
 									"name": "getCustomerCount",
-									"documentation": "Returns the number of customers remaining before the game is finished.\n@return {@code int} : The value of {@link CustomerController#getCustomersLeft()}.",
+									"documentation": "Returns the number of reputation remaining before the game is finished.\n@return {@code int} : The value of {@link CustomerController#getCustomersLeft()}.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -8879,7 +8879,7 @@
 										"$ref": "AAAAAAGGCfahJ6cd3tg="
 									},
 									"name": "startGame",
-									"documentation": "A variable for setting up the game when it starts.\n@param customers The number of customers that need to be\nserved in the game to finish.",
+									"documentation": "A variable for setting up the game when it starts.\n@param reputation The number of reputation that need to be\nserved in the game to finish.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -8887,7 +8887,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGGCfahLqdVBS0="
 											},
-											"name": "customers",
+											"name": "reputation",
 											"type": "int"
 										},
 										{
@@ -9010,7 +9010,7 @@
 												"$ref": "AAAAAAGGCfahdadf72Q="
 											},
 											"name": "CUSTOMER",
-											"documentation": "The {@link customers.Customer}'s {@link TextureAtlas}."
+											"documentation": "The {@link reputation.Customer}'s {@link TextureAtlas}."
 										}
 									]
 								},
@@ -12828,7 +12828,7 @@
 													"top": 1220,
 													"width": 421.5986328125,
 													"height": 13,
-													"text": "+startGame(customers: int): void",
+													"text": "+startGame(reputation: int): void",
 													"horizontalAlignment": 0
 												},
 												{
@@ -19044,7 +19044,7 @@
 										"$ref": "AAAAAAGGCfajrafO6TI="
 									},
 									"name": "customerSpawn",
-									"documentation": "The {@link customers.Customer} default spawn position",
+									"documentation": "The {@link reputation.Customer} default spawn position",
 									"isStatic": true,
 									"isLeaf": true,
 									"isReadOnly": true
@@ -19366,7 +19366,7 @@
 										"$ref": "AAAAAAGGCfaj8qfPGQI="
 									},
 									"name": "render",
-									"documentation": "Renders both the {@link Hud} with the game information and\nthe {@link Recipe} required the {@link customers.Customer} selected.\n<br>The {@link Recipe} displays on the right side of the screen.",
+									"documentation": "Renders both the {@link Hud} with the game information and\nthe {@link Recipe} required the {@link reputation.Customer} selected.\n<br>The {@link Recipe} displays on the right side of the screen.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -26538,7 +26538,7 @@
 									}
 								}
 							],
-							"documentation": "The {@link ServingStation} class, where the {@link cooks.Cook} provide\nthe {@link customers.Customer}s with their orders.",
+							"documentation": "The {@link ServingStation} class, where the {@link cooks.Cook} provide\nthe {@link reputation.Customer}s with their orders.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -26920,7 +26920,7 @@
 												"$ref": "AAAAAAGGCfan4KjGP8A="
 											},
 											"name": "serving",
-											"documentation": "{@link ServingStation} that allows {@link Cook}s to serve {@link customers.Customer}s."
+											"documentation": "{@link ServingStation} that allows {@link Cook}s to serve {@link reputation.Customer}s."
 										},
 										{
 											"_type": "UMLEnumerationLiteral",
@@ -30159,7 +30159,7 @@
 											"top": 42,
 											"width": 65.7490234375,
 											"height": 13,
-											"text": "customers"
+											"text": "reputation"
 										},
 										{
 											"_type": "LabelView",
@@ -32378,7 +32378,7 @@
 											"font": "Arial;13;0",
 											"width": 98.22998046875,
 											"height": 13,
-											"text": "(from customers)"
+											"text": "(from reputation)"
 										},
 										{
 											"_type": "LabelView",
@@ -32719,7 +32719,7 @@
 											"font": "Arial;13;0",
 											"width": 98.22998046875,
 											"height": 13,
-											"text": "(from customers)"
+											"text": "(from reputation)"
 										},
 										{
 											"_type": "LabelView",
@@ -32775,7 +32775,7 @@
 											"top": 5,
 											"width": 161.8525390625,
 											"height": 13,
-											"text": "-customers",
+											"text": "-reputation",
 											"horizontalAlignment": 0
 										},
 										{
@@ -36406,7 +36406,7 @@
 											"top": 276.5,
 											"width": 550.20849609375,
 											"height": 13,
-											"text": "+startGame(customers: int): void",
+											"text": "+startGame(reputation: int): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -73735,7 +73735,7 @@
 											"top": 46.5,
 											"width": 65.7490234375,
 											"height": 13,
-											"text": "customers"
+											"text": "reputation"
 										},
 										{
 											"_type": "LabelView",

@@ -1,5 +1,5 @@
 //DC
-package customers;
+package reputation;
 
 public class RepPoints {
     private int Points;

@@ -19,7 +19,7 @@ cooks/normal left.png
 cooks/normal right.png
 cooks/normal up.png
 cooks/testdummy.png
-customers/Customer.png
+reputation/Customer.png
 foods/BottomBun.png
 foods/Burger.png
 foods/Burger_Buns.png
