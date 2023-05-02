@@ -26,9 +26,11 @@ import static org.testng.Assert.*;
 @RunWith(GdxTestRunner.class)
 public class GameplayTest {
 
-    //The following 2 tests are for robustness. The first tests that servingStations are multi-use. The second tests that failing recipes work
+    // The following 2 tests are for robustness. The first tests that servingStations are multi-use. The second tests that failing recipes work
+    // All of them relate to the UR_GAMEPLAY requirement
+
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServesMultipleCustomers(){
         //First we test the servingStation is cleared after the customer interacts with a correct recipe. We will use this to make sure the customer is finished with the station and then test with a separate customer and different order
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -71,7 +73,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE requirement
+    // Relates to the FR_SERVE, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationDoesNotAcceptWrongRecipes(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -108,7 +110,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerOnionTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -146,7 +148,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerLettuceTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -183,7 +185,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerLettuceOnionSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -220,7 +222,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerPlainBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -258,7 +260,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerLettuceBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -304,7 +306,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -350,7 +352,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -395,7 +397,7 @@ public class GameplayTest {
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerLettuceTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -443,7 +445,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerLettuceOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -491,7 +493,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -539,7 +541,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerLettuceTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -589,7 +591,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerPlainPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -625,7 +627,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerBeansPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -662,7 +664,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerColeslawPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -699,7 +701,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -736,7 +738,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerBeansCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -774,7 +776,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerBeansColeslawPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -812,7 +814,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerColeslawCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -849,7 +851,7 @@ public class GameplayTest {
         assertEquals(testStation.getTestFlag(),0,"Error: Serving Station's test flag is not returned to 0 after testing is finished");
     }
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerBeansColeslawCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
@@ -895,7 +897,7 @@ public class GameplayTest {
     }
 
     @Test
-    // Relates to the FR_SERVE_CHECK requirement
+    // Relates to the FR_SERVE_CHECK, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestServingStationServeCustomerPlainPizza(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ServingStation testStation = new ServingStation(rectangle);
