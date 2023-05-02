@@ -24,7 +24,6 @@ public class GameSprites {
         /** The {@link food.FoodItem}'s {@link TextureAtlas}.*/
         FOOD,
         /** The {@link stations.Station}'s and {@link stations.Pantry}'s {@link TextureAtlas}.*/
-        STATION,
 
         CUSTOMER,
 
@@ -38,9 +37,8 @@ public class GameSprites {
     public static final HashMap<SpriteID, TextureAtlas> textureAtlases = new HashMap<>();
     static {
         textureAtlases.put(SpriteID.COOK, new TextureAtlas("atlas/player.atlas"));
-        textureAtlases.put(SpriteID.FOOD, new TextureAtlas("atlas/food_new.atlas"));
-        textureAtlases.put(SpriteID.STATION, new TextureAtlas("atlas/station.atlas"));
-        textureAtlases.put(SpriteID.CUSTOMER, new TextureAtlas("atlas/customer_bluggus.atlas"));
+        textureAtlases.put(SpriteID.FOOD, new TextureAtlas("atlas/food.atlas"));
+        textureAtlases.put(SpriteID.CUSTOMER, new TextureAtlas("atlas/customer.atlas"));
         textureAtlases.put(SpriteID.BLUGGUS, new TextureAtlas("atlas/bluggus.atlas"));
     }
 
