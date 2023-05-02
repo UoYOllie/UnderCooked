@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testing.GeneralTest" tests="38" skipped="0" failures="3" errors="0" timestamp="2023-05-02T01:39:34" hostname="DESKTOP-06RIULD" time="0.617">
+  <properties/>
+  <testcase name="testsgetMapStations" classname="testing.GeneralTest" time="0.003"/>
+  <testcase name="TestCookUserInteract" classname="testing.GeneralTest" time="0.0">
+    <failure message="java.lang.AssertionError: expected [0] but found [1]" type="java.lang.AssertionError">java.lang.AssertionError: expected [0] but found [1]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at org.testng.Assert.assertEquals(Assert.java:849)
+	at testing.GeneralTest.TestCookUserInteract(GeneralTest.java:330)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <testcase name="TestHoldItems" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="testCustomerNewSetCustomerPoints" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="TestGoldAddBalance" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="TestFoodStackPeekStackCatchIndexOutOfBounds" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="testCookInteractorCheckCollision" classname="testing.GeneralTest" time="0.004">
+    <failure message="java.lang.NullPointerException: Cannot invoke &quot;game.GameScreen.getInteractables()&quot; because &quot;this.gameScreen&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;game.GameScreen.getInteractables()&quot; because &quot;this.gameScreen&quot; is null
+	at helper.CollisionHelper.stationCollisions(CollisionHelper.java:63)
+	at helper.CollisionHelper.getInteract(CollisionHelper.java:87)
+	at cooks.CookInteractor.checkCollisions(CookInteractor.java:118)
+	at testing.GeneralTest.testCookInteractorCheckCollision(GeneralTest.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <testcase name="testCustomerNewMoveLeftDown" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="testCustomerNewGetX" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="testCustomerNewGetY" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="testCustomerNewEnterCustomer" classname="testing.GeneralTest" time="0.002">
+    <failure message="java.lang.AssertionError: expected [1] but found [0]" type="java.lang.AssertionError">java.lang.AssertionError: expected [1] but found [0]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at org.testng.Assert.assertEquals(Assert.java:849)
+	at testing.GeneralTest.testCustomerNewEnterCustomer(GeneralTest.java:566)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <testcase name="TestCookRotate90C" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="testSetDestination" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="TestGetBlocked" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="testDecreasePatience" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="TestGoldGetInstance" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="testServingStationCustomerInteract" classname="testing.GeneralTest" time="0.004"/>
+  <testcase name="testCustomerNewCustomerInteract" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="TestFoodStackSetStack" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="testCookInteractorRelativeX" classname="testing.GeneralTest" time="0.002"/>
+  <testcase name="testCookInteractorRelativeY" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="testUpdatePosition" classname="testing.GeneralTest" time="0.002"/>
+  <testcase name="TestCookSetColour" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="TestCookUpdate" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="testSetStationPosition" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="TestChefFoodRelativeX" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="TestChefFoodRelativeY" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="testCookInteractorUpdatePosition" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="TestGetInputKey" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="testsgetServingStationList" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="TestFoodStackPopStackCatchIndexOutOfBounds" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="TestFoodStackToString" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="testsgetMapObstacles" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="TestGoldSetandGetBalance" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="testCustomerNewGetRequestName" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="testUtilClass" classname="testing.GeneralTest" time="0.001"/>
+  <testcase name="TestGetInputType" classname="testing.GeneralTest" time="0.0"/>
+  <testcase name="TestCookOpposite" classname="testing.GeneralTest" time="0.001"/>
+  <system-out><![CDATA[lettuce
+lettuce
+lettuce
+lettuce
+peek
+null
+cooks.CustomerNew@624d32a1will leave in 50.0
+cooks.CustomerNew@624d32a1now will leave in 300.0
+cooks.CustomerNew@624d32a1is rethinking
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
