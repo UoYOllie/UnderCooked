@@ -1104,7 +1104,7 @@ public class InteractionTests {
     }
 
     @Test
-    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
+    // Relates to the FR_USE_STATION, FR_ITEM_INTERACTIONS, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationWrongRecipe(){
         //This tests whether a wrong recipe is handled correctly in the assembly station
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
@@ -1120,6 +1120,23 @@ public class InteractionTests {
         assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
         assemblyStation.interact(cook, InputKey.InputTypes.PICK_UP);
         assertTrue(cook.foodStack.size() == 2 && cook.dishStack.size() == 0, "Error:The Assembly does not return the right food stack when given the wrong recipe, that is then picked up by the player");
+    }
+
+    @Test
+    // Relates to the FR_USE_STATION, FR_ITEM_INTERACTIONS, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_FOOD_FAIL, FR_ASSEMBLE and UR_STATION requirement
+    public void TestPreparationStationGivesWaste(){
+        //This tests that when you do an incorrect interaction on a preperation station, it results in waste
+        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
+        PreparationStation testStation = new PreparationStation(rectangle);
+        testStation.SetTestFlag(1);
+        testStation.setID(Station.StationID.cut);
+        ArrayList<Rectangle> testList = new ArrayList<>();
+        testList.add(testStation.getRectangle());
+        Cook cook = new Cook(1500, 1200, 20, 20);
+        cook.foodStack.addStack(FoodItem.FoodID.beansCooked);
+        testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
+        assertEquals(testStation.stationFoodStack.peekStack(), FoodItem.FoodID.waste,"Error: wrong interaction at a preparation station should result in waste");
+        testStation.SetTestFlag(0);
     }
 
 }
