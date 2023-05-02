@@ -978,32 +978,9 @@ public class GameplayTest {
         assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + 0.84f));
     }
 
-    // Relates to the FR_POWER_UPS requirement
-    @Test
-    public void TestMultipleSpeedPowerUps(){
-        Cook cook = new Cook(1500,1200,20,20);
-        Float StartMovement = cook.movement_speed;
-        Rectangle rectangle = new Rectangle((1500 * 1/8f), (1200*1/8f),20,20);
-        SpeedPowerup speedPowerup = new SpeedPowerup(rectangle);
-        ArrayList<Rectangle> testList = new ArrayList<>();
-        speedPowerup.setSpeed(cook);
-        assertEquals(StartMovement + 0.42f,cook.movement_speed,"ERROR: The speed power up isn't changing the default movement speed of the chef");
-        keysPressed.clear();
-        keysPressed.add(InputKey.InputTypes.COOK_LEFT);
-        cook.userInput(testList);
-        assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + 0.42f),"ERROR: movement with the speed power up is not correct");
-        cook.x = (1500 * 1/8f);
-        speedPowerup.setSpeed(cook);
-        assertEquals(StartMovement + (0.42f * 2),cook.movement_speed,"ERROR: The speed power up isn't changing the default movement speed of the chef");
-        keysPressed.clear();
-        keysPressed.add(InputKey.InputTypes.COOK_LEFT);
-        cook.userInput(testList);
-        assertEquals(cook.getX(),(1500 * 1/8f) - (StartMovement + (0.42f * 2)),"ERROR: movement with two speed power up is not correct");
-    }
-
     //The following tests the Hypnotise power up, relating to the FR_POWER_UPS requirement
     @Test
-    public void testCustomerNewHypnotise(){
+    public void TestCustomerNewHypnotise(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
         customerNew.request = ("Plain Burger");
         customerNew.Hypnotise();
@@ -1013,7 +990,7 @@ public class GameplayTest {
 
     //The following tests another power up which forces the customer to wait longer, relating to the FR_POWER_UP requirement
     @Test
-    public void testCustomerHangOnYourFoodIsComing(){
+    public void TestCustomerHangOnYourFoodIsComing(){
         CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
         customerNew.waittime = 10;
         customerNew.HangOnYourFoodIsComing();
@@ -1022,7 +999,7 @@ public class GameplayTest {
 
     //This tests the logic behind a customer leaving when being served, relating to the FR_CUSTOMER_WAIT requirement
     @Test
-    public void testCustomerNewServedCustomerLeave(){
+    public void TestCustomerNewServedCustomerLeave(){
         //Checking the if -> x > destination x
         CustomerNew customerNew = new CustomerNew(1,2,3,4);
         customerNew.destination.x = 0;
@@ -1038,7 +1015,7 @@ public class GameplayTest {
 
     //The following tests make sure the bluggus power up, relating to the FR_POWER_UPS requirement
     @Test
-    public void testMakeIntoBluggus(){
+    public void TestMakeIntoBluggus(){
         Cook cook = new Cook(1,2,3,4);
         cook.MakeIntoBluggus();
         assertEquals(cook.activateBluggus,true,"Error: Bluggus power up does not change you into bluggus");
@@ -1046,7 +1023,7 @@ public class GameplayTest {
 
     @Test
     // Relates to the FR_STACK_DISPLAY requirement
-    public void testMoveStack(){
+    public void TestMoveStack(){
         //Testing moving foodStack2 moving items to foodStack1
         Cook cook = new Cook(1,2,3,4);
         cook.MakeIntoBluggus();
