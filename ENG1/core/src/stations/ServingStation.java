@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
 import cooks.Cook;
-import cooks.CustomerNew;
+import cooks.Customer;
 import food.FoodItem;
 import food.DishStack;
 import game.GameSprites;
@@ -19,7 +19,7 @@ import static food.Recipe.*;
 public class ServingStation extends Station {
 
 
-    public CustomerNew customer;
+    public Customer customer;
     private Integer testFlag = 0;
 
     public ServingStation(Rectangle rectangle) {
@@ -47,7 +47,7 @@ public class ServingStation extends Station {
     }
 
     @Override
-    public void customerInteract(CustomerNew customer) {
+    public void customerInteract(Customer customer) {
         this.customer = customer;
         Array<FoodItem.FoodID> plateless = stationDishStack.getStackCopy();
         Array<FoodItem.FoodID> teacup_item = new Array<FoodItem.FoodID>();

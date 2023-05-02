@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.AssetTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-05-02T21:47:47" hostname="Morgans-MacBook-Pro-2.local" time="0.012">
+<testsuite name="testing.AssetTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-05-02T23:10:57" hostname="DESKTOP-8SNM91F" time="0.02">
   <properties/>
-  <testcase name="testAssets" classname="testing.AssetTests" time="0.012">
+  <testcase name="testAssets" classname="testing.AssetTests" time="0.02">
     <failure message="java.lang.AssertionError: This test will only pass if atlas/food_new.atlas is present expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: This test will only pass if atlas/food_new.atlas is present expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)

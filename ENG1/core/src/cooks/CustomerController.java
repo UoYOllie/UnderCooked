@@ -21,13 +21,13 @@ public class CustomerController {
     private GameScreen gameScreen;
 
     /** The ArrayList of all customers currently in the game.*/
-    public ArrayList<CustomerNew> customers;
+    public ArrayList<Customer> customers;
 
     /** The ArrayList of all s in the game, used for generating customers.*/
     private ArrayList<Station> servingStations;
 
     /** The Map linking each station to exactly one customer who has not been served.*/
-    private Map<Station, CustomerNew> stationCustomerMap;
+    private Map<Station, Customer> stationCustomerMap;
 
     /** The mode of the game being played, either "scenario" or "endless".*/
     private String mode;
@@ -50,7 +50,7 @@ public class CustomerController {
         this.customers = new ArrayList<>();
 
         this.servingStations = gameScreen.mapHelper.getServingStationList();
-        this.stationCustomerMap = new HashMap<Station, CustomerNew>();
+        this.stationCustomerMap = new HashMap<Station, Customer>();
         initialiseStationCustomerMap();
 
         this.interval = 1;
@@ -64,7 +64,7 @@ public class CustomerController {
         this.customers = new ArrayList<>();
 
         this.servingStations = new ArrayList<Station>();
-        this.stationCustomerMap = new HashMap<Station, CustomerNew>();
+        this.stationCustomerMap = new HashMap<Station, Customer>();
         initialiseStationCustomerMap();
 
         this.interval = 1;
@@ -84,7 +84,7 @@ public class CustomerController {
     }
 
     /** Getter for customers.*/
-    public ArrayList<CustomerNew> getCustomers() {
+    public ArrayList<Customer> getCustomers() {
         return this.customers;
     }
 
@@ -103,7 +103,7 @@ public class CustomerController {
 
         if (this.mode == "scenario" && this.customers_left > 0) {
 
-            for (CustomerNew customer : customers) {
+            for (Customer customer : customers) {
                 if (customer.getCustomerStatus() == 2) {
                     this.customers_left -= 1;
                     customer.setStatus(customer.getStatus() + 1);
@@ -140,7 +140,7 @@ public class CustomerController {
      * corresponding to the ServingStation is null.
      * @return the Customer that has been added, or null if all servingStations are busy.
      * */
-    public CustomerNew addCustomer() {
+    public Customer addCustomer() {
 
         //System.out.println("group size " + group_size);
 
@@ -157,15 +157,15 @@ public class CustomerController {
         }
 
         // Iterate through each servingStation key in stationCustomerMap.
-        for (Map.Entry<Station, CustomerNew> entry : stationCustomerMap.entrySet()) {
+        for (Map.Entry<Station, Customer> entry : stationCustomerMap.entrySet()) {
 
             Station station = entry.getKey();
-            CustomerNew customer = entry.getValue();
+            Customer customer = entry.getValue();
 
             // If there is no customer at the station, create a new one.
             if (customer == null) {
 
-                CustomerNew newCustomer = new CustomerNew(Constants.customerPointA.x, Constants.customerPointA.y, 3.34f, 3f);
+                Customer newCustomer = new Customer(Constants.customerPointA.x, Constants.customerPointA.y, 3.34f, 3f);
 
                 // Set station position, difficulty, and gameScreen attributes for the Customer.
 
@@ -208,9 +208,9 @@ public class CustomerController {
         return null;
     }
 
-    public Station getStationKey(Map<Station, CustomerNew> stationCustomerMap, float station_y) {
+    public Station getStationKey(Map<Station, Customer> stationCustomerMap, float station_y) {
 
-        for (Map.Entry<Station, CustomerNew> entry : stationCustomerMap.entrySet()) {
+        for (Map.Entry<Station, Customer> entry : stationCustomerMap.entrySet()) {
             Station station = entry.getKey();
             if(station!=null) {
                 if (Math.round(station.getY()) == Math.round(station_y)) {
@@ -222,13 +222,13 @@ public class CustomerController {
         return null;
     }
 
-    public CustomerNew addSavedCustomer(float x,float y, float station_x, float station_y) {
+    public Customer addSavedCustomer(float x,float y, float station_x, float station_y) {
 
         if (this.stationCustomerMap.isEmpty()) {
             initialiseStationCustomerMap();
         }
 
-        CustomerNew newCustomer = new CustomerNew(x*Constants.UnitScale, y*Constants.UnitScale, 3.34f, 3f);
+        Customer newCustomer = new Customer(x*Constants.UnitScale, y*Constants.UnitScale, 3.34f, 3f);
 
         newCustomer.setStationPosition(station_x, station_y);
         newCustomer.setDifficulty(1);
@@ -250,7 +250,7 @@ public class CustomerController {
 
     public int getCustomers_left(){ return  this.customers_left;}
     public void setCustomers_left(int left){ customers_left = left;}
-    public void setStationCustomerMap(Map<Station,CustomerNew> map){
+    public void setStationCustomerMap(Map<Station,Customer> map){
         this.stationCustomerMap = map;
     }
 

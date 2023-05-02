@@ -8,7 +8,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.*;
 import cooks.Cook;
 import cooks.CustomerController;
-import cooks.CustomerNew;
+import cooks.Customer;
 import java.nio.file.Files;
 
 import com.badlogic.gdx.graphics.GL20;
@@ -37,7 +37,7 @@ import java.util.Comparator;
 
 /** A {@link ScreenAdapter} containing certain elements of the game. */
 public class GameScreen extends ScreenAdapter {
-    public Array<CustomerNew> letsremove;
+    public Array<Customer> letsremove;
     private String filepath;
     private int holdzoomcounter;
     private OrthographicCamera camera;
@@ -78,7 +78,7 @@ public class GameScreen extends ScreenAdapter {
     //private CustomerController customerController;
     private CustomerController customerController;
     //private int customersToServe;
-    //public ArrayList<CustomerNew> customersToServe;
+    //public ArrayList<Customer> customersToServe;
 
     private int freeze;
     private boolean EnableAutoZoom;
@@ -98,7 +98,7 @@ public class GameScreen extends ScreenAdapter {
      */
     public GameScreen(ScreenController screenController, OrthographicCamera camera)//Constructor, reset rebuildings constructor
     {
-        this.letsremove = new Array<CustomerNew>();
+        this.letsremove = new Array<Customer>();
         this.filepath = "OutercookedSaveData.json";
 
         this.readytorezoooom = false;
@@ -185,7 +185,7 @@ public class GameScreen extends ScreenAdapter {
 
     }
 
-    public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame,ArrayList<CustomerNew>customersforgame,ArrayList<StationData>stationsforgame)
+    public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame,ArrayList<Customer>customersforgame,ArrayList<StationData>stationsforgame)
     {
         this.readytorezoooom = true;
         this.gameHud = new GameHud(batch, this);
@@ -282,7 +282,7 @@ public class GameScreen extends ScreenAdapter {
             }
 
             int counter = 0;
-            for(CustomerNew c:customersforgame)
+            for(Customer c:customersforgame)
             {
                 addCustomer(customerController.addSavedCustomer(c.x, c.y, c.stationPosition.x, c.stationPosition.y));
                 customerController.customers.get(counter).request = c.request;
@@ -456,7 +456,7 @@ public class GameScreen extends ScreenAdapter {
                 ZoomSecondCounter = ZoomSecondCounter-1f;
             }
 
-//            for(CustomerNew customer:customersToServe) //Dealing with leaving
+//            for(Customer customer:customersToServe) //Dealing with leaving
 //            {
 //                customer.DecreasePatience();
 //                if((customer.waittime<=0)&&(customer.Stillhere ==true))
@@ -467,7 +467,7 @@ public class GameScreen extends ScreenAdapter {
 //            }
 
             // SWITCH TO CUSTOMER CONTROLLER instead of customersServed
-            for(CustomerNew customer:customerController.getCustomers()) //Dealing with leaving
+            for(Customer customer:customerController.getCustomers()) //Dealing with leaving
             {
                 customer.DecreasePatience();
                 if((customer.waittime<=0)&&(customer.Stillhere ==true))
@@ -525,7 +525,7 @@ public class GameScreen extends ScreenAdapter {
         }
 
         // SWITCH TO CUSTOMER CONTROLLER NEW
-        for (CustomerNew customer : customerController.getCustomers()) {
+        for (Customer customer : customerController.getCustomers()) {
             //customer.moveTo(customer.endX, customer.endY);
             customer.customerInteract(mapHelper.getMapStations());
             customer.update(Gdx.graphics.getDeltaTime());
@@ -777,7 +777,7 @@ public class GameScreen extends ScreenAdapter {
         return this.cook;
     }
 
-    public void addCustomer(CustomerNew customer) {
+    public void addCustomer(Customer customer) {
 //        System.out.print("__________________G"+customer);
         if (customer != null) {
             gameEntities.add(customer);
@@ -785,9 +785,9 @@ public class GameScreen extends ScreenAdapter {
 
     }
 
-//    public void addCustomersNew(Array<CustomerNew> customers) {
+//    public void addCustomersNew(Array<Customer> customers) {
 //
-//        for (CustomerNew customer : customers) {
+//        for (Customer customer : customers) {
 //            gameEntities.add(customer);
 //            customersToServe.add(customer);
 //        }
@@ -1016,7 +1016,7 @@ public class GameScreen extends ScreenAdapter {
         //Arrayys to hold all data
         Array<Cook> cooksforgame = new Array<Cook>();
         Array<Cook> unusedcooksforgame = new Array<Cook>();
-        ArrayList<CustomerNew> customersforgame = new ArrayList<CustomerNew>();
+        ArrayList<Customer> customersforgame = new ArrayList<Customer>();
         ArrayList<StationData> stationsforgame = new ArrayList<StationData>();
         JsonValue held_x;
         JsonValue held_y;
@@ -1053,7 +1053,7 @@ public class GameScreen extends ScreenAdapter {
 
             if(type==2) //Customer
             {
-                CustomerNew newc = new CustomerNew(x*8f,y*8f,20,20);
+                Customer newc = new Customer(x*8f,y*8f,20,20);
                 newc.dishStack.setStack(tempdish);
                 float _wait_ = held_wait.getFloat(count);
                 String _req_ = held_req.getString(count);

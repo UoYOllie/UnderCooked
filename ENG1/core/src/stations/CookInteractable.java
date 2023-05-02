@@ -2,7 +2,7 @@ package stations;
 
 import com.badlogic.gdx.math.Rectangle;
 import cooks.Cook;
-import cooks.CustomerNew;
+import cooks.Customer;
 import cooks.GameEntity;
 import interactions.InputKey;
 
@@ -45,7 +45,7 @@ public abstract class CookInteractable extends GameEntity {
         //System.out.println("Interaction at x=" + body.getPosition().x*PPM + ", y=" + body.getPosition().x*PPM);
     }
 
-    public void customerInteract(CustomerNew customer) {
+    public void customerInteract(Customer customer) {
         //System.out.println("customer is interacting with:");
     }
 

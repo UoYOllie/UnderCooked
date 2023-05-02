@@ -3,7 +3,7 @@ package game;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
 import cooks.Cook;
-import cooks.CustomerNew;
+import cooks.Customer;
 import food.FoodItem;
 import food.FoodStack;
 import helper.Constants;
@@ -155,7 +155,7 @@ public class SavingClass {
         this.station_x.add(0f);
         this.station_y.add(0f);
     }
-    private void CustomerData(CustomerNew customer, Integer persontype)
+    private void CustomerData(Customer customer, Integer persontype)
     {
         if(customer.entryStatus>=6){
 //        private Array<Integer> cooks; //See above ^^^^
@@ -198,7 +198,7 @@ public class SavingClass {
     {
         Array<Cook> cookarray = gameScreen.cooks;
         Array<Cook> unusedcookarray = gameScreen.unusedcooks;
-        ArrayList<CustomerNew> customers = gameScreen.getCustomerController().getCustomers();
+        ArrayList<Customer> customers = gameScreen.getCustomerController().getCustomers();
 
         for(Cook c:cookarray)
         {
@@ -208,7 +208,7 @@ public class SavingClass {
         {
             CookData(c,0);
         }
-        for(CustomerNew c:customers)
+        for(Customer c:customers)
         {
             CustomerData(c,2);
         }

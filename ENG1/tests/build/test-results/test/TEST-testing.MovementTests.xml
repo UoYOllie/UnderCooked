@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.MovementTests" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-02T21:47:55" hostname="Morgans-MacBook-Pro-2.local" time="2.553">
+<testsuite name="testing.MovementTests" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-02T23:11:04" hostname="DESKTOP-8SNM91F" time="2.78">
   <properties/>
-  <testcase name="TestChefMoveRight" classname="testing.MovementTests" time="0.001"/>
-  <testcase name="TestChefMoveRightUp" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveRight" classname="testing.MovementTests" time="0.0"/>
+  <testcase name="TestChefMoveRightUp" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveLeftUp" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveUpLeft" classname="testing.MovementTests" time="0.001"/>
-  <testcase name="TestChefMoveUp" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefSwitch" classname="testing.MovementTests" time="2.348">
+  <testcase name="TestChefMoveUp" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefSwitch" classname="testing.MovementTests" time="2.578">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -36,10 +36,10 @@
   </testcase>
   <testcase name="TestChefMoveDown" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveLeft" classname="testing.MovementTests" time="0.001"/>
-  <testcase name="TestChefMoveDownLeft" classname="testing.MovementTests" time="0.002"/>
+  <testcase name="TestChefMoveDownLeft" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveDownRight" classname="testing.MovementTests" time="0.001"/>
-  <testcase name="TestChefMoveLeftDown" classname="testing.MovementTests" time="0.001"/>
-  <testcase name="TestChefMoveUpRight" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveLeftDown" classname="testing.MovementTests" time="0.0"/>
+  <testcase name="TestChefMoveUpRight" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveRightDown" classname="testing.MovementTests" time="0.001"/>
   <system-out><![CDATA[power pantry is generated
 Setting to teacup

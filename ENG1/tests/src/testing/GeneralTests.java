@@ -263,89 +263,89 @@ public class GeneralTests {
         assertEquals(helper.getServingStationList(), finalList , "Error: The MapHelper utility function getServingStationsNew does not return the right list");
     }
 
-    //The following tests the code in CustomerNew that isn't to do with the gameplay (gameplay test includes storming out etc)
+    //The following tests the code in Customer that isn't to do with the gameplay (gameplay test includes storming out etc)
 
     @Test
-    // Tests that the CustomerNew method setStationPosition sets a station's x and y coordinates to the given values
+    // Tests that the Customer method setStationPosition sets a station's x and y coordinates to the given values
     public void testSetStationPosition(){
-        CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
-        customerNew.setStationPosition(100,200);
-        assertEquals(customerNew.stationPosition.x ,100);
-        assertEquals(customerNew.stationPosition.y ,200);
+        Customer customer = new Customer(1,2,3,4); //Each number is different in order to test getters easier
+        customer.setStationPosition(100,200);
+        assertEquals(customer.stationPosition.x ,100);
+        assertEquals(customer.stationPosition.y ,200);
     }
 
     @Test
-    // Checks that the CustomerNew method setDestination sets a customer's x and y coordinates to the given values
+    // Checks that the Customer method setDestination sets a customer's x and y coordinates to the given values
     public void testSetDestination(){
-        CustomerNew customerNew = new CustomerNew(1,2,3,4); //Each number is different in order to test getters easier
-        customerNew.setDestination(100,200);
-        assertEquals(customerNew.destination.x ,100);
-        assertEquals(customerNew.destination.y ,200);
+        Customer customer = new Customer(1,2,3,4); //Each number is different in order to test getters easier
+        customer.setDestination(100,200);
+        assertEquals(customer.destination.x ,100);
+        assertEquals(customer.destination.y ,200);
     }
 
     @Test
-    // Tests that the CustomerNew method DecreasePatience decrements the customers wait time by the correct amount
+    // Tests that the Customer method DecreasePatience decrements the customers wait time by the correct amount
     public void testDecreasePatience(){
-        CustomerNew customerNew = new CustomerNew(1,2,3,4);
-        customerNew.waittime = 100;
-        customerNew.DecreasePatience();
-        assertEquals(customerNew.waittime, 100 - 1f,"Error: The customers patience is not decremented properly when Decrease patience is called");
+        Customer customer = new Customer(1,2,3,4);
+        customer.waittime = 100;
+        customer.DecreasePatience();
+        assertEquals(customer.waittime, 100 - 1f,"Error: The customers patience is not decremented properly when Decrease patience is called");
     }
 
     @Test
-    // Tests that the CustomerNew method getX returns the customer's x position
-    public void testCustomerNewGetX(){
-        CustomerNew customerNew = new CustomerNew(1,2,3,4);
-        assertEquals(customerNew.getX(),1,"Error: CustomerNew getX does not get x");
+    // Tests that the Customer method getX returns the customer's x position
+    public void testCustomerGetX(){
+        Customer customer = new Customer(1,2,3,4);
+        assertEquals(customer.getX(),1,"Error: Customer getX does not get x");
     }
 
     @Test
-    // Tests that the CustomerNew method getY returns the customer's y position
-    public void testCustomerNewGetY(){
-        CustomerNew customerNew = new CustomerNew(1,2,3,4);
-        assertEquals(customerNew.getY(),2,"Error: CustomerNew getY does not get y");
+    // Tests that the Customer method getY returns the customer's y position
+    public void testCustomerGetY(){
+        Customer customer = new Customer(1,2,3,4);
+        assertEquals(customer.getY(),2,"Error: Customer getY does not get y");
     }
 
     @Test
-    // Tests that the CustomerNew method getRequestName returns the correct recipe
-    public void testCustomerNewGetRequestName(){
-        CustomerNew customerNew = new CustomerNew(1,2,3,4);
-        customerNew.request = ("Plain Burger");
-        assertEquals(customerNew.getRequestName(),"Plain Burger","Error: CustomerNew getRequestName does not get the right recipe");
+    // Tests that the Customer method getRequestName returns the correct recipe
+    public void testCustomerGetRequestName(){
+        Customer customer = new Customer(1,2,3,4);
+        customer.request = ("Plain Burger");
+        assertEquals(customer.getRequestName(),"Plain Burger","Error: Customer getRequestName does not get the right recipe");
     }
 
     @Test
-    // Tests that the CustomerNew method setCustomerPoints correctly sets the customerPoints to the given value
-    public void testCustomerNewSetCustomerPoints(){
-        CustomerNew customerNew = new CustomerNew(1,2,3,4);
+    // Tests that the Customer method setCustomerPoints correctly sets the customerPoints to the given value
+    public void testCustomerSetCustomerPoints(){
+        Customer customer = new Customer(1,2,3,4);
         Array<Vector2> customerPoints = new Array<>();
         customerPoints.add(Constants.customerPointC);
         customerPoints.add(Constants.customerPointD);
         customerPoints.add(Constants.customerPointE);
         customerPoints.add(Constants.customerPointF);
-        customerPoints.add(customerNew.stationPosition);
-        assertEquals(customerPoints, customerNew.setCustomerPoints(), "Error: CustomerNew setCustomerPoints does not set the correct value to the customerPoints array");
+        customerPoints.add(customer.stationPosition);
+        assertEquals(customerPoints, customer.setCustomerPoints(), "Error: Customer setCustomerPoints does not set the correct value to the customerPoints array");
     }
 
     @Test
-    // Tests that the CustomerNew method move_left_down sets the x and y coordinates to the correct values according to their position relative to their destination
-    public void testCustomerNewMoveLeftDown(){
+    // Tests that the Customer method move_left_down sets the x and y coordinates to the correct values according to their position relative to their destination
+    public void testCustomerMoveLeftDown(){
         //First we will test the first if and the second if, to do with x and y
-        CustomerNew customerNew = new CustomerNew(20,20,3,4);
-        customerNew.destination.x = 1;
-        customerNew.destination.y = 1;
-        customerNew.move_left_down(new Vector2(100,200));
-        assertEquals(customerNew.x, 20 - Constants.UnitScale,"Error: when customer's x position is higher then the customer.destination's x position, and moveLeftDown is called, the x position is not updated correctly");
-        assertEquals(customerNew.y, 20 - Constants.UnitScale,"Error: when customer's y position is higher then the customer.destination's y position, and moveLeftDown is called, the y position is not updated correctly");
+        Customer customer = new Customer(20,20,3,4);
+        customer.destination.x = 1;
+        customer.destination.y = 1;
+        customer.move_left_down(new Vector2(100,200));
+        assertEquals(customer.x, 20 - Constants.UnitScale,"Error: when customer's x position is higher then the customer.destination's x position, and moveLeftDown is called, the x position is not updated correctly");
+        assertEquals(customer.y, 20 - Constants.UnitScale,"Error: when customer's y position is higher then the customer.destination's y position, and moveLeftDown is called, the y position is not updated correctly");
 
         //Now testing if the else's work and hence if the final if works
-        customerNew.x = 20;
-        customerNew.y = 20;
-        customerNew.destination.x = 100;
-        customerNew.destination.y = 100;
-        customerNew.move_left_down(new Vector2(100,200));
-        assertEquals(customerNew.destination.x, 100,"Error: CustomerNew's moveLeftDown class does not set the x position of the customer correctly if both flags are met");
-        assertEquals(customerNew.destination.y, 200,"Error: CustomerNew's moveLeftDown class does not set the x position of the customer correctly if both flags are met");
+        customer.x = 20;
+        customer.y = 20;
+        customer.destination.x = 100;
+        customer.destination.y = 100;
+        customer.move_left_down(new Vector2(100,200));
+        assertEquals(customer.destination.x, 100,"Error: Customer's moveLeftDown class does not set the x position of the customer correctly if both flags are met");
+        assertEquals(customer.destination.y, 200,"Error: Customer's moveLeftDown class does not set the x position of the customer correctly if both flags are met");
     }
 
     //The following test the ServingStation's customerInteract method for the menu and teacup change power ups
@@ -356,10 +356,10 @@ public class GeneralTests {
         ServingStation testStation = new ServingStation(rectangle);
         testStation.setID(Station.StationID.serving);
 
-        CustomerNew customerNew = new CustomerNew(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
-        testStation.customer = customerNew;
-        customerNew.request = "Plain Burger";
-        customerNew.waittime = 50;
+        Customer customer = new Customer(rectangle.x,rectangle.y, rectangle.width,rectangle.height);
+        testStation.customer = customer;
+        customer.request = "Plain Burger";
+        customer.waittime = 50;
 
         ArrayList<Rectangle> testList = new ArrayList<>();
         testList.add(testStation.getRectangle());
@@ -370,17 +370,17 @@ public class GeneralTests {
         cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
 
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
-        testStation.customerInteract(customerNew);
-        assertEquals(customerNew.waittime, 300,"Error: Serving a teacup does not reset the customers wait-time");
-        assertEquals(customerNew.dishStack.getStack().peek(), FoodItem.FoodID.teacup,"Error: Customer does not have a teacup in their inventory after they are served one");
+        testStation.customerInteract(customer);
+        assertEquals(customer.waittime, 300,"Error: Serving a teacup does not reset the customers wait-time");
+        assertEquals(customer.dishStack.getStack().peek(), FoodItem.FoodID.teacup,"Error: Customer does not have a teacup in their inventory after they are served one");
 
         //Next we check the menu, which should force the customer to request a different item after use
         cook.foodStack.addStack(FoodItem.FoodID.menu);
         cook.dishStack.setStackPlate(cook.foodStack.getStackCopy());
 
         testStation.interact(cook, InputKey.InputTypes.PUT_DOWN);
-        testStation.customerInteract(customerNew);
-        assertFalse(customerNew.request == "Plain Burger","Error: Giving the menu to the customer does not make them choose a different request");
+        testStation.customerInteract(customer);
+        assertFalse(customer.request == "Plain Burger","Error: Giving the menu to the customer does not make them choose a different request");
     }
 
     //The following test the logic for the CustomerController class
@@ -405,11 +405,11 @@ public class GeneralTests {
     // Tests that the getCustomers method returns the correct array of customers
     public void TestGetCustomers(){
         CustomerController customerController = new CustomerController();
-        CustomerNew customerNew = new CustomerNew(1,2,3,4);
-        ArrayList<CustomerNew> customerNews = new ArrayList<CustomerNew>();
-        customerNews.add(customerNew);
-        customerController.customers.add(customerNew);
-        assertEquals(customerController.getCustomers(), customerNews, "getCustomers does not return the correct array of customers");
+        Customer customer = new Customer(1,2,3,4);
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+        customers.add(customer);
+        customerController.customers.add(customer);
+        assertEquals(customerController.getCustomers(), customers, "getCustomers does not return the correct array of customers");
     }
 
     @Test
@@ -422,18 +422,18 @@ public class GeneralTests {
 
         //Testing works when supposed to
         customerController.setMode("scenario");
-        CustomerNew customerNew1 = new CustomerNew(1,2,3,4);
-        CustomerNew customerNew2 = new CustomerNew(1,2,3,4);
-        CustomerNew customerNew3 = new CustomerNew(1,2,3,4);
-        CustomerNew customerNew4 = new CustomerNew(1,2,3,4);
-        CustomerNew customerNew5 = new CustomerNew(1,2,3,4);
-        ArrayList<CustomerNew> customerNews = new ArrayList<CustomerNew>();
-        customerNews.add(customerNew1);
-        customerNews.add(customerNew2);
-        customerNews.add(customerNew3);
-        customerNews.add(customerNew4);
-        customerNews.add(customerNew5);
-        customerController.customers = customerNews;
+        Customer customer1 = new Customer(1,2,3,4);
+        Customer customer2 = new Customer(1,2,3,4);
+        Customer customer3 = new Customer(1,2,3,4);
+        Customer customer4 = new Customer(1,2,3,4);
+        Customer customer5 = new Customer(1,2,3,4);
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+        customers.add(customer1);
+        customers.add(customer2);
+        customers.add(customer3);
+        customers.add(customer4);
+        customers.add(customer5);
+        customerController.customers = customers;
         assertTrue(customerController.maxCustomersReached(), "the maxCustomersReached method does not provide a customer limit");
     }
 
@@ -455,17 +455,17 @@ public class GeneralTests {
         customerController.setMode("scenario");
         customerController.setCustomers_left(3);
 
-        CustomerNew customerNew1 = new CustomerNew(1,2,3,4);
-        customerNew1.setCustomerStatus(2);
-        CustomerNew customerNew2 = new CustomerNew(1,2,3,4);
-        customerNew2.setCustomerStatus(2);
-        CustomerNew customerNew3 = new CustomerNew(1,2,3,4);
-        customerNew3.setCustomerStatus(2);
-        ArrayList<CustomerNew> customerNews = new ArrayList<CustomerNew>();
-        customerNews.add(customerNew1);
-        customerNews.add(customerNew2);
-        customerNews.add(customerNew3);
-        customerController.customers = customerNews;
+        Customer customer1 = new Customer(1,2,3,4);
+        customer1.setCustomerStatus(2);
+        Customer customer2 = new Customer(1,2,3,4);
+        customer2.setCustomerStatus(2);
+        Customer customer3 = new Customer(1,2,3,4);
+        customer3.setCustomerStatus(2);
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+        customers.add(customer1);
+        customers.add(customer2);
+        customers.add(customer3);
+        customerController.customers = customers;
         customerController.wonScenario();
         assertEquals(customerController.getCustomers_left(), 0, "there are customers left after winning the game in scenario mode");
     }
@@ -474,10 +474,10 @@ public class GeneralTests {
     // Tests the removeCustomer method
     public void TestRemoveCustomer(){
         CustomerController customerController = new CustomerController();
-        Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
+        Map<Station, Customer> stationCustomerMap = new HashMap<Station,Customer>();
         PreparationStation preparationStation = new PreparationStation(new Rectangle());
-        CustomerNew customerNew = new CustomerNew(1,2,3,4);
-        stationCustomerMap.put(preparationStation,customerNew);
+        Customer customer = new Customer(1,2,3,4);
+        stationCustomerMap.put(preparationStation,customer);
         customerController.setStationCustomerMap(stationCustomerMap);
         customerController.removeCustomer(preparationStation);
         assertNull(stationCustomerMap.get(preparationStation), "removeCustomer does not remove the customer from the station in the hashmap");
@@ -497,7 +497,7 @@ public class GeneralTests {
         customerController.setServingStations(arrayList);
         customerController.initialiseStationCustomerMap();
 
-        Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
+        Map<Station, Customer> stationCustomerMap = new HashMap<Station,Customer>();
         stationCustomerMap.put(servingStation1,null);
         stationCustomerMap.put(servingStation2,null);
 
@@ -509,18 +509,18 @@ public class GeneralTests {
     public void TestAddCustomerCustomersPresent(){
         CustomerController customerController = new CustomerController();
         customerController.setMode("scenario");
-        ArrayList<CustomerNew> customerNews = new ArrayList<CustomerNew>();
-        CustomerNew customerNew1 = new CustomerNew(1,2,3,4);
-        CustomerNew customerNew2 = new CustomerNew(1,2,3,4);
-        CustomerNew customerNew3 = new CustomerNew(1,2,3,4);
-        CustomerNew customerNew4 = new CustomerNew(1,2,3,4);
-        CustomerNew customerNew5 = new CustomerNew(1,2,3,4);
-        customerNews.add(customerNew1);
-        customerNews.add(customerNew2);
-        customerNews.add(customerNew3);
-        customerNews.add(customerNew4);
-        customerNews.add(customerNew5);
-        customerController.customers = customerNews;
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+        Customer customer1 = new Customer(1,2,3,4);
+        Customer customer2 = new Customer(1,2,3,4);
+        Customer customer3 = new Customer(1,2,3,4);
+        Customer customer4 = new Customer(1,2,3,4);
+        Customer customer5 = new Customer(1,2,3,4);
+        customers.add(customer1);
+        customers.add(customer2);
+        customers.add(customer3);
+        customers.add(customer4);
+        customers.add(customer5);
+        customerController.customers = customers;
         assertNull(customerController.addCustomer(), "The addCustomer method should return null when there are already 5 customers present, but doesn't");
     }
 
@@ -528,9 +528,9 @@ public class GeneralTests {
     public void TestAddCustomerCustomerPresent(){
         CustomerController customerController = new CustomerController();
         PreparationStation preparationStation = new PreparationStation(new Rectangle());
-        CustomerNew customerNew = new CustomerNew(1, 2, 3, 4);
-        Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
-        stationCustomerMap.put(preparationStation,customerNew);
+        Customer customer = new Customer(1, 2, 3, 4);
+        Map<Station, Customer> stationCustomerMap = new HashMap<Station,Customer>();
+        stationCustomerMap.put(preparationStation,customer);
         customerController.setStationCustomerMap(stationCustomerMap);
         assertNull(customerController.addCustomer());
     }
@@ -539,8 +539,8 @@ public class GeneralTests {
     public void TestGetStationKey(){
         CustomerController customerController = new CustomerController();
         ServingStation servingStation1 = new ServingStation(new Rectangle(1,2,3,4));
-        Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
-        stationCustomerMap.put(servingStation1,new CustomerNew(1,2,3,4));
+        Map<Station, Customer> stationCustomerMap = new HashMap<Station,Customer>();
+        stationCustomerMap.put(servingStation1,new Customer(1,2,3,4));
         customerController.setStationCustomerMap(stationCustomerMap);
         assertEquals(customerController.getStationKey(stationCustomerMap,2),servingStation1);
     }

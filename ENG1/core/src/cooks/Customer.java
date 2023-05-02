@@ -22,10 +22,10 @@ import java.util.Random;
 /**
  * A Customer requests a dish to be served to them by the cook.
  */
-public class CustomerNew extends GameEntity {
+public class Customer extends GameEntity {
 
 
-    /** The Sprite of the CustomerNew. */
+    /** The Sprite of the Customer. */
     public Sprite sprite;
     public Sprite bubbleSprite;
 
@@ -51,8 +51,8 @@ public class CustomerNew extends GameEntity {
     private boolean readyY = false;
 
 
-    /** The Constructor for CustomerNew. */
-    public CustomerNew(float x, float y, float width, float height) {
+    /** The Constructor for Customer. */
+    public Customer(float x, float y, float width, float height) {
         super(x, y, width, height);
         this.sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "customer_bluggus");
         this.bubbleSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "speech_bubble");
@@ -378,7 +378,7 @@ public class CustomerNew extends GameEntity {
     }
 
     /**
-     * Renders the CustomerNew at their position.
+     * Renders the Customer at their position.
      * @param batch The SpriteBatch to be rendered.
      */
     public void render(SpriteBatch batch) {
@@ -459,7 +459,7 @@ public class CustomerNew extends GameEntity {
     }
 
     /**
-     * Getter for the x-position of CustomerNew.
+     * Getter for the x-position of Customer.
      * @return The x-position of the customer.
      */
     public float getX() {
@@ -467,7 +467,7 @@ public class CustomerNew extends GameEntity {
     }
 
     /**
-     * Getter for the y-position of CustomerNew.
+     * Getter for the y-position of Customer.
      * @return The y-position of the customer.
      */
     public float getY() {
@@ -475,7 +475,7 @@ public class CustomerNew extends GameEntity {
     }
 
     /**
-     * Getter to get the name of the request of the CustomerNew.
+     * Getter to get the name of the request of the Customer.
      * @return The RecipeName of the customer's request.
      */
     public String getRequestName() {

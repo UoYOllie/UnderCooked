@@ -1,7 +1,7 @@
 package helper;
 
 import com.badlogic.gdx.math.Intersector;
-import cooks.CustomerNew;
+import cooks.Customer;
 import game.GameScreen;
 import stations.CookInteractable;
 import com.badlogic.gdx.math.Rectangle;
@@ -20,7 +20,7 @@ public class CustomerCollisionHelper {
 
     private ArrayList<Station> mapStations;
 
-    public CustomerCollisionHelper(GameScreen gameScreen, CustomerNew customer, ArrayList<Station> mapStations){
+    public CustomerCollisionHelper(GameScreen gameScreen, Customer customer, ArrayList<Station> mapStations){
         setGameScreen(gameScreen);
         CustomerRectangle = new Rectangle(customer.getX(),customer.getY(),CookWidth,CookHeight);
         this.mapStations = mapStations;
