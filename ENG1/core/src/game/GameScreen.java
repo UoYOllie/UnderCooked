@@ -666,8 +666,6 @@ public class GameScreen extends ScreenAdapter {
         backgroundCamera.position.x = 0;
         backgroundCamera.position.y = 0;
 
-
-
         bgBatch.begin();
         bgBatch.draw(MenuScreen.spaceBackground, -1, -1, 2.3f, 2);
         bgBatch.end();
@@ -679,10 +677,6 @@ public class GameScreen extends ScreenAdapter {
 
         for (GameEntity entity : gameEntities) {
             entity.render(batch);
-            if (entity == cook) {
-                ((Cook) entity).renderControlArrow(batch);
-            }
-            //entity.renderDebug(batch);
         }
 
         batch.end();
@@ -708,7 +702,6 @@ public class GameScreen extends ScreenAdapter {
         for (GameEntity entity : gameEntities) {
             if (entity == cook) {
                 entity.render(batch);
-                ((Cook) entity).renderControlArrow(batch);
             }
         }
 
@@ -728,13 +721,16 @@ public class GameScreen extends ScreenAdapter {
         );
         orthogonalTiledMapRenderer.getBatch().end();
 
+
+        batch.begin();
         for (GameEntity entity : gameEntities) {
             entity.renderShape(shape);
-            // entity.renderShapeDebug(shape);
+            if (entity == cook) {
+                ((Cook) entity).renderControlArrow(batch);
+            }
         }
-
+        batch.end();
         shape.end();
-        //box2DDebugRenderer.render(world, camera.combined.scl(PPM));
 
         gameHud.render();
         instructionHUD.render();
@@ -837,17 +833,6 @@ public class GameScreen extends ScreenAdapter {
      * @param customerCount The {@code int} number to set the number of
      *                      {@link Customer}s to.
      */
-    //public void setCustomerHud(int customerCount) {
-        //gameHud.setCustomerCount(customersToServe - customerCount);
-    //}
-
-//    /**
-//     * Returns the number of customers remaining before the game is finished.
-//     * @return {@code int} : The value of {@link CustomerController#getCustomersLeft()}.
-//     */
-//    public int getCustomerCount() {
-//        return customerController.getCustomersLeft();
-//    }
 
     /**
      * A getter to get the {@link #previousSecond}.
@@ -866,24 +851,6 @@ public class GameScreen extends ScreenAdapter {
     public void setPreviousSecond(long newSecond) {
         previousSecond = newSecond;
     }
-
-//    /**
-//     * A getter to get the {@link #nextCustomerSecond}.
-//     * <br>The {@link #nextCustomerSecond} is used for spawning the
-//     * {@link Customer}s after a short delay.
-//     * @return {@code long} : The {@link #nextCustomerSecond}.
-//     */
-//    public long getNextCustomerSecond() {
-//        return nextCustomerSecond;
-//    }
-
-//    /**
-//     * A setter to set the {@link #nextCustomerSecond} to the {@code long} provided.
-//     * @param newSecond What to set the {@link #nextCustomerSecond} to as a {@code long}.
-//     */
-//    public void setNextCustomerSecond(long newSecond) {
-//        nextCustomerSecond = newSecond;
-//    }
 
     /**
      * {@link #interactables} getter. Contains all the {@link #interactables} in the {@link GameScreen}.
@@ -960,33 +927,7 @@ public class GameScreen extends ScreenAdapter {
         hoursPassed = 0;
 
         previousSecond = TimeUtils.millis();
-        //lastCustomerSecond = TimeUtils.millis();
-        //nextCustomerSecond = TimeUtils.millis()+2000;
-
-        //gameHud.setRecipe(null);
-        //customersToServe = CustomerControllerNew.getcustomers;
-        //this.addCustomersNew(customerControllerNew.getCustomers());
-        //customersToServe.addAll(customerControllerNew.getCustomers());
-        //gameEntities.addAll(new ArrayList<GameEntity>(customerControllerNew.getCustomers()));
-
-
-////        customerController.setCustomersLeft(customers);
-////        customerController.setCustomersServed(0);
-////        customerController.addCustomer();
-//        //setCustomerHud(customers);
-//        gameHud.setCustomerCount(customers);
-        //Savegame();
     }
-
-//    /**
-//     * A getter for the {@link CustomerController} of the
-//     * game.
-//     * @return {@link CustomerController} : The {@link CustomerController}
-//     *                                      for the game.
-//     */
-//    public CustomerController getCustomerController() {
-//        return this.customerController;
-//    }
 
     public CustomerController getCustomerController() { return this.customerController;}
 
