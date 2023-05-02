@@ -116,6 +116,13 @@ public class PreparationStation extends Station {
     public void render(SpriteBatch batch) {
         super.render(batch);
         // If in use, render the appropriate foodItem on the Station.
+        if (this.Locked) {
+            Sprite renderLock;
+            renderLock = gameSprites.getSprite(GameSprites.SpriteID.FOOD, "lock");
+            renderLock.setScale(Constants.UnitScale);
+            renderLock.setPosition(x - 1/3f * renderLock.getWidth(),y - 0.354f * renderLock.getHeight());
+            renderLock.draw(batch);
+        }
         if (inUse) {
             Sprite renderItem;
             if (progress < 100) {

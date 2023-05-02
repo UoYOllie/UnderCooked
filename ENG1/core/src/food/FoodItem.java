@@ -56,6 +56,7 @@ public class FoodItem {
         jacketPotato,
         beansCooked,
         waste,
+        lock,
         /** Default */
         none
     }
@@ -94,6 +95,7 @@ public class FoodItem {
 
         foodHeights.put(FoodID.beansCooked, 12F * Constants.UnitScale);
         foodHeights.put(FoodID.waste, 12F * Constants.UnitScale);
+        foodHeights.put(FoodID.lock, 12F * Constants.UnitScale);
     }
 
     public static final HashMap<String, FoodID> foods = new HashMap<>(); // why are they called foods not items :(
@@ -127,6 +129,7 @@ public class FoodItem {
 
         foods.put("beansCooked", FoodID.beansCooked);
         foods.put("waste", FoodID.waste);
+        foods.put("lock", FoodID.lock);
 
     }
 }
