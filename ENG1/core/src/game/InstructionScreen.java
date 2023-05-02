@@ -64,11 +64,17 @@ public class InstructionScreen extends ScreenAdapter {
                 "Plain Salad- chop lettuce, bring it to the assembly station, put it in a plate and then serve it to the customer.",
                 "Tomato Salad- chop tomato, chop lettuce, bring it to the assembly station, put it in a plate and then serve it to the customer.",
                 "Onion Salad- chop onion, chop lettuce, bring it to the assembly station, put it in a plate and then serve it to the customer.",
-                "Tomato Onion Salad- chop tomato, chop onion, chop lettuce, bring it to the assembly station, put it in a plate and then serve it to the customer.",
-                "Plain Burger- Take two buns from the pantry, meat from the fridge," + " cook the meat, place all the items on the assembly station," +
-                        " chop salad and then serve the customer",
-                "Lettuce Burger- Take two buns from the pantry, meat from the fridge," + "cook the meat, place all the items on the assembly station," +
-                        "chop lettuce and then serve the customer",
+                "Plain Burger- Take two buns from the pantry, meat from the fridge, cook the meat, " +
+                        "\n place all the items on the assembly station, chop salad and then serve the customer",
+                "Lettuce Burger- Take two buns from the pantry, meat from the fridge, cook the meat, " +
+                        "\n place all the items on the assembly station, chop lettuce and then serve the customer",
+                "Tomato Onion Burger- Take two buns from the pantry, meat from the fridge, cook the meat, " +
+                        "\n place all the items on the assembly station, chop tomato, chop onion and serve customer.",
+                "Plain Potato- Take jacket potatoes from the pantry, coleslaw from the bottom left of the fridge, " +
+                        "\n cook the potato, place all the items on the assembly station, serve the customer.",
+                "Beans Potato- Take jacket potatoes and canned beans from pantry, coleslaw from the bottom left of the fridge, " +
+                        "\n cook the potato and beans, place all the items on the assembly station, serve the customer.",
+
 
 
                 "POWERUPS:-",

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.MovementTests" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-02T21:40:36" hostname="DESKTOP-8SNM91F" time="3.321">
+<testsuite name="testing.MovementTests" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-02T21:47:55" hostname="Morgans-MacBook-Pro-2.local" time="2.553">
   <properties/>
-  <testcase name="TestChefMoveRight" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefMoveRightUp" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefMoveLeftUp" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveRight" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveRightUp" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveLeftUp" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveUpLeft" classname="testing.MovementTests" time="0.001"/>
   <testcase name="TestChefMoveUp" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefSwitch" classname="testing.MovementTests" time="3.138">
+  <testcase name="TestChefSwitch" classname="testing.MovementTests" time="2.348">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -14,8 +14,8 @@
 	at com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer.&lt;init&gt;(BatchTiledMapRenderer.java:102)
 	at game.SuperMapSuperRenderer.&lt;init&gt;(SuperMapSuperRenderer.java:44)
 	at helper.MapHelper.setupMap(MapHelper.java:59)
-	at game.GameScreen.&lt;init&gt;(GameScreen.java:176)
-	at game.ScreenController.&lt;init&gt;(ScreenController.java:47)
+	at game.GameScreen.&lt;init&gt;(GameScreen.java:151)
+	at game.ScreenController.&lt;init&gt;(ScreenController.java:46)
 	at testing.MovementTests.TestChefSwitch(MovementTests.java:210)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -35,15 +35,13 @@
 </failure>
   </testcase>
   <testcase name="TestChefMoveDown" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefMoveLeft" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefMoveDownLeft" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefMoveDownRight" classname="testing.MovementTests" time="0.0"/>
+  <testcase name="TestChefMoveLeft" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveDownLeft" classname="testing.MovementTests" time="0.002"/>
+  <testcase name="TestChefMoveDownRight" classname="testing.MovementTests" time="0.001"/>
   <testcase name="TestChefMoveLeftDown" classname="testing.MovementTests" time="0.001"/>
-  <testcase name="TestChefMoveUpRight" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefMoveRightDown" classname="testing.MovementTests" time="0.0"/>
-  <system-out><![CDATA[Initalising Gamescreen
-game.GameScreen@4414461f
-power pantry is generated
+  <testcase name="TestChefMoveUpRight" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveRightDown" classname="testing.MovementTests" time="0.001"/>
+  <system-out><![CDATA[power pantry is generated
 Setting to teacup
 teacup
 power pantry is generated

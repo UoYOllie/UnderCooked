@@ -421,19 +421,13 @@ public class GameScreen extends ScreenAdapter {
             this.gameHud.updateloading("");
 		}
         if (Gdx.input.isKeyPressed(Input.Keys.L)){
-//            screenController.setScreen(ScreenController.ScreenID.LOADING);
             this.gameHud.updateloading("Loading...");
             this.Loading = true;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.Q)){
-//            this.forcewin = true;
-//            System.out.print("Forcing Quit"+this.SaveText);
+
             this.Reputation.setPoints(0);
-//            System.out.println("Writing to file");
-//            WriteSaveFile();
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.T)){
-            this.gold.setBalance(10000000);
+
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
             screenController.paylistscreen();
