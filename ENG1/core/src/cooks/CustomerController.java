@@ -242,4 +242,7 @@ public class CustomerController {
     public int getDifficulty() {
         return this.difficulty;
     }
+
+    public int getCustomers_left(){ return  this.customers_left;}
+    public void setCustomers_left(int left){ customers_left = left;}
 }
