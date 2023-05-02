@@ -603,7 +603,7 @@ public class GeneralTests {
 
     @Test
     // Tests that the addCustomer method doesn't add a customer if there are already more than 4 customers present
-    public void TestAddCustomer(){
+    public void TestAddCustomerCustomersPresent(){
         CustomerController customerController = new CustomerController();
         customerController.setMode("scenario");
         ArrayList<CustomerNew> customerNews = new ArrayList<CustomerNew>();
@@ -619,5 +619,16 @@ public class GeneralTests {
         customerNews.add(customerNew5);
         customerController.customers = customerNews;
         assertNull(customerController.addCustomer(), "The addCustomer method should return null when there are already 5 customers present, but doesn't");
+    }
+
+    @Test
+    public void TestAddCustomerCustomerPresent(){
+        CustomerController customerController = new CustomerController();
+        PreparationStation preparationStation = new PreparationStation(new Rectangle());
+        CustomerNew customerNew = new CustomerNew(1, 2, 3, 4);
+        Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
+        stationCustomerMap.put(preparationStation,customerNew);
+        customerController.setStationCustomerMap(stationCustomerMap);
+        assertNull(customerController.addCustomer());
     }
 }
