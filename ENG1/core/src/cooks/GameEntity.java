@@ -4,9 +4,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.Body;
+import helper.Constants;
 import helper.MapHelper;
+import sun.jvm.hotspot.debugger.win32.coff.COFFLineNumber;
 
 import static helper.Constants.PPM;
+import static java.lang.Math.abs;
 
 /** The class for any object that can exist in the game world. */
 public abstract class GameEntity {
@@ -24,6 +27,8 @@ public abstract class GameEntity {
 
     //UPDATE;
     public Rectangle rectangle;
+
+    private float coolY;
 
 
     /**
@@ -58,6 +63,8 @@ public abstract class GameEntity {
         this.velX = 0;
         this.velY = 0;
         this.speed = 0;
+
+        this.coolY = y - 4 * Constants.UnitScale;
         // this.body = body;
     }
 
@@ -76,6 +83,7 @@ public abstract class GameEntity {
         this.rectangle = rectangle;
 		this.x = rectangle.x;
 		this.y = rectangle.y;
+        this.coolY = y - 4 * Constants.UnitScale;
     }
 
     /**
@@ -142,6 +150,10 @@ public abstract class GameEntity {
      */
     public float getY() {
         return y;
+    }
+
+    public float getCoolY() {
+        return coolY;
     }
 
     /**

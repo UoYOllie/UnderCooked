@@ -169,12 +169,18 @@ public class CustomerController {
                 CustomerNew newCustomer = new CustomerNew(Constants.customerPointA.x, Constants.customerPointA.y, 3.34f, 3f);
 
                 // Set station position, difficulty, and gameScreen attributes for the Customer.
-                newCustomer.setStationPosition(station.getX(), station.getY());
+
+                System.out.println(station.getX());
+                System.out.println(station.getY());
+                newCustomer.setStationPosition(station.getX(), station.getCoolY());
                 newCustomer.setDifficulty(difficulty);
                 newCustomer.setGameScreen(this.gameScreen);
 
                 // Add the new customer to customers and stationCustomerMap, then return the new Customer.
                 this.stationCustomerMap.put(station, newCustomer);
+                System.out.println("██████████████████████████");
+                System.out.println(station.getX());
+                System.out.println(station.getY());
                 this.customers.add(newCustomer);
 
                 if (this.mode == "endless" && this.customers.size() > 5) {
