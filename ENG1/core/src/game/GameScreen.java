@@ -421,19 +421,13 @@ public class GameScreen extends ScreenAdapter {
             this.gameHud.updateloading("");
 		}
         if (Gdx.input.isKeyPressed(Input.Keys.L)){
-//            screenController.setScreen(ScreenController.ScreenID.LOADING);
             this.gameHud.updateloading("Loading...");
             this.Loading = true;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.Q)){
-//            this.forcewin = true;
-//            System.out.print("Forcing Quit"+this.SaveText);
+
             this.Reputation.setPoints(0);
-//            System.out.println("Writing to file");
-//            WriteSaveFile();
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.T)){
-            this.gold.setBalance(10000000);
+
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
             screenController.paylistscreen();
@@ -689,10 +683,34 @@ public class GameScreen extends ScreenAdapter {
 
         shape.begin(ShapeRenderer.ShapeType.Filled);
 
+
+
+
         orthogonalTiledMapRenderer.getBatch().begin();
+
         orthogonalTiledMapRenderer.renderTileLayer(
-                (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("FrontWalls")
+                (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("VatTop")
         );
+
+        orthogonalTiledMapRenderer.getBatch().end();
+
+
+        batch.begin();
+
+        gameEntities.sort(drawQueueComparator);
+
+        for (GameEntity entity : gameEntities) {
+            if (entity == cook) {
+                entity.render(batch);
+                ((Cook) entity).renderControlArrow(batch);
+            }
+        }
+
+        batch.end();
+
+
+        orthogonalTiledMapRenderer.getBatch().begin();
+
         orthogonalTiledMapRenderer.renderTileLayer(
                 (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("Front2")
         );
@@ -700,7 +718,7 @@ public class GameScreen extends ScreenAdapter {
                 (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("Windows")
         );
         orthogonalTiledMapRenderer.renderTileLayer(
-                (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("VatTop")
+                (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("FrontWalls")
         );
         orthogonalTiledMapRenderer.getBatch().end();
 
