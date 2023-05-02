@@ -23,7 +23,9 @@ public class GameSprites {
         /** The {@link stations.Station}'s and {@link stations.Pantry}'s {@link TextureAtlas}.*/
         STATION,
         /** The {@link customers.Customer}'s {@link TextureAtlas}.*/
-        CUSTOMER
+        CUSTOMER,
+
+        BLUGGUS
     }
 
     /**
@@ -36,6 +38,7 @@ public class GameSprites {
         textureAtlases.put(SpriteID.FOOD, new TextureAtlas("atlas/food_new.atlas"));
         textureAtlases.put(SpriteID.STATION, new TextureAtlas("atlas/station.atlas"));
         textureAtlases.put(SpriteID.CUSTOMER, new TextureAtlas("atlas/customer_bluggus.atlas"));
+        textureAtlases.put(SpriteID.BLUGGUS, new TextureAtlas("atlas/bluggus.atlas"));
     }
 
     /**
