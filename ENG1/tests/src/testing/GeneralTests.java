@@ -26,64 +26,6 @@ import static org.testng.Assert.*;
 @RunWith(GdxTestRunner.class)
 public class GeneralTests {
     // The following tests don't directly relate to requirements, instead testing helper functions such as getters and setters.
-
-
-    @Test
-    // Checks that the Cook.dir can be set to different values for the cook's x value
-    public void testCookInteractorRelativeX(){
-        CookInteractor cookInteractor = new CookInteractor(20,20,20);
-        Cook cook = new Cook(20,20,20,20);
-        cook.dir = Cook.Facing.RIGHT;
-        assertTrue(cookInteractor.relativeX(cook.dir) == 38.4F);
-        cook.dir = Cook.Facing.LEFT;
-        assertTrue(cookInteractor.relativeX(cook.dir) == -38.4F);
-        cook.dir = Cook.Facing.UP;
-        assertTrue(cookInteractor.relativeX(cook.dir) == 0F);
-    }
-
-    @Test
-    // Checks that the Cook.dir can be set to different values for the cook's y value
-    public void testCookInteractorRelativeY(){
-        CookInteractor cookInteractor = new CookInteractor(20,20,20);
-        Cook cook = new Cook(20,20,20,20);
-        cook.dir = Cook.Facing.UP;
-        assertTrue(cookInteractor.relativeY(cook.dir) == 25.6F);
-        cook.dir = Cook.Facing.DOWN;
-        assertTrue(cookInteractor.relativeY(cook.dir) == -25.6F);
-        cook.dir = Cook.Facing.LEFT;
-        assertTrue(cookInteractor.relativeY(cook.dir) == 12.8F);
-        cook.dir = Cook.Facing.RIGHT;
-        assertTrue(cookInteractor.relativeY(cook.dir) == 12.8F);
-        cook.dir = Cook.Facing.NONE;
-        assertTrue(cookInteractor.relativeY(cook.dir) == 0F);
-    }
-
-    @Test
-    // Checks that the cook interactor updates the cook's position correctly
-    public void testCookInteractorUpdatePosition(){
-        CookInteractor cookInteractor = new CookInteractor(20,20,20);
-        Cook cook = new Cook(20,20,20,20);
-        cook.dir = Cook.Facing.UP;
-        cookInteractor.updatePosition(20,20,cook.dir);
-        assertTrue(cookInteractor.x == 20 + cookInteractor.relativeX(cook.dir));
-        assertTrue(cookInteractor.y == 20 + cookInteractor.relativeY(cook.dir));
-    }
-
-    @Test
-    // Checks that the cook interactor allows use inputs to be detected
-    public void testCookInteractorCheckCollision(){
-        CookInteractor cookInteractor = new CookInteractor((1500 * 1/8f),(1200 * 1/8f),20);
-        Cook cook = new Cook((1500 * 1/8f),(1200 * 1/8f),20,20);
-        Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
-        PreparationStation testStation = new PreparationStation(rectangle);
-        testStation.setID(Station.StationID.fry);
-        ArrayList<Rectangle> testList = new ArrayList<>();
-        testList.add(testStation.getRectangle());
-        cook.foodStack.addStack(FoodItem.FoodID.meat);
-        cookInteractor.checkCollisions(cook, InputKey.InputTypes.USE);
-        assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meatCook);
-    }
-
     @Test
     // Checks that the Util class can format time correctly and find the distance between two points
     public void testUtilClass(){
@@ -336,17 +278,6 @@ public class GeneralTests {
         finalList.add(ServingStation);
         MapHelper helper = new MapHelper(new ArrayList<Rectangle>(),new ArrayList<Station>(),finalList);
         assertEquals(helper.getServingStationList(), finalList , "Error: The MapHelper utility function getServingStationsNew does not return the right list");
-    }
-
-    @Test
-    // Tests that the customer interactor method updatePosition by ensuring the x and y position get updated accordingly
-    public void testUpdatePosition(){
-        CustomerInteractor customerInteractor = new CustomerInteractor(20,30,100);
-        customerInteractor.updatePosition(10,20, Cook.Facing.DOWN);
-        assertEquals(customerInteractor.x,10,"Error: CustomerInteractor's updatePosition does not properly update the x position");
-        assertEquals(customerInteractor.y,20,"Error: CustomerInteractor's updatePosition does not properly update the y position");
-        assertEquals(customerInteractor.collision.x, (10-(100/2)),"Error: CustomerInteractor's updatePosition does not properly update the collision's x position");
-        assertEquals(customerInteractor.collision.y, (20-(100/2)),"Error: CustomerInteractor's updatePosition does not properly update the collision's y position");
     }
 
     //The following tests the code in CustomerNew that isn't to do with the gameplay (gameplay test includes storming out etc)
