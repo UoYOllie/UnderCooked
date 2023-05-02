@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testing.GeneralTests" tests="48" skipped="0" failures="3" errors="0" timestamp="2023-05-02T21:40:29" hostname="DESKTOP-8SNM91F" time="0.786">
+  <properties/>
+  <testcase name="TestCookUserInteract" classname="testing.GeneralTests" time="0.001">
+    <failure message="java.lang.AssertionError: expected [0] but found [1]" type="java.lang.AssertionError">java.lang.AssertionError: expected [0] but found [1]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at org.testng.Assert.assertEquals(Assert.java:849)
+	at testing.GeneralTests.TestCookUserInteract(GeneralTests.java:173)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <testcase name="TestHoldItems" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="testCustomerNewSetCustomerPoints" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testsGetServingStationList" classname="testing.GeneralTests" time="0.002"/>
+  <testcase name="TestGoldAddBalance" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestFoodStackPeekStackCatchIndexOutOfBounds" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testCookInteractorCheckCollision" classname="testing.GeneralTests" time="0.007">
+    <failure message="java.lang.NullPointerException: Cannot invoke &quot;game.GameScreen.getInteractables()&quot; because &quot;this.gameScreen&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;game.GameScreen.getInteractables()&quot; because &quot;this.gameScreen&quot; is null
+	at helper.CollisionHelper.stationCollisions(CollisionHelper.java:63)
+	at helper.CollisionHelper.getInteract(CollisionHelper.java:87)
+	at cooks.CookInteractor.checkCollisions(CookInteractor.java:118)
+	at testing.GeneralTests.testCookInteractorCheckCollision(GeneralTests.java:83)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <testcase name="testCustomerNewMoveLeftDown" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestSetAndGetMode" classname="testing.GeneralTests" time="0.002"/>
+  <testcase name="testCustomerNewGetX" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testCustomerNewGetY" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="testCustomerNewEnterCustomer" classname="testing.GeneralTests" time="0.001">
+    <failure message="java.lang.AssertionError: expected [1] but found [0]" type="java.lang.AssertionError">java.lang.AssertionError: expected [1] but found [0]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at org.testng.Assert.assertEquals(Assert.java:849)
+	at testing.GeneralTests.testCustomerNewEnterCustomer(GeneralTests.java:445)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <testcase name="TestCookRotate90C" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="testSetDestination" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestGetBlocked" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestSetDir" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="testDecreasePatience" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestAddCustomerCustomerPresent" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestRemoveCustomer" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestAddCustomerCustomersPresent" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestGoldGetInstance" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testServingStationCustomerInteract" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestFoodStackSetStack" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testCookInteractorRelativeX" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="testCookInteractorRelativeY" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="testUpdatePosition" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestCookSetColour" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestCookUpdate" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testSetStationPosition" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestChefFoodRelativeX" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestChefFoodRelativeY" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testCookInteractorUpdatePosition" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testSetMapObstacles" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestGetInputKey" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestFoodStackPopStackCatchIndexOutOfBounds" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestGetStationKey" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestMaxCustomersReached" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestWonScenario" classname="testing.GeneralTests" time="0.002"/>
+  <testcase name="TestFoodStackToString" classname="testing.GeneralTests" time="0.009"/>
+  <testcase name="TestInitialiseStationCustomerMap" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testsGetMapStations" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestGoldSetandGetBalance" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="testCustomerNewGetRequestName" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestGetCustomers" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testUtilClass" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestGetInputType" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestCookOpposite" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestSetAndGetDifficulty" classname="testing.GeneralTests" time="0.001"/>
+  <system-out><![CDATA[lettuce
+lettuce
+lettuce
+lettuce
+cooks.CustomerNew@72e22d89 moving to point B------null------ (1.0,2.0)
+peek
+null
+cooks.CustomerNew@7c87612c moving to point B------null------ (20.0,20.0)
+cooks.CustomerNew@196e295 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@736b4888 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@7c0da414 moving to point B------null------ (100.0,400.0)
+cooks.CustomerNew@7c0da414 moving to point C------(100.0,200.0)------ (100.0,400.0)
+cooks.CustomerNew@7c0da414 moving to point D------(1939.0,2913.0)------ (100.0,400.0)
+cooks.CustomerNew@7c0da414 moving to point E------(1939.4,2872.0)------ (100.0,400.0)
+cooks.CustomerNew@7c0da414 moving to point F------(1915.0,2872.0)------ (100.0,400.0)
+cooks.CustomerNew@6a0c9e10 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@6402403e moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@6a70aeb0 moving to point B------null------ (1.0,2.0)
+interval 0
+group size 1
+no customer added!
+cooks.CustomerNew@720ecf7c moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@6b1159a2 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@48da183f moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@4c2b5b77 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@131ac6bb moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@72a75133 moving to point B------null------ (1.0,2.0)
+interval 0
+group size 1
+no customer added this time!
+cooks.CustomerNew@6aa4a4b8 moving to point B------null------ (187.5,150.0)
+cooks.CustomerNew@6aa4a4b8will leave in 50.0
+cooks.CustomerNew@6aa4a4b8now will leave in 300.0
+cooks.CustomerNew@6aa4a4b8is rethinking
+cooks.CustomerNew@51cb66bd moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@114f7209 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@47a2c4e0 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@4dd6bc27 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@27e340ae moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@e96c812 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@5f4298e4 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@270d30af moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@1ad6f2d0 moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@22386fc0 moving to point B------null------ (1.0,2.0)
+customers left 2
+customers left 1
+customers left 0
+cooks.CustomerNew@3d4865ea moving to point B------null------ (1.0,2.0)
+cooks.CustomerNew@1e4b77b9 moving to point B------null------ (1.0,2.0)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
