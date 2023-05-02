@@ -360,11 +360,12 @@ public class CustomerNew extends GameEntity {
         if (customerStatus == 1) {
 
             bubbleSprite.setPosition(this.x - 8.5f, this.y - bubbleSprite.getHeight() / 2);
-            this.bubbleSprite.setSize(6, 5.7f);
+            // 75, 30
+            this.bubbleSprite.setSize(7.5f, 4f);
             bubbleSprite.draw(batch);
 
             Array<FoodItem.FoodID> requestList = Recipe.getCustomerRequestBubble(request);
-            float xOffset = -10f, yOffset = +12F;
+            float xOffset = -8.5f, yOffset = +15F;
             float drawX = x, drawY = y;
 
             // Draw each FoodItem in RequestList.
@@ -425,16 +426,25 @@ public class CustomerNew extends GameEntity {
 
         // Render the progress bar when inUse
         if (customerStatus == 1) {
-            float rectX = x - 9f,
-                    rectY = y -2f,
+            float rectX = x - 8f,
+                    rectY = y - 1.6f,
                     rectWidth = 1f,
                     rectHeight = 10 * Constants.UnitScale;
-            if (difficulty==1) { rectWidth = 8f; }
-            else if (difficulty==2) { rectWidth = 7f; }
-            else { rectWidth = 6f; }
+            if (difficulty==1) {
+                rectWidth = 8f;
+                rectX = x - 8f;
+            }
+            else if (difficulty==2) {
+                rectWidth = 7f;
+                rectX = x - 7.7f;
+            }
+            else {
+                rectWidth = 6f;
+                rectX = x - 7.4f;
+            }
 
             // Black bar behind
-            shape.rect(rectX, rectY, rectWidth, rectHeight, Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK);
+            shape.rect(rectX, rectY, rectWidth*0.75f, rectHeight*0.75f, Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK);
             // Now the progress bar.
             float progressWidth = (waittime*0.02f) -2f * Constants.UnitScale;
             Color progressColor = Color.FOREST;
@@ -445,7 +455,7 @@ public class CustomerNew extends GameEntity {
             } if (this.waittime == 0) {
                 progressColor = Color.RED;
             }
-            shape.rect(rectX+ 2 * Constants.UnitScale,rectY + 2 * Constants.UnitScale, progressWidth,rectHeight - 4 * Constants.UnitScale,progressColor,progressColor,progressColor,progressColor);
+            shape.rect(rectX+ 1.5f * Constants.UnitScale,rectY + 1.5f * Constants.UnitScale, progressWidth*0.75f,(rectHeight - 4 * Constants.UnitScale)*0.75f,progressColor,progressColor,progressColor,progressColor);
         }
     }
 
