@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.maps.MapObjects;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -14,6 +15,7 @@ import com.badlogic.gdx.utils.*;
 import cooks.Cook;
 import cooks.CustomerController;
 import cooks.CustomerNew;
+import java.nio.file.Files;
 //import customers.Customer;
 
 import com.badlogic.gdx.graphics.GL20;
@@ -39,6 +41,8 @@ import stations.CookInteractable;
 import stations.ServingStation;
 import stations.Station;
 
+import java.io.*;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -46,6 +50,7 @@ import static helper.Constants.PPM;
 
 /** A {@link ScreenAdapter} containing certain elements of the game. */
 public class GameScreen extends ScreenAdapter {
+    private String filepath;
     private int holdzoomcounter;
     private OrthographicCamera camera;
     private int delay;
@@ -113,6 +118,8 @@ public class GameScreen extends ScreenAdapter {
      */
     public GameScreen(ScreenController screenController, OrthographicCamera camera)//Constructor, reset rebuildings constructor
     {
+        this.filepath = "OutercookedSaveData.json";
+
         this.readytorezoooom = false;
         this.Loading = false;
         this.holdzoomcounter = 0;
@@ -129,7 +136,7 @@ public class GameScreen extends ScreenAdapter {
 
         this.interactables = new Array<>();
         this.gold = new Gold();
-        this.gold.setBalance(1000);
+        this.gold.setBalance(0);
         this.Reputation = new RepPoints();
         this.freeze = 0;
         this.EnableAutoZoom = true;
@@ -219,7 +226,7 @@ public class GameScreen extends ScreenAdapter {
 
         this.interactables = new Array<>();
         this.gold = new Gold();
-        this.gold.setBalance(1000);
+        this.gold.setBalance(0);
         this.Reputation = new RepPoints();
         this.freeze = 0;
         this.EnableAutoZoom = true;
@@ -301,7 +308,7 @@ public class GameScreen extends ScreenAdapter {
             int counter = 0;
             for(CustomerNew c:customersforgame)
             {
-                addCustomer(customerController.addSavedCustomer(c.x,c.y, c.stationPosition.x, c.stationPosition.y));
+                addCustomer(customerController.addSavedCustomer(c.x, c.y, c.stationPosition.x, c.stationPosition.y));
                 customerController.customers.get(counter).request = c.request;
                 customerController.customers.get(counter).waittime = c.waittime;
                 customerController.customers.get(counter).setStatus(c.getStatus());
@@ -318,10 +325,37 @@ public class GameScreen extends ScreenAdapter {
                 Station n = mapHelper.mapStations.get(newstation.StationPropertyID);
                 //
                 n.stationFoodStack.setStack(newstation.HeldFood.getStackCopy());
-                n.stationDishStack.setStack(newstation.stationdishstack.getStackCopy());;
+//                n.stationDishStack.setStack(newstation.stationdishstack.getStackCopy());;
+                Array<FoodItem.FoodID> nd = new Array<FoodItem.FoodID>();
+                for(FoodItem.FoodID f:newstation.stationdishstack.getStack())
+                {
+                    System.out.println("ffffffffffffff......");
+                    System.out.println(f);
+                    System.out.println("ffffffffffffff......");
+                    nd.add(f);
+                }
+                if(nd.size>0)
+                {
+                    n.stationDishStack.setStackPlate(nd);
+                }
+                else {
+                    n.stationDishStack.setStack(nd);
+                }
                 System.out.println(n.stationDishStack.getStackCopy()+",,,,,,,,,,,,,,,,,,,,,,,,,,,,,99");
                 //
                 n.Locked = newstation.lock;
+                if(newstation.Enabled){
+                    n.Enable();
+                }
+                else
+                {
+                    n.Disable();
+                }
+
+//                if(n.isABluggusPrison&&n.Enabled)
+//                {
+//                    n.interact(new Cook(0,0,1,1), InputKey.InputTypes.USE);
+//                }
                 newmapStations.add(n);
 //                System.out.println("******************************************");
 //                System.out.println(mapHelper.mapStations.get(newstation.StationPropertyID).stationFoodStack.toString());
@@ -417,9 +451,31 @@ public class GameScreen extends ScreenAdapter {
         }
         if (Gdx.input.isKeyPressed(Input.Keys.Q)){
 //            this.forcewin = true;
-            System.out.print("Forcing win");
-//            this.Reputation.setPoints(0);
-            System.out.println(this.SaveText);
+//            System.out.print("Forcing Quit"+this.SaveText);
+            this.Reputation.setPoints(0);
+//            System.out.println("Writing to file");
+//            WriteSaveFile();
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.T)){
+////            System.out.println(this.getCustomerController().getMode());
+//            System.out.println("Adding gold");
+//            this.gold.setBalance(1000);
+            //DrawDebugLine(Constants.customerPointC,Constants.customerPointD,20,Color.CYAN,camera.combined);
+            System.out.println("Line Rendering");
+            Array<Cook> ConstantPoints = new Array<Cook>();
+            //ConstantPoints.add(new Cook(Constants.customerPointA.x* 8f,Constants.customerPointA.y* 8f,1,1));
+            //ConstantPoints.add(new Cook(Constants.customerPointB.x* 8f,Constants.customerPointB.y* 8f,1,1));
+//            ConstantPoints.add(new Cook(Constants.customerPointC.x* 8f,Constants.customerPointC.y* 8f,1,1));
+//            ConstantPoints.add(new Cook(Constants.customerPointD.x* 8f,Constants.customerPointD.y* 8f,1,1));
+//            ConstantPoints.add(new Cook(Constants.customerPointE.x* 8f,Constants.customerPointE.y* 8f,1,1));
+//            ConstantPoints.add(new Cook(Constants.customerPointF.x* 8f,Constants.customerPointF.y* 8f,1,1));
+            ConstantPoints.add(new Cook(1944.1375f* 8f,2774.0818f* 8f,1,1)); //(1944.1375,2774.0818)
+            for(Cook c:ConstantPoints)
+            {
+                System.out.println("adding");
+                gameEntities.add(c);
+            }
+
         }
 
         // First thing, update all inputs
@@ -494,6 +550,7 @@ public class GameScreen extends ScreenAdapter {
         gameHud.updateTime(hoursPassed, minutesPassed, secondsPassed);
         gameHud.updateReputation(Reputation.getPoints());
         gameHud.updateGold(gold.getBalance());
+        gameHud.updateCustomerServed(this.customerController.TotalCustomersServed);
         cameraUpdate();
         orthogonalTiledMapRenderer.setView(camera);
         batch.setProjectionMatrix(camera.combined);
@@ -914,7 +971,7 @@ public class GameScreen extends ScreenAdapter {
 ////        customerController.addCustomer();
 //        //setCustomerHud(customers);
 //        gameHud.setCustomerCount(customers);
-        Savegame();
+        //Savegame();
     }
 
 //    /**
@@ -976,6 +1033,8 @@ public class GameScreen extends ScreenAdapter {
     {
         SavingClass save = new SavingClass(this);
         this.SaveText = json.toJson(save);
+        WriteSaveFile();
+        this.SaveText = "";
 //        System.out.println(json.prettyPrint(save));
     }
 
@@ -984,6 +1043,7 @@ public class GameScreen extends ScreenAdapter {
     {
 //        SavingClass newsave = new SavingClass(GameScreen);
 //        StoredFile.fromJson(SavingClass newsave);
+        ReadSaveFile();
         JsonValue root = new JsonReader().parse(this.SaveText);
         System.out.println(root);
         //cooks
@@ -1025,6 +1085,7 @@ public class GameScreen extends ScreenAdapter {
         JsonValue held_y;
         float x,y;
         int count = 0;
+        System.out.println(this.SaveText);
         for(JsonValue t:held_cook)
         {
             int type = held_cook.getInt(count);
@@ -1128,6 +1189,7 @@ public class GameScreen extends ScreenAdapter {
         JsonValue held_SFOOOOD = root.get("HeldFood");
         JsonValue held_SDishyStacky = root.get("stationdishstack");
         JsonValue held_LockedStatus = root.get("lockedStation");
+        JsonValue held_enab = root.get("Enabled");
         count = 0;
 
 
@@ -1149,18 +1211,19 @@ public class GameScreen extends ScreenAdapter {
             sd.HeldFood = fs;
 
             fs = new FoodStack();
-            if(held_SFOOOOD.get(count)!=null) {
-                for (JsonValue placeinstack : held_SFOOOOD.get(count)) {
-                    //System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+            if(held_SDishyStacky.get(count)!=null) {
+                for (JsonValue placeinstack : held_SDishyStacky.get(count)) {
+                    System.out.println("SIZE OF ARRAY OF DISTACK "+placeinstack);
                     FoodItem.FoodID value = FoodItem.FoodID.values()[(placeinstack.get(1).asInt())];
                     fs.addStack(value);
                 }
 
             }
-            Array<FoodItem.FoodID> ds = fs.getStackCopy();
-            sd.stationdishstack.setStack(ds);
+            System.out.println("SIZE OF ARRAY OF DISTACK "+fs+"ksjfbshgfskgfuksgfkusgfugskfgsgfs");
+            sd.stationdishstack.setStack(fs.getStackCopy());
 
             sd.lock = held_LockedStatus.getBoolean(count);
+            sd.Enabled = held_enab.getBoolean(count);
             System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
             System.out.println(sd.lock);
             System.out.println(sd.stationdishstack);
@@ -1192,10 +1255,55 @@ public class GameScreen extends ScreenAdapter {
         this.hoursPassed = held_hours;
 
         //Mode and difficulty
-        customerController.setMode("scenario");
-        customerController.setDifficulty(root.getInt("difficulty"));
+        customerController.setMode(root.getString("Mode"));
+        customerController.setDifficulty(root.getInt("Difficulty"));
+        customerController.TotalCustomersServed = root.getInt("HowManyHaveBeenServed");
+        gameHud.updateCustomerServed(this.customerController.TotalCustomersServed);
+
+        //remove customers walking
 
     }
+
+    private void WriteSaveFile()
+    {
+        try (PrintWriter output = new PrintWriter(new FileWriter(this.filepath))) {
+            output.write(this.SaveText);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void ReadSaveFile(){
+//        try(FileReader output = new FileReader(this.filepath))
+//        {
+//            this.SaveText = String.valueOf(output.toString());
+//        }
+//        catch(IOException e)
+//        {
+//            e.printStackTrace();
+//        }
+//        try(String output = String(Files.readAllBytes(Paths.get(this.filepath))))
+//        {
+//
+//        }
+//        catch(IOException e)
+//        {
+//            e.printStackTrace();
+//        }
+        try{
+            this.SaveText = getnewString();
+        }
+        catch (IOException e)
+        {
+
+        }
+
+    }
+
+    private String getnewString() throws IOException {
+        return new String(Files.readAllBytes(Paths.get(this.filepath)));
+    }
+
 
 
 }

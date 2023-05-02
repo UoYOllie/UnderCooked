@@ -45,18 +45,18 @@ public class Recipe {
 
         // JACKET POTATOES
         generateRecipe("Plain Potato", new FoodStack(FoodID.potatoCook));
-        generateRecipe("Beans Potato", new FoodStack(FoodID.bakedBeans, FoodID.potatoCook));
+        generateRecipe("Beans Potato", new FoodStack(FoodID.beansCooked, FoodID.potatoCook));
         generateRecipe("Coleslaw Potato", new FoodStack(FoodID.coleslaw, FoodID.potatoCook));
         generateRecipe("Cheese Potato", new FoodStack(FoodID.cheese, FoodID.potatoCook));
-        generateRecipe("Beans Cheese Potato", new FoodStack(FoodID.cheese, FoodID.bakedBeans, FoodID.potatoCook));
-        generateRecipe("Beans Coleslaw Potato", new FoodStack(FoodID.coleslaw, FoodID.bakedBeans, FoodID.potatoCook));
+        generateRecipe("Beans Cheese Potato", new FoodStack(FoodID.cheese, FoodID.beansCooked, FoodID.potatoCook));
+        generateRecipe("Beans Coleslaw Potato", new FoodStack(FoodID.coleslaw, FoodID.beansCooked, FoodID.potatoCook));
         generateRecipe("Coleslaw Cheese Potato", new FoodStack(FoodID.cheese, FoodID.coleslaw, FoodID.potatoCook));
         generateRecipe("Beans Coleslaw Cheese Potato", new FoodStack(FoodID.cheese, FoodID.coleslaw, FoodID.beansCooked, FoodID.potatoCook));
 
         // PIZZA - i'll add some more interesting combos later down the line
         generateRecipe("Plain Pizza", new FoodStack(FoodID.cheese, FoodID.tomatoSauce, FoodID.doughCook));
-        generateRecipe("Pepperoni Pizza", new FoodStack(FoodID.cheese, FoodID.pepperoni, FoodID.tomatoSauce, FoodID.doughCook));
-        generateRecipe("Onion Pizza", new FoodStack(FoodID.cheese, FoodID.onionChop, FoodID.tomatoSauce, FoodID.doughCook));
+        //generateRecipe("Pepperoni Pizza", new FoodStack(FoodID.cheese, FoodID.pepperoni, FoodID.tomatoSauce, FoodID.doughCook));
+        //generateRecipe("Onion Pizza", new FoodStack(FoodID.cheese, FoodID.onionChop, FoodID.tomatoSauce, FoodID.doughCook));
 
         // POWERUPS
         //generateRecipe("Teacup", new FoodStack(FoodID.teacup));
@@ -68,7 +68,7 @@ public class Recipe {
         toppings.add(FoodID.cheese);
         toppings.add(FoodID.bakedBeans);
         toppings.add(FoodID.coleslaw);
-        toppings.add(FoodID.pepperoni);
+        //toppings.add(FoodID.pepperoni);
 
     }
 

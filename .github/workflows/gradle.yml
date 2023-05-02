@@ -3,16 +3,20 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "main", "testtest" ]
+    branches: [ "main" ]
+    tags: [ "v[0-9]+.[0-9]+.[0-9]+" ]
   pull_request:
-    branches: [ "main", "testtest" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    strategy:
+        matrix:
+          os: [ubuntu-22.04, windows-2022, macos-12]
+    runs-on: ${{ matrix.os }}
     permissions:
       contents: read
     steps:
@@ -34,12 +38,45 @@ jobs:
       - name: Upload JaCoCo coverage report as a workflow artefact.
         uses: actions/upload-artifact@v3.1.1
         with:
-          name: jacoco-report
+          name: jacoco-report-${{ matrix.os }}
           path: ENG1/tests/build/reports
 
       - name: Upload generated JAR
         uses: actions/upload-artifact@v3.1.1
         with:
-          name: lib.jar
+          name: lib-${{ matrix.os }}.jar
           path: ENG1/desktop/build/libs/desktop-1.0.jar
+
+      - name: Upload Checkstyle Report
+        uses: actions/upload-artifact@v3.1.1
+        if: startsWith(matrix.os, 'ubuntu')
+        with:
+          name: checkstyle-report
+          path: ENG1/desktop/build/libs/reports
+
+  release:
+    runs-on: ubuntu-22.04
+    needs: [ "build" ]
+    if: startsWith(github.ref, 'refs/tags/')
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download Ubuntu Build Artifact
+        uses: actions/download-artifact@v3.0.1
+        with: { name: lib-ubuntu-22.04.jar }
+
+      - name: Download MacOS Build Artifact
+        uses: actions/download-artifact@v3.0.1
+        with: { name: lib-macos-12.jar }
+
+      - name: Download Windows Build Artifact
+        uses: actions/download-artifact@v3.0.1
+        with: { name: lib-windows-2022.jar }
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: lib.jar
+
 

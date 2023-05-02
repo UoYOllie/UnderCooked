@@ -17,7 +17,8 @@ import interactions.InputKey;
 public class Station extends CookInteractable {
 
     /** Indicates whether the station is currently locked or usable. */
-    public Boolean Enabled = true;
+    private Boolean Enabled = true;
+    public Boolean isABluggusPrison;
     public FoodStack stationFoodStack;
     public DishStack stationDishStack;
     public boolean Locked;
@@ -51,6 +52,7 @@ public class Station extends CookInteractable {
     public Station(Rectangle rectangle) {
         super(rectangle);
         inUse = false;
+        isABluggusPrison = false;
         this.gameSprites = GameSprites.getInstance();
         this.setPropertyID(-1);
         this.stationDishStack = new DishStack();
@@ -99,6 +101,24 @@ public class Station extends CookInteractable {
     @Override
     public void renderShape(ShapeRenderer shape) { }
 
+    public void Disable()
+    {
+        this.Enabled = false;
+    }
+    public void SetEnFalse()
+    {
+        this.Enabled = false;
+    }
+    public void Enable()
+    {
+        this.Enabled = true;
+    }
+
+    public Boolean getEnabled()
+    {
+        return this.Enabled;
+    }
+
 //    /**
 //     * The function used to render the {@link Station}'s
 //     * debug visuals.
@@ -118,3 +138,4 @@ public class Station extends CookInteractable {
 //
 //    }
 }
+

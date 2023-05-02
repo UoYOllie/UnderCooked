@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testing.GameplayTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-02T09:23:33" hostname="AB-ASUS-1" time="0.115">
+  <properties/>
+  <testcase name="TestServingStationServeWrongOrder" classname="testing.GameplayTest" time="0.115"/>
+  <system-out><![CDATA[cooks.CustomerNew@62a50d5a moving to point B------null------ (187.5,150.0)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
