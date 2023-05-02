@@ -70,8 +70,10 @@ public class InstructionScreen extends ScreenAdapter {
                         "\n place all the items on the assembly station, chop lettuce and then serve the customer",
                 "Tomato Onion Burger- Take two buns from the pantry, meat from the fridge, cook the meat, " +
                         "\n place all the items on the assembly station, chop tomato, chop onion and serve customer.",
-                "Plain Potato- take jacket potatoes from the pantry, coleslaw from the bottom left of the fridge, " +
+                "Plain Potato- Take jacket potatoes from the pantry, coleslaw from the bottom left of the fridge, " +
                         "\n cook the potato, place all the items on the assembly station, serve the customer.",
+                "Beans Potato- Take jacket potatoes and canned beans from pantry, coleslaw from the bottom left of the fridge, " +
+                        "\n cook the potato and beans, place all the items on the assembly station, serve the customer.",
 
 
 
