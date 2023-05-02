@@ -19,6 +19,7 @@ public class CollisionTests {
     @Test
     // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveLeftCollision(){
+        //This test works by spawning a collidable box to the left of our chef. We then ask the chef to walk left. He should stop when he collides with the box
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f) - 20,1200 * 1/8f,20,20);
@@ -33,6 +34,7 @@ public class CollisionTests {
     @Test
     // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveRightCollision(){
+        //This test works by spawning a collidable box to the right of our chef. We then ask the chef to walk right. He should stop when he collides with the box
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f) + 20,1200 * 1/8f,20,20);
@@ -47,6 +49,7 @@ public class CollisionTests {
     @Test
     // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveUpCollision(){
+        //This test works by spawning a collidable box above of our chef. We then ask the chef to walk up. He should stop when he collides with the box
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f) + 20,20,20);
@@ -61,6 +64,7 @@ public class CollisionTests {
     @Test
     // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveDownCollision(){
+        //This test works by spawning a collidable box below of our chef. We then ask the chef to walk down. He should stop when he collides with the box
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f) - 20,20,20);
@@ -77,6 +81,7 @@ public class CollisionTests {
     @Test
     // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideLeftUp(){
+        //This test works by spawning a collidable box to the left of our chef. We then ask the chef to walk left and up. He should stop when he collides with the box then slide up the box
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f) - 20,(1200 * 1/8f),20,20);
@@ -94,6 +99,7 @@ public class CollisionTests {
     @Test
     // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideLeftDown(){
+        //This test works by spawning a collidable box to the left of our chef. We then ask the chef to walk left and down. He should stop when he collides with the box then slide down the box
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f) - 20,(1200 * 1/8f),20,20);
@@ -111,6 +117,7 @@ public class CollisionTests {
     @Test
     // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideRightUp(){
+        //This test works by spawning a collidable box to the right of our chef. We then ask the chef to walk right and up. He should stop when he collides with the box then slide up the box
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f) + 20 + cook.movement_speed,(1200 * 1/8f),20,20);
@@ -128,6 +135,7 @@ public class CollisionTests {
     @Test
     // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideRightDown(){
+        //This test works by spawning a collidable box to the right of our chef. We then ask the chef to walk right and down. He should stop when he collides with the box then slide down the box
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f) + 20 + cook.movement_speed,(1200 * 1/8f),20,20);
@@ -145,6 +153,7 @@ public class CollisionTests {
     @Test
     // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideUpRight(){
+        //This test works by spawning a collidable box above our chef. We then ask the chef to walk up and right. He should stop when he collides with the box then slide right across the box
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f) + 20 + cook.movement_speed,20,20);
@@ -162,6 +171,7 @@ public class CollisionTests {
     @Test
     // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideUpLeft(){
+        //This test works by spawning a collidable box above our chef. We then ask the chef to walk up and left. He should stop when he collides with the box then slide left across the box
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f) + 20 + cook.movement_speed,20,20);
@@ -179,6 +189,7 @@ public class CollisionTests {
     @Test
     // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideDownRight(){
+        //This test works by spawning a collidable box below our chef. We then ask the chef to walk down and right. He should stop when he collides with the box then slide right across the box
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f) - 20 - cook.movement_speed,20,20);
@@ -196,6 +207,7 @@ public class CollisionTests {
     @Test
     // Relates to the FR_CHEF_COLLISIONS requirement
     public void TestChefMoveSlideDownLeft(){
+        //This test works by spawning a collidable box below our chef. We then ask the chef to walk down and left. He should stop when he collides with the box then slide left across the box
         Cook cook = new Cook(1500, 1200, 20, 20);
         ArrayList<Rectangle> testList = new ArrayList<>();
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f) - 20 - cook.movement_speed,20,20);
