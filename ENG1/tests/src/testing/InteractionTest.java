@@ -273,7 +273,7 @@ public class InteractionTest {
 
     @Test
     // Relates to the FR_GET_FOOD requirement
-    public void PantryTestLettuce(){
+    public void TestPantryLettuce(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.lettuce);
@@ -286,7 +286,7 @@ public class InteractionTest {
 
     @Test
     // Relates to the FR_GET_FOOD requirement
-    public void PantryTestTomato(){
+    public void TestPantryTomato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.tomato);
@@ -300,7 +300,7 @@ public class InteractionTest {
 
     @Test
     // Relates to the FR_GET_FOOD requirement
-    public void PantryTestOnion(){
+    public void TestPantryOnion(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.onion);
@@ -313,7 +313,7 @@ public class InteractionTest {
 
     @Test
     // Relates to the FR_GET_FOOD requirement
-    public void PantryTestMeat(){
+    public void TestPantryMeat(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.meat);
@@ -325,7 +325,7 @@ public class InteractionTest {
     }
     @Test
     // Relates to the FR_GET_FOOD requirement
-    public void PantryTestPotato(){
+    public void TestPantryPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.potato);
@@ -337,7 +337,7 @@ public class InteractionTest {
     }
     @Test
     // Relates to the FR_GET_FOOD requirement
-    public void PantryTestDough(){
+    public void TestPantryDough(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.dough);
@@ -350,7 +350,7 @@ public class InteractionTest {
 
     @Test
     // Relates to the FR_GET_FOOD requirement
-    public void PantryTestBun(){
+    public void TestPantryBun(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
         testPantry.setItem(FoodItem.FoodID.bun);
