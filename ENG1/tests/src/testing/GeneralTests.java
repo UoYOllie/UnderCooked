@@ -581,6 +581,7 @@ public class GeneralTests {
     }
 
     @Test
+    // Tests that the initialiseStationCustomerMap method creates a hashmap with all the serving stations
     public void TestInitialiseStationCustomerMap(){
         CustomerController customerController = new CustomerController();
         ServingStation servingStation1 = new ServingStation(new Rectangle());
@@ -597,7 +598,26 @@ public class GeneralTests {
         stationCustomerMap.put(servingStation1,null);
         stationCustomerMap.put(servingStation2,null);
 
-        assertEquals(customerController.getStationCustomerMap(),stationCustomerMap);
+        assertEquals(customerController.getStationCustomerMap(),stationCustomerMap, "getStationCustomerMap doesn't create the correct hashmap with all the serving stations");
     }
 
+    @Test
+    // Tests that the addCustomer method doesn't add a customer if there are already more than 4 customers present
+    public void TestAddCustomer(){
+        CustomerController customerController = new CustomerController();
+        customerController.setMode("scenario");
+        ArrayList<CustomerNew> customerNews = new ArrayList<CustomerNew>();
+        CustomerNew customerNew1 = new CustomerNew(1,2,3,4);
+        CustomerNew customerNew2 = new CustomerNew(1,2,3,4);
+        CustomerNew customerNew3 = new CustomerNew(1,2,3,4);
+        CustomerNew customerNew4 = new CustomerNew(1,2,3,4);
+        CustomerNew customerNew5 = new CustomerNew(1,2,3,4);
+        customerNews.add(customerNew1);
+        customerNews.add(customerNew2);
+        customerNews.add(customerNew3);
+        customerNews.add(customerNew4);
+        customerNews.add(customerNew5);
+        customerController.customers = customerNews;
+        assertNull(customerController.addCustomer(), "The addCustomer method should return null when there are already 5 customers present, but doesn't");
+    }
 }
