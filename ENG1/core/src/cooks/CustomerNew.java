@@ -371,7 +371,7 @@ public class CustomerNew extends GameEntity {
             move_right_up(Constants.customerPointA);
         }
         if (this.entryStatus == -2) {
-            gameScreen.gameEntities.remove(this);
+            gameScreen.letsremove.add(this);
         }
 
     }
