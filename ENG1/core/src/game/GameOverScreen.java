@@ -27,7 +27,6 @@ import static game.GameSprites.sadglib;
  * option to {@link InputKey.InputTypes#QUIT} or to {@link InputKey.InputTypes#RESET_GAME}.
  */
 public class GameOverScreen extends ScreenAdapter {
-    private float zoom = 0;
     private Viewport viewport;
     private ScreenController screenController;
     private OrthographicCamera camera;
@@ -96,7 +95,7 @@ public class GameOverScreen extends ScreenAdapter {
         rotation += 0.7f;
         glibbsad.setOriginCenter();
         glibbsad.setRotation(rotation);
-        glibbsad.setSize(300*zoom, 540*zoom);
+        glibbsad.setSize(300, 540);
         glibbsad.setPosition(camera.position.x - 900f + glib_x,camera.position.y - 300f);
 
         if (glib_x == 1500f){
