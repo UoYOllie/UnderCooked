@@ -165,7 +165,7 @@ public class CustomerNew extends GameEntity {
     private void Leave() //This function will be called when a customer leaves
     {
         this.Stillhere = false;
-        System.out.println("Im leaving, bye");
+        //System.out.println("Im leaving, bye");
         this.customerStatus = 2;
         //Implement walk off
         //implement removement from array
@@ -300,11 +300,12 @@ public class CustomerNew extends GameEntity {
 
     public void servedCustomerLeaves() {
 
+
 //        if (this.x > destination.x) { this.x -= Constants.UnitScale;
 //        } else {
 //            this.customerStatus += 1;
 //        }
-        System.out.println("Entry status "+entryStatus);
+       // System.out.println("Entry status "+entryStatus);
         if(entryStatus==6) {
             moveToPoint("F Hybrid");
             setDestination(stationPosition.x-30f,stationPosition.y);
@@ -562,7 +563,7 @@ public class CustomerNew extends GameEntity {
 
     public void moveToPoint(String x)
     {
-        System.out.println(this+" moving to point "+x+"------"+this.destination+"------ ("+this.x+","+this.y+")");
+        //System.out.println(this+" moving to point "+x+"------"+this.destination+"------ ("+this.x+","+this.y+")");
         this.offtopoint = x;
     }
 

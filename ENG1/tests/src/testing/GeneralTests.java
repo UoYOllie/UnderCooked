@@ -532,11 +532,18 @@ public class GeneralTests {
         assertTrue(customerController.maxCustomersReached(), "the maxCustomersReached method does not provide a customer limit");
     }
 
+    @Test
     public void TestWonScenario(){
         //First we tests the win scenario, no customers left
         CustomerController customerController = new CustomerController();
         customerController.setMode("scenario");
+        customerController.setCustomers_left(0);
+        assertTrue(customerController.wonScenario());
 
+        //Now we test endless
+        customerController.setMode("endless");
+        customerController.setCustomers_left(1);
+        assertFalse(customerController.wonScenario());
     }
 
 }
