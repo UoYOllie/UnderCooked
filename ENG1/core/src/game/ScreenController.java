@@ -30,6 +30,7 @@ public class ScreenController {
     private PauseScreen pauseScreen;
     private IntroScreen introScreen;
     private WinScreen winScreen;
+    private PayList payList;
     private HashMap<ScreenID, ScreenAdapter> screens;
 
     private long playTimeDiff;
@@ -62,6 +63,9 @@ public class ScreenController {
 
         this.pauseScreen = new PauseScreen(this,new OrthographicCamera());
         this.screens.put(ScreenID.PAUSE,pauseScreen);
+
+        this.payList = new PayList(this,new OrthographicCamera());
+        this.screens.put(ScreenID.PAYLIST,payList);
     }
 
     /**
@@ -111,7 +115,7 @@ public class ScreenController {
 
         INTRO,
         WIN,
-        LOADING
+        PAYLIST
     }
 
     /**
@@ -142,6 +146,11 @@ public class ScreenController {
         playTimeDiff = TimeUtils.millis() - gameScreen.getPreviousSecond();
         //customerTimeDiff = gameScreen.getNextCustomerSecond() - TimeUtils.millis();
         setScreen(ScreenID.PAUSE);
+    }
+    public void paylistscreen() {
+        playTimeDiff = TimeUtils.millis() - gameScreen.getPreviousSecond();
+        //customerTimeDiff = gameScreen.getNextCustomerSecond() - TimeUtils.millis();
+        setScreen(ScreenID.PAYLIST);
     }
 
     /** Resume the game from pause.

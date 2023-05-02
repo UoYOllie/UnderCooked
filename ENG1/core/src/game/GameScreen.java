@@ -457,25 +457,10 @@ public class GameScreen extends ScreenAdapter {
 //            WriteSaveFile();
         }
         if (Gdx.input.isKeyPressed(Input.Keys.T)){
-////            System.out.println(this.getCustomerController().getMode());
-//            System.out.println("Adding gold");
-//            this.gold.setBalance(1000);
-            //DrawDebugLine(Constants.customerPointC,Constants.customerPointD,20,Color.CYAN,camera.combined);
-//            System.out.println("Line Rendering");
-//            Array<Cook> ConstantPoints = new Array<Cook>();
-            //ConstantPoints.add(new Cook(Constants.customerPointA.x* 8f,Constants.customerPointA.y* 8f,1,1));
-            //ConstantPoints.add(new Cook(Constants.customerPointB.x* 8f,Constants.customerPointB.y* 8f,1,1));
-//            ConstantPoints.add(new Cook(Constants.customerPointC.x* 8f,Constants.customerPointC.y* 8f,1,1));
-//            ConstantPoints.add(new Cook(Constants.customerPointD.x* 8f,Constants.customerPointD.y* 8f,1,1));
-//            ConstantPoints.add(new Cook(Constants.customerPointE.x* 8f,Constants.customerPointE.y* 8f,1,1));
-//            ConstantPoints.add(new Cook(Constants.customerPointF.x* 8f,Constants.customerPointF.y* 8f,1,1));
-//            ConstantPoints.add(new Cook(1944.1375f* 8f,2774.0818f* 8f,1,1)); //(1944.1375,2774.0818)
-//            for(Cook c:ConstantPoints)
-//            {
-//                System.out.println("adding");
-//                gameEntities.add(c);
-//            }
             this.gold.setBalance(10000000);
+        }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
+            screenController.paylistscreen();
 
         }
 

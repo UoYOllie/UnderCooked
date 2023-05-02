@@ -1,6 +1,7 @@
 package game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -13,21 +14,17 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-
-import cooks.GameEntity;
 import game.ScreenController.ScreenID;
 import helper.Constants;
 import interactions.InputKey;
 import interactions.Interactions;
-
-import java.util.ArrayList;
 
 /**
  * A {@link ScreenAdapter} that is used when the game is paused.
  * It renders the {@link GameScreen} behind it, so the user can still
  * see the game.
  */
-public class PauseScreen extends ScreenAdapter {
+public class PayList extends ScreenAdapter {
     private ScreenController screenController;
     private OrthographicCamera camera;
     private SpriteBatch batch;
@@ -38,11 +35,11 @@ public class PauseScreen extends ScreenAdapter {
     private ShapeRenderer shape;
 
     /**
-     * The constructor for the {@link PauseScreen}.
+     * The constructor for the {@link PayList}.
      * @param screenController The {@link ScreenController} of the {@link ScreenAdapter}.
      * @param orthographicCamera The {@link OrthographicCamera} that the game should use.
      */
-    public PauseScreen(ScreenController screenController, OrthographicCamera orthographicCamera) {
+    public PayList(ScreenController screenController, OrthographicCamera orthographicCamera) {
         this.screenController = screenController;
         this.camera = orthographicCamera;
         this.batch = screenController.getSpriteBatch();
@@ -58,12 +55,17 @@ public class PauseScreen extends ScreenAdapter {
         table.setFillParent(true);
 
         String[] strLabels = new String[] {
-            "PAUSED",
-            String.format("Press %s to continue",Interactions.getKeyString(InputKey.InputTypes.UNPAUSE)),
-            String.format("Press %s for instructions",Interactions.getKeyString(InputKey.InputTypes.INSTRUCTIONS)),
-            String.format("Press %s for credits",Interactions.getKeyString(InputKey.InputTypes.CREDITS)),
-            String.format("Press %s to reset",Interactions.getKeyString(InputKey.InputTypes.RESET_GAME)),
-            String.format("Press %s to quit",Interactions.getKeyString(InputKey.InputTypes.QUIT))
+            "Costs",
+                "--------------------",
+                "Stations = $10",
+                "New Cooks = $25",
+                "--------------------",
+                "POWERUPS:",
+                "- 1.) Speed = $30",
+                "- 2.) Teacup (Increase Wait Time) = $50",
+                "- 3.) Menu (Change Request) = $50",
+                "- 4.) Freeze Timer = $100",
+                "- 5.) Chef Bluggus Mode = $80"
         };
         /* OLD CODE
         Label pauseLabel = new Label("PAUSED", font);
@@ -105,33 +107,18 @@ public class PauseScreen extends ScreenAdapter {
     public void update(float delta) {
         Interactions.updateKeys();
         // Check if the Unpause key was pressed.
-        if (Interactions.isJustPressed(InputKey.InputTypes.UNPAUSE)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.P)) {
             screenController.playGameScreen();
             return;
-        }
-        if (Interactions.isJustPressed(InputKey.InputTypes.INSTRUCTIONS)) {
-            ((InstructionScreen)screenController.getScreen(ScreenID.INSTRUCTIONS)).setPrevScreenID(ScreenID.PAUSE);
-            screenController.setScreen(ScreenID.INSTRUCTIONS);
-        }
-        else if (Interactions.isJustPressed(InputKey.InputTypes.CREDITS)) {
-            ((CreditsScreen)screenController.getScreen(ScreenID.CREDITS)).setPrevScreenID(ScreenID.PAUSE);
-            screenController.setScreen(ScreenID.CREDITS);
-        }
-        else if (Interactions.isJustPressed(InputKey.InputTypes.RESET_GAME)) {
-            screenController.resetGameScreen();
-            screenController.setScreen(ScreenID.MENU);
-        }
-        else if (Interactions.isJustPressed(InputKey.InputTypes.QUIT)) {
-            Gdx.app.exit();
         }
     }
 
     /**
-     * The function used to render the {@link PauseScreen}.
+     * The function used to render the {@link PayList}.
      *
      * <br>Draws the {@link GameScreen} underneath using the
      * {@link GameScreen#renderGame(float)} function, and then
-     * renders the {@link PauseScreen} over it.
+     * renders the {@link PayList} over it.
      * @param delta The time in seconds since the last render.
      */
     @Override
@@ -141,8 +128,12 @@ public class PauseScreen extends ScreenAdapter {
 
         shape.begin(ShapeRenderer.ShapeType.Filled);
 
-        Gdx.gl.glEnable(GL20.GL_BLEND);
-        Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        Gdx.gl.glClearColor(0,0,0,1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        shape.setColor(0,0,0,0.5F);
+        shape.rect(0,0, Constants.V_Width,Constants.V_Height);
+        shape.setColor(Color.WHITE);
         shape.end();
 
         stage.draw();
