@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="left-up" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="38">
- <tileset firstgid="1" source="Tile Images.tsx"/>
+ <tileset firstgid="1" source="Tile Images.tmx"/>
  <layer id="4" name="Tile Layer 2" width="30" height="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
