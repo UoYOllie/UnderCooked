@@ -546,7 +546,7 @@ public class GeneralTests {
         //Now we test endless
         customerController.setMode("endless");
         customerController.setCustomers_left(1);
-        assertFalse(customerController.wonScenario());
+        assertFalse(customerController.wonScenario(), "wonScenario does not return true in endless mode if there is a customer left waiting to be served");
 
         //next test scenario where the mode is scenario and customers_left is > 0
         customerController.setMode("scenario");
@@ -564,10 +564,11 @@ public class GeneralTests {
         customerNews.add(customerNew3);
         customerController.customers = customerNews;
         customerController.wonScenario();
-        assertEquals(customerController.getCustomers_left(), 0);
+        assertEquals(customerController.getCustomers_left(), 0, "there are customers left after winning the game in scenario mode");
     }
 
     @Test
+    // Tests the removeCustomer method
     public void TestRemoveCustomer(){
         CustomerController customerController = new CustomerController();
         Map<Station, CustomerNew> stationCustomerMap = new HashMap<Station,CustomerNew>();
@@ -576,8 +577,7 @@ public class GeneralTests {
         stationCustomerMap.put(preparationStation,customerNew);
         customerController.setStationCustomerMap(stationCustomerMap);
         customerController.removeCustomer(preparationStation);
-        assertEquals(stationCustomerMap.get(preparationStation),null);
-        assertFalse(customerController.wonScenario(), "wonScenario returns true in endless mode if there are customers left to be served (expected false)");
+        assertNull(stationCustomerMap.get(preparationStation), "removeCustomer does not remove the customer from the station in the hashmap");
     }
 
 }
