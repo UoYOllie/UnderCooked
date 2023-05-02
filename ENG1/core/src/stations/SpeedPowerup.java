@@ -15,19 +15,16 @@ import interactions.InputKey;
 public class SpeedPowerup extends Station {
     private  GameScreen gameScreen;
     private ShopItem item;
-    private int counter;
     public SpeedPowerup(Rectangle rectangle, GameScreen g){
 
         super(rectangle);
         this.gameScreen = g;
         this.item = gameScreen.Powerup_Speed;
-        this.counter =0;
     }
 
     public SpeedPowerup(Rectangle rectangle){
         super(rectangle);
         this.item = new ShopItem("Speed",30);
-        this.counter =0;
     }
 
     public Cook setSpeed(Cook cook){
@@ -43,7 +40,6 @@ public class SpeedPowerup extends Station {
                 gameScreen.gold = item.buy(gameScreen.gold);
                 gameScreen.cook = setSpeed(cook);
                 System.out.println(gameScreen.gold.getBalance());
-                counter++;
             }
         }
 

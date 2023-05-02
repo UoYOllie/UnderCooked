@@ -34,7 +34,6 @@ public class ScreenController {
     private HashMap<ScreenID, ScreenAdapter> screens;
 
     private long playTimeDiff;
-    private long customerTimeDiff;
     private String endTime;
 
     /**
@@ -78,7 +77,6 @@ public class ScreenController {
     }
 
     public void setMode(String mode) {
-        this.difficultyScreen.setMode(mode);
         this.introScreen.setMode(mode);
     }
 

@@ -59,63 +59,6 @@ public class MapHelper {
         return new SuperMapSuperRenderer(tiledMap, 1/8f);
     }
 
-//    /**
-//     * Creates a Static {@link Body} added to the map that is used
-//     * to stop the {@link Cook} from moving through certain places.
-//     * @param polygonMapObject
-//     */
-
-//    private void createStaticBody(PolygonMapObject polygonMapObject)
-//    {
-//        BodyDef bodyDef = new BodyDef();
-//        bodyDef.type = BodyDef.BodyType.StaticBody;
-//        Body body = gameScreen.getWorld().createBody(bodyDef);
-//        Shape shape = createPolygonShape(polygonMapObject);
-//        body.createFixture(shape, 1000);
-//        shape.dispose();
-//    }
-
-
-
-//    /**
-//     * Creates a Polygon{@link Shape} using the {@link PolygonMapObject}.
-//     * <br>It is used to create the {@link Shape} for the
-//     * {@link #createStaticBody(PolygonMapObject)} function for
-//     * the {@link Body}'s {@link com.badlogic.gdx.physics.box2d.Fixture}.
-//     * @param polygonMapObject
-//     * @return
-//     */
-//    private Shape createPolygonShape(PolygonMapObject polygonMapObject)
-//    {
-//        float[] vertices = polygonMapObject.getPolygon().getTransformedVertices();
-//        Vector2[] worldVertices = new Vector2[vertices.length / 2];
-//        for(int i = 0;i<vertices.length / 2;i++)
-//        {
-//            Vector2 current = new Vector2(vertices[i * 2]/PPM, vertices[i*2+1]/PPM);
-//            worldVertices[i] = current;
-//        }
-//        PolygonShape shape = new PolygonShape();
-//        shape.set(worldVertices);
-//        return shape;
-//
-//    }
-
-
-
-//    /**
-//     * Makes a {@link Body} using a {@link Rectangle} as a base.
-//     * @param rectangle The {@link Rectangle} for the {@link Body}'s {@link Shape}.
-//     * @param isStatic If true, then the {@link Body} is stationary.
-//     *                 If false, then the {@link Body} is not stationary.
-//     * @return {@link Body} : The {@link Body} created using {@link BodyHelper}.
-//     */
-//    public static Body makeBody(Rectangle rectangle, boolean isStatic)
-//    {
-
-//        return BodyHelper.createBody(rectangle.x + rectangle.getWidth() /2, rectangle.y +rectangle.getHeight()/2,rectangle.getWidth(), rectangle.getHeight(),isStatic, INSTANCE.gameScreen.getWorld());
-//    }
-
-
 
     /**
      * IN CHARGE OF LINKING OBJECTS IN THE MAP TO THE CODE
@@ -141,11 +84,6 @@ public class MapHelper {
                                     rectangle.width * 1/8f, rectangle.height*1/8f);
 
             mapObstacles.add(newRectangle);
-//            System.out.println(newRectangle.x);
-//            System.out.println(newRectangle.y);
-//            System.out.println(newRectangle.width);
-//            System.out.println(newRectangle.height);
-//            System.out.println(":)");
         }
 
         // INTERACTION OBJECTS
@@ -162,28 +100,15 @@ public class MapHelper {
             Rectangle newRectangle = new Rectangle(rectangle.x*1/8f, ((rectangle.y) * 1/8f),
                     rectangle.width * 1/8f, rectangle.height*1/8f);
             String stationName = rectangleMapObject.getName();
-            //System.out.println(rectangleMapObject.getName());
-
-//            System.out.println(newRectangle.x);
-//            System.out.println(newRectangle.y);
-//            System.out.println(newRectangle.width);
-//            System.out.println(newRectangle.height);
-//            System.out.println(":)"); // :)
-
             // Check which instance of Station and add the corresponding object to mapStations.
-            int IDcounter = 0;
             switch(stationName) {
                 case "BinStation":
                     BinStation binStation = new BinStation(newRectangle);
-                    binStation.setPropertyID(IDcounter);
                     mapStations.add(binStation);
-                    IDcounter++;
                     break;
                 case "CounterStation":
                     CounterStation cs = new CounterStation(newRectangle);
-                    cs.setPropertyID(IDcounter);
                     mapStations.add(cs);
-                    IDcounter++;
                     break;
                 case "PreparationStation":
                     String t = rectangleMapObject.getProperties().get("type").toString();
@@ -198,44 +123,25 @@ public class MapHelper {
                         case "bake":
                             prepStation.setID(Station.StationID.bake);
                             break;
-//                        case "assembly":
-//                            prepStation.setID(Station.StationID.assembly);
-//                            break;
                     }
-                    prepStation.setPropertyID(IDcounter);
                     mapStations.add(prepStation);
-                    IDcounter++;
                     break;
                 case "AssemblyStation":
                     AssemblyStation as = new AssemblyStation(newRectangle);
-                    as.setPropertyID(IDcounter);
                     mapStations.add(as);
-                    IDcounter++;
                     break;
                 case "ServingStation":
                     ServingStation ss = new ServingStation(newRectangle);
-                    ss.setPropertyID(IDcounter);
                     mapStations.add(ss);
                     ServingStationList.add(ss);
-                    IDcounter++;
                     break;
                 case "SpeedPowerup":
                     SpeedPowerup sp = new SpeedPowerup(newRectangle,gameScreen);
-                    sp.setPropertyID(IDcounter);
                     mapStations.add(sp);
-                    IDcounter++;
-                    break;
-                case "Shop":
-                    ShopCounter sc = new ShopCounter(newRectangle);
-                    sc.setPropertyID(IDcounter);
-                    mapStations.add(sc);
-                    IDcounter++;
                     break;
                 case "VAT":
                     VAT v = new VAT(newRectangle,(rectangleMapObject.getProperties().get("Person")).toString(),gameScreen);
-                    v.setPropertyID(IDcounter);
                     mapStations.add(v);
-                    IDcounter++;
                     break;
                 case "Pantry":
                     System.out.println("pantry is generated");
@@ -243,9 +149,7 @@ public class MapHelper {
                     pantry.setItem(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food"))); // lmao hashmap is sus
                     System.out.println("Setting to " + rectangleMapObject.getProperties().get("Food"));
                     System.out.println(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food")));
-                    pantry.setPropertyID(IDcounter);
                     mapStations.add(pantry);
-                    IDcounter++;
                     break;
                 case "poweritem":
                     System.out.println("power pantry is generated");
@@ -254,22 +158,15 @@ public class MapHelper {
                     System.out.println("Setting to " + rectangleMapObject.getProperties().get("Food"));
                     System.out.println(FoodItem.foods.get(rectangleMapObject.getProperties().get("Food")));
 
-                    powerpantry.setPropertyID(IDcounter);
-
                     mapStations.add(powerpantry);
-                    IDcounter++;
                     break;
                 case "Freeze":
                     FreezeTimeStation fts = new FreezeTimeStation(newRectangle,gameScreen);
-                    fts.setPropertyID(IDcounter);
                     mapStations.add(fts);
-                    IDcounter++;
                     break;
                 case "BluggusMode":
                     BluggusModeActivate bma = new BluggusModeActivate(newRectangle,gameScreen);
-                    bma.setPropertyID(IDcounter);
                     mapStations.add(bma);
-                    IDcounter++;
                     break;
                 case "Locked":
                     String ts = rectangleMapObject.getProperties().get("type").toString();
@@ -285,10 +182,8 @@ public class MapHelper {
                             lockedprep.setID(Station.StationID.bake);
                             break;
                     }
-                    lockedprep.setPropertyID(IDcounter);
                     lockedprep.Locked = true;
                     mapStations.add(lockedprep);
-                    IDcounter++;
                     break;
 
 
@@ -304,111 +199,6 @@ public class MapHelper {
     }
 
 
-
-
-//    {
-//        for(MapObject mapObject:mapObjects)
-//        {
-//            if(mapObject instanceof PolygonMapObject)
-//            {
-//                createStaticBody((PolygonMapObject) mapObject);
-//            }
-//
-//            if(mapObject instanceof RectangleMapObject)
-//            {
-//                Rectangle rectangle = ((RectangleMapObject) mapObject).getRectangle();
-//                String rectangleName = mapObject.getName();
-//
-//                if(rectangleName.equals("CookStart"))
-//                {
-//                    Body body = makeBody(rectangle, false);
-//                    int cookInd = gameScreen.addCook(new Cook(rectangle.getWidth(), rectangle.getHeight(), body, gameScreen));
-//                    gameScreen.setCook(cookInd);
-//                    continue;
-//                }
-//
-//                if(rectangleName.equals("Cook"))
-//                {
-//                    Body body = makeBody(rectangle, false);
-//                    gameScreen.addCook(new Cook(rectangle.getWidth(), rectangle.getHeight(), body, gameScreen));
-//                    continue;
-//                }
-//
-//                Rectangle normalRect = new Rectangle(rectangle);
-//                normalRect.setX(normalRect.getX() * PPM);
-//                normalRect.setY(normalRect.getY() * PPM);
-//
-//                if(rectangleName.startsWith("Station")) {
-//                    // Stations
-//                    rectangleName = rectangleName.substring("Station".length()).toLowerCase();
-//                    Station station;
-//                    switch(rectangleName) {
-//                        case "cut":
-//                            station = new PreparationStation(rectangle);
-//                            station.setID(Station.StationID.cut);
-//                            gameScreen.addGameEntity(station);
-//                            break;
-//                        case "fry"://change to cooking
-//                            station = new PreparationStation(rectangle);
-//                            station.setID(Station.StationID.fry);
-//                            gameScreen.addGameEntity(station);
-//                            break;
-//                        case "counter":
-//                            station = new CounterStation(rectangle);
-//                            station.setID(Station.StationID.counter);
-//                            gameScreen.addGameEntity(station);
-//                            break;
-//                        case "bin":
-//                            station = new BinStation(rectangle);
-//                            station.setID(Station.StationID.bin);
-//                            break;
-//                        case "serving": //Convert to assembly??
-//                            station = new ServingStation(rectangle);
-//                            station.setID(Station.StationID.serving);
-//                            gameScreen.addGameEntity(station);
-//                            gameScreen.addServingStation((ServingStation) station);
-//                            ((ServingStation) station).setGameScreen(gameScreen);
-//                            break;
-//                            //add baking
-//                            //add assembly/new serving
-//                        default:
-//                            station = new Station(rectangle);
-//                            station.setID(Station.StationID.none);
-//                            break;
-//                    }
-//                    gameScreen.addInteractable(station);
-//                }
-//
-//                if (rectangleName.startsWith("Pantry")) {
-//                    // Pantries
-//                    rectangleName = rectangleName.substring("Pantry".length());
-//                    Pantry pantry = new Pantry(rectangle);
-//                    gameScreen.addInteractable(pantry);
-//                    switch(rectangleName) {
-//                        case "Lettuce":
-//                            pantry.setItem(FoodItem.FoodID.lettuce);
-//                            break;
-//                        case "Tomato":
-//                            pantry.setItem(FoodItem.FoodID.tomato);
-//                            break;
-//                        case "Onion":
-//                            pantry.setItem(FoodItem.FoodID.onion);
-//                            break;
-//                        case "Meat":
-//                            pantry.setItem(FoodItem.FoodID.meat);
-//                            break;
-//                        case "Bun":
-//                            pantry.setItem(FoodItem.FoodID.bun);
-//                            break;
-//                        default:
-//                            pantry.setItem(FoodItem.FoodID.none);
-//                            break;
-//                    }
-//                }
-//            }
-//        }
-//    }
-
     public ArrayList<Rectangle> getMapObstacles() {
         return mapObstacles;
     }
@@ -420,13 +210,5 @@ public class MapHelper {
     //public Array<Station> getServingStationList() { return ServingStationList;}
 
     public ArrayList<Station> getServingStationList() {return ServingStationList;}
-
-    /** Disposes of loaded tiledMap textures when no longer required. */
-
-
-    public void dispose() {
-
-        tiledMap.dispose();
-    }
 
 }

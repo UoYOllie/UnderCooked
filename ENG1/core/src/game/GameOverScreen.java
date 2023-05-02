@@ -143,15 +143,4 @@ public class GameOverScreen extends ScreenAdapter {
 
         this.update(delta);
     }
-
-    /**
-     * Sets the {@link #timeLabel} to use the end time
-     * of the player after finishing the game.
-     * @param hours Hours taken.
-     * @param minutes Minutes taken.
-     * @param seconds Seconds taken.
-     */
-    public void setTime(int hours, int minutes, int seconds) {
-        timeLabel.setText(Util.formatTime(hours,minutes,seconds));
-    }
 }

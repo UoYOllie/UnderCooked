@@ -26,7 +26,6 @@ public class PreparationStation extends Station {
     public StationState state;
 
     private int usingchef;
-    private boolean Done;
     private GameScreen gameScreen;
     private int TestFlag = 0; //Normal mode = 0 , Test Mode = 1
     private ShopItem item;
@@ -37,12 +36,10 @@ public class PreparationStation extends Station {
      */
     public PreparationStation(Rectangle rectangle) {
         super(rectangle);
-        this.Done = true;
         this.usingchef = 0;
     }
     public PreparationStation(Rectangle rectangle,GameScreen g) {
         super(rectangle);
-        this.Done = true;
         this.gameScreen = g;
         this.usingchef = 0;
         this.item = gameScreen.BuyableStation;
@@ -163,10 +160,6 @@ public class PreparationStation extends Station {
 //                System.out.println("+++++++++++++++Locking+++++++++++++++++");
                 gameScreen.cooks.get(usingchef).lockmovement = true;
             }
-//            else {
-//                System.out.println("+++++++++++++++Locking+++++++++++++++++");
-//                gameScreen.cooks.get(usingchef).lockmovement = false;
-//            }
         }
         // Render the progress bar when inUse
         if (inUse) {
@@ -341,9 +334,6 @@ public class PreparationStation extends Station {
 
     }
 
-    public int GetTestFlag(){
-        return this.TestFlag;
-    }
 
     public void SetTestFlag(int testFlag){
         this.TestFlag = testFlag;

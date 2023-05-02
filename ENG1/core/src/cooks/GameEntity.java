@@ -30,22 +30,6 @@ public abstract class GameEntity {
 
     private float coolY;
 
-
-    /**
-     * The constructor for the {@link GameEntity}, using a {@link Rectangle}.
-     * This is to make it easier to create a {@link GameEntity} that may not
-     * need a {@link Body} created elsewhere, and also allows the {@link Rectangle}
-     * to be passed up to functions that need it, as a {@link Rectangle} can make a
-     * {@link Body}, but not the other way around.
-     * @param width The width of the {@link GameEntity} as a float.
-     * @param height The height of the {@link GameEntity} as a float.
-     * // @param body The {@link Body} of the {@link GameEntity}.
-     */
-
-    //UPDATED
-    // removed Body body parameter
-
-
     public GameEntity(float x, float y, float width, float height)
     {
         //this.y = body.getPosition().y * PPM; UPDATE TO:
@@ -65,20 +49,8 @@ public abstract class GameEntity {
         this.speed = 0;
 
         this.coolY = y - 4 * Constants.UnitScale;
-        // this.body = body;
     }
 
-    /**
-     * UPDATE: if a rectangle already exists, just use this constructor no need to mess with
-     * all the parameters in constructor
-     *
-     * The constructor for the {@link GameEntity}, using a {@link Rectangle}.
-     * This is to make it easier to create a {@link GameEntity} that may not
-     * need a {@link Body} created elsewhere, and also allows the {@link Rectangle}
-     * to be passed up to functions that need it, as a {@link Rectangle} can make a
-     * {@link Body}, but not the other way around.
-     * @param rectangle The {@link Rectangle} of the {@link GameEntity}.
-     */
     public GameEntity(Rectangle rectangle) {
         this.rectangle = rectangle;
 		this.x = rectangle.x;
@@ -113,22 +85,6 @@ public abstract class GameEntity {
      * @param shape The {@link ShapeRenderer} used to render.
      */
     public abstract void renderShape(ShapeRenderer shape);
-
-//    /**
-//     * The debug render function, used to render the {@link GameEntity}'s
-//     * debug visuals.
-//     * @param shape The {@link ShapeRenderer} used to render.
-//     */
-//    public abstract void renderShapeDebug(ShapeRenderer shape);
-
-//    /**
-//     * A getter to get the {@link GameEntity}'s {@link Body}.
-//     * @return {@link Body} : The {@link GameEntity}'s {@link Body}.
-//     */
-//    public Body getBody()
-//    {
-//        return body;
-//    }
 
     /**
      * A getter to get the {@link GameEntity}'s {@link #x} coordinate.

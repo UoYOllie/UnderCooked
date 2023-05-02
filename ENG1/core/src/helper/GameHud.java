@@ -22,13 +22,8 @@ public class GameHud extends Hud {
     Label CustomerServed;
     private GameScreen gameScreen;
     /** The {@link SpriteBatch} of the GameHud. Use for drawing {@link food.Recipe}s. */
-    private SpriteBatch batch;
     /** The {@link FoodStack} that the {@link GameHud} should render. */
-    private FoodStack recipe;
-//    /** The {@link Customer} to have their request rendered.. */
-//    private Customer customer;
-//    // /** The time, in milliseconds, of the last recipe change. */
-//    // private long lastChange;
+
 
     /**
      * The GameHud constructor.
@@ -66,79 +61,8 @@ public class GameHud extends Hud {
         table.add(CustomerServed).expandY().padBottom(0).padLeft(70);
         table.row();
         table.add(Loading).expandX().padTop(100).padLeft(150);
-        this.batch = batch;
     }
 
-//    /**
-//     * Renders both the {@link Hud} with the game information and
-//     * the {@link Recipe} required the {@link customers.Customer} selected.
-//     * <br>The {@link Recipe} displays on the right side of the screen.
-//     */
-//    @Override
-//    public void render() {
-//        super.render();
-//        batch.begin();
-//        GameSprites gameSprites = GameSprites.getInstance();
-//        float drawX = Constants.RECIPE_X, drawY = Constants.RECIPE_Y;
-//        // If there is a recipe...
-//        if (recipe != null) {
-//            // Loop through on the top right of the screen, and render!
-//            for (FoodItem.FoodID ingredient : recipe.getStack()) {
-//                Sprite foodSprite = gameSprites.getSprite(GameSprites.SpriteID.FOOD, ingredient.toString());
-//                foodSprite.setScale(2F);
-//                foodSprite.setPosition(drawX-foodSprite.getWidth()/2,drawY-foodSprite.getHeight()/2);
-//                foodSprite.draw(batch);
-//                drawY -= 64;
-//            }
-//        }
-//        batch.end();
-//    }
-
-    /* Removed as it was confusing to look at.
-    /**
-     * Changes the order of the {@link FoodItem}s in the recipe every second
-     * to show which {@link FoodItem}s have non-specific places in the
-     * {@link Recipe}.
-     * /
-    public void update() {
-        if (recipe != null) {
-            if (TimeUtils.timeSinceMillis(lastChange) > 1000) {
-                this.recipe = Recipe.randomRecipeOption(recipeName);
-                lastChange = TimeUtils.millis();
-            }
-        }
-    }*/
-
-//    /**
-//     * Sets the recipe to be rendered.
-//     * @param customer The {@link Customer} who is requesting the {@link #recipe}.
-//     */
-//    public void setRecipe(Customer customer) {
-//        // this.lastChange = TimeUtils.millis();
-//        this.customer = customer;
-//        if (customer == null) {
-//            this.recipe = null;
-//            return;
-//        }
-//        this.recipe = Recipe.getRecipe(customer.getRequestName());
-//    }
-
-    /**
-     * Update the Timer
-     * @param secondsPassed The number of seconds passed
-     */
-    public void updateTime(int secondsPassed) {
-        updateTime(0,0,secondsPassed);
-    }
-
-    /**
-     * Update the Timer
-     * @param minutesPassed The number of minutes passed
-     * @param secondsPassed The number of seconds passed
-     */
-    public void updateTime(int minutesPassed, int secondsPassed) {
-        updateTime(0,minutesPassed,secondsPassed);
-    }
 
     /**
      * Update the Timer
@@ -155,11 +79,7 @@ public class GameHud extends Hud {
         reputation.setText("REPUTATION: " + String.format(String.valueOf(Reputation)));
     }
     public void updateloading(String val){
-        //System.out.println("Yippppppp----------pppppp<------------------------------->"+val+"<------------>");
         this.Loading.setText(String.format(val));
-        //System.out.println(Loading);
-        //System.out.println(Loading.getText());
-        //System.out.println("Yippppppp----------pppppp<------------------------------->"+val+"<------------>");
     }
 
     public void updateGold(int gold){
@@ -175,25 +95,5 @@ public class GameHud extends Hud {
             CustomerServed.setText("");
         }
     }
-
-//    /**
-//     * Set the Customer Count label
-//     * @param customerCount New Customer Count
-//     */
-//    public void setCustomerCount(int customerCount) {
-//        CustomerLabel.setText(String.format("CUSTOMERS: %d",customerCount));
-//    }
-
-//    /**
-//     * Getter for the {@link Customer} that has their
-//     * request being shown.
-//     * @return {@link Customer} : The {@link Customer} having their
-//     *                            request shown.
-//     */
-//    public Customer getCustomer() {
-//        return customer;
-//    }
-
-
 }
 

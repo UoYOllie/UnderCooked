@@ -69,25 +69,8 @@ public class PayList extends ScreenAdapter {
                 "",
                 "Press p to return to game!"
         };
-        /* OLD CODE
-        Label pauseLabel = new Label("PAUSED", font);
-        table.add(pauseLabel).expandX();
-        table.row();
 
-        Label continueLabel = new Label(String.format("Press %s to continue",Interactions.getKeyString(InputKey.InputTypes.UNPAUSE)), font);
-        table.add(continueLabel).expandX();
-        table.row();
 
-        Label instructionsLabel = new Label(String.format("Press %s for instructions",Interactions.getKeyString(InputKey.InputTypes.INSTRUCTIONS)), font);
-        table.add(instructionsLabel).expandX();
-        table.row();
-
-        Label resetLabel = new Label(String.format("Press %s to reset",Interactions.getKeyString(InputKey.InputTypes.RESET_GAME)), font);
-        table.add(resetLabel).expandX();
-        table.row();
-        */
-
-        /** Contains the Labels objects for the PauseScreen */
         Label[] lblLabels = new Label[strLabels.length];
 
         for (int j = 0; j < lblLabels.length; j++) {
@@ -97,7 +80,6 @@ public class PayList extends ScreenAdapter {
             table.row();
         }
 
-        // pauseLabel.setFontScale(4);
         lblLabels[0].setFontScale(4);
         stage.addActor(table);
     }
