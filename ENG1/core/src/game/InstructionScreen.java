@@ -55,22 +55,7 @@ public class InstructionScreen extends ScreenAdapter {
         table.row();
 
         String[] instructions = new String[] {
-                String.format("Use WASD to move the chefs",Interactions.getKeyString(InputKey.InputTypes.USE)),
-                "",
-                String.format("Press TAB to switch between chefs", Interactions.getKeyString(InputKey.InputTypes.COOK_SWAP)),
-                "",
-                String.format("To collect items, use the up arrow", Interactions.getKeyString(InputKey.InputTypes.PICK_UP)),
 
-                "",
-                String.format("To put down items, use the down arrow", Interactions.getKeyString(InputKey.InputTypes.PUT_DOWN)),
-
-                "",
-                String.format("Press Esc to pause the game", Interactions.getKeyString(InputKey.InputTypes.USE)),
-                // // I feel the below are unnecessary and the player can figure this out themselves.
-                // "",
-                // "Buns are added to the stack by giving you the opposite of the highest bun,",
-                // "This means if your highest bun is a bottom bun, then you'll get a top bun.",
-                // "",
                 "",
                 String.format("The bin allows you to dispose of items you no longer need.",
                         Interactions.getKeyString(InputKey.InputTypes.USE),
