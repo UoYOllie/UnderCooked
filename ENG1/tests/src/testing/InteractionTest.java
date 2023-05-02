@@ -25,7 +25,7 @@ public class InteractionTest {
 
 
     @Test
-    // Relates to the FR_PUT_FOOD_DOWN requirement
+    // Relates to the FR_PUT_FOOD_DOWN, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPutDownItem(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         CounterStation testStation = new CounterStation(rectangle);
@@ -39,7 +39,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_GET_FOOD requirement
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPickUpItem(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         CounterStation testStation = new CounterStation(rectangle);
@@ -54,7 +54,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_PUT_FOOD_DOWN requirement
+    // Relates to the FR_PUT_FOOD_DOWN, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, UR_ITEM and UR_STATION requirementS
     public void TestStackOnPreparationStation(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -72,7 +72,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_GET_FOOD requirement
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPlayerItemStack(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         CounterStation testStation = new CounterStation(rectangle);
@@ -88,7 +88,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_COMPLETE_PREP and UR_STATION requirements
     public void TestPreparationStationCutLettuce(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -108,7 +108,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_COMPLETE_PREP and UR_STATION requirements
     public void TestPreparationStationCutTomato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -128,7 +128,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_COMPLETE_PREP and UR_STATION requirements
     public void TestPreparationStationCutOnion(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -148,7 +148,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_COMPLETE_PREP and UR_STATION requirements
     public void TestPreparationStationCookMeat(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -168,7 +168,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_COMPLETE_PREP and UR_STATION requirements
     public void TestPreparationStationSetsStateToFinished(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -187,7 +187,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_COMPLETE_PREP and UR_STATION requirements
     public void TestPreparationStationAddsResultBackWhenFinishedUse(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation testStation = new PreparationStation(rectangle);
@@ -206,7 +206,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirements
     public void TestBinStationGetsRidOfItem(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         BinStation testStation = new BinStation(rectangle);
@@ -219,7 +219,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirements
     public void TestBinStationWorksWithEmptyStack(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         BinStation testStation = new BinStation(rectangle);
@@ -234,7 +234,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirements
     public void TestBinStationWorksWithEmptyFoodStackButHaveADishStack(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         BinStation testStation = new BinStation(rectangle);
@@ -252,7 +252,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_COUNTER requirement
+    // Relates to the FR_COUNTER, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_STATION requirement
     public void TestCounterCanHoldMultiple(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         CounterStation testStation = new CounterStation(rectangle);
@@ -272,7 +272,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_GET_FOOD requirement
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryLettuce(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -285,7 +285,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_GET_FOOD requirement
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryTomato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -299,7 +299,7 @@ public class InteractionTest {
 
 
     @Test
-    // Relates to the FR_GET_FOOD requirement
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryOnion(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -312,7 +312,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_GET_FOOD requirement
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryMeat(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -324,7 +324,7 @@ public class InteractionTest {
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.meat, "Picking up meat from a meat pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
     }
     @Test
-    // Relates to the FR_GET_FOOD requirement
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -336,7 +336,7 @@ public class InteractionTest {
         assertTrue(cook.foodStack.peekStack() == FoodItem.FoodID.potato, "Picking up a potato from a potato pantry currently does not result on it being placed at the top of the player stack (or possibly at all)");
     }
     @Test
-    // Relates to the FR_GET_FOOD requirement
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryDough(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -349,7 +349,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_GET_FOOD requirement
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS and UR_ITEM requirement
     public void TestPantryBun(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -363,7 +363,7 @@ public class InteractionTest {
 
 
     @Test
-    // Relates to the FR_GET_FOOD requirement
+    // Relates to the FR_GET_FOOD, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, and UR_ITEM requirement
     public void TestUsePantryAndLettuceChop(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         Pantry testPantry = new Pantry(rectangle);
@@ -376,7 +376,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_COMPLETE_PREP and UR_STATION  requirements
     public void TestBakingStationPotatoToBakedPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation preparationStation = new PreparationStation(rectangle);
@@ -396,7 +396,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_COMPLETE_PREP and UR_STATION  requirements
     public void TestBakingStationDoughToDoughCook(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         PreparationStation preparationStation = new PreparationStation(rectangle);
@@ -416,7 +416,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakePlainSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -435,8 +435,8 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
-    //The following tests to do with making recipes in the assembly station test whether, given the right ingredients, the assembly station returns the expected outcome to the cooks dish stack
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
+    // The following tests to do with making recipes in the assembly station test whether, given the right ingredients, the assembly station returns the expected outcome to the cooks dish stack
     public void TestAssemblyStationMakeTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -458,7 +458,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeOnionSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -480,7 +480,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeOnionTomatoSalad(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -503,7 +503,7 @@ public class InteractionTest {
         assertTrue(cook.dishStack.getStack().equals(foodID), "Error: Assembly Station does not give the right outcome when given the items to make a Tomato Onion salad");
     }
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakePlainPizza(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -527,7 +527,7 @@ public class InteractionTest {
     }
     
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakePlainPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -547,7 +547,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeBeansPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -569,7 +569,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeColeslawPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -591,7 +591,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -613,7 +613,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeCheeseBeansPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -637,7 +637,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeBeansColeslawPotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -661,7 +661,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationMakeBeansColeslawCheesePotato(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -691,7 +691,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationPlainBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -715,7 +715,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationLettuceBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -745,7 +745,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -775,7 +775,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -805,7 +805,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationLettuceTomatoBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -838,7 +838,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationLettuceOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -871,7 +871,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -904,7 +904,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationLettuceTomatoOnionBurger(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -939,7 +939,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationTestMultipleRecipes(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -975,7 +975,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationHoldsFood(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -989,7 +989,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationHoldsNothing(){
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
         ArrayList<Rectangle> testList = new ArrayList<>();
@@ -1001,7 +1001,7 @@ public class InteractionTest {
     }
 
     @Test
-    // Relates to the FR_USE_STATION and FR_INTERACTION requirements
+    // Relates to the FR_USE_STATION, FR_ITEMS_INTERACT, FR_INTERACTION, FR_ITEMS_EFFECTS, FR_ITEM_CHANGE, FR_ASSEMBLE and UR_STATION requirements
     public void TestAssemblyStationWrongRecipe(){
         //This tests whether a wrong recipe is handled correctly in the assembly station
         Rectangle rectangle = new Rectangle((1500 * 1/8f),(1200 * 1/8f),20,20);
