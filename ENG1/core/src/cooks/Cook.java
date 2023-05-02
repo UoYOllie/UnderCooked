@@ -283,7 +283,7 @@ public class Cook extends GameEntity {
         }
 
         // If the cook is looking anywhere but down, draw the food first
-        if (dir != Facing.DOWN) {
+        if (dir == Facing.UP) {
             renderFood(batch);
             sprite.draw(batch);
             //System.out.println("rendering the chef!");
@@ -321,14 +321,7 @@ public class Cook extends GameEntity {
      * @return X pixel offset
      */
     public float foodRelativeX(Cook.Facing dir) {
-        switch (dir) {
-            case RIGHT:
-                return 38F * Constants.UnitScale;
-            case LEFT:
-                return -13F * Constants.UnitScale;
-            default:
-                return 13F * Constants.UnitScale;
-        }
+        return 13f * Constants.UnitScale;
     }
 
     /** Return the Y pixel offset from the cook's position that the cook's FoodStack requires for rendering.*/
@@ -360,6 +353,9 @@ public class Cook extends GameEntity {
         // at 0, and the bottom at the end.
         Array<FoodID> foodList = foodStack.getStack();
         float xOffset = foodRelativeX(dir), yOffset = foodRelativeY(dir);
+        if (activateBluggus){
+            xOffset = 40 * Constants.UnitScale;
+        }
         // Get offset based on direction.
 
         float drawX = x, drawY = y - 12 * Constants.UnitScale;
@@ -378,7 +374,7 @@ public class Cook extends GameEntity {
 
         Array<FoodID> foodList2 = foodStack2.getStack();
 
-        xOffset = foodRelativeX(dir);
+        xOffset = 44 * Constants.UnitScale;
         yOffset = foodRelativeY(dir);
 
         drawX = x - 8f;
