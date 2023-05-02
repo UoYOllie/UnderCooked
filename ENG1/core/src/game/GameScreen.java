@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.maps.MapObjects;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -709,6 +710,21 @@ public class GameScreen extends ScreenAdapter {
         batch.end();
 
         shape.begin(ShapeRenderer.ShapeType.Filled);
+
+        orthogonalTiledMapRenderer.getBatch().begin();
+        orthogonalTiledMapRenderer.renderTileLayer(
+                (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("FrontWalls")
+        );
+        orthogonalTiledMapRenderer.renderTileLayer(
+                (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("Front2")
+        );
+        orthogonalTiledMapRenderer.renderTileLayer(
+                (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("Windows")
+        );
+        orthogonalTiledMapRenderer.renderTileLayer(
+                (TiledMapTileLayer) orthogonalTiledMapRenderer.getMap().getLayers().get("VatTop")
+        );
+        orthogonalTiledMapRenderer.getBatch().end();
 
         for (GameEntity entity : gameEntities) {
             entity.renderShape(shape);
