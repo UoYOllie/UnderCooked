@@ -26,9 +26,15 @@ public class SpeedPowerup extends Station {
         cook.movement_speed = cook.movement_speed + 0.21f;
         return cook;
     }
+
+    /**
+     * Takes the current cook and increases its speed
+     * @param cook The cook currently interacting with the AssemblyStation.
+     * @param inputType The input received from the cook currently interacting.
+     */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
-        if(cook.movement_speed<0.6765f+(0.42f*3)) {
+        if(cook.movement_speed<0.6765f+(0.21f*3)) {
             if (gameScreen.gold.getBalance() - item.cost >= 0) {
                 gameScreen.gold = item.buy(gameScreen.gold);
                 gameScreen.cook = setSpeed(cook);
