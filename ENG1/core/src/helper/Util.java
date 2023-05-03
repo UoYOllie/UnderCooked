@@ -2,6 +2,7 @@ package helper;
 
 /** A Utilities Static Class. Contains many helpful functions.*/
 public class Util {
+
     /**
      * Calculates the distance between 2 points.
      * @param x1 The x coordinate of the first point
@@ -19,7 +20,7 @@ public class Util {
      * @param hours The time's in hours.
      * @param minutes The time's minutes.
      * @param seconds The time's seconds.
-     * @return {@link String} : The time in mins:secs if hrs == 0, or hrs:mins:secs if hrs &gt; 0.
+     * @return String: The time in mins:secs if hrs == 0, or hrs:mins:secs if hrs != 0.
      */
     public static String formatTime(int hours, int minutes, int seconds) {
         String timeString = "";

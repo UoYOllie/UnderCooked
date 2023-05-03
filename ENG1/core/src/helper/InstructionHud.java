@@ -7,13 +7,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import interactions.InputKey;
 import interactions.Interactions;
 
-/** Responsible for displaying the controls on the {@link game.GameScreen}. */
+/** Responsible for displaying the controls on the GameScreen. */
 public class InstructionHud extends Hud{
 
     Label instructionsLabel;
 
     /**
-     * The constructor for the {@link InstructionHud}.
+     * The constructor for the InstructionHud.
      * @param batch The SpriteBatch to render on this Hud.
      */
     public InstructionHud(SpriteBatch batch) {
@@ -28,9 +28,7 @@ public class InstructionHud extends Hud{
         table.add(instructionsLabel).expandX().padTop(110).padRight(480);
     }
 
-    /**
-     * Renders the {@link Hud} with the game's controls.
-     */
+    /** Renders the Hud with the game's controls. */
     @Override
     public void render() {
         super.render();

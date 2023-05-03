@@ -4,31 +4,34 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-//import customers.Customer;
-import food.FoodStack;
-import game.GameScreen;
 
-// import java.awt.*;
+import game.GameScreen;
 
 /** Responsible for displaying information above the gameplay GameScreen. */
 public class GameHud extends Hud {
+
     /** The label with the current amount of time played. */
     Label timeLabel;
-//    /** The label with the number of {@link Customer}s left to serve.  */
-//    Label CustomerLabel;
-    Label reputation;
-    Label Loading;
-    Label goldLabel;
-    Label CustomerServed;
-    private GameScreen gameScreen;
-    /** The {@link SpriteBatch} of the GameHud. Use for drawing {@link food.Recipe}s. */
-    /** The {@link FoodStack} that the {@link GameHud} should render. */
 
+    /** The label with the current number of reputation points. */
+    Label reputation;
+
+    /** The label with the current amount of gold. */
+    Label goldLabel;
+
+    /** The label with the current number of customers served. */
+    Label CustomerServed;
+
+    /** The label displayed while the game loads. */
+    Label Loading;
+
+    /** The current instance of GameScreen. */
+    private GameScreen gameScreen;
 
     /**
      * The GameHud constructor.
-     * @param batch The {@link SpriteBatch} to render
-     * @param gameScreen The {@link GameScreen} to render the GameHud on
+     * @param batch The SpriteBatch to be rendered.
+     * @param gameScreen The current instance of GameScreen on which to render GameHud.
      */
     public GameHud(SpriteBatch batch, GameScreen gameScreen)
     {
@@ -51,9 +54,6 @@ public class GameHud extends Hud {
         updateGold(0);
         this.gameScreen = gameScreen;
 
-//        CustomerLabel = new Label("CUSTOMERS LEFT:", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
-//
-//        table.add(CustomerLabel).expandX().padTop(80).padRight(60);
         table.add(timeLabel).expandX().padTop(80).padLeft(60);
         table.add(reputation).expandX().padTop(80).padRight(60);
         table.add(goldLabel).expandX().padTop(80).padRight(60);
@@ -62,7 +62,6 @@ public class GameHud extends Hud {
         table.row();
         table.add(Loading).expandX().padTop(100).padLeft(150);
     }
-
 
     /**
      * Update the Timer
@@ -75,25 +74,32 @@ public class GameHud extends Hud {
         timeLabel.setText("TIMER: " + String.format(Util.formatTime(hoursPassed,minutesPassed,secondsPassed)));
     }
 
+    /** Update the reputation points being displayed.
+     * @param Reputation The current number of reputation points the player has.
+     * */
     public void updateReputation(int Reputation){
         reputation.setText("REPUTATION: " + String.format(String.valueOf(Reputation)));
     }
-    public void updateloading(String val){
-        this.Loading.setText(String.format(val));
-    }
 
+    /** Update the gold being displayed.
+     * @param gold The current amount of gold the player has.*/
     public void updateGold(int gold){
         goldLabel.setText("GOLD: " + String.format(String.valueOf(gold)));
     }
 
+    /** Update the number of customers served being displayed.
+     * @param served The number of customers the player has served so far in endless mode.*/
     public void updateCustomerServed(int served){
         if((gameScreen.getCustomerController().getMode().equals("endless"))) {
             CustomerServed.setText("Customers Served: " + String.format(String.valueOf(served)));
         }
-        else
-        {
-            CustomerServed.setText("");
-        }
+        else { CustomerServed.setText(""); }
+    }
+
+    /** Display if the game is loading.
+     * @param val The text to display. */
+    public void updateloading(String val){
+        this.Loading.setText(String.format(val));
     }
 }
 

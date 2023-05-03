@@ -7,13 +7,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-/** The Hud Class. {@link GameHud} inherits this class. */
+/** The Hud Class, GameHud inherits this class. */
 public class Hud {
 
     /** Responsible for holding the table to render. */
     public Stage stage;
+
     /** The viewport of the Hud. */
     protected Viewport viewport;
+
     /** Sizes and positions children using position constraints. */
     protected Table table;
 
