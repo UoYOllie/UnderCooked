@@ -106,7 +106,7 @@ public class CustomerController {
             for (Customer customer : customers) {
                 if (customer.getCustomerStatus() == 2) {
                     this.customers_left -= 1;
-                    customer.setStatus(customer.getStatus() + 1);
+                    customer.setCustomerStatus(customer.getCustomerStatus() + 1);
                     System.out.println("customers left " + customers_left);
                 }
             }

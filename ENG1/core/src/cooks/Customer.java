@@ -1,4 +1,5 @@
 package cooks;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -7,77 +8,146 @@ import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import food.DishStack;
-import food.FoodItem;
-import food.FoodStack;
-import food.Recipe;
-import game.GameScreen;
-import game.GameSprites;
-import helper.Constants;
-import stations.Station;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import food.FoodItem;
+import food.Recipe;
+import food.DishStack;
+import stations.Station;
+import game.GameScreen;
+import game.GameSprites;
+import helper.Constants;
+
 /**
  * A Customer requests a dish to be served to them by the cook.
+ * They have a patience timer, and will storm out if this runs out
+ * before they are served.
  */
 public class Customer extends GameEntity {
 
+    /** The GameScreen currently being played.*/
+    private GameScreen gameScreen;
 
-    /** The Sprite of the Customer. */
+    /** The difficulty of the current game being played. */
+    private int difficulty;
+
+    /** The Sprite of the Customer.*/
     public Sprite sprite;
+
+    /** The Sprite of the Customer's request bubble displaying their request.*/
     public Sprite bubbleSprite;
 
-    /** The name of the recipe being requested. */
-
-    public boolean Stillhere;
-    public float waittime;
-
-    public DishStack dishStack;
+    /** The name of the recipe being requested.*/
     public String request;
+
+    /** The customer's dishStack holds the dish they have been correctly served.*/
+    public DishStack dishStack;
+
+    /** The customer's interaction rectangle detects stations to interact with.*/
     public Rectangle customerInteractor;
 
-    private GameScreen gameScreen;
+    /** The position of the station the customer will go to.*/
     public Vector2 stationPosition;
-    public Vector2 destination;
-    private int customerStatus; //SAVE
-    private int difficulty;
-    public int entryStatus;
-    public boolean customerToTest;
 
-    public String offtopoint;
+    /** The position the customer is currently travelling towards.*/
+    public Vector2 destination;
+
+    /** The status corresponds to a stage of the customer's cycle (entering, waiting, etc.)*/
+    private int customerStatus;
+
+    /** The entry status corresponds to a stage of the customer's entrance down the corridor.*/
+    public int entryStatus;
+
+    /** Boolean stating whether a customer has reached the destination x-position.*/
     private boolean readyX = false;
+
+    /** Boolean stating whether a customer has reached the destination y-position.*/
     private boolean readyY = false;
 
+    /** The impatience timer of the customer, set to a random value within the difficulty's range.*/
+    public float waittime;
 
     /** The Constructor for Customer. */
     public Customer(float x, float y, float width, float height) {
+
         super(x, y, width, height);
+        this.x = x; this.y = y;
+        this.customerInteractor = new Rectangle(x - 4 * Constants.UnitScale, (y) - 4 * Constants.UnitScale,
+                width + 1f, height+1f);
+
         this.sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "customer_bluggus");
         this.bubbleSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "speech_bubble");
-        //this.position = new Vector2(x, y);
-        this.customerInteractor = new Rectangle(x - 4 * Constants.UnitScale, (y) - 4 * Constants.UnitScale,
-                                                width + 1f, height+1f);
+
         this.request = Recipe.randomRecipe();
         this.dishStack = new DishStack();
+
         this.customerStatus = 0;
-        this.customerToTest = false;
-
-        this.waittime = 200f;
-        this.Stillhere = true;
-
-        this.x = x;
-        this.y = y;
-
-        // used for customer movement:
-        this.stationPosition = new Vector2(x, y);
-        moveToPoint("B");
-        this.destination = Constants.customerPointB;
         this.entryStatus = 0;
+        this.stationPosition = new Vector2(x, y);
+        this.destination = Constants.customerPointB;
 
+        this.waittime = 100f;
     }
 
+    /** Setter for customer's GameScreen.
+     * @param g the GameScreen currently being played.*/
+    public void setGameScreen(GameScreen g) { this.gameScreen = g; }
+
+    /** Setter for the customer's x-position.*/
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    /** Setter for the customer's y-position.*/
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    /** Getter for the x-position of Customer.*/
+    public float getX() { return x; }
+
+    /** Getter for the y-position of Customer.*/
+    public float getY() { return y; }
+
+    /** Setter for the customer's status.*/
+    public void setCustomerStatus(Integer customerStatus){
+        this.customerStatus = customerStatus;
+    }
+
+    /** Getter for customer's status.*/
+    public int getCustomerStatus() {return this.customerStatus;}
+
+    /** Getter to get the name of the request of the Customer.*/
+    public String getRequestName() { return request; }
+
+    /** Setter for customer's destined station position.
+     *
+     * @param endX the x-position of the customer's destined station.
+     * @param endY the y-position of the customer's destined station.
+     * */
+    public void setStationPosition(float endX, float endY) {
+        this.stationPosition.x = endX;
+        this.stationPosition.y = endY;
+    }
+
+    /** Setter for customer's destination.
+     *
+     * @param endX the final x-position to reach.
+     * @param endY the final y-position to reach.
+     * */
+    public void setDestination(float endX, float endY) {
+        this.destination.x = endX;
+        this.destination.y = endY;
+    }
+
+    /**
+     * Setter for difficulty, additionally sets waittime to correspond to difficulty.
+     * Waittime sets to random float in range 200-300 (hard), 250-350 (medium), 300-400 (easy).
+     *
+     * @param difficulty The difficulty level of the game may be 1 (easy), 2 (medium), or 3 (hard).
+     * */
     public void setDifficulty(int difficulty) {
 
         this.difficulty = difficulty;
@@ -92,68 +162,44 @@ public class Customer extends GameEntity {
         }
     }
 
-    public void setStationPosition(float endX, float endY) {
-        this.stationPosition.x = endX;
-        this.stationPosition.y = endY;
-    }
-
-    public void setDestination(float endX, float endY) {
-        //System.out.println("i am going to: " + endX + "," + endY);
-        this.destination.x = endX;
-        this.destination.y = endY;
-    }
-
-    public void setGameScreen(GameScreen g)
-    {
-        this.gameScreen = g;
-    }
-
-    public int getCustomerStatus() {return this.customerStatus;}
-
-    public void Hypnotise() //Change their mind powerup
-    {
-        String temp = Recipe.randomRecipe();
-        if(this.request != temp)
-        {
-            this.request = temp;
-        }
-        else {
-            Hypnotise();
-        }
-    }
-
-    public void HangOnYourFoodIsComing() //Makes them wait longer
-    {
-        this.waittime = 300;
-    }
+    /** Decrease the customer's patience by 1 second in each frame.*/
     public void DecreasePatience(){
         this.waittime = waittime-1f;
     }
 
-    public void StormOut()
-    {
-        this.gameScreen.Reputation.Negative();
-        Leave();
-    }
-    public void Success(Station station) //Gets their dish, this is called
-    {
-        this.gameScreen.getCustomerController().removeCustomer(station);
-        gameScreen.getCustomerController().TotalCustomersServed++;
+    /**
+     * Called after the customer is successfully served their request.
+     * Update customerStatus to 2 (leaving).
+     * Gain a reputation point and 50 gold.
+     * Remove the customer from stationCustomerMap in customerController.
+     *
+     * @param station The station the customer was served at.
+     * */
+    public void Success(Station station) {
+        this.customerStatus = 2;
         this.gameScreen.Reputation.Positive();
         this.gameScreen.gold.addBalance(50);
-        Leave();
+        this.gameScreen.getCustomerController().removeCustomer(station);
+        gameScreen.getCustomerController().TotalCustomersServed++;
     }
 
-    private void Leave() //This function will be called when a customer leaves
-    {
-        this.Stillhere = false;
-        //System.out.println("Im leaving, bye");
+    /**
+     * Called after the customer runs out of patience.
+     * Update the customer's status to 2 (leaving) and Stillhere is set to false.
+     * Lose a reputation point in gameScreen.
+     * */
+    public void StormOut() {
         this.customerStatus = 2;
-        //Implement walk off
-        //implement removement from array
-        //gameScreen.getCustomerController().TotalCustomersServed++;
+        this.gameScreen.Reputation.Negative();
     }
 
+    /**
+     * The customer's interaction method, continually called by GameScreen in each frame.
+     * If the customer is interacting with a serving station, it will call the serving station's
+     * customer interaction method.
+     *
+     * @param mapStations The ArrayList of all the stations in the game.
+     * */
     public void customerInteract(ArrayList<Station> mapStations) {
         for (Station currentStation : mapStations) {
             if (Intersector.overlaps(this.customerInteractor, currentStation.rectangle)){
@@ -162,19 +208,38 @@ public class Customer extends GameEntity {
         }
     }
 
-    // all methods controlling customer movement
-
-    public Array<Vector2> setCustomerPoints() {
-        Array<Vector2> customerPoints = new Array<>();
-        customerPoints.add(Constants.customerPointC);
-        customerPoints.add(Constants.customerPointD);
-        customerPoints.add(Constants.customerPointE);
-        customerPoints.add(Constants.customerPointF);
-        customerPoints.add(stationPosition);
-        return customerPoints;
+    /** Power up method to change a customer's mind about what to order.*/
+    public void Hypnotise() {
+        String temp = Recipe.randomRecipe();
+        if(this.request != temp) {
+            this.request = temp;
+        } else {
+            Hypnotise();
+        }
     }
 
-    public void move_left_down(Vector2 nextDestination) {
+    /** Power up method to extend a customer's patience timer after giving them tea.*/
+    public void HangOnYourFoodIsComing() {
+        switch (difficulty) {
+            case (1):
+                this.waittime = 400;
+                break;
+            case (2):
+                this.waittime = 350;
+                break;
+            case (3):
+                this.waittime = 300;
+        }
+    }
+
+    /**
+     * Helper method for a customer to move diagonally left and down from their
+     * current position, used when they are entering the restaurant.
+     *
+     * @param nextDestination The destination to set after the customer reaches
+     *                        their current destination.
+     * */
+    public void moveLeftDown(Vector2 nextDestination) {
 
         this.readyX = false;
         this.readyY = false;
@@ -191,78 +256,13 @@ public class Customer extends GameEntity {
         }
     }
 
-    public void enterCustomer() {
-
-//        for (int i=0; i<5; i++) {
-//            if (this.entryStatus == i) {
-//                System.out.println(this + " moving to " + customerPoints.get(i));
-//                move_left_down(customerPoints.get(i));
-//            }
-//        }
-
-        if (this.entryStatus == 0) {
-            if (this.customerToTest == true) {
-                //System.out.println("entry status 0 moving to point B" + destination.x + "," + destination.y);
-            }
-            moveToPoint("C");
-            setDestination(Constants.customerPointC.x,Constants.customerPointC.y);
-            move_left_down(Constants.customerPointC);
-        }
-        if (this.entryStatus == 1) {
-            if (this.customerToTest == true) {
-               // System.out.println(this + "entry status 1 moving to point C");
-            }
-            moveToPoint("D");
-            setDestination(Constants.customerPointD.x,Constants.customerPointD.y);
-            move_left_down(Constants.customerPointD);
-        }
-        if (this.entryStatus == 2) {
-            if (this.customerToTest == true) {
-            //    System.out.println("entry status 2 moving to point D");
-            }
-            moveToPoint("E");
-            setDestination(Constants.customerPointE.x,Constants.customerPointE.y);
-            move_left_down(Constants.customerPointE);
-        }
-        if (this.entryStatus == 3) {
-            if (this.customerToTest == true) {
-            //    System.out.println("entry status 3 moving to point E");
-            }
-            moveToPoint("F");
-            setDestination(Constants.customerPointF.x,Constants.customerPointF.y);
-            move_left_down(Constants.customerPointF);
-        }
-        if (this.entryStatus == 4) {
-            if (this.customerToTest == true) {
-            //    System.out.println("entry status 4 moving to point F");
-            }
-            setDestination(stationPosition.x,stationPosition.y+3f);
-            move_left_down(new Vector2(stationPosition.x,stationPosition.y+3f));
-        }
-
-        if (this.entryStatus == 5) {
-            if (this.customerToTest == true) {
-              //  System.out.println("entry status 5 moving to station" + this.station);
-            }
-
-            this.readyX = false;
-            this.readyY = false;
-
-            if (this.y > stationPosition.y+3f) { this.y -= Constants.UnitScale;
-            } else { this.readyY = true; }
-
-            if (this.x < stationPosition.x) { this.x += Constants.UnitScale;
-            } else { this.readyX = true;}
-
-            if (this.readyX && this.readyY) {
-                destination.x = this.x - 88f;
-                this.customerStatus += 1;
-                this.entryStatus += 1;
-            }
-        }
-    }
-
-    public void move_right_up(Vector2 nextDestination) {
+    /** Helper method for a customer to move diagonally right and up from their
+     * current position, used when they are exiting the restaurant.
+     *
+     * @param nextDestination The destination to set after the customer reaches
+     *                        their current destination.
+     * */
+    public void moveRightUp(Vector2 nextDestination) {
 
         this.readyX = false;
         this.readyY = false;
@@ -280,78 +280,112 @@ public class Customer extends GameEntity {
         }
     }
 
-    public void servedCustomerLeaves() {
+    /**
+     * Entrance code for customer, continually called while customer enters (customerStatus = 0).
+     * Moves the customer left and down along set points of the corridor. 
+     * */
+    public void enterCustomer() {
 
+        switch (entryStatus) {
+            case(0):
+                setDestination(Constants.customerPointC.x,Constants.customerPointC.y);
+                moveLeftDown(Constants.customerPointC);
+                break;
+            case (1):
+                setDestination(Constants.customerPointD.x,Constants.customerPointD.y);
+                moveLeftDown(Constants.customerPointD);
+                break;
+            case (2):
+                setDestination(Constants.customerPointE.x,Constants.customerPointE.y);
+                moveLeftDown(Constants.customerPointE);
+                break;
+            case (3):
+                setDestination(Constants.customerPointF.x,Constants.customerPointF.y);
+                moveLeftDown(Constants.customerPointF);
+                break;
+            case (4):
+                setDestination(stationPosition.x,stationPosition.y+3f);
+                moveLeftDown(new Vector2(stationPosition.x,stationPosition.y+3f));
+                break;
+            case (5):
+                this.readyX = false;
+                this.readyY = false;
 
-//        if (this.x > destination.x) { this.x -= Constants.UnitScale;
-//        } else {
-//            this.customerStatus += 1;
-//        }
-       // System.out.println("Entry status "+entryStatus);
-        if(entryStatus==6) {
-            moveToPoint("F Hybrid");
-            setDestination(stationPosition.x-30f,stationPosition.y);
-            move_left_down(new Vector2(stationPosition.x-30f,stationPosition.y));
-        }
-        if(entryStatus==7) {
-            this.entryStatus=4;
-        }
-        if (this.entryStatus == 1) {
-            if (this.customerToTest == true) {
-                //System.out.println("entry status 0 moving to point B" + destination.x + "," + destination.y);
-            }
-            moveToPoint("C");
-            setDestination(Constants.customerPointC.x,Constants.customerPointC.y);
-            move_right_up(Constants.customerPointC);
-        }
-        if (this.entryStatus == 2) {
-            if (this.customerToTest == true) {
-                // System.out.println(this + "entry status 1 moving to point C");
-            }
-            moveToPoint("D");
-            setDestination(Constants.customerPointD.x,Constants.customerPointD.y);
-            move_right_up(Constants.customerPointD);
-        }
-        if (this.entryStatus == 3) {
-            if (this.customerToTest == true) {
-                //    System.out.println("entry status 2 moving to point D");
-            }
-            moveToPoint("E");
-            setDestination(Constants.customerPointE.x,Constants.customerPointE.y);
-            move_right_up(Constants.customerPointE);
-        }
-        if (this.entryStatus == 4) {
-            if (this.customerToTest == true) {
-                //    System.out.println("entry status 3 moving to point E");
-            }
-            moveToPoint("F");
-            setDestination(Constants.customerPointF.x,Constants.customerPointF.y);
-            move_right_up(Constants.customerPointF);
-        }
+                if (this.y > stationPosition.y+3f) { this.y -= Constants.UnitScale;
+                } else { this.readyY = true; }
 
-        if (this.entryStatus == 0) {
-            if (this.customerToTest == true) {
-                //  System.out.println("entry status 5 moving to station" + this.station);
-            }
-            moveToPoint("A");
-            setDestination(Constants.customerPointA.x,Constants.customerPointA.y);
-            move_right_up(Constants.customerPointA);
-        }
-        if (this.entryStatus == -1) {
-            if (this.customerToTest == true) {
-                //  System.out.println("entry status 5 moving to station" + this.station);
-            }
-            moveToPoint("DELETION ZONE");
-//            setDestination(Constants.customerPointA.x+3f,Constants.customerPointA.y+12f);
-            setDestination(Constants.customerPointA.x+3,Constants.customerPointA.y+12f);
-            move_right_up(new Vector2(Constants.customerPointA.x+3,Constants.customerPointA.y+12f));
-        }
-        if (this.entryStatus == -2) {
-            gameScreen.letsremove.add(this);
-        }
+                if (this.x < stationPosition.x) { this.x += Constants.UnitScale;
+                } else { this.readyX = true;}
 
+                if (this.readyX && this.readyY) {
+                    destination.x = this.x - 88f;
+                    this.customerStatus += 1;
+                    this.entryStatus += 1;
+                }
+                break;
+        }
     }
 
+    /**
+     * Exit code for customer, continually called while customer leaves (customerStatus = 2).
+     * Moves the customer right and up along set points of the corridor. 
+     * */
+    public void exitCustomer() {
+
+        switch (entryStatus) {
+            case (7):
+                System.out.println("i am stuck at 7");
+                this.entryStatus=4;
+            case(6):
+                System.out.println("i am stuck at 6");
+                setDestination(stationPosition.x-30f,stationPosition.y);
+                moveLeftDown(new Vector2(stationPosition.x-30f,stationPosition.y));
+                break;
+            case(5):
+                this.entryStatus -= 1;
+                System.out.println("i am stuck at 5");
+                break;
+            case(4):
+                System.out.println("i am stuck at 4");
+                setDestination(Constants.customerPointF.x,Constants.customerPointF.y);
+                moveRightUp(Constants.customerPointF);
+                break;
+            case(3):
+                System.out.println("i am stuck at 3");
+                setDestination(Constants.customerPointE.x,Constants.customerPointE.y);
+                moveRightUp(Constants.customerPointE);
+                break;
+            case(2):
+                System.out.println("i am stuck at 2");
+                setDestination(Constants.customerPointD.x,Constants.customerPointD.y);
+                moveRightUp(Constants.customerPointD);
+                break;
+            case(1):
+                System.out.println("i am stuck at 1");
+                setDestination(Constants.customerPointC.x,Constants.customerPointC.y);
+                moveRightUp(Constants.customerPointC);
+                break;
+            case(0):
+                System.out.println("i am stuck at 0");
+                setDestination(Constants.customerPointA.x,Constants.customerPointA.y);
+                moveRightUp(Constants.customerPointA);
+                break;
+            case (-1):
+                System.out.println("i am stuck at -1");
+                setDestination(Constants.customerPointA.x+3,Constants.customerPointA.y+12f);
+                moveRightUp(new Vector2(Constants.customerPointA.x+3,Constants.customerPointA.y+12f));
+            case (-2):
+                System.out.println("i am stuck at -2");
+                gameScreen.letsremove.add(this);
+                break;
+        }
+    }
+
+    /**
+     * Update method to be called in each frame by gameScreen.
+     * Action depends on customerStatus, will be 0 (entering), 1 (waiting), or 2 (leaving).
+     * @param delta The time in the game.
+     * */
     @Override
     public void update(float delta) {
 
@@ -360,21 +394,15 @@ public class Customer extends GameEntity {
                 enterCustomer();
                 break;
             case (1): // Customer is waiting at the serving station.
-                //System.out.println("I am ready to be served now!");
                 break;
             case (2): // Customer goes to eat in the dining area.
-                //System.out.println("I have been served now!");
-                servedCustomerLeaves();
-                break;
-            case (3): // Customer is eating in the dining area.
-                servedCustomerLeaves();
-                //System.out.println("i am eating now yay");
+                exitCustomer();
                 break;
         }
 
         // Updates Interaction box (again change 1/8f to a const)
-        this.customerInteractor.x = x - 1 / 8f;
-        this.customerInteractor.y = y - 1 / 8f;
+        this.customerInteractor.x = x - Constants.UnitScale;
+        this.customerInteractor.y = y - Constants.UnitScale;
     }
 
     /**
@@ -383,24 +411,19 @@ public class Customer extends GameEntity {
      */
     public void render(SpriteBatch batch) {
 
-        //sprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "customer_bluggus");
-        //bubbleSprite = GameSprites.getInstance().getSprite(GameSprites.SpriteID.CUSTOMER, "speech_bubble");
-
-        //sprite.setPosition(position.x-sprite.getWidth()/2, position.y-sprite.getHeight()/2);
+        // Render the customer's sprite.
         sprite.setPosition(this.x-sprite.getWidth()/2, this.y-sprite.getHeight()/2);
         this.sprite.setSize(6,5.7f);
-        //bubbleSprite.setPosition(this.x-8.5f, this.y-bubbleSprite.getHeight()/2);
-        //this.bubbleSprite.setSize(6,5.7f);
-
         sprite.draw(batch);
-        //bubbleSprite.draw(batch);
+
+        // Render the customer's request and dishStack.
         renderFood(batch);
         renderBubble(batch);
     }
 
     /**
-     * Renders the {@link FoodStack} of the {@link Cook} visually.
-     * @param batch The {@link SpriteBatch} that the {@link Cook} will render using.
+     * Renders the dishStack of the customer onto them.
+     * @param batch The SpriteBatch to render.
      */
     private void renderFood(SpriteBatch batch) {
 
@@ -419,6 +442,8 @@ public class Customer extends GameEntity {
         }
     }
 
+    /** Render the customer's request as a bubble while they wait.
+     * Will render the plain item to the left, followed by all toppings. */
     private void renderBubble(SpriteBatch batch) {
 
         if (customerStatus == 1) {
@@ -446,45 +471,9 @@ public class Customer extends GameEntity {
 
     }
 
-    /**
-     * @param x
-     * @return the x value
-     */
-    public void setX(float x) {
-        this.x = x;
-    }
-
-    public void setY(float y) {
-        this.y = y;
-    }
-
-    /**
-     * Getter for the x-position of Customer.
-     * @return The x-position of the customer.
-     */
-    public float getX() {
-        return x;
-    }
-
-    /**
-     * Getter for the y-position of Customer.
-     * @return The y-position of the customer.
-     */
-    public float getY() {
-        return y;
-    }
-
-    /**
-     * Getter to get the name of the request of the Customer.
-     * @return The RecipeName of the customer's request.
-     */
-    public String getRequestName() {
-        return request;
-    }
-
-
-    // unused abstract methods
-
+    /** Render the customer's impatience timer as a rectangle on the bubble while they wait.
+     * @param shape the ShapeRenderer object to render.
+     * */
     @Override
     public void renderShape(ShapeRenderer shape) {
 
@@ -521,25 +510,6 @@ public class Customer extends GameEntity {
             }
             shape.rect(rectX+ 1.5f * Constants.UnitScale,rectY + 1.5f * Constants.UnitScale, progressWidth*0.75f,(rectHeight - 4 * Constants.UnitScale)*0.75f,progressColor,progressColor,progressColor,progressColor);
         }
-    }
-
-    public int getStatus()
-    {
-        return this.customerStatus;
-    }
-
-    public void setStatus(int x){
-        this.customerStatus = x;
-    }
-
-    public void setCustomerStatus(Integer customerStatus){
-        this.customerStatus = customerStatus;
-    }
-
-    public void moveToPoint(String x)
-    {
-        System.out.println(this+" moving to point "+x+"------"+this.destination+"------ ("+this.x+","+this.y+")");
-        this.offtopoint = x;
     }
 
 }

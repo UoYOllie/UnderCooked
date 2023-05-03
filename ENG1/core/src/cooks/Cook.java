@@ -216,9 +216,10 @@ public class Cook extends GameEntity {
 
 
     /**
-     * Checks if this cook's dishstack size is greater than 1
-     * @return true if > 0
-     * @return false otherwise
+     * Blocks the chef's FoodStack interactions if the chef is holding a dishStack.
+     *
+     * @return true If dishStack is not empty.
+     * @return false Otherwise.
      */
     public boolean getBlocked() {
         if (this.dishStack.size() > 0) {

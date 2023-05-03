@@ -286,7 +286,7 @@ public class GameScreen extends ScreenAdapter {
                 addCustomer(customerController.addSavedCustomer(c.x, c.y, c.stationPosition.x, c.stationPosition.y));
                 customerController.customers.get(counter).request = c.request;
                 customerController.customers.get(counter).waittime = c.waittime;
-                customerController.customers.get(counter).setStatus(c.getStatus());
+                customerController.customers.get(counter).setCustomerStatus(c.getCustomerStatus());
                 customerController.customers.get(counter).stationPosition = c.stationPosition;
 
 
@@ -469,8 +469,7 @@ public class GameScreen extends ScreenAdapter {
             for(Customer customer:customerController.getCustomers()) //Dealing with leaving
             {
                 customer.DecreasePatience();
-                if((customer.waittime<=0)&&(customer.Stillhere ==true))
-                {
+                if(customer.waittime<=0 && customer.getCustomerStatus()==2) {
                     System.out.println(customer + " is now leaving");
                     customer.StormOut(); //When customer wants to leave
                 }
@@ -1058,7 +1057,7 @@ public class GameScreen extends ScreenAdapter {
                 String _req_ = held_req.getString(count);
                 newc.waittime = _wait_;
                 newc.request = _req_;
-                newc.setStatus(held_sts.getInt(count));
+                newc.setCustomerStatus(held_sts.getInt(count));
                 customersforgame.add(newc);
 
 

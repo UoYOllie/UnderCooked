@@ -314,26 +314,13 @@ public class GeneralTests {
     }
 
     @Test
-    // Tests that the Customer method setCustomerPoints correctly sets the customerPoints to the given value
-    public void testCustomerSetCustomerPoints(){
-        Customer customer = new Customer(1,2,3,4);
-        Array<Vector2> customerPoints = new Array<>();
-        customerPoints.add(Constants.customerPointC);
-        customerPoints.add(Constants.customerPointD);
-        customerPoints.add(Constants.customerPointE);
-        customerPoints.add(Constants.customerPointF);
-        customerPoints.add(customer.stationPosition);
-        assertEquals(customerPoints, customer.setCustomerPoints(), "Error: Customer setCustomerPoints does not set the correct value to the customerPoints array");
-    }
-
-    @Test
-    // Tests that the Customer method move_left_down sets the x and y coordinates to the correct values according to their position relative to their destination
+    // Tests that the Customer method moveLeftDown sets the x and y coordinates to the correct values according to their position relative to their destination
     public void testCustomerMoveLeftDown(){
         //First we will test the first if and the second if, to do with x and y
         Customer customer = new Customer(20,20,3,4);
         customer.destination.x = 1;
         customer.destination.y = 1;
-        customer.move_left_down(new Vector2(100,200));
+        customer.moveLeftDown(new Vector2(100,200));
         assertEquals(customer.x, 20 - Constants.UnitScale,"Error: when customer's x position is higher then the customer.destination's x position, and moveLeftDown is called, the x position is not updated correctly");
         assertEquals(customer.y, 20 - Constants.UnitScale,"Error: when customer's y position is higher then the customer.destination's y position, and moveLeftDown is called, the y position is not updated correctly");
 
@@ -342,7 +329,7 @@ public class GeneralTests {
         customer.y = 20;
         customer.destination.x = 100;
         customer.destination.y = 100;
-        customer.move_left_down(new Vector2(100,200));
+        customer.moveLeftDown(new Vector2(100,200));
         assertEquals(customer.destination.x, 100,"Error: Customer's moveLeftDown class does not set the x position of the customer correctly if both flags are met");
         assertEquals(customer.destination.y, 200,"Error: Customer's moveLeftDown class does not set the x position of the customer correctly if both flags are met");
     }

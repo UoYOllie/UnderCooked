@@ -189,7 +189,7 @@ public class SavingClass {
             this.waitimes.add(customer.waittime);
 //        private Array<String> requests; //norequest = cooks
             this.requests.add(customer.request);
-            this.Status.add(customer.getStatus());
+            this.Status.add(customer.getCustomerStatus());
             this.station_x.add(customer.stationPosition.x);
             this.station_y.add(customer.stationPosition.y);
         }
