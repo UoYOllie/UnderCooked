@@ -21,11 +21,9 @@ public class VAT extends Station{
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
         if((this.getEnabled())&&(gameScreen.gold.getBalance()-item.cost>=0) ){
-            System.out.println(gameScreen.gold.getBalance());
             gameScreen.gold = item.buy(gameScreen.gold);
             gameScreen.SpareToNotSpare(PrisonerNumber);
             SetEnFalse();
-            System.out.println(gameScreen.gold.getBalance());
 
         }
 

@@ -135,7 +135,7 @@ public class PreparationStation extends Station {
                 renderItem = gameSprites.getSprite(GameSprites.SpriteID.FOOD,interaction.getResult().toString());
             }
             renderItem.setScale(Constants.UnitScale);
-			//System.out.println(renderItem.getWidth());
+			//tln(renderItem.getWidth());
             renderItem.setPosition(x - 1/3f * renderItem.getWidth(),y - 0.354f * renderItem.getHeight());
             renderItem.draw(batch);
         }
@@ -157,7 +157,7 @@ public class PreparationStation extends Station {
     public void renderShape(ShapeRenderer shape) {
         if (TestFlag == 0) {
             if (progress < 100) {
-//                System.out.println("+++++++++++++++Locking+++++++++++++++++");
+//                tln("+++++++++++++++Locking+++++++++++++++++");
                 gameScreen.cooks.get(usingchef).lockmovement = true;
             }
         }
@@ -201,7 +201,6 @@ public class PreparationStation extends Station {
     public void interact(Cook cook, InputKey.InputTypes inputType) {
         if(Locked){
             if (TestFlag == 0) {
-                System.out.println(gameScreen.gold.getBalance());
                 if ((this.getEnabled()) && (gameScreen.gold.getBalance() - item.cost >= 0)) {
                     gameScreen.gold = item.buy(gameScreen.gold);
                     this.Locked = false;
@@ -212,7 +211,6 @@ public class PreparationStation extends Station {
             if (TestFlag == 0) {
                 this.usingchef = gameScreen.cookIndex;
                 gameScreen.cooks.get(usingchef).lockmovement = true;
-                System.out.print(this.usingchef + " ///////////////////////");
 
                 if (inUse) {
                     gameScreen.cooks.get(usingchef).lockmovement = true;

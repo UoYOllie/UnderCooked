@@ -136,7 +136,7 @@ public class SavingClass {
         }
         this.cookdishstack.add(dishy);
 
-        //System.out.println(this.cookdishstack + "<----------------------------------------------------");
+        //tln(this.cookdishstack + "<----------------------------------------------------");
 
 //        private Array<Boolean> cookisbluggus; //if chef is bluggus or not
         this.cookisbluggus.add(cook.activateBluggus);
@@ -223,15 +223,14 @@ public class SavingClass {
 //            private Array<Array<Integer>> HeldFood;
 //            private Array<Array<Integer>> stationdishstack;
 //            private Array<Boolean> lockedStation;
-//            System.out.println(s.getPropertyID());
+//            tln(s.getPropertyID());
             StationPropertyID.add(s.getPropertyID());
             Array<FoodItem.FoodID> tempstack;
             Array<Integer> dishy = new Array<Integer>();
-            System.out.println(s.stationDishStack.getStackCopy());
             tempstack = s.stationDishStack.getStackCopy();
             for(FoodItem.FoodID f:tempstack)
             {
-//                System.out.println("eeeeeeeeeeeeeeY"+f.ordinal()+"Yeeeeeeeeeeeee");
+//                tln("eeeeeeeeeeeeeeY"+f.ordinal()+"Yeeeeeeeeeeeee");
                 dishy.add(f.ordinal());
             }
             this.stationdishstack.add(dishy);

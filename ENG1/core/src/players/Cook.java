@@ -280,7 +280,7 @@ public class Cook extends GameEntity {
         if (dir == Facing.UP) {
             renderFood(batch);
             sprite.draw(batch);
-            //System.out.println("rendering the chef!");
+            //tln("rendering the chef!");
         } else {
             sprite.draw(batch);
             renderFood(batch);

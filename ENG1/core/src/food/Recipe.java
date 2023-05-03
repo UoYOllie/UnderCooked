@@ -1,5 +1,6 @@
 package food;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Random;
 import com.badlogic.gdx.utils.Array;
@@ -28,7 +29,7 @@ public class Recipe {
 
     static {
 
-        // BURGERS
+//         BURGERS
         generateRecipe("Plain Burger", new FoodStack(FoodID.bun, FoodID.meatCook, FoodID.bun));
         generateRecipe("Lettuce Burger", new FoodStack(FoodID.bun, FoodID.lettuceChop, FoodID.meatCook, FoodID.bun));
         generateRecipe("Onion Burger", new FoodStack(FoodID.bun, FoodID.onionChop, FoodID.meatCook, FoodID.bun));

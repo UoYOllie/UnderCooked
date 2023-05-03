@@ -28,13 +28,10 @@ public class SpeedPowerup extends Station {
     }
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
-        System.out.println(gameScreen.gold.getBalance());
         if(cook.movement_speed<0.6765f+(0.42f*3)) {
             if (gameScreen.gold.getBalance() - item.cost >= 0) {
-                System.out.println(gameScreen.gold.getBalance());
                 gameScreen.gold = item.buy(gameScreen.gold);
                 gameScreen.cook = setSpeed(cook);
-                System.out.println(gameScreen.gold.getBalance());
             }
         }
 

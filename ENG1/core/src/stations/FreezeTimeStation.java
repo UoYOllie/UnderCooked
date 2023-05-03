@@ -17,12 +17,9 @@ public class FreezeTimeStation extends Station{
 
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
-        System.out.println(gameScreen.gold.getBalance());
         if(gameScreen.gold.getBalance()-item.cost>=0) {
-            System.out.println(gameScreen.gold.getBalance());
             gameScreen.gold = item.buy(gameScreen.gold);
             gameScreen.FreezeTime();
-            System.out.println(gameScreen.gold.getBalance());
         }
     }
 

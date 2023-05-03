@@ -27,9 +27,9 @@ public class CollisionHelper {
     }
 
     public void setGameScreen(GameScreen gameScreen) {
-        //System.out.println("Initalising Gamescreen");
+        //tln("Initalising Gamescreen");
         this.gameScreen = gameScreen;
-        //System.out.println(this.gameScreen);
+        //tln(this.gameScreen);
     }
 
     //Array<CookInteractable>
@@ -37,7 +37,6 @@ public class CollisionHelper {
         Array<CookInteractable> found = new Array<>();
         for(Station object : mapStations){
             if (Intersector.overlaps(object.getRectangle(), cookInteractor)){
-                System.out.println("Cook Overlaps: " + object);
                 if(object.getEnabled()) {
                     found.add(object);
                 }
@@ -45,7 +44,7 @@ public class CollisionHelper {
         }
 
         //
-        //System.out.println(found);
+        //tln(found);
         CookInteractable closest = null;
         if(found.size>1) {
             float closestDist = distRectToInteractable(this.CookRectangle, found.get(0));

@@ -70,7 +70,6 @@ public class ScreenController {
      * @param screenID The ID of the new screen you want
      */
     public void setScreen(ScreenID screenID) {
-        System.out.println("setting screen to "+screenID);
         this.boot.setScreen(this.screens.get(screenID));
     }
 
@@ -159,7 +158,6 @@ public class ScreenController {
 
     public void winGame() {
         this.winScreen = new WinScreen(this,new OrthographicCamera());
-        System.out.print("winning");
         this.screens.put(ScreenID.WIN, winScreen);
         setScreen(ScreenID.WIN);
     }

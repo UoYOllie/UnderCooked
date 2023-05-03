@@ -52,11 +52,6 @@ public class CounterStation extends Station {
      */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
-        System.out.println("Im interacting with a counter");
-        System.out.println(rectangle.getX());
-        System.out.println(rectangle.getY());
-        System.out.println(rectangle.getWidth());
-        System.out.println(rectangle.getHeight());
 
         switch (inputType) {
 
@@ -75,17 +70,11 @@ public class CounterStation extends Station {
                 break;
 
             case PICK_UP:
-                System.out.println("PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP");
-                System.out.println(this.stationFoodStack);
-//                System.out.println(stationFoodStack.empty());
-                System.out.println((cook.foodStack.size() < 3 && !stationFoodStack.empty()));
-                System.out.println(allDishStacksEmpty(cook));
 
                 // Pick up a FoodItem from the station's FoodStack to the cook's FoodStack.
                 if (cook.foodStack.size() < 3 && !stationFoodStack.empty()
                         && allDishStacksEmpty(cook)) {
                     cook.foodStack.addStack(stationFoodStack.popStack());
-                    System.out.println(this.stationFoodStack);
                 }
                 // Pick up the station's entire DishStack onto the cook's entire DishStack.
                 if (cook.foodStack.empty() && stationFoodStack.empty()
@@ -93,8 +82,6 @@ public class CounterStation extends Station {
                     cook.dishStack.setStack(stationDishStack.getStackCopy());
                     stationDishStack.clearStack();
                 }
-                System.out.println("PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP");
-
                 break;
 
 

@@ -90,7 +90,7 @@ public class GameOverScreen extends ScreenAdapter {
      * @param delta The time between frames as a float.
      */
     public void update(float delta) {
-        System.out.println(glib_x);
+
         glib_x += 1f;
         rotation += 0.7f;
         glibbsad.setOriginCenter();

@@ -143,7 +143,7 @@ public class GameScreen extends ScreenAdapter {
         this.mapHelper = new MapHelper(this);
         //this.customerControllerNew = new CustomerControllerNew(this);
         //this.servingStationNewList = this.mapHelper.getServingStationNewList();
-        //System.out.println(servingStationNewList);
+        //ln(servingStationNewList);
 
 
         // this.mapHelper.setGameScreen(this);
@@ -230,7 +230,7 @@ public class GameScreen extends ScreenAdapter {
         this.mapHelper = new MapHelper(this);
         //this.customerControllerNew = new CustomerControllerNew(this);
         //this.servingStationNewList = this.mapHelper.getServingStationNewList();
-        //System.out.println(servingStationNewList);
+        //ln(servingStationNewList);
 
         // this.mapHelper.setGameScreen(this);
         this.orthogonalTiledMapRenderer = mapHelper.setupMap();
@@ -242,7 +242,6 @@ public class GameScreen extends ScreenAdapter {
 
         if(cooksforgame.size == 0) {
             this.camera.zoom = 1f;
-            System.out.println("cOOKS ARE NULL");
             Cook GlibbertOrange = new Cook(2041 * 8f, 2814 * 8f, 3.34f, 1); //width will need adjusting when sprites updated
             GlibbertOrange.setColour("Orange");
             this.addCook(GlibbertOrange);
@@ -268,11 +267,8 @@ public class GameScreen extends ScreenAdapter {
         }
         else
         {
-            System.out.println("cOOKS ARE in ere");
-            System.out.print(cooksforgame);
             for(Cook c:cooksforgame)
             {
-                System.out.print(c);
                 this.addCook(c);
             }
             for(Cook c:unusedcooksforgame)
@@ -304,9 +300,7 @@ public class GameScreen extends ScreenAdapter {
                 Array<FoodItem.FoodID> nd = new Array<FoodItem.FoodID>();
                 for(FoodItem.FoodID f:newstation.stationdishstack.getStack())
                 {
-                    System.out.println("ffffffffffffff......");
-                    System.out.println(f);
-                    System.out.println("ffffffffffffff......");
+
                     nd.add(f);
                 }
                 if(nd.size>0)
@@ -316,7 +310,6 @@ public class GameScreen extends ScreenAdapter {
                 else {
                     n.stationDishStack.setStack(nd);
                 }
-                System.out.println(n.stationDishStack.getStackCopy()+",,,,,,,,,,,,,,,,,,,,,,,,,,,,,99");
                 //
                 n.Locked = newstation.lock;
                 if(newstation.Enabled){
@@ -332,9 +325,9 @@ public class GameScreen extends ScreenAdapter {
 //                    n.interact(new Cook(0,0,1,1), InputKey.InputTypes.USE);
 //                }
                 newmapStations.add(n);
-//                System.out.println("******************************************");
-//                System.out.println(mapHelper.mapStations.get(newstation.StationPropertyID).stationFoodStack.toString());
-//                System.out.println("******************************************");
+//                ln("******************************************");
+//                ln(mapHelper.mapStations.get(newstation.StationPropertyID).stationFoodStack.toString());
+//                ln("******************************************");
             }
             mapHelper.mapStations = newmapStations;
 //            this.customerController.customers = customersforgame;
@@ -396,26 +389,21 @@ public class GameScreen extends ScreenAdapter {
                 zoomincrements = 20/17f*zoomincrements;
             }
             else if(countcycles==0){
-                System.out.print("winning215");
                 this.initalzoom = 2f;
                 this.zoomincrements = 1/100f;
                 this.Loadgame();
             }
-            System.out.println("Loading....");
-            System.out.println(this.cook.getX());
-            System.out.println(this.cook.getY());
         }
         else {
             this.gameHud.updateloading("");
 
         }
         this.posCamera = camera.position;
-//        System.out.println("Rep Points: "+this.Reputation.getPoints());
+//        ln("Rep Points: "+this.Reputation.getPoints());
 		if (Gdx.input.isKeyPressed(Input.Keys.K)){
-            System.out.println("Saving....");
             this.gameHud.updateloading("Loading");
-//			System.out.println(this.cook.getX());
-//			System.out.println(this.cook.getY());
+//			ln(this.cook.getX());
+//			ln(this.cook.getY());
             this.Savegame();
             this.gameHud.updateloading("");
 		}
@@ -460,7 +448,7 @@ public class GameScreen extends ScreenAdapter {
 //                customer.DecreasePatience();
 //                if((customer.waittime<=0)&&(customer.Stillhere ==true))
 //                {
-//                    System.out.println(customer + " is now leaving");
+//                 m.out.println(customer + " is now leaving");
 //                    customer.StormOut(); //When customer wants to leave
 //                }
 //            }
@@ -470,7 +458,6 @@ public class GameScreen extends ScreenAdapter {
             {
                 customer.DecreasePatience();
                 if(customer.waittime<=0 && customer.getCustomerStatus()==2) {
-                    System.out.println(customer + " is now leaving");
                     customer.StormOut(); //When customer wants to leave
                 }
             }
@@ -517,7 +504,7 @@ public class GameScreen extends ScreenAdapter {
             //Chef Bluggus Mode
             if(thisCook.activateBluggus == true)
             {
-//                System.out.println("Moving stacks");
+//                ln("Moving stacks");
                 thisCook.moveStacks();
             }
         }
@@ -573,7 +560,6 @@ public class GameScreen extends ScreenAdapter {
 
         if(Interactions.isJustPressed(InputKey.InputTypes.PAUSE))
         {
-            System.out.println("Im Pausing");
             screenController.pauseGameScreen();
         }
         world.step(1/60f,6,2);
@@ -585,7 +571,6 @@ public class GameScreen extends ScreenAdapter {
         }
 
         if((customerController.wonScenario()) ||(this.forcewin)) {
-            System.out.println("game is won!");
             screenController.setEndTime(Util.formatTime(hoursPassed,minutesPassed,secondsPassed));
             if ((camera.zoom < initalzoom)&&(camera.zoom < 1000f)){
                 camera.zoom += zoomincrements;
@@ -593,7 +578,6 @@ public class GameScreen extends ScreenAdapter {
                 zoomincrements = 18/17f*zoomincrements;
             }
             else {
-                System.out.print("winning215");
                 this.initalzoom = 2f;
                 this.zoomincrements = 1/100f;
                 screenController.winGame();
@@ -608,7 +592,6 @@ public class GameScreen extends ScreenAdapter {
                 zoomincrements = 18/17f*zoomincrements;
             }
             else {
-                System.out.print("Sucks to lose");
                 screenController.setScreen(ScreenController.ScreenID.GAMEOVER);
             }
         }
@@ -776,7 +759,7 @@ public class GameScreen extends ScreenAdapter {
     }
 
     public void addCustomer(Customer customer) {
-//        System.out.print("__________________G"+customer);
+//        ("__________________G"+customer);
         if (customer != null) {
             gameEntities.add(customer);
         }
@@ -912,8 +895,6 @@ public class GameScreen extends ScreenAdapter {
         customerController.setMode(mode);
         customerController.setDifficulty(difficulty);
 
-        System.out.println(mode);
-        System.out.println(difficulty);
         secondsPassed = 0;
         minutesPassed = 0;
         hoursPassed = 0;
@@ -954,7 +935,6 @@ public class GameScreen extends ScreenAdapter {
     public void FreezeTime()
     {
         this.freeze = this.freeze + 10;
-        System.out.println("time deduction is "+this.freeze);
     }
 
 
@@ -970,7 +950,7 @@ public class GameScreen extends ScreenAdapter {
         this.SaveText = json.toJson(save);
         WriteSaveFile();
         this.SaveText = "";
-//        System.out.println(json.prettyPrint(save));
+//        ln(json.prettyPrint(save));
     }
 
 
@@ -980,7 +960,6 @@ public class GameScreen extends ScreenAdapter {
 //        StoredFile.fromJson(SavingClass newsave);
         ReadSaveFile();
         JsonValue root = new JsonReader().parse(this.SaveText);
-        System.out.println(root);
         //cooks
         JsonValue held_cook = root.get("players");
         JsonValue held_coords = root.get("cookscoords");
@@ -993,11 +972,11 @@ public class GameScreen extends ScreenAdapter {
         JsonValue held_wait = root.get("waitimes");
         JsonValue held_req = root.get("requests");
         JsonValue held_sts = root.get("Status");
-//        System.out.println(held_coords.get(0).get(0).get(1));//Takes person Takes x or y Takes value
-//        System.out.println(held_coords.get(0).get(0));
-//        System.out.println(held_coords.get(0));
+//        ln(held_coords.get(0).get(0).get(1));//Takes person Takes x or y Takes value
+//        ln(held_coords.get(0).get(0));
+//        ln(held_coords.get(0));
 //        JsonValue held_x = held_coords.get(0).get(0).get(1);
-//        System.out.println(held_x.asFloat());
+//        ln(held_x.asFloat());
 
 
         Array<Integer> cooks = new Array<Integer>();
@@ -1020,16 +999,14 @@ public class GameScreen extends ScreenAdapter {
         JsonValue held_y;
         float x,y;
         int count = 0;
-        System.out.println(this.SaveText);
         for(JsonValue t:held_cook)
         {
             int type = held_cook.getInt(count);
-            System.out.println(type + " is the chef type");
             held_x = held_coords.get(count).get(0).get(1);
             held_y = held_coords.get(count).get(1).get(1);
             x = held_x.asFloat();
             y = held_y.asFloat();
-            //System.out.println(held_dishstack.get(0)+"<-------------------------------------");
+            //ln(held_dishstack.get(0)+"<-------------------------------------");
             Array<Integer> newdishstack = new Array<Integer>();
             Array<Integer> s1 = new Array<Integer>();
             Array<Integer> s2 = new Array<Integer>();
@@ -1037,7 +1014,6 @@ public class GameScreen extends ScreenAdapter {
 
             if(held_dishstack.get(count)!=null) {
                 for (JsonValue placeindishstack : held_dishstack.get(count)) {
-                    System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
                     newdishstack.add(placeindishstack.get(1).asInt());
                 }
 
@@ -1068,13 +1044,13 @@ public class GameScreen extends ScreenAdapter {
             {
                 if(held_stack1.get(count)!=null) {
                     for (JsonValue placeinstack : held_stack1.get(count)) {
-                        //System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                        //ln("SIZE OF ARRAY OF DISTACK "+placeindishstack);
                         s1.add(placeinstack.get(1).asInt());
                     }
                 }
                 if(held_stack2.get(count)!=null) {
                     for (JsonValue placeinstack2 : held_stack2.get(count)) {
-                        //System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                        //ln("SIZE OF ARRAY OF DISTACK "+placeindishstack);
                         s1.add(placeinstack2.get(1).asInt());
                     }
                 }
@@ -1089,7 +1065,7 @@ public class GameScreen extends ScreenAdapter {
                 if (_isbluggus_) {
                     toAdd.MakeIntoBluggus();
                 }
-                //System.out.print("food id values: "+ value);
+                //("food id values: "+ value);
                 for(int item:s1)
                 {
                     FoodItem.FoodID value = FoodItem.FoodID.values()[item];
@@ -1137,7 +1113,7 @@ public class GameScreen extends ScreenAdapter {
             FoodStack fs = new FoodStack();
             if(held_SFOOOOD.get(count)!=null) {
                 for (JsonValue placeinstack : held_SFOOOOD.get(count)) {
-                    //System.out.println("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                    //ln("SIZE OF ARRAY OF DISTACK "+placeindishstack);
                     FoodItem.FoodID value = FoodItem.FoodID.values()[(placeinstack.get(1).asInt())];
                     fs.addStack(value);
                 }
@@ -1148,33 +1124,20 @@ public class GameScreen extends ScreenAdapter {
             fs = new FoodStack();
             if(held_SDishyStacky.get(count)!=null) {
                 for (JsonValue placeinstack : held_SDishyStacky.get(count)) {
-                    System.out.println("SIZE OF ARRAY OF DISTACK "+placeinstack);
                     FoodItem.FoodID value = FoodItem.FoodID.values()[(placeinstack.get(1).asInt())];
                     fs.addStack(value);
                 }
 
             }
-            System.out.println("SIZE OF ARRAY OF DISTACK "+fs+"ksjfbshgfskgfuksgfkusgfugskfgsgfs");
             sd.stationdishstack.setStack(fs.getStackCopy());
 
             sd.lock = held_LockedStatus.getBoolean(count);
             sd.Enabled = held_enab.getBoolean(count);
-            System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
-            System.out.println(sd.lock);
-            System.out.println(sd.stationdishstack);
-            System.out.println(sd.HeldFood);
-            System.out.println(sd.StationPropertyID);
-            System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
-
             stationsforgame.add(sd);
             count++;
         }
 
-//        System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
-//        System.out.println(stationsforgame);
-//        System.out.println("k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-k-");
-        reset(cooksforgame,unusedcooksforgame,customersforgame,stationsforgame);
-//        System.out.println(root);
+         reset(cooksforgame,unusedcooksforgame,customersforgame,stationsforgame);
 
         //Gold and Reputation
         int held_Gold = root.getInt("gold");
