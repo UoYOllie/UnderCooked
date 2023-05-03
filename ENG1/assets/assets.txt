@@ -10,6 +10,8 @@ menu/sadglib.png
 menu/space-bg.png
 menu/title.png
 MorgansMap/hold up.png
+MorgansMap/REVERSIO.png
+MorgansMap/Teawup32.png
 MorgansMap/testdummy.png
 MorgansMap/Tiles/Assembler.png
 MorgansMap/Tiles/assembly_big.png
