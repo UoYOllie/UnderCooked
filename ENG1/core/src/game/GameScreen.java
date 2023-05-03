@@ -91,9 +91,9 @@ public class GameScreen extends ScreenAdapter {
     private boolean Loading;
 
     /**
-     * The constructor for the {@link GameScreen}.
-     * @param screenController The {@link ScreenController} of the {@link ScreenAdapter}.
-     * @param camera The {@link OrthographicCamera} that the game should use.
+     * This class initializes all the variables used for the GameScreen
+     * @param screenController - It takes a screenController as input which helps the set-up process of the screen
+     * @param camera - the camera is used to follow the chefs dynamically
      */
     public GameScreen(ScreenController screenController, OrthographicCamera camera)//Constructor, reset rebuildings constructor
     {
@@ -184,6 +184,13 @@ public class GameScreen extends ScreenAdapter {
 
     }
 
+    /**
+     * This class deals with resting the GameScreen after the player uses the reset functionality
+     * @param cooksforgame The cooks currently controlled by the player in the game.
+     * @param unusedcooksforgame The cooks the player hasn't bought yet
+     * @param customersforgame All the current customers in the game
+     * @param stationsforgame All the stations in the game
+     */
     public void reset(Array<Cook> cooksforgame,Array<Cook> unusedcooksforgame,ArrayList<Customer>customersforgame,ArrayList<StationData>stationsforgame)
     {
         this.readytorezoooom = true;

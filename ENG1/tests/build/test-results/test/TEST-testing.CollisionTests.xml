@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.CollisionTests" tests="12" skipped="0" failures="0" errors="0" timestamp="2023-05-03T07:38:58" hostname="AB-ASUS-1" time="0.184">
+<testsuite name="testing.CollisionTests" tests="12" skipped="0" failures="0" errors="0" timestamp="2023-05-03T08:03:41" hostname="AB-ASUS-1" time="0.183">
   <properties/>
-  <testcase name="TestChefMoveSlideLeftDown" classname="testing.CollisionTests" time="0.006"/>
+  <testcase name="TestChefMoveSlideLeftDown" classname="testing.CollisionTests" time="0.009"/>
   <testcase name="TestChefMoveSlideUpLeft" classname="testing.CollisionTests" time="0.0"/>
   <testcase name="TestChefMoveUpCollision" classname="testing.CollisionTests" time="0.0"/>
-  <testcase name="TestChefMoveSlideUpRight" classname="testing.CollisionTests" time="0.001"/>
+  <testcase name="TestChefMoveSlideUpRight" classname="testing.CollisionTests" time="0.0"/>
   <testcase name="TestChefMoveSlideRightUp" classname="testing.CollisionTests" time="0.0"/>
-  <testcase name="TestChefMoveSlideDownRight" classname="testing.CollisionTests" time="0.0"/>
+  <testcase name="TestChefMoveSlideDownRight" classname="testing.CollisionTests" time="0.001"/>
   <testcase name="TestChefMoveRightCollision" classname="testing.CollisionTests" time="0.0"/>
   <testcase name="TestChefMoveLeftCollision" classname="testing.CollisionTests" time="0.001"/>
   <testcase name="TestChefMoveDownCollision" classname="testing.CollisionTests" time="0.0"/>
   <testcase name="TestChefMoveSlideRightDown" classname="testing.CollisionTests" time="0.0"/>
   <testcase name="TestChefMoveSlideDownLeft" classname="testing.CollisionTests" time="0.0"/>
-  <testcase name="TestChefMoveSlideLeftUp" classname="testing.CollisionTests" time="0.0"/>
+  <testcase name="TestChefMoveSlideLeftUp" classname="testing.CollisionTests" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.021s</div>
+<div class="counter">0.026s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">98%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,43 +61,10 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
-</li>
-<li>
-<a href="#tab1">Tests</a>
+<a href="#tab0">Tests</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="TestAssemblyStationMakePlainPizza"></a>
-<h3 class="failures">TestAssemblyStationMakePlainPizza</h3>
-<span class="code">
-<pre>java.lang.AssertionError: Error: Assembly Station does not give the right outcome when given the items to make a Plain pizza expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at testing.InteractionTests.TestAssemblyStationMakePlainPizza(InteractionTests.java:609)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
-	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
-	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -119,17 +86,17 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationLettuceBurger</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationLettuceOnionBurger</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationLettuceTomatoBurger</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -139,12 +106,12 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakeBeansColeslawCheesePotato</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakeBeansColeslawPotato</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -154,12 +121,12 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakeCheeseBeansPotato</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakeCheesePotato</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -169,7 +136,7 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakeOnionSalad</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -178,9 +145,9 @@
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="failures">TestAssemblyStationMakePlainPizza</td>
-<td class="failures">0.001s</td>
-<td class="failures">failed</td>
+<td class="success">TestAssemblyStationMakePlainPizza</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakePlainPotato</td>
@@ -194,7 +161,7 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationMakeTomatoSalad</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -204,17 +171,17 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationPlainBurger</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestAssemblyStationTestMultipleRecipes</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">TestAssemblyStationTomatoBurger</td>
+<td class="success">TestAssemblyStationTestMultipleRecipes</td>
 <td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">TestAssemblyStationTomatoBurger</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -224,7 +191,7 @@
 </tr>
 <tr>
 <td class="success">TestAssemblyStationWrongRecipe</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -249,17 +216,17 @@
 </tr>
 <tr>
 <td class="success">TestBinStationWorksWithEmptyStack</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestCounterCanHoldMultiple</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">TestPantryBeans</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -269,7 +236,7 @@
 </tr>
 <tr>
 <td class="success">TestPantryCheese</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -289,7 +256,7 @@
 </tr>
 <tr>
 <td class="success">TestPantryMeat</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -299,7 +266,7 @@
 </tr>
 <tr>
 <td class="success">TestPantryPotato</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -314,7 +281,7 @@
 </tr>
 <tr>
 <td class="success">TestPlayerItemStack</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -339,22 +306,22 @@
 </tr>
 <tr>
 <td class="success">TestPreparationStationCutTomato</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestPreparationStationGivesWaste</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">TestPreparationStationSetsStateToFinished</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">TestPreparationStationGivesWaste</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">TestPreparationStationSetsStateToFinished</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">TestPutDownItem</td>
-<td class="success">0.003s</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -377,7 +344,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.5.1</a> at 3 May 2023, 08:39:00</p>
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at 3 May 2023, 09:03:44</p>
 </div>
 </div>
 </body>

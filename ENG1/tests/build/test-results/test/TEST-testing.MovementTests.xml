@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.MovementTests" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-03T07:38:56" hostname="AB-ASUS-1" time="2.134">
+<testsuite name="testing.MovementTests" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-03T08:03:38" hostname="AB-ASUS-1" time="2.877">
   <properties/>
-  <testcase name="TestChefMoveRight" classname="testing.MovementTests" time="0.004"/>
-  <testcase name="TestChefMoveRightUp" classname="testing.MovementTests" time="0.0"/>
+  <testcase name="TestChefMoveRight" classname="testing.MovementTests" time="0.013"/>
+  <testcase name="TestChefMoveRightUp" classname="testing.MovementTests" time="0.001"/>
   <testcase name="TestChefMoveLeftUp" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveUpLeft" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveUp" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefSwitch" classname="testing.MovementTests" time="1.933">
+  <testcase name="TestChefSwitch" classname="testing.MovementTests" time="2.675">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -36,11 +36,11 @@
   </testcase>
   <testcase name="TestChefMoveDown" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveLeft" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefMoveDownLeft" classname="testing.MovementTests" time="0.0"/>
+  <testcase name="TestChefMoveDownLeft" classname="testing.MovementTests" time="0.001"/>
   <testcase name="TestChefMoveDownRight" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveLeftDown" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveUpRight" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefMoveRightDown" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveRightDown" classname="testing.MovementTests" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
