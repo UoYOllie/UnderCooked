@@ -8,7 +8,6 @@ import food.FoodItem.FoodID;
 
 /**
  * Contains all the Recipes for burgers, salads, jacket potatoes, and pizzas.
- *
  * Each recipe is represented by a FoodStack. A FoodStack is valid if it contains the
  * same elements (in any order) as the recipe FoodStack.
  *
@@ -23,6 +22,8 @@ public class Recipe {
 
     /** A HashMap mapping the name of each recipe to its valid FoodStack. */
 	public static final HashMap<String, FoodStack> recipes = new HashMap<>();
+
+    /** An array containing the FoodIDs of all possible toppings for any dish, used for the customer's request.*/
     public static final Array<FoodID> toppings = new Array<>();
 
     static {
@@ -53,7 +54,7 @@ public class Recipe {
         generateRecipe("Coleslaw Cheese Potato", new FoodStack(FoodID.cheese, FoodID.coleslaw, FoodID.potatoCook));
         generateRecipe("Beans Coleslaw Cheese Potato", new FoodStack(FoodID.cheese, FoodID.coleslaw, FoodID.beansCooked, FoodID.potatoCook));
 
-        // PIZZA - i'll add some more interesting combos later down the line
+        // PIZZA
         generateRecipe("Plain Pizza", new FoodStack(FoodID.cheese, FoodID.tomatoSauce, FoodID.doughCook));
 
         // TOPPINGS
@@ -62,9 +63,6 @@ public class Recipe {
         toppings.add(FoodID.onionChop);
         toppings.add(FoodID.cheese);
         toppings.add(FoodID.bakedBeans);
-        toppings.add(FoodID.coleslaw);
-        //toppings.add(FoodID.pepperoni);
-
     }
 
     /**
@@ -97,17 +95,16 @@ public class Recipe {
     }
 
     /**
-     * Helper method to check if an input FoodStack matches the desired recipe.
+     * Method to check if an input Array<FoodID> matches the desired recipe. Used externally.
      *
-     * @param foodStack The input foodStack to be checked.
+     * @param inputFoodStackArray The input array to be checked.
      * @param recipeName The name of the target recipe.
      *
-     * @return true if the inputFoodStack matches the target recipe, false otherwise.
+     * @return true if the inputFoodStackArray matches the target recipe, false otherwise.
      */
-    public static boolean matchesRecipe(FoodStack foodStack, String recipeName) {
+    public static boolean matchesRecipeArray(Array<FoodID> inputFoodStackArray, String recipeName) {
 
         Array<FoodID> validFoodStackArray = recipes.get(recipeName).getStack();
-        Array<FoodID> inputFoodStackArray = foodStack.getStack();
 
         if (validFoodStackArray.size != inputFoodStackArray.size) {
             return false;
@@ -121,10 +118,18 @@ public class Recipe {
         return true;
     }
 
-    public static boolean matchesRecipeArray(Array<FoodID> inputFoodStackArray, String recipeName) {
+    /**
+     * Helper method to check if an input FoodStack matches the desired recipe.
+     *
+     * @param foodStack The input foodStack to be checked.
+     * @param recipeName The name of the target recipe.
+     *
+     * @return true if the inputFoodStack matches the target recipe, false otherwise.
+     */
+    public static boolean matchesRecipe(FoodStack foodStack, String recipeName) {
 
         Array<FoodID> validFoodStackArray = recipes.get(recipeName).getStack();
-        //Array<FoodID> inputFoodStackArray = foodStack.getStack();
+        Array<FoodID> inputFoodStackArray = foodStack.getStack();
 
         if (validFoodStackArray.size != inputFoodStackArray.size) {
             return false;
@@ -154,6 +159,11 @@ public class Recipe {
         return null;
     }
 
+    /** Method to create an array containing the items to place in the customer's request bubble.
+     * Will add a plain version of the dish, followed by up to three toppings chosen.
+     *
+     * @param request The request of the customer as a String.
+     * @return Array<FoodID> An array that can be rendered into the bubble by the customer. */
     public static Array<FoodID> getCustomerRequestBubble(String request) {
 
         Array<FoodID> allItems = getRecipe(request).getStackCopy();
@@ -172,10 +182,8 @@ public class Recipe {
         }
 
         // Add the toppings to the requestBubble.
-
         for (FoodID topping : toppings) {
             if (containsFood(allItems, topping)) {
-
                 // LettuceChop is not a topping if the request is a salad:
                 if (!(topping == FoodID.lettuceChop && containsFood(bubbleItems, FoodID.salad))) {
                     bubbleItems.add(topping);
@@ -184,9 +192,7 @@ public class Recipe {
         }
 
         return bubbleItems;
-
     }
-
 
     /** Helper method to choose a random recipe for the customer to order. */
     public static String randomRecipe() {
@@ -194,6 +200,7 @@ public class Recipe {
          return recipeNames.get(random.nextInt(recipeNames.size));
     }
 
+    /** Getter for the FoodStack corresponding to a recipe String.*/
     public static FoodStack getRecipe(String recipeName) {
         return recipes.get(recipeName);
     }

@@ -3,9 +3,8 @@ package players;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import helper.Constants;
 
-import static java.lang.Math.abs;
+import helper.Constants;
 
 /** The class for any object that can exist in the game world. */
 public abstract class GameEntity {

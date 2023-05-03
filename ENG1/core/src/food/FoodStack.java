@@ -5,19 +5,20 @@ import players.Cook;
 import food.FoodItem.FoodID;
 
 /**
- * A class to create the behaviour of a {@code Stack} for
- * {@link FoodItem}s to be used by the {@link Cook},
- * {@link stations.CounterStation} and {@link Recipe}s.
+ * A class to mimic the behaviour of a FIFO Stack for FoodItems to be used by
+ * the cook, stations and recipes.
  */
 public class FoodStack {
-    /** The cook's stack of things, containing all the items they're holding. Index 0 = Top Item.
-     * Has a public getter and setter.
-    */
+
+    /** The cook's stack containing all the items they're holding. Index 0 = Top Item.*/
     private Array<FoodID> foodStack;
 
-    /**
-     * FoodStack Constructor. Can accept multiple FoodID parameters to
-     * initialize the foodStack with.
+    /** The constructor for an empty FoodStack.*/
+    public FoodStack() {
+        this(new Array<FoodID>());
+    }
+
+    /** The constructor of a FoodStack already containing items.
      * @param foods A list of ingredients to add to the foodStack. Index 0 = Top.
      */
     public FoodStack(FoodID... foods) {
@@ -27,19 +28,22 @@ public class FoodStack {
         }
     }
 
-    /** FoodStack Constructor. Creates a blank foodStack.*/
-    public FoodStack() {
-
-        this(new Array<FoodID>());
-    }
-
     /**
-     * FoodStack Constructor. Creates a foodStack out of the argument.
+     * The constructor of a FoodStack from an array of food items.
      * @param foodStack The LibGDX Array of FoodIDs which will become a FoodStack.
      */
     public FoodStack(Array<FoodID> foodStack) {
-
         this.foodStack = foodStack;
+    }
+
+    /** The setter for the FoodStack.*/
+    public void setStack(Array<FoodID> newStack) {
+        foodStack = newStack;
+    }
+
+    /** The getter of the FoodStack.*/
+    public Array<FoodID> getStack() {
+        return foodStack;
     }
 
     /**
@@ -54,6 +58,7 @@ public class FoodStack {
             return null;
         }
     }
+
     /**
     * Get the item at the top of the stack and remove it if there is an item in the foodStack.
     * @return The item at the top of the foodStack OR `null` if there's no items in it.
@@ -65,6 +70,7 @@ public class FoodStack {
           return null;
       }
     }
+
     /**
     * Add an item to the top of the stack.
     * @param newFood The item to add to the top of the foodStack.
@@ -75,13 +81,21 @@ public class FoodStack {
         }
     }
 
-    // temporary method for laura to test out station stuff
+    /**
+     * Add an item to the top of the stack with a different limit to the norm.
+     * Used in cases like CounterStation, where only one item can be placed.
+     *
+     * @param newFood the FoodID to be added.
+     * @param limit the maximum number of items that can be added to the stack.
+     * */
     public void addStackLimited(FoodID newFood, int limit) {
         if(this.size()<limit) {
             foodStack.insert(0, newFood);
         }
     }
 
+    /** Method to indicate whether a FoodStack is empty.
+     * @return true if empty, false if not. */
     public boolean empty() {
         if (this.foodStack.size > 0) {
             return false;
@@ -90,33 +104,17 @@ public class FoodStack {
         }
     }
 
-    /**
-    * foodStack getter
-    * @return foodStack
-    */
-    public Array<FoodID> getStack() {
-        return foodStack;
-    }
-
-    /**
-     * Removes all items from the stack
-     */
+    /** Removes all items from the stack.*/
     public void clearStack() {
         foodStack.clear();
     }
 
     /**
-    * foodStack setter
-    * @param newStack The new foodStack
-    */
-    public void setStack(Array<FoodID> newStack) {
-        foodStack = newStack;
-    }
-    /**
     * Returns the number of items on the foodStack.
     * @return Size of the foodStack
     */
     public int size() { return foodStack.size; }
+
     /**
     * Get a string of the foodStack.
     * @return Returns a string containing the items in the foodStack. Index 0 = Top FoodItem
@@ -125,14 +123,16 @@ public class FoodStack {
         return foodStack.toString();
     }
 
+    /** Return a copy of the Array<FoodID> stored by the FoodStack.
+     * Used to avoid pointing to the original stack when duplicating a FoodStack.
+     *
+     * @return Array<FoodID> A copy of the FoodStack's Array<FoodID>.*/
     public Array<FoodID> getStackCopy() {
 
         Array<FoodID> newFoodStack = new Array<>();
-
         for (FoodID item : this.foodStack) {
             newFoodStack.add(item);
         }
-
         return newFoodStack;
 
     }
