@@ -26,6 +26,8 @@ public class ServingStation extends Station {
     /** Test flag is used to separate the class from GameScreen and allow testing.*/
     private Integer testFlag = 0;
 
+    public Customer customer;
+
     /** Constructor for ServingStation.
      * Initialises interaction Rectangle and empty DishStack.
 
@@ -77,6 +79,8 @@ public class ServingStation extends Station {
      */
     @Override
     public void customerInteract(Customer customer) {
+
+        this.customer = customer;
 
         Array<FoodItem.FoodID> plateless = stationDishStack.getStackCopy();
 
