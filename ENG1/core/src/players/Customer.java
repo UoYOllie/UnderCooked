@@ -228,8 +228,6 @@ public class Customer extends GameEntity {
             case (2):
                 this.waittime = 350;
                 break;
-            case (3):
-                this.waittime = 300;
         }
     }
 

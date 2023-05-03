@@ -209,12 +209,12 @@ coleslaw
 ADpeek
 ALinterval 0
 ALgroup size 1
-ALno customer added!
 ANinterval 0
 ANgroup size 1
 ANno customer added this time!
-AP+players.Customer@d887f2will leave in 50.0
-AP/players.Customer@d887f2now will leave in 50.0
+AP,players.Customer@dbb6694will leave in 50.0
+AP1players.Customer@dbb6694now will leave in 300.0
+AP'players.Customer@dbb6694is rethinking
 A\customers left 2
 A\customers left 1
 A\customers left 0
