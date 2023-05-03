@@ -904,194 +904,187 @@ public class GameScreen extends ScreenAdapter {
      */
     public void Loadgame() //Change ton have no param
     {
-        ReadSaveFile();
-        JsonValue root = new JsonReader().parse(this.SaveText);
-        //cooks
-        JsonValue held_cook = root.get("cooks");
-        JsonValue held_coords = root.get("cookscoords");
-        JsonValue held_stack1 = root.get("cookstack1");
-        JsonValue held_stack2 = root.get("cookstack2");
-        JsonValue held_dishstack = root.get("cookdishstack");
-        JsonValue held_bluggy = root.get("cookisbluggus");
-        JsonValue held_speed = root.get("cookspeed");
-        JsonValue held_colour = root.get("colour");
-        JsonValue held_wait = root.get("waitimes");
-        JsonValue held_req = root.get("requests");
-        JsonValue held_sts = root.get("Status");
+        if (this.SaveText != null) {
+            ReadSaveFile();
+            JsonValue root = new JsonReader().parse(this.SaveText);
+            //cooks
+            JsonValue held_cook = root.get("cooks");
+            JsonValue held_coords = root.get("cookscoords");
+            JsonValue held_stack1 = root.get("cookstack1");
+            JsonValue held_stack2 = root.get("cookstack2");
+            JsonValue held_dishstack = root.get("cookdishstack");
+            JsonValue held_bluggy = root.get("cookisbluggus");
+            JsonValue held_speed = root.get("cookspeed");
+            JsonValue held_colour = root.get("colour");
+            JsonValue held_wait = root.get("waitimes");
+            JsonValue held_req = root.get("requests");
+            JsonValue held_sts = root.get("Status");
 
-        Array<Integer> cooks = new Array<Integer>();
-        Array<Array<Float>> cookscoords = new Array<Array<Float>>(); //If not spawned, (0,0)
-        Array<Array<Integer>> cookstack1 = new Array<Array<Integer>>();
-        Array<Array<Integer>> cookstack2 = new Array<Array<Integer>>();
-        Array<Array<Integer>> cookdishstack = new Array<Array<Integer>>();
-        Array<Boolean> cookisbluggus = new Array<Boolean>(); //if chef is bluggus or not
-        Array<Float> cookspeed = new Array<Float>();
-        Array<String> colour = new Array<String>(); //allocates the sprite
-        Array<Float> waitimes = new Array<Float>(); //-1 for cooks
-        Array<String> requests = new Array<String>(); //norequest = cooks
+            Array<Integer> cooks = new Array<Integer>();
+            Array<Array<Float>> cookscoords = new Array<Array<Float>>(); //If not spawned, (0,0)
+            Array<Array<Integer>> cookstack1 = new Array<Array<Integer>>();
+            Array<Array<Integer>> cookstack2 = new Array<Array<Integer>>();
+            Array<Array<Integer>> cookdishstack = new Array<Array<Integer>>();
+            Array<Boolean> cookisbluggus = new Array<Boolean>(); //if chef is bluggus or not
+            Array<Float> cookspeed = new Array<Float>();
+            Array<String> colour = new Array<String>(); //allocates the sprite
+            Array<Float> waitimes = new Array<Float>(); //-1 for cooks
+            Array<String> requests = new Array<String>(); //norequest = cooks
 
-        //Arrayys to hold all data
-        Array<Cook> cooksforgame = new Array<Cook>();
-        Array<Cook> unusedcooksforgame = new Array<Cook>();
-        ArrayList<Customer> customersforgame = new ArrayList<Customer>();
-        ArrayList<StationData> stationsforgame = new ArrayList<StationData>();
-        JsonValue held_x;
-        JsonValue held_y;
-        float x,y;
-        int count = 0;
-        for(JsonValue t:held_cook)
-        {
-            int type = held_cook.getInt(count);
-            held_x = held_coords.get(count).get(0).get(1);
-            held_y = held_coords.get(count).get(1).get(1);
-            x = held_x.asFloat();
-            y = held_y.asFloat();
-            //ln(held_dishstack.get(0)+"<-------------------------------------");
-            Array<Integer> newdishstack = new Array<Integer>();
-            Array<Integer> s1 = new Array<Integer>();
-            Array<Integer> s2 = new Array<Integer>();
+            //Arrayys to hold all data
+            Array<Cook> cooksforgame = new Array<Cook>();
+            Array<Cook> unusedcooksforgame = new Array<Cook>();
+            ArrayList<Customer> customersforgame = new ArrayList<Customer>();
+            ArrayList<StationData> stationsforgame = new ArrayList<StationData>();
+            JsonValue held_x;
+            JsonValue held_y;
+            float x, y;
+            int count = 0;
+            for (JsonValue t : held_cook) {
+                int type = held_cook.getInt(count);
+                held_x = held_coords.get(count).get(0).get(1);
+                held_y = held_coords.get(count).get(1).get(1);
+                x = held_x.asFloat();
+                y = held_y.asFloat();
+                //ln(held_dishstack.get(0)+"<-------------------------------------");
+                Array<Integer> newdishstack = new Array<Integer>();
+                Array<Integer> s1 = new Array<Integer>();
+                Array<Integer> s2 = new Array<Integer>();
 
 
-            if(held_dishstack.get(count)!=null) {
-                for (JsonValue placeindishstack : held_dishstack.get(count)) {
-                    newdishstack.add(placeindishstack.get(1).asInt());
+                if (held_dishstack.get(count) != null) {
+                    for (JsonValue placeindishstack : held_dishstack.get(count)) {
+                        newdishstack.add(placeindishstack.get(1).asInt());
+                    }
+
+                }
+                Array<FoodItem.FoodID> tempdish = new Array<FoodItem.FoodID>();
+                for (int item : newdishstack) {
+                    FoodItem.FoodID value = FoodItem.FoodID.values()[item];
+                    tempdish.add(value);
                 }
 
-            }
-            Array<FoodItem.FoodID> tempdish = new Array<FoodItem.FoodID>();
-            for(int item:newdishstack)
-            {
-                FoodItem.FoodID value = FoodItem.FoodID.values()[item];
-                tempdish.add(value);
-            }
-
-            if(type==2) //Customer
-            {
-                Customer newc = new Customer(x*8f,y*8f,20,20);
-                newc.dishStack.setStack(tempdish);
-                float _wait_ = held_wait.getFloat(count);
-                String _req_ = held_req.getString(count);
-                newc.waittime = _wait_;
-                newc.request = _req_;
-                newc.setCustomerStatus(held_sts.getInt(count));
-                customersforgame.add(newc);
+                if (type == 2) //Customer
+                {
+                    Customer newc = new Customer(x * 8f, y * 8f, 20, 20);
+                    newc.dishStack.setStack(tempdish);
+                    float _wait_ = held_wait.getFloat(count);
+                    String _req_ = held_req.getString(count);
+                    newc.waittime = _wait_;
+                    newc.request = _req_;
+                    newc.setCustomerStatus(held_sts.getInt(count));
+                    customersforgame.add(newc);
 
 
+                } else //must be cook
+                {
+                    if (held_stack1.get(count) != null) {
+                        for (JsonValue placeinstack : held_stack1.get(count)) {
+                            //ln("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                            s1.add(placeinstack.get(1).asInt());
+                        }
+                    }
+                    if (held_stack2.get(count) != null) {
+                        for (JsonValue placeinstack2 : held_stack2.get(count)) {
+                            //ln("SIZE OF ARRAY OF DISTACK "+placeindishstack);
+                            s1.add(placeinstack2.get(1).asInt());
+                        }
+                    }
+                    float _speed_ = held_speed.getFloat(count);
+                    String _colour_ = held_colour.getString(count);
+                    boolean _isbluggus_ = held_bluggy.getBoolean(count);
+
+                    Cook toAdd = new Cook(x * 8f, y * 8f, 3.34f, 1);
+                    toAdd.movement_speed = _speed_;
+                    toAdd.setColour(_colour_);
+                    toAdd.dishStack.setStack(tempdish);
+                    if (_isbluggus_) {
+                        toAdd.MakeIntoBluggus();
+                    }
+                    //("food id values: "+ value);
+                    for (int item : s1) {
+                        FoodItem.FoodID value = FoodItem.FoodID.values()[item];
+                        toAdd.foodStack.addStack(value);
+                    }
+                    for (int item : s2) {
+                        FoodItem.FoodID value = FoodItem.FoodID.values()[item];
+                        toAdd.foodStack2.addStack(value);
+                    }
 
 
-            }
-            else //must be cook
-            {
-                if(held_stack1.get(count)!=null) {
-                    for (JsonValue placeinstack : held_stack1.get(count)) {
-                        //ln("SIZE OF ARRAY OF DISTACK "+placeindishstack);
-                        s1.add(placeinstack.get(1).asInt());
+                    if (type == 1) //Used cook
+                    {
+                        cooksforgame.add(toAdd);
+                    } else if (type == 0) //not used chef
+                    {
+                        unusedcooksforgame.add(toAdd);
                     }
                 }
-                if(held_stack2.get(count)!=null) {
-                    for (JsonValue placeinstack2 : held_stack2.get(count)) {
+                count++; //increment person
+            }
+            JsonValue held_SID = root.get("StationPropertyID");
+            JsonValue held_SFOOOOD = root.get("HeldFood");
+            JsonValue held_SDishyStacky = root.get("stationdishstack");
+            JsonValue held_LockedStatus = root.get("lockedStation");
+            JsonValue held_enab = root.get("Enabled");
+            count = 0;
+
+
+            for (JsonValue ID : held_SID) {
+
+                StationData sd = new StationData();
+                sd.StationPropertyID = held_SID.getInt(count);
+
+                FoodStack fs = new FoodStack();
+                if (held_SFOOOOD.get(count) != null) {
+                    for (JsonValue placeinstack : held_SFOOOOD.get(count)) {
                         //ln("SIZE OF ARRAY OF DISTACK "+placeindishstack);
-                        s1.add(placeinstack2.get(1).asInt());
+                        FoodItem.FoodID value = FoodItem.FoodID.values()[(placeinstack.get(1).asInt())];
+                        fs.addStack(value);
                     }
-                }
-                float _speed_ = held_speed.getFloat(count);
-                String _colour_ = held_colour.getString(count);
-                boolean _isbluggus_ = held_bluggy.getBoolean(count);
 
-                Cook toAdd = new Cook(x*8f,y*8f,3.34f,1);
-                toAdd.movement_speed = _speed_;
-                toAdd.setColour(_colour_);
-                toAdd.dishStack.setStack(tempdish);
-                if (_isbluggus_) {
-                    toAdd.MakeIntoBluggus();
                 }
-                //("food id values: "+ value);
-                for(int item:s1)
-                {
-                    FoodItem.FoodID value = FoodItem.FoodID.values()[item];
-                    toAdd.foodStack.addStack(value);
-                }
-                for(int item:s2)
-                {
-                    FoodItem.FoodID value = FoodItem.FoodID.values()[item];
-                    toAdd.foodStack2.addStack(value);
-                }
+                sd.HeldFood = fs;
 
+                fs = new FoodStack();
+                if (held_SDishyStacky.get(count) != null) {
+                    for (JsonValue placeinstack : held_SDishyStacky.get(count)) {
+                        FoodItem.FoodID value = FoodItem.FoodID.values()[(placeinstack.get(1).asInt())];
+                        fs.addStack(value);
+                    }
 
-                if(type==1) //Used cook
-                {
-                    cooksforgame.add(toAdd);
                 }
-                else if(type==0) //not used chef
-                {
-                    unusedcooksforgame.add(toAdd);
-                }
+                sd.stationdishstack.setStack(fs.getStackCopy());
+
+                sd.lock = held_LockedStatus.getBoolean(count);
+                sd.Enabled = held_enab.getBoolean(count);
+                stationsforgame.add(sd);
+                count++;
             }
-            count++; //increment person
+
+            reset(cooksforgame, unusedcooksforgame, customersforgame, stationsforgame);
+
+            //Gold and Reputation
+            int held_Gold = root.getInt("gold");
+            this.gold.setBalance(held_Gold);
+            int held_Reputation = root.getInt("reputation");
+            this.Reputation.setPoints(held_Reputation);
+            //Timer
+            int held_seconds = root.getInt("seconds");
+            int held_minutes = root.getInt("minutes");
+            int held_hours = root.getInt("hours");
+            this.secondsPassed = held_seconds;
+            this.minutesPassed = held_minutes;
+            this.hoursPassed = held_hours;
+
+            //Mode and difficulty
+            customerController.setMode(root.getString("Mode"));
+            customerController.setDifficulty(root.getInt("Difficulty"));
+            customerController.TotalCustomersServed = root.getInt("HowManyHaveBeenServed");
+            gameHud.updateCustomerServed(this.customerController.TotalCustomersServed);
+
+
         }
-        JsonValue held_SID = root.get("StationPropertyID");
-        JsonValue held_SFOOOOD = root.get("HeldFood");
-        JsonValue held_SDishyStacky = root.get("stationdishstack");
-        JsonValue held_LockedStatus = root.get("lockedStation");
-        JsonValue held_enab = root.get("Enabled");
-        count = 0;
-
-
-        for(JsonValue ID:held_SID)
-        {
-
-            StationData sd = new StationData();
-            sd.StationPropertyID = held_SID.getInt(count);
-
-            FoodStack fs = new FoodStack();
-            if(held_SFOOOOD.get(count)!=null) {
-                for (JsonValue placeinstack : held_SFOOOOD.get(count)) {
-                    //ln("SIZE OF ARRAY OF DISTACK "+placeindishstack);
-                    FoodItem.FoodID value = FoodItem.FoodID.values()[(placeinstack.get(1).asInt())];
-                    fs.addStack(value);
-                }
-
-            }
-            sd.HeldFood = fs;
-
-            fs = new FoodStack();
-            if(held_SDishyStacky.get(count)!=null) {
-                for (JsonValue placeinstack : held_SDishyStacky.get(count)) {
-                    FoodItem.FoodID value = FoodItem.FoodID.values()[(placeinstack.get(1).asInt())];
-                    fs.addStack(value);
-                }
-
-            }
-            sd.stationdishstack.setStack(fs.getStackCopy());
-
-            sd.lock = held_LockedStatus.getBoolean(count);
-            sd.Enabled = held_enab.getBoolean(count);
-            stationsforgame.add(sd);
-            count++;
-        }
-
-         reset(cooksforgame,unusedcooksforgame,customersforgame,stationsforgame);
-
-        //Gold and Reputation
-        int held_Gold = root.getInt("gold");
-        this.gold.setBalance(held_Gold);
-        int held_Reputation = root.getInt("reputation");
-        this.Reputation.setPoints(held_Reputation);
-        //Timer
-        int held_seconds = root.getInt("seconds");
-        int held_minutes = root.getInt("minutes");
-        int held_hours = root.getInt("hours");
-        this.secondsPassed = held_seconds;
-        this.minutesPassed = held_minutes;
-        this.hoursPassed = held_hours;
-
-        //Mode and difficulty
-        customerController.setMode(root.getString("Mode"));
-        customerController.setDifficulty(root.getInt("Difficulty"));
-        customerController.TotalCustomersServed = root.getInt("HowManyHaveBeenServed");
-        gameHud.updateCustomerServed(this.customerController.TotalCustomersServed);
-
-
     }
 
     /**
