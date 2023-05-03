@@ -220,6 +220,7 @@ public class Customer extends GameEntity {
 
     /** Power up method to extend a customer's patience timer after giving them tea.*/
     public void HangOnYourFoodIsComing() {
+        this.waittime = 300;
         switch (difficulty) {
             case (1):
                 this.waittime = 400;
