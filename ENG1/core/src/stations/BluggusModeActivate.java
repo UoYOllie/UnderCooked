@@ -8,6 +8,11 @@ import interactions.InputKey;
 
 import java.util.ArrayList;
 
+/**
+ * Chef Bluggus Mode Powerup
+ * Allows the cook using it to hold 2 foodstacks (total of 6 items at a time,
+ * but still just one dish)
+ */
 public class BluggusModeActivate extends Station {
     private GameScreen gameScreen;
     private ShopItem item;
@@ -15,6 +20,14 @@ public class BluggusModeActivate extends Station {
     private Cook NewBluggusSpawn;
     private ArrayList<Float> coordsofbluggy;
 
+    /**
+     * Constructor
+     * Sets the interaction rectangle to allow the powerup
+     * Creates a sprite to sit within the cage.
+     * Enables the powerup
+     * @param rectangle
+     * @param g
+     */
     public BluggusModeActivate(Rectangle rectangle, GameScreen g) {
         super(rectangle);
         this.isABluggusPrison = true;

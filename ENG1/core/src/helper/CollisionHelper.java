@@ -20,19 +20,32 @@ public class CollisionHelper {
 
     private ArrayList<Station> mapStations;
 
+    /**
+     * Constructor to create game enviroment ready to detect collisions
+     * @param gameScreen
+     * @param cook
+     * @param mapStations
+     */
     public CollisionHelper(GameScreen gameScreen, Cook cook, ArrayList<Station> mapStations){
         setGameScreen(gameScreen);
         CookRectangle = new Rectangle(cook.getX(),cook.getY(),CookWidth,CookHeight);
         this.mapStations = mapStations;
     }
 
+    /**
+     * Sets the gameScreen
+     * @param gameScreen
+     */
     public void setGameScreen(GameScreen gameScreen) {
-        //tln("Initalising Gamescreen");
         this.gameScreen = gameScreen;
-        //tln(this.gameScreen);
     }
 
-    //Array<CookInteractable>
+    /**
+     * Find any station that is overlapping
+     * If multiple, it finds the one closest to the users rectangle
+     * @param cookInteractor
+     * @return closest station
+     */
     public CookInteractable NearbyStation(Rectangle cookInteractor) {
         Array<CookInteractable> found = new Array<>();
         for(Station object : mapStations){
@@ -64,12 +77,16 @@ public class CollisionHelper {
         return closest;
     }
 
+    /**
+     * Function to find the distance between 2 rectangles:
+     * @param rect
+     * @param station
+     * @return float value of distance
+     */
     private float distRectToInteractable(Rectangle rect, CookInteractable station) {
         return Util.distancePoints(rect.x-rect.getWidth()/2,
                 rect.y-rect.getHeight()/2,
                 station.getRectangle().x,
                 station.getRectangle().y);
     }
-
-
 }

@@ -201,7 +201,6 @@ public class MapHelper {
         return mapStations;
     }
 
-    //public Array<Station> getServingStationList() { return ServingStationList;}
 
     public ArrayList<Station> getServingStationList() {return ServingStationList;}
 
