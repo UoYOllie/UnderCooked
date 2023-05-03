@@ -41,6 +41,10 @@ public class BluggusModeActivate extends Station {
         }
     }
 
+    /**
+     * Disables the station so he cannot be resued, then
+     * removes the entity from inside the cage
+     */
     @Override
     public void Disable()
     {
