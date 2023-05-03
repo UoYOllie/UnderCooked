@@ -56,7 +56,7 @@ public class Recipe {
         generateRecipe("Beans Coleslaw Cheese Potato", new FoodStack(FoodID.cheese, FoodID.coleslaw, FoodID.beansCooked, FoodID.potatoCook));
 
         // PIZZA
-//        generateRecipe("Plain Pizza", new FoodStack(FoodID.cheese, FoodID.tomatoSauce, FoodID.doughCook));
+        generateRecipe("Plain Pizza", new FoodStack(FoodID.cheese, FoodID.tomatoSauce, FoodID.doughCook));
 
         // TOPPINGS
         toppings.add(FoodID.lettuceChop);
