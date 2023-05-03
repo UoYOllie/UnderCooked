@@ -23,13 +23,9 @@ public class Station extends CookInteractable {
 
     /** IDs of all types of PreparationStation. */
     public enum StationID {
-        /** Frying Station. */
         fry,
-        /** Cutting Station. */
         cut,
-        /** Baking Station. */
         bake,
-        /** Assembly Station. */
         assembly,
         serving,
         counter,
@@ -41,7 +37,6 @@ public class Station extends CookInteractable {
     GameSprites gameSprites;
 
     private int PropertyID;
-    //public Cook CurrentCook;
 
     /**
      * Constructor for Station.
@@ -58,16 +53,28 @@ public class Station extends CookInteractable {
         this.Locked = false;
     }
 
+    /** The setter for the PropertyID. */
     public void setPropertyID(int x){this.PropertyID = x;}
+
+    /** The getter for the PropertyID. */
     public int getPropertyID(){return this.PropertyID;}
 
-    /**
-     * Sets the stationID of the station.
-     * This is only used by PreparationStation.
-     */
+    /** Setter for the stationID of the station. */
     public void setID(StationID stationID) {
         this.stationID = stationID;
     }
+
+    /** Setter for enabled to false.*/
+    public void SetEnFalse() { this.Enabled = false; }
+
+    /** Getter for Enabled boolean valie.*/
+    public Boolean getEnabled() { return this.Enabled; }
+
+    /** Disable the station.*/
+    public void Disable() { this.Enabled = false; }
+
+    /** Enable the station.*/
+    public void Enable() { this.Enabled = true; }
 
     /** The method to control interactions between a cook and the AssemblyStation.
      *
@@ -98,24 +105,5 @@ public class Station extends CookInteractable {
      */
     @Override
     public void renderShape(ShapeRenderer shape) { }
-
-    public void Disable()
-    {
-        this.Enabled = false;
-    }
-    public void SetEnFalse()
-    {
-        this.Enabled = false;
-    }
-    public void Enable()
-    {
-        this.Enabled = true;
-    }
-
-    public Boolean getEnabled()
-    {
-        return this.Enabled;
-    }
-
 }
 

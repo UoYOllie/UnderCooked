@@ -10,22 +10,19 @@ import interactions.InputKey;
 public class BinStation extends Station {
 
     /**
-     * The constructor for the {@link BinStation}.
-     * @param rectangle The collision and interaction area of the {@link Station}.
+     * The constructor for the BinStation.
+     * @param rectangle The collision and interaction area of the Station.
      */
     public BinStation(Rectangle rectangle) {
         super(rectangle);
     }
 
     /**
-     * The interact function for the {@link BinStation}.
+     * The interact method for the BinStation.
      *
-     * This takes the top item from the {@link Cook}'s {@link food.FoodStack}
-     * if they use either the {@link InputKey.InputTypes#USE} or
-     * {@link InputKey.InputTypes#PUT_DOWN} keys.
-     * @param cook The cook that interacted with the {@link CookInteractable}.
-     * @param inputType The type of {@link InputKey.InputTypes} the player made with
-     *                  the {@link CookInteractable}.
+     * Takes the top item from the Cook's FoodStack if they use the PUT_DOWN key.
+     * @param cook The cook that interacted with the BinStation.
+     * @param inputType The type of input the player made with the BinStation.
      */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {

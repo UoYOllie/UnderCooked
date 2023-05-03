@@ -15,19 +15,39 @@ import interactions.InputKey;
 
 import static food.Recipe.*;
 
-
+/** Station to serve dishes to customers.
+ *
+ * One DishStack can be put down on the station at a time.
+ * If there is a customer interacting with the station, and the customer's
+ * request matches the DishStack on the station, the customer will take the DishStack.
+ */
 public class ServingStation extends Station {
 
-
-    public Customer customer;
+    /** Test flag is used to separate the class from GameScreen and allow testing.*/
     private Integer testFlag = 0;
 
+    /** Constructor for ServingStation.
+     * Initialises interaction Rectangle and empty DishStack.
+
+     * @param rectangle The station's interaction rectangle. */
     public ServingStation(Rectangle rectangle) {
         super(rectangle);
         stationDishStack = new DishStack();
-        //customer = null;
     }
 
+    /** Getter for the DishStack on the station.*/
+    public DishStack getServedDishStack(){
+        return stationDishStack;
+    }
+
+    /** The method to control interactions between a cook and the ServingStation.
+
+     * PUT_DOWN puts the cook's DishStack down onto the ServingStation.
+     * PICK_UP picks up a DishStack from the ServingStation that has not been taken by a customer.
+
+     * @param cook The cook currently interacting with the ServingStation.
+     * @param inputType The input received from the cook currently interacting.
+     */
     public void interact(Cook cook, InputKey.InputTypes inputType) {
 
         switch (inputType) {
@@ -46,17 +66,25 @@ public class ServingStation extends Station {
         }
     }
 
+    /** The method to control interactions between a customer and the ServingStation.
+     * If the customer is colliding with the servingStation, it will continually interact.
+     *
+     * If the DishStack on the ServingStation matches the customer's request, the DishStack will be taken
+     * by the customer. The customer will also accept PowerUp DishStacks and the methods corresponding to the powerups
+     * will be called in the customer.
+     *
+     * @param customer The cook currently interacting with the ServingStation.
+     */
     @Override
     public void customerInteract(Customer customer) {
-        this.customer = customer;
+
         Array<FoodItem.FoodID> plateless = stationDishStack.getStackCopy();
+
+        // POWERUPS
         Array<FoodItem.FoodID> teacup_item = new Array<FoodItem.FoodID>();
         Array<FoodItem.FoodID> menu_item = new Array<FoodItem.FoodID>();
         teacup_item.add(FoodItem.FoodID.teacup);
         menu_item.add(FoodItem.FoodID.menu);
-
-
-
 
         if (plateless.size > 0) {
             if(plateless.get(0) == teacup_item.get(0)){
@@ -87,6 +115,9 @@ public class ServingStation extends Station {
         }
     }
 
+    /** Method to render a dishStack onto the ServingStation.
+     * @param batch the SpriteBatch to be rendered.
+     */
     @Override
     public void render(SpriteBatch batch) {
 
@@ -105,17 +136,11 @@ public class ServingStation extends Station {
         }
     }
 
-    public int getTestFlag(){
-        return testFlag;
-    }
+    /** Getter for the TestFlag.*/
+    public int getTestFlag(){ return testFlag; }
 
+    /** Setter for the TestFlag.*/
     public void setTestFlag(int flag){
         testFlag = flag; // 0 if not testing, 1 if testing
     }
-
-    public DishStack getServedDishStack(){
-        return stationDishStack;
-    }
-
-
 }

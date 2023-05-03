@@ -13,15 +13,15 @@ import helper.Constants;
 import interactions.InputKey;
 
 /**
- * The {@link CounterStation} class, where the {@link Cook}
- * can place down the {@link FoodItem}s that they are holding.
+ * The CounterStation class, where the cook
+ * can place down the FoodItems that they are holding.
  */
 public class CounterStation extends Station {
 
     /**
-     * The constructor for the {@link CounterStation}. It sets up the
-     * {@link FoodStack} for the {@link CounterStation}.
-     * @param rectangle The collision and interaction area of the {@link PreparationStation}.
+     * The constructor for the CounterStation. It sets up the
+     * FoodStack for the CounterStation.
+     * @param rectangle The collision and interaction area of the PreparationStation.
      */
     public CounterStation(Rectangle rectangle) {
         super(rectangle);
@@ -29,10 +29,27 @@ public class CounterStation extends Station {
         stationDishStack = new DishStack();
     }
 
+    /**Helper method to determine whether both the station and the cook's
+     * dishStacks are empty, used to allow interactions with the FoodStack.
+     *
+     * @param cook The cook interacting with the CounterStation.
+     * @return true if both DishStacks are empty (interaction is allowed),
+     *          or false otherwise. */
     private boolean allDishStacksEmpty(Cook cook) {
         return cook.dishStack.size() == 0 && stationDishStack.size() == 0;
     }
 
+    /**
+     * The interact method for the CounterStation.
+     *
+     * When the player uses the PUT_DOWN key, the top item from the cook's foodStack is popped and added
+     * onto the counter, if the counter is empty.
+     * When the player uses the PICK_UP key, the item on the CounterStation is popped and added to the cook's FoodStack,
+     * if their stack is under the limit.
+     *
+     * @param cook The cook that interacted with the CounterStation.
+     * @param inputType The type of input the player made with the CounterStation.
+     */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
         System.out.println("Im interacting with a counter");
@@ -85,11 +102,8 @@ public class CounterStation extends Station {
     }
 
     /**
-     * The function used to render the {@link PreparationStation}.
-     *
-     * <br>This function renders the {@link FoodStack} in a similar way
-     * as the {@link Cook} renders their own.
-     * @param batch The {@link SpriteBatch} used to render.
+     * The function used to render food onto the CounterStation.
+     * @param batch The SpriteBatch to render.
      */
     @Override
     public void render(SpriteBatch batch) {
