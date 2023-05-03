@@ -399,11 +399,6 @@ public class GameScreen extends ScreenAdapter {
         if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
             screenController.paylistscreen();
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.T)){ //TEST MODE
-
-            this.gold.setBalance(1000000);
-
-        }
 
         // First thing, update all inputs
         Interactions.updateKeys();
