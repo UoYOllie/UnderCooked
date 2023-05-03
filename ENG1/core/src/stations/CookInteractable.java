@@ -1,9 +1,9 @@
 package stations;
 
 import com.badlogic.gdx.math.Rectangle;
-import cooks.Cook;
-import cooks.Customer;
-import cooks.GameEntity;
+import players.Cook;
+import players.Customer;
+import players.GameEntity;
 import interactions.InputKey;
 
 /** The CookInteractable Class. This is basically stations and pantries.*/

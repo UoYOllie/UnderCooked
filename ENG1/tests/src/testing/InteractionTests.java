@@ -1,7 +1,7 @@
 package testing;
 
 import com.badlogic.gdx.utils.Array;
-import cooks.Cook;
+import players.Cook;
 import food.FoodItem;
 import interactions.InputKey;
 import org.junit.Test;

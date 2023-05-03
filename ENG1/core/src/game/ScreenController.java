@@ -1,15 +1,13 @@
 package game;
 
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
-import cooks.Cook;
-import cooks.Customer;
-import stations.Station;
+import players.Cook;
+import players.Customer;
 
 import java.util.ArrayList;
 import java.util.HashMap;

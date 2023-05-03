@@ -1,12 +1,9 @@
 package game;
 
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Json;
-import cooks.Cook;
-import cooks.Customer;
+import players.Cook;
+import players.Customer;
 import food.FoodItem;
-import food.FoodStack;
-import helper.Constants;
 import stations.Station;
 
 import java.util.ArrayList;

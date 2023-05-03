@@ -1,6 +1,6 @@
 package interactions;
 
-import cooks.Cook;
+import players.Cook;
 import game.GameScreen;
 import game.ScreenController;
 

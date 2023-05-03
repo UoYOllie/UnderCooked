@@ -3,8 +3,7 @@ package stations;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
-import cooks.Cook;
-import cooks.GameEntity;
+import players.Cook;
 import food.FoodItem.FoodID;
 import interactions.InputKey;
 

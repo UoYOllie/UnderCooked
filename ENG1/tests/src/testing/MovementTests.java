@@ -4,7 +4,7 @@ package testing;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
-import cooks.Cook;
+import players.Cook;
 import game.Boot;
 import game.GameScreen;
 import game.ScreenController;

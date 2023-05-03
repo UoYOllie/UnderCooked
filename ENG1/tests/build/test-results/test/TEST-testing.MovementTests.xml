@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.MovementTests" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-02T23:22:29" hostname="DESKTOP-8SNM91F" time="2.483">
+<testsuite name="testing.MovementTests" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-03T02:03:35" hostname="DESKTOP-8SNM91F" time="3.389">
   <properties/>
   <testcase name="TestChefMoveRight" classname="testing.MovementTests" time="0.006"/>
-  <testcase name="TestChefMoveRightUp" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveRightUp" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveLeftUp" classname="testing.MovementTests" time="0.001"/>
   <testcase name="TestChefMoveUpLeft" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveUp" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefSwitch" classname="testing.MovementTests" time="2.281">
+  <testcase name="TestChefSwitch" classname="testing.MovementTests" time="3.186">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -15,7 +15,7 @@
 	at game.SuperMapSuperRenderer.&lt;init&gt;(SuperMapSuperRenderer.java:44)
 	at helper.MapHelper.setupMap(MapHelper.java:59)
 	at game.GameScreen.&lt;init&gt;(GameScreen.java:150)
-	at game.ScreenController.&lt;init&gt;(ScreenController.java:46)
+	at game.ScreenController.&lt;init&gt;(ScreenController.java:44)
 	at testing.MovementTests.TestChefSwitch(MovementTests.java:210)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -34,11 +34,11 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <testcase name="TestChefMoveDown" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefMoveLeft" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefMoveDownLeft" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveDown" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveLeft" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveDownLeft" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveDownRight" classname="testing.MovementTests" time="0.001"/>
-  <testcase name="TestChefMoveLeftDown" classname="testing.MovementTests" time="0.0"/>
+  <testcase name="TestChefMoveLeftDown" classname="testing.MovementTests" time="0.001"/>
   <testcase name="TestChefMoveUpRight" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveRightDown" classname="testing.MovementTests" time="0.001"/>
   <system-out><![CDATA[power pantry is generated

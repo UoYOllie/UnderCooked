@@ -9,16 +9,16 @@ atlas/player.atlas
 atlas/player.png
 atlas/station.atlas
 atlas/station.png
-cooks/control.png
-cooks/hold down.png
-cooks/hold left.png
-cooks/hold right.png
-cooks/hold up.png
-cooks/normal down.png
-cooks/normal left.png
-cooks/normal right.png
-cooks/normal up.png
-cooks/testdummy.png
+players/control.png
+players/hold down.png
+players/hold left.png
+players/hold right.png
+players/hold up.png
+players/normal down.png
+players/normal left.png
+players/normal right.png
+players/normal up.png
+players/testdummy.png
 reputation/Customer.png
 foods/BottomBun.png
 foods/Burger.png

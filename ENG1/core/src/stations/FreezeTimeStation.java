@@ -2,7 +2,7 @@ package stations;
 
 import shop.ShopItem;
 import com.badlogic.gdx.math.Rectangle;
-import cooks.Cook;
+import players.Cook;
 import game.GameScreen;
 import interactions.InputKey;
 

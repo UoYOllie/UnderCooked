@@ -6,9 +6,9 @@ import com.badlogic.gdx.*;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.*;
-import cooks.Cook;
-import cooks.CustomerController;
-import cooks.Customer;
+import players.Cook;
+import players.CustomerController;
+import players.Customer;
 import java.nio.file.Files;
 
 import com.badlogic.gdx.graphics.GL20;
@@ -18,7 +18,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.World;
-import cooks.GameEntity;
+import players.GameEntity;
 import reputation.RepPoints;
 import food.FoodItem;
 import food.FoodStack;
@@ -982,7 +982,7 @@ public class GameScreen extends ScreenAdapter {
         JsonValue root = new JsonReader().parse(this.SaveText);
         System.out.println(root);
         //cooks
-        JsonValue held_cook = root.get("cooks");
+        JsonValue held_cook = root.get("players");
         JsonValue held_coords = root.get("cookscoords");
         JsonValue held_stack1 = root.get("cookstack1");
         JsonValue held_stack2 = root.get("cookstack2");

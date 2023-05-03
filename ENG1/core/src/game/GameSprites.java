@@ -3,7 +3,7 @@ package game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import cooks.Cook;
+import players.Cook;
 
 import java.util.HashMap;
 

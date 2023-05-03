@@ -14,13 +14,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import cooks.GameEntity;
 import game.ScreenController.ScreenID;
 import helper.Constants;
 import interactions.InputKey;
 import interactions.Interactions;
-
-import java.util.ArrayList;
 
 /**
  * A {@link ScreenAdapter} that is used when the game is paused.

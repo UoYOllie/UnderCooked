@@ -36,7 +36,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGGCfaaSaYOmJk="
 					},
-					"name": "cooks",
+					"name": "players",
 					"ownedElements": [
 						{
 							"_type": "UMLClass",
@@ -1729,7 +1729,7 @@
 													"font": "Arial;13;0",
 													"width": 72.22998046875,
 													"height": 13,
-													"text": "(from cooks)"
+													"text": "(from players)"
 												},
 												{
 													"_type": "LabelView",
@@ -2239,7 +2239,7 @@
 													"font": "Arial;13;0",
 													"width": 72.22998046875,
 													"height": 13,
-													"text": "(from cooks)"
+													"text": "(from players)"
 												},
 												{
 													"_type": "LabelView",
@@ -2596,7 +2596,7 @@
 													"font": "Arial;13;0",
 													"width": 72.22998046875,
 													"height": 13,
-													"text": "(from cooks)"
+													"text": "(from players)"
 												},
 												{
 													"_type": "LabelView",
@@ -5086,7 +5086,7 @@
 									}
 								}
 							],
-							"documentation": "A class to create the behaviour of a {@code Stack} for\n{@link FoodItem}s to be used by the {@link cooks.Cook},\n{@link stations.CounterStation} and {@link Recipe}s.",
+							"documentation": "A class to create the behaviour of a {@code Stack} for\n{@link FoodItem}s to be used by the {@link players.Cook},\n{@link stations.CounterStation} and {@link Recipe}s.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -8344,7 +8344,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGGCfahJ6cd3tg="
 									},
-									"name": "cooks",
+									"name": "players",
 									"visibility": "private"
 								},
 								{
@@ -8553,7 +8553,7 @@
 										"$ref": "AAAAAAGGCfahJ6cd3tg="
 									},
 									"name": "setCook",
-									"documentation": "Sets the currently active {@link #cook} that the game is using.\n@param cookIndex The index of {@link #cook} in the {@link #cooks} array.\n@return {@link Cook} : The {@link Cook} that the game has swapped to.",
+									"documentation": "Sets the currently active {@link #cook} that the game is using.\n@param cookIndex The index of {@link #cook} in the {@link #players} array.\n@return {@link Cook} : The {@link Cook} that the game has swapped to.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -8581,7 +8581,7 @@
 										"$ref": "AAAAAAGGCfahJ6cd3tg="
 									},
 									"name": "addCook",
-									"documentation": "Adds a new {@link Cook} to the {@link #cooks} {@link Array} for the game to swap between.\n@param newCook The {@link Cook} to be added to the {@link Array}.\n@return {@code int} : The index of the new cook in the cooks array.",
+									"documentation": "Adds a new {@link Cook} to the {@link #players} {@link Array} for the game to swap between.\n@param newCook The {@link Cook} to be added to the {@link Array}.\n@return {@code int} : The index of the new cook in the players array.",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -8983,7 +8983,7 @@
 												"$ref": "AAAAAAGGCfahdadf72Q="
 											},
 											"name": "COOK",
-											"documentation": "The {@link cooks.Cook}'s {@link TextureAtlas}."
+											"documentation": "The {@link players.Cook}'s {@link TextureAtlas}."
 										},
 										{
 											"_type": "UMLEnumerationLiteral",
@@ -12403,7 +12403,7 @@
 													"top": 335,
 													"width": 351.6728515625,
 													"height": 13,
-													"text": "-cooks",
+													"text": "-players",
 													"horizontalAlignment": 0
 												},
 												{
@@ -23421,7 +23421,7 @@
 												"$ref": "AAAAAAGGCfalUKgbjfU="
 											},
 											"name": "PUT_DOWN",
-											"documentation": "Put down an item onto a {@link stations.Station} in the {@link cooks.Cook}'s hands."
+											"documentation": "Put down an item onto a {@link stations.Station} in the {@link players.Cook}'s hands."
 										},
 										{
 											"_type": "UMLEnumerationLiteral",
@@ -23484,7 +23484,7 @@
 												"$ref": "AAAAAAGGCfalUKgbjfU="
 											},
 											"name": "COOK_SWAP",
-											"documentation": "Swapping between the {@link cooks.Cook} in the {@link GameScreen}."
+											"documentation": "Swapping between the {@link players.Cook} in the {@link GameScreen}."
 										}
 									]
 								},
@@ -25435,7 +25435,7 @@
 									}
 								}
 							],
-							"documentation": "The {@link CounterStation} class, where the {@link cooks.Cook}\ncan place down the {@link FoodItem}s that they are holding.",
+							"documentation": "The {@link CounterStation} class, where the {@link players.Cook}\ncan place down the {@link FoodItem}s that they are holding.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -26164,7 +26164,7 @@
 									}
 								}
 							],
-							"documentation": "The {@link PreparationStation} class, where the {@link cooks.Cook}\nprocess {@link FoodItem}s into different {@link FoodItem}s to prepare\nthem to make a {@link food.Recipe}.",
+							"documentation": "The {@link PreparationStation} class, where the {@link players.Cook}\nprocess {@link FoodItem}s into different {@link FoodItem}s to prepare\nthem to make a {@link food.Recipe}.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -26538,7 +26538,7 @@
 									}
 								}
 							],
-							"documentation": "The {@link ServingStation} class, where the {@link cooks.Cook} provide\nthe {@link reputation.Customer}s with their orders.",
+							"documentation": "The {@link ServingStation} class, where the {@link players.Cook} provide\nthe {@link reputation.Customer}s with their orders.",
 							"attributes": [
 								{
 									"_type": "UMLAttribute",
@@ -30063,7 +30063,7 @@
 											"top": 42,
 											"width": 40,
 											"height": 13,
-											"text": "cooks"
+											"text": "players"
 										},
 										{
 											"_type": "LabelView",
@@ -30757,7 +30757,7 @@
 											"font": "Arial;13;0",
 											"width": 72.22998046875,
 											"height": 13,
-											"text": "(from cooks)"
+											"text": "(from players)"
 										},
 										{
 											"_type": "LabelView",
@@ -31543,7 +31543,7 @@
 											"font": "Arial;13;0",
 											"width": 72.22998046875,
 											"height": 13,
-											"text": "(from cooks)"
+											"text": "(from players)"
 										},
 										{
 											"_type": "LabelView",
@@ -31901,7 +31901,7 @@
 											"font": "Arial;13;0",
 											"width": 72.22998046875,
 											"height": 13,
-											"text": "(from cooks)"
+											"text": "(from players)"
 										},
 										{
 											"_type": "LabelView",
@@ -35980,7 +35980,7 @@
 											"top": 321.5,
 											"width": 351.6728515625,
 											"height": 13,
-											"text": "-cooks",
+											"text": "-players",
 											"horizontalAlignment": 0
 										},
 										{
@@ -73639,7 +73639,7 @@
 											"top": 46.5,
 											"width": 40,
 											"height": 13,
-											"text": "cooks"
+											"text": "players"
 										},
 										{
 											"_type": "LabelView",

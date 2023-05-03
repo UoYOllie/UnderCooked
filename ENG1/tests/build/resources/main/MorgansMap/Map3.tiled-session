@@ -24,10 +24,10 @@
                 "y": 9959.213759213759
             }
         },
-        "/Users/morganfrancis/Documents/ENG1/Outercooked/MorgansMap/MFTiles.tsx": {
+        "/Users/morganfrancis/Documents/ENG1/Outercooked/MorgansMap/MFTiles.tmx": {
             "scaleInDock": 1.3721
         },
-        "/Users/morganfrancis/Documents/ENG1/Outercooked/MorgansMap/MFTiles2.tsx": {
+        "/Users/morganfrancis/Documents/ENG1/Outercooked/MorgansMap/MFTiles2.tmx": {
             "dynamicWrapping": true,
             "scaleInDock": 0.0283,
             "scaleInEditor": 0.061
@@ -43,11 +43,11 @@
                 "y": 9613.194444444445
             }
         },
-        "/Users/morganfrancis/Documents/ENG1/Outercooked/untitled folder/MorgansMap/MFTiles.tsx": {
+        "/Users/morganfrancis/Documents/ENG1/Outercooked/untitled folder/MorgansMap/MFTiles.tmx": {
             "dynamicWrapping": false,
             "scaleInDock": 1
         },
-        "/Users/morganfrancis/Documents/ENG1/Outercooked/untitled folder/MorgansMap/MFTiles2.tsx": {
+        "/Users/morganfrancis/Documents/ENG1/Outercooked/untitled folder/MorgansMap/MFTiles2.tmx": {
             "dynamicWrapping": true,
             "scaleInDock": 1,
             "scaleInEditor": 0.0641
@@ -60,10 +60,10 @@
                 "y": 16392.156862745098
             }
         },
-        "/Users/morganfrancis/Downloads/MFTiles.tsx": {
+        "/Users/morganfrancis/Downloads/MFTiles.tmx": {
             "scaleInDock": 1
         },
-        "/Users/morganfrancis/Downloads/MFTiles2.tsx": {
+        "/Users/morganfrancis/Downloads/MFTiles2.tmx": {
             "scaleInDock": 1
         },
         "AWholeNewWorld.tmx": {
@@ -88,12 +88,12 @@
                 "y": 14528.797243340807
             }
         },
-        "MFTiles.tsx": {
+        "MFTiles.tmx": {
             "dynamicWrapping": true,
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
-        "MFTiles2.tsx": {
+        "MFTiles2.tmx": {
             "dynamicWrapping": true,
             "scaleInDock": 0.0156,
             "scaleInEditor": 0.03
@@ -106,10 +106,10 @@
                 "y": 31086.39308855291
             }
         },
-        "Tiles/Extras/MFTiles.tsx": {
+        "Tiles/Extras/MFTiles.tmx": {
             "scaleInDock": 1
         },
-        "Tiles/Extras/MFTiles2.tsx": {
+        "Tiles/Extras/MFTiles2.tmx": {
             "scaleInDock": 1
         },
         "mfnf.tmx": {
@@ -133,14 +133,14 @@
     "project": "Map3.tiled-project",
     "recentFiles": [
         "/Users/morganfrancis/Documents/ENG1/Outercooked/untitled folder/MorgansMap/AWholeNewWorld.tmx",
-        "/Users/morganfrancis/Documents/ENG1/Outercooked/MorgansMap/MFTiles2.tsx",
-        "/Users/morganfrancis/Documents/ENG1/Outercooked/untitled folder/MorgansMap/MFTiles2.tsx",
-        "MFTiles2.tsx",
+        "/Users/morganfrancis/Documents/ENG1/Outercooked/MorgansMap/MFTiles2.tmx",
+        "/Users/morganfrancis/Documents/ENG1/Outercooked/untitled folder/MorgansMap/MFTiles2.tmx",
+        "MFTiles2.tmx",
         "/Users/morganfrancis/Documents/ENG1/Outercooked/MorgansMap/AWholeNewWorld.tmx",
         "AWholeNewWorld.tmx",
         "Tiles/Extras/AWholeNewWorld.tmx",
         "/Users/morganfrancis/Downloads/AWholeNewWorld.tmx",
-        "MFTiles.tsx"
+        "MFTiles.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.type": 1

@@ -5,7 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import cooks.*;
+import players.*;
 import food.FoodItem;
 import helper.Constants;
 import helper.MapHelper;
@@ -429,17 +429,17 @@ public class GeneralTests {
         //First we test the win scenario, no customers left
         CustomerController customerController = new CustomerController();
         customerController.setMode("scenario");
-        customerController.setCustomers_left(0);
+        customerController.setcustomersLeft(0);
         assertTrue(customerController.wonScenario(), "wonScenario does not return true in scenario mode if there are no customers left to be served");
 
         //Now we test endless
         customerController.setMode("endless");
-        customerController.setCustomers_left(1);
+        customerController.setcustomersLeft(1);
         assertFalse(customerController.wonScenario(), "wonScenario does not return true in endless mode if there is a customer left waiting to be served");
 
-        //next test scenario where the mode is scenario and customers_left is > 0
+        //next test scenario where the mode is scenario and customersLeft is > 0
         customerController.setMode("scenario");
-        customerController.setCustomers_left(3);
+        customerController.setcustomersLeft(3);
 
         Customer customer1 = new Customer(1,2,3,4);
         customer1.setCustomerStatus(2);
@@ -453,7 +453,7 @@ public class GeneralTests {
         customers.add(customer3);
         customerController.customers = customers;
         customerController.wonScenario();
-        assertEquals(customerController.getCustomers_left(), 0, "there are customers left after winning the game in scenario mode");
+        assertEquals(customerController.getcustomersLeft(), 0, "there are customers left after winning the game in scenario mode");
     }
 
     @Test

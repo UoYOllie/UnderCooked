@@ -1,7 +1,7 @@
 package helper;
 
 import com.badlogic.gdx.math.Intersector;
-import cooks.Cook;
+import players.Cook;
 import game.GameScreen;
 import stations.CookInteractable;
 import com.badlogic.gdx.math.Rectangle;

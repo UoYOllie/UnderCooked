@@ -1,7 +1,7 @@
 package testing;
 
 import com.badlogic.gdx.math.Rectangle;
-import cooks.Cook;
+import players.Cook;
 import game.Boot;
 import interactions.InputKey;
 import org.junit.Test;

@@ -1,7 +1,7 @@
 package food;
 
 import com.badlogic.gdx.utils.Array;
-import cooks.Cook;
+import players.Cook;
 import food.FoodItem.FoodID;
 
 /**

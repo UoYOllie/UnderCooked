@@ -1,86 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.GameplayTests" tests="30" skipped="0" failures="0" errors="0" timestamp="2023-05-02T23:22:32" hostname="DESKTOP-8SNM91F" time="0.484">
+<testsuite name="testing.GameplayTests" tests="30" skipped="0" failures="1" errors="0" timestamp="2023-05-03T02:03:38" hostname="DESKTOP-8SNM91F" time="0.484">
   <properties/>
-  <testcase name="TestCustomerHangOnYourFoodIsComing" classname="testing.GameplayTests" time="0.006"/>
+  <testcase name="TestCustomerHangOnYourFoodIsComing" classname="testing.GameplayTests" time="0.004">
+    <failure message="java.lang.AssertionError: Error: Using the &quot;wait longer &quot; power up does not set the customers wait time to 300 expected [300.0] but found [10.0]" type="java.lang.AssertionError">java.lang.AssertionError: Error: Using the &quot;wait longer &quot; power up does not set the customers wait time to 300 expected [300.0] but found [10.0]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertEquals(Assert.java:706)
+	at testing.GameplayTests.TestCustomerHangOnYourFoodIsComing(GameplayTests.java:1001)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
   <testcase name="TestServingStationServeCustomerColeslawCheesePotato" classname="testing.GameplayTests" time="0.002"/>
-  <testcase name="TestMoveStack" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerTomatoBurger" classname="testing.GameplayTests" time="0.002"/>
-  <testcase name="TestServingStationServeCustomerPlainPizza" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerLettuceBurger" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestMoveStack" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerTomatoBurger" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerPlainPizza" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerLettuceBurger" classname="testing.GameplayTests" time="0.001"/>
   <testcase name="TestServingStationServeCustomerBeansColeslawCheesePotato" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestCustomerHypnotise" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerLettuceTomatoOnionBurger" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerLettuceTomatoOnionBurger" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestMultipleSpeedPowerUp" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestMakeIntoBluggus" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerLettuceOnionSalad" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerPlainBurger" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerPlainBurger" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerLettuceTomatoBurger" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServesMultipleCustomers" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServesMultipleCustomers" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationDoesNotAcceptWrongRecipes" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerColeslawPotato" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerColeslawPotato" classname="testing.GameplayTests" time="0.001"/>
   <testcase name="TestServingStationServeCustomerPlainPotato" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestRepPoints" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerBeansColeslawPotato" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerBeansPotato" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerLettuceOnionBurger" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestBuyShopItem" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerBeansColeslawPotato" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerBeansPotato" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerLettuceOnionBurger" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestBuyShopItem" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerTomatoOnionBurger" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerLettuceTomatoSalad" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerBeansCheesePotato" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerLettuceTomatoSalad" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerBeansCheesePotato" classname="testing.GameplayTests" time="0.001"/>
   <testcase name="TestServingStationServeCustomerOnionBurger" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerOnionTomatoSalad" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerOnionTomatoSalad" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestSpeedPowerUp" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerCheesePotato" classname="testing.GameplayTests" time="0.001"/>
-  <system-out><![CDATA[cooks.Customer@31a8eaec moving to point B------null------ (1.0,2.0)
-cooks.Customer@665e9580 moving to point B------null------ (187.5,150.0)
-This was correct for me
+  <testcase name="TestServingStationServeCustomerCheesePotato" classname="testing.GameplayTests" time="0.0"/>
+  <system-out><![CDATA[This was correct for me
 peek
 peek
 peek
 peek
-cooks.Customer@21b1a8ee moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@74eda4d1 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@3393248d moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@6bed5104 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@abce1a3 moving to point B------null------ (1.0,2.0)
-cooks.Customer@13ee0709 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@39f3eeb5 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@3897fdfe moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@55cbb2b6 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@36fe3149 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@10def765 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@5844d013 moving to point B------null------ (187.5,150.0)
-cooks.Customer@3f4661a1 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@24f83b3c moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@5589858 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@7be214a8 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@77a5391c moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@1261cd0f moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@533a1d43 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@381604d8 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@6625b71f moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@7ab00761 moving to point B------null------ (187.5,150.0)
 This was correct for me
-cooks.Customer@79e3cd71 moving to point B------null------ (187.5,150.0)
 This was correct for me
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

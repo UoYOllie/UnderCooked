@@ -5,8 +5,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
-import cooks.Cook;
-import cooks.Customer;
+import players.Cook;
+import players.Customer;
 import food.FoodItem;
 import food.DishStack;
 import game.GameSprites;

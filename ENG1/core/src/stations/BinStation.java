@@ -1,7 +1,7 @@
 package stations;
 
 import com.badlogic.gdx.math.Rectangle;
-import cooks.Cook;
+import players.Cook;
 import interactions.InputKey;
 
 /** The Bin Station Class.

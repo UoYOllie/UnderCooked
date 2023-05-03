@@ -1,13 +1,11 @@
 package stations;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import cooks.Cook;
+import players.Cook;
 import food.DishStack;
 import food.FoodStack;
-import game.GameScreen;
 import game.GameSprites;
 import interactions.InputKey;
 
