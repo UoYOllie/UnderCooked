@@ -428,7 +428,7 @@ public class GameScreen extends ScreenAdapter {
         }
         if (Gdx.input.isKeyPressed(Input.Keys.T)){
 
-            this.gold.setBalance(1000000);//
+            this.gold.setBalance(1000000);
 
         }
 
@@ -801,6 +801,11 @@ public class GameScreen extends ScreenAdapter {
         return cooks.size-1;
     }
 
+    /**
+     * Function takes an index n and removed the cook(n) from used cooks
+     * and places
+     * @param n
+     */
     public void SpareToNotSpare(int n)
     {
         int index = n-1;
@@ -865,37 +870,6 @@ public class GameScreen extends ScreenAdapter {
         gameEntities.add(entity);
     }
 
-//    /**
-//     * Intermediate function to allow the {@link MapHelper} to add
-//     * the {@link ServingStation}s to the {@link CustomerController}.
-//     * @param station The {@link ServingStation} to add to the {@link CustomerController}.
-//     */
-//    public void addServingStation(ServingStation station) { customerController.addServingStation(station); }
-
-    /** Reset the game variables, map and world. */
-//    public void reset() {
-//        // Reset all variables
-//        secondsPassed = 0;
-//        minutesPassed = 0;
-//        hoursPassed = 0;
-////        cooks.clear();
-////        gameEntities.clear();
-////        interactables.clear();
-////        mapHelper.dispose();
-////        customerController.clearServingStations();
-////        dispose();
-//
-//        // UPDATE
-//        //mapHelper = MapHelper.newInstance();
-//        //mapHelper.setGameScreen(this);
-//        this.mapHelper = new MapHelper(this);
-//
-//        world.dispose();
-//        this.world = new World(new Vector2(0,0), false);
-//        this.orthogonalTiledMapRenderer = mapHelper.setupMap();
-//        cookIndex = -1;
-//    }
-
     /**
      * A variable for setting up the game when it starts.
      *  customers The number of customers that need to be
@@ -931,7 +905,6 @@ public class GameScreen extends ScreenAdapter {
     //-------------------------------------
     //Morgan's Shop Section
     //-------------------------------------
-    //public Gold gold;
 
     //These are all the powerups:
     public ShopItem Powerup_Speed = new ShopItem("Speed",30); //increase current chef's movement seed
@@ -955,16 +928,28 @@ public class GameScreen extends ScreenAdapter {
     //-------------------------------------
     private String SaveText; //REMOVE
     private  Json json = new Json();
+
+    /**
+     * Creates a new instance of SaveClass
+     * This class is then converting into a JSON file to be saved
+     */
     public void Savegame()
     {
         SavingClass save = new SavingClass(this);
         this.SaveText = json.toJson(save);
         WriteSaveFile();
         this.SaveText = "";
-//        ln(json.prettyPrint(save));
     }
 
 
+    /**
+     * Procedure run, when L is pressed
+     * This functions loads the current save stored in this.
+     * This converts the json string stored, into the required data. It then runs a reset() of
+     * the game using the arrays of cook and customer types.
+     * After all the users preferences such as difficulty are then set to the save file's version
+     * Then all current stats (E.G Time on timer) is then set back to what it was.
+     */
     public void Loadgame() //Change ton have no param
     {
 //        SavingClass newsave = new SavingClass(GameScreen);
@@ -972,7 +957,7 @@ public class GameScreen extends ScreenAdapter {
         ReadSaveFile();
         JsonValue root = new JsonReader().parse(this.SaveText);
         //cooks
-        JsonValue held_cook = root.get("players");
+        JsonValue held_cook = root.get("cooks");
         JsonValue held_coords = root.get("cookscoords");
         JsonValue held_stack1 = root.get("cookstack1");
         JsonValue held_stack2 = root.get("cookstack2");
@@ -1094,13 +1079,6 @@ public class GameScreen extends ScreenAdapter {
             }
             count++; //increment person
         }
-
-
-        //stations
-//        this.StationPropertyID = new Array<Integer>();
-//        this.HeldFood = new Array<Array<Integer>>();
-//        this.stationdishstack = new Array<Array<Integer>>();
-//        this.lockedStation = new Array<Boolean>();
         JsonValue held_SID = root.get("StationPropertyID");
         JsonValue held_SFOOOOD = root.get("HeldFood");
         JsonValue held_SDishyStacky = root.get("stationdishstack");
@@ -1163,10 +1141,13 @@ public class GameScreen extends ScreenAdapter {
         customerController.TotalCustomersServed = root.getInt("HowManyHaveBeenServed");
         gameHud.updateCustomerServed(this.customerController.TotalCustomersServed);
 
-        //remove customers walking
 
     }
 
+    /**
+     * Writes this.SaveText that holds the saved data to the filepath also stored.
+     * This filepath always stays the same and rewrites the file everytime.
+     */
     private void WriteSaveFile()
     {
         try (PrintWriter output = new PrintWriter(new FileWriter(this.filepath))) {
@@ -1176,23 +1157,13 @@ public class GameScreen extends ScreenAdapter {
         }
     }
 
+    /**
+     * Procedure
+     * Sets the save file stored to the new string got from getnewString(),
+     * then.
+     * Will catch any exception
+     */
     private void ReadSaveFile(){
-//        try(FileReader output = new FileReader(this.filepath))
-//        {
-//            this.SaveText = String.valueOf(output.toString());
-//        }
-//        catch(IOException e)
-//        {
-//            e.printStackTrace();
-//        }
-//        try(String output = String(Files.readAllBytes(Paths.get(this.filepath))))
-//        {
-//
-//        }
-//        catch(IOException e)
-//        {
-//            e.printStackTrace();
-//        }
         try{
             this.SaveText = getnewString();
         }
@@ -1203,6 +1174,11 @@ public class GameScreen extends ScreenAdapter {
 
     }
 
+    /**
+     * Reads a file and converts all data to a single string
+     * @return the new string from the stored file path
+     * @throws IOException
+     */
     private String getnewString() throws IOException {
         return new String(Files.readAllBytes(Paths.get(this.filepath)));
     }
