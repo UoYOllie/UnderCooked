@@ -10,36 +10,39 @@ import static java.lang.Math.abs;
 /** The class for any object that can exist in the game world. */
 public abstract class GameEntity {
 
-    /** X and Y position coordinates.*/
+    /** The x-coordinate and y-coordinate of this GameEntity.*/
     public float x,y;
-    /** X and Y velocity of this GameEntity.*/
+
+    /** The X and Y velocities of this GameEntity.*/
     public float velX,velY;
+
     /** Speed of this GameEntity. */
     public float speed;
+
     /** The width and height in pixels of this GameEntity.*/
     public  float width,height;
-    /** The body of this GameEntity. */
-    // protected Body body;
 
-    //UPDATE;
+    /** The interaction rectangle of this GameEntity.*/
     public Rectangle rectangle;
 
+    /** The y-coordinate to fetch the y-offset without updating the entity's coordinates. */
     private float coolY;
 
+    /** The constructor of game entity using manual coordinates and dimensions.
+     *
+     * @param x The x-coordinate of the GameEntity.
+     * @param y The y-coordinate of the GameEntity.
+     * @param width The width of the GameEntity.
+     * @param height The height of the GameEntity.
+     * */
     public GameEntity(float x, float y, float width, float height)
     {
-        //this.y = body.getPosition().y * PPM; UPDATE TO:
         this.x = x * 1/8f;
         this.y = y * 1/8f;
-
-        this.rectangle = new Rectangle(this.x, this.y, width, height);
-
-        // may be able to remove these two later
         this.width = width;
         this.height = height;
+        this.rectangle = new Rectangle(this.x, this.y, width, height);
 
-        // these might be moved to the Cook, doesn't need to be in the abstract class
-        // since stations are never going to use them
         this.velX = 0;
         this.velY = 0;
         this.speed = 0;
@@ -47,6 +50,10 @@ public abstract class GameEntity {
         this.coolY = y - 4 * Constants.UnitScale;
     }
 
+    /** The constructor of the GameEntity using a rectangle.
+     *
+     * @param rectangle containing the x, y, width, and height information.
+     * */
     public GameEntity(Rectangle rectangle) {
         this.rectangle = rectangle;
 		this.x = rectangle.x;
@@ -54,68 +61,44 @@ public abstract class GameEntity {
         this.coolY = y - 4 * Constants.UnitScale;
     }
 
+    /** Getter for the x-coordinate.*/
+    public float getX() { return x; }
+
+    /** Getter for the y-coordinate.*/
+    public float getY() { return y; }
+
+    /** Setter for the y-coordinate.*/
+    public void setY(float x){this.y = x;}
+
+    /** Getter for the offset Y used for serving customers.*/
+    public float getCoolY() { return coolY; }
+
+    /** Getter for the width.*/
+    public float getWidth(){return this.width;}
+
+    /** Getter for the height.*/
+    public float getHeight() { return this.height; }
+
+    /** Getter for the GameEntity's rectangle.*/
+    public Rectangle getRectangle() { return rectangle; }
+
     /**
-     * The update function, used to update the {@link GameEntity}.
+     * The update function, used to update the GameEntity.
      * @param delta The time between frames as a float.
      */
-    // from laura: could this be moved to cook ?? it's not being used by any other children.
     public abstract void update(float delta);
 
 
-    /**
-     * The render function, used to render the {@link GameEntity}.
-     * @param batch The {@link SpriteBatch} used to render.
+    /** The render method used to render the GameEntity.
+     * @param batch The SpriteBatch to be rendered.
      */
     public abstract void render(SpriteBatch batch);
 
-//    /**
-//     * The debug render function, used to render the {@link GameEntity}'s
-//     * debug visuals.
-//     * @param batch The {@link SpriteBatch} used to render.
-//     */
-//    public abstract void renderDebug(SpriteBatch batch);
 
-
-    /**
-     * The render function, used to render the {@link GameEntity}.
-     * @param shape The {@link ShapeRenderer} used to render.
+    /** The render method used to render the GameEntity's shape where there
+     * is a timer to display.
+     * @param shape The ShapeRenderer used to render.
      */
     public abstract void renderShape(ShapeRenderer shape);
-
-    /**
-     * A getter to get the {@link GameEntity}'s {@link #x} coordinate.
-     * @return {@code float} : The {@link GameEntity}'s {@link #x}.
-     */
-    public float getX() {
-        return x;
-    }
-
-    public float getWidth(){return this.width;}
-
-    public float getHeight() {
-        return this.height;
-    }
-
-    /**
-     * A getter to get the {@link GameEntity}'s {@link #y} coordinate.
-     * @return {@code float} : The {@link GameEntity}'s {@link #y}.
-     */
-    public float getY() {
-        return y;
-    }
-
-    public float getCoolY() {
-        return coolY;
-    }
-
-    /**
-     * A getter to get this Game Entity's rectangle.
-     * @return {@code Rectangle} : The {@link GameEntity}'s {@link #rectangle}
-     */
-    public Rectangle getRectangle() {
-        return rectangle;
-    }
-
-    public void setY(float x){this.y = x;}
 }
 

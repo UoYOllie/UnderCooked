@@ -384,7 +384,7 @@ public class Customer extends GameEntity {
     /**
      * Update method to be called in each frame by gameScreen.
      * Action depends on customerStatus, will be 0 (entering), 1 (waiting), or 2 (leaving).
-     * @param delta The time in the game.
+     * @param delta The time between frames as a float.
      * */
     @Override
     public void update(float delta) {
