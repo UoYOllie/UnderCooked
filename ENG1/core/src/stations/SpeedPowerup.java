@@ -6,10 +6,18 @@ import players.Cook;
 import game.GameScreen;
 import interactions.InputKey;
 
-
+/**
+ * Speed powerup class
+ */
 public class SpeedPowerup extends Station {
     private  GameScreen gameScreen;
     private ShopItem item;
+
+    /**
+     * Constructor using gamescreen
+     * @param rectangle
+     * @param g
+     */
     public SpeedPowerup(Rectangle rectangle, GameScreen g){
 
         super(rectangle);
@@ -17,18 +25,29 @@ public class SpeedPowerup extends Station {
         this.item = gameScreen.Powerup_Speed;
     }
 
+    /**
+     * Constructor not using gamescreen
+     * @param rectangle
+     */
     public SpeedPowerup(Rectangle rectangle){
         super(rectangle);
         this.item = new ShopItem("Speed",30);
     }
 
+    /**
+     * Sets speed
+     * @param cook
+     * @return returns the cook with new speed
+     */
     public Cook setSpeed(Cook cook){
         cook.movement_speed = cook.movement_speed + 0.21f;
         return cook;
     }
 
     /**
-     * Takes the current cook and increases its speed
+     * Takes the current cook and increases its speed and increases it by and increment
+     * of 0.21
+     * Only allows this to happen 3 times
      * @param cook The cook currently interacting with the AssemblyStation.
      * @param inputType The input received from the cook currently interacting.
      */

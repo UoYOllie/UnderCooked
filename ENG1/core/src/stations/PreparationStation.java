@@ -38,6 +38,12 @@ public class PreparationStation extends Station {
         super(rectangle);
         this.usingchef = 0;
     }
+
+    /**
+     * Constructor using gamescreen
+     * @param rectangle
+     * @param g
+     */
     public PreparationStation(Rectangle rectangle,GameScreen g) {
         super(rectangle);
         this.gameScreen = g;
@@ -59,6 +65,10 @@ public class PreparationStation extends Station {
         this.gameScreen = gameScreen;
     }
 
+    /**
+     * Updates the current state of the station to allow progression.
+     * @param delta The time between frames as a float.
+     */
     @Override
     public void update(float delta) {
         if (TestFlag == 0) {
@@ -140,6 +150,10 @@ public class PreparationStation extends Station {
             renderItem.draw(batch);
         }
     }
+
+    /**
+     * All the possible states a station can be in
+     */
 
     public enum StationState {
         PREPARING,
@@ -333,6 +347,10 @@ public class PreparationStation extends Station {
     }
 
 
+    /**
+     * Used for testing purposes, to test code automatically without requiring manual testing
+     * @param testFlag
+     */
     public void SetTestFlag(int testFlag){
         this.TestFlag = testFlag;
     }
