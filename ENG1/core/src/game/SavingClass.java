@@ -219,11 +219,6 @@ public class SavingClass {
         ArrayList<Station> tosave = gameScreen.mapHelper.getMapStations();
         for(Station s:tosave)
         {
-//            private Array<Integer> StationPropertyID;
-//            private Array<Array<Integer>> HeldFood;
-//            private Array<Array<Integer>> stationdishstack;
-//            private Array<Boolean> lockedStation;
-//            tln(s.getPropertyID());
             StationPropertyID.add(s.getPropertyID());
             Array<FoodItem.FoodID> tempstack;
             Array<Integer> dishy = new Array<Integer>();

@@ -170,9 +170,6 @@ public class GameScreen extends ScreenAdapter {
         Cook Buy4 = new Cook((2031.1f-104f)*8f, 2853*8f, 3.34f, 1); //width will need adjusting when sprites updated
         this.addSpareCook(Buy4);
 
-        //this.customersToServe = new ArrayList<>();
-        //this.addCustomersNew(customerControllerNew.getCustomers());
-
         this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
 
@@ -204,8 +201,6 @@ public class GameScreen extends ScreenAdapter {
         this.initalzoom = 1f;
         this.forcewin = false;
         this.previousSecond = TimeUtils.millis();
-        //this.lastCustomerSecond = -1;
-        //this.nextCustomerSecond = -1;
         this.cooks = new Array<>();
         this.unusedcooks = new Array<>();
 
@@ -217,29 +212,15 @@ public class GameScreen extends ScreenAdapter {
         this.EnableAutoZoom = true;
         this.ZoomSecondCounter = 2f;
 
-        // UPDATE
-        // this.collisionHelper = CollisionHelper.getInstance();
         this.cookIndex = -1;
-//        this.camera = camera;
-//        this.camera.zoom = 1/10f;
         this.screenController = screenController;
         this.batch = screenController.getSpriteBatch();
         this.shape = screenController.getShapeRenderer();
         this.gameEntities = new ArrayList<>();
         this.drawQueueComparator = new DrawQueueComparator();
-        //this.customerController = new CustomerController(this);
 
         this.world = new World(new Vector2(0,0), false);
-        //this.box2DDebugRenderer = new Box2DDebugRenderer();
-
-        // UPDATED
-        // this.mapHelper = MapHelper.getInstance();
         this.mapHelper = new MapHelper(this);
-        //this.customerControllerNew = new CustomerControllerNew(this);
-        //this.servingStationNewList = this.mapHelper.getServingStationNewList();
-        //ln(servingStationNewList);
-
-        // this.mapHelper.setGameScreen(this);
         this.orthogonalTiledMapRenderer = mapHelper.setupMap();
         this.instructionHUD = new InstructionHud(batch);
         addInteractable(this.mapHelper.getMapStations());
@@ -303,7 +284,6 @@ public class GameScreen extends ScreenAdapter {
                 Station n = mapHelper.mapStations.get(newstation.StationPropertyID);
                 //
                 n.stationFoodStack.setStack(newstation.HeldFood.getStackCopy());
-//                n.stationDishStack.setStack(newstation.stationdishstack.getStackCopy());;
                 Array<FoodItem.FoodID> nd = new Array<FoodItem.FoodID>();
                 for(FoodItem.FoodID f:newstation.stationdishstack.getStack())
                 {
@@ -326,22 +306,11 @@ public class GameScreen extends ScreenAdapter {
                 {
                     n.Disable();
                 }
-
-//                if(n.isABluggusPrison&&n.Enabled)
-//                {
-//                    n.interact(new Cook(0,0,1,1), InputKey.InputTypes.USE);
-//                }
                 newmapStations.add(n);
-//                ln("******************************************");
-//                ln(mapHelper.mapStations.get(newstation.StationPropertyID).stationFoodStack.toString());
-//                ln("******************************************");
             }
             mapHelper.mapStations = newmapStations;
-//            this.customerController.customers = customersforgame;
         }
 
-        //this.customersToServe = new ArrayList<>();
-        //this.addCustomersNew(customerControllerNew.getCustomers());
         this.cook = cooks.get(0);
         this.gameEntities.addAll(mapHelper.getMapStations());
         setCook((cookIndex + 1) % cooks.size);
@@ -354,6 +323,10 @@ public class GameScreen extends ScreenAdapter {
      */
     private int countcycles = 0;
 
+    /**
+     * Updates the enviroment, to allow/visualise any changes to the game state real time
+     * @param delta
+     */
     public void update(float delta)
     {
         if(readytorezoooom)
@@ -426,7 +399,7 @@ public class GameScreen extends ScreenAdapter {
         if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
             screenController.paylistscreen();
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.T)){
+        if (Gdx.input.isKeyPressed(Input.Keys.T)){ //TEST MODE
 
             this.gold.setBalance(1000000);
 
@@ -453,16 +426,6 @@ public class GameScreen extends ScreenAdapter {
             else if(ZoomSecondCounter>0) {
                 ZoomSecondCounter = ZoomSecondCounter-1f;
             }
-
-//            for(Customer customer:customersToServe) //Dealing with leaving
-//            {
-//                customer.DecreasePatience();
-//                if((customer.waittime<=0)&&(customer.Stillhere ==true))
-//                {
-//                 m.out.println(customer + " is now leaving");
-//                    customer.StormOut(); //When customer wants to leave
-//                }
-//            }
 
             // SWITCH TO CUSTOMER CONTROLLER instead of customersServed
             for(Customer customer:customerController.getCustomers()) //Dealing with leaving
@@ -746,15 +709,6 @@ public class GameScreen extends ScreenAdapter {
     }
 
     /**
-     * Get the world that the game is using.
-     * @return {@link World} : The {@link GameScreen}'s {@link World}.
-     */
-    public World getWorld()
-    {
-        return world;
-    }
-
-    /**
      * Sets the currently active {@link #cook} that the game is using.
      * @param cookIndex The index of {@link #cook} in the {@link #cooks} array.
      * @return {@link Cook} : The {@link Cook} that the game has swapped to.
@@ -769,21 +723,16 @@ public class GameScreen extends ScreenAdapter {
         return this.cook;
     }
 
+    /**
+     * Function that adds customer to be visible
+     * @param customer
+     */
     public void addCustomer(Customer customer) {
-//        ("__________________G"+customer);
         if (customer != null) {
             gameEntities.add(customer);
         }
 
     }
-
-//    public void addCustomersNew(Array<Customer> customers) {
-//
-//        for (Customer customer : customers) {
-//            gameEntities.add(customer);
-//            customersToServe.add(customer);
-//        }
-//    }
 
     /**
      * Adds a new {@link Cook} to the {@link #cooks} {@link Array} for the game to swap between.
@@ -795,6 +744,12 @@ public class GameScreen extends ScreenAdapter {
         cooks.add(newCook);
         return cooks.size-1;
     }
+
+    /**
+     * Create a spare cook to be used if bought
+     * @param newCook
+     * @return cooks.size-1;
+     */
     public int addSpareCook(Cook newCook) {
         gameEntities.add(newCook);
         unusedcooks.add(newCook);
@@ -803,7 +758,9 @@ public class GameScreen extends ScreenAdapter {
 
     /**
      * Function takes an index n and removed the cook(n) from used cooks
-     * and places
+     * and places them into the current cooks so that user can play with them
+     * The game entity is also then moved down so it no longer appears in the
+     * chamber
      * @param n
      */
     public void SpareToNotSpare(int n)
@@ -952,8 +909,6 @@ public class GameScreen extends ScreenAdapter {
      */
     public void Loadgame() //Change ton have no param
     {
-//        SavingClass newsave = new SavingClass(GameScreen);
-//        StoredFile.fromJson(SavingClass newsave);
         ReadSaveFile();
         JsonValue root = new JsonReader().parse(this.SaveText);
         //cooks
