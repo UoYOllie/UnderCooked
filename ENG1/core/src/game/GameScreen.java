@@ -396,7 +396,7 @@ public class GameScreen extends ScreenAdapter {
             this.Reputation.setPoints(0);
 
         }
-        if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
+        if (Gdx.input.isKeyJustPressed(Input.Keys.P)){//
             screenController.paylistscreen();
         }
 
