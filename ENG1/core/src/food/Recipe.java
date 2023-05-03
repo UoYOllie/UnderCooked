@@ -62,7 +62,8 @@ public class Recipe {
         toppings.add(FoodID.tomatoChop);
         toppings.add(FoodID.onionChop);
         toppings.add(FoodID.cheese);
-        toppings.add(FoodID.bakedBeans);
+        toppings.add(FoodID.coleslaw);
+        toppings.add(FoodID.beansCooked);
     }
 
     /**
