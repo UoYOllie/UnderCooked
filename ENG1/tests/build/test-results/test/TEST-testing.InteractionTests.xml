@@ -1,42 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.InteractionTests" tests="52" skipped="0" failures="0" errors="0" timestamp="2023-05-03T05:22:31" hostname="DESKTOP-8SNM91F" time="0.849">
+<testsuite name="testing.InteractionTests" tests="52" skipped="0" failures="1" errors="0" timestamp="2023-05-03T07:38:59" hostname="AB-ASUS-1" time="0.85">
   <properties/>
   <testcase name="TestAssemblyStationTestMultipleRecipes" classname="testing.InteractionTests" time="0.001"/>
-  <testcase name="TestAssemblyStationMakeCheeseBeansPotato" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestAssemblyStationMakeCheeseBeansPotato" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestAssemblyStationTomatoOnionBurger" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestAssemblyStationMakeColeslawPotato" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestAssemblyStationMakeColeslawPotato" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestBakingStationPotatoToBakedPotato" classname="testing.InteractionTests" time="0.001"/>
   <testcase name="TestAssemblyStationMakeBeansPotato" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestAssemblyStationMakeOnionSalad" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestPantryCheese" classname="testing.InteractionTests" time="0.001"/>
-  <testcase name="TestPreparationStationAddsResultBackWhenFinishedUse" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestAssemblyStationMakeTomatoSalad" classname="testing.InteractionTests" time="0.0"/>
+  <testcase name="TestPantryCheese" classname="testing.InteractionTests" time="0.0"/>
+  <testcase name="TestPreparationStationAddsResultBackWhenFinishedUse" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestAssemblyStationMakeTomatoSalad" classname="testing.InteractionTests" time="0.001"/>
   <testcase name="TestPantryPotato" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestBakingStationDoughToDoughCook" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestPantryLettuce" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestBakingStationDoughToDoughCook" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestPantryLettuce" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestPantryTomato" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestAssemblyStationOnionBurger" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestPantryColeslaw" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestUsePantryAndLettuceChop" classname="testing.InteractionTests" time="0.001"/>
-  <testcase name="TestAssemblyStationHoldsNothing" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestPutDownItem" classname="testing.InteractionTests" time="0.002"/>
-  <testcase name="TestPreparationStationSetsStateToFinished" classname="testing.InteractionTests" time="0.0"/>
+  <testcase name="TestPantryColeslaw" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestUsePantryAndLettuceChop" classname="testing.InteractionTests" time="0.0"/>
+  <testcase name="TestAssemblyStationHoldsNothing" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestPutDownItem" classname="testing.InteractionTests" time="0.003"/>
+  <testcase name="TestPreparationStationSetsStateToFinished" classname="testing.InteractionTests" time="0.001"/>
   <testcase name="TestPreparationStationCutTomato" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestPreparationStationCookMeat" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestBinStationWorksWithEmptyStack" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestAssemblyStationMakePlainPizza" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestAssemblyStationMakePlainSalad" classname="testing.InteractionTests" time="0.001"/>
-  <testcase name="TestAssemblyStationWrongRecipe" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestAssemblyStationMakePlainPizza" classname="testing.InteractionTests" time="0.001">
+    <failure message="java.lang.AssertionError: Error: Assembly Station does not give the right outcome when given the items to make a Plain pizza expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: Error: Assembly Station does not give the right outcome when given the items to make a Plain pizza expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at testing.InteractionTests.TestAssemblyStationMakePlainPizza(InteractionTests.java:609)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <testcase name="TestAssemblyStationMakePlainSalad" classname="testing.InteractionTests" time="0.0"/>
+  <testcase name="TestAssemblyStationWrongRecipe" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestAssemblyStationLettuceTomatoOnionBurger" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestPantryMeat" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestPantryBun" classname="testing.InteractionTests" time="0.001"/>
-  <testcase name="TestAssemblyStationMakeCheesePotato" classname="testing.InteractionTests" time="0.001"/>
-  <testcase name="TestAssemblyStationMakeOnionTomatoSalad" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestPantryMeat" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestPantryBun" classname="testing.InteractionTests" time="0.0"/>
+  <testcase name="TestAssemblyStationMakeCheesePotato" classname="testing.InteractionTests" time="0.0"/>
+  <testcase name="TestAssemblyStationMakeOnionTomatoSalad" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestPreparationStationGivesWaste" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestPickUpItem" classname="testing.InteractionTests" time="0.002"/>
-  <testcase name="TestAssemblyStationLettuceTomatoBurger" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestAssemblyStationMakeBeansColeslawPotato" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestAssemblyStationMakeBeansColeslawCheesePotato" classname="testing.InteractionTests" time="0.0"/>
+  <testcase name="TestPickUpItem" classname="testing.InteractionTests" time="0.0"/>
+  <testcase name="TestAssemblyStationLettuceTomatoBurger" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestAssemblyStationMakeBeansColeslawPotato" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestAssemblyStationMakeBeansColeslawCheesePotato" classname="testing.InteractionTests" time="0.001"/>
   <testcase name="TestPreparationStationCutLettuce" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestPreparationStationCutOnion" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestCounterCanHoldMultiple" classname="testing.InteractionTests" time="0.001"/>
@@ -44,112 +66,15 @@
   <testcase name="TestPlayerItemStack" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestAssemblyStationLettuceBurger" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestBinStationGetsRidOfItem" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestBinStationWorksWithEmptyFoodStackButHaveADishStack" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestAssemblyStationHoldsFood" classname="testing.InteractionTests" time="0.0"/>
+  <testcase name="TestBinStationWorksWithEmptyFoodStackButHaveADishStack" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestAssemblyStationHoldsFood" classname="testing.InteractionTests" time="0.001"/>
   <testcase name="TestAssemblyStationTomatoBurger" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestAssemblyStationPlainBurger" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestAssemblyStationMakePlainPotato" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestPantryBeans" classname="testing.InteractionTests" time="0.0"/>
-  <testcase name="TestPantryDough" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestAssemblyStationMakePlainPotato" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestPantryBeans" classname="testing.InteractionTests" time="0.001"/>
+  <testcase name="TestPantryDough" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestPantryOnion" classname="testing.InteractionTests" time="0.0"/>
   <testcase name="TestAssemblyStationLettuceOnionBurger" classname="testing.InteractionTests" time="0.0"/>
-  <system-out><![CDATA[peek
-peek
-cheese
-peek
-peek
-peek
-potato
-peek
-peek
-peek
-lettuce
-peek
-tomato
-peek
-coleslaw
-peek
-lettuceChop
-peek
-Im interacting with a counter
-187.5
-150.0
-20.0
-20.0
-peek
-peek
-peek
-peek
-peek
-peek
-meat
-peek
-bun
-peek
-peek
-peek
-Im interacting with a counter
-187.5
-150.0
-20.0
-20.0
-Im interacting with a counter
-187.5
-150.0
-20.0
-20.0
-PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP
-[lettuce]
-true
-true
-[]
-PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP
-peek
-peek
-peek
-peek
-peek
-Im interacting with a counter
-187.5
-150.0
-20.0
-20.0
-Im interacting with a counter
-187.5
-150.0
-20.0
-20.0
-Im interacting with a counter
-187.5
-150.0
-20.0
-20.0
-peek
-peek
-Im interacting with a counter
-187.5
-150.0
-20.0
-20.0
-Im interacting with a counter
-187.5
-150.0
-20.0
-20.0
-PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP
-[tomato]
-true
-true
-[]
-PICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUPPICKUP
-peek
-peek
-bakedBeans
-peek
-dough
-peek
-onion
-peek
-]]></system-out>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

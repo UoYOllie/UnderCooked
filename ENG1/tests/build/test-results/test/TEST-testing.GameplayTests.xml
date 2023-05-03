@@ -1,62 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.GameplayTests" tests="30" skipped="0" failures="0" errors="0" timestamp="2023-05-03T05:22:29" hostname="DESKTOP-8SNM91F" time="0.484">
+<testsuite name="testing.GameplayTests" tests="30" skipped="0" failures="1" errors="0" timestamp="2023-05-03T07:38:58" hostname="AB-ASUS-1" time="0.484">
   <properties/>
-  <testcase name="TestCustomerHangOnYourFoodIsComing" classname="testing.GameplayTests" time="0.004"/>
-  <testcase name="TestServingStationServeCustomerColeslawCheesePotato" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestMoveStack" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerTomatoBurger" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerPlainPizza" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerLettuceBurger" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerBeansColeslawCheesePotato" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestCustomerHypnotise" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestCustomerHangOnYourFoodIsComing" classname="testing.GameplayTests" time="0.002"/>
+  <testcase name="TestServingStationServeCustomerColeslawCheesePotato" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestMoveStack" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerTomatoBurger" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerPlainPizza" classname="testing.GameplayTests" time="0.0">
+    <failure message="java.lang.NullPointerException: Cannot invoke &quot;food.FoodStack.getStack()&quot; because the return value of &quot;java.util.HashMap.get(Object)&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;food.FoodStack.getStack()&quot; because the return value of &quot;java.util.HashMap.get(Object)&quot; is null
+	at food.Recipe.matchesRecipeArray(Recipe.java:109)
+	at stations.ServingStation.customerInteract(ServingStation.java:111)
+	at testing.GameplayTests.TestServingStationServeCustomerPlainPizza(GameplayTests.java:924)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at testing.GdxTestRunner.render(GdxTestRunner.java:57)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication.mainLoop(HeadlessApplication.java:128)
+	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
+</failure>
+  </testcase>
+  <testcase name="TestServingStationServeCustomerLettuceBurger" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerBeansColeslawCheesePotato" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestCustomerHypnotise" classname="testing.GameplayTests" time="0.001"/>
   <testcase name="TestServingStationServeCustomerLettuceTomatoOnionBurger" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestMultipleSpeedPowerUp" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestMakeIntoBluggus" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerLettuceOnionSalad" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerLettuceOnionSalad" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerPlainBurger" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerLettuceTomatoBurger" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServesMultipleCustomers" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationDoesNotAcceptWrongRecipes" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerColeslawPotato" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerLettuceTomatoBurger" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServesMultipleCustomers" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationDoesNotAcceptWrongRecipes" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerColeslawPotato" classname="testing.GameplayTests" time="0.001"/>
   <testcase name="TestServingStationServeCustomerPlainPotato" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestRepPoints" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerBeansColeslawPotato" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerBeansPotato" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerLettuceOnionBurger" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerBeansPotato" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerLettuceOnionBurger" classname="testing.GameplayTests" time="0.001"/>
   <testcase name="TestBuyShopItem" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerTomatoOnionBurger" classname="testing.GameplayTests" time="0.0"/>
-  <testcase name="TestServingStationServeCustomerLettuceTomatoSalad" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerTomatoOnionBurger" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerLettuceTomatoSalad" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerBeansCheesePotato" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerOnionBurger" classname="testing.GameplayTests" time="0.001"/>
-  <testcase name="TestServingStationServeCustomerOnionTomatoSalad" classname="testing.GameplayTests" time="0.001"/>
+  <testcase name="TestServingStationServeCustomerOnionBurger" classname="testing.GameplayTests" time="0.0"/>
+  <testcase name="TestServingStationServeCustomerOnionTomatoSalad" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestSpeedPowerUp" classname="testing.GameplayTests" time="0.0"/>
   <testcase name="TestServingStationServeCustomerCheesePotato" classname="testing.GameplayTests" time="0.0"/>
-  <system-out><![CDATA[This was correct for me
-peek
-peek
-peek
-peek
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-This was correct for me
-]]></system-out>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

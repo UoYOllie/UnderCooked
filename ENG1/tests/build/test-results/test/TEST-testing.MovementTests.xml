@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.MovementTests" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-03T05:22:26" hostname="DESKTOP-8SNM91F" time="2.684">
+<testsuite name="testing.MovementTests" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-03T07:38:56" hostname="AB-ASUS-1" time="2.134">
   <properties/>
-  <testcase name="TestChefMoveRight" classname="testing.MovementTests" time="0.003"/>
+  <testcase name="TestChefMoveRight" classname="testing.MovementTests" time="0.004"/>
   <testcase name="TestChefMoveRightUp" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveLeftUp" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveUpLeft" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveUp" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefSwitch" classname="testing.MovementTests" time="2.482">
+  <testcase name="TestChefSwitch" classname="testing.MovementTests" time="1.933">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -41,63 +41,6 @@
   <testcase name="TestChefMoveLeftDown" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveUpRight" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveRightDown" classname="testing.MovementTests" time="0.001"/>
-  <system-out><![CDATA[power pantry is generated
-Setting to teacup
-teacup
-power pantry is generated
-Setting to menu
-menu
-0<|||||||||||||||||||||||||||||||||||||||||||||||||||||||pantry is generated
-Setting to meat
-meat
-pantry is generated
-Setting to lettuce
-lettuce
-pantry is generated
-Setting to onion
-onion
-pantry is generated
-Setting to tomato
-tomato
-pantry is generated
-Setting to bun
-bun
-pantry is generated
-Setting to bakedBeans
-bakedBeans
-pantry is generated
-Setting to potato
-potato
-pantry is generated
-Setting to dough
-dough
-pantry is generated
-Setting to cheese
-cheese
-pantry is generated
-Setting to cheese
-cheese
-pantry is generated
-Setting to coleslaw
-coleslaw
-1<|||||||||||||||||||||||||||||||||||||||||||||||||||||||2<|||||||||||||||||||||||||||||||||||||||||||||||||||||||pantry is generated
-Setting to cheese
-cheese
-pantry is generated
-Setting to coleslaw
-coleslaw
-pantry is generated
-Setting to dough
-dough
-pantry is generated
-Setting to cheese
-cheese
-pantry is generated
-Setting to potato
-potato
-pantry is generated
-Setting to bakedBeans
-bakedBeans
-]]></system-out>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
