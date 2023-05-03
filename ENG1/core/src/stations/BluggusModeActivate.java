@@ -30,6 +30,12 @@ public class BluggusModeActivate extends Station {
         g.gameEntities.add(NewBluggusSpawn);
     }
 
+    /**
+     * The interaction method, where if the user has enough gold,
+     * it will change the users sprite to be a Cook version of bluggus
+     * @param cook The cook currently interacting with the AssemblyStation.
+     * @param inputType The input received from the cook currently interacting.
+     */
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
         if((getEnabled())&&(cook.activateBluggus==false)) {
@@ -41,6 +47,10 @@ public class BluggusModeActivate extends Station {
         }
     }
 
+    /**
+     * Disables the station so he cannot be resued, then
+     * removes the entity from inside the cage
+     */
     @Override
     public void Disable()
     {

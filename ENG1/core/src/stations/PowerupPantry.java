@@ -8,9 +8,19 @@ import food.FoodItem;
 import game.GameScreen;
 import interactions.InputKey;
 
+/**
+ * Dispenses teacups and "change your mind" items
+ */
 public class PowerupPantry extends Pantry{
     private GameScreen gameScreen;
     private ShopItem item;
+
+    /**
+     * Constructor used to set the item for dispensing
+     * Enables the pantry
+     * @param rectangle
+     * @param g
+     */
     public PowerupPantry(Rectangle rectangle, GameScreen g) {
         super(rectangle);
         this.gameScreen = g;

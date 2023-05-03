@@ -418,6 +418,10 @@ public class GameScreen extends ScreenAdapter {
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.P)){
             screenController.paylistscreen();
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.T)){
+
+            this.gold.setBalance(1000000);//
 
         }
 
@@ -972,12 +976,6 @@ public class GameScreen extends ScreenAdapter {
         JsonValue held_wait = root.get("waitimes");
         JsonValue held_req = root.get("requests");
         JsonValue held_sts = root.get("Status");
-//        ln(held_coords.get(0).get(0).get(1));//Takes person Takes x or y Takes value
-//        ln(held_coords.get(0).get(0));
-//        ln(held_coords.get(0));
-//        JsonValue held_x = held_coords.get(0).get(0).get(1);
-//        ln(held_x.asFloat());
-
 
         Array<Integer> cooks = new Array<Integer>();
         Array<Array<Float>> cookscoords = new Array<Array<Float>>(); //If not spawned, (0,0)

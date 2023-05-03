@@ -6,6 +6,9 @@ import players.Cook;
 import game.GameScreen;
 import interactions.InputKey;
 
+/**
+ * Buy more chefs/cooks class
+ */
 public class VAT extends Station{
     private GameScreen gameScreen;
     private int PrisonerNumber;
