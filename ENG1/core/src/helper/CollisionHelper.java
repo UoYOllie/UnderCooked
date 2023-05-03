@@ -13,14 +13,14 @@ import java.util.ArrayList;
 import static helper.Constants.CookHeight;
 import static helper.Constants.CookWidth;
 
-public class NewCollisionHelper {
+public class CollisionHelper {
     /** The GameScreen to do collision-helping on. */
     protected GameScreen gameScreen;
     private Rectangle CookRectangle;
 
     private ArrayList<Station> mapStations;
 
-    public NewCollisionHelper(GameScreen gameScreen, Cook cook,ArrayList<Station> mapStations){
+    public CollisionHelper(GameScreen gameScreen, Cook cook, ArrayList<Station> mapStations){
         setGameScreen(gameScreen);
         CookRectangle = new Rectangle(cook.getX(),cook.getY(),CookWidth,CookHeight);
         this.mapStations = mapStations;

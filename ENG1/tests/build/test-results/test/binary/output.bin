@@ -212,9 +212,9 @@ coleslaw
 ANinterval 0
 ANgroup size 1
 ANno customer added this time!
-AP,players.Customer@dbb6694will leave in 50.0
-AP1players.Customer@dbb6694now will leave in 300.0
-AP'players.Customer@dbb6694is rethinking
+AP-players.Customer@4ee3862awill leave in 50.0
+AP2players.Customer@4ee3862anow will leave in 300.0
+AP(players.Customer@4ee3862ais rethinking
 A\customers left 2
 A\customers left 1
 A\customers left 0

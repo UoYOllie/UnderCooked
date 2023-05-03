@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.GeneralTests" tests="40" skipped="0" failures="0" errors="0" timestamp="2023-05-03T04:51:44" hostname="DESKTOP-8SNM91F" time="0.65">
+<testsuite name="testing.GeneralTests" tests="40" skipped="0" failures="0" errors="0" timestamp="2023-05-03T05:22:30" hostname="DESKTOP-8SNM91F" time="0.651">
   <properties/>
   <testcase name="TestHoldItems" classname="testing.GeneralTests" time="0.001"/>
-  <testcase name="testsGetServingStationList" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testsGetServingStationList" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="TestGoldAddBalance" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestFoodStackPeekStackCatchIndexOutOfBounds" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="TestSetAndGetMode" classname="testing.GeneralTests" time="0.002"/>
+  <testcase name="TestSetAndGetMode" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="TestCookRotate90C" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="testSetDestination" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="TestGetBlocked" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestGetBlocked" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="testCustomerMoveLeftDown" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="TestSetDir" classname="testing.GeneralTests" time="0.001"/>
-  <testcase name="testDecreasePatience" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="TestSetDir" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testDecreasePatience" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestAddCustomerCustomerPresent" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="TestRemoveCustomer" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestAddCustomerCustomersPresent" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestGoldGetInstance" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="testServingStationCustomerInteract" classname="testing.GeneralTests" time="0.003"/>
+  <testcase name="testServingStationCustomerInteract" classname="testing.GeneralTests" time="0.002"/>
   <testcase name="TestFoodStackSetStack" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestCookSetColour" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="TestCookUpdate" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestCookUpdate" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="testSetStationPosition" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestChefFoodRelativeX" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestChefFoodRelativeY" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="testSetMapObstacles" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="TestGetInputKey" classname="testing.GeneralTests" time="0.001"/>
-  <testcase name="TestFoodStackPopStackCatchIndexOutOfBounds" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestGetInputKey" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="TestFoodStackPopStackCatchIndexOutOfBounds" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="TestGetStationKey" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestMaxCustomersReached" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestWonScenario" classname="testing.GeneralTests" time="0.001"/>
@@ -34,13 +34,13 @@
   <testcase name="testsGetMapStations" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestGoldSetandGetBalance" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestGetCustomers" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="testUtilClass" classname="testing.GeneralTests" time="0.001"/>
+  <testcase name="testUtilClass" classname="testing.GeneralTests" time="0.002"/>
   <testcase name="TestGetInputType" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestCookOpposite" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="testCustomerGetX" classname="testing.GeneralTests" time="0.001"/>
   <testcase name="testCustomerGetY" classname="testing.GeneralTests" time="0.0"/>
   <testcase name="TestSetAndGetDifficulty" classname="testing.GeneralTests" time="0.0"/>
-  <testcase name="testCustomerGetRequestName" classname="testing.GeneralTests" time="0.0"/>
+  <testcase name="testCustomerGetRequestName" classname="testing.GeneralTests" time="0.001"/>
   <system-out><![CDATA[lettuce
 lettuce
 lettuce
@@ -51,9 +51,9 @@ group size 1
 interval 0
 group size 1
 no customer added this time!
-players.Customer@dbb6694will leave in 50.0
-players.Customer@dbb6694now will leave in 300.0
-players.Customer@dbb6694is rethinking
+players.Customer@4ee3862awill leave in 50.0
+players.Customer@4ee3862anow will leave in 300.0
+players.Customer@4ee3862ais rethinking
 customers left 2
 customers left 1
 customers left 0

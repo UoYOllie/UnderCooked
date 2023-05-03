@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testing.MovementTests" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-03T04:51:40" hostname="DESKTOP-8SNM91F" time="3.648">
+<testsuite name="testing.MovementTests" tests="13" skipped="0" failures="1" errors="0" timestamp="2023-05-03T05:22:26" hostname="DESKTOP-8SNM91F" time="2.684">
   <properties/>
-  <testcase name="TestChefMoveRight" classname="testing.MovementTests" time="0.004"/>
-  <testcase name="TestChefMoveRightUp" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveRight" classname="testing.MovementTests" time="0.003"/>
+  <testcase name="TestChefMoveRightUp" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveLeftUp" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveUpLeft" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveUp" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefSwitch" classname="testing.MovementTests" time="3.444">
+  <testcase name="TestChefSwitch" classname="testing.MovementTests" time="2.482">
     <failure message="java.lang.IllegalArgumentException: Error compiling shader: " type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Error compiling shader: 
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.createDefaultShader(SpriteBatch.java:164)
 	at com.badlogic.gdx.graphics.g2d.SpriteBatch.&lt;init&gt;(SpriteBatch.java:127)
@@ -34,11 +34,11 @@
 	at com.badlogic.gdx.backends.headless.HeadlessApplication$1.run(HeadlessApplication.java:93)
 </failure>
   </testcase>
-  <testcase name="TestChefMoveDown" classname="testing.MovementTests" time="0.001"/>
-  <testcase name="TestChefMoveLeft" classname="testing.MovementTests" time="0.001"/>
-  <testcase name="TestChefMoveDownLeft" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveDown" classname="testing.MovementTests" time="0.0"/>
+  <testcase name="TestChefMoveLeft" classname="testing.MovementTests" time="0.0"/>
+  <testcase name="TestChefMoveDownLeft" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveDownRight" classname="testing.MovementTests" time="0.0"/>
-  <testcase name="TestChefMoveLeftDown" classname="testing.MovementTests" time="0.001"/>
+  <testcase name="TestChefMoveLeftDown" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveUpRight" classname="testing.MovementTests" time="0.0"/>
   <testcase name="TestChefMoveRightDown" classname="testing.MovementTests" time="0.001"/>
   <system-out><![CDATA[power pantry is generated

@@ -16,7 +16,7 @@ import food.FoodStack;
 import food.DishStack;
 import food.FoodItem.FoodID;
 import helper.Constants;
-import helper.NewCollisionHelper;
+import helper.CollisionHelper;
 import interactions.InputKey;
 import interactions.Interactions;
 import stations.CookInteractable;
@@ -199,7 +199,7 @@ public class Cook extends GameEntity {
 
         for (InputKey inputKey : Interactions.getInputKeys(Interactions.InputID.COOK_INTERACT)) {
             if (Gdx.input.isKeyJustPressed(inputKey.getKey())) {
-                NewCollisionHelper checker = new NewCollisionHelper(gameScreen,this,mapStations);
+                CollisionHelper checker = new CollisionHelper(gameScreen,this,mapStations);
                 CookInteractable station = checker.NearbyStation(cookInteractor);
                 if(station!=null) {
                     station.interact(this, inputKey.getType());
