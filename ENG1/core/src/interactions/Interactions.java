@@ -13,15 +13,10 @@ import stations.Station.StationID;
  * - Keys being pressed information.
  */
 public class Interactions {
+
     /** A HashMap containing how each FoodItem's FoodID, via a station of StationID, can convert to another foodID.*/
     public static final HashMap<String, InteractionResult> interactions = new HashMap<>();
     static {
-        // old interactions with spamming space
-        //interactions.put(InteractionKey(FoodID.lettuce, StationID.cut), new InteractionResult(FoodID.lettuceChop,new float[] {25,50,75},-1));
-        //interactions.put(InteractionKey(FoodID.tomato, StationID.cut), new InteractionResult(FoodID.tomatoChop,new float[] {25,50,75},-1));
-        //interactions.put(InteractionKey(FoodID.onion, StationID.cut), new InteractionResult(FoodID.onionChop,new float[] {25,50,75},-1));
-
-        // new interactions on a timer !!!
         interactions.put(InteractionKey(FoodID.lettuce, StationID.cut), new InteractionResult(FoodID.lettuceChop,new float[] {},13F));
         interactions.put(InteractionKey(FoodID.tomato, StationID.cut), new InteractionResult(FoodID.tomatoChop,new float[] {},13F));
         interactions.put(InteractionKey(FoodID.onion, StationID.cut), new InteractionResult(FoodID.onionChop,new float[] {},13F));
@@ -43,12 +38,9 @@ public class Interactions {
         private float speed;
         /**
          * InteractionResult Constructor
-         * @param result -
-         *               The resulting FoodID
-         * @param steps -
-         *              The steps in a range of 0 - 100 of the process where input is required
-         * @param speed -
-         *              The speed of which the progress bar fills up for a station per second. -1 is instant.
+         * @param result The resulting FoodID
+         * @param steps The steps in a range of 0 - 100 of the process where input is required
+         * @param speed The speed of which the progress bar fills up for a station per second. -1 is instant.
          */
         public InteractionResult(FoodID result, float[] steps, float speed) {
             this.result = result;
@@ -56,14 +48,10 @@ public class Interactions {
             this.speed = speed;
         }
 
-        /**
-         * A getter to return the result of the interaction.
-         * @return FoodID result.
-         */
+        /** Getter for the InteractionResult as a FoodID.*/
         public FoodID getResult() { return result; }
 
-        /**
-         * A getter to return the steps of the interaction.
+        /** Getter for the steps of the interaction.
          * @return An array of floats, each indicating a percentage that user input is
          *          required during the process.
          */
@@ -94,14 +82,14 @@ public class Interactions {
      * code.
      *
      * There is two ways to read through these.
-     * 1: Call the function {@link #getInputKeys(InputID)} on the ID you want, and then
+     * 1: Call the function getInputKeys(InputID) on the ID you want, and then
      *    loop through the Array, calling the Gdx.input.isKeyPressed function you require.
      *
-     * 2: At the start of the current update of the game, use the function {@link #updateKeys()}.
-     *    This will automatically check the keys, and then store the {@link InputKey.InputTypes}
+     * 2: At the start of the current update of the game, use the function updateKeys().
+     *    This will automatically check the keys, and then store the InputKey.InputTypes
      *    that have been pressed down.
-     *    You can then use the functions {@link #isPressed(InputKey.InputTypes)}
-     *    or {@link #isJustPressed(InputKey.InputTypes)} to check if the user has pressed the keys.
+     *    You can then use the functions isPressed(inputTypes).
+     *    or isJustPressed(InputKey.InputTypes) to check if the user has pressed the keys.
      *    They are named in the same way as the LibGDX functions.
      * */
     private static final HashMap<InputID, Array<InputKey>> inputs = new HashMap<>();
@@ -148,7 +136,7 @@ public class Interactions {
 
     /**
      * Get the input key assigned to the enum constant inputID
-     * @param inputID {@link InputID} enum Constant
+     * @param inputID enum Constant
      * @return The key on the keyboard correlated to it.
      */
     public static Array<InputKey> getInputKeys(InputID inputID) {
@@ -163,8 +151,8 @@ public class Interactions {
 
     /**
      * This function updates the internal arrays in Interactions for the
-     *  array variables that record what {@link InputKey.InputTypes} are pressed,
-     *  based on the {@link Interactions#inputs} HashMap, such as {@link Interactions#keysPressed}.
+     *  array variables that record what InputKey.InputTypes are pressed,
+     *  based on the inputs HashMap, such as keysPressed.
      */
     public static void updateKeys() {
         resetKeys();
@@ -181,9 +169,9 @@ public class Interactions {
     }
 
     /**
-     * Returns the Keys assigned to the enum constant {@link InputKey.InputTypes} as an array of strings.
-     * @param inputType {@link InputKey.InputTypes} enum constant
-     * @return A LibGDX Array of the string names for the keys assigned to {@link InputKey.InputTypes}
+     * Returns the Keys assigned to the enum constant InputKey.InputTypes as an array of strings.
+     * @param inputType InputKey.InputTypesenum constant.
+     * @return A LibGDX Array of the string names for the keys assigned to InputKey.InputTypes.
      */
     public static Array<String> getKeyStrings(InputKey.InputTypes inputType) {
         Array<String> validKeys = new Array<>();
@@ -198,10 +186,10 @@ public class Interactions {
     }
 
     /**
-     * Returns the Keys assigned to the enum constant {@link InputKey.InputTypes} as a string.
-     * Uses {@link #getKeyStrings(InputKey.InputTypes) getKeyStrings}
-     * @param inputType {@link InputKey.InputTypes} enum constant
-     * @return A string of all valid keys for the {@link InputKey.InputTypes} key.
+     * Returns the Keys assigned to the enum constant InputKey.InputTypes as a string.
+     * Uses InputKey.InputTypes getKeyStrings.
+     * @param inputType InputKey.InputTypes enum constant.
+     * @return A string of all valid keys for the InputKey.InputTypes key.
      */
     public static String getKeyString(InputKey.InputTypes inputType) {
         Array<String> validKeys = getKeyStrings(inputType);
@@ -223,7 +211,7 @@ public class Interactions {
     }
 
     /**
-     * Turn an {@link InputKey} into string format.
+     * Turn an InputKey.InputTypes into string format.
      * @param inputKey Desired InputKey
      * @return String version of the input key.
      */

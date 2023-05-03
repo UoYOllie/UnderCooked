@@ -12,37 +12,48 @@ public class InputKey {
 
     /** All the different inputs available in the game. */
     public enum InputTypes {
-        // MENU
+
+        /** Start the game in endless mode. */
         START_ENDLESS,
+
+        /** Start the game in scenario mode. */
         START_SCENARIO,
-        /** Resetting the game, {@link ScreenController#resetGameScreen()} and {@link GameScreen#reset()}. */
+
+        /** Resetting the game. */
         RESET_GAME,
-        /** Opening the {@link game.InstructionScreen}. */
+
+        /** Opening the InstructionScreen. */
         INSTRUCTIONS,
-        /** Pausing the game, {@link ScreenController#pauseGameScreen()} .*/
+
+        /** Pausing the game. */
         PAUSE,
-        /** Unpausing the game, {@link ScreenController#playGameScreen()} */
+
+        /** Unpausing the game. */
         UNPAUSE,
-        /** Opening the credits, {@link game.CreditsScreen} */
+
+        /** Opening the credits. */
         CREDITS,
+
         /** Quitting the game. */
         QUIT,
+
         /** Load a saved game */
         LOAD,
-         /** Save a loaded game */
+
+         /** Save a loaded game. */
         SAVE,
 
-        // DIFFICULTY
+        /** Setting the difficulty of the game. */
         EASY,
         MEDIUM,
         HARD,
 
-        // COOK_INTERACT
-        /** Put down an item onto a {@link stations.Station} in the {@link Cook}'s hands. */
+        /** Cook interactions.
+        Put down an item onto a station. */
         PUT_DOWN,
-        /** Pick up an item from a {@link stations.Station} or {@link stations.Pantry}. */
+        /** Pick up an item from a station or pantry. */
         PICK_UP,
-        /** Use the {@link stations.Station} in front of the Cook. */
+        /** Use the station in front of the Cook. */
         USE,
 
         // COOK_MOVEMENT
@@ -62,31 +73,26 @@ public class InputKey {
 
     /** The key on the keyboard, represented as an int. */
     private int key;
+
     /** The enum constant which is representing the key above. */
     private InputTypes inputType;
 
     /**
      * The InputKey Constructor
-     * @param inputType The {@link InputTypes} enum constant.
-     * @param key The key for the {@link InputTypes} input.
+     * @param inputType The InputTypes enum constant.
+     * @param key The key for the InputTypes input.
      */
     public InputKey(InputTypes inputType, int key) {
         this.key = key;
         this.inputType = inputType;
     }
 
-    /**
-     * Getter for the integer.
-     * @return The key as an int.
-     */
+    /** Getter for the key's integer. */
     public int getKey() {
         return key;
     }
 
-    /**
-     * Getter for the {@link InputTypes} enum constant.
-     * @return The {@link InputTypes} enum constant for this input.
-     */
+    /** Getter for the InputTypes enum constants. */
     public InputTypes getType() {
         return inputType;
     }
