@@ -135,14 +135,11 @@ public class CustomerController {
     public Customer addCustomer() {
 
         interval -= 1;
-        System.out.println("interval " + interval);
-        System.out.println("group size " + groupSize);
 
         // Check if all customers have been served, if yes return.
         // Also checks if the current interval is a multiple of 10, new customers
         // are spawned every 10 seconds.
         if ((this.mode == "scenario" && this.customers.size() > 4) || !(this.interval==0)) {
-            System.out.println("no customer added this time!");
             return null;
         }
 
@@ -159,8 +156,6 @@ public class CustomerController {
 
                 // Set station position, difficulty, and gameScreen attributes for the Customer.
 
-                System.out.println(station.getX());
-                System.out.println(station.getY());
                 newCustomer.setStationPosition(station.getX(), station.getCoolY());
                 newCustomer.setDifficulty(difficulty);
                 newCustomer.setGameScreen(this.gameScreen);
@@ -217,7 +212,6 @@ public class CustomerController {
                 if (customer.getCustomerStatus() == 2) {
                     this.customersLeft -= 1;
                     customer.setCustomerStatus(customer.getCustomerStatus() + 1);
-                    System.out.println("customers left " + customersLeft);
                 }
             }
         } else if (this.mode == "scenario" || this.customersLeft == 0) {

@@ -333,48 +333,38 @@ public class Customer extends GameEntity {
 
         switch (entryStatus) {
             case (7):
-                System.out.println("i am stuck at 7");
                 this.entryStatus=4;
             case(6):
-                System.out.println("i am stuck at 6");
                 setDestination(stationPosition.x-30f,stationPosition.y);
                 moveLeftDown(new Vector2(stationPosition.x-30f,stationPosition.y));
                 break;
             case(5):
                 this.entryStatus -= 1;
-                System.out.println("i am stuck at 5");
                 break;
             case(4):
-                System.out.println("i am stuck at 4");
                 setDestination(Constants.customerPointF.x,Constants.customerPointF.y);
                 moveRightUp(Constants.customerPointF);
                 break;
             case(3):
-                System.out.println("i am stuck at 3");
                 setDestination(Constants.customerPointE.x,Constants.customerPointE.y);
                 moveRightUp(Constants.customerPointE);
                 break;
             case(2):
-                System.out.println("i am stuck at 2");
                 setDestination(Constants.customerPointD.x,Constants.customerPointD.y);
                 moveRightUp(Constants.customerPointD);
                 break;
             case(1):
-                System.out.println("i am stuck at 1");
                 setDestination(Constants.customerPointC.x,Constants.customerPointC.y);
                 moveRightUp(Constants.customerPointC);
                 break;
             case(0):
-                System.out.println("i am stuck at 0");
                 setDestination(Constants.customerPointA.x,Constants.customerPointA.y);
                 moveRightUp(Constants.customerPointA);
                 break;
             case (-1):
-                System.out.println("i am stuck at -1");
                 setDestination(Constants.customerPointA.x+3,Constants.customerPointA.y+12f);
                 moveRightUp(new Vector2(Constants.customerPointA.x+3,Constants.customerPointA.y+12f));
             case (-2):
-                System.out.println("i am stuck at -2");
                 gameScreen.letsremove.add(this);
                 break;
         }

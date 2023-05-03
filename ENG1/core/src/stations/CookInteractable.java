@@ -40,13 +40,12 @@ public abstract class CookInteractable extends GameEntity {
      *                  the {@link CookInteractable}.
      */
     public void interact(Cook cook, InputKey.InputTypes inputType) {
-        System.out.println("Im interacting with:");
         cook.lockmovement = false;
-        //System.out.println("Interaction at x=" + body.getPosition().x*PPM + ", y=" + body.getPosition().x*PPM);
+        //tln("Interaction at x=" + body.getPosition().x*PPM + ", y=" + body.getPosition().x*PPM);
     }
 
     public void customerInteract(Customer customer) {
-        //System.out.println("customer is interacting with:");
+        //tln("customer is interacting with:");
     }
 
 

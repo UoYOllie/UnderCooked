@@ -27,24 +27,17 @@ public class BluggusModeActivate extends Station {
         NewBluggusSpawn = new Cook(coordsofbluggy.get(0) * 8f, coordsofbluggy.get(1) * 8f, 3.34f, 1);
         NewBluggusSpawn.activateBluggus = true;
         placementofentity = g.gameEntities.size();
-        System.out.print(placementofentity + "<|||||||||||||||||||||||||||||||||||||||||||||||||||||||");
         g.gameEntities.add(NewBluggusSpawn);
     }
 
     @Override
     public void interact(Cook cook, InputKey.InputTypes inputType) {
-        System.out.print(this.getEnabled() + "Is what is is <,,e,ge,geuhgeieg");
         if((getEnabled())&&(cook.activateBluggus==false)) {
-            System.out.println(gameScreen.gold.getBalance());
             if (gameScreen.gold.getBalance() - item.cost >= 0) {
-                System.out.println(gameScreen.gold.getBalance());
                 gameScreen.gold = item.buy(gameScreen.gold);
                 cook.MakeIntoBluggus();
                 Disable();
-                System.out.println(gameScreen.gold.getBalance());
-//                System.out.println(gameScreen.gameEntities.+"PWOOOOOOOSH");
             }
-            System.out.print(this.getEnabled() + "Is what is is <,,e,ge,geuhgeieg");
         }
     }
 
