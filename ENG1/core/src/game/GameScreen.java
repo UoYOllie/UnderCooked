@@ -421,7 +421,7 @@ public class GameScreen extends ScreenAdapter {
         }
         if (Gdx.input.isKeyPressed(Input.Keys.T)){
 
-            this.gold.setBalance(1000000);
+            this.gold.setBalance(1000000);//
 
         }
 
