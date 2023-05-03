@@ -177,7 +177,7 @@ public class GameScreen extends ScreenAdapter {
         this.bgBatch = new SpriteBatch();
         this.bgBatch.setProjectionMatrix(backgroundCamera.combined);
         setCook((cookIndex + 1) % cooks.size);
-        this.gameHud.updateloading("");//
+        this.gameHud.updateloading("");
 
     }
 
